@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="android.cxx" basedir="." default="help">
+    <property environment="env" />
+    <property file="local.properties" />
+    <property file="ant.properties" />
+    <property file="project.properties" />
+
+    <property name="deploy.platform" value="Android" />
+    <property name="generator.path" value="${env.PATH}:.:${sdk.dir}/platform-tools" />
+    <echo message="${generator.path}" />
+    
+    <!-- Early fail, sdk.dir should always be set, run "./setup.sh -s /path/to/sdk -->
+    <fail unless="sdk.dir" message="sdk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
+    <fail unless="ndk.dir" message="ndk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
+
+    <!-- Common properties -->
+    <property name="generated.includes.path" value="generated/includes/"/>
+
+    <!-- Helper's to make an antcall for every sub.project -->
+            
+    <target name="-call.projects" depends="">
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaCXX"/></antcall>
+    </target>
+
+    <target name="-call.cxx.projects" depends="">
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaLocalNotificationCXX"/></antcall>
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaPushNotificationCXX"/></antcall>
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaEconomyCXX"/></antcall>
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaMiSocialCXX"/></antcall>
+        <antcall target="${call.target}"><param name="sub.project" value="ZyngaPatcherCXX"/></antcall>
+    </target>
+    
+    <target name="-setup.subproject.call">
+        <property name="sub.project.path" value="${sub.project}"/>
+    </target>
+
+    <target name="-setup.cxx.subproject.call">
+        <property name="common.includes.path" value="../../includes"/>
+        <property name="sub.cxx.project.path" value="generated/output/internal/${sub.project}"/>
+        <property name="sub.cxx.export.path" value="generated/output/exported/${sub.project}"/>
+        <property name="sub.cxx.genlibs.path" value="generated/output/internal/${sub.project}/libs"/>
+        <property name="sub.cxx.genobjlocal.path" value="generated/output/internal/${sub.project}/obj/local"/>
+        <property name="libs.components.platform.path" value="${libs.components.dir}/${deploy.platform}"/>
+        <property name="libs.components.includes.path" value="${libs.components.dir}/includes"/>
+        <property name="libs.components.libs.path" value="${libs.components.platform.path}/${sub.project}/libs"/>
+    </target>
+    
+    <!-- Clean Targets -->
+        
+    <target name="-clean.subprojects">
+        <subant target="clean">
+          <property name="sdk.dir" value="${sdk.dir}"/>
+          <property name="dont.do.deps" value="true"/>
+          <property name="proguard.enabled" value="false"/>
+          <fileset dir="." includes="*/**/build.xml" excludes="externals/"/>
+        </subant>
+    </target>
+
+    <target name="-clean.cxx.subprojects">
+        <antcall target="-call.cxx.projects">
+            <param name="call.target" value="-clean.cxx.subproject"/>
+        </antcall>
+    </target>
+
+    <target name="-check.subproject.path" depends="-setup.cxx.subproject.call">
+        <condition property="subproject.path.exists">
+            <available file="${sub.cxx.project.path}" type="dir" />
+        </condition>
+    </target>
+
+    <target name="-clean.cxx.subproject" depends="-setup.cxx.subproject.call,-check.subproject.path" if="subproject.path.exists"> 
+        <exec executable="${ndk.dir}/ndk-build" dir="${sub.cxx.project.path}" failonerror="true" failifexecutionfails="true">
+            <arg value="clean" />
+        </exec>
+    </target>
+
+    <target name="-check.cxx.wrapper.path" >
+        <condition property="cxx.wrapper.path.exists">
+            <available file="ZyngaCXX" type="dir" />
+        </condition>
+    </target>
+
+    <target name="-clean.cxx.wrapper" depends="-check.cxx.wrapper.path" if="cxx.wrapper.path.exists">   
+        <exec executable="${ndk.dir}/ndk-build" dir="ZyngaCXX" failonerror="true" failifexecutionfails="true">
+            <arg value="clean" />
+        </exec> 
+    </target>
+
+    <target name="-clean.cxx.javadoc">   
+        <delete includeEmptyDirs="true" failonerror="false">
+            <fileset dir="docs"/>
+        </delete>
+    </target>
+
+    <target name="clean" depends="-clean.subprojects,-clean.cxx.subprojects,-clean.cxx.wrapper,-clean.cxx.javadoc" 
+        description="Clean the sub.projects and sub.cxx.projects">
+        <delete includeemptydirs="true" failonerror="false">
+          <fileset dir="." includes="libs/**"/>
+        </delete>
+    </target>
+    
+    <!-- Private Targets -->
+    
+    <target name="-build.subproject" depends="-setup.subproject.call">    
+        <subant target="${build.target}">
+          <property name="sdk.dir" value="${sdk.dir}"/>
+          <property name="dont.do.deps" value="true"/>
+          <property name="proguard.enabled" value="false"/>
+          <fileset dir="." includes="${sub.project.path}/build.xml"/>
+        </subant>
+    </target>
+
+    <target name="-build.cxx.subproject" depends="-setup.cxx.subproject.call">   
+        <exec executable="${ndk.dir}/ndk-build" dir="${sub.cxx.project.path}" failonerror="true" failifexecutionfails="true"/> 
+    </target>
+
+    <target name="-build.cxx.wrapper">
+        <exec executable="${ndk.dir}/ndk-build" dir="ZyngaCXX" failonerror="true" failifexecutionfails="true"/> 
+    </target>
+
+    <target name="-build">
+        <condition property="build.target" value="debug" else="release">
+            <isset property="debug"/>
+        </condition>
+        <antcall target="-call.projects">
+            <param name="call.target" value="-build.subproject"/>
+        </antcall>
+    </target>
+
+    <target name="-copy.jar" depends="-setup.subproject.call">
+        <copy overwrite="true" file="${sub.project.path}/bin/classes.jar" tofile="${libs.components.platform.path}/${sub.project}${component.extension}.jar"/>
+        <copy overwrite="true" todir="${libs.components.platform.path}">
+            <fileset dir="${sub.project.path}/libs" includes="*.jar"/>
+        </copy>
+    </target>
+    
+    <target name="-copy.jars" depends="-build">
+        <condition property="component.extension" value=".debug" else="">
+            <isset property="debug"/>
+        </condition>
+        <condition property="component.directory" value="Debug" else="Release">
+            <isset property="debug"/>
+        </condition>
+        <property name="libs.components.dir" value="libs/${component.directory}"/>
+        <property name="libs.components.platform.path" value="${libs.components.dir}/${deploy.platform}"/>
+        <antcall target="-call.projects">
+            <param name="call.target" value="-copy.jar"/>
+        </antcall>
+    </target>
+    
+    <target name="-build.zdk.jar" depends="-copy.jars">
+        <property name="zdk.jar" value="ZyngaCXX${component.extension}"/>
+        <jar destfile="${libs.components.platform.path}/${zdk.jar}.jar">
+            <zipgroupfileset dir="${libs.components.platform.path}" includes="*.jar" /> 
+        </jar>
+        <checksum file="${libs.components.platform.path}/${zdk.jar}.jar" forceOverwrite="yes"/>
+    </target>
+    
+    <target name="-should.obfuscate">
+        <condition property="proguard.config" value="proguard.3p.cfg" else="proguard.internal.cfg">
+            <isset property="3p"/>
+        </condition>
+        <condition property="do.obfuscate" value="true">
+            <and>
+                <or>
+                    <equals arg1="${build.target}" arg2="release"/>
+                    <isset property="3p"/>
+                </or>
+                <available file="${proguard.config}"/>
+            </and>
+        </condition>
+    </target>
+    
+    <target name="-obfuscate" depends="-should.obfuscate,-build.zdk.jar" if="do.obfuscate">
+        <proguard configuration="${proguard.config}">
+            <injar location="${libs.components.platform.path}/${zdk.jar}.jar"/>
+            <outjar location="${libs.components.platform.path}/${zdk.jar}-obfuscated.jar"/>
+            <libraryjar location="${sdk.dir}/platforms/android-8/android.jar"/>
+        </proguard>
+        <move overwrite="true" file="${libs.components.platform.path}/${zdk.jar}-obfuscated.jar" tofile="${libs.components.platform.path}/${zdk.jar}.jar"/>
+        <checksum file="${libs.components.platform.path}/${zdk.jar}.jar" forceOverwrite="yes"/>
+    </target>
+
+    <target name="-package.cxx.subproject" depends="-setup.cxx.subproject.call">  
+        <mkdir dir="${libs.components.platform.path}"/>
+        <mkdir dir="${libs.components.includes.path}"/>
+        <mkdir dir="${libs.components.libs.path}"/>
+        <copy overwrite="true" file="${sub.cxx.export.path}/Android.mk" tofile="${libs.components.platform.path}/${sub.project}/Android.mk"/>
+        <copy overwrite="true" todir="${libs.components.includes.path}">
+            <fileset dir="${common.includes.path}" />
+        </copy>
+        <copy overwrite="true" todir="${libs.components.libs.path}">
+            <fileset dir="${sub.cxx.genlibs.path}" />
+        </copy>
+        <copy overwrite="true" todir="${libs.components.libs.path}">
+            <fileset dir="${sub.cxx.genobjlocal.path}">
+                <include name="**/*.a"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="-package.cxx.wrapper">
+        <property name="libs.components.wrapper.path" value="${libs.components.platform.path}/ZyngaCXX"/>
+        <property name="libs.components.wrapper.libs.path" value="${libs.components.platform.path}/ZyngaCXX/libs"/>
+        <property name="libs.components.wrapper.includes.path" value="${libs.components.platform.path}/ZyngaCXX/includes"/>
+        <property name="wrapper.libs.path" value="ZyngaCXX/libs"/>
+        <property name="wrapper.genobjlocal.path" value="ZyngaCXX/obj/local"/>
+        <property name="wrapper.includes.path" value="ZyngaCXX/jni/cxx"/>
+        <mkdir dir="${libs.components.platform.path}"/>
+        <mkdir dir="${libs.components.wrapper.path}"/>
+        <mkdir dir="${libs.components.wrapper.libs.path}"/>
+        <copy overwrite="true" file="ZyngaCXX/exported/Android.mk" tofile="${libs.components.wrapper.path}/Android.mk"/>
+        <copy overwrite="true" todir="${libs.components.wrapper.includes.path}">
+            <fileset dir="${wrapper.includes.path}">
+                <include name="CXXContext.hpp"/>
+                <include name="CXXUtil.hpp"/>
+                <include name="JNIContext.hpp"/>
+            </fileset>
+        </copy>
+        <copy overwrite="true" todir="${libs.components.wrapper.libs.path}">
+            <fileset dir="${wrapper.libs.path}" />
+        </copy>
+        <copy overwrite="true" todir="${libs.components.wrapper.libs.path}">
+            <fileset dir="${wrapper.genobjlocal.path}">
+                <include name="**/*.a"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="-build.zdk" depends="-build.zdk.jar,-obfuscate"/>
+
+    <target name="-generate.cxx">
+        <exec executable="generate.sh" dir="generator/config" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
+            <env key="PATH" path="${generator.path}" />
+        </exec>
+    </target>
+
+    <target name="-build.cxx">
+        <antcall target="-call.cxx.projects">
+            <param name="call.target" value="-build.cxx.subproject"/>
+        </antcall>
+        <antcall target="-build.cxx.wrapper" />
+    </target>    
+    
+    <target name="-package.cxx">
+        <condition property="component.directory" value="Debug" else="Release">
+            <isset property="debug"/>
+        </condition>
+        <property name="libs.components.dir" value="libs/${component.directory}"/>
+        <property name="libs.components.platform.path" value="${libs.components.dir}/${deploy.platform}"/>
+        <antcall target="-call.cxx.projects">
+            <param name="call.target" value="-package.cxx.subproject"/>
+        </antcall>
+        <antcall target="-package.cxx.wrapper" />
+        
+        <!-- Copy to sharedLib folder for inclusion in the release tgz -->
+        <copy overwrite="true" todir="../../sharedLibs/Android">
+            <fileset dir="libs">
+            </fileset>
+        </copy>
+    </target>    
+    
+    <target name="-package.zdk.jar">
+        <mkdir dir="zips"/>
+        <property name="zdk.package" value="ZDK${product.extension}-android${platform.extension}-${version}"/>
+        <zip destfile="zips/${zdk.package}.zip">
+            <zipfileset prefix="${zdk.package}" dir="libs" includes="${zdk.jar}.jar*"/>
+            <zipfileset prefix="${zdk.package}" dir="supporting-files/ZDK${product.extension}"/>
+
+            <!-- Include Javadoc
+            <zipfileset prefix="zdk-android/docs" dir="docs${product.extension}" includes="**"/> 
+            -->
+        </zip>
+    </target>
+    
+    <target name="-package.zdk.components">
+        <mkdir dir="zips"/>
+        <property name="components.package" value="ZDK${product.extension}-android.components${platform.extension}"/>
+        <zip destfile="zips/${components.package}.zip">
+            <zipfileset prefix="${components.package}" dir="${libs.components.platform.path}" includes="*.jar"/>
+            <zipfileset prefix="${components.package}" dir="supporting-files/ZDK${product.extension}"/>
+            <zipfileset prefix="ZDK${components.package}/docs" dir="docs${product.extension}" includes="**"/>
+        </zip>
+    </target>
+
+    <!-- Public Targets -->
+    
+    <target name="debug" description="Builds all the projects and creates a debug jar in the libs folder">
+        <antcall target="-build.zdk">
+            <param name="debug" value="true"/>
+        </antcall>
+        <antcall target="-generate.cxx">
+            <param name="debug" value="true"/>
+        </antcall>
+        <antcall target="-build.cxx">
+            <param name="debug" value="true"/>
+        </antcall>
+        <antcall target="-package.cxx">
+            <param name="debug" value="true"/>
+        </antcall>
+    </target>
+    
+    <target name="release" description="Builds all the projects and creates a release jar in the libs folder">
+        <antcall target="-build.zdk">
+        </antcall>
+        <antcall target="-generate.cxx">
+        </antcall>
+        <antcall target="-build.cxx">
+        </antcall>
+        <antcall target="-package.cxx">
+        </antcall>
+    </target>
+    
+    <target name="javadoc" description="Generates the javadocs">
+        <javadoc destdir="docs"
+                 doctitle="ZDK Android CXX"
+                 windowtitle="ZDK Android CXX Documentation"
+                 bottom="Copyright &amp;copy; 2012-2013 Zynga Inc. All rights reserved."
+                 verbose="on"
+                 use="true"
+                 classpath="${sdk.dir}/platforms/android-10/android.jar;${sdk.dir}/tools/support/annotations.jar"
+                 linkoffline="http://d.android.com/reference ${sdk.dir}/docs/reference"
+                 stylesheetfile="${sdk.dir}/docs/assets/android-developer-docs.css">
+
+            <fileset dir="ZyngaCXX/src"
+                        defaultexcludes="yes">
+                <include name="com/zynga/sdk/cxx/CXXContext.java"/>
+            </fileset>
+        </javadoc>
+    </target>
+
+    <target name="help" description="Displays ant -projecthelp">
+        <exec executable="ant" failonerror="true" failifexecutionfails="true">
+            <arg value="-projecthelp"/>
+        </exec>
+    </target>
+</project>
