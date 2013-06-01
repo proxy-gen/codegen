@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2011 - Zynga Inc.
 
-from java import jindex
+from indexer import jindex
 import sys
 import pdb
 import ConfigParser
@@ -94,10 +94,6 @@ class Generator(object):
 
 	def generate_code(self):
 		logging.debug("Generator generate_code enter")
-		stream = file(os.path.join(self.target, "conversions.yaml"), "r")
-		data = yaml.load(stream)
-		self.config = data
-		logging.debug("self.config " + str(self.config))
 
 		self.add_functions = {}
 		if self.add_functions_file:
@@ -1208,10 +1204,6 @@ def main():
 	if len(args) == 0:
 		parser.error('invalid number of arguments')
 
-	userconfig = ConfigParser.SafeConfigParser()
-	userconfig.read('userconf.ini')
-	print 'Using userconfig \n ', userconfig.items('DEFAULT')
-
 	config = ConfigParser.SafeConfigParser()
 	config.read(args[0])
 
@@ -1239,24 +1231,17 @@ def main():
 	targets = []
 	targets.append('jni')
 
-	if opts.header_outdir:
-		header_outdir = opts.header_outdir
-	else:
-		header_outdir = os.path.join(workingdir, "gen")
+	header_outdir = opts.header_outdir
 	if not os.path.exists(header_outdir):
 		os.makedirs(header_outdir)
 
-	if opts.impl_outdir:
-		impl_outdir = opts.impl_outdir
-	else:
-		impl_outdir = os.path.join(workingdir, "gen")
+	impl_outdir = opts.impl_outdir
 	if not os.path.exists(impl_outdir):
 		os.makedirs(impl_outdir)
 
-	if opts.makefile_outdir:
-		makefile_outdir = opts.makefile_outdir
-	else:
-		makefile_outdir = os.path.join(workingdir, "gen-make")
+	makefile_outdir = opts.makefile_outdir
+	if not os.path.exists(makefile_outdir):
+		os.makedirs(makefile_outdir)
 
 	for t in targets:
 		print "\n... Generating bindings for target", t
@@ -1345,7 +1330,7 @@ def main():
 				'impl_outdir'					:	section_impl_outdir,
 				'internal_makefile_outdir'		:	section_internal_makefile_outdir,
 				'exported_makefile_outdir'		:	section_exported_makefile_outdir,
-				'target'						:	os.path.join(workingdir, "targets", t),
+				'target'						:	workingdir,
 				'type_converters_list'			: 	type_converters_list,
 				'callback_classes_list'			:	callback_classes_list,
 				'callback_types_list'			:	callback_types_list,

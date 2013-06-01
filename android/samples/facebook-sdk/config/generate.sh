@@ -97,14 +97,15 @@ echo "CXX_JVM_CLASSPATH: $CXX_JVM_CLASSPATH"
 
 echo "Building CXX Bindings Parser"
 g++ -c -I${JAVA_FRAMEWORK_HEADERS} -I${BASE_CXX_DIR} ${BASE_CXX_DIR}/JNIContext.cpp -o ${CXX_PARSER_ROOT}/JNIContext.o
-g++ -c -I${JAVA_FRAMEWORK_HEADERS} -I${BASE_CXX_DIR} -I${CXX_GENERATOR_ROOT}/targets/jni/python-cpp ${CXX_GENERATOR_ROOT}/targets/jni/python-cpp/CXXGenerator.cpp  -o ${CXX_PARSER_ROOT}/CXXGenerator.o
+g++ -c -I${JAVA_FRAMEWORK_HEADERS} -I${BASE_CXX_DIR} -I${CXX_GENERATOR_ROOT}/indexer ${CXX_GENERATOR_ROOT}/indexer/CXXGenerator.cpp  -o ${CXX_PARSER_ROOT}/CXXGenerator.o
 g++ -dynamiclib -framework JavaVM -o ${CXX_PARSER_ROOT}/libCXXGenerator.dylib ${CXX_PARSER_ROOT}/JNIContext.o  ${CXX_PARSER_ROOT}/CXXGenerator.o 
 
 echo "Generating CXX bindings for Android"
 
-LD_LIBRARY_PATH=${CXX_PARSER_ROOT} $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${DIR}/generate.ini \
+# Generator for section=facebook-sdk
+LD_LIBRARY_PATH=${CXX_PARSER_ROOT} $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${DIR}/generator.ini \
                         --src-output-dir ${BASE_CXX_SRC_OUTPUT_DIR} \
                         --header-output-dir  ${BASE_CXX_HEADER_OUTPUT_DIR} \
                         --makefiles-output-dir ${BASE_CXX_MAKEFILES_OUTPUT_DIR} \
-                        --section com.zynga.sdk.economy \
+                        --section facebook-sdk \
                         --log  info

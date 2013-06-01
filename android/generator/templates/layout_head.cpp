@@ -2,10 +2,7 @@
 /*
  * ${impl_filename}
  *
- * Created on: $datetime.datetime.now().strftime("%b %d,%Y")
  * Author: CXX CodeGenerator
- * 
- * Copyright (c) $datetime.datetime.now().strftime("%Y") Zynga. All rights reserved.
  */
 
 \#include "${file_prefix}/${head_filename}"
