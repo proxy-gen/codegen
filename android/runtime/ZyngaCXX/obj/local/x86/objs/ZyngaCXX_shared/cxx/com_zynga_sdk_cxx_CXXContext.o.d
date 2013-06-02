@@ -4,7 +4,7 @@ obj/local/x86/objs/ZyngaCXX_shared/cxx/com_zynga_sdk_cxx_CXXContext.o: \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/jni.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/android/log.h \
- jni/cxx/JNIContext.hpp \
+ jni/cxx/exported/JNIContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/pthread.h \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/time.h \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/sys/cdefs.h \
@@ -40,7 +40,7 @@ obj/local/x86/objs/ZyngaCXX_shared/cxx/com_zynga_sdk_cxx_CXXContext.o: \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/asm/sigcontext.h \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/sched.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
- jni/cxx/CXXContext.hpp
+ jni/cxx/exported/CXXContext.hpp
 
 jni/cxx/com_zynga_sdk_cxx_CXXContext.h:
 
@@ -50,7 +50,7 @@ jni/cxx/com_zynga_sdk_cxx_CXXContext.h:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/android/log.h:
 
-jni/cxx/JNIContext.hpp:
+jni/cxx/exported/JNIContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-x86/usr/include/pthread.h:
 
@@ -122,4 +122,4 @@ jni/cxx/JNIContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
 
-jni/cxx/CXXContext.hpp:
+jni/cxx/exported/CXXContext.hpp:

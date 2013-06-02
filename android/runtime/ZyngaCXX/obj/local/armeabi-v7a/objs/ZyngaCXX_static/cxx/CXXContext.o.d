@@ -1,5 +1,5 @@
 obj/local/armeabi-v7a/objs/ZyngaCXX_static/cxx/CXXContext.o: \
- jni/cxx/CXXContext.cpp jni/cxx/CXXContext.hpp \
+ jni/cxx/CXXContext.cpp jni/cxx/exported/CXXContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/jni.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/android/log.h \
@@ -39,10 +39,10 @@ obj/local/armeabi-v7a/objs/ZyngaCXX_static/cxx/CXXContext.o: \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/sched.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
  jni/cxx/ProxiedCallback.hpp jni/cxx/com_zynga_sdk_cxx_CXXContext.h \
- jni/cxx/JNIContext.hpp \
+ jni/cxx/exported/JNIContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/map
 
-jni/cxx/CXXContext.hpp:
+jni/cxx/exported/CXXContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/jni.h:
 
@@ -124,6 +124,6 @@ jni/cxx/ProxiedCallback.hpp:
 
 jni/cxx/com_zynga_sdk_cxx_CXXContext.h:
 
-jni/cxx/JNIContext.hpp:
+jni/cxx/exported/JNIContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/map:

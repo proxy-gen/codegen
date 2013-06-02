@@ -1,7 +1,7 @@
 obj/local/armeabi-v7a/objs/ZyngaCXX_shared/cxx/ProxyComponent.o: \
  jni/cxx/ProxyComponent.cpp jni/cxx/ProxyComponent.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/android/log.h \
- jni/cxx/CXXContext.hpp \
+ jni/cxx/exported/CXXContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/jni.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/pthread.h \
@@ -44,7 +44,7 @@ jni/cxx/ProxyComponent.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/android/log.h:
 
-jni/cxx/CXXContext.hpp:
+jni/cxx/exported/CXXContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-8/arch-arm/usr/include/jni.h:
 

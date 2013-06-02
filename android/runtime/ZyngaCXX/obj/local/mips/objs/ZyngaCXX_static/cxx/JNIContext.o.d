@@ -1,5 +1,5 @@
 obj/local/mips/objs/ZyngaCXX_static/cxx/JNIContext.o: \
- jni/cxx/JNIContext.cpp jni/cxx/JNIContext.hpp \
+ jni/cxx/JNIContext.cpp jni/cxx/exported/JNIContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/jni.h \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/pthread.h \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/time.h \
@@ -39,7 +39,7 @@ obj/local/mips/objs/ZyngaCXX_static/cxx/JNIContext.o: \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/stdexcept \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/android/log.h
 
-jni/cxx/JNIContext.hpp:
+jni/cxx/exported/JNIContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/jni.h:
 

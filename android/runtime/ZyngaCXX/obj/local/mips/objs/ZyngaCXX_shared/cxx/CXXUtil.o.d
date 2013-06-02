@@ -40,7 +40,7 @@ obj/local/mips/objs/ZyngaCXX_shared/cxx/CXXUtil.o: jni/cxx/CXXUtil.cpp \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
- jni/cxx/JNIContext.hpp jni/cxx/CXXContext.hpp
+ jni/cxx/exported/JNIContext.hpp jni/cxx/exported/CXXContext.hpp
 
 jni/cxx/CXXUtil.hpp:
 
@@ -124,6 +124,6 @@ jni/cxx/CXXUtil.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
 
-jni/cxx/JNIContext.hpp:
+jni/cxx/exported/JNIContext.hpp:
 
-jni/cxx/CXXContext.hpp:
+jni/cxx/exported/CXXContext.hpp:

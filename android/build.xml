@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="android.cxx" basedir="." default="help">
 
-    <!-- Early fail, sdk.dir should always be set, run "./setup.sh -s /path/to/sdk -->
-    <fail unless="sdk.dir" message="sdk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
-    <fail unless="ndk.dir" message="ndk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
-
     <!--                                                                    -->
-    <!--                        Private Targets                             -->
+    <!--                        Properties                                  -->
     <!--                                                                    -->
 
     <property environment="env" />
@@ -16,6 +12,10 @@
 
     <property name="deploy.platform" value="android" />
     <property name="generator.path" value="${env.PATH}:.:${sdk.dir}/platform-tools" />
+
+    <!-- Early fail, sdk.dir should always be set, run "./setup.sh -s /path/to/sdk -->
+    <fail unless="sdk.dir" message="sdk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
+    <fail unless="ndk.dir" message="ndk.dir is missing. Run './setup.sh -s /path/to/sdk -n /path/to/ndk' to generate local.properties."/>
 
     <!--                                                                    -->
     <!--                        Private Targets                             -->
@@ -72,15 +72,18 @@
 
 
     <target name="-setup.cxx.runtime.call">
-        <property name="cxx.path.to.project.dir" value="runtime/${cxx.dir.name}" />
+        <property name="cxx.path.to.project.dir" value="runtime/${cxx.project.dir.name}" />
+        <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
     </target>
 
 
     <target name="-setup.cxx.project.call">
-        <property name="cxx.path.to.project.dir" value="samples/${cxx.dir.name}" />
+        <property name="cxx.path.to.project.dir" value="samples/${cxx.project.dir.name}" />
+        <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
         <property name="cxx.path.to.config.dir" value="${cxx.path.to.project.dir}/config" />
-        <property name="cxx.path.to.generated.internal.dir" value="${cxx.path.to.project.dir}/generated/output/internal/${cxx.framework.name}"/>
-        <property name="cxx.path.to.generated.exported.dir" value="${cxx.path.to.project.dir}/generated/output/exported/${cxx.framework.name}"/>
+        <property name="cxx.path.to.generated.dir" value="${cxx.path.to.project.dir}/generated" />
+        <property name="cxx.path.to.generated.internal.dir" value="${cxx.path.to.generated.dir}/output/internal/${cxx.framework.name}"/>
+        <property name="cxx.path.to.generated.exported.dir" value="${cxx.path.to.generated.dir}/output/exported/${cxx.framework.name}"/>
     </target>
 
     <!--                        Clean                                       -->
@@ -97,7 +100,7 @@
         </antcall>
     </target>
 
-    <target name="-clean.cxx.runtime" depends="-setup.cxx.runtime.call">
+    <target name="-clean.cxx.runtime" depends="-setup.cxx.runtime.call" if="cxx.path.to.project.dir.present">
         <subant target="clean">
           <property name="sdk.dir" value="${sdk.dir}"/>
           <property name="dont.do.deps" value="true"/>
@@ -109,10 +112,8 @@
         </exec>
     </target>
 
-    <target name="-clean.cxx.project" depends="-setup.cxx.project.call"> 
-        <exec executable="${ndk.dir}/ndk-build" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true">
-            <arg value="clean" />
-        </exec>
+    <target name="-clean.cxx.project" depends="-setup.cxx.project.call" if="cxx.path.to.project.dir.present"> 
+        <delete dir="${cxx.path.to.generated.dir}" verbose="true" failonerror="true" />
     </target>
 
     <!--                        Build                                       -->
@@ -175,7 +176,7 @@
         <antcall target="-call.cxx.project">
             <param name="call.target" value="-package.cxx.project"/>
         </antcall>
-    </targets>
+    </target>
 
     <target name="-package.cxx.runtime" depends="-setup.cxx.runtime.call">
         <condition property="build.target.extension" value=".debug" else="">

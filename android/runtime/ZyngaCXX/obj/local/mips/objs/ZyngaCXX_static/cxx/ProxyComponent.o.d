@@ -1,7 +1,7 @@
 obj/local/mips/objs/ZyngaCXX_static/cxx/ProxyComponent.o: \
  jni/cxx/ProxyComponent.cpp jni/cxx/ProxyComponent.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/android/log.h \
- jni/cxx/CXXContext.hpp \
+ jni/cxx/exported/CXXContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/jni.h \
  /Users/rvergis/Documents/android-ndk-r8b/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef \
  /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/pthread.h \
@@ -44,7 +44,7 @@ jni/cxx/ProxyComponent.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/android/log.h:
 
-jni/cxx/CXXContext.hpp:
+jni/cxx/exported/CXXContext.hpp:
 
 /Users/rvergis/Documents/android-ndk-r8b/platforms/android-9/arch-mips/usr/include/jni.h:
 

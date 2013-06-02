@@ -46,6 +46,8 @@ class Generator(object):
 		if classpath.find("-Djava.class.path") == -1:
 			self.jvm_options += "-Djava.class.path=" + str(classpath)
 		logging.debug("self.jvm_options " + str(self.jvm_options))
+		self.working_dir = opts['working_dir']
+		logging.debug("self.working_dir " + str(self.working_dir))
 		self.target = opts['target']
 		logging.debug("self.target " + str(self.target))
 		self.impl_outdir = opts['impl_outdir']
@@ -1199,7 +1201,8 @@ def main():
 	(opts, args) = parser.parse_args()
 
 	#script directory
-	workingdir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+	script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+	working_dir = os.path.join(script_dir, "..")
 
 	if len(args) == 0:
 		parser.error('invalid number of arguments')
@@ -1330,7 +1333,8 @@ def main():
 				'impl_outdir'					:	section_impl_outdir,
 				'internal_makefile_outdir'		:	section_internal_makefile_outdir,
 				'exported_makefile_outdir'		:	section_exported_makefile_outdir,
-				'target'						:	workingdir,
+				'working_dir'					:	working_dir,
+				'target'						:	script_dir,
 				'type_converters_list'			: 	type_converters_list,
 				'callback_classes_list'			:	callback_classes_list,
 				'callback_types_list'			:	callback_types_list,
