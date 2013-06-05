@@ -1,0 +1,13 @@
+// header file template for Objectiv-C++
+
+${include_headers}
+
+using namespace std;
+
+namespace ${namespace} {
+    // custom section
+    ${custom_section}
+
+    // class declarations
+    ${cxx_declarations}
+}

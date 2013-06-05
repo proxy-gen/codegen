@@ -1,0 +1,106 @@
+//convertor to nsarray of objects
+NSArray * Vector_of_${cxx_t}_to_NSArray(const vector<${cxx_t}${cxx_ptr}>& v) {
+    NSMutableArray * nsarr = [NSMutableArray new];
+    std::for_each(v.begin(), v.end(), ^(${cxx_t}${cxx_ptr} obj) {
+        #if $cxx_t == "int"
+        NSNumber * objcObj = [NSNumber numberWithInt:obj];
+        #else if $cxx_t == "long"
+        NSNumber * objcObj = [NSNumber numberWithLong:obj];
+        #else if $cxx_t == "long long"
+        NSNumber * objcObj = [NSNumber numberWithLongLong:obj];
+        #else if $cxx_t == "double"
+        NSNumber * objcObj = [NSNumber numberWithDouble:obj];
+        #else
+        id objcObj = ${convertWith}(${cxx_ptr}obj);
+        #end if
+
+        [nsarr addObject:objcObj];
+    });
+
+    return nsarr;
+}
+
+
+// convertor to nsdictionary of objects
+NSDictionary * Map_of_${cxx_t}_to_NSDictionary(const map<string, ${cxx_t}${cxx_ptr}>& m) {
+    NSMutableDictionary* nsdict = [NSMutableDictionary dictionaryWithCapacity:m.size()];
+    for(std::map<string, ${cxx_t}${cxx_ptr}>::const_iterator iter = m.begin(); iter != m.end(); ++iter)
+    {
+        id key = [NSString stringWithUTF8String:iter->first.c_str()];
+
+        #if $cxx_t == "int"
+        NSNumber * value = [NSNumber numberWithInt:iter->second];
+        #else if $cxx_t == "long"
+        NSNumber * value = [NSNumber numberWithLong:iter->second];
+        #else if $cxx_t == "long long"
+        NSNumber * value = [NSNumber numberWithLongLong:iter->second];
+        #else if $cxx_t == "double"
+        NSNumber * value = [NSNumber numberWithDouble:iter->second];
+        #else
+        id value = ${convertWith}(${cxx_ptr}iter->second);
+        #end if
+
+        [nsdict setValue:value forKey:key];
+    }
+    return nsdict;
+}
+
+
+
+// convertor from nsarray to vector of objects
+vector<${cxx_t}${cxx_ptr}> NSArray_to_Vector_of_${cxx_t}(NSArray * arr) {
+    __block vector<${cxx_t}${cxx_ptr}> v = vector<${cxx_t}${cxx_ptr}>([arr count]);
+
+    [arr enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+         #if $convertWith
+         ${cxx_t}${cxx_ptr} obj = ${convertWith}((${objc_t}${objc_ptr})object);
+         #else
+
+         #if $cxx_t == "int"
+         ${cxx_t} obj = [((NSNumber*)object) intValue];
+         #else if $cxx_t == "long"
+         ${cxx_t} obj = [((NSNumber*)object) longValue];
+         #else if $cxx_t == "long long"
+         ${cxx_t} obj = [((NSNumber*)object) longLongValue];
+         #else if $cxx_t == "double"
+         ${cxx_t} obj = [((NSNumber*)object) doubleValue];
+         #else
+         ${cxx_t}${cxx_ptr} obj = (${objc_t}${cxx_ptr})object;
+         #end if
+         #end if
+
+         v[idx] = obj;
+    }];
+
+    return v;
+}
+
+// convertor from nsdictionary to map of objects
+map<string, ${cxx_t}${cxx_ptr}> NSDictionary_to_Map_of_${cxx_t}(NSDictionary * dict) {
+    map<string, ${cxx_t}${cxx_ptr}> _dict;
+
+    for (NSString * key in [dict allKeys]){
+        id object = [dict objectForKey:key];
+
+        #if $convertWith
+        ${cxx_t}${cxx_ptr} obj = ${convertWith}((${objc_t}${objc_ptr})object);
+        #else
+
+        #if $cxx_t == "int"
+        ${cxx_t} obj = [((NSNumber*)object) intValue];
+        #else if $cxx_t == "long"
+        ${cxx_t} obj = [((NSNumber*)object) longValue];
+        #else if $cxx_t == "long long"
+        ${cxx_t} obj = [((NSNumber*)object) longLongValue];
+        #else if $cxx_t == "double"
+        ${cxx_t} obj = [((NSNumber*)object) doubleValue];
+        #else
+        ${cxx_t}${cxx_ptr} obj = (${objc_t}${objc_ptr})object;
+        #end if
+
+        #end if
+        _dict[NSStringToString(key)] = obj;
+    }
+
+    return _dict;
+}

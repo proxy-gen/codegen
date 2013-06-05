@@ -1,0 +1,32 @@
+// class header template
+
+#if $cxx_baseClass
+class ${cxx_className}: public ${cxx_baseClass} {
+#else
+class ${cxx_className} {
+#end if
+
+public:
+// custom template section
+${custom_section}
+
+#if $add_wrapping_constructor
+${cxx_className}(void* proxyObject);
+
+void * getProxyObject();
+#end if
+
+// public methods signatures
+${cxx_classMethods}
+
+private:
+
+#if $add_wrapping_constructor
+    void * self;
+#end if
+
+#if $cxx_singleton
+    ${cxx_className} * ${cxx_singleton};
+#end if
+
+};
