@@ -4,17 +4,20 @@ cxx generator for objc
 Getting started
 -----------------
 
-1. if you want to use generator for modules not related to zdk or appservices, you just need content of ios/generator
-lets call this directory GENERATOR_ROOT
+1. lets use GENERATOR_ROOT as a reference to the directory where generator is located (currently it's "ios/generator")
 
-2. create generator config for your module under GENERATOR_ROOT/conf directory, you can use cfg_fb.py config as an example;
- most of the options for those configs have comments
+2. create generator config for your module under GENERATOR_ROOT/conf directory, you can use cfg_fb.py config as an example.
+This is sample config which allows us to generate Objective C++ binding for Facebook session from facebook sdk framework.
 
 3. launch generator with the following command: python generator-objc.py CONFIG_NAME, e.g. python generator-objc.py cfg_fb,
 please remember your config should be placed under GENERATOR_ROOT/conf directory
 
 4. generated result will be available under directory which you specified as a "result_dir" parameter in your config file
 
+
+Generator config section description
+-----------------
+1. TODO
 
 How to build your CXX framework
 -----------------
