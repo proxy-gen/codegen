@@ -6,8 +6,9 @@ A very barebones C++ version of the Facebook SDK.
 Generating
 ----------
 Invoke generate.sh from the config directory to generate the sample C++ code.
-C++ source will be generated under generated/src
-C++ includes will be generated under generated/includes
+
+*  C++ source will be generated under generated/src
+*  C++ includes will be generated under generated/includes
 
 Building
 --------
