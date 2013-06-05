@@ -3,9 +3,16 @@ Facebook SDK
 
 A very barebones C++ version of the Facebook SDK.
 
+Generating
+----------
+Invoke generate.sh from the config directory to generate the sample C++ code.
+
+*  C++ source will be generated under generated/src
+*  C++ includes will be generated under generated/includes
+
 Building
 --------
-Invoke `ant` from the samples directory to build the libraries under generated/libs.
+Invoke `ant debug` from the android directory to build the libraries under android/libs.
 
 Running
 -------

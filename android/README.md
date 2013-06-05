@@ -10,4 +10,4 @@ Building Samples
 Known Issues
 ============
 
-1. ndk-build clean fails on android-ndk-r8e (ndk-build bug)
+1. ndk-build clean fails on android-ndk-r8e (ndk-build bug) - use an earlier version (such as android-ndk-r8b)
