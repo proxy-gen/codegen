@@ -185,7 +185,7 @@
         <condition property="build.target.directory" value="Debug" else="Release">
             <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
         </condition>
-        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/{deploy.platform}" />
+        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/${deploy.platform}" />
         <property name="cxx.path.to.libs.framework.dir" value="${cxx.path.to.libs.dir}/${cxx.framework.name}" />
         <mkdir dir="${cxx.path.to.libs.framework.dir}"/>
         <copy overwrite="true" file="${cxx.path.to.project.dir}/exported/Android.mk" tofile="${cxx.path.to.libs.framework.dir}/Android.mk"/>
@@ -217,7 +217,7 @@
         <condition property="build.target.directory" value="Debug" else="Release">
             <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
         </condition>
-        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/{deploy.platform}" />
+        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/${deploy.platform}" />
         <property name="cxx.path.to.libs.framework.dir" value="${cxx.path.to.libs.dir}/${cxx.framework.name}" />
         <mkdir dir="${cxx.path.to.libs.framework.dir}" />
         <copy overwrite="true" file="${cxx.path.to.generated.exported.dir}/Android.mk" tofile="${cxx.path.to.libs.framework.dir}/Android.mk"/>
