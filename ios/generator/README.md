@@ -1,6 +1,17 @@
 cxx generator for objc
 =================
 
+Dependencies
+-----------------
+These libraries should be installed on your compupter before you can run generator script. We assume you're running generator on MacOS X computer.
+
+1. Python 2.x interpreter (usually installed on Mac OS X)
+2. Cheetah templates (could be installed directly as python package or through mac ports)
+3. LLVM compiler (http://llvm.org/releases/)
+
+You also need XCode and command line dev tools to compile generated sources.
+
+
 Getting started
 -----------------
 
