@@ -3,7 +3,8 @@ opts = {
         "-ObjC++",
         ),
     "headers_search_path": (
-        "../../../../../iOS/externals/facebook-ios-sdk/src/",
+        # ../samples/facebook-ios-sdk/src/
+        "../samples/facebook-ios-sdk/src/",
         "/System/Library/Frameworks/Foundation.framework/Headers/",
         ),
     "frameworks_search_path": (
@@ -12,8 +13,8 @@ opts = {
         ),
     "namespace": "fbcxx",
     "objc_headers": ( # headers, which contains interfaces we want to process
-        "../../../../../iOS/externals/facebook-ios-sdk/src/FBSession.h",
-        "../../../../../iOS/externals/facebook-ios-sdk/src/FBSessionTokenCachingStrategy.h"
+        "../samples/facebook-ios-sdk/src/FBSession.h",
+        "../samples/facebook-ios-sdk/src/FBSessionTokenCachingStrategy.h"
         ),
     "objc_interfaces": ( # interfaces to proces
         "FBSessionTokenCachingStrategy",
@@ -139,6 +140,6 @@ opts = {
     "templates_dir": "templates/common",
 
     # result output directory
-    "result_dir": "../generated",
+    "result_dir": "../samples/generated/",
     }
 
