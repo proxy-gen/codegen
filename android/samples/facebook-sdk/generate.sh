@@ -29,9 +29,9 @@ exit 0
 esac
 done
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CONFIG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )""/config"
 
-_CFG_FILE=$(dirname "$0")"/generator.cfg"
+_CFG_FILE="$CONFIG_DIR""/generator.cfg"
 if [ -e "$_CFG_FILE" ]
 then
     [ -r "$_CFG_FILE" ] || die "Fatal Error: $_CFG_FILE exists but is unreadable"
@@ -102,7 +102,7 @@ echo "Generating CXX bindings for Android"
 
 SECTION=facebook-sdk
 echo "Generating section=" $SECTION
-LD_LIBRARY_PATH=${CXX_PARSER_ROOT} $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${DIR}/generator.ini \
+LD_LIBRARY_PATH=${CXX_PARSER_ROOT} $PYTHON_BIN ${CXX_GENERATOR_ROOT}/generator.py ${CONFIG_DIR}/generator.ini \
                         --src-output-dir ${BASE_CXX_SRC_OUTPUT_DIR} \
                         --header-output-dir  ${BASE_CXX_HEADER_OUTPUT_DIR} \
                         --makefiles-output-dir ${BASE_CXX_MAKEFILES_OUTPUT_DIR} \

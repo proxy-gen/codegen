@@ -159,7 +159,7 @@
 
     <target name="-generate.cxx.project" depends="-setup.cxx.project.call">
         <!-- generate.sh will mkdirs in cxx.path.to.generated.dir -->
-        <exec executable="generate.sh" dir="${cxx.path.to.config.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
+        <exec executable="generate.sh" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
             <env key="PATH" path="${generator.path}" />
         </exec>
     </target>
