@@ -17,3 +17,11 @@
 
 # Android
 android/libs
+*.o.d
+
+# iOS
+iOS/generator/out.xml
+
+# Python
+*.pyc
+

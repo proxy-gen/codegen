@@ -158,8 +158,10 @@
     </target>
 
     <target name="-generate.cxx.project" depends="-setup.cxx.project.call">
-        <!-- generate.sh will mkdirs in cxx.path.to.generated.dir -->
-        <exec executable="generate.sh" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
+        <!-- generate.py will mkdirs in cxx.path.to.generated.dir -->
+        <exec executable="generate.py" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
+            <arg line="-s ${sdk.dir}" />
+            <arg line="-n ${ndk.dir}" />
             <env key="PATH" path="${generator.path}" />
         </exec>
     </target>

@@ -17,19 +17,20 @@
 
 from ctypes import *
 import collections
+import logging
 
-def get_jindex_library():
+def load_jindex_library(lib_name):
     # FIXME: It's probably not the case that the library is actually found in
     # this location. We need a better system of identifying and loading the
     # CIndex library. It could be on path or elsewhere, or versioned, etc.
     import platform
     name = platform.system()
     if name == 'Darwin':
-        return cdll.LoadLibrary('libCXXGenerator.dylib')
+        return cdll.LoadLibrary(lib_name + '.dylib')
     elif name == 'Windows':
-        return cdll.LoadLibrary('libCXXGenerator.dll')
+        return cdll.LoadLibrary(lib_name + '.dll')
     else:
-        return cdll.LoadLibrary('libCXXGenerator.so')
+        return cdll.LoadLibrary(lib_name + '.so')
 
 # ctypes doesn't implicitly convert c_void_p to the appropriate wrapper
 # object. This is a problem, because it means that from_parameter will see an
@@ -37,7 +38,8 @@ def get_jindex_library():
 # this by marshalling object arguments as void**.
 c_object_p = POINTER(c_void_p)
 
-lib = get_jindex_library()
+lib_name = "libCXXGenerator"
+lib = load_jindex_library(lib_name)
 
 ### Exception Classes ###
 
