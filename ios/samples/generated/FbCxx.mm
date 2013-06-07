@@ -15,9 +15,104 @@ using namespace std;
 
 
 // generated converors
+// convertor functions
 namespace fbcxx {
 
-// convertors defintion
+    NSString * StringToNString(const string& str) {
+        NSString * nsstr = [NSString stringWithUTF8String:str.c_str()];
+        return nsstr;
+    }
+
+    NSArray * VectorToNSArray(const vector<string>& v) {
+        NSMutableArray * nsarr = [NSMutableArray new];
+        std::for_each(v.begin(), v.end(), ^(std::string str) {
+            id nsstr = [NSString stringWithUTF8String:str.c_str()];
+            [nsarr addObject:nsstr];
+        });
+
+        return nsarr;
+    }
+
+    NSDictionary * MapToNSDictionary(const map<string, string>& m) {
+        NSMutableDictionary* nsdict = [NSMutableDictionary dictionaryWithCapacity:m.size()];
+        for(std::map<string,string>::const_iterator iter = m.begin(); iter != m.end(); ++iter)
+        {
+            id key = [NSString stringWithUTF8String:iter->first.c_str()];
+            id value = [NSString stringWithUTF8String:iter->second.c_str()];
+            [nsdict setValue:value forKey:key];
+        }
+        return nsdict;
+    }
+
+    NSDate * TimestampToNSDate(const double seconds) {
+        NSTimeInterval interval=seconds;
+        NSDate *pdate = [NSDate dateWithTimeIntervalSince1970:interval];
+        return pdate;
+    }
+
+    NSLocale * LocaleIdToLocale(const string& str) {
+        NSLocale * loc = [[NSLocale alloc] initWithLocaleIdentifier:StringToNString(str)];
+        return loc;
+    }
+
+    BOOL CXXToObjCBool(bool b) {
+        if (b) {
+            return YES;
+        }
+        return NO;
+    }
+
+    NSURL* StringToNSURL(const string& s) {
+        return [NSURL URLWithString:StringToNString(s)];
+    }
+
+    string NSStringToString(NSString * str) {
+        return [str UTF8String];
+    }
+
+    vector<string> NSArrayToVector(NSArray * arr) {
+        __block vector<string> v = vector<string>([arr count]);
+
+        [arr enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+            string s = NSStringToString((NSString *)object);
+            v.push_back(s);
+        }];
+
+        return v;
+    }
+
+    map<string, string> NSDictionaryToMap(NSDictionary * dict) {
+        map<string, string> _dict;
+
+        for (NSString * key in [dict allKeys]){
+            NSString * val = [dict objectForKey:key];
+
+            _dict[NSStringToString(key)] = NSStringToString(val);
+        }
+
+        return _dict;
+    }
+
+    double NSDateToTimestamp(NSDate * date) {
+        return (double)[date timeIntervalSince1970];
+    }
+
+    string LocaleToLocaleId(NSLocale * loc) {
+        return NSStringToString([loc localeIdentifier]);
+    }
+
+    bool ObjCToCXXBool(BOOL b) {
+        if (b == YES) {
+            return true;
+        }
+        return false;
+    }
+
+    string NSURLToString(NSURL * url) {
+        //TODO
+        return NSStringToString([url absoluteString]);
+    }
+
 
 FbSessionCxx* FbSessionCxx_ConvertFromNative(FBSession* object) {
     return new FbSessionCxx((__bridge void *) object);
