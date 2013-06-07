@@ -42,12 +42,10 @@ How to build your CXX framework
 
 4. Add dependency frameworks to your project: native framework for which cxx bindings are created and all its native deps;
 
-5. Add "GenUtilsCXX" framework as dependency to your project.
-
-6. Open "Build Settings" tab and change following options:
+5. Open "Build Settings" tab and change following options:
 
    1) add these "Other linker flags" options: -ObjC -all_load -fobjc-arc;
 
    2) set "Build active architecture only" to "NO", so you will get universal binary framework.
 
-8. Try to build your project with "Run" button in xcode;
+7. Try to build your project with "Run" button in xcode;
