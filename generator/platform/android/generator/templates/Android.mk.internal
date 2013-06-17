@@ -6,7 +6,7 @@ LOCAL_PATH := \$(call my-dir)
 
 find_src_files = \$(addprefix \$(1)/,\$(notdir \$(wildcard \$(LOCAL_PATH)/\$(1)/*.cpp)))
 
-CXX_SRC_FILES := \$(call find_src_files,../../../../src/${file_prefix})
+CXX_SRC_FILES := \$(call find_src_files,../../../../src/${package_name})
 
 CXX_INCLUDES := \$(LOCAL_PATH)/../../../../includes
 

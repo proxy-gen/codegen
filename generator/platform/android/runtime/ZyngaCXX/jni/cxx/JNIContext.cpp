@@ -148,12 +148,12 @@ void JNIContext::pushLocalFrame(int frameSize)
 	int result = env->EnsureLocalCapacity(jframeSize);
 	if (result < 0) // Out of Memory
 	{
-		throw std::runtime_error("Out of Memory");
+		// throw std::runtime_error("Out of Memory");
 	}
 	result = env->PushLocalFrame(jframeSize);
 	if (result < 0) // Out of Memory
 	{
-		throw std::runtime_error("Out of Memory");
+		// throw std::runtime_error("Out of Memory");
 	}
 }
 	

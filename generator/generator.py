@@ -19,6 +19,7 @@ class BaseGenerator(object):
 		self.config = dict()
 		self.config['config_file_name'] = None
 		self.config['output_dir_name'] = None
+		self.config['package_name'] = None
 	
 	def setup(self):
 		raise NotImplementedError("subclasses should implement setup()")
@@ -62,6 +63,8 @@ def main():
 							help="Specifies the configuration file to be used for code generation")
 	parser.add_option("--output-dir", action="store", type="string", dest="output_dir_name",
 							help="Specifies the output directory where the code will be generated")
+	parser.add_option("--package", action="store", type="string", dest="package_name",
+							help="Specifies the package in which the code will be generated")
 	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=True,
 							help="Flag to indicate if the wrapper file needs to be generated (default is True)")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
@@ -92,12 +95,13 @@ def main():
 	platform_generator = create_platform_generator(opts.platform)
 	platform_generator.config['config_file_name'] = opts.config_file_name
 	platform_generator.config['output_dir_name'] = opts.output_dir_name
+	platform_generator.config['package_name'] = opts.package_name
 
 	platform_generator.setup()
-	# platform_generator.generate()
-	# if opts.generate_wrapper:
-	# 	platform_generator.generate_wrapper()
-	# platform_generator.teardown()
+	platform_generator.generate()
+	if opts.generate_wrapper:
+		platform_generator.generate_wrapper()
+	platform_generator.teardown()
 
 if __name__ == '__main__':
 	try:

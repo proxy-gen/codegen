@@ -24,20 +24,14 @@
     <target name="debug" description="Builds cxx projects for debug">
         <property name="build.target" value="debug" />
         <antcall target="-build.cxx.runtimes" />
-        <antcall target="-generate.cxx.projects" />
-        <antcall target="-build.cxx.projects" />
-        <antcall target="-package.cxx.projects" />
     </target>
     
     <target name="release" description="Builds cxx projects for release">
         <property name="build.target" value="release" />
         <antcall target="-build.cxx.runtimes" />
-        <antcall target="-generate.cxx.projects" />
-        <antcall target="-build.cxx.projects" />
-        <antcall target="-package.cxx.projects" />
     </target>
 
-    <target name="clean" depends="-clean.cxx.runtimes,-clean.cxx.projects" description="Clean cxx runtimes and projects">
+    <target name="clean" depends="-clean.cxx.runtimes" description="Clean cxx runtimes">
         <delete includeemptydirs="true" failonerror="false">
           <fileset dir="." includes="libs/**"/>
         </delete>
@@ -61,42 +55,17 @@
         </antcall>
     </target>
 
-    <target name="-call.cxx.project">
-        <antcall target="${call.target}">
-            <param name="cxx.framework.name" value="FacebookCXX"/>
-            <param name="cxx.project.dir.name" value="facebook-sdk"/>
-            <param name="cxx.libs.dir.name" value="FacebookCXX"/>
-        </antcall>
-        <!-- Add other projects here -->
-    </target>
-
-
     <target name="-setup.cxx.runtime.call">
         <property name="cxx.path.to.project.dir" value="runtime/${cxx.project.dir.name}" />
         <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
     </target>
 
 
-    <target name="-setup.cxx.project.call">
-        <property name="cxx.path.to.project.dir" value="samples/${cxx.project.dir.name}" />
-        <available file="${cxx.path.to.project.dir}" property="cxx.path.to.project.dir.present" />
-        <property name="cxx.path.to.config.dir" value="${cxx.path.to.project.dir}/config" />
-        <property name="cxx.path.to.generated.dir" value="${cxx.path.to.project.dir}/generated" />
-        <property name="cxx.path.to.generated.internal.dir" value="${cxx.path.to.generated.dir}/output/internal/${cxx.framework.name}"/>
-        <property name="cxx.path.to.generated.exported.dir" value="${cxx.path.to.generated.dir}/output/exported/${cxx.framework.name}"/>
-    </target>
-
     <!--                        Clean                                       -->
 
     <target name="-clean.cxx.runtimes">
-        <antcall target="-call.cxx.project">
+        <antcall target="-call.cxx.runtime">
             <param name="call.target" value="-clean.cxx.runtime"/>
-        </antcall>
-    </target>
-
-    <target name="-clean.cxx.projects">
-        <antcall target="-call.cxx.project">
-            <param name="call.target" value="-clean.cxx.project"/>
         </antcall>
     </target>
 
@@ -112,21 +81,11 @@
         </exec>
     </target>
 
-    <target name="-clean.cxx.project" depends="-setup.cxx.project.call" if="cxx.path.to.project.dir.present"> 
-        <delete dir="${cxx.path.to.generated.dir}" verbose="true" failonerror="true" />
-    </target>
-
     <!--                        Build                                       -->
 
     <target name="-build.cxx.runtimes">
         <antcall target="-call.cxx.runtime">
             <param name="call.target" value="-build.cxx.runtime"/>
-        </antcall>
-    </target>
-
-    <target name="-build.cxx.projects">
-        <antcall target="-call.cxx.project">
-            <param name="call.target" value="-build.cxx.project"/>
         </antcall>
     </target>
 
@@ -140,43 +99,11 @@
         <exec executable="${ndk.dir}/ndk-build" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true"/> 
     </target>
 
-    <target name="-build.cxx.project" depends="-setup.cxx.project.call">   
-        <condition property="ndk.debug" value="1" else="0">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <exec executable="${ndk.dir}/ndk-build" dir="${cxx.path.to.generated.internal.dir}" failonerror="true" failifexecutionfails="true">
-            <arg value="NDK_DEBUG=${ndk.debug}" />
-        </exec> 
-    </target>
-
-    <!--                        Generate                                    -->
-
-    <target name="-generate.cxx.projects">
-        <antcall target="-call.cxx.project">
-            <param name="call.target" value="-generate.cxx.project"/>
-        </antcall>
-    </target>
-
-    <target name="-generate.cxx.project" depends="-setup.cxx.project.call">
-        <!-- generate.py will mkdirs in cxx.path.to.generated.dir -->
-        <exec executable="generate.py" dir="${cxx.path.to.project.dir}" failonerror="true" failifexecutionfails="true" searchpath="true" resolveexecutable="true">
-            <arg line="-s ${sdk.dir}" />
-            <arg line="-n ${ndk.dir}" />
-            <env key="PATH" path="${generator.path}" />
-        </exec>
-    </target>
-
     <!--                        Package                                     -->
 
     <target name="-package.cxx.runtimes">
         <antcall target="-call.cxx.runtime">
             <param name="call.target" value="-package.cxx.runtime"/>
-        </antcall>
-    </target>
-
-    <target name="-package.cxx.projects">
-        <antcall target="-call.cxx.project">
-            <param name="call.target" value="-package.cxx.project"/>
         </antcall>
     </target>
 
@@ -211,28 +138,5 @@
             <fileset dir="${cxx.path.to.project.dir}/libs" includes="*.jar"/>
         </copy>
     </target>    
-
-    <target name="-package.cxx.project" depends="-setup.cxx.project.call">  
-        <condition property="build.target.extension" value=".debug" else="">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <condition property="build.target.directory" value="Debug" else="Release">
-            <equals arg1="${build.target}" arg2="debug" casesensitive="false"/>
-        </condition>
-        <property name="cxx.path.to.libs.dir" value="libs/${build.target.directory}/${deploy.platform}" />
-        <property name="cxx.path.to.libs.framework.dir" value="${cxx.path.to.libs.dir}/${cxx.framework.name}" />
-        <mkdir dir="${cxx.path.to.libs.framework.dir}" />
-        <copy overwrite="true" file="${cxx.path.to.generated.exported.dir}/Android.mk" tofile="${cxx.path.to.libs.framework.dir}/Android.mk"/>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs" />
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.generated.internal.dir}/libs" />
-        </copy>
-        <mkdir dir="${cxx.path.to.libs.framework.dir}/libs" />
-        <copy overwrite="true" todir="${cxx.path.to.libs.framework.dir}/libs">
-            <fileset dir="${cxx.path.to.generated.internal.dir}/obj/local">
-                <include name="**/*.a"/>
-            </fileset>
-        </copy>
-    </target>
     
 </project>

@@ -25,3 +25,8 @@ iOS/generator/out.xml
 # Python
 *.pyc
 
+# Generated
+libs
+generated/output/
+local.properties
+

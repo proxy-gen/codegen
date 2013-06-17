@@ -23,18 +23,184 @@ class Generator(BaseGenerator):
 		super(Generator, self).__init__()
 
 	def setup(self):
+		self._setup_working_dir()
+		self._setup_config()
+		self._setup_index()
+		
+	def generate(self):
+		logging.debug("Generator generate_code enter")
+
+		self.add_functions = {}
+		if self.add_functions_file:
+			stream = file(self.add_functions_file)
+			data = yaml.load(stream)
+			if data:
+				if 'add' in data:
+					self.add_functions = data['add']
+
+		self.remove_functions = {}
+		if self.remove_functions_file:
+			stream = file(self.remove_functions_file)
+			data = yaml.load(stream)
+			if data:
+				if 'remove' in data:
+					self.remove_functions = data['remove']
+
+		self.doc = {}
+		if self.doc_file:
+			stream = file(self.doc_file)
+			data = yaml.load(stream)
+			if data:
+				self.doc = data
+
+		self.impl_filename = self.file_prefix + ".cpp"
+		logging.debug("self.impl_filename " + str(self.impl_filename))
+
+		impl_filepath = os.path.join(self.impl_outdir_name, self.impl_filename)
+		logging.debug("impl_filepath " + str(impl_filepath))		
+
+		self.head_filename = self.file_prefix + ".hpp"
+		logging.debug("self.head_filename " + str(self.head_filename))		
+
+		head_filepath = os.path.join(self.header_outdir_name, self.head_filename)
+		logging.debug("head_filepath " + str(head_filepath))	
+
+		self.internal_androidmk_filename = "Android.mk"
+		logging.debug("self.internal_androidmk_filename " + str(self.internal_androidmk_filename))
+
+		internal_androidmk_filepath = os.path.join(self.internal_makefile_outdir_name, self.internal_androidmk_filename)
+		logging.debug("internal_androidmk_filepath " + str(internal_androidmk_filepath))
+
+		self.internal_applicationmk_filename = "Application.mk"
+		logging.debug("self.internal_applicationmk_filename " + str(self.internal_applicationmk_filename))
+
+		internal_applicationmk_filepath = os.path.join(self.internal_makefile_outdir_name, self.internal_applicationmk_filename)
+		logging.debug("internal_applicationmk_filepath " + str(internal_applicationmk_filepath))
+
+		self.exported_androidmk_filename = "Android.mk"
+		logging.debug("self.exported_androidmk_filename " + str(self.exported_androidmk_filename))
+
+		exported_androidmk_filepath = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_filename)
+		logging.debug("exported_androidmk_filepath " + str(exported_androidmk_filepath))
+
+		self.impl_file = open(impl_filepath, "w+")
+		self.head_file = open(head_filepath, "w+")
+		self.internal_androidmk_file = open(internal_androidmk_filepath, "w+")
+		self.internal_applicationmk_file = open(internal_applicationmk_filepath, "w+")
+		self.exported_androidmk_file = open(exported_androidmk_filepath, "w+")
+
+		self._parse_classes()
+
+		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[0]),searchList=[self])
+		logging.debug("layout_h " + str(layout_h))		
+
+		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[1]),searchList=[self])
+		logging.debug("layout_c " + str(layout_c))	
+
+		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[self])
+		logging.debug("internal_android_mk " + str(internal_android_mk))	
+
+		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[self])
+		logging.debug("internal_application_mk " + str(internal_application_mk))	
+
+		exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
+		logging.debug("exported_android_mk " + str(exported_android_mk))	
+
+		self.head_file.write(str(layout_h))
+		self.impl_file.write(str(layout_c))
+		self.internal_androidmk_file.write(str(internal_android_mk))
+		self.internal_applicationmk_file.write(str(internal_application_mk))
+		self.exported_androidmk_file.write(str(exported_android_mk))
+
+		self._generate_classes()
+
+		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[2]),searchList=[self])
+		logging.debug("layout_h " + str(layout_h))		
+
+		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[3]),searchList=[self])
+		logging.debug("layout_c " + str(layout_c))		
+
+		self.head_file.write(str(layout_h))
+		self.impl_file.write(str(layout_c))
+
+		self.impl_file.close()
+		self.head_file.close()
+		self.internal_androidmk_file.close()
+		self.internal_applicationmk_file.close()
+		self.exported_androidmk_file.close()
+
+		logging.debug("Generator generate_code exit")
+
+	def generate_wrapper(self):
+		pass
+
+	def teardown(self):
+		self._teardown_index()
+
+	def to_resource_name(self, class_name):
+		return class_name.replace('.', '/')
+
+	def _parse_classes(self):
+		logging.debug("Generator _parse_classes enter")
+		for idx, class_name in enumerate(self.class_names_list):
+			logging.debug("idx class_name " + str(idx) + "," + str(class_name))
+			class_resource = self.to_resource_name(class_name)
+			logging.debug("class_resource " + str(class_resource))
+			tu = self.index.parse(class_resource)
+			logging.debug("tu " + str(tu))
+			if self.index.status != jindex.INDEX_OK:
+				print(self.index.statusMessage)
+				print("*** Found errors - can not continue")
+				raise Exception("Fatal error in parsing translation unit")
+			if tu.cursor.kind == jindex.CursorKind.CLASS_DECL:
+				nclass = NativeClass(tu.cursor, self, idx)
+				self.classes.append(nclass)
+		classes_doc = {}
+		if 'classes' in self.doc:
+			classes_entry = self.doc['classes']
+			for class_name in classes_entry:
+				class_entry = classes_entry[class_name]
+				if 'class_level' in class_entry:
+					class_level = class_entry['class_level']
+					if 'body' in class_level:
+						classes_doc[class_name] = class_level['body']
+		for clazz in self.classes:
+			if clazz.java_class_name in classes_doc:
+				clazz.set_doc(classes_doc[clazz.java_class_name])
+		logging.debug("Generator _parse_classes exit")
+
+	def _generate_classes(self):
+		logging.debug("Generator _generate_classes enter")		
+		for nclass in self.classes:
+			logging.debug("nclass " + str(nclass))		
+			self._deep_iterate(nclass)
+		logging.debug("Generator _generate_classes exit")		
+
+	def _deep_iterate(self, nclass):
+		logging.debug("Generator _deep_iterate enter")	
+		nclass.generate_code()
+		logging.debug("Generator _deep_iterate exit")	
+
+	def _setup_working_dir(self):
+		#script directory
+		script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+		self.working_dir = os.path.join(script_dir, "..")
+
+	def _setup_config(self):
 		# setup output directories
+		self.package_name = self.config['package_name']
+
 		self.output_dir_name = self.config['output_dir_name']
 		if not os.path.exists(self.output_dir_name):
 			os.makedirs(self.output_dir_name)
 		logging.debug("self.output_dir_name " + str(self.output_dir_name))
 
-		self.header_outdir_name = os.path.join(self.output_dir_name, "includes")
+		self.header_outdir_name = os.path.join(self.output_dir_name, "includes", self.package_name)
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
 
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "src")
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "src", self.package_name)
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
@@ -44,12 +210,12 @@ class Generator(BaseGenerator):
 			os.makedirs(self.makefile_outdir_name)				
 		logging.debug("self.makefile_outdir_name " + str(self.makefile_outdir_name))
 
-		self.internal_makefile_outdir_name = self.makefile_outdir_name + '/internal/jni'
+		self.internal_makefile_outdir_name = self.makefile_outdir_name + '/internal/' +  self.package_name + '/jni'
 		if not os.path.exists(self.internal_makefile_outdir_name):
 			os.makedirs(self.internal_makefile_outdir_name)					
 		logging.debug("self.internal_makefile_outdir_name " + str(self.internal_makefile_outdir_name))
 
-		self.exported_makefile_outdir_name = self.makefile_outdir_name + '/exported/'
+		self.exported_makefile_outdir_name = self.makefile_outdir_name + '/exported/' + self.package_name
 		if not os.path.exists(self.exported_makefile_outdir_name):
 			os.makedirs(self.exported_makefile_outdir_name)								
 		logging.debug("self.exported_makefile_outdir_name " + str(self.exported_makefile_outdir_name))
@@ -63,6 +229,8 @@ class Generator(BaseGenerator):
 			raise ConfigParser.NoSectionError
 
 		s = config.sections()[0]
+		self.file_prefix = config.get(s, 'prefix')
+		logging.debug("self.file_prefix " + str(self.file_prefix))
 
 		self.layout_template_list = build_list_from_config(config, s, 'layout_templates')
 		logging.debug("self.layout_template_list " + str(self.layout_template_list))
@@ -143,9 +311,6 @@ class Generator(BaseGenerator):
 		self.last_callbacks_list = build_list_from_config(config, s, 'last_callbacks')
 		logging.debug("self.last_callbacks_list " + str(self.last_callbacks_list))		
 
-		self.file_prefix = config.get(s, 'prefix')
-		logging.debug("self.file_prefix " + str(self.file_prefix))
-
 		self.singleton_field_name = config.get(s, 'singleton_field')
 		logging.debug("self.singleton_field_name " + str(self.singleton_field_name))
 
@@ -176,168 +341,14 @@ class Generator(BaseGenerator):
 		logging.debug("self.doc_file " + str(self.doc_file))
 
 		self.classes = []
-		
-	def teardown(self):
-		pass
 
-	def generate_code(self):
-		logging.debug("Generator generate_code enter")
-
-		self.add_functions = {}
-		if self.add_functions_file:
-			stream = file(self.add_functions_file)
-			data = yaml.load(stream)
-			if data:
-				if 'add' in data:
-					self.add_functions = data['add']
-
-		self.remove_functions = {}
-		if self.remove_functions_file:
-			stream = file(self.remove_functions_file)
-			data = yaml.load(stream)
-			if data:
-				if 'remove' in data:
-					self.remove_functions = data['remove']
-
-		self.doc = {}
-		if self.doc_file:
-			stream = file(self.doc_file)
-			data = yaml.load(stream)
-			if data:
-				self.doc = data
-
-		self.impl_filename = self.file_prefix + ".cpp"
-		logging.debug("self.impl_filename " + str(self.impl_filename))
-
-		impl_filepath = os.path.join(self.impl_outdir, self.impl_filename)
-		logging.debug("impl_filepath " + str(impl_filepath))		
-
-		self.head_filename = self.file_prefix + ".hpp"
-		logging.debug("self.head_filename " + str(self.head_filename))		
-
-		head_filepath = os.path.join(self.header_outdir, self.head_filename)
-		logging.debug("head_filepath " + str(head_filepath))	
-
-		self.internal_androidmk_filename = "Android.mk"
-		logging.debug("self.internal_androidmk_filename " + str(self.internal_androidmk_filename))
-
-		internal_androidmk_filepath = os.path.join(self.internal_makefile_outdir, self.internal_androidmk_filename)
-		logging.debug("internal_androidmk_filepath " + str(internal_androidmk_filepath))
-
-		self.internal_applicationmk_filename = "Application.mk"
-		logging.debug("self.internal_applicationmk_filename " + str(self.internal_applicationmk_filename))
-
-		internal_applicationmk_filepath = os.path.join(self.internal_makefile_outdir, self.internal_applicationmk_filename)
-		logging.debug("internal_applicationmk_filepath " + str(internal_applicationmk_filepath))
-
-		self.exported_androidmk_filename = "Android.mk"
-		logging.debug("self.exported_androidmk_filename " + str(self.exported_androidmk_filename))
-
-		exported_androidmk_filepath = os.path.join(self.exported_makefile_outdir, self.exported_androidmk_filename)
-		logging.debug("exported_androidmk_filepath " + str(exported_androidmk_filepath))
-
-		self.impl_file = open(impl_filepath, "w+")
-		self.head_file = open(head_filepath, "w+")
-		self.internal_androidmk_file = open(internal_androidmk_filepath, "w+")
-		self.internal_applicationmk_file = open(internal_applicationmk_filepath, "w+")
-		self.exported_androidmk_file = open(exported_androidmk_filepath, "w+")
-
-		self._parse_classes()
-
-		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[0]),searchList=[self])
-		logging.debug("layout_h " + str(layout_h))		
-
-		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[1]),searchList=[self])
-		logging.debug("layout_c " + str(layout_c))	
-
-		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[self])
-		logging.debug("internal_android_mk " + str(internal_android_mk))	
-
-		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[self])
-		logging.debug("internal_application_mk " + str(internal_application_mk))	
-
-		exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
-		logging.debug("exported_android_mk " + str(exported_android_mk))	
-
-		self.head_file.write(str(layout_h))
-		self.impl_file.write(str(layout_c))
-		self.internal_androidmk_file.write(str(internal_android_mk))
-		self.internal_applicationmk_file.write(str(internal_application_mk))
-		self.exported_androidmk_file.write(str(exported_android_mk))
-
-		self._generate_classes()
-
-		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[2]),searchList=[self])
-		logging.debug("layout_h " + str(layout_h))		
-
-		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[3]),searchList=[self])
-		logging.debug("layout_c " + str(layout_c))		
-
-		self.head_file.write(str(layout_h))
-		self.impl_file.write(str(layout_c))
-
-		self.impl_file.close()
-		self.head_file.close()
-		self.internal_androidmk_file.close()
-		self.internal_applicationmk_file.close()
-		self.exported_androidmk_file.close()
-
-		logging.debug("Generator generate_code exit")
-
-	def generate_wrapper(self):
-		pass
-
-	def startup(self):
+	def _setup_index(self):
 		self.index = jindex.Index.create(self.jvm_options)
 
-	def shutdown(self):
+	def _teardown_index(self):
 		if jindex.Index.destroy() != jindex.INDEX_OK:
 			print("*** Found errors - could not shutdown generator")
 			raise Exception("Fatal error in shutdown generator")
-
-	def to_resource_name(self, class_name):
-		return class_name.replace('.', '/')
-
-	def _parse_classes(self):
-		logging.debug("Generator _parse_classes enter")
-		for idx, class_name in enumerate(self.class_names_list):
-			logging.debug("idx class_name " + str(idx) + "," + str(class_name))
-			class_resource = self.to_resource_name(class_name)
-			logging.debug("class_resource " + str(class_resource))
-			tu = self.index.parse(class_resource)
-			logging.debug("tu " + str(tu))
-			if self.index.status != jindex.INDEX_OK:
-				print(self.index.statusMessage)
-				print("*** Found errors - can not continue")
-				raise Exception("Fatal error in parsing translation unit")
-			if tu.cursor.kind == jindex.CursorKind.CLASS_DECL:
-				nclass = NativeClass(tu.cursor, self, idx)
-				self.classes.append(nclass)
-		classes_doc = {}
-		if 'classes' in self.doc:
-			classes_entry = self.doc['classes']
-			for class_name in classes_entry:
-				class_entry = classes_entry[class_name]
-				if 'class_level' in class_entry:
-					class_level = class_entry['class_level']
-					if 'body' in class_level:
-						classes_doc[class_name] = class_level['body']
-		for clazz in self.classes:
-			if clazz.java_class_name in classes_doc:
-				clazz.set_doc(classes_doc[clazz.java_class_name])
-		logging.debug("Generator _parse_classes exit")
-
-	def _generate_classes(self):
-		logging.debug("Generator _generate_classes enter")		
-		for nclass in self.classes:
-			logging.debug("nclass " + str(nclass))		
-			self._deep_iterate(nclass)
-		logging.debug("Generator _generate_classes exit")		
-
-	def _deep_iterate(self, nclass):
-		logging.debug("Generator _deep_iterate enter")	
-		nclass.generate_code()
-		logging.debug("Generator _deep_iterate exit")	
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):
