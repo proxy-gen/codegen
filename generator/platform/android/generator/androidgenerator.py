@@ -20,81 +20,165 @@ from generator import BaseGenerator
 
 class Generator(BaseGenerator):
 	def __init__(self):
-		opts = process_config(self.config, self.output_dir)
-		logging.debug("Generator __init__ enter")
-		self.layout_template_list = opts['layout_template_list']
+		super(Generator, self).__init__()
+
+	def setup(self):
+		# setup output directories
+		self.output_dir_name = self.config['output_dir_name']
+		if not os.path.exists(self.output_dir_name):
+			os.makedirs(self.output_dir_name)
+		logging.debug("self.output_dir_name " + str(self.output_dir_name))
+
+		self.header_outdir_name = os.path.join(self.output_dir_name, "includes")
+		if not os.path.exists(self.header_outdir_name):
+			os.makedirs(self.header_outdir_name)		
+		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
+
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "src")
+		if not os.path.exists(self.impl_outdir_name):
+			os.makedirs(self.impl_outdir_name)		
+		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
+
+		self.makefile_outdir_name =  os.path.join(self.output_dir_name, "output")
+		if not os.path.exists(self.makefile_outdir_name):
+			os.makedirs(self.makefile_outdir_name)				
+		logging.debug("self.makefile_outdir_name " + str(self.makefile_outdir_name))
+
+		self.internal_makefile_outdir_name = self.makefile_outdir_name + '/internal/jni'
+		if not os.path.exists(self.internal_makefile_outdir_name):
+			os.makedirs(self.internal_makefile_outdir_name)					
+		logging.debug("self.internal_makefile_outdir_name " + str(self.internal_makefile_outdir_name))
+
+		self.exported_makefile_outdir_name = self.makefile_outdir_name + '/exported/'
+		if not os.path.exists(self.exported_makefile_outdir_name):
+			os.makedirs(self.exported_makefile_outdir_name)								
+		logging.debug("self.exported_makefile_outdir_name " + str(self.exported_makefile_outdir_name))
+
+		# setup config
+		config_file_name = self.config['config_file_name']
+		config = ConfigParser.SafeConfigParser()
+		config.read(config_file_name)
+
+		if len(config.sections()) == 0:
+			raise ConfigParser.NoSectionError
+
+		s = config.sections()[0]
+
+		self.layout_template_list = build_list_from_config(config, s, 'layout_templates')
 		logging.debug("self.layout_template_list " + str(self.layout_template_list))
-		self.class_template_list = opts['class_template_list']
+
+		self.class_template_list = build_list_from_config(config, s, 'class_templates')
 		logging.debug("self.class_template_list " + str(self.class_template_list))
-		self.function_template_list = opts['function_template_list']
+
+		self.function_template_list = build_list_from_config(config, s, 'function_templates')
 		logging.debug("self.function_template_list " + str(self.function_template_list))
-		self.phantom_function_args_list = opts['phantom_function_args_list']
+
+		self.phantom_function_args_list = build_list_from_config(config, s, 'phantom_function_args')
 		logging.debug("self.phantom_function_args_list " + str(self.phantom_function_args_list))
-		self.skip_functions_list = opts['skip_functions_list']
+
+		self.skip_functions_list = build_list_from_config(config, s, 'skip_functions')
 		logging.debug("self.skip_functions_list " + str(self.skip_functions_list))
-		self.skip_functions_override_dict = opts['skip_functions_override_dict']
+
+		skip_functions_override_list = build_list_from_config(config, s, 'skip_functions_override')
+		skip_functions_override_dict = dict()
+		for jclaz,skip_function in zip(skip_functions_override_list[:-1:2], skip_functions_override_list[1::2]):
+			if jclaz not in skip_functions_override_dict:
+				skip_functions_override_dict[jclaz] = list()
+			skip_functions_override_dict[jclaz].append(skip_function)
+		self.skip_functions_override_dict = skip_functions_override_dict
 		logging.debug("self.skip_functions_override_dict " + str(self.skip_functions_override_dict))
-		self.rename_types_dict = opts['rename_types_dict']
+
+		rename_types_list = build_list_from_config(config, s, 'rename_types')
+		self.rename_types_dict = dict(zip(rename_types_list[:-1:2], rename_types_list[1::2]))		
 		logging.debug("self.rename_types_dict " + str(self.rename_types_dict))
-		self.rename_classes_dict = opts['rename_classes_dict']
+
+		rename_classes_list = build_list_from_config(config, s, 'rename_classes')
+		self.rename_classes_dict = dict(zip(rename_classes_list[:-1:2], rename_classes_list[1::2]))
 		logging.debug("self.rename_classes_dict " + str(self.rename_classes_dict))
-		self.rename_functions_dict = opts['rename_functions_dict']
+
+		rename_functions_list = build_list_from_config(config, s, 'rename_functions')
+		self.rename_functions_dict = dict(zip(rename_functions_list[:-1:2], rename_functions_list[1::2])) 
 		logging.debug("self.rename_functions_dict " + str(self.rename_functions_dict))
-		self.rename_types_override_dict = opts['rename_types_override_dict']
+
+		rename_types_override_list = build_list_from_config(config, s, 'rename_types_override')
+		rename_types_override_dict = dict()
+		for jclaz,nclaz,method,arg_idx,source_name,target_name in zip(rename_types_override_list[:-5:6], rename_types_override_list[1:-4:6], rename_types_override_list[2:-3:6], rename_types_override_list[3:-2:6], rename_types_override_list[4:-1:6], rename_types_override_list[5::6]):
+			arg_idx = int(arg_idx)
+			if arg_idx < 0:
+				arg_idx = 0
+			if jclaz not in rename_types_override_dict:
+				rename_types_override_dict[jclaz] = dict()
+			if nclaz not in rename_types_override_dict[jclaz]:
+				rename_types_override_dict[jclaz][nclaz] = dict()
+			if method not in rename_types_override_dict[jclaz][nclaz]:
+				rename_types_override_dict[jclaz][nclaz][method] = dict()
+			if arg_idx not in rename_types_override_dict[jclaz][nclaz][method]:
+				rename_types_override_dict[jclaz][nclaz][method][arg_idx] = dict()
+			if source_name not in rename_types_override_dict[jclaz][nclaz][method][arg_idx]:
+				rename_types_override_dict[jclaz][nclaz][method][arg_idx][source_name] = target_name		
+		self.rename_types_override_dict = rename_types_override_dict
 		logging.debug("self.rename_types_override_dict " + str(self.rename_types_override_dict))
-		self.jvm_options = opts['jvm_options']
-		logging.debug("self.jvm_options " + str(self.jvm_options))
+
+		self.jvm_options = config.get(s, 'jvm_options')
 		classpath=os.environ.get("CXX_JVM_CLASSPATH", "")
 		if classpath.find("-Djava.class.path") == -1:
 			self.jvm_options += "-Djava.class.path=" + str(classpath)
 		logging.debug("self.jvm_options " + str(self.jvm_options))
-		self.working_dir = opts['working_dir']
-		logging.debug("self.working_dir " + str(self.working_dir))
-		self.target = opts['target']
+
+		self.target = os.path.dirname(inspect.getfile(inspect.currentframe()))
 		logging.debug("self.target " + str(self.target))
-		self.impl_outdir = opts['impl_outdir']
-		logging.debug("self.impl_outdir " + str(self.impl_outdir))
-		self.header_outdir = opts['header_outdir']
-		logging.debug("self.header_outdir " + str(self.header_outdir))
-		self.internal_makefile_outdir = opts['internal_makefile_outdir']
-		logging.debug("self.internal_makefile_outdir " + str(self.internal_makefile_outdir))
-		self.exported_makefile_outdir = opts['exported_makefile_outdir']
-		logging.debug("self.exported_makefile_outdir " + str(self.exported_makefile_outdir))
-		self.class_names_list = opts['classes']
+
+		self.class_names_list = build_list_from_config(config, s, 'classes')
 		logging.debug("self.class_names_list " + str(self.class_names_list))
-		self.proxied_classes_list = opts['proxied_classes_list']
+
+		self.proxied_classes_list = build_list_from_config(config, s, 'proxied_classes')
 		logging.debug("self.proxied_classes_list " + str(self.proxied_classes_list))
-		self.callback_classes_list = opts['callback_classes_list']
+
+		self.callback_classes_list = build_list_from_config(config, s, 'callback_classes')
 		logging.debug("self.callback_classes_list " + str(self.callback_classes_list))
-		self.callback_types_list = opts['callback_types_list']
+
+		self.callback_types_list = build_list_from_config(config, s, 'callback_types')
 		logging.debug("self.callback_types_list " + str(self.callback_types_list))		
-		self.last_callbacks_list = opts['last_callbacks_list']
+
+		self.last_callbacks_list = build_list_from_config(config, s, 'last_callbacks')
 		logging.debug("self.last_callbacks_list " + str(self.last_callbacks_list))		
-		self.file_prefix = opts['file_prefix']
+
+		self.file_prefix = config.get(s, 'prefix')
 		logging.debug("self.file_prefix " + str(self.file_prefix))
-		self.singleton_field_name = opts['singleton_field_name']
+
+		self.singleton_field_name = config.get(s, 'singleton_field')
 		logging.debug("self.singleton_field_name " + str(self.singleton_field_name))
-		self.singleton_function_name = opts['singleton_function_name']
+
+		self.singleton_function_name = config.get(s, 'singleton_function')
 		logging.debug("self.singleton_function_name " + str(self.singleton_function_name))
-		self.header_includes_list = opts['header_includes_list']
+
+		self.header_includes_list = build_list_from_config(config, s, 'header_includes')
 		logging.debug("self.header_includes_list " + str(self.header_includes_list))
-		self.impl_includes_list = opts['impl_includes_list']
+
+		self.impl_includes_list = build_list_from_config(config, s, 'impl_includes')
 		logging.debug("self.impl_includes_list " + str(self.impl_includes_list))
-		self.type_converters_list = opts['type_converters_list']
+
+		self.type_converters_list = build_list_from_config(config, s, 'type_converters')
 		for idx, type_converter in enumerate(self.type_converters_list):
 			self.type_converters_list[idx] = self.to_resource_name(type_converter)
-		self.add_function_args_list = opts['add_function_args_list']
-		self.reorder_function_args_list = opts['reorder_function_args_list']
-		self.add_functions_file = opts['add_functions_file']
+
+		self.add_function_args_list = build_list_from_config(config, s, 'add_function_args')
+
+		self.reorder_function_args_list = build_list_from_config(config, s, 'reorder_function_args')
+
+		self.add_functions_file = config.get(s, 'add_functions_file')
 		logging.debug("self.add_functions_file " + str(self.add_functions_file))
-		self.remove_functions_file = opts['remove_functions_file']
+
+		self.remove_functions_file = config.get(s, 'remove_functions_file')
 		logging.debug("self.remove_functions_file " + str(self.remove_functions_file))
-		self.doc_file = opts['doc_file']
+
+		self.doc_file = doc_file = config.get(s, 'doc_file')
 		logging.debug("self.doc_file " + str(self.doc_file))
+
 		self.classes = []
-
-
-		logging.debug("Generator __init__ exit")
+		
+	def teardown(self):
+		pass
 
 	def generate_code(self):
 		logging.debug("Generator generate_code enter")
@@ -201,12 +285,6 @@ class Generator(BaseGenerator):
 		logging.debug("Generator generate_code exit")
 
 	def generate_wrapper(self):
-		pass
-
-	def setup(self):
-		pass
-
-	def teardown(self):
 		pass
 
 	def startup(self):
@@ -1182,129 +1260,3 @@ def build_list_from_config(config, section, name):
 			raw_entry = raw_entry.replace('\\x2C',',')
 			list_from_config.append(raw_entry)
 	return list_from_config
-
-def process_config(config, output_dir):
-	global sections
-	sections = config.sections()
-
-	header_outdir = os.path.join(output_dir, "includes")
-	impl_outdir = os.path.join(output_dir, "src")
-	makefile_outdir =  os.path.join(output_dir, "output")
-
-	if not os.path.exists(header_outdir):
-		os.makedirs(header_outdir)
-	if not os.path.exists(impl_outdir):
-		os.makedirs(impl_outdir)
-	if not os.path.exists(makefile_outdir):
-		os.makedirs(makefile_outdir)
-
-	for s in sections:
-		print "\n.... .... Processing section", s, "\n"
-
-		layout_template_list = build_list_from_config(config, s, 'layout_templates')
-		class_template_list = build_list_from_config(config, s, 'class_templates')
-		function_template_list = build_list_from_config(config, s, 'function_templates')
-		phantom_function_args_list = build_list_from_config(config, s, 'phantom_function_args')
-		skip_functions_list = build_list_from_config(config, s, 'skip_functions')
-		add_function_args_list = build_list_from_config(config, s, 'add_function_args')
-		skip_functions_override_list = build_list_from_config(config, s, 'skip_functions_override')
-		reorder_function_args_list = build_list_from_config(config, s, 'reorder_function_args')
-		classes_list = build_list_from_config(config, s, 'classes')
-		callback_classes_list = build_list_from_config(config, s, 'callback_classes')
-		callback_types_list = build_list_from_config(config, s, 'callback_types')
-		last_callbacks_list = build_list_from_config(config, s, 'last_callbacks')
-		proxied_classes_list = build_list_from_config(config, s, 'proxied_classes')
-		header_includes_list = build_list_from_config(config, s, 'header_includes')
-		impl_includes_list = build_list_from_config(config, s, 'impl_includes')
-		rename_types_list = build_list_from_config(config, s, 'rename_types')
-		rename_types_override_list = build_list_from_config(config, s, 'rename_types_override')
-		rename_classes_list = build_list_from_config(config, s, 'rename_classes')
-		rename_functions_list = build_list_from_config(config, s, 'rename_functions')
-		type_converters_list = build_list_from_config(config, s, 'type_converters')
-		add_functions_file = config.get(s, 'add_functions_file')
-		remove_functions_file = config.get(s, 'remove_functions_file')
-		doc_file = config.get(s, 'doc_file')
-
-		rename_types_dict = dict(zip(rename_types_list[:-1:2], rename_types_list[1::2]))
-		rename_classes_dict = dict(zip(rename_classes_list[:-1:2], rename_classes_list[1::2]))
-		rename_functions_dict = dict(zip(rename_functions_list[:-1:2], rename_functions_list[1::2])) 
-
-		rename_types_override_dict = dict()
-		for jclaz,nclaz,method,arg_idx,source_name,target_name in zip(rename_types_override_list[:-5:6], rename_types_override_list[1:-4:6], rename_types_override_list[2:-3:6], rename_types_override_list[3:-2:6], rename_types_override_list[4:-1:6], rename_types_override_list[5::6]):
-			arg_idx = int(arg_idx)
-			if arg_idx < 0:
-				arg_idx = 0
-			if jclaz not in rename_types_override_dict:
-				rename_types_override_dict[jclaz] = dict()
-			if nclaz not in rename_types_override_dict[jclaz]:
-				rename_types_override_dict[jclaz][nclaz] = dict()
-			if method not in rename_types_override_dict[jclaz][nclaz]:
-				rename_types_override_dict[jclaz][nclaz][method] = dict()
-			if arg_idx not in rename_types_override_dict[jclaz][nclaz][method]:
-				rename_types_override_dict[jclaz][nclaz][method][arg_idx] = dict()
-			if source_name not in rename_types_override_dict[jclaz][nclaz][method][arg_idx]:
-				rename_types_override_dict[jclaz][nclaz][method][arg_idx][source_name] = target_name
-
-		skip_functions_override_dict = dict()
-		for jclaz,skip_function in zip(skip_functions_override_list[:-1:2], skip_functions_override_list[1::2]):
-			if jclaz not in skip_functions_override_dict:
-				skip_functions_override_dict[jclaz] = list()
-			skip_functions_override_dict[jclaz].append(skip_function)
-
-		file_prefix = config.get(s, 'prefix')
-
-		section_header_outdir = header_outdir + '/' + file_prefix
-		if not os.path.exists(section_header_outdir):
-			os.makedirs(section_header_outdir)
-
-		section_impl_outdir = impl_outdir + '/' + file_prefix
-		if not os.path.exists(section_impl_outdir):
-			os.makedirs(section_impl_outdir)
-
-		section_internal_makefile_outdir = makefile_outdir + '/internal/' + file_prefix + '/jni'
-		if not os.path.exists(section_internal_makefile_outdir):
-			os.makedirs(section_internal_makefile_outdir)
-
-		section_exported_makefile_outdir = makefile_outdir + '/exported/' + file_prefix
-		if not os.path.exists(section_exported_makefile_outdir):
-			os.makedirs(section_exported_makefile_outdir)
-
-		gen_opts = {
-			'add_function_args_list'		: 	add_function_args_list,
-			'reorder_function_args_list'	: 	reorder_function_args_list,
-			'classes'						:	classes_list,
-			'class_template_list'			:	class_template_list,
-			'function_template_list'		:	function_template_list,
-			'header_includes_list'			:	header_includes_list,
-			'impl_includes_list'			:	impl_includes_list,
-			'jvm_options'					:	config.get(s, 'jvm_options'),
-			'layout_template_list'			:	layout_template_list,
-			'header_outdir'					:	section_header_outdir,
-			'impl_outdir'					:	section_impl_outdir,
-			'internal_makefile_outdir'		:	section_internal_makefile_outdir,
-			'exported_makefile_outdir'		:	section_exported_makefile_outdir,
-			'working_dir'					:	working_dir,
-			'target'						:	script_dir,
-			'type_converters_list'			: 	type_converters_list,
-			'callback_classes_list'			:	callback_classes_list,
-			'callback_types_list'			:	callback_types_list,
-			'last_callbacks_list'			:	last_callbacks_list,
-			'proxied_classes_list'			: 	proxied_classes_list,
-			'file_prefix'					:	file_prefix,
-			'rename_types_dict'				:	rename_types_dict,
-			'rename_types_override_dict'	:	rename_types_override_dict,
-			'rename_classes_dict'			: 	rename_classes_dict,
-			'rename_functions_dict'			: 	rename_functions_dict,
-			'singleton_field_name'			:	config.get(s, 'singleton_field'),
-			'singleton_function_name'		:	config.get(s, 'singleton_function'),
-			'phantom_function_args_list'	:	phantom_function_args_list,
-			'skip_functions_list'			:	skip_functions_list,
-			'skip_functions_override_dict'  : 	skip_functions_override_dict,
-			'add_functions_file'			:	add_functions_file,
-			'remove_functions_file'			:	remove_functions_file,
-			'doc_file'						:	doc_file
-		}
-
-		return gen_opts
-		
-
