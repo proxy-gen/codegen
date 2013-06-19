@@ -19,6 +19,9 @@ LOCAL_EXPORT_C_INCLUDES :=\$(CXX_INCLUDES)
 LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
+#for $include_package in $include_packages
+LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
+#end for
 include \$(BUILD_STATIC_LIBRARY)
 
 include \$(CLEAR_VARS)
@@ -30,6 +33,14 @@ LOCAL_EXPORT_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
+#for $include_package in $include_packages
+LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
+#end for
 include \$(BUILD_SHARED_LIBRARY)
 
+
 \$(call import-module, runtime/ZyngaCXX/jni)
+
+#for $include_package in $include_packages
+\$(call import-module, $include_package)
+#end for

@@ -20,6 +20,8 @@ class BaseGenerator(object):
 		self.config['config_file_name'] = None
 		self.config['output_dir_name'] = None
 		self.config['package_name'] = None
+		self.config['include_packages'] = list()
+		self.config['include_package_path'] = None
 	
 	def setup(self):
 		raise NotImplementedError("subclasses should implement setup()")
@@ -67,6 +69,10 @@ def main():
 							help="Specifies the package in which the code will be generated")
 	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=True,
 							help="Flag to indicate if the wrapper file needs to be generated (default is True)")
+	parser.add_option("--include-package", action="append", dest="include_packages",
+							help="List of packages to include in the generated code")
+	parser.add_option("--include-package-path", action="store", dest="include_package_path",
+							help="Base path to the included package")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 	(opts, args) = parser.parse_args()
@@ -96,6 +102,8 @@ def main():
 	platform_generator.config['config_file_name'] = opts.config_file_name
 	platform_generator.config['output_dir_name'] = opts.output_dir_name
 	platform_generator.config['package_name'] = opts.package_name
+	platform_generator.config['include_packages'] = opts.include_packages
+	platform_generator.config['include_package_path'] = opts.include_package_path
 
 	platform_generator.setup()
 	platform_generator.generate()

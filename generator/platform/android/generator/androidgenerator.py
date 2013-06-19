@@ -24,6 +24,7 @@ class Generator(BaseGenerator):
 
 	def setup(self):
 		self._setup_working_dir()
+		self._setup_included_packages()
 		self._setup_config()
 		self._setup_index()
 		
@@ -185,6 +186,10 @@ class Generator(BaseGenerator):
 		#script directory
 		script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
 		self.working_dir = os.path.join(script_dir, "..")
+
+	def _setup_included_packages(self):
+		self.include_packages = self.config['include_packages']
+		self.include_package_path = self.config['include_package_path']
 
 	def _setup_config(self):
 		# setup output directories
@@ -375,11 +380,14 @@ class NativeClass(object):
 		logging.debug("self.inherits_proxy " + str(self.inherits_proxy))
 		logging.debug("self.inherited_proxy_name " + str(self.inherited_proxy_name))
 		self.is_callback = self.java_class_name in self.generator.callback_classes_list
+		logging.debug("self.is_callback " + str(self.is_callback))
 		self.callback_type = None
 		self.last_callbacks_list = []
 		if self.is_callback:
 			callback_idx = self.generator.callback_classes_list.index(self.java_class_name)
+			logging.debug("callback_idx " + str(callback_idx))
 			self.callback_type = self.generator.callback_types_list[callback_idx]
+			logging.debug("self.callback_type " + str(self.callback_type))
 			if self.callback_type == "PER_INSTANCE":
 				self.last_callbacks_list = self.generator.last_callbacks_list[callback_idx].split(':')
 		self.resource_name = generator.to_resource_name(displayname)
