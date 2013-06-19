@@ -222,6 +222,74 @@ private:
 void * self;
 
 };
+
+class AsyncFacebookRunnerRequestListener
+{
+
+public:
+
+	void * userData;
+	
+	virtual void onComplete(std::string arg0, long arg1,void * userData) = 0;
+
+	
+	virtual void onFacebookError(FacebookError* arg0, long arg1,void * userData) = 0;
+
+	
+	virtual void onIOException(long arg0, long arg1,void * userData) = 0;
+
+	
+	virtual void onFileNotFoundException(long arg0, long arg1,void * userData) = 0;
+
+	
+	virtual void onMalformedURLException(long arg0, long arg1,void * userData) = 0;
+
+
+
+};
+
+
+class AsyncFacebookRunner
+{
+
+public:
+	AsyncFacebookRunner(Facebook arg0);
+	AsyncFacebookRunner(const AsyncFacebookRunner& cc);
+	AsyncFacebookRunner(void * proxy);
+	virtual ~AsyncFacebookRunner();
+
+ 	
+ 	 void request(std::string& arg0, long arg1, std::string& arg2, AsyncFacebookRunnerRequestListener& arg3, long arg4);
+
+ 	
+ 	 void request(std::string& arg0, long arg1, AsyncFacebookRunnerRequestListener& arg2, long arg3);
+
+ 	
+ 	 void request(std::string& arg0, long arg1, AsyncFacebookRunnerRequestListener& arg2);
+
+ 	
+ 	 void request(long arg0, AsyncFacebookRunnerRequestListener& arg1, long arg2);
+
+ 	
+ 	 void request(long arg0, AsyncFacebookRunnerRequestListener& arg1);
+
+ 	
+ 	 void request(std::string& arg0, AsyncFacebookRunnerRequestListener& arg1, long arg2);
+
+ 	
+ 	 void request(std::string& arg0, AsyncFacebookRunnerRequestListener& arg1);
+
+ 	
+ 	 void logout(AsyncFacebookRunnerRequestListener& arg1);
+
+ 	
+ 	 void logout(AsyncFacebookRunnerRequestListener& arg1, long arg2);
+protected:
+
+private:
+void * self;
+
+};
 }
 
 #ifdef __cplusplus

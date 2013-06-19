@@ -30,3 +30,6 @@ libs
 generated/output/
 local.properties
 
+# Java
+*.class
+

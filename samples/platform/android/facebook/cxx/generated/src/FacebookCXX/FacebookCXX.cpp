@@ -2281,4 +2281,882 @@ long param_address = 0;
 		}
 
 	}
+ 
+
+
+
+
+	class ProxiedAsyncFacebookRunnerRequestListener : public ProxiedCallback
+	{
+	public:
+		jobject callMethod(long contextAddress, std::string methodName, void * payload);
+	};
+
+
+	static ProxiedAsyncFacebookRunnerRequestListener *proxiedAsyncFacebookRunnerRequestListener = new ProxiedAsyncFacebookRunnerRequestListener();
+
+	jobject ProxiedAsyncFacebookRunnerRequestListener::callMethod(long contextAddress, std::string methodName, void * payload)
+	{
+		LOGV("AsyncFacebookRunnerRequestListener::callMethod enter");
+		LOGV("AsyncFacebookRunnerRequestListener::callMethod methodName %s", methodName.c_str());
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+		jni->pushLocalFrame();
+
+		long heapPtr = ctx->findCallbackData(contextAddress);
+		LOGV("heapPtr for AsyncFacebookRunnerRequestListener %ld", heapPtr);
+		AsyncFacebookRunnerRequestListener *callback = (AsyncFacebookRunnerRequestListener *) reinterpret_cast<AsyncFacebookRunnerRequestListener *>(heapPtr);
+
+		void * userData = (void *) ctx->findUserData(contextAddress);
+		LOGV("userData for AsyncFacebookRunnerRequestListener %ld", (long) userData);
+		jobject response  = 0;
+
+		if (methodName == "onComplete")
+		{
+			LOGV("onComplete invoked");
+
+
+			jobjectArray array = (jobjectArray) payload;
+			jobject jobj = 0;
+			// param.resource_name java/lang/String param.jni_elem_type jstring param.jni_elem_call_type String
+			jstring jarg0  = jni->readStringObjectArrayElement(array, 0);
+			LOGV("callMethod jniType jstring");
+			std::string arg0 = jni->getUTFString(jarg0 );
+
+
+
+			// param.resource_name java/lang/Object param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg1  = jni->readObjectObjectArrayElement(array, 1);
+			LOGV("callMethod jniType jobject");
+			long arg1;
+			CXXConverter::to_cxx(jarg1 ,arg1,"java.lang.Object" ,"long" );
+
+
+
+
+
+			LOGV("invoking callback onComplete(arg0,arg1,(void *) userData)");
+
+				callback->onComplete(arg0,arg1,(void *) userData);
+
+		}
+		if (methodName == "onFacebookError")
+		{
+			LOGV("onFacebookError invoked");
+
+
+			jobjectArray array = (jobjectArray) payload;
+			jobject jobj = 0;
+			// param.resource_name com/facebook/android/FacebookError param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg0  = jni->readObjectObjectArrayElement(array, 0);
+			LOGV("callMethod jniType jobject");
+			FacebookError* arg0 = 0;
+			if (jarg0  != 0) 
+			{
+				arg0 = new FacebookError(jarg0 );
+			}
+
+
+
+			// param.resource_name java/lang/Object param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg1  = jni->readObjectObjectArrayElement(array, 1);
+			LOGV("callMethod jniType jobject");
+			long arg1;
+			CXXConverter::to_cxx(jarg1 ,arg1,"java.lang.Object" ,"long" );
+
+
+
+
+
+			LOGV("invoking callback onFacebookError(arg0,arg1,(void *) userData)");
+
+				callback->onFacebookError(arg0,arg1,(void *) userData);
+
+		}
+		if (methodName == "onIOException")
+		{
+			LOGV("onIOException invoked");
+
+
+			jobjectArray array = (jobjectArray) payload;
+			jobject jobj = 0;
+			// param.resource_name java/io/IOException param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg0  = jni->readObjectObjectArrayElement(array, 0);
+			LOGV("callMethod jniType jobject");
+			long arg0;
+			CXXConverter::to_cxx(jarg0 ,arg0,"java.io.IOException" ,"long" );
+
+
+
+			// param.resource_name java/lang/Object param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg1  = jni->readObjectObjectArrayElement(array, 1);
+			LOGV("callMethod jniType jobject");
+			long arg1;
+			CXXConverter::to_cxx(jarg1 ,arg1,"java.lang.Object" ,"long" );
+
+
+
+
+
+			LOGV("invoking callback onIOException(arg0,arg1,(void *) userData)");
+
+				callback->onIOException(arg0,arg1,(void *) userData);
+
+		}
+		if (methodName == "onFileNotFoundException")
+		{
+			LOGV("onFileNotFoundException invoked");
+
+
+			jobjectArray array = (jobjectArray) payload;
+			jobject jobj = 0;
+			// param.resource_name java/io/FileNotFoundException param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg0  = jni->readObjectObjectArrayElement(array, 0);
+			LOGV("callMethod jniType jobject");
+			long arg0;
+			CXXConverter::to_cxx(jarg0 ,arg0,"java.io.FileNotFoundException" ,"long" );
+
+
+
+			// param.resource_name java/lang/Object param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg1  = jni->readObjectObjectArrayElement(array, 1);
+			LOGV("callMethod jniType jobject");
+			long arg1;
+			CXXConverter::to_cxx(jarg1 ,arg1,"java.lang.Object" ,"long" );
+
+
+
+
+
+			LOGV("invoking callback onFileNotFoundException(arg0,arg1,(void *) userData)");
+
+				callback->onFileNotFoundException(arg0,arg1,(void *) userData);
+
+		}
+		if (methodName == "onMalformedURLException")
+		{
+			LOGV("onMalformedURLException invoked");
+
+
+			jobjectArray array = (jobjectArray) payload;
+			jobject jobj = 0;
+			// param.resource_name java/net/MalformedURLException param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg0  = jni->readObjectObjectArrayElement(array, 0);
+			LOGV("callMethod jniType jobject");
+			long arg0;
+			CXXConverter::to_cxx(jarg0 ,arg0,"java.net.MalformedURLException" ,"long" );
+
+
+
+			// param.resource_name java/lang/Object param.jni_elem_type jobject param.jni_elem_call_type Object
+			jobject jarg1  = jni->readObjectObjectArrayElement(array, 1);
+			LOGV("callMethod jniType jobject");
+			long arg1;
+			CXXConverter::to_cxx(jarg1 ,arg1,"java.lang.Object" ,"long" );
+
+
+
+
+
+			LOGV("invoking callback onMalformedURLException(arg0,arg1,(void *) userData)");
+
+				callback->onMalformedURLException(arg0,arg1,(void *) userData);
+
+		}
+
+		response = jni->popLocalFrame(response);
+		return response;
+	}
+
+
+
+
+
+
+
+ 
+
+
+
+
+	AsyncFacebookRunner::AsyncFacebookRunner(Facebook arg0)
+	{
+		LOGV("AsyncFacebookRunner::AsyncFacebookRunner invoked");
+		
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		long address = (long) this;
+		LOGV("registerProxyComponent address %d", address);
+		jobject proxiedComponent = ctx->findProxyComponent(address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			jclass clazz = jni->getClassRef("com/facebook/android/AsyncFacebookRunner");
+
+					jobject marg0 = ctx->findProxyComponent((long) &arg0);
+
+
+			proxiedComponent = jni->createNewObject(clazz, jni->getMethodID(clazz, "<init>", "(Lcom/facebook/android/Facebook;)V") , marg0);
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			ctx->registerProxyComponent(address, proxiedComponent);
+		}
+
+	}
+
+	AsyncFacebookRunner::~AsyncFacebookRunner()
+	{
+		LOGV("AsyncFacebookRunner::~AsyncFacebookRunner invoked");
+		CXXContext *ctx = CXXContext::sharedInstance();
+		long address = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(address);
+		if (proxiedComponent != 0)
+		{
+			JNIContext *jni = JNIContext::sharedInstance();
+			ctx->deregisterProxyComponent(address);
+		}		
+	}
+
+
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(std::string& arg0, long arg1, std::string& arg2, AsyncFacebookRunnerRequestListener& arg3, long arg4)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0 = jni->toJString(arg0);
+		jobject marg1  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg1,marg1 ,"long" ,"android.os.Bundle" );
+		jobject marg2 = jni->toJString(arg2);
+	  	param_address = (long) &arg3;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg3.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg3));
+			memcpy((void *) heapPtr, (void *) &arg3, sizeof(arg3));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg3 = ctx->findProxyComponent((long) param_address);
+		jobject marg4  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg4,marg4 ,"long" ,"java.lang.Object" );
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2, marg3, marg4);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(std::string& arg0, long arg1, AsyncFacebookRunnerRequestListener& arg2, long arg3)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0 = jni->toJString(arg0);
+		jobject marg1  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg1,marg1 ,"long" ,"android.os.Bundle" );
+	  	param_address = (long) &arg2;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg2.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg2));
+			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg2 = ctx->findProxyComponent((long) param_address);
+		jobject marg3  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg3,marg3 ,"long" ,"java.lang.Object" );
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2, marg3);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(std::string& arg0, long arg1, AsyncFacebookRunnerRequestListener& arg2)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0 = jni->toJString(arg0);
+		jobject marg1  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg1,marg1 ,"long" ,"android.os.Bundle" );
+	  	param_address = (long) &arg2;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg2.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg2));
+			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg2 = ctx->findProxyComponent((long) param_address);
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(long arg0, AsyncFacebookRunnerRequestListener& arg1, long arg2)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg0,marg0 ,"long" ,"android.os.Bundle" );
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+		jobject marg2  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg2,marg2 ,"long" ,"java.lang.Object" );
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(long arg0, AsyncFacebookRunnerRequestListener& arg1)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg0,marg0 ,"long" ,"android.os.Bundle" );
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(std::string& arg0, AsyncFacebookRunnerRequestListener& arg1, long arg2)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0 = jni->toJString(arg0);
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+		jobject marg2  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg2,marg2 ,"long" ,"java.lang.Object" );
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::request(std::string& arg0, AsyncFacebookRunnerRequestListener& arg1)
+	{
+		LOGV("AsyncFacebookRunner::request");
+
+		const char *methodName = "request";
+		const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+		jobject marg0 = jni->toJString(arg0);
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::logout(AsyncFacebookRunnerRequestListener& arg1)
+	{
+		LOGV("AsyncFacebookRunner::logout");
+
+		const char *methodName = "logout";
+		const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+	  		jobject marg0 = ctx->getAndroidContext();
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+
+
+
+
+
+
+
+
+	void AsyncFacebookRunner::logout(AsyncFacebookRunnerRequestListener& arg1, long arg2)
+	{
+		LOGV("AsyncFacebookRunner::logout");
+
+		const char *methodName = "logout";
+		const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
+		const char *className =  "com/facebook/android/AsyncFacebookRunner";
+
+		LOGV("className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+
+
+		jni->pushLocalFrame();
+
+		long thisAddress = (long) this;
+
+		LOGV("thisAddress %d", thisAddress);
+		jobject javaObject = ctx->findProxyComponent(thisAddress);
+
+		LOGV("javaObject %d", javaObject);
+
+	
+const char * enum_string = 0;
+long param_address = 0;
+	  		jobject marg0 = ctx->getAndroidContext();
+	  	param_address = (long) &arg1;	
+		LOGV("registerProxyComponent param_address %d", param_address);
+		jobject proxiedComponent = ctx->findProxyComponent(param_address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			proxiedComponent = ctx->createProxiedCallback(param_address,(long) proxiedAsyncFacebookRunnerRequestListener, "com/facebook/android/AsyncFacebookRunner$RequestListener");
+			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
+			ctx->registerProxyComponent(param_address, proxiedComponent);
+			long userDataPtr = (long) (arg1.userData);
+			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
+			ctx->registerUserData(param_address, (long) userDataPtr);
+			long heapPtr = (long) malloc(sizeof(arg1));
+			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
+			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
+			ctx->registerCallbackData(param_address, heapPtr);
+		}
+
+		jobject marg1 = ctx->findProxyComponent((long) param_address);
+		jobject marg2  = 0;
+		LOGV("converting from_cxx");
+		CXXConverter::from_cxx(arg2,marg2 ,"long" ,"java.lang.Object" );
+
+
+		jni->invokeVoidMethod(javaObject, className, methodName, methodSignature , marg0, marg1, marg2);
+
+
+
+		jni->popLocalFrame();		
+
+	}
+	AsyncFacebookRunner::AsyncFacebookRunner(const AsyncFacebookRunner& cc)
+	{
+		LOGV("AsyncFacebookRunner::AsyncFacebookRunner(const AsyncFacebookRunner& cc) invoked");
+
+		CXXContext *ctx = CXXContext::sharedInstance();
+		this->self = cc.self;
+		long address = (long) this;
+		LOGV("registerProxyComponent address %d", address);
+		jobject proxiedComponent = ctx->findProxyComponent(address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			JNIContext *jni = JNIContext::sharedInstance();
+			proxiedComponent = (jobject) this->self;
+			ctx->registerProxyComponent(address, proxiedComponent);
+		}
+	}
+	AsyncFacebookRunner::AsyncFacebookRunner(void * proxy)
+	{
+		LOGV("AsyncFacebookRunner::AsyncFacebookRunner invoked");
+		
+		CXXContext *ctx = CXXContext::sharedInstance();
+		long address = (long) this;
+		LOGV("registerProxyComponent address %d", address);
+		jobject proxiedComponent = ctx->findProxyComponent(address);
+		LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+		if (proxiedComponent == 0)
+		{
+			JNIContext *jni = JNIContext::sharedInstance();
+			proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+			this->self = (void *) proxiedComponent;
+			ctx->registerProxyComponent(address, proxiedComponent);
+		}
+
+	}
   
