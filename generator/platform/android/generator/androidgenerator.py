@@ -405,7 +405,11 @@ class NativeClass(object):
 		logging.debug("self.is_abstract " + str(self.is_abstract))	
 		self.is_enum = cursor_type.kind == jindex.TypeKind.JAVA_ENUM
 		logging.debug("self.is_enum " + str(self.is_enum))	
-		self.is_singleton = cursor_type.kind == jindex.TypeKind.JAVA_SINGLETON
+		self.is_singleton_field = cursor_type.kind == jindex.TypeKind.JAVA_SINGLETON_FIELD
+		logging.debug("self.is_singleton_field " + str(self.is_singleton_field))
+		self.is_singleton_instance = cursor_type.kind == jindex.TypeKind.JAVA_SINGLETON_INSTANCE
+		logging.debug("self.is_singleton_instance " + str(self.is_singleton_instance))
+		self.is_singleton = cursor_type.kind == self.is_singleton_field or cursor_type.kind == self.is_singleton_instance
 		logging.debug("self.is_singleton " + str(self.is_singleton))	
 		self.is_static_methods = cursor_type.kind == jindex.TypeKind.JAVA_STATIC_METHODS
 		logging.debug("self.is_static_methods " + str(self.is_static_methods))	

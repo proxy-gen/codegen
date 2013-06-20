@@ -1,6 +1,6 @@
 #set $should_create_from_constructor = $current_class.is_instance
-#set $should_create_from_singleton_function = $current_class.is_singleton
-#set $should_create_from_singleton_field = $current_class.is_enum
+#set $should_create_from_singleton_function = $current_class.is_singleton_instance
+#set $should_create_from_singleton_field = $current_class.is_enum or $current_class.is_singleton_field
 #set $singleton_function_name = $current_class.generator.singleton_function_name
 $current_class.class_doc
 #if $current_class.inherits_proxy

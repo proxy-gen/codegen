@@ -233,7 +233,8 @@ class TypeKind(object):
 
 TypeKind.UNKNOWN = TypeKind(0)
 TypeKind.JAVA_INSTANCE = TypeKind(200)
-TypeKind.JAVA_SINGLETON = TypeKind(201)
+TypeKind.JAVA_SINGLETON_FIELD = TypeKind(201)
+TypeKind.JAVA_SINGLETON_INSTANCE = TypeKind(211)
 TypeKind.JAVA_ENUM = TypeKind(202)
 TypeKind.JAVA_ABSTRACT = TypeKind(203)
 TypeKind.JAVA_STATIC_METHODS = TypeKind(204)

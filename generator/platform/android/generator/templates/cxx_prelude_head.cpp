@@ -1,6 +1,6 @@
 #set $should_create_from_constructor = $current_class.is_instance
-#set $should_create_from_singleton_function = $current_class.is_singleton
-#set $should_create_from_singleton_field = $current_class.is_enum
+#set $should_create_from_singleton_function = $current_class.is_singleton_instance
+#set $should_create_from_singleton_field = $current_class.is_enum or $current_class.is_singleton_field
 #set $singleton_field_name = $current_class.generator.singleton_field_name
 #set $singleton_function_name = $current_class.generator.singleton_function_name
 #set $is_abstract = $current_class.is_abstract
@@ -12,6 +12,7 @@ marg$str #end def
 "$str" #end def
 
 #if $is_abstract
+// ${current_class.class_name} is abstract
 	${current_class.class_name}::~${current_class.class_name}()
 	{
 		LOGV("${current_class.class_name}::~${current_class.class_name} invoked");
@@ -24,6 +25,7 @@ marg$str #end def
 		}		
 	}
 #elif $should_create_from_constructor
+// ${current_class.class_name} is an instance
 #for $current_constructor in $current_class.constructors
 	${current_class.class_name}::${current_class.class_name}($current_constructor.constructor_param_signature)
 	{
@@ -154,7 +156,7 @@ marg$str #end def
 		}		
 	}
 #else if $should_create_from_singleton_field
-
+// ${current_class.class_name} is a singleton (uses singleton FIELD)
 	static ${current_class.class_name} *s${current_class.class_name} = 0;
 
 	${current_class.class_name}::${current_class.class_name}() {}
@@ -196,7 +198,7 @@ marg$str #end def
 		}		
 	}
 #else if $should_create_from_singleton_function
-
+// ${current_class.class_name} is a singleton (uses singleton INSTANCE)
 	static ${current_class.class_name} *s${current_class.class_name} = 0;
 
 	${current_class.class_name}::${current_class.class_name}() {}

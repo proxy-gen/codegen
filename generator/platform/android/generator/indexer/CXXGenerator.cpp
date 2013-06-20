@@ -16,7 +16,8 @@
 
 #define TYPE_UNKNOWN 0
 #define TYPE_JAVA_INSTANCE 200
-#define TYPE_JAVA_SINGLETON 201
+#define TYPE_JAVA_SINGLETON_FIELD 201
+ #define TYPE_JAVA_SINGLETON_INSTANCE 211
 #define TYPE_JAVA_ENUM 202
 #define TYPE_JAVA_ABSTRACT 203
 #define TYPE_JAVA_STATIC_METHODS 204
@@ -393,14 +394,67 @@ CXXType getCursorType(CXXCursor cursor)
 					break;
 				}
 			}
-
 			if (onlyStaticPublicMethods)
 			{
 				type._kind_id = TYPE_JAVA_STATIC_METHODS;
 			}
 			else if (constructorCount == 0)
 			{
-				type._kind_id = TYPE_JAVA_SINGLETON;
+				// search for a public static method that takes no arg and returns this type
+				bool isSingletonInstance = false;
+				jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
+				jsize jmethodCount = jni->getArrayLength(jmethods);
+				int methodCount = (int) jmethodCount;
+				for (int i = 0; i < methodCount; i++)
+				{
+					jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
+					jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
+					bool isBridge = (bool) jisBridge;
+					if (isBridge) continue;
+					jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
+					bool isSynthetic = (bool) jisSynthetic;
+					if (isSynthetic) continue;
+					jint jmethodmodifiers = (jint) jni->invokeIntMethod(jmethodObj, "java/lang/reflect/Method", "getModifiers", "()I");
+					int methodModifiers = (int) jmethodmodifiers;
+					bool isMethodStatic = (methodModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
+					bool isMethodPublic = (methodModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+					if (!isMethodPublic) continue;
+					if (!isMethodStatic) continue;
+					jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Method", "getParameterTypes", "()[Ljava/lang/Class;");
+					jsize parameterCount = jni->getArrayLength(jparameterTypes);
+					if (parameterCount > 0) continue;
+					jobject jreturnType = (jobject) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+					isSingletonInstance = (bool) jni->isInstanceOf(jreturnType, (jclass) tu->refObj);
+				}
+				// search for a public static field that returns this type
+				bool isSingletonField = false;
+				jobjectArray jfields = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/Class", "getDeclaredFields", "()[Ljava/lang/Field;");
+				jsize jfieldCount = jni->getArrayLength(jfields);
+				int fieldCount = (int) jfieldCount;
+				for (int i = 0; i < fieldCount; i++)
+				{
+					jobject jfieldObj = jni->getObjectArrayElement(jfields, i);
+					int fieldModifiers = jni->invokeIntMethod(jfieldObj, "java/lang/reflect/Field", "getModifiers", "()I");
+					bool isFieldStatic = (fieldModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
+					bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+					if (!isFieldPublic) continue;
+					if (!isFieldStatic) continue;
+					jobject jreturnType = (jobject) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Field", "getReturnType", "()Ljava/lang/Class;");
+					isSingletonField = (bool) jni->isInstanceOf(jreturnType, (jclass) tu->refObj);
+				}
+				if (isSingletonInstance)
+				{
+					type._kind_id = TYPE_JAVA_SINGLETON_INSTANCE;
+				}
+				else if (isSingletonField)
+				{
+					type._kind_id = TYPE_JAVA_SINGLETON_FIELD;
+				}
+				else
+				{
+					//TODO: what type is this?
+					type._kind_id = TYPE_JAVA_ABSTRACT;
+				}
 			}
 			else
 			{

@@ -76,6 +76,7 @@ public:
 	jboolean isLongObject(jobject obj);
 	jboolean isFloatObject(jobject obj);
 	jboolean isDoubleObject(jobject obj);
+	jboolean isInstanceOf(jobject obj, jclass claz);
 	jboolean isInstanceOf(jobject obj, const char * className);
 
 	jobject toBooleanObject(jboolean value);

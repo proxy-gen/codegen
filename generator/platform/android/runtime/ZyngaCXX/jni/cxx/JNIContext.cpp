@@ -2515,13 +2515,13 @@ jboolean JNIContext::isDoubleObject(jobject obj)
 	return isInstanceOf(obj, "java/lang/Double");
 }
 
-jboolean JNIContext::isInstanceOf(jobject obj, const char * className)
+jboolean JNIContext::isInstanceOf(jobject obj, jclass claz)
 {
 	if (obj != 0)
 	{
 		JNIEnv *env = 0;
 		getEnv(&env);
-		jboolean result = env->IsInstanceOf(obj, getClassRef(className));
+		jboolean result = env->IsInstanceOf(obj, claz);
 		if (checkException(env))
 		{
 			return 0;
@@ -2529,6 +2529,11 @@ jboolean JNIContext::isInstanceOf(jobject obj, const char * className)
 		return result;
 	}
 	return 0;
+}
+
+jboolean JNIContext::isInstanceOf(jobject obj, const char * className)
+{
+	return isInstanceOf(obj, getClassRef(className));
 }
 
 jobject JNIContext::toBooleanObject(jboolean value)
