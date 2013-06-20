@@ -30,6 +30,7 @@
 
 #define MODIFIER_JAVA_PUBLIC 1
 #define MODIFIER_JAVA_STATIC 8
+#define MODIFIER_JAVA_INTERFACE 512
 #define MODIFIER_JAVA_ABSTRACT 1024
 
 JNIContext *jni = 0;
@@ -147,9 +148,25 @@ char * getCursorDisplayName(CXXCursor cur)
 	CXXTranslationUnit *tu = (CXXTranslationUnit *) cur._tu_id;
 	if (cur._kind_id == CURSOR_CLASS_DECL)
 	{
-		jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
-		const char * className = jni->getUTFString(jclassName).c_str();
-		return (char *) className;
+		bool isClass = (bool) jni->isInstanceOf(tu->refObj, "java/lang/Class");
+		if (isClass)
+		{			
+			jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+			const char * className = jni->getUTFString(jclassName).c_str();
+			return (char *) className;
+		}
+		bool isParameterizedType = jni->isInstanceOf(tu->refObj, "java/lang/reflect/ParameterizedType");
+		if (isParameterizedType)
+		{
+			jobject jrawTypeObj = jni->invokeStringMethod(tu->refObj, "java/lang/reflect/ParameterizedType", "getRawType", "()Ljava/lang/reflect/Type;");
+			bool isClass = (bool) jni->isInstanceOf(jrawTypeObj, "java/lang/Class");
+			if (isClass)
+			{				
+				jstring jclassName = jni->invokeStringMethod(jrawTypeObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				const char * className = jni->getUTFString(jclassName).c_str();
+				return (char *) className;
+			}
+		}
 	}
 	else if (cur._kind_id == CURSOR_FUNCTION_DECL)
 	{
@@ -159,15 +176,47 @@ char * getCursorDisplayName(CXXCursor cur)
 	}
 	else if (cur._kind_id == CURSOR_PARM_DECL)
 	{
-		jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
-		const char * className = jni->getUTFString(jclassName).c_str();
-		return (char *) className;
+		bool isClass = (bool) jni->isInstanceOf(tu->refObj, "java/lang/Class");
+		if (isClass)
+		{			
+			jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+			const char * className = jni->getUTFString(jclassName).c_str();
+			return (char *) className;
+		}
+		bool isParameterizedType = jni->isInstanceOf(tu->refObj, "java/lang/reflect/ParameterizedType");
+		if (isParameterizedType)
+		{
+			jobject jrawTypeObj = jni->invokeStringMethod(tu->refObj, "java/lang/reflect/ParameterizedType", "getRawType", "()Ljava/lang/reflect/Type;");
+			bool isClass = (bool) jni->isInstanceOf(jrawTypeObj, "java/lang/Class");
+			if (isClass)
+			{				
+				jstring jclassName = jni->invokeStringMethod(jrawTypeObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				const char * className = jni->getUTFString(jclassName).c_str();
+				return (char *) className;
+			}
+		}
 	}
 	else if (cur._kind_id == CURSOR_RETURN_DECL)
 	{
-		jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
-		const char * className = jni->getUTFString(jclassName).c_str();
-		return (char *) className;
+		bool isClass = (bool) jni->isInstanceOf(tu->refObj, "java/lang/Class");
+		if (isClass)
+		{
+			jstring jclassName = jni->invokeStringMethod(tu->refObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+			const char * className = jni->getUTFString(jclassName).c_str();
+			return (char *) className;			
+		}
+		bool isParameterizedType = jni->isInstanceOf(tu->refObj, "java/lang/reflect/ParameterizedType");
+		if (isParameterizedType)
+		{
+			jobject jrawTypeObj = jni->invokeStringMethod(tu->refObj, "java/lang/reflect/ParameterizedType", "getRawType", "()Ljava/lang/reflect/Type;");
+			bool isClass = (bool) jni->isInstanceOf(jrawTypeObj, "java/lang/Class");
+			if (isClass)
+			{				
+				jstring jclassName = jni->invokeStringMethod(jrawTypeObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				const char * className = jni->getUTFString(jclassName).c_str();
+				return (char *) className;
+			}
+		}
 	}
 	return 0;
 }
@@ -197,10 +246,16 @@ int visitCursorChildren(CXXCursor parentCursor, CursorVisitCallback callback, vo
 		jsize methodCount = jni->getArrayLength(jmethods);
 		for (int i = 0; i < methodCount; i++)
 		{
-			jobject refObj = jni->getObjectArrayElement(jmethods, i);
+			jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
+			jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
+			bool isBridge = (bool) jisBridge;
+			if (isBridge) continue;
+			jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
+			bool isSynthetic = (bool) jisSynthetic;
+			if (isSynthetic) continue;
 			CXXCursor childCursor;
 			childCursor._kind_id = CURSOR_FUNCTION_DECL;
-			childCursor._tu_id = (long) (new CXXTranslationUnit(refObj));
+			childCursor._tu_id = (long) (new CXXTranslationUnit(jmethodObj));
 			callback(childCursor, parentCursor, host_object);
 		}
 		jobjectArray jconstructors = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
@@ -222,7 +277,7 @@ int visitCursorChildren(CXXCursor parentCursor, CursorVisitCallback callback, vo
 		childCursor._tu_id = (long) (new CXXTranslationUnit(refObj));
 		callback(childCursor, parentCursor, host_object);
 
-		jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Method", "getParameterTypes", "()[Ljava/lang/Class;");
+		jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Method", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (jparameterTypes != 0)
 		{
 			jsize parameterCount = jni->getArrayLength(jparameterTypes);
@@ -241,11 +296,12 @@ int visitCursorChildren(CXXCursor parentCursor, CursorVisitCallback callback, vo
 		jobject jParentClass = jni->invokeObjectMethod(tu->refObj,"java/lang/reflect/Constructor","getDeclaringClass","()Ljava/lang/Class;");
 		jobject jDeclaringClass = jni->invokeObjectMethod(jParentClass,"java/lang/Class","getDeclaringClass","()Ljava/lang/Class;");
 		bool isLocalClass = jDeclaringClass != 0;
-		jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Constructor", "getParameterTypes", "()[Ljava/lang/Class;");
+		jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/Constructor", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (jparameterTypes != 0)
 		{
 			jsize parameterCount = jni->getArrayLength(jparameterTypes);
-			int startIdx = isLocalClass ? 1 : 0;
+			//int startIdx = isLocalClass ? 1 : 0;
+			int startIdx = 0;
 			for (int i = startIdx; i < parameterCount; i++)
 			{
 				jobject refObj = jni->getObjectArrayElement(jparameterTypes, i);
@@ -294,10 +350,15 @@ CXXType getCursorType(CXXCursor cursor)
 		jsize constructorCount = jni->getArrayLength(jconstructors);
 		jint jmodifiers = (jint) jni->invokeIntMethod(tu->refObj, "java/lang/Class", "getModifiers", "()I");
 		int modifiers = (int) jmodifiers;
+		bool isInterface = (modifiers & MODIFIER_JAVA_INTERFACE) == MODIFIER_JAVA_INTERFACE;
 		bool isAbstract = (modifiers & MODIFIER_JAVA_ABSTRACT) == MODIFIER_JAVA_ABSTRACT;
 		jboolean jisEnum = jni->invokeBooleanMethod(tu->refObj, "java/lang/Class", "isEnum", "()Z");
 		bool isEnum = (bool) jisEnum;
-		if (isAbstract)
+		if (isInterface)
+		{
+			type._kind_id = TYPE_JAVA_INTERFACE;
+		}
+		else if (isAbstract)
 		{
 			type._kind_id = TYPE_JAVA_ABSTRACT;
 		}
@@ -316,8 +377,12 @@ CXXType getCursorType(CXXCursor cursor)
 			for (int i = 0; i < methodCount; i++)
 			{
 				jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
-				jstring jmethodName = jni->invokeStringMethod(jmethodObj, "java/lang/reflect/Method", "getName", "()Ljava/lang/String;");
-				const char * methodName = jni->getUTFString(jmethodName).c_str();
+				jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
+				bool isBridge = (bool) jisBridge;
+				if (isBridge) continue;
+				jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
+				bool isSynthetic = (bool) jisSynthetic;
+				if (isSynthetic) continue;
 				jint jmethodmodifiers = (jint) jni->invokeIntMethod(jmethodObj, "java/lang/reflect/Method", "getModifiers", "()I");
 				int methodModifiers = (int) jmethodmodifiers;
 				bool isMethodStatic = (methodModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;

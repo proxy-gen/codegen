@@ -2660,7 +2660,7 @@ std::string JNIContext::getUTFString(jstring str)
 				if (checkException(env) == false)
 				{
 					jint len = env->GetArrayLength(bytes);
-					char *chars = (char *) malloc(len + 1);
+					char chars[len + 1];
 					if (chars != 0)
 					{
 						env->GetByteArrayRegion(bytes, 0, len, (jbyte *) chars);

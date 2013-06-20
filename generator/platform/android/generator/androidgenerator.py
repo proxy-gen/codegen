@@ -314,7 +314,10 @@ class Generator(BaseGenerator):
 		logging.debug("self.callback_types_list " + str(self.callback_types_list))		
 
 		self.last_callbacks_list = build_list_from_config(config, s, 'last_callbacks')
-		logging.debug("self.last_callbacks_list " + str(self.last_callbacks_list))		
+		logging.debug("self.last_callbacks_list " + str(self.last_callbacks_list))	
+
+		self.forward_declarations_list = build_list_from_config(config, s, 'forward_declarations')
+		logging.debug("self.forward_declarations_list " + str(self.forward_declarations_list))	
 
 		self.singleton_field_name = config.get(s, 'singleton_field')
 		logging.debug("self.singleton_field_name " + str(self.singleton_field_name))
@@ -394,6 +397,8 @@ class NativeClass(object):
 		logging.debug("self.resource_name " + str(self.resource_name))	
 		cursor_type = cursor.type
 		logging.debug("self.cursor_type " + str(cursor_type))	
+		self.is_interface = cursor_type.kind == jindex.TypeKind.JAVA_INTERFACE
+		logging.debug("self.is_interface " + str(self.is_interface))
 		self.is_instance = cursor_type.kind == jindex.TypeKind.JAVA_INSTANCE
 		logging.debug("self.is_instance " + str(self.is_instance))
 		self.is_abstract = cursor_type.kind == jindex.TypeKind.JAVA_ABSTRACT
@@ -620,7 +625,7 @@ class NativeConstructor(object):
 		self.constructor_name = "<init>"
 		self.description = self.constructor_name
 		self.description = self.constructor_name + self._initial_constructor_arg_signature
-		logging.debug("self.description " + str(self.description))
+		logging.debug("self.description(constructor)" + str(self.description))
 		self._parse_args()
 		logging.debug("NativeConstructor __init__ exit")
 

@@ -19,3 +19,8 @@ extern "C" {
 \#endif //__cplusplus
 
 namespace ZDK {
+
+#for $forward_declaration in $forward_declarations_list
+class $forward_declaration;
+#end for
+
