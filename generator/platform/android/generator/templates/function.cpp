@@ -114,10 +114,11 @@ long param_address = 0;
 		jobject marg$marg_idx = ctx->findProxyComponent((long) param_address);
 		#set $marg_idx += 1
 	#else if $param.is_enum
+		#set $enum_namespace = $param.normalized_name
 		do
 		{
 		#for $enum_value in $param.enum_values
-		if ($enum_value == ${param.arg_name})
+		if ($enum_namespace::$enum_value == ${param.arg_name})
 		{
 			enum_string = "$enum_value";
 			break;
@@ -300,13 +301,14 @@ long param_address = 0;
 	#if $current_function.function_ret[0].is_enum
 		jstring jenumString = jni->toCXXEnumString($prefix_jstr($ret));
 		const char *cenumString = jni->getUTFString(jenumString).c_str();
-		$rename_type cret;
+		#set $enum_namespace = $current_function.function_ret[0].normalized_name
+		$enum_namespace::$rename_type cret;
 		do
 		{
 		#for $enum_value in $current_function.function_ret[0].enum_values
 			if (strcmp("$enum_value", cenumString) == 0)
 			{
-				cret = $enum_value;
+				cret = $enum_namespace::$enum_value;
 				break;
 			}
 		#end for

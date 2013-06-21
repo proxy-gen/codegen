@@ -1034,6 +1034,8 @@ class NativeArg(object):
 		logging.debug("self.signature " + str(self.signature))
 
 		self.return_name = self.rename
+		if self.is_enum:
+			self.return_name = self.rename + "::" + self.rename
 		# if self.rename == "std::string":
 		# 	pass
 		# elif self.is_enum:
@@ -1062,7 +1064,7 @@ class NativeArg(object):
 
 		self.param_name = self.rename
 		if self.is_enum:
-			pass
+			self.param_name = self.rename + "::" + self.rename
 		# elif self.is_callback:
 		# 	pass
 		elif self.rename == "bool":
@@ -1088,7 +1090,9 @@ class NativeArg(object):
 		logging.debug("self.param_name " + str(self.param_name))
 
 		self.param_callback_name = self.rename
-		if self.is_proxied:
+		if self.is_enum:
+			self.param_callback_name = self.rename + "::" + self.rename
+		elif self.is_proxied:
 			self.param_callback_name = self.rename + "*"
 		logging.debug("self.param_callback_name " + str(self.param_callback_name))
 
@@ -1123,7 +1127,9 @@ class NativeArg(object):
 		logging.debug("self.arg_indirection_name " + str(self.arg_indirection_name))
 
 		self.pointer_name = self.rename
-		if self.is_proxied:
+		if self.is_enum:
+			self.pointer_name = self.rename + "::" + self.rename
+		elif self.is_proxied:
 			self.pointer_name = self.rename + "*"
 		logging.debug("self.pointer_name " + str(self.pointer_name))
 

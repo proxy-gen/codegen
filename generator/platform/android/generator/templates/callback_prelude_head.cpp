@@ -90,13 +90,14 @@ j$str #end def
 			#set $rename_type = $param.rename
 			jstring jenumString = jni->toCXXEnumString($prefix_jstr($param.arg_name));
 			const char *cenumString = jni->getUTFString(jenumString).c_str();
-			$rename_type ${param.arg_name};
+			#set $enum_namespace = $param.rename
+			$enum_namespace::$rename_type ${param.arg_name};
 			do
 			{
 			#for $enum_value in $param.enum_values
 			if (strcmp("$enum_value", cenumString) == 0)
 			{
-				${param.arg_name} = $enum_value;
+				${param.arg_name} = $enum_namespace::$enum_value;
 				break;
 			}
 			#end for
