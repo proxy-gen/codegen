@@ -18,7 +18,12 @@ LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_EXPORT_C_INCLUDES :=\$(CXX_INCLUDES)
 LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
+#if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
+#end if
+#if $include_default_converter
+LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaConverter_static
+#end if
 #for $include_package in $include_packages
 LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
 #end for
@@ -32,14 +37,21 @@ LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_EXPORT_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
+#if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
+#end if
+#if $include_default_converter
+LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaConverter_static
+#end if
 #for $include_package in $include_packages
 LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
 #end for
 include \$(BUILD_SHARED_LIBRARY)
 
-
 \$(call import-module, runtime/ZyngaCXX/jni)
+#if $include_default_converter
+\$(call import-module, runtime/ZyngaConverter/jni)
+#end if
 
 #for $include_package in $include_packages
 \$(call import-module, $include_package)

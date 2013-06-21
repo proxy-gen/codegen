@@ -102,8 +102,10 @@ def main():
 	platform_generator.config['config_file_name'] = opts.config_file_name
 	platform_generator.config['output_dir_name'] = opts.output_dir_name
 	platform_generator.config['package_name'] = opts.package_name
-	platform_generator.config['include_packages'] = opts.include_packages
-	platform_generator.config['include_package_path'] = opts.include_package_path
+	if opts.include_packages:
+		platform_generator.config['include_packages'] = opts.include_packages
+	if opts.include_package_path:
+		platform_generator.config['include_package_path'] = opts.include_package_path
 
 	platform_generator.setup()
 	platform_generator.generate()

@@ -24,6 +24,8 @@ class Generator(BaseGenerator):
 
 	def setup(self):
 		self._setup_working_dir()
+		self._setup_default_runtime()
+		self._setup_default_converter()
 		self._setup_included_packages()
 		self._setup_config()
 		self._setup_index()
@@ -186,6 +188,12 @@ class Generator(BaseGenerator):
 		#script directory
 		script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
 		self.working_dir = os.path.join(script_dir, "..")
+
+	def _setup_default_runtime(self):
+		self.include_default_runtime = True
+
+	def _setup_default_converter(self):
+		self.include_default_converter = True
 
 	def _setup_included_packages(self):
 		self.include_packages = self.config['include_packages']
