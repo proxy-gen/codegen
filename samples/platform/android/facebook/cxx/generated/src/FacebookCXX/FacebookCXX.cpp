@@ -77,42 +77,42 @@ using namespace ZDK;
 			LOGV("callMethod jniType jobject");
 			jstring jenumString = jni->toCXXEnumString(jarg1 );
 			const char *cenumString = jni->getUTFString(jenumString).c_str();
-			FacebookSessionState arg1;
+			FacebookSessionState::FacebookSessionState arg1;
 			do
 			{
 			if (strcmp("CREATED", cenumString) == 0)
 			{
-				arg1 = CREATED;
+				arg1 = FacebookSessionState::CREATED;
 				break;
 			}
 			if (strcmp("CREATED_TOKEN_LOADED", cenumString) == 0)
 			{
-				arg1 = CREATED_TOKEN_LOADED;
+				arg1 = FacebookSessionState::CREATED_TOKEN_LOADED;
 				break;
 			}
 			if (strcmp("OPENING", cenumString) == 0)
 			{
-				arg1 = OPENING;
+				arg1 = FacebookSessionState::OPENING;
 				break;
 			}
 			if (strcmp("OPENED", cenumString) == 0)
 			{
-				arg1 = OPENED;
+				arg1 = FacebookSessionState::OPENED;
 				break;
 			}
 			if (strcmp("OPENED_TOKEN_UPDATED", cenumString) == 0)
 			{
-				arg1 = OPENED_TOKEN_UPDATED;
+				arg1 = FacebookSessionState::OPENED_TOKEN_UPDATED;
 				break;
 			}
 			if (strcmp("CLOSED_LOGIN_FAILED", cenumString) == 0)
 			{
-				arg1 = CLOSED_LOGIN_FAILED;
+				arg1 = FacebookSessionState::CLOSED_LOGIN_FAILED;
 				break;
 			}
 			if (strcmp("CLOSED", cenumString) == 0)
 			{
-				arg1 = CLOSED;
+				arg1 = FacebookSessionState::CLOSED;
 				break;
 			}
 			} while (0);
@@ -689,7 +689,7 @@ long param_address = 0;
 
 
 
-	FacebookAccessTokenSource FacebookTokenCachingStrategy::getSource(long arg0)
+	FacebookAccessTokenSource::FacebookAccessTokenSource FacebookTokenCachingStrategy::getSource(long arg0)
 	{
 		LOGV("FacebookTokenCachingStrategy::getSource");
 
@@ -719,37 +719,42 @@ long param_address = 0;
 
 		jstring jenumString = jni->toCXXEnumString(jret0 );
 		const char *cenumString = jni->getUTFString(jenumString).c_str();
-		FacebookAccessTokenSource cret;
+		FacebookAccessTokenSource::FacebookAccessTokenSource cret;
 		do
 		{
+			if (strcmp("NONE", cenumString) == 0)
+			{
+				cret = FacebookAccessTokenSource::NONE;
+				break;
+			}
 			if (strcmp("FACEBOOK_APPLICATION_WEB", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_WEB;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_WEB;
 				break;
 			}
 			if (strcmp("FACEBOOK_APPLICATION_NATIVE", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_NATIVE;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_NATIVE;
 				break;
 			}
 			if (strcmp("FACEBOOK_APPLICATION_SERVICE", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_SERVICE;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_SERVICE;
 				break;
 			}
 			if (strcmp("WEB_VIEW", cenumString) == 0)
 			{
-				cret = WEB_VIEW;
+				cret = FacebookAccessTokenSource::WEB_VIEW;
 				break;
 			}
 			if (strcmp("TEST_USER", cenumString) == 0)
 			{
-				cret = TEST_USER;
+				cret = FacebookAccessTokenSource::TEST_USER;
 				break;
 			}
 			if (strcmp("CLIENT_TOKEN", cenumString) == 0)
 			{
-				cret = CLIENT_TOKEN;
+				cret = FacebookAccessTokenSource::CLIENT_TOKEN;
 				break;
 			}
 		} while (0);
@@ -765,7 +770,7 @@ long param_address = 0;
 
 
 
-	void FacebookTokenCachingStrategy::putSource(long arg0, FacebookAccessTokenSource arg1)
+	void FacebookTokenCachingStrategy::putSource(long arg0, FacebookAccessTokenSource::FacebookAccessTokenSource arg1)
 	{
 		LOGV("FacebookTokenCachingStrategy::putSource");
 
@@ -789,32 +794,37 @@ long param_address = 0;
 		CXXConverter::from_cxx(arg0,marg0 ,"long" ,"android.os.Bundle" );
 		do
 		{
-		if (FACEBOOK_APPLICATION_WEB == arg1)
+		if (FacebookAccessTokenSource::NONE == arg1)
+		{
+			enum_string = "NONE";
+			break;
+		}
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_WEB == arg1)
 		{
 			enum_string = "FACEBOOK_APPLICATION_WEB";
 			break;
 		}
-		if (FACEBOOK_APPLICATION_NATIVE == arg1)
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_NATIVE == arg1)
 		{
 			enum_string = "FACEBOOK_APPLICATION_NATIVE";
 			break;
 		}
-		if (FACEBOOK_APPLICATION_SERVICE == arg1)
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_SERVICE == arg1)
 		{
 			enum_string = "FACEBOOK_APPLICATION_SERVICE";
 			break;
 		}
-		if (WEB_VIEW == arg1)
+		if (FacebookAccessTokenSource::WEB_VIEW == arg1)
 		{
 			enum_string = "WEB_VIEW";
 			break;
 		}
-		if (TEST_USER == arg1)
+		if (FacebookAccessTokenSource::TEST_USER == arg1)
 		{
 			enum_string = "TEST_USER";
 			break;
 		}
-		if (CLIENT_TOKEN == arg1)
+		if (FacebookAccessTokenSource::CLIENT_TOKEN == arg1)
 		{
 			enum_string = "CLIENT_TOKEN";
 			break;
@@ -1617,7 +1627,7 @@ long param_address = 0;
 
 
 
-	FacebookAccessTokenSource FacebookAccessToken::getSource()
+	FacebookAccessTokenSource::FacebookAccessTokenSource FacebookAccessToken::getSource()
 	{
 		LOGV("FacebookAccessToken::getSource");
 
@@ -1651,37 +1661,42 @@ long param_address = 0;
 
 		jstring jenumString = jni->toCXXEnumString(jret0 );
 		const char *cenumString = jni->getUTFString(jenumString).c_str();
-		FacebookAccessTokenSource cret;
+		FacebookAccessTokenSource::FacebookAccessTokenSource cret;
 		do
 		{
+			if (strcmp("NONE", cenumString) == 0)
+			{
+				cret = FacebookAccessTokenSource::NONE;
+				break;
+			}
 			if (strcmp("FACEBOOK_APPLICATION_WEB", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_WEB;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_WEB;
 				break;
 			}
 			if (strcmp("FACEBOOK_APPLICATION_NATIVE", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_NATIVE;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_NATIVE;
 				break;
 			}
 			if (strcmp("FACEBOOK_APPLICATION_SERVICE", cenumString) == 0)
 			{
-				cret = FACEBOOK_APPLICATION_SERVICE;
+				cret = FacebookAccessTokenSource::FACEBOOK_APPLICATION_SERVICE;
 				break;
 			}
 			if (strcmp("WEB_VIEW", cenumString) == 0)
 			{
-				cret = WEB_VIEW;
+				cret = FacebookAccessTokenSource::WEB_VIEW;
 				break;
 			}
 			if (strcmp("TEST_USER", cenumString) == 0)
 			{
-				cret = TEST_USER;
+				cret = FacebookAccessTokenSource::TEST_USER;
 				break;
 			}
 			if (strcmp("CLIENT_TOKEN", cenumString) == 0)
 			{
-				cret = CLIENT_TOKEN;
+				cret = FacebookAccessTokenSource::CLIENT_TOKEN;
 				break;
 			}
 		} while (0);
@@ -1795,7 +1810,7 @@ long param_address = 0;
 
 
 
-	FacebookAccessToken* FacebookAccessToken::createFromExistingAccessToken(std::string& arg0, long arg1, long arg2, FacebookAccessTokenSource arg3, long arg4)
+	FacebookAccessToken* FacebookAccessToken::createFromExistingAccessToken(std::string& arg0, long arg1, long arg2, FacebookAccessTokenSource::FacebookAccessTokenSource arg3, long arg4)
 	{
 		LOGV("FacebookAccessToken::createFromExistingAccessToken");
 
@@ -1823,32 +1838,37 @@ long param_address = 0;
 		CXXConverter::from_cxx(arg2,marg2 ,"long" ,"java.util.Date" );
 		do
 		{
-		if (FACEBOOK_APPLICATION_WEB == arg3)
+		if (FacebookAccessTokenSource::NONE == arg3)
+		{
+			enum_string = "NONE";
+			break;
+		}
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_WEB == arg3)
 		{
 			enum_string = "FACEBOOK_APPLICATION_WEB";
 			break;
 		}
-		if (FACEBOOK_APPLICATION_NATIVE == arg3)
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_NATIVE == arg3)
 		{
 			enum_string = "FACEBOOK_APPLICATION_NATIVE";
 			break;
 		}
-		if (FACEBOOK_APPLICATION_SERVICE == arg3)
+		if (FacebookAccessTokenSource::FACEBOOK_APPLICATION_SERVICE == arg3)
 		{
 			enum_string = "FACEBOOK_APPLICATION_SERVICE";
 			break;
 		}
-		if (WEB_VIEW == arg3)
+		if (FacebookAccessTokenSource::WEB_VIEW == arg3)
 		{
 			enum_string = "WEB_VIEW";
 			break;
 		}
-		if (TEST_USER == arg3)
+		if (FacebookAccessTokenSource::TEST_USER == arg3)
 		{
 			enum_string = "TEST_USER";
 			break;
 		}
-		if (CLIENT_TOKEN == arg3)
+		if (FacebookAccessTokenSource::CLIENT_TOKEN == arg3)
 		{
 			enum_string = "CLIENT_TOKEN";
 			break;
@@ -2745,7 +2765,7 @@ long param_address = 0;
 
 
 
-	FacebookSessionState FacebookSession::getState()
+	FacebookSessionState::FacebookSessionState FacebookSession::getState()
 	{
 		LOGV("FacebookSession::getState");
 
@@ -2779,42 +2799,42 @@ long param_address = 0;
 
 		jstring jenumString = jni->toCXXEnumString(jret0 );
 		const char *cenumString = jni->getUTFString(jenumString).c_str();
-		FacebookSessionState cret;
+		FacebookSessionState::FacebookSessionState cret;
 		do
 		{
 			if (strcmp("CREATED", cenumString) == 0)
 			{
-				cret = CREATED;
+				cret = FacebookSessionState::CREATED;
 				break;
 			}
 			if (strcmp("CREATED_TOKEN_LOADED", cenumString) == 0)
 			{
-				cret = CREATED_TOKEN_LOADED;
+				cret = FacebookSessionState::CREATED_TOKEN_LOADED;
 				break;
 			}
 			if (strcmp("OPENING", cenumString) == 0)
 			{
-				cret = OPENING;
+				cret = FacebookSessionState::OPENING;
 				break;
 			}
 			if (strcmp("OPENED", cenumString) == 0)
 			{
-				cret = OPENED;
+				cret = FacebookSessionState::OPENED;
 				break;
 			}
 			if (strcmp("OPENED_TOKEN_UPDATED", cenumString) == 0)
 			{
-				cret = OPENED_TOKEN_UPDATED;
+				cret = FacebookSessionState::OPENED_TOKEN_UPDATED;
 				break;
 			}
 			if (strcmp("CLOSED_LOGIN_FAILED", cenumString) == 0)
 			{
-				cret = CLOSED_LOGIN_FAILED;
+				cret = FacebookSessionState::CLOSED_LOGIN_FAILED;
 				break;
 			}
 			if (strcmp("CLOSED", cenumString) == 0)
 			{
-				cret = CLOSED;
+				cret = FacebookSessionState::CLOSED;
 				break;
 			}
 		} while (0);
@@ -6751,7 +6771,7 @@ long param_address = 0;
 
 
 
-	FacebookSessionOpenRequest* FacebookSessionOpenRequest::setLoginBehavior(FacebookSessionLoginBehavior arg0)
+	FacebookSessionOpenRequest* FacebookSessionOpenRequest::setLoginBehavior(FacebookSessionLoginBehavior::FacebookSessionLoginBehavior arg0)
 	{
 		LOGV("FacebookSessionOpenRequest::setLoginBehavior");
 
@@ -6779,17 +6799,17 @@ const char * enum_string = 0;
 long param_address = 0;
 		do
 		{
-		if (SSO_WITH_FALLBACK == arg0)
+		if (FacebookSessionLoginBehavior::SSO_WITH_FALLBACK == arg0)
 		{
 			enum_string = "SSO_WITH_FALLBACK";
 			break;
 		}
-		if (SSO_ONLY == arg0)
+		if (FacebookSessionLoginBehavior::SSO_ONLY == arg0)
 		{
 			enum_string = "SSO_ONLY";
 			break;
 		}
-		if (SUPPRESS_SSO == arg0)
+		if (FacebookSessionLoginBehavior::SUPPRESS_SSO == arg0)
 		{
 			enum_string = "SUPPRESS_SSO";
 			break;
@@ -6909,7 +6929,7 @@ long param_address = 0;
 
 
 
-	FacebookSessionOpenRequest* FacebookSessionOpenRequest::setDefaultAudience(FacebookSessionDefaultAudience arg0)
+	FacebookSessionOpenRequest* FacebookSessionOpenRequest::setDefaultAudience(FacebookSessionDefaultAudience::FacebookSessionDefaultAudience arg0)
 	{
 		LOGV("FacebookSessionOpenRequest::setDefaultAudience");
 
@@ -6937,22 +6957,22 @@ const char * enum_string = 0;
 long param_address = 0;
 		do
 		{
-		if (NONE == arg0)
+		if (FacebookSessionDefaultAudience::NONE == arg0)
 		{
 			enum_string = "NONE";
 			break;
 		}
-		if (ONLY_ME == arg0)
+		if (FacebookSessionDefaultAudience::ONLY_ME == arg0)
 		{
 			enum_string = "ONLY_ME";
 			break;
 		}
-		if (FRIENDS == arg0)
+		if (FacebookSessionDefaultAudience::FRIENDS == arg0)
 		{
 			enum_string = "FRIENDS";
 			break;
 		}
-		if (EVERYONE == arg0)
+		if (FacebookSessionDefaultAudience::EVERYONE == arg0)
 		{
 			enum_string = "EVERYONE";
 			break;
@@ -7149,7 +7169,7 @@ long param_address = 0;
 
 
 
-	FacebookSessionNewPermissionRequest* FacebookSessionNewPermissionRequest::setLoginBehavior(FacebookSessionLoginBehavior arg0)
+	FacebookSessionNewPermissionRequest* FacebookSessionNewPermissionRequest::setLoginBehavior(FacebookSessionLoginBehavior::FacebookSessionLoginBehavior arg0)
 	{
 		LOGV("FacebookSessionNewPermissionRequest::setLoginBehavior");
 
@@ -7177,17 +7197,17 @@ const char * enum_string = 0;
 long param_address = 0;
 		do
 		{
-		if (SSO_WITH_FALLBACK == arg0)
+		if (FacebookSessionLoginBehavior::SSO_WITH_FALLBACK == arg0)
 		{
 			enum_string = "SSO_WITH_FALLBACK";
 			break;
 		}
-		if (SSO_ONLY == arg0)
+		if (FacebookSessionLoginBehavior::SSO_ONLY == arg0)
 		{
 			enum_string = "SSO_ONLY";
 			break;
 		}
-		if (SUPPRESS_SSO == arg0)
+		if (FacebookSessionLoginBehavior::SUPPRESS_SSO == arg0)
 		{
 			enum_string = "SUPPRESS_SSO";
 			break;
@@ -7259,7 +7279,7 @@ long param_address = 0;
 
 
 
-	FacebookSessionNewPermissionRequest* FacebookSessionNewPermissionRequest::setDefaultAudience(FacebookSessionDefaultAudience arg0)
+	FacebookSessionNewPermissionRequest* FacebookSessionNewPermissionRequest::setDefaultAudience(FacebookSessionDefaultAudience::FacebookSessionDefaultAudience arg0)
 	{
 		LOGV("FacebookSessionNewPermissionRequest::setDefaultAudience");
 
@@ -7287,22 +7307,22 @@ const char * enum_string = 0;
 long param_address = 0;
 		do
 		{
-		if (NONE == arg0)
+		if (FacebookSessionDefaultAudience::NONE == arg0)
 		{
 			enum_string = "NONE";
 			break;
 		}
-		if (ONLY_ME == arg0)
+		if (FacebookSessionDefaultAudience::ONLY_ME == arg0)
 		{
 			enum_string = "ONLY_ME";
 			break;
 		}
-		if (FRIENDS == arg0)
+		if (FacebookSessionDefaultAudience::FRIENDS == arg0)
 		{
 			enum_string = "FRIENDS";
 			break;
 		}
-		if (EVERYONE == arg0)
+		if (FacebookSessionDefaultAudience::EVERYONE == arg0)
 		{
 			enum_string = "EVERYONE";
 			break;

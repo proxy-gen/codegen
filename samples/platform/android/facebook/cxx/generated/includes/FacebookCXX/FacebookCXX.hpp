@@ -23,16 +23,20 @@ class FacebookSessionStatusCallback;
 class FacebookSessionOpenRequest;
 class FacebookSessionNewPermissionRequest;
 
-enum FacebookSessionState
-{
-	CREATED,
-	CREATED_TOKEN_LOADED,
-	OPENING,
-	OPENED,
-	OPENED_TOKEN_UPDATED,
-	CLOSED_LOGIN_FAILED,
-	CLOSED
+namespace FacebookSessionState {
+
+	enum FacebookSessionState
+	{
+		CREATED,
+		CREATED_TOKEN_LOADED,
+		OPENING,
+		OPENED,
+		OPENED_TOKEN_UPDATED,
+		CLOSED_LOGIN_FAILED,
+		CLOSED
     };
+
+}
 
 
 
@@ -43,29 +47,38 @@ public:
 
 	void * userData;
 	
-	virtual void call(FacebookSession* arg0, FacebookSessionState arg1, long arg2,void * userData) = 0;
+	virtual void call(FacebookSession* arg0, FacebookSessionState::FacebookSessionState arg1, long arg2,void * userData) = 0;
 
 
 
 };
 
-enum FacebookAccessTokenSource
-{
-	FACEBOOK_APPLICATION_WEB,
-	FACEBOOK_APPLICATION_NATIVE,
-	FACEBOOK_APPLICATION_SERVICE,
-	WEB_VIEW,
-	TEST_USER,
-	CLIENT_TOKEN
+namespace FacebookAccessTokenSource {
+
+	enum FacebookAccessTokenSource
+	{
+		NONE,
+		FACEBOOK_APPLICATION_WEB,
+		FACEBOOK_APPLICATION_NATIVE,
+		FACEBOOK_APPLICATION_SERVICE,
+		WEB_VIEW,
+		TEST_USER,
+		CLIENT_TOKEN
   };
 
+}
 
-enum FacebookSessionLoginBehavior
-{
-	SSO_WITH_FALLBACK,
-	SSO_ONLY,
-	SUPPRESS_SSO
+
+namespace FacebookSessionLoginBehavior {
+
+	enum FacebookSessionLoginBehavior
+	{
+		SSO_WITH_FALLBACK,
+		SSO_ONLY,
+		SUPPRESS_SSO
   };
+
+}
 
 
 
@@ -114,10 +127,10 @@ public:
  	static void putPermissions(long arg0, long arg1);
 
  	
- 	static FacebookAccessTokenSource getSource(long arg0);
+ 	static FacebookAccessTokenSource::FacebookAccessTokenSource getSource(long arg0);
 
  	
- 	static void putSource(long arg0, FacebookAccessTokenSource arg1);
+ 	static void putSource(long arg0, FacebookAccessTokenSource::FacebookAccessTokenSource arg1);
 
  	
  	static long getLastRefreshDate(long arg0);
@@ -186,13 +199,17 @@ private:
 void * self;
 
 };
-enum FacebookSessionDefaultAudience
-{
-	NONE,
-	ONLY_ME,
-	FRIENDS,
-	EVERYONE
+namespace FacebookSessionDefaultAudience {
+
+	enum FacebookSessionDefaultAudience
+	{
+		NONE,
+		ONLY_ME,
+		FRIENDS,
+		EVERYONE
   };
+
+}
 
 
 
@@ -211,7 +228,7 @@ public:
  	 std::string getToken();
 
  	
- 	 FacebookAccessTokenSource getSource();
+ 	 FacebookAccessTokenSource::FacebookAccessTokenSource getSource();
 
  	
  	 long getExpires();
@@ -220,7 +237,7 @@ public:
  	 long getLastRefresh();
 
  	
- 	static FacebookAccessToken* createFromExistingAccessToken(std::string& arg0, long arg1, long arg2, FacebookAccessTokenSource arg3, long arg4);
+ 	static FacebookAccessToken* createFromExistingAccessToken(std::string& arg0, long arg1, long arg2, FacebookAccessTokenSource::FacebookAccessTokenSource arg3, long arg4);
 
  	
  	static FacebookAccessToken* createFromNativeLinkingIntent(long arg0);
@@ -337,7 +354,7 @@ public:
  	 long getPermissions();
 
  	
- 	 FacebookSessionState getState();
+ 	 FacebookSessionState::FacebookSessionState getState();
 
  	
  	 void close();
@@ -622,7 +639,7 @@ public:
  	 FacebookSessionOpenRequest* setCallback(FacebookSessionStatusCallback& arg0);
 
  	
- 	 FacebookSessionOpenRequest* setLoginBehavior(FacebookSessionLoginBehavior arg0);
+ 	 FacebookSessionOpenRequest* setLoginBehavior(FacebookSessionLoginBehavior::FacebookSessionLoginBehavior arg0);
 
  	
  	 FacebookSessionOpenRequest* setRequestCode(int arg0);
@@ -631,7 +648,7 @@ public:
  	 FacebookSessionOpenRequest* setPermissions(long arg0);
 
  	
- 	 FacebookSessionOpenRequest* setDefaultAudience(FacebookSessionDefaultAudience arg0);
+ 	 FacebookSessionOpenRequest* setDefaultAudience(FacebookSessionDefaultAudience::FacebookSessionDefaultAudience arg0);
 protected:
 
 private:
@@ -653,13 +670,13 @@ public:
  	 FacebookSessionNewPermissionRequest* setCallback(FacebookSessionStatusCallback& arg0);
 
  	
- 	 FacebookSessionNewPermissionRequest* setLoginBehavior(FacebookSessionLoginBehavior arg0);
+ 	 FacebookSessionNewPermissionRequest* setLoginBehavior(FacebookSessionLoginBehavior::FacebookSessionLoginBehavior arg0);
 
  	
  	 FacebookSessionNewPermissionRequest* setRequestCode(int arg0);
 
  	
- 	 FacebookSessionNewPermissionRequest* setDefaultAudience(FacebookSessionDefaultAudience arg0);
+ 	 FacebookSessionNewPermissionRequest* setDefaultAudience(FacebookSessionDefaultAudience::FacebookSessionDefaultAudience arg0);
 protected:
 
 private:
