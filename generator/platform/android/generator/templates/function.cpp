@@ -101,13 +101,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (${param.arg_name}.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof($param.arg_name));
-			memcpy((void *) heapPtr, (void *) &$param.arg_name, sizeof($param.arg_name));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 	  	#end if

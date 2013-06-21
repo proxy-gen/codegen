@@ -46,7 +46,7 @@ class FacebookSessionStatusCallback
 public:
 
 	void * userData;
-	
+	virtual ~FacebookSessionStatusCallback();	
 	virtual void call(FacebookSession* arg0, FacebookSessionState::FacebookSessionState arg1, long arg2,void * userData) = 0;
 
 
@@ -298,7 +298,7 @@ class FacebookDialogListener
 public:
 
 	void * userData;
-	
+	virtual ~FacebookDialogListener();	
 	virtual void onComplete(long arg0,void * userData) = 0;
 
 	
@@ -321,7 +321,7 @@ class FacebookServiceListener
 public:
 
 	void * userData;
-	
+	virtual ~FacebookServiceListener();	
 	virtual void onComplete(long arg0,void * userData) = 0;
 
 	
@@ -545,7 +545,7 @@ class AsyncFacebookRunnerRequestListener
 public:
 
 	void * userData;
-	
+	virtual ~AsyncFacebookRunnerRequestListener();	
 	virtual void onComplete(std::string arg0, long arg1,void * userData) = 0;
 
 	

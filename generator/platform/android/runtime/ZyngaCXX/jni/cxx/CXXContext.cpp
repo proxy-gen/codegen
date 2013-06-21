@@ -212,41 +212,6 @@ std::string CXXContext::findContextID(long contextAddress)
 	return value;
 }
 
-void CXXContext::registerUserData(long contextAddress, long userData)
-{
-	LOGV("registerUserData contextAddress %ld userData %ld", contextAddress, userData);
-	pthread_mutex_lock(&userDataMapMutex);
-	userDataMap[contextAddress] = userData;
-	pthread_mutex_unlock(&userDataMapMutex);
-}
-
-void CXXContext::deregisterUserData(long contextAddress)
-{
-	LOGV("deregisterUserData contextAddress %ld", contextAddress);
-	pthread_mutex_lock(&userDataMapMutex);
-	userDataMap[contextAddress] = 0;
-	std::map<long,long>::const_iterator iter;
-	for (iter = userDataMap.begin(); iter != userDataMap.end(); iter++)
-	{
-		if ((*iter).first == contextAddress)
-		{
-			userDataMap.erase(contextAddress);
-			break;
-		}
-	}
-	pthread_mutex_unlock(&userDataMapMutex);
-}
-
-long CXXContext::findUserData(long contextAddress)
-{
-	LOGV("findUserData contextAddress %ld", contextAddress);
-	long value = 0;
-	pthread_mutex_lock(&userDataMapMutex);
-	value = userDataMap[contextAddress];
-	pthread_mutex_unlock(&userDataMapMutex);
-	return value;
-}
-
 void CXXContext::registerCallbackData(long contextAddress, long callbackData)
 {
 	LOGV("registerCallbackData contextAddress %ld callbackData %ld", contextAddress, callbackData);

@@ -31,11 +31,7 @@ class CXXContext
 public:
 
 	jobject createProxiedCallback(long proxiedObjectAddress, long proxiedObjectID, const char * externalClassName);
-
-	void registerUserData(long address, long userData);
-	void deregisterUserData(long address);
-	long findUserData(long contextID);
-
+	
 	void registerCallbackData(long contextID, long userData);
 	void deregisterCallbackData(long contextID);
 	long findCallbackData(long contextID);

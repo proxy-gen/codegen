@@ -6,6 +6,18 @@ j$str #end def
 	#def wrap_in_quotes($str)
 "$str" #end def
 
+	${current_class.class_name}::~${current_class.class_name}()
+	{
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		
+		long contextAddress = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
+		jni->deleteGlobalRef(proxiedComponent);
+		ctx->deregisterProxyComponent(contextAddress);
+		ctx->deregisterCallbackData(contextAddress);
+	}
+
 	class Proxied${current_class_proxy} : public ProxiedCallback
 	{
 	public:
@@ -25,11 +37,11 @@ j$str #end def
 
 		jni->pushLocalFrame();
 
-		long heapPtr = ctx->findCallbackData(contextAddress);
-		LOGV("heapPtr for $current_class.class_name %ld", heapPtr);
-		${current_class.class_name} *callback = (${current_class.class_name} *) reinterpret_cast<${current_class.class_name} *>(heapPtr);
+		long callbackAddress = ctx->findCallbackData(contextAddress);
+		LOGV("callbackAddress for $current_class.class_name %ld (using contextAddress %ld)", callbackAddress, contextAddress);
+		${current_class.class_name} *callback = (${current_class.class_name} *) reinterpret_cast<${current_class.class_name} *>(callbackAddress);
 
-		void * userData = (void *) ctx->findUserData(contextAddress);
+		void * userData = (void *) callback->userData;
 		LOGV("userData for $current_class.class_name %ld", (long) userData);
 		jobject response  = 0;
 
@@ -37,26 +49,6 @@ j$str #end def
 		if (methodName == "${function.function_name}")
 		{
 			LOGV("${function.function_name} invoked");
-
-			#if $current_class.callback_type == "PER_METHOD"
-				LOGV("deregister PER_METHOD callback $function.function_name");
-				jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
-				jni->deleteGlobalRef(proxiedComponent);
-				ctx->deregisterProxyComponent(contextAddress);
-				ctx->deregisterUserData(contextAddress);
-				ctx->deregisterCallbackData(contextAddress);
-			#elif $current_class.callback_type == "PER_INSTANCE"
-				#for $last_callback in $current_class.last_callbacks_list
-					#if $last_callback == $function.function_name
-					LOGV("deregister PER_INSTANCE callback $function.function_name");
-					jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
-					jni->deleteGlobalRef(proxiedComponent);
-					ctx->deregisterProxyComponent(contextAddress);
-					ctx->deregisterUserData(contextAddress);
-					ctx->deregisterCallbackData(contextAddress);
-					#end if
-				#end for
-			#end if
 
 			jobjectArray array = (jobjectArray) payload;
 			#set $callback_payload = ""
@@ -232,18 +224,6 @@ j$str #end def
 				#else 
 					${param.from_cxx(retarg_name, response, $wrap_in_quotes($function.function_ret[0].normalized_name), $wrap_in_quotes($ret.name))}
 			  	#end if
-			#end if
-
-			#if $current_class.callback_type == "PER_METHOD"
-				LOGV("removing PER_METHOD callback heap data $function.function_name");
-				free((void *)heapPtr);
-			#elif $current_class.callback_type == "PER_INSTANCE"
-				#for $last_callback in $current_class.last_callbacks_list
-					#if $last_callback == $function.function_name
-					LOGV("removing PER_METHOD callback heap data");
-					free((void *)heapPtr);
-					#end if
-				#end for
 			#end if
 		}
 		#end for

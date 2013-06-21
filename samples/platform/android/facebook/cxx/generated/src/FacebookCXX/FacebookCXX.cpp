@@ -27,6 +27,18 @@ using namespace ZDK;
 
 
 
+	FacebookSessionStatusCallback::~FacebookSessionStatusCallback()
+	{
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		
+		long contextAddress = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
+		jni->deleteGlobalRef(proxiedComponent);
+		ctx->deregisterProxyComponent(contextAddress);
+		ctx->deregisterCallbackData(contextAddress);
+	}
+
 	class ProxiedFacebookSessionStatusCallback : public ProxiedCallback
 	{
 	public:
@@ -46,18 +58,17 @@ using namespace ZDK;
 
 		jni->pushLocalFrame();
 
-		long heapPtr = ctx->findCallbackData(contextAddress);
-		LOGV("heapPtr for FacebookSessionStatusCallback %ld", heapPtr);
-		FacebookSessionStatusCallback *callback = (FacebookSessionStatusCallback *) reinterpret_cast<FacebookSessionStatusCallback *>(heapPtr);
+		long callbackAddress = ctx->findCallbackData(contextAddress);
+		LOGV("callbackAddress for FacebookSessionStatusCallback %ld (using contextAddress %ld)", callbackAddress, contextAddress);
+		FacebookSessionStatusCallback *callback = (FacebookSessionStatusCallback *) reinterpret_cast<FacebookSessionStatusCallback *>(callbackAddress);
 
-		void * userData = (void *) ctx->findUserData(contextAddress);
+		void * userData = (void *) callback->userData;
 		LOGV("userData for FacebookSessionStatusCallback %ld", (long) userData);
 		jobject response  = 0;
 
 		if (methodName == "call")
 		{
 			LOGV("call invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -132,7 +143,6 @@ using namespace ZDK;
 			LOGV("invoking callback call(arg0,arg1,arg2,(void *) userData)");
 
 				callback->call(arg0,arg1,arg2,(void *) userData);
-
 		}
 
 		response = jni->popLocalFrame(response);
@@ -2338,6 +2348,18 @@ long param_address = 0;
 
 
 
+	FacebookDialogListener::~FacebookDialogListener()
+	{
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		
+		long contextAddress = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
+		jni->deleteGlobalRef(proxiedComponent);
+		ctx->deregisterProxyComponent(contextAddress);
+		ctx->deregisterCallbackData(contextAddress);
+	}
+
 	class ProxiedFacebookDialogListener : public ProxiedCallback
 	{
 	public:
@@ -2357,18 +2379,17 @@ long param_address = 0;
 
 		jni->pushLocalFrame();
 
-		long heapPtr = ctx->findCallbackData(contextAddress);
-		LOGV("heapPtr for FacebookDialogListener %ld", heapPtr);
-		FacebookDialogListener *callback = (FacebookDialogListener *) reinterpret_cast<FacebookDialogListener *>(heapPtr);
+		long callbackAddress = ctx->findCallbackData(contextAddress);
+		LOGV("callbackAddress for FacebookDialogListener %ld (using contextAddress %ld)", callbackAddress, contextAddress);
+		FacebookDialogListener *callback = (FacebookDialogListener *) reinterpret_cast<FacebookDialogListener *>(callbackAddress);
 
-		void * userData = (void *) ctx->findUserData(contextAddress);
+		void * userData = (void *) callback->userData;
 		LOGV("userData for FacebookDialogListener %ld", (long) userData);
 		jobject response  = 0;
 
 		if (methodName == "onComplete")
 		{
 			LOGV("onComplete invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2385,12 +2406,10 @@ long param_address = 0;
 			LOGV("invoking callback onComplete(arg0,(void *) userData)");
 
 				callback->onComplete(arg0,(void *) userData);
-
 		}
 		if (methodName == "onFacebookError")
 		{
 			LOGV("onFacebookError invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2410,12 +2429,10 @@ long param_address = 0;
 			LOGV("invoking callback onFacebookError(arg0,(void *) userData)");
 
 				callback->onFacebookError(arg0,(void *) userData);
-
 		}
 		if (methodName == "onError")
 		{
 			LOGV("onError invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2435,12 +2452,10 @@ long param_address = 0;
 			LOGV("invoking callback onError(arg0,(void *) userData)");
 
 				callback->onError(arg0,(void *) userData);
-
 		}
 		if (methodName == "onCancel")
 		{
 			LOGV("onCancel invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2449,7 +2464,6 @@ long param_address = 0;
 			LOGV("invoking callback onCancel((void *) userData)");
 
 				callback->onCancel((void *) userData);
-
 		}
 
 		response = jni->popLocalFrame(response);
@@ -2465,6 +2479,18 @@ long param_address = 0;
 
 
 
+
+	FacebookServiceListener::~FacebookServiceListener()
+	{
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		
+		long contextAddress = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
+		jni->deleteGlobalRef(proxiedComponent);
+		ctx->deregisterProxyComponent(contextAddress);
+		ctx->deregisterCallbackData(contextAddress);
+	}
 
 	class ProxiedFacebookServiceListener : public ProxiedCallback
 	{
@@ -2485,18 +2511,17 @@ long param_address = 0;
 
 		jni->pushLocalFrame();
 
-		long heapPtr = ctx->findCallbackData(contextAddress);
-		LOGV("heapPtr for FacebookServiceListener %ld", heapPtr);
-		FacebookServiceListener *callback = (FacebookServiceListener *) reinterpret_cast<FacebookServiceListener *>(heapPtr);
+		long callbackAddress = ctx->findCallbackData(contextAddress);
+		LOGV("callbackAddress for FacebookServiceListener %ld (using contextAddress %ld)", callbackAddress, contextAddress);
+		FacebookServiceListener *callback = (FacebookServiceListener *) reinterpret_cast<FacebookServiceListener *>(callbackAddress);
 
-		void * userData = (void *) ctx->findUserData(contextAddress);
+		void * userData = (void *) callback->userData;
 		LOGV("userData for FacebookServiceListener %ld", (long) userData);
 		jobject response  = 0;
 
 		if (methodName == "onComplete")
 		{
 			LOGV("onComplete invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2513,12 +2538,10 @@ long param_address = 0;
 			LOGV("invoking callback onComplete(arg0,(void *) userData)");
 
 				callback->onComplete(arg0,(void *) userData);
-
 		}
 		if (methodName == "onFacebookError")
 		{
 			LOGV("onFacebookError invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2538,12 +2561,10 @@ long param_address = 0;
 			LOGV("invoking callback onFacebookError(arg0,(void *) userData)");
 
 				callback->onFacebookError(arg0,(void *) userData);
-
 		}
 		if (methodName == "onError")
 		{
 			LOGV("onError invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -2560,7 +2581,6 @@ long param_address = 0;
 			LOGV("invoking callback onError(arg0,(void *) userData)");
 
 				callback->onError(arg0,(void *) userData);
-
 		}
 
 		response = jni->popLocalFrame(response);
@@ -2931,13 +2951,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -3362,13 +3377,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg0.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg0));
-			memcpy((void *) heapPtr, (void *) &arg0, sizeof(arg0));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg0 = ctx->findProxyComponent((long) param_address);
@@ -3609,13 +3619,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg0.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg0));
-			memcpy((void *) heapPtr, (void *) &arg0, sizeof(arg0));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg0 = ctx->findProxyComponent((long) param_address);
@@ -3709,13 +3714,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -3890,13 +3890,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg3.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg3));
-			memcpy((void *) heapPtr, (void *) &arg3, sizeof(arg3));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg3 = ctx->findProxyComponent((long) param_address);
@@ -3950,13 +3945,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -4011,13 +4001,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -4202,13 +4187,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg3.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg3));
-			memcpy((void *) heapPtr, (void *) &arg3, sizeof(arg3));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -4268,13 +4248,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg4.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg4));
-			memcpy((void *) heapPtr, (void *) &arg4, sizeof(arg4));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg3 = ctx->findProxyComponent((long) param_address);
@@ -4332,13 +4307,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -4589,13 +4559,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -4700,13 +4665,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -4812,13 +4772,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -4880,13 +4835,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg3.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg3));
-			memcpy((void *) heapPtr, (void *) &arg3, sizeof(arg3));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg3 = ctx->findProxyComponent((long) param_address);
@@ -5656,6 +5606,18 @@ long param_address = 0;
 
 
 
+	AsyncFacebookRunnerRequestListener::~AsyncFacebookRunnerRequestListener()
+	{
+		CXXContext *ctx = CXXContext::sharedInstance();
+		JNIContext *jni = JNIContext::sharedInstance();
+		
+		long contextAddress = (long) this;
+		jobject proxiedComponent = ctx->findProxyComponent(contextAddress);
+		jni->deleteGlobalRef(proxiedComponent);
+		ctx->deregisterProxyComponent(contextAddress);
+		ctx->deregisterCallbackData(contextAddress);
+	}
+
 	class ProxiedAsyncFacebookRunnerRequestListener : public ProxiedCallback
 	{
 	public:
@@ -5675,18 +5637,17 @@ long param_address = 0;
 
 		jni->pushLocalFrame();
 
-		long heapPtr = ctx->findCallbackData(contextAddress);
-		LOGV("heapPtr for AsyncFacebookRunnerRequestListener %ld", heapPtr);
-		AsyncFacebookRunnerRequestListener *callback = (AsyncFacebookRunnerRequestListener *) reinterpret_cast<AsyncFacebookRunnerRequestListener *>(heapPtr);
+		long callbackAddress = ctx->findCallbackData(contextAddress);
+		LOGV("callbackAddress for AsyncFacebookRunnerRequestListener %ld (using contextAddress %ld)", callbackAddress, contextAddress);
+		AsyncFacebookRunnerRequestListener *callback = (AsyncFacebookRunnerRequestListener *) reinterpret_cast<AsyncFacebookRunnerRequestListener *>(callbackAddress);
 
-		void * userData = (void *) ctx->findUserData(contextAddress);
+		void * userData = (void *) callback->userData;
 		LOGV("userData for AsyncFacebookRunnerRequestListener %ld", (long) userData);
 		jobject response  = 0;
 
 		if (methodName == "onComplete")
 		{
 			LOGV("onComplete invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -5710,12 +5671,10 @@ long param_address = 0;
 			LOGV("invoking callback onComplete(arg0,arg1,(void *) userData)");
 
 				callback->onComplete(arg0,arg1,(void *) userData);
-
 		}
 		if (methodName == "onFacebookError")
 		{
 			LOGV("onFacebookError invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -5743,12 +5702,10 @@ long param_address = 0;
 			LOGV("invoking callback onFacebookError(arg0,arg1,(void *) userData)");
 
 				callback->onFacebookError(arg0,arg1,(void *) userData);
-
 		}
 		if (methodName == "onIOException")
 		{
 			LOGV("onIOException invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -5773,12 +5730,10 @@ long param_address = 0;
 			LOGV("invoking callback onIOException(arg0,arg1,(void *) userData)");
 
 				callback->onIOException(arg0,arg1,(void *) userData);
-
 		}
 		if (methodName == "onFileNotFoundException")
 		{
 			LOGV("onFileNotFoundException invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -5803,12 +5758,10 @@ long param_address = 0;
 			LOGV("invoking callback onFileNotFoundException(arg0,arg1,(void *) userData)");
 
 				callback->onFileNotFoundException(arg0,arg1,(void *) userData);
-
 		}
 		if (methodName == "onMalformedURLException")
 		{
 			LOGV("onMalformedURLException invoked");
-
 
 			jobjectArray array = (jobjectArray) payload;
 			jobject jobj = 0;
@@ -5833,7 +5786,6 @@ long param_address = 0;
 			LOGV("invoking callback onMalformedURLException(arg0,arg1,(void *) userData)");
 
 				callback->onMalformedURLException(arg0,arg1,(void *) userData);
-
 		}
 
 		response = jni->popLocalFrame(response);
@@ -5939,13 +5891,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg3.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg3));
-			memcpy((void *) heapPtr, (void *) &arg3, sizeof(arg3));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg3 = ctx->findProxyComponent((long) param_address);
@@ -6009,13 +5956,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -6079,13 +6021,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg2.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg2));
-			memcpy((void *) heapPtr, (void *) &arg2, sizeof(arg2));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg2 = ctx->findProxyComponent((long) param_address);
@@ -6145,13 +6082,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6214,13 +6146,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6278,13 +6205,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6345,13 +6267,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6409,13 +6326,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6473,13 +6385,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg1.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg1));
-			memcpy((void *) heapPtr, (void *) &arg1, sizeof(arg1));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg1 = ctx->findProxyComponent((long) param_address);
@@ -6742,13 +6649,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg0.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg0));
-			memcpy((void *) heapPtr, (void *) &arg0, sizeof(arg0));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg0 = ctx->findProxyComponent((long) param_address);
@@ -7140,13 +7042,8 @@ long param_address = 0;
 			proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 			LOGV("registerProxyComponent param_address %ld proxiedComponent %ld", param_address, proxiedComponent);
 			ctx->registerProxyComponent(param_address, proxiedComponent);
-			long userDataPtr = (long) (arg0.userData);
-			LOGV("registerUserData param_address %ld userData %ld", param_address, (long) userDataPtr);
-			ctx->registerUserData(param_address, (long) userDataPtr);
-			long heapPtr = (long) malloc(sizeof(arg0));
-			memcpy((void *) heapPtr, (void *) &arg0, sizeof(arg0));
-			LOGV("registerCallbackData param_address %ld callbackData %ld", param_address, heapPtr);
-			ctx->registerCallbackData(param_address, heapPtr);
+			LOGV("registerCallbackData param_address %ld", param_address);
+			ctx->registerCallbackData(param_address, param_address);
 		}
 
 		jobject marg0 = ctx->findProxyComponent((long) param_address);

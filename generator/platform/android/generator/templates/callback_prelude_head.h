@@ -5,3 +5,4 @@ class ${current_class.class_name}
 public:
 
 	void * userData;
+	virtual ~${current_class.class_name}();
