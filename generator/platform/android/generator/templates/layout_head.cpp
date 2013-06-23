@@ -16,5 +16,5 @@
 #define LOG_TAG "${file_prefix}"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
-using namespace ZDK;
+using namespace $namespace_name;
 

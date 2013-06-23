@@ -16,12 +16,24 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace ZDK {
+namespace FacebookCXX {
 
-class FacebookSession;
-class FacebookSessionStatusCallback;
-class FacebookSessionOpenRequest;
-class FacebookSessionNewPermissionRequest;
+	class FacebookSessionStatusCallback;
+	class FacebookTokenCachingStrategy;
+	class FacebookNonCachingTokenCachingStrategy;
+	class FacebookSharedPreferencesTokenCachingStrategy;
+	class FacebookAccessToken;
+	class DialogError;
+	class FacebookError;
+	class FacebookDialogListener;
+	class FacebookServiceListener;
+	class FacebookSession;
+	class Facebook;
+	class AsyncFacebookRunnerRequestListener;
+	class AsyncFacebookRunner;
+	class FacebookSessionAuthorizationRequest;
+	class FacebookSessionOpenRequest;
+	class FacebookSessionNewPermissionRequest;
 
 namespace FacebookSessionState {
 

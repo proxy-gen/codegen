@@ -22,6 +22,7 @@ class BaseGenerator(object):
 		self.config['package_name'] = None
 		self.config['include_packages'] = list()
 		self.config['include_package_path'] = None
+		self.config['namespace_name'] = "CXX"
 	
 	def setup(self):
 		raise NotImplementedError("subclasses should implement setup()")
@@ -69,6 +70,8 @@ def main():
 							help="Specifies the package in which the code will be generated")
 	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=True,
 							help="Flag to indicate if the wrapper file needs to be generated (default is True)")
+	parser.add_option("--namespace", action="store", dest="namespace_name",
+							help="Namespace of generated CXX (default value is CXX)")
 	parser.add_option("--include-package", action="append", dest="include_packages",
 							help="List of packages to include in the generated code")
 	parser.add_option("--include-package-path", action="store", dest="include_package_path",
@@ -102,6 +105,8 @@ def main():
 	platform_generator.config['config_file_name'] = opts.config_file_name
 	platform_generator.config['output_dir_name'] = opts.output_dir_name
 	platform_generator.config['package_name'] = opts.package_name
+	if opts.namespace_name:
+		platform_generator.config['namespace_name'] = opts.namespace_name
 	if opts.include_packages:
 		platform_generator.config['include_packages'] = opts.include_packages
 	if opts.include_package_path:

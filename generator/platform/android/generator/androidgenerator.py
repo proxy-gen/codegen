@@ -23,6 +23,7 @@ class Generator(BaseGenerator):
 		super(Generator, self).__init__()
 
 	def setup(self):
+		self._setup_namespace()
 		self._setup_working_dir()
 		self._setup_default_runtime()
 		self._setup_default_converter()
@@ -184,6 +185,9 @@ class Generator(BaseGenerator):
 		nclass.generate_code()
 		logging.debug("Generator _deep_iterate exit")	
 
+	def _setup_namespace(self):
+		self.namespace_name = self.config['namespace_name']
+
 	def _setup_working_dir(self):
 		#script directory
 		script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -318,15 +322,6 @@ class Generator(BaseGenerator):
 		self.callback_classes_list = build_list_from_config(config, s, 'callback_classes')
 		logging.debug("self.callback_classes_list " + str(self.callback_classes_list))
 
-		self.callback_types_list = build_list_from_config(config, s, 'callback_types')
-		logging.debug("self.callback_types_list " + str(self.callback_types_list))		
-
-		self.last_callbacks_list = build_list_from_config(config, s, 'last_callbacks')
-		logging.debug("self.last_callbacks_list " + str(self.last_callbacks_list))	
-
-		self.forward_declarations_list = build_list_from_config(config, s, 'forward_declarations')
-		logging.debug("self.forward_declarations_list " + str(self.forward_declarations_list))	
-
 		self.singleton_field_name = config.get(s, 'singleton_field')
 		logging.debug("self.singleton_field_name " + str(self.singleton_field_name))
 
@@ -392,15 +387,6 @@ class NativeClass(object):
 		logging.debug("self.inherited_proxy_name " + str(self.inherited_proxy_name))
 		self.is_callback = self.java_class_name in self.generator.callback_classes_list
 		logging.debug("self.is_callback " + str(self.is_callback))
-		self.callback_type = None
-		self.last_callbacks_list = []
-		if self.is_callback:
-			callback_idx = self.generator.callback_classes_list.index(self.java_class_name)
-			logging.debug("callback_idx " + str(callback_idx))
-			self.callback_type = self.generator.callback_types_list[callback_idx]
-			logging.debug("self.callback_type " + str(self.callback_type))
-			if self.callback_type == "PER_INSTANCE":
-				self.last_callbacks_list = self.generator.last_callbacks_list[callback_idx].split(':')
 		self.resource_name = generator.to_resource_name(displayname)
 		logging.debug("self.resource_name " + str(self.resource_name))	
 		cursor_type = cursor.type
@@ -953,11 +939,6 @@ class NativeArg(object):
 		self.is_callback = self.name in self.generator.callback_classes_list
 		self.callback_type = None
 		self.last_callbacks_list = []
-		if self.is_callback:
-			callback_idx = self.generator.callback_classes_list.index(self.name)
-			self.callback_type = self.generator.callback_types_list[callback_idx]
-			if self.callback_type == "PER_INSTANCE":
-				self.last_callbacks_list = self.generator.last_callbacks_list[callback_idx].split(':')
 		logging.debug("self.is_callback " + str(self.is_callback))
 		self.is_proxied = self.name in self.generator.proxied_classes_list
 		logging.debug("self.is_proxied " + str(self.is_proxied))

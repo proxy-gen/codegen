@@ -18,9 +18,11 @@
 extern "C" {
 \#endif //__cplusplus
 
-namespace ZDK {
+namespace $namespace_name {
 
-#for $forward_declaration in $forward_declarations_list
-class $forward_declaration;
+#for $clazz in $classes
+#if not $clazz.is_enum
+	class $clazz.class_name;
+#end if
 #end for
 
