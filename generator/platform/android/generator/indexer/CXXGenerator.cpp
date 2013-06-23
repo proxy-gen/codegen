@@ -105,6 +105,14 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu)
 	CXXCursor cursor;
 	cursor._kind_id = CURSOR_CLASS_DECL;
 	cursor._tu_id = (long) tu;
+	cursor._int_attr_0 = 0;
+	cursor._int_attr_1 = 0;
+	cursor._int_attr_2 = 0;
+	cursor._int_attr_3 = 0;
+	strcpy(cursor._str_attr_0, "");
+	strcpy(cursor._str_attr_1, "");
+	strcpy(cursor._str_attr_2, "");
+	strcpy(cursor._str_attr_3, "");
 	return cursor;
 }
 
@@ -236,6 +244,68 @@ char * getCursorParentName(CXXCursor cur)
 		}
 	}
 	return 0;
+}
+
+void visitCursorAttrs(CXXCursor cursor, CursorVisitAttrsCallback callback, void * host_object)
+{
+	cursor._int_attr_0 = 0;
+	cursor._int_attr_1 = 0;
+	cursor._int_attr_2 = 0;
+	cursor._int_attr_3 = 0;
+
+	strcpy(cursor._str_attr_0, "");
+	strcpy(cursor._str_attr_1, "");
+	strcpy(cursor._str_attr_2, "");
+	strcpy(cursor._str_attr_3, "");
+
+	CXXTranslationUnit *tu = (CXXTranslationUnit *) cursor._tu_id;
+	if (cursor._kind_id == CURSOR_PARM_DECL)
+	{		
+		bool isParameterizedType = jni->isInstanceOf(tu->refObj, "java/lang/reflect/ParameterizedType");
+		if (isParameterizedType)
+		{
+
+			jobjectArray jargArr = (jobjectArray) jni->invokeObjectMethod(tu->refObj, "java/lang/reflect/ParameterizedType", "getActualTypeArguments", "()[Ljava/lang/reflect/Type;");
+			jsize jArgTypeCount = jni->getArrayLength(jargArr);
+			int argTypeCount = (int) jArgTypeCount;
+
+			cursor._int_attr_0 = argTypeCount;
+
+			if (argTypeCount > 0)
+			{
+				jobject jargType = jni->getObjectArrayElement(jargArr, 0);
+				jstring jargTypeName = (jstring) jni->invokeStringMethod(jargType, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				char * argTypeName = (char *) jni->getUTFString(jargTypeName).c_str();
+				strcpy(cursor._str_attr_0, argTypeName);
+			}
+			if (argTypeCount > 1)
+			{
+				jobject jargType = jni->getObjectArrayElement(jargArr, 1);
+				jstring jargTypeName = (jstring) jni->invokeStringMethod(jargType, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				char * argTypeName = (char *) jni->getUTFString(jargTypeName).c_str();
+				strcpy(cursor._str_attr_1, argTypeName);
+			}
+			if (argTypeCount > 2)
+			{
+				jobject jargType = jni->getObjectArrayElement(jargArr, 2);
+				jstring jargTypeName = (jstring) jni->invokeStringMethod(jargType, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				char * argTypeName = (char *) jni->getUTFString(jargTypeName).c_str();
+				strcpy(cursor._str_attr_2, argTypeName);
+			}
+			if (argTypeCount > 3)
+			{
+				jobject jargType = jni->getObjectArrayElement(jargArr, 3);
+				jstring jargTypeName = (jstring) jni->invokeStringMethod(jargType, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				char * argTypeName = (char *) jni->getUTFString(jargTypeName).c_str();
+				strcpy(cursor._str_attr_3, argTypeName);
+			}
+		}
+	}
+
+	callback(cursor._int_attr_0, cursor._str_attr_0, host_object);
+	callback(cursor._int_attr_1, cursor._str_attr_1, host_object);
+	callback(cursor._int_attr_2, cursor._str_attr_2, host_object);
+	callback(cursor._int_attr_3, cursor._str_attr_3, host_object);
 }
 
 int visitCursorChildren(CXXCursor parentCursor, CursorVisitCallback callback, void * host_object)

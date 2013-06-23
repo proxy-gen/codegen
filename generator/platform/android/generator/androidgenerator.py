@@ -974,6 +974,14 @@ class NativeArg(object):
 		self.enum_values = cursor.enum_values
 		logging.debug("self.enum_values " + str(self.enum_values))
 		self.arg_name = "arg" + str(idx)
+		self.generic_args = []
+		if not self.is_dummy:
+			len_int_attrs = cursor.int_attrs[0]
+			logging.debug("len_int_attrs " + str(len_int_attrs))
+			for i in range(len_int_attrs):
+				self.generic_args.append(cursor.str_attrs[i])
+				logging.debug("adding to self.generic_args " + str(self.generic_args[i]))
+		logging.debug("self.generic_args " + str(self.generic_args))
 		if self.is_return:
 			self.arg_name = "ret" + str(idx)
 		self.rename = self.name

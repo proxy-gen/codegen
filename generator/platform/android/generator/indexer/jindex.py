@@ -113,7 +113,11 @@ CursorKind.INVALID_CODE = CursorKind(73)
 
 class Cursor(Structure):
 
-    _fields_ = [("_kind_id", c_int),("_tu_id", c_longlong)]
+    _fields_ = [
+                    ("_kind_id", c_int),("_tu_id", c_longlong),
+                    ("_str_attr_0", c_char_p),("_str_attr_1", c_char_p),("_str_attr_2", c_char_p),("_str_attr_3", c_char_p),
+                    ("_int_attr_0", c_int),("_int_attr_1", c_int),("_int_attr_2", c_int),("_int_attr_3", c_int)
+               ]
 
     def from_result(res, fn, args):
         assert isinstance(res, Cursor)
@@ -144,6 +148,18 @@ class Cursor(Structure):
     @property
     def kind(self):
         return CursorKind.from_id(self._kind_id)
+
+    @property
+    def str_attrs(self):
+        if not hasattr(self, '_str_attrs'):
+            self._update_attrs()
+        return self._str_attrs
+
+    @property
+    def int_attrs(self):
+        if not hasattr(self, '_int_attrs'):
+            self._update_attrs()
+        return self._int_attrs
 
     @property
     def displayname(self):
@@ -185,6 +201,20 @@ class Cursor(Structure):
             self._parent_name = Cursor_parent_name(self)
         return self._parent_name
 
+    def _update_attrs(self):
+        if not hasattr(self, '_updated_attrs'):
+            def visitor(int_attr, str_attr, attrs_holder):
+                int_attrs = attrs_holder[0]
+                int_attrs.append(int_attr)
+                str_attrs = attrs_holder[1]
+                str_attrs.append(str_attr)
+            self._int_attrs = []
+            self._str_attrs = []
+            attrs_holder = [ self._int_attrs, self._str_attrs ]
+            Cursor_visit_attrs(self, Cursor_visit_attrs_callback(visitor), attrs_holder)
+            self._updated_attrs = True
+
+
 class TypeKind(object):
 
     _kinds = []
@@ -195,7 +225,7 @@ class TypeKind(object):
             TypeKind._kinds += [None] * (value - len(TypeKind._kinds) + 1)
         if TypeKind._kinds[value] is not None:
             raise ValueError,'TypeKind already loaded'
-        self.value = value;
+        self.value = value
         TypeKind._kinds[value] = self
         TypeKind._name_map = None
 
@@ -429,7 +459,11 @@ Cursor_visit.restype = c_uint
 Cursor_enum_values_callback = CFUNCTYPE(c_int, c_char_p, py_object)
 Cursor_enum_values = lib.visitEnumValues
 Cursor_enum_values.argtypes = [Cursor, Type, Cursor_enum_values_callback, py_object]
-Cursor_visit.restype = c_uint
+Cursor_enum_values.restype = c_uint
+
+Cursor_visit_attrs_callback = CFUNCTYPE(c_int, c_int, c_char_p, py_object)
+Cursor_visit_attrs = lib.visitCursorAttrs
+Cursor_visit_attrs.argtypes = [Cursor, Cursor_visit_attrs_callback, py_object]
 
 Cursor_parent_name = lib.getCursorParentName
 Cursor_parent_name.argtypes = [Cursor]
