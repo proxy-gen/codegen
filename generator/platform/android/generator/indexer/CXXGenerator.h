@@ -21,6 +21,10 @@ extern "C"
 
 #define OK	(0)
 #define	ERR	(-1)
+#define BASE_PACKAGE_COUNT 64
+#define BASE_PACKAGE_SIZE 64
+#define BASE_CLASS_COUNT 1024
+#define BASE_CLASS_SIZE 64
 #define CURSOR_ATTR_STR_SIZE 64
 
 struct CXXCursor;
@@ -30,6 +34,8 @@ typedef int * (*CursorVisitCallback)(CXXCursor child, CXXCursor parent, void * h
 typedef int * (*VisitEnumValuesCallback)(char * enum_value, void * host_object);
 
 typedef int * (*CursorVisitAttrsCallback)(int int_attr_value, char * str_attr_value, void * host_object);
+
+typedef int * (*TranslationUnitVistClassesCallback)();
 
 class CXXIndex
 {
@@ -76,7 +82,6 @@ struct CXXType
 	int _kind_id;
 };
 
-
 CXXIndex * createIndex(char * optionString);
 
 int destroyIndex();
@@ -90,6 +95,8 @@ CXXTranslationUnit * parseTranslationUnit(CXXIndex * index, const char *resName)
 CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu);
 
 void disposeTranslationUnit(CXXTranslationUnit * tu);
+
+void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVistClassesCallback callback, void * host_object);
 
 CXXTranslationUnit * getCursorTranslationUnit(CXXCursor cursor);
 

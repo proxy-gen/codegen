@@ -23,13 +23,13 @@ class Generator(BaseGenerator):
 		super(Generator, self).__init__()
 
 	def setup(self):
+		self._setup_index()
 		self._setup_namespace()
 		self._setup_working_dir()
 		self._setup_default_runtime()
 		self._setup_default_converter()
 		self._setup_included_packages()
 		self._setup_config()
-		self._setup_index()
 		
 	def generate(self):
 		logging.debug("Generator generate_code enter")
@@ -204,6 +204,16 @@ class Generator(BaseGenerator):
 		self.include_package_path = self.config['include_package_path']
 
 	def _setup_config(self):
+		self._setup_new_config()
+		self._setup_old_config()
+
+	def _setup_new_config(self):
+		packages = [ "com.facebook", "com.facebook.android" ]
+		classes = [ "com.facebook.Session", "com.facebook.android.Facebook" ]
+		self.class_names_list = self.index.list_classes(packages, classes)
+		print "self.class_names_list " + str(self.class_names_list)
+
+	def _setup_old_config(self):
 		# setup output directories
 		self.package_name = self.config['package_name']
 
@@ -304,17 +314,8 @@ class Generator(BaseGenerator):
 		self.rename_types_override_dict = rename_types_override_dict
 		logging.debug("self.rename_types_override_dict " + str(self.rename_types_override_dict))
 
-		self.jvm_options = config.get(s, 'jvm_options')
-		classpath=os.environ.get("CXX_JVM_CLASSPATH", "")
-		if classpath.find("-Djava.class.path") == -1:
-			self.jvm_options += "-Djava.class.path=" + str(classpath)
-		logging.debug("self.jvm_options " + str(self.jvm_options))
-
 		self.target = os.path.dirname(inspect.getfile(inspect.currentframe()))
 		logging.debug("self.target " + str(self.target))
-
-		self.class_names_list = build_list_from_config(config, s, 'classes')
-		logging.debug("self.class_names_list " + str(self.class_names_list))
 
 		self.proxied_classes_list = build_list_from_config(config, s, 'proxied_classes')
 		logging.debug("self.proxied_classes_list " + str(self.proxied_classes_list))
@@ -354,6 +355,9 @@ class Generator(BaseGenerator):
 		self.classes = []
 
 	def _setup_index(self):
+		classpath=os.environ.get("CXX_JVM_CLASSPATH", "")
+		self.jvm_options = "-Djava.class.path=" + str(classpath)
+		logging.debug("self.jvm_options " + str(self.jvm_options))
 		self.index = jindex.Index.create(self.jvm_options)
 
 	def _teardown_index(self):

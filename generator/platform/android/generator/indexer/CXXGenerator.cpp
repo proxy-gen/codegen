@@ -116,6 +116,20 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu)
 	return cursor;
 }
 
+void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVistClassesCallback callback, void * host_object)
+{
+	printf("package count %d\n", package_count);
+	for (int i = 0; i < package_count; i++)
+	{
+		printf("package idx %d is %s\n", i, packages[i]);	
+	}
+	printf("class count %d\n", class_count);
+	for (int i = 0; i < class_count; i++)
+	{
+		printf("class idx %d is %s\n", i, classes[i]);	
+	}
+}
+
 CXXTranslationUnit * getCursorTranslationUnit(CXXCursor cursor)
 {
 	CXXTranslationUnit *tu = (CXXTranslationUnit *) cursor._tu_id;

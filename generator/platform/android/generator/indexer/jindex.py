@@ -321,6 +321,9 @@ class Index(JavaObject):
     def parse(self, res):
         return TranslationUnit.from_source(res, self)
 
+    def list_classes(self, packages, classes):
+        return TranslationUnit.list_classes(packages, classes)
+
     @property
     def status(self):
         return Index_status()
@@ -334,6 +337,23 @@ class Index(JavaObject):
         return Index_destroy()
 
 class TranslationUnit(JavaObject):
+
+    @classmethod
+    def list_classes(cls, packages, classes):
+        if not hasattr(cls, '_class_list'):
+            def visitor(clazz, clazz_list):
+                clazz_list.append(clazz)
+            cls._class_list = []
+            c_types_packages = ((c_char * 64) * 64)()
+            for idx in range(len(packages)):
+                c_types_packages[idx].value = packages[idx]
+            c_types_packages_count = len(packages)
+            c_types_classes = ((c_char * 64) * 1024)()
+            for idx in range(len(classes)):
+                c_types_classes[idx].value = classes[idx]
+            c_types_classes_count = len(classes)
+            TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), cls._class_list)
+        return cls._class_list
     
     @classmethod
     def from_source(cls, res, index):
@@ -423,6 +443,11 @@ Index_destroy.argtypes = []
 Index_destroy.restype = c_int
 
 # Translation Unit Functions
+
+TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_char_p, py_object)
+TranslationUnit_classes_visit = lib.visitTranslationUnitClasses
+TranslationUnit_classes_visit.argtypes = [(c_char * 64) * 64, c_int, (c_char * 64) * 1024, c_int, TranslationUnit_classes_visit_callback, py_object]
+
 TranslationUnit_parse = lib.parseTranslationUnit
 TranslationUnit_parse.argtypes = [Index, c_char_p]
 TranslationUnit_parse.restype = c_object_p
