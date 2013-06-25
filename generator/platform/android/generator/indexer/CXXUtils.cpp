@@ -6,18 +6,29 @@
  */
 
 #include "CXXUtils.h"
+#include <stdio.h>
+#include <string.h>
 
-void replace_all(char *chars, int length, char old_value, char new_value)
+bool in_packages(char package[64], char packages[64][64], int package_count)
 {
-	for (int i = 0; i < length; i++)
+	for (int idx = 0; idx < package_count; idx++)
 	{
-		if (chars[i] == '\0')
+		if (strcmp(package, packages[idx]) == 0)
 		{
-			break;
-		}
-		if (chars[i] == old_value)
-		{
-			chars[i] = new_value;
+			return true;
 		}
 	}
+	return false;
+}
+
+bool in_classes(char clazz[64], char clazzes[1024][64], int class_count)
+{
+	for (int idx = 0; idx < class_count; idx++)
+	{
+		if (strcmp(clazz, clazzes[idx]) == 0)
+		{
+			return true;
+		}
+	}
+	return false;
 }

@@ -12,6 +12,7 @@
 
 #include <jni.h>
 #include <string>
+#include <vector>
 #include <CXXUtils.h>
 
 #ifdef __cplusplus
@@ -84,6 +85,16 @@ struct CXXType
 	int _kind_id;
 };
 
+struct ProcessorContext
+{
+	char packages[64][64];
+	int package_count;
+	char classes[1024][64];
+	int class_count;
+	TranslationUnitVisitClassesCallback callback;
+	void * host_object;
+};
+
 CXXIndex * createIndex(char * optionString);
 
 int destroyIndex();
@@ -116,17 +127,29 @@ int visitEnumValues(CXXCursor cursor, CXXType type, VisitEnumValuesCallback call
 
 void visitCursorAttrs(CXXCursor cursor, CursorVisitAttrsCallback callback, void * host_object);
 
-void process_class(std::string class_name, jclass clazz, TranslationUnitVisitClassesCallback callback, void * host_object);
+void process_class(std::string class_name, jclass clazz, ProcessorContext ctx);
 
-void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, TranslationUnitVisitClassesCallback callback, void * host_object);
+void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext ctx);
 
-void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, TranslationUnitVisitClassesCallback callback, void * host_object);
+void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx);
+
+void process_constructor_param(std::string constructor_name, jobject constructor, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
+
+void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
 
 int find_class_type(jclass clazz);
 
 int find_method_type(jobject method);
 
 int find_constructor_type(jobject constructor);
+
+int find_param_type(jobject param);
+
+std::vector<std::string> find_param_generics(jobject param);
+
+std::string find_param_name(jobject param);
+
+std::string find_package_name(std::string class_name);
 
 #ifdef __cplusplus
 }
