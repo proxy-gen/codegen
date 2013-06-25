@@ -1064,6 +1064,13 @@ jstring JNIContext::getClassName(jobject object)
 	return result;
 }
 
+std::string JNIContext::getJNIName(std::string name)
+{
+	std::string jni_name = std::string(name);
+	std::replace(jni_name.begin(), jni_name.end(), '.', '/');
+	return jni_name;
+}
+
 jmethodID JNIContext::getMethodID(jclass clazz, const char *methodName, const char *methodSignature)
 {
 	JNIEnv *env = 0;

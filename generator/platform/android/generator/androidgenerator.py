@@ -210,8 +210,8 @@ class Generator(BaseGenerator):
 	def _setup_new_config(self):
 		packages = [ "com.facebook", "com.facebook.android" ]
 		classes = [ "com.facebook.Session", "com.facebook.android.Facebook" ]
-		self.class_names_list = self.index.list_classes(packages, classes)
-		print "self.class_names_list " + str(self.class_names_list)
+		self.class_names_list = []
+		self.index.build_metadata(packages, classes)
 
 	def _setup_old_config(self):
 		# setup output directories

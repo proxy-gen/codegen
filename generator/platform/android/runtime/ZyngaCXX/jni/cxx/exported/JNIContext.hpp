@@ -226,6 +226,7 @@ public:
 
 	std::string getUTFString(jstring string);
 	jstring toJString(const std::string& utfString);
+	std::string getJNIName(std::string name);
 
 	jobject toJEnum(jclass clazz, const char *enumString);
 	jstring toCXXEnumString(jobject obj);

@@ -17,7 +17,7 @@
 #define TYPE_UNKNOWN 0
 #define TYPE_JAVA_INSTANCE 200
 #define TYPE_JAVA_SINGLETON_FIELD 201
- #define TYPE_JAVA_SINGLETON_INSTANCE 211
+#define TYPE_JAVA_SINGLETON_INSTANCE 211
 #define TYPE_JAVA_ENUM 202
 #define TYPE_JAVA_ABSTRACT 203
 #define TYPE_JAVA_STATIC_METHODS 204
@@ -116,18 +116,215 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu)
 	return cursor;
 }
 
-void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVistClassesCallback callback, void * host_object)
+void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object)
 {
-	printf("package count %d\n", package_count);
-	for (int i = 0; i < package_count; i++)
+	for (int idx = 0; idx < class_count; idx++)
 	{
-		printf("package idx %d is %s\n", i, packages[i]);	
+		std::string class_name = std::string(classes[idx]);
+		std::string jni_name = jni->getJNIName(class_name);
+		jclass clazz = (jclass) jni->getClassRef(jni_name.c_str());
+		process_class(class_name, clazz, callback, host_object);		
 	}
-	printf("class count %d\n", class_count);
-	for (int i = 0; i < class_count; i++)
+}
+
+void process_class(std::string class_name, jclass clazz, TranslationUnitVisitClassesCallback callback, void * host_object)
+{
+	int modifiers = (int) jni->invokeIntMethod(clazz, "java/lang/Class", "getModifiers", "()I");
+	int type = find_class_type(clazz);
+	char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+	int int_attrs[ATTR_COUNT];
+	char name[64];
+	strcpy(name, class_name.c_str());
+	callback(CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, str_attrs, int_attrs, host_object);	
+	jobjectArray jconstructors = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
+	int constructorCount = (int) jni->getArrayLength(jconstructors);
+	for (int idx = 0; idx < constructorCount; idx++)
 	{
-		printf("class idx %d is %s\n", i, classes[i]);	
+		jobject constructor = jni->getObjectArrayElement(jconstructors, idx);
+		std::string constructor_name = jni->getUTFString(jni->invokeStringMethod(constructor, "java/lang/reflect/Constructor", "getName", "()Ljava/lang/String;"));
+		process_constructor(class_name, clazz, constructor_name, constructor, idx, callback, host_object);
 	}
+	jobjectArray methods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
+	int methodCount = (int) jni->getArrayLength(methods);
+	for (int idx = 0; idx < methodCount; idx++)
+	{
+		jobject method = jni->getObjectArrayElement(methods, idx);
+		std::string method_name = jni->getUTFString(jni->invokeStringMethod(method, "java/lang/reflect/Method", "getName", "()Ljava/lang/String;"));
+		process_method(class_name, clazz, method_name, method, idx, callback, host_object);
+	}
+}
+
+void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, TranslationUnitVisitClassesCallback callback, void * host_object)
+{
+	int modifiers = jni->invokeIntMethod(method, "java/lang/reflect/Method", "getModifiers", "()I");
+	int type = find_method_type(method);
+	char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+	int int_attrs[ATTR_COUNT];
+	char name[64];
+	strcpy(name, method_name.c_str());
+	callback(CURSOR_FUNCTION_DECL, type, modifiers, name, idx, str_attrs, int_attrs, host_object);
+}
+
+void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, TranslationUnitVisitClassesCallback callback, void * host_object)
+{
+	int modifiers = jni->invokeIntMethod(constructor, "java/lang/reflect/Constructor", "getModifiers", "()I");
+	int type = find_constructor_type(constructor);
+	char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+	int int_attrs[ATTR_COUNT];
+	char name[64];
+	strcpy(name, constructor_name.c_str());
+	callback(CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, str_attrs, int_attrs, host_object);
+}
+
+int find_class_type(jclass clazz)
+{
+	int type = TYPE_JAVA_INSTANCE;
+	jarray jconstructors = (jarray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getConstructors", "()[Ljava/lang/reflect/Constructor;");
+	jsize constructorCount = jni->getArrayLength(jconstructors);
+	jint jmodifiers = (jint) jni->invokeIntMethod(clazz, "java/lang/Class", "getModifiers", "()I");
+	int modifiers = (int) jmodifiers;
+	bool isInterface = (modifiers & MODIFIER_JAVA_INTERFACE) == MODIFIER_JAVA_INTERFACE;
+	bool isAbstract = (modifiers & MODIFIER_JAVA_ABSTRACT) == MODIFIER_JAVA_ABSTRACT;
+	jboolean jisEnum = jni->invokeBooleanMethod(clazz, "java/lang/Class", "isEnum", "()Z");
+	bool isEnum = (bool) jisEnum;
+	if (isInterface)
+	{
+		type = TYPE_JAVA_INTERFACE;
+	}
+	else if (isAbstract)
+	{
+		type = TYPE_JAVA_ABSTRACT;
+	}
+	else if (isEnum)
+	{
+		type = TYPE_JAVA_ENUM;
+	}
+	else
+	{
+		bool onlyStaticPublicMethods = true;
+		jstring jclassName = jni->invokeStringMethod(clazz, "java/lang/Class", "getName", "()Ljava/lang/String;");
+		const char * className = jni->getUTFString(jclassName).c_str();
+		jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
+		jsize jmethodCount = jni->getArrayLength(jmethods);
+		int methodCount = (int) jmethodCount;
+		for (int i = 0; i < methodCount; i++)
+		{
+			jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
+			jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
+			bool isBridge = (bool) jisBridge;
+			if (isBridge) continue;
+			jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
+			bool isSynthetic = (bool) jisSynthetic;
+			if (isSynthetic) continue;
+			jint jmethodmodifiers = (jint) jni->invokeIntMethod(jmethodObj, "java/lang/reflect/Method", "getModifiers", "()I");
+			int methodModifiers = (int) jmethodmodifiers;
+			bool isMethodStatic = (methodModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
+			bool isMethodPublic = (methodModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+			if (isMethodPublic && !isMethodStatic)
+			{
+				onlyStaticPublicMethods = false;
+				break;
+			}
+		}
+		if (onlyStaticPublicMethods)
+		{
+			type = TYPE_JAVA_STATIC_METHODS;
+		}
+		else if (constructorCount == 0)
+		{
+			// search for a public static method that takes no arg and returns this type
+			bool isSingletonInstance = false;
+			jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
+			jsize jmethodCount = jni->getArrayLength(jmethods);
+			int methodCount = (int) jmethodCount;
+			for (int i = 0; i < methodCount; i++)
+			{
+				jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
+				jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
+				bool isBridge = (bool) jisBridge;
+				if (isBridge) continue;
+				jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
+				bool isSynthetic = (bool) jisSynthetic;
+				if (isSynthetic) continue;
+				jint jmethodmodifiers = (jint) jni->invokeIntMethod(jmethodObj, "java/lang/reflect/Method", "getModifiers", "()I");
+				int methodModifiers = (int) jmethodmodifiers;
+				bool isMethodStatic = (methodModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
+				bool isMethodPublic = (methodModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+				if (!isMethodPublic) continue;
+				if (!isMethodStatic) continue;
+				jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/reflect/Method", "getParameterTypes", "()[Ljava/lang/Class;");
+				jsize parameterCount = jni->getArrayLength(jparameterTypes);
+				if (parameterCount > 0) continue;
+				jobject jreturnType = (jobject) jni->invokeObjectMethod(clazz, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+				isSingletonInstance = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+			}
+			// search for a public static field that returns this type
+			bool isSingletonField = false;
+			jobjectArray jfields = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredFields", "()[Ljava/lang/Field;");
+			jsize jfieldCount = jni->getArrayLength(jfields);
+			int fieldCount = (int) jfieldCount;
+			for (int i = 0; i < fieldCount; i++)
+			{
+				jobject jfieldObj = jni->getObjectArrayElement(jfields, i);
+				int fieldModifiers = jni->invokeIntMethod(jfieldObj, "java/lang/reflect/Field", "getModifiers", "()I");
+				bool isFieldStatic = (fieldModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
+				bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+				if (!isFieldPublic) continue;
+				if (!isFieldStatic) continue;
+				jobject jreturnType = (jobject) jni->invokeObjectMethod(clazz, "java/lang/reflect/Field", "getReturnType", "()Ljava/lang/Class;");
+				isSingletonField = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+			}
+			if (isSingletonInstance)
+			{
+				type = TYPE_JAVA_SINGLETON_INSTANCE;
+			}
+			else if (isSingletonField)
+			{
+				type = TYPE_JAVA_SINGLETON_FIELD;
+			}
+			else
+			{
+				//TODO: what type is this?
+				type = TYPE_JAVA_ABSTRACT;
+			}
+		}
+		else
+		{
+			type = TYPE_JAVA_INSTANCE;
+		}
+	}
+	return type;
+}
+
+int find_method_type(jobject method)
+{
+	int type = TYPE_UNKNOWN;
+	jint jmodifiers = (jint) jni->invokeIntMethod(method, "java/lang/reflect/Method", "getModifiers", "()I");
+	int modifiers = (int) jmodifiers;
+	if ((modifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC)
+	{
+		if ((modifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC)
+		{
+			type = TYPE_JAVA_PUBLIC_STATIC_METHOD;
+		}
+		else
+		{
+			type = TYPE_JAVA_PUBLIC_INSTANCE_METHOD;
+		}
+	}
+	return type;
+}
+
+int find_constructor_type(jobject constructor)
+{
+	int type = TYPE_UNKNOWN;
+	jint jmodifiers = (jint) jni->invokeIntMethod(constructor, "java/lang/reflect/Constructor", "getModifiers", "()I");
+	int modifiers = (int) jmodifiers;
+	if ((modifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC)
+	{
+		type = TYPE_JAVA_PUBLIC_CONSTRUCTOR;
+	}
+	return type;
 }
 
 CXXTranslationUnit * getCursorTranslationUnit(CXXCursor cursor)

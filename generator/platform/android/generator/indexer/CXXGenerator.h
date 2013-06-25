@@ -10,14 +10,15 @@
 #ifndef CXXGENERATOR_H_
 #define CXXGENERATOR_H_
 
+#include <jni.h>
+#include <string>
+#include <CXXUtils.h>
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif //__cplusplus
 
-
-#include <jni.h>
-#include <string.h>
 
 #define OK	(0)
 #define	ERR	(-1)
@@ -25,7 +26,8 @@ extern "C"
 #define BASE_PACKAGE_SIZE 64
 #define BASE_CLASS_COUNT 1024
 #define BASE_CLASS_SIZE 64
-#define CURSOR_ATTR_STR_SIZE 64
+#define ATTR_COUNT 64
+#define STR_ATTR_SIZE 64
 
 struct CXXCursor;
 
@@ -35,7 +37,7 @@ typedef int * (*VisitEnumValuesCallback)(char * enum_value, void * host_object);
 
 typedef int * (*CursorVisitAttrsCallback)(int int_attr_value, char * str_attr_value, void * host_object);
 
-typedef int * (*TranslationUnitVistClassesCallback)();
+typedef int * (*TranslationUnitVisitClassesCallback)(int cursor_type, int type, int modifiers, char * name, int idx, char str_attrs[ATTR_COUNT][STR_ATTR_SIZE], int int_attrs[ATTR_COUNT], void * host_object);
 
 class CXXIndex
 {
@@ -71,10 +73,10 @@ struct CXXCursor
 	int _int_attr_1;
 	int _int_attr_2;
 	int _int_attr_3;
-	char _str_attr_0[CURSOR_ATTR_STR_SIZE];
-	char _str_attr_1[CURSOR_ATTR_STR_SIZE];
-	char _str_attr_2[CURSOR_ATTR_STR_SIZE];
-	char _str_attr_3[CURSOR_ATTR_STR_SIZE];
+	char _str_attr_0[STR_ATTR_SIZE];
+	char _str_attr_1[STR_ATTR_SIZE];
+	char _str_attr_2[STR_ATTR_SIZE];
+	char _str_attr_3[STR_ATTR_SIZE];
 };
 
 struct CXXType
@@ -96,7 +98,7 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu);
 
 void disposeTranslationUnit(CXXTranslationUnit * tu);
 
-void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVistClassesCallback callback, void * host_object);
+void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object);
 
 CXXTranslationUnit * getCursorTranslationUnit(CXXCursor cursor);
 
@@ -113,6 +115,18 @@ int visitCursorChildren(CXXCursor parentCursor, CursorVisitCallback callback, vo
 int visitEnumValues(CXXCursor cursor, CXXType type, VisitEnumValuesCallback callback, void * host_object);
 
 void visitCursorAttrs(CXXCursor cursor, CursorVisitAttrsCallback callback, void * host_object);
+
+void process_class(std::string class_name, jclass clazz, TranslationUnitVisitClassesCallback callback, void * host_object);
+
+void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, TranslationUnitVisitClassesCallback callback, void * host_object);
+
+void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, TranslationUnitVisitClassesCallback callback, void * host_object);
+
+int find_class_type(jclass clazz);
+
+int find_method_type(jobject method);
+
+int find_constructor_type(jobject constructor);
 
 #ifdef __cplusplus
 }
