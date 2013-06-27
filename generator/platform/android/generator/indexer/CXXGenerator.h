@@ -13,6 +13,7 @@
 #include <jni.h>
 #include <string>
 #include <vector>
+#include <map>
 #include <CXXUtils.h>
 
 #ifdef __cplusplus
@@ -29,6 +30,9 @@ extern "C"
 #define BASE_CLASS_SIZE 64
 #define ATTR_COUNT 64
 #define STR_ATTR_SIZE 64
+#define CALLBACK_TYPE_ENTER (1)
+#define CALLBACK_TYPE_PROCESS (2)
+#define CALLBACK_TYPE_EXIT (4)
 
 struct CXXCursor;
 
@@ -38,7 +42,7 @@ typedef int * (*VisitEnumValuesCallback)(char * enum_value, void * host_object);
 
 typedef int * (*CursorVisitAttrsCallback)(int int_attr_value, char * str_attr_value, void * host_object);
 
-typedef int * (*TranslationUnitVisitClassesCallback)(int cursor_type, int type, int modifiers, char * name, int idx, char str_attrs[ATTR_COUNT][STR_ATTR_SIZE], int int_attrs[ATTR_COUNT], void * host_object);
+typedef int * (*TranslationUnitVisitClassesCallback)(int callback_type, int cursor_type, int type, int modifiers, char * name, int idx, char str_attrs[ATTR_COUNT][STR_ATTR_SIZE], int int_attrs[ATTR_COUNT], void * host_object);
 
 class CXXIndex
 {
@@ -93,6 +97,7 @@ struct ProcessorContext
 	int class_count;
 	TranslationUnitVisitClassesCallback callback;
 	void * host_object;
+	std::map<std::string, long> processed_classes;
 };
 
 CXXIndex * createIndex(char * optionString);
@@ -137,6 +142,8 @@ void process_constructor_param(std::string constructor_name, jobject constructor
 
 void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
 
+void process_method_return(std::string method_name, jobject method, std::string retrn_name, jobject retrn, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
+
 int find_class_type(jclass clazz);
 
 int find_method_type(jobject method);
@@ -145,9 +152,15 @@ int find_constructor_type(jobject constructor);
 
 int find_param_type(jobject param);
 
+int find_return_type(jobject retrn);
+
 std::vector<std::string> find_param_generics(jobject param);
 
+std::vector<std::string> find_return_generics(jobject retrn);
+
 std::string find_param_name(jobject param);
+
+std::string find_return_name(jobject retrn);
 
 std::string find_package_name(std::string class_name);
 

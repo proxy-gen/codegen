@@ -210,8 +210,28 @@ class Generator(BaseGenerator):
 	def _setup_new_config(self):
 		packages = [ "com.facebook", "com.facebook.android" ]
 		classes = [ "com.facebook.Session", "com.facebook.android.Facebook" ]
+		meta_data = {
+			"packages" : [ # java packages that we want to process
+				{
+					"name" : "com.facebook",
+				},
+				{
+					"name" : "com.facebook.android"
+				}
+			],
+			"classes" : [ # java classes that we want to process
+				{
+					"name" : "com.facebook.Session"
+				},		
+				{
+					"name" : "com.facebook.android.Facebook"
+				}
+			]
+		}
+		self.index.build_meta_data(packages, classes, meta_data)
+		meta_data_file = open("/tmp/meta_data.txt", "w")
+		meta_data_file.write(str(meta_data))
 		self.class_names_list = []
-		self.index.build_metadata(packages, classes)
 
 	def _setup_old_config(self):
 		# setup output directories

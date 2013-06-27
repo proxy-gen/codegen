@@ -303,7 +303,6 @@ class Type(Structure):
 
         return res        
 
-
 class JavaObject(object):
     def __init__(self, obj):
         assert isinstance(obj, c_object_p) and obj
@@ -311,6 +310,23 @@ class JavaObject(object):
 
     def from_param(self):
         return self._as_parameter_
+
+class Modifier(object):
+    UNKNOWN = 0
+    JAVA_PUBLIC = 1
+    JAVA_STATIC = 8
+    JAVA_INTERFACE = 512
+    JAVA_ABSTRACT = 1024
+
+    @classmethod
+    def is_modifier(cls, modifiers, modifier):
+        return modifiers & modifier == modifier
+
+class CallbackType(object):
+    UNKNOWN = 0
+    ENTER = 1
+    PROCESS = 2
+    EXIT = 4
 
 class Index(JavaObject):
 
@@ -321,8 +337,8 @@ class Index(JavaObject):
     def parse(self, res):
         return TranslationUnit.from_source(res, self)
 
-    def build_metadata(self, packages, classes):
-        return TranslationUnit.build_metadata(packages, classes)
+    def build_meta_data(self, packages, classes, meta_data):
+        return TranslationUnit.build_meta_data(packages, classes, meta_data)
 
     @property
     def status(self):
@@ -339,22 +355,23 @@ class Index(JavaObject):
 class TranslationUnit(JavaObject):
 
     @classmethod
-    def build_metadata(cls, packages, classes):
-        if not hasattr(cls, '_meta_data'):
-            def visitor(cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data):
-                print "TranslationUnit_classes_visit " + str(name)
-                return 0
-            cls._meta_data = list()
-            c_types_packages = ((c_char * 64) * 64)()
-            for idx in range(len(packages)):
-                c_types_packages[idx].value = packages[idx]
-            c_types_packages_count = len(packages)
-            c_types_classes = ((c_char * 64) * 1024)()
-            for idx in range(len(classes)):
-                c_types_classes[idx].value = classes[idx]
-            c_types_classes_count = len(classes)
-            TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), cls._meta_data)
-        return cls._meta_data
+    def build_meta_data(cls, packages, classes, meta_data):
+        assert "packages" in meta_data
+        assert "classes" in meta_data
+        def visitor(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+            TranslationUnit._process_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            return 0
+        c_types_packages = ((c_char * 64) * 64)()
+        for idx in range(len(packages)):
+            c_types_packages[idx].value = packages[idx]
+        c_types_packages_count = len(packages)
+        c_types_classes = ((c_char * 64) * 1024)()
+        for idx in range(len(classes)):
+            c_types_classes[idx].value = classes[idx]
+        c_types_classes_count = len(classes)
+        meta_data_stack = list()
+        meta_data_stack.append(meta_data)
+        TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), meta_data_stack)
     
     @classmethod
     def from_source(cls, res, index):
@@ -373,6 +390,155 @@ class TranslationUnit(JavaObject):
     @property
     def cursor(self):
         return TranslationUnit_cursor(self)
+
+    @classmethod
+    def _process_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        if CursorKind.from_id(cursor_type) == CursorKind.CLASS_DECL:
+            TranslationUnit._process_class_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+        if CursorKind.from_id(cursor_type) == CursorKind.CONSTRUCTOR_DECL:
+            TranslationUnit._process_constructor_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+        if CursorKind.from_id(cursor_type) == CursorKind.FUNCTION_DECL:
+            TranslationUnit._process_function_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+        if CursorKind.from_id(cursor_type) == CursorKind.PARAM_DECL:
+            TranslationUnit._process_param_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+        if CursorKind.from_id(cursor_type) == CursorKind.RETURN_DECL:
+            TranslationUnit._process_return_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+
+    @classmethod
+    def _process_class_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        print "_process_class_meta_data " + name
+        if callback_type == CallbackType.ENTER:
+            meta_data = meta_data_stack[0] # classes at the root
+            meta_data = TranslationUnit._find_or_create_class_meta_data(meta_data["classes"], name)
+            meta_data_stack.append(meta_data)
+        if callback_type == CallbackType.PROCESS:
+            # process
+            pass
+        if callback_type == CallbackType.EXIT:
+            meta_data_stack.pop()
+
+    @classmethod
+    def _process_constructor_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        print "_process_constructor_meta_data " + name
+        if callback_type == CallbackType.ENTER:
+            meta_data = meta_data_stack[len(meta_data_stack)-1]
+            meta_data = TranslationUnit._find_or_create_constructor_meta_data(meta_data["constructors"], name)
+            meta_data_stack.append(meta_data)
+        if callback_type == CallbackType.PROCESS:
+            # process
+            pass
+        if callback_type == CallbackType.EXIT:
+            meta_data_stack.pop()
+
+    @classmethod
+    def _process_function_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        print "_process_function_meta_data " + name
+        if callback_type == CallbackType.ENTER:
+            meta_data = meta_data_stack[len(meta_data_stack)-1]
+            meta_data = TranslationUnit._find_or_create_function_meta_data(meta_data["functions"], name)
+            meta_data_stack.append(meta_data)
+        if callback_type == CallbackType.PROCESS:
+            # process
+            pass
+        if callback_type == CallbackType.EXIT:
+            meta_data_stack.pop()
+
+    @classmethod
+    def _process_param_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        print "_process_param_meta_data " + name
+        if callback_type == CallbackType.ENTER:
+            meta_data = meta_data_stack[len(meta_data_stack)-1]
+            meta_data = TranslationUnit._find_or_create_param_meta_data(meta_data["params"], name)
+            meta_data_stack.append(meta_data)
+        if callback_type == CallbackType.PROCESS:
+            # process
+            pass
+        if callback_type == CallbackType.EXIT:
+            meta_data_stack.pop()
+
+    @classmethod
+    def _process_return_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+        print "_process_return_meta_data " + name
+        if callback_type == CallbackType.ENTER:
+            meta_data = meta_data_stack[len(meta_data_stack)-1]
+            meta_data = TranslationUnit._find_or_create_return_meta_data(meta_data["returns"], name)
+            meta_data_stack.append(meta_data)
+        if callback_type == CallbackType.PROCESS:
+            # process
+            pass
+        if callback_type == CallbackType.EXIT:
+            meta_data_stack.pop()
+
+    @classmethod
+    def _find_or_create_class_meta_data(cls, classes, class_name):
+        the_clazz = None
+        for clazz in classes:
+            if clazz["name"] == class_name:
+                the_clazz = clazz
+                break
+        if not the_clazz:
+            the_clazz = dict()
+            classes.append(the_clazz)
+        the_clazz["name"] = class_name
+        the_clazz["class_name"] = class_name
+        the_clazz["constructors"] = the_clazz.get("constructors", list())
+        the_clazz["functions"] = the_clazz.get("functions", list())
+        return the_clazz
+
+    @classmethod
+    def _find_or_create_constructor_meta_data(cls, constructors, constructor_name):
+        the_constructor = None
+        for constructor in constructors:
+            if constructor["name"] == constructor_name:
+                the_constructor = constructor
+                break
+        if not the_constructor:
+            the_constructor = dict()
+            constructors.append(the_constructor)
+        the_constructor["name"] = constructor_name
+        the_constructor["params"] = the_constructor.get("params", list())
+        return the_constructor
+
+    @classmethod
+    def _find_or_create_function_meta_data(cls, functions, function_name):
+        the_function = None
+        for function in functions:
+            if function["name"] == function_name:
+                the_function = function
+                break
+        if not the_function:
+            the_function = dict()
+            functions.append(the_function)
+        the_function["name"] = function_name
+        the_function["params"] = the_function.get("params", list())
+        the_function["returns"] = the_function.get("returns", list())
+        return the_function
+
+    @classmethod
+    def _find_or_create_param_meta_data(cls, params, param_name):
+        the_param = None
+        for param in params:
+            if param["name"] == param_name:
+                the_param = param
+                break
+        if not the_param:
+            the_param = dict()
+            params.append(the_param)
+        the_param["name"] = param_name
+        return the_param
+
+    @classmethod
+    def _find_or_create_return_meta_data(cls, returns, return_name):
+        the_return = None
+        for retrn in returns:
+            if retrn["name"] == return_name:
+                the_return = retrn
+                break
+        if not the_return:
+            the_return = dict()
+            returns.append(the_return)
+        the_return["name"] = return_name
+        return the_return
 
 class DummyType(Type):
 
@@ -445,7 +611,7 @@ Index_destroy.restype = c_int
 
 # Translation Unit Functions
 
-TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_int, c_int, c_int, c_char_p, c_int, (c_char * 64) * 64, c_int * 64, py_object)
+TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_int, c_int, c_int, c_int, c_char_p, c_int, (c_char * 64) * 64, c_int * 64, py_object)
 TranslationUnit_classes_visit = lib.visitTranslationUnitClasses
 TranslationUnit_classes_visit.argtypes = [(c_char * 64) * 64, c_int, (c_char * 64) * 1024, c_int, TranslationUnit_classes_visit_callback, py_object]
 

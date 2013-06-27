@@ -8,6 +8,9 @@
 #include "CXXGenerator.h"
 #include "JNIContext.hpp"
 
+#define LOG_ENABLED 1
+#define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
+
 #define CURSOR_CLASS_DECL 4
 #define CURSOR_CONSTRUCTOR_DECL 7
 #define CURSOR_FUNCTION_DECL 8
@@ -118,7 +121,7 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu)
 
 void visitTranslationUnitClasses(char packages[64][64], int package_count, char classes[1024][64], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object)
 {
-	printf("visitTranslationUnitClasses enter\n");
+	log("visitTranslationUnitClasses enter\n");
 	jni->pushLocalFrame();
 	ProcessorContext ctx;
 	memcpy(ctx.packages, packages, sizeof(char) * 64 * 64);
@@ -135,13 +138,19 @@ void visitTranslationUnitClasses(char packages[64][64], int package_count, char 
 		process_class(class_name, clazz, ctx);		
 	}
 	jni->popLocalFrame();
-	printf("visitTranslationUnitClasses exit\n");
+	log("visitTranslationUnitClasses exit\n");
 }
 
 void process_class(std::string class_name, jclass clazz, ProcessorContext ctx)
 {
-	printf("process_class enter\n");
-	printf("process_class class %s\n", class_name.c_str());
+	log("process_class enter\n");
+	log("process_class class %s\n", class_name.c_str());
+	if (ctx.processed_classes.count(class_name) > 0)
+	{
+		log("class already processed, skipping %s\n", class_name.c_str());
+		return;
+	}
+	ctx.processed_classes.insert(std::pair<std::string, long>(class_name, (long) clazz));
 	jni->pushLocalFrame();
 	int modifiers = (int) jni->invokeIntMethod(clazz, "java/lang/Class", "getModifiers", "()I");
 	int type = find_class_type(clazz);
@@ -150,38 +159,64 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext ctx)
 		int int_attrs[ATTR_COUNT];
 		char name[64];
 		strcpy(name, class_name.c_str());
-		ctx.callback(CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, str_attrs, int_attrs, ctx.host_object);	
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CLASS_DECL, type, modifiers, name, 0, str_attrs, int_attrs, ctx.host_object);
+
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, class_name.c_str());
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, str_attrs, int_attrs, ctx.host_object);	
 	}	
-	jobjectArray jconstructors = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
-	int constructorCount = (int) jni->getArrayLength(jconstructors);
+	jobjectArray constructors = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
+	int constructorCount = (int) jni->getArrayLength(constructors);
 	for (int idx = 0; idx < constructorCount; idx++)
 	{
-		jobject constructor = jni->getObjectArrayElement(jconstructors, idx);
+		jni->pushLocalFrame();
+		jobject constructor = jni->getObjectArrayElement(constructors, idx);
 		std::string constructor_name = jni->getUTFString(jni->invokeStringMethod(constructor, "java/lang/reflect/Constructor", "getName", "()Ljava/lang/String;"));
-		process_constructor(class_name, clazz, constructor_name, constructor, idx, ctx);
+		bool isSynthetic = (bool) jni->invokeBooleanMethod(constructor, "java/lang/reflect/Constructor", "isSynthetic", "()Z");
+		if (!isSynthetic)
+		{			
+			process_constructor(class_name, clazz, constructor_name, constructor, idx, ctx);
+		}
+		jni->popLocalFrame();
 	}
 	jobjectArray methods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
 	int methodCount = (int) jni->getArrayLength(methods);
 	for (int idx = 0; idx < methodCount; idx++)
 	{
+		jni->pushLocalFrame();
 		jobject method = jni->getObjectArrayElement(methods, idx);
-		jboolean jisBridge = jni->invokeBooleanMethod(method, "java/lang/reflect/Method", "isBridge", "()Z");
-		bool isBridge = (bool) jisBridge;
-		if (isBridge) continue;
-		jboolean jisSynthetic = jni->invokeBooleanMethod(method, "java/lang/reflect/Method", "isSynthetic", "()Z");
-		bool isSynthetic = (bool) jisSynthetic;
-		if (isSynthetic) continue;
 		std::string method_name = jni->getUTFString(jni->invokeStringMethod(method, "java/lang/reflect/Method", "getName", "()Ljava/lang/String;"));
-		process_method(class_name, clazz, method_name, method, idx, ctx);
+		bool isBridge = (bool) jni->invokeBooleanMethod(method, "java/lang/reflect/Method", "isBridge", "()Z");
+		if (!isBridge) 
+		{
+			bool isSynthetic = (bool) jni->invokeBooleanMethod(method, "java/lang/reflect/Method", "isSynthetic", "()Z");
+			if (!isSynthetic)
+			{
+				process_method(class_name, clazz, method_name, method, idx, ctx);
+			}
+		}
+		jni->popLocalFrame();
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, class_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CLASS_DECL, type, modifiers, name, 0, str_attrs, int_attrs, ctx.host_object);
+
 	}
 	jni->popLocalFrame();
-	printf("process_class exit\n");
+	log("process_class exit\n");
 }
 
 void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext ctx)
 {
-	printf("process_method enter\n");
-	printf("process_method method %s\n", method_name.c_str());
+	log("process_method enter\n");
+	log("process_method method %s\n", method_name.c_str());
 	jni->pushLocalFrame();
 	int modifiers = jni->invokeIntMethod(method, "java/lang/reflect/Method", "getModifiers", "()I");
 	int type = find_method_type(method);
@@ -190,7 +225,15 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 		int int_attrs[ATTR_COUNT];
 		char name[64];
 		strcpy(name, method_name.c_str());
-		ctx.callback(CURSOR_FUNCTION_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, method_name.c_str());
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
 	}
 	jobjectArray params = (jobjectArray) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 	if (params != 0)
@@ -198,32 +241,69 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 		int parameterCount = (int) jni->getArrayLength(params);
 		for (int idx = 0; idx < parameterCount; idx++)
 		{
+			jni->pushLocalFrame();
 			jobject param = jni->getObjectArrayElement(params, idx);
 			std::string param_name = find_param_name(param);
 			std::vector<std::string> param_generics = find_param_generics(param);
 			process_method_param(method_name, method, param_name, param, idx, param_generics, ctx);
+			jni->popLocalFrame();
 		}
 		for (int idx = 0; idx < parameterCount; idx++)
 		{
+			jni->pushLocalFrame();
 			jobject param = jni->getObjectArrayElement(params, idx);
-			jclass param_class = jni->getObjectClass(param);
 			std::string param_name = find_param_name(param);
 			std::string param_package_name = find_package_name(param_name);
 			char package[64];
 			strcpy(package, param_package_name.c_str());
 			if (in_packages(package, ctx.packages, ctx.package_count))
 			{
+				std::string jni_name = jni->getJNIName(param_name);
+				jclass param_class = jni->getClassRef(jni_name.c_str());
 				process_class(param_name, param_class, ctx);
 			}
+			jni->popLocalFrame();
 		}	
 	}
+	jobject retrn = (jobject) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+	if (retrn != 0)
+	{
+		jni->pushLocalFrame();
+		std::string retrn_name = find_return_name(retrn);
+		std::vector<std::string> retrn_generics = find_return_generics(retrn);
+		process_method_return(method_name, method, retrn_name, retrn, 0, retrn_generics, ctx);
+		jni->popLocalFrame();
+	}
+	if (retrn != 0)
+	{
+		jni->pushLocalFrame();
+		std::string retrn_name = find_return_name(retrn);
+		std::string retrn_package_name = find_package_name(retrn_name);
+		char package[64];
+		strcpy(package, retrn_package_name.c_str());
+		if (in_packages(package, ctx.packages, ctx.package_count))
+		{
+			std::string jni_name = jni->getJNIName(retrn_name);
+			jclass retrn_class = jni->getClassRef(jni_name.c_str());
+			process_class(retrn_name, retrn_class, ctx);
+		}
+		jni->popLocalFrame();
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, method_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
 	jni->popLocalFrame();
-	printf("process_method exit\n");
+	log("process_method exit\n");
 }
 
 void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx)
 {
-	printf("process_constructor enter\n");
+	log("process_constructor enter\n");
 	jni->pushLocalFrame();
 	int modifiers = jni->invokeIntMethod(constructor, "java/lang/reflect/Constructor", "getModifiers", "()I");
 	int type = find_constructor_type(constructor);
@@ -232,7 +312,15 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 		int int_attrs[ATTR_COUNT];
 		char name[64];
 		strcpy(name, constructor_name.c_str());
-		ctx.callback(CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);		
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, constructor_name.c_str());
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);		
 	}
 	jobjectArray params = (jobjectArray) jni->invokeObjectMethod(constructor, "java/lang/reflect/Constructor", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 	if (params != 0)
@@ -240,35 +328,56 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 		int parameterCount = (int) jni->getArrayLength(params);
 		for (int idx = 0; idx < parameterCount; idx++)
 		{
+			jni->pushLocalFrame();
 			jobject param = jni->getObjectArrayElement(params, idx);
 			std::string param_name = find_param_name(param);
 			std::vector<std::string> param_generics = find_param_generics(param);
 			process_constructor_param(constructor_name, constructor, param_name, param, idx, param_generics, ctx);
+			jni->popLocalFrame();
 		}
 		for (int idx = 0; idx < parameterCount; idx++)
 		{
+			jni->pushLocalFrame();
 			jobject param = jni->getObjectArrayElement(params, idx);
-			jclass param_class = jni->getObjectClass(param);
 			std::string param_name = find_param_name(param);
 			std::string param_package_name = find_package_name(param_name);
 			char package[64];
 			strcpy(package, param_package_name.c_str());
 			if (in_packages(package, ctx.packages, ctx.package_count))
 			{
+				std::string jni_name = jni->getJNIName(param_name);
+				jclass param_class = jni->getClassRef(jni_name.c_str());
 				process_class(param_name, param_class, ctx);
 			}
+			jni->popLocalFrame();
 		}		
 	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, constructor_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
 	jni->popLocalFrame();
-	printf("process_constructor exit\n");
+	log("process_constructor exit\n");
 }
 
 void process_constructor_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx)
 {
-	printf("process_constructor_param enter\n");
+	log("process_constructor_param enter\n");
 	jni->pushLocalFrame();
 	int modifiers = 0;
 	int type = find_param_type(param);
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, param_name.c_str());
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
 	{	
 		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
 		int int_attrs[ATTR_COUNT];
@@ -280,36 +389,101 @@ void process_constructor_param(std::string method_name, jobject method, std::str
 		{
 			strcpy(str_attrs[jdx], param_generics.at(jdx).c_str());
 		}
-		ctx.callback(CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, param_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
 	}
 	jni->popLocalFrame();
-	printf("process_constructor_param exit\n");
+	log("process_constructor_param exit\n");
 }
 
 void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx)
 {
-	printf("process_method_param enter\n");
+	log("process_method_param enter\n");
 	jni->pushLocalFrame();
 	int modifiers = 0;
 	int type = find_param_type(param);
-	char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
-	int int_attrs[ATTR_COUNT];
-	char name[64];
-	strcpy(name, param_name.c_str());
-	int size = param_generics.size();
-	int_attrs[0] = size;
-	for (int jdx = 0; jdx < size; jdx++)
 	{
-		strcpy(str_attrs[jdx], param_generics.at(jdx).c_str());
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, param_name.c_str());
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
 	}
-	ctx.callback(CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, param_name.c_str());
+		int size = param_generics.size();
+		int_attrs[0] = size;
+		for (int jdx = 0; jdx < size; jdx++)
+		{
+			strcpy(str_attrs[jdx], param_generics.at(jdx).c_str());
+		}
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);		
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, param_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_PARM_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
 	jni->popLocalFrame();
-	printf("process_method_param exit\n");
+	log("process_method_param exit\n");
+}
+
+void process_method_return(std::string method_name, jobject method, std::string retrn_name, jobject retrn, int idx, std::vector<std::string> retrn_generics, ProcessorContext ctx)
+{
+	log("process_method_return enter\n");
+	jni->pushLocalFrame();
+	int modifiers = 0;
+	int type = find_return_type(retrn);
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, retrn_name.c_str());
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_RETURN_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, retrn_name.c_str());
+		int size = retrn_generics.size();
+		int_attrs[0] = size;
+		for (int jdx = 0; jdx < size; jdx++)
+		{
+			strcpy(str_attrs[jdx], retrn_generics.at(jdx).c_str());
+		}
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_RETURN_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);		
+	}
+	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[64];
+		strcpy(name, retrn_name.c_str());
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_RETURN_DECL, type, modifiers, name, idx, str_attrs, int_attrs, ctx.host_object);
+
+	}
+	jni->popLocalFrame();
+	log("process_method_return exit\n");
 }
 
 int find_class_type(jclass clazz)
 {
-	printf("find_class_type enter\n");
+	log("find_class_type enter\n");
 	jni->pushLocalFrame();
 	int type = TYPE_JAVA_INSTANCE;
 	jarray jconstructors = (jarray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getConstructors", "()[Ljava/lang/reflect/Constructor;");
@@ -427,13 +601,13 @@ int find_class_type(jclass clazz)
 		}
 	}
 	jni->popLocalFrame();
-	printf("find_class_type exit\n");
+	log("find_class_type exit\n");
 	return type;
 }
 
 int find_method_type(jobject method)
 {
-	printf("find_method_type enter\n");
+	log("find_method_type enter\n");
 	jni->pushLocalFrame();
 	int type = TYPE_UNKNOWN;
 	jint jmodifiers = (jint) jni->invokeIntMethod(method, "java/lang/reflect/Method", "getModifiers", "()I");
@@ -450,13 +624,13 @@ int find_method_type(jobject method)
 		}
 	}
 	jni->popLocalFrame();
-	printf("find_method_type exit\n");
+	log("find_method_type exit\n");
 	return type;
 }
 
 int find_constructor_type(jobject constructor)
 {
-	printf("find_constructor_type enter\n");
+	log("find_constructor_type enter\n");
 	jni->pushLocalFrame();
 	int type = TYPE_UNKNOWN;
 	jint jmodifiers = (jint) jni->invokeIntMethod(constructor, "java/lang/reflect/Constructor", "getModifiers", "()I");
@@ -466,13 +640,13 @@ int find_constructor_type(jobject constructor)
 		type = TYPE_JAVA_PUBLIC_CONSTRUCTOR;
 	}
 	jni->popLocalFrame();
-	printf("find_constructor_type exit\n");
+	log("find_constructor_type exit\n");
 	return type;
 }
 
 int find_param_type(jobject param)
 {
-	printf("find_param_type enter\n");
+	log("find_param_type enter\n");
 	jni->pushLocalFrame();
 	int type = TYPE_UNKNOWN;
 	jboolean jisEnum = jni->invokeBooleanMethod(param, "java/lang/Class", "isEnum", "()Z");
@@ -497,13 +671,44 @@ int find_param_type(jobject param)
 		type = TYPE_JAVA_INSTANCE;
 	}
 	jni->popLocalFrame();
-	printf("find_param_type exit\n");
+	log("find_param_type exit\n");
+	return type;
+}
+
+int find_return_type(jobject retrn)
+{
+	log("find_return_type enter\n");
+	jni->pushLocalFrame();
+	int type = TYPE_UNKNOWN;
+	jboolean jisEnum = jni->invokeBooleanMethod(retrn, "java/lang/Class", "isEnum", "()Z");
+	jboolean jisPrimitive = jni->invokeBooleanMethod(retrn, "java/lang/Class", "isPrimitive", "()Z");
+	jboolean jisArray = jni->invokeBooleanMethod(retrn, "java/lang/Class", "isArray", "()Z");
+	jboolean jisInterface = jni->invokeBooleanMethod(retrn, "java/lang/Class", "isInterface", "()Z");
+
+	if (jisEnum)
+	{
+		type = TYPE_JAVA_ENUM;
+	}
+	else if (jisPrimitive)
+	{
+		type = TYPE_JAVA_PRIMITIVE;
+	}
+	else if (jisArray)
+	{
+		type = TYPE_JAVA_ARRAY;
+	}
+	else
+	{
+		type = TYPE_JAVA_INSTANCE;
+	}
+	jni->popLocalFrame();
+	log("find_return_type exit\n");
 	return type;
 }
 
 std::string find_param_name(jobject param)
 {
-	printf("find_param_name enter\n");
+	log("find_param_name enter\n");
 	jni->pushLocalFrame();
 	std::string param_name;
 	bool isClass = (bool) jni->isInstanceOf(param, "java/lang/Class");
@@ -527,13 +732,43 @@ std::string find_param_name(jobject param)
 		}
 	}
 	jni->popLocalFrame();
-	printf("find_param_name exit\n");
+	log("find_param_name exit\n");
 	return param_name;
+}
+
+std::string find_return_name(jobject retrn)
+{
+	log("find_return_name enter\n");
+	jni->pushLocalFrame();
+	std::string retrn_name;
+	bool isClass = (bool) jni->isInstanceOf(retrn, "java/lang/Class");
+	if (isClass)
+	{			
+		jstring jclassName = jni->invokeStringMethod(retrn, "java/lang/Class", "getName", "()Ljava/lang/String;");
+		retrn_name = jni->getUTFString(jclassName).c_str();
+	}
+	else
+	{	
+		bool isParameterizedType = jni->isInstanceOf(retrn, "java/lang/reflect/ParameterizedType");
+		if (isParameterizedType)
+		{
+			jobject jrawTypeObj = jni->invokeStringMethod(retrn, "java/lang/reflect/ParameterizedType", "getRawType", "()Ljava/lang/reflect/Type;");
+			bool isClass = (bool) jni->isInstanceOf(jrawTypeObj, "java/lang/Class");
+			if (isClass)
+			{				
+				jstring jclassName = jni->invokeStringMethod(jrawTypeObj, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				retrn_name = jni->getUTFString(jclassName);
+			}
+		}
+	}
+	jni->popLocalFrame();
+	log("find_return_name exit\n");
+	return retrn_name;
 }
 
 std::string find_package_name(std::string class_name)
 {
-	printf("find_package_name enter\n");
+	log("find_package_name enter\n");
 	jni->pushLocalFrame();
 	std::string result;
 	char package_name[64];
@@ -554,13 +789,13 @@ std::string find_package_name(std::string class_name)
 	}
 	result = std::string(package_name);
 	jni->popLocalFrame();
-	printf("find_package_name exit\n");
+	log("find_package_name exit\n");
 	return result;
 }
 
 std::vector<std::string> find_param_generics(jobject param)
 {
-	printf("find_param_generics enter\n");
+	log("find_param_generics enter\n");
 	jni->pushLocalFrame();
 	std::vector<std::string> param_generics;
 	bool isParameterizedType = jni->isInstanceOf(param, "java/lang/reflect/ParameterizedType");
@@ -582,13 +817,47 @@ std::vector<std::string> find_param_generics(jobject param)
 			}
 			else
 			{
-				printf("generics not a class\n");
+				log("generics not a class\n");
 			}
 			jni->popLocalFrame();
 		}
 	}
 	jni->popLocalFrame();
-	printf("find_param_generics exit\n");
+	log("find_param_generics exit\n");
+	return param_generics;
+}
+
+std::vector<std::string> find_return_generics(jobject param)
+{
+	log("find_return_generics enter\n");
+	jni->pushLocalFrame();
+	std::vector<std::string> param_generics;
+	bool isParameterizedType = jni->isInstanceOf(param, "java/lang/reflect/ParameterizedType");
+	if (isParameterizedType)
+	{
+		jobjectArray jargArr = (jobjectArray) jni->invokeObjectMethod(param, "java/lang/reflect/ParameterizedType", "getActualTypeArguments", "()[Ljava/lang/reflect/Type;");
+		jsize jArgTypeCount = jni->getArrayLength(jargArr);
+		int argTypeCount = (int) jArgTypeCount;
+		for (int idx = 0; idx < argTypeCount; idx++)
+		{
+			jni->pushLocalFrame();
+			jobject jargType = jni->getObjectArrayElement(jargArr, idx);
+			bool isClass = jni->isInstanceOf(param, "java/lang/Class");
+			if (isClass)
+			{
+				jstring jargTypeName = (jstring) jni->invokeStringMethod(jargType, "java/lang/Class", "getName", "()Ljava/lang/String;");
+				std::string argTypeName = jni->getUTFString(jargTypeName);
+				param_generics.push_back(argTypeName);				
+			}
+			else
+			{
+				log("generics not a class\n");
+			}
+			jni->popLocalFrame();
+		}
+	}
+	jni->popLocalFrame();
+	log("find_return_generics exit\n");
 	return param_generics;
 }
 
