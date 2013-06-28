@@ -87,11 +87,18 @@ class Generator(BaseGenerator):
 		exported_androidmk_filepath = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_filename)
 		logging.debug("exported_androidmk_filepath " + str(exported_androidmk_filepath))
 
+		self.config_py_filename = "config.py"
+		logging.debug("self.config_py_filename " + str(self.config_py_filename))
+
+		config_py_filepath = os.path.join(self.config_py_outdir_name, self.config_py_filename)
+		logging.debug("config_py_filepath " + str(config_py_filepath))
+
 		self.impl_file = open(impl_filepath, "w+")
 		self.head_file = open(head_filepath, "w+")
 		self.internal_androidmk_file = open(internal_androidmk_filepath, "w+")
 		self.internal_applicationmk_file = open(internal_applicationmk_filepath, "w+")
 		self.exported_androidmk_file = open(exported_androidmk_filepath, "w+")
+		self.config_py_file = open(config_py_filepath, "w+")
 
 		self._parse_classes()
 
@@ -110,11 +117,15 @@ class Generator(BaseGenerator):
 		exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
 		logging.debug("exported_android_mk " + str(exported_android_mk))	
 
+		config_py = Template(file=os.path.join(self.target, "templates", "config.py"), searchList=[self])
+		logging.debug("config.py " + str(config_py))
+
 		self.head_file.write(str(layout_h))
 		self.impl_file.write(str(layout_c))
 		self.internal_androidmk_file.write(str(internal_android_mk))
 		self.internal_applicationmk_file.write(str(internal_application_mk))
 		self.exported_androidmk_file.write(str(exported_android_mk))
+		self.config_py_file.write(str(config_py))
 
 		self._generate_classes()
 
@@ -132,6 +143,7 @@ class Generator(BaseGenerator):
 		self.internal_androidmk_file.close()
 		self.internal_applicationmk_file.close()
 		self.exported_androidmk_file.close()
+		self.config_py_file.close()
 
 		logging.debug("Generator generate_code exit")
 
@@ -210,7 +222,7 @@ class Generator(BaseGenerator):
 	def _setup_new_config(self):
 		packages = [ "com.facebook", "com.facebook.android" ]
 		classes = [ "com.facebook.Session", "com.facebook.android.Facebook" ]
-		meta_data = {
+		self.meta_data = {
 			"packages" : [ # java packages that we want to process
 				{
 					"name" : "com.facebook",
@@ -228,9 +240,7 @@ class Generator(BaseGenerator):
 				}
 			]
 		}
-		self.index.build_meta_data(packages, classes, meta_data)
-		meta_data_file = open("/tmp/meta_data.txt", "w")
-		meta_data_file.write(str(meta_data))
+		self.index.build_meta_data(packages, classes, self.meta_data)
 		self.class_names_list = []
 
 	def _setup_old_config(self):
@@ -266,6 +276,11 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.exported_makefile_outdir_name):
 			os.makedirs(self.exported_makefile_outdir_name)								
 		logging.debug("self.exported_makefile_outdir_name " + str(self.exported_makefile_outdir_name))
+
+		self.config_py_outdir_name = os.path.join(self.output_dir_name, "config", self.package_name)
+		if not os.path.exists(self.config_py_outdir_name):
+			os.makedirs(self.config_py_outdir_name)
+		logging.debug("self.config_py_outdir_name " + str(self.config_py_outdir_name))
 
 		# setup config
 		config_file_name = self.config['config_file_name']

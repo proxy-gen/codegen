@@ -480,7 +480,6 @@ class TranslationUnit(JavaObject):
             the_clazz = dict()
             classes.append(the_clazz)
         the_clazz["name"] = class_name
-        the_clazz["class_name"] = class_name
         the_clazz["constructors"] = the_clazz.get("constructors", list())
         the_clazz["functions"] = the_clazz.get("functions", list())
         return the_clazz
