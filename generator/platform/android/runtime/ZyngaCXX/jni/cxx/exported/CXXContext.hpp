@@ -30,6 +30,7 @@ class CXXContext
 
 public:
 
+	jobject createProxiedComponent(long proxiedObjectAddress, const char * externalClassName, jvalue *args);
 	jobject createProxiedCallback(long proxiedObjectAddress, long proxiedObjectID, const char * externalClassName);
 	
 	void registerCallbackData(long contextID, long userData);

@@ -30,6 +30,21 @@ class Generator(BaseGenerator):
 		self._setup_default_converter()
 		self._setup_included_packages()
 		self._setup_config()
+
+	def generate_header(self):
+		pass
+
+	def generate_impl(self):
+		pass
+
+	def generate_config(self):
+		pass
+
+	def generate_wrapper(self):
+		pass
+
+	def generate_reports(self):
+		pass
 		
 	def generate(self):
 		logging.debug("Generator generate_code enter")
@@ -93,6 +108,9 @@ class Generator(BaseGenerator):
 		config_py_filepath = os.path.join(self.config_py_outdir_name, self.config_py_filename)
 		logging.debug("config_py_filepath " + str(config_py_filepath))
 
+		self.report_filename = "converters_report.md"
+		logging.debug("self.report_filename " + str(self.report_filename))
+
 		self.impl_file = open(impl_filepath, "w+")
 		self.head_file = open(head_filepath, "w+")
 		self.internal_androidmk_file = open(internal_androidmk_filepath, "w+")
@@ -146,9 +164,6 @@ class Generator(BaseGenerator):
 		self.config_py_file.close()
 
 		logging.debug("Generator generate_code exit")
-
-	def generate_wrapper(self):
-		pass
 
 	def teardown(self):
 		self._teardown_index()

@@ -130,6 +130,16 @@ void CXXContext::setAndroidContext(jobject applicationContext)
 	LOGV("updated actx_object %ld", (long) actx_object);
 }
 
+jobject createProxiedComponent(long contextAddress, const char *externalClassName, jmethodID, methodID, jvalue *args)
+{
+	LOGV("createProxiedComponent contextAddress %ld proxiedClass %s using args %ld", contextAddress, externalClassName, (long) args);
+	JNIContext *jni = JNIContext::sharedInstance();
+	jclass clazz = jni->getClassRef(externalClassName);
+	jobject object = jni->createNewObject(clazz, methodID, args);
+	jni->deleteLocalRef(clazz);
+	return object;
+}
+
 jobject CXXContext::createProxiedCallback(long contextAddress, long proxiedObjectID, const char *externalClassName)
 {
 	LOGV("createProxiedCallback contextAddress %ld proxiedObjectID %d proxiedClass %s", contextAddress, proxiedObjectID, externalClassName);

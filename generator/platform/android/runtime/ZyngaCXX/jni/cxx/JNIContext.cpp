@@ -2162,6 +2162,18 @@ jobject JNIContext::readObjectObjectArrayElement(jobjectArray array, int index)
 	return 0;
 }
 
+jobject JNIContext::createNewObject(jclass clazz, jmethodID methodID, jvalue *args)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	jobject obj = env->NewObjectA(clazz, methodID, args);
+	if (checkException(env) == false)
+	{
+		return obj;
+	}
+	return 0;
+}
+
 jobject JNIContext::createNewObject(jclass clazz, jmethodID methodID, ...)
 {
 	JNIEnv *env = 0;
@@ -2478,6 +2490,85 @@ jobjectArray JNIContext::createStringArray(std::string& array, int count)
 		}
 		deleteLocalRef(clazz);
 		return jArray;
+	}
+	return 0;
+}
+
+void JNIContext::setObjectArrayElement(jobjectArray array, int index, jobject value)
+{
+	if (array != 0)
+	{
+		JNIEnv *env = 0;
+		getEnv(env);
+		env->SetObjectArrayElement(array, index, value);
+		checkException(env);	
+	}
+}
+
+jsize JNIContext::getMapSize(jobject java_map)
+{
+	if (java_map != 0)
+	{
+		if (isInstanceOf(java_map, "java/util/Map"))
+		{		
+			jint result = invokeIntMethod(java_map, "java/util/Map", "size", "()I");
+			return (jsize) result;
+		}
+	}
+	return (jsize) 0;
+}
+
+jobject JNIContext::readMapValue(jobject java_map, jobject java_map_key)
+{
+	if (java_map != 0)
+	{
+		if (isInstanceOf(java_map, "java/util/Map"))
+		{
+			jobject result = invokeObjectMethod(java_map, "java/util/Map", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", java_map_key);
+			return result;
+		}
+	}
+	return 0;
+}
+
+void JNIContext::putMapKeyValue(jobject java_map, jobject java_map_key, jobject java_map_value)
+{
+	if (java_map != 0)
+	{
+		if (isInstanceOf(java_map, "java/util/Map"))
+		{
+			invokeVoidMethod(java_map, "java/util/Map", "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", java_map_key, java_map_value);
+		}
+	}
+}
+
+jobject JNIContext::getMapKeyIterator(jobject java_map)
+{
+	if (java_map != 0)
+	{
+		if (isInstanceOf(java_map, "java/util/Map"))
+		{
+			jobject java_set = invokeObjectMethod(java_map, "java/util/Map", "keySet", "()Ljava/util/Set;");
+			if (java_set != 0)
+			{
+				jobject java_iterator = invokeObjectMethod(java_set, "java/util/Set", "iterator", "()Ljava/util/Iterator;");
+				deleteLocalRef(java_set);
+				return java_iterator;
+			}				
+		}
+	}
+	return 0;
+}
+
+jobject JNIContext::nextObjectIteratorElement(jobject java_iterator)
+{
+	if (java_iterator != 0)
+	{
+		if (isInstanceOf(java_iterator, "java/util/Iterator"))
+		{
+			jobject java_element = invokeObjectMethod(java_iterator, "java/util/Iterator", "next", "()Ljava/lang/Object;");
+			return java_element;					
+		}
 	}
 	return 0;
 }

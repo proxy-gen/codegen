@@ -27,11 +27,20 @@ class BaseGenerator(object):
 	def setup(self):
 		raise NotImplementedError("subclasses should implement setup()")
 
-	def generate(self):
-		raise NotImplementedError("subclasses should implement generate()")
+	def generate_header(self):
+		raise NotImplementedError("subclasses should implement generate_code()")
+
+	def generate_impl(self):
+		raise NotImplementedError("subclasses should implement generate_impl()")
+
+	def generate_code(self):
+		raise NotImplementedError("subclasses should implement generate_code()")
 
 	def generate_wrapper(self):
 		raise NotImplementedError("subclasses should implement generate_wrapper()")
+
+	def generate_reports(self):
+		raise NotImplementedError("subclasses should implement generate_reports()")
 
 	def teardown(self):
 		raise NotImplementedError("subclasses should implement teardown()")
@@ -68,14 +77,22 @@ def main():
 							help="Specifies the output directory where the code will be generated")
 	parser.add_option("--package", action="store", type="string", dest="package_name",
 							help="Specifies the package in which the code will be generated")
-	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=True,
-							help="Flag to indicate if the wrapper file needs to be generated (default is True)")
+	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=False,
+							help="Flag to indicate if the wrapper file needs to be generated (default is False)")
+	parser.add_option("--generate-config", action="store_true", dest="generate_config", default=False,
+							help="Flag to indicate if the config file needs to be generated (default is False)")
+	parser.add_option("--generate-header", action="store_true", dest="generate_header", default=False,
+							help="Flag to indicate if the header file needs to be generated (default is False)")
+	parser.add_option("--generate-impl", action="store_true", dest="generate_impl", default=False,
+							help="Flag to indicate if the impl file needs to be generated (default is False)")
+	parser.add_option("--generate-reports", action="store_true", dest="generate_reports", default=False,
+							help="Flag to indicate if the reports file needs to be generated (default is False)")
 	parser.add_option("--namespace", action="store", dest="namespace_name",
 							help="Namespace of generated CXX (default value is CXX)")
 	parser.add_option("--include-package", action="append", dest="include_packages",
-							help="List of packages to include in the generated code")
+							help="List of packages to include in the generated code.")
 	parser.add_option("--include-package-path", action="store", dest="include_package_path",
-							help="Base path to the included package")
+							help="Base path to the included package. Package path is relative to --output-dir.")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 	(opts, args) = parser.parse_args()
@@ -113,9 +130,16 @@ def main():
 		platform_generator.config['include_package_path'] = opts.include_package_path
 
 	platform_generator.setup()
-	platform_generator.generate()
+	if opts.generate_header:
+		platform_generator.generate_header()
+	if opts.generate_impl:
+		platform_generator.generate_impl()
+	if opts.generate_config:
+		platform_generator.generate_config()
 	if opts.generate_wrapper:
 		platform_generator.generate_wrapper()
+	if opts.generate_reports:
+		platform_generator.generate_reports()
 	platform_generator.teardown()
 
 if __name__ == '__main__':
