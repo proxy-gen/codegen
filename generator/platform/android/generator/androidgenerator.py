@@ -27,7 +27,7 @@ class Generator(BaseGenerator):
 		self._setup_namespace()
 		self._setup_working_dir()
 		self._setup_default_runtime()
-		self._setup_default_converter()
+		self._setup_default_converters()
 		self._setup_included_packages()
 		self._setup_config()
 
@@ -95,14 +95,29 @@ class Generator(BaseGenerator):
 
 	def _setup_working_dir(self):
 		#script directory
-		script_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
-		self.working_dir = os.path.join(script_dir, "..")
+		self.target = os.path.dirname(inspect.getfile(inspect.currentframe()))
+		logging.debug("self.target " + str(self.target))
+		self.working_dir = os.path.join(self.target, "..")
+		logging.debug("self.working_dir " + str(self.working_dir))
 
 	def _setup_default_runtime(self):
 		self.include_default_runtime = True
 
-	def _setup_default_converter(self):
-		self.include_default_converter = True
+	def _setup_default_converters(self):
+		self.include_default_converters = True
+
+		self.default_converters_file_name = os.path.join(self.target, "converters", "jconverter.py")
+		print "self.default_converters_file_name " + str(self.default_converters_file_name)
+
+		import imp
+		default_converters_module_path = os.path.dirname(self.default_converters_file_name)
+		default_converters_module_name, default_converters_file_extension = os.path.splitext(os.path.basename(self.default_converters_file_name))
+		filepath, pathname, description = imp.find_module(default_converters_module_name, [default_converters_module_path])
+		default_converters_module = imp.load_module(default_converters_module_name, filepath, pathname, description)
+		config = getattr(default_converters_module, "config")
+
+		assert "converters" in config
+		self.default_converters = config["converters"]
 
 	def _setup_included_packages(self):
 		self.include_packages = self.config['include_packages']
@@ -110,33 +125,11 @@ class Generator(BaseGenerator):
 
 	def _setup_config(self):
 		self._setup_new_config()
-		self._setup_old_config()
+		#self._setup_old_config()
 
 	def _setup_new_config(self):
-		packages = [ "com.facebook", "com.facebook.android" ]
-		classes = [ "com.facebook.Session", "com.facebook.android.Facebook" ]
-		self.meta_data = {
-			"packages" : [ # java packages that we want to process
-				{
-					"name" : "com.facebook",
-				},
-				{
-					"name" : "com.facebook.android"
-				}
-			],
-			"classes" : [ # java classes that we want to process
-				{
-					"name" : "com.facebook.Session"
-				},		
-				{
-					"name" : "com.facebook.android.Facebook"
-				}
-			]
-		}
-		self.index.build_meta_data(packages, classes, self.meta_data)
-		self.class_names_list = []
+		# setup target directory
 
-	def _setup_old_config(self):
 		# setup output directories
 		self.package_name = self.config['package_name']
 
@@ -144,7 +137,10 @@ class Generator(BaseGenerator):
 
 		self.file_name = self.config['file_name']
 
+		self.config_file_name = self.config['config_file_name']
+
 		self.output_dir_name = self.config['output_dir_name']
+
 		if not os.path.exists(self.output_dir_name):
 			os.makedirs(self.output_dir_name)
 		logging.debug("self.output_dir_name " + str(self.output_dir_name))
@@ -209,6 +205,9 @@ class Generator(BaseGenerator):
 			os.makedirs(self.report_outdir_name)
 		logging.debug("self.report_outdir_name " + str(self.report_outdir_name))
 
+
+
+	def _setup_old_config(self):
 		# setup config
 		config_file_name = self.config['config_file_name']
 		config = ConfigParser.SafeConfigParser()
@@ -276,9 +275,6 @@ class Generator(BaseGenerator):
 		self.rename_types_override_dict = rename_types_override_dict
 		logging.debug("self.rename_types_override_dict " + str(self.rename_types_override_dict))
 
-		self.target = os.path.dirname(inspect.getfile(inspect.currentframe()))
-		logging.debug("self.target " + str(self.target))
-
 		self.proxied_classes_list = build_list_from_config(config, s, 'proxied_classes')
 		logging.debug("self.proxied_classes_list " + str(self.proxied_classes_list))
 
@@ -328,6 +324,9 @@ class Generator(BaseGenerator):
 			raise Exception("Fatal error in shutdown generator")
 
 	def _generate_code(self):
+		pass
+
+	def generate(self):
 		logging.debug("Generator _generate_code enter")
 
 		self.add_functions = {}
@@ -435,6 +434,17 @@ class Generator(BaseGenerator):
 
 		logging.debug("Generator _generate_config enter")
 
+		import imp
+
+		config_module_path = os.path.dirname(self.config_file_name)
+		config_module_name, config_file_extension = os.path.splitext(os.path.basename(self.config_file_name))
+		filepath, pathname, description = imp.find_module(config_module_name, [config_module_path])
+		config_module = imp.load_module(config_module_name, filepath, pathname, description)
+
+		self.config_data = getattr(config_module, "config")
+		self.index.build_config_data(self.config_data)
+		self._update_config_data()
+
 		self.config_py_file_name = "config.py"
 		logging.debug("self.config_py_file_name " + str(self.config_py_file_name))
 
@@ -537,6 +547,24 @@ class Generator(BaseGenerator):
 		self.converters_report_file.close()
 
 		logging.debug("Generator _generate_converters_report exit")
+
+	def _update_config_data(self):
+		logging.debug("Generator _update_config_data enter")
+
+		if "converters" not in self.config_data:
+			self.config_data["converters"] = []
+
+		for default_converter in self.default_converters:
+			found = False
+			for converter in self.config_data["converters"]:
+				if converter["name"] == default_converter["name"]:
+					found = True
+					break
+			if found == False:
+				self.config_data["converters"].append(default_converter)
+
+		logging.debug("Generator _update_config_data exit")
+
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):
@@ -597,7 +625,7 @@ class NativeClass(object):
 		nodes = self.cursor.get_children()
 		return nodes
 
-	def generate_code(self):
+	def generate(self):
 
 		logging.debug("NativeClass generate_code enter")	
 		logging.debug("self.class_name " + str(self.class_name))

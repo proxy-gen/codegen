@@ -1,4 +1,4 @@
-"config" : {
+config = {
 	"converters" : [
 		{
 			"name"		:	"convert_boolean",
@@ -91,25 +91,24 @@
 			"cxx"		:	"double",
 		},
 		{
-			"name"		:	"convert_java_math_BigDecimal",
-			"java"		:	"java.lang.BigDecimal",
-			"cxx"		:	"double",
+			"name"					:	"convert_java_math_BigDecimal",
+			"java"					:	"java.lang.BigDecimal",
+			"cxx"					:	"double",
 		},
 		{
-			"name"		:	"convert_java_util_Date",
-			"java"		:	"java.util.Date",
-			"cxx"		: 	"long",
+			"name"					:	"convert_java_util_Date",
+			"java"					:	"java.util.Date",
+			"cxx"					: 	"long",
 		},
 		{
-			"name"		:	"convert_proxy_template",
+			"name"					: 	"convert_java_util_List_template",
+			"java"					:	"java.util.List",
+			"is_proxy_converter"	:	True,
 		},
 		{
-			"name"		: 	"convert_java_util_List_template",
-			"java"		:	"java.util.List",
+			"name"					:	"convert_java_util_Map_template",
+			"java"					:	"java.util.List",
+			"is_proxy_converter"	:	True,
 		},
-		{
-			"name"		:	"convert_java_util_Map_template",
-			"java"		:	"java.util.List",
-		},
-	]
+	],
 }

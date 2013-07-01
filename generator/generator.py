@@ -35,9 +35,6 @@ class BaseGenerator(object):
 	def generate_impl(self):
 		raise NotImplementedError("subclasses should implement generate_impl()")
 
-	def generate_code(self):
-		raise NotImplementedError("subclasses should implement generate_code()")
-
 	def generate_wrapper(self):
 		raise NotImplementedError("subclasses should implement generate_wrapper()")
 
@@ -139,14 +136,14 @@ def main():
 		platform_generator.config['include_package_path'] = opts.include_package_path
 
 	platform_generator.setup()
-	if opts.generate_code:
-		platform_generator.generate_code()
 	if opts.generate_config:
 		platform_generator.generate_config()
-	if opts.generate_wrapper:
-		platform_generator.generate_wrapper()
 	if opts.generate_reports:
 		platform_generator.generate_reports()
+	if opts.generate_code:
+		platform_generator.generate_code()
+	if opts.generate_wrapper:
+		platform_generator.generate_wrapper()
 	platform_generator.teardown()
 
 if __name__ == '__main__':

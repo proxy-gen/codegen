@@ -17,7 +17,8 @@ $android_dir/setup.py -s $sdk_dir -n $ndk_dir
 
 export CXX_JVM_CLASSPATH=$android_stubs_dir/bin:$sdk_dir/platforms/android-8/android.jar:$sdk_dir/extras/android/support/v4/android-support-v4.jar:$facebook_sdk_dir/bin/facebooksdk.jar
 
-LD_LIBRARY_PATH=${android_generator_dir} python ${generator_dir}/generator.py --config $my_dir/config/generator.ini --platform android --generate-config --generate-code --generate-wrapper --generate-reports --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log debug
+#LD_LIBRARY_PATH=${android_generator_dir} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --generate-code --generate-wrapper --generate-reports --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log debug
+LD_LIBRARY_PATH=${android_generator_dir} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log debug
 
 echo "Generated CXX Bindings"
 

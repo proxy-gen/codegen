@@ -29,21 +29,6 @@ void convert_java_util_Date_to_java(jobject& java_value, long& cxx_value)
 }
 
 template<typename C>
-void convert_proxy_template_to_cxx(jobject& java_value, C& cxx_value)
-{
-	cxx_value = C((void *) java_value);
-}
-
-template<typename C>
-void convert_proxy_template_to_java(C& cxx_value, jobject& java_value)
-{
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	long address = (long) cxx_value;
-	java_value = ctx->findProxyComponent(address);
-}
-
-template<typename C>
 void convert_java_util_List_template_to_cxx(jobject& java_value, std::vector<C>& cxx_value)
 {
 	JNIContext *jni = JNIContext::sharedInstance();

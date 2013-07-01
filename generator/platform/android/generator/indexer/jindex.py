@@ -337,8 +337,8 @@ class Index(JavaObject):
     def parse(self, res):
         return TranslationUnit.from_source(res, self)
 
-    def build_meta_data(self, packages, classes, meta_data):
-        return TranslationUnit.build_meta_data(packages, classes, meta_data)
+    def build_config_data(self, config_data):
+        return TranslationUnit.build_config_data(config_data)
 
     @property
     def status(self):
@@ -355,23 +355,25 @@ class Index(JavaObject):
 class TranslationUnit(JavaObject):
 
     @classmethod
-    def build_meta_data(cls, packages, classes, meta_data):
-        assert "packages" in meta_data
-        assert "classes" in meta_data
-        def visitor(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-            TranslationUnit._process_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+    def build_config_data(cls, config_data):
+        assert "packages" in config_data
+        assert "classes" in config_data
+        def visitor(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+            TranslationUnit._process_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
             return 0
+        packages = config_data["packages"]
+        classes = config_data["classes"]
         c_types_packages = ((c_char * 64) * 64)()
         for idx in range(len(packages)):
-            c_types_packages[idx].value = packages[idx]
+            c_types_packages[idx].value = packages[idx]["name"]
         c_types_packages_count = len(packages)
         c_types_classes = ((c_char * 64) * 1024)()
         for idx in range(len(classes)):
-            c_types_classes[idx].value = classes[idx]
+            c_types_classes[idx].value = classes[idx]["name"]
         c_types_classes_count = len(classes)
-        meta_data_stack = list()
-        meta_data_stack.append(meta_data)
-        TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), meta_data_stack)
+        config_data_stack = list()
+        config_data_stack.append(config_data)
+        TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), config_data_stack)
     
     @classmethod
     def from_source(cls, res, index):
@@ -392,85 +394,85 @@ class TranslationUnit(JavaObject):
         return TranslationUnit_cursor(self)
 
     @classmethod
-    def _process_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
+    def _process_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         if CursorKind.from_id(cursor_type) == CursorKind.CLASS_DECL:
-            TranslationUnit._process_class_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            TranslationUnit._process_class_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
         if CursorKind.from_id(cursor_type) == CursorKind.CONSTRUCTOR_DECL:
-            TranslationUnit._process_constructor_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            TranslationUnit._process_constructor_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
         if CursorKind.from_id(cursor_type) == CursorKind.FUNCTION_DECL:
-            TranslationUnit._process_function_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            TranslationUnit._process_function_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
         if CursorKind.from_id(cursor_type) == CursorKind.PARAM_DECL:
-            TranslationUnit._process_param_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            TranslationUnit._process_param_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
         if CursorKind.from_id(cursor_type) == CursorKind.RETURN_DECL:
-            TranslationUnit._process_return_meta_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack)
+            TranslationUnit._process_return_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
 
     @classmethod
-    def _process_class_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-        print "_process_class_meta_data " + name
+    def _process_class_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+        print "_process_class_config_data " + name
         if callback_type == CallbackType.ENTER:
-            meta_data = meta_data_stack[0] # classes at the root
-            meta_data = TranslationUnit._find_or_create_class_meta_data(meta_data["classes"], name)
-            meta_data_stack.append(meta_data)
+            config_data = config_data_stack[0] # classes at the root
+            config_data = TranslationUnit._find_or_create_class_config_data(config_data["classes"], name)
+            config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
             # process
             pass
         if callback_type == CallbackType.EXIT:
-            meta_data_stack.pop()
+            config_data_stack.pop()
 
     @classmethod
-    def _process_constructor_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-        print "_process_constructor_meta_data " + name
+    def _process_constructor_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+        print "_process_constructor_config_data " + name
         if callback_type == CallbackType.ENTER:
-            meta_data = meta_data_stack[len(meta_data_stack)-1]
-            meta_data = TranslationUnit._find_or_create_constructor_meta_data(meta_data["constructors"], name)
-            meta_data_stack.append(meta_data)
+            config_data = config_data_stack[len(config_data_stack)-1]
+            config_data = TranslationUnit._find_or_create_constructor_config_data(config_data["constructors"], name)
+            config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
             # process
             pass
         if callback_type == CallbackType.EXIT:
-            meta_data_stack.pop()
+            config_data_stack.pop()
 
     @classmethod
-    def _process_function_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-        print "_process_function_meta_data " + name
+    def _process_function_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+        print "_process_function_config_data " + name
         if callback_type == CallbackType.ENTER:
-            meta_data = meta_data_stack[len(meta_data_stack)-1]
-            meta_data = TranslationUnit._find_or_create_function_meta_data(meta_data["functions"], name)
-            meta_data_stack.append(meta_data)
+            config_data = config_data_stack[len(config_data_stack)-1]
+            config_data = TranslationUnit._find_or_create_function_config_data(config_data["functions"], name)
+            config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
             # process
             pass
         if callback_type == CallbackType.EXIT:
-            meta_data_stack.pop()
+            config_data_stack.pop()
 
     @classmethod
-    def _process_param_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-        print "_process_param_meta_data " + name
+    def _process_param_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+        print "_process_param_config_data " + name
         if callback_type == CallbackType.ENTER:
-            meta_data = meta_data_stack[len(meta_data_stack)-1]
-            meta_data = TranslationUnit._find_or_create_param_meta_data(meta_data["params"], name)
-            meta_data_stack.append(meta_data)
+            config_data = config_data_stack[len(config_data_stack)-1]
+            config_data = TranslationUnit._find_or_create_param_config_data(config_data["params"], name)
+            config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
             # process
             pass
         if callback_type == CallbackType.EXIT:
-            meta_data_stack.pop()
+            config_data_stack.pop()
 
     @classmethod
-    def _process_return_meta_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, meta_data_stack):
-        print "_process_return_meta_data " + name
+    def _process_return_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+        print "_process_return_config_data " + name
         if callback_type == CallbackType.ENTER:
-            meta_data = meta_data_stack[len(meta_data_stack)-1]
-            meta_data = TranslationUnit._find_or_create_return_meta_data(meta_data["returns"], name)
-            meta_data_stack.append(meta_data)
+            config_data = config_data_stack[len(config_data_stack)-1]
+            config_data = TranslationUnit._find_or_create_return_config_data(config_data["returns"], name)
+            config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
             # process
             pass
         if callback_type == CallbackType.EXIT:
-            meta_data_stack.pop()
+            config_data_stack.pop()
 
     @classmethod
-    def _find_or_create_class_meta_data(cls, classes, class_name):
+    def _find_or_create_class_config_data(cls, classes, class_name):
         the_clazz = None
         for clazz in classes:
             if clazz["name"] == class_name:
@@ -485,7 +487,7 @@ class TranslationUnit(JavaObject):
         return the_clazz
 
     @classmethod
-    def _find_or_create_constructor_meta_data(cls, constructors, constructor_name):
+    def _find_or_create_constructor_config_data(cls, constructors, constructor_name):
         the_constructor = None
         for constructor in constructors:
             if constructor["name"] == constructor_name:
@@ -499,7 +501,7 @@ class TranslationUnit(JavaObject):
         return the_constructor
 
     @classmethod
-    def _find_or_create_function_meta_data(cls, functions, function_name):
+    def _find_or_create_function_config_data(cls, functions, function_name):
         the_function = None
         for function in functions:
             if function["name"] == function_name:
@@ -514,7 +516,7 @@ class TranslationUnit(JavaObject):
         return the_function
 
     @classmethod
-    def _find_or_create_param_meta_data(cls, params, param_name):
+    def _find_or_create_param_config_data(cls, params, param_name):
         the_param = None
         for param in params:
             if param["name"] == param_name:
@@ -527,7 +529,7 @@ class TranslationUnit(JavaObject):
         return the_param
 
     @classmethod
-    def _find_or_create_return_meta_data(cls, returns, return_name):
+    def _find_or_create_return_config_data(cls, returns, return_name):
         the_return = None
         for retrn in returns:
             if retrn["name"] == return_name:

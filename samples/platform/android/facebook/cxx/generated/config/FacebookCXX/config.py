@@ -1,4 +1,116 @@
-"config" : {
+config = {
+	"converters" : [
+		{
+			"cxx" : "bool",
+			"java" : "boolean",
+			"name" : "convert_boolean",
+		}
+		{
+			"cxx" : "int",
+			"java" : "byte",
+			"name" : "convert_byte",
+		}
+		{
+			"cxx" : "char",
+			"java" : "char",
+			"name" : "convert_char",
+		}
+		{
+			"cxx" : "short",
+			"java" : "short",
+			"name" : "convert_short",
+		}
+		{
+			"cxx" : "int",
+			"java" : "int",
+			"name" : "convert_int",
+		}
+		{
+			"cxx" : "long",
+			"java" : "long",
+			"name" : "convert_long",
+		}
+		{
+			"cxx" : "float",
+			"java" : "float",
+			"name" : "convert_float",
+		}
+		{
+			"cxx" : "double",
+			"java" : "double",
+			"name" : "convert_double",
+		}
+		{
+			"cxx" : "std::string",
+			"java" : "java.lang.String",
+			"name" : "convert_java_lang_String",
+		}
+		{
+			"cxx" : "bool",
+			"java" : "java.lang.Boolean",
+			"name" : "convert_java_lang_Boolean",
+		}
+		{
+			"cxx" : "int",
+			"java" : "java.lang.Byte",
+			"name" : "convert_java_lang_Byte",
+		}
+		{
+			"cxx" : "char",
+			"java" : "java.lang.Character",
+			"name" : "convert_java_lang_Character",
+		}
+		{
+			"cxx" : "short",
+			"java" : "java.lang.Short",
+			"name" : "convert_java_lang_Short",
+		}
+		{
+			"cxx" : "int",
+			"java" : "java.lang.Integer",
+			"name" : "convert_java_lang_Integer",
+		}
+		{
+			"cxx" : "long",
+			"java" : "java.lang.Long",
+			"name" : "convert_java_lang_Long",
+		}
+		{
+			"cxx" : "float",
+			"java" : "java.lang.Float",
+			"name" : "convert_java_lang_Float",
+		}
+		{
+			"cxx" : "double",
+			"java" : "java.lang.Double",
+			"name" : "convert_java_lang_Double",
+		}
+		{
+			"cxx" : "double",
+			"java" : "java.lang.BigInteger",
+			"name" : "convert_java_lang_BigInteger",
+		}
+		{
+			"cxx" : "double",
+			"java" : "java.lang.BigDecimal",
+			"name" : "convert_java_math_BigDecimal",
+		}
+		{
+			"cxx" : "long",
+			"java" : "java.util.Date",
+			"name" : "convert_java_util_Date",
+		}
+		{
+			"is_proxy_converter" : True,
+			"java" : "java.util.List",
+			"name" : "convert_java_util_List_template",
+		}
+		{
+			"is_proxy_converter" : True,
+			"java" : "java.util.List",
+			"name" : "convert_java_util_Map_template",
+		}
+	],
 	"packages" : [
 		{
 			"name" : "com.facebook",
@@ -806,28 +918,28 @@
 					"name" : "com.facebook.Session",
 					"params" : [
 						{
-							"name" : "android.content.Context",
+							"name" : android.content.Context,
 						}
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "com.facebook.TokenCachingStrategy",
+							"name" : com.facebook.TokenCachingStrategy,
 						}
 						{
-							"name" : "com.facebook.SessionState",
+							"name" : com.facebook.SessionState,
 						}
 						{
-							"name" : "com.facebook.AccessToken",
+							"name" : com.facebook.AccessToken,
 						}
 						{
-							"name" : "java.util.Date",
+							"name" : java.util.Date,
 						}
 						{
-							"name" : "boolean",
+							"name" : boolean,
 						}
 						{
-							"name" : "com.facebook.Session$AuthorizationRequest",
+							"name" : com.facebook.Session$AuthorizationRequest,
 						}
 					],
 				},
@@ -1317,7 +1429,7 @@
 					"name" : "com.facebook.android.Facebook",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 					],
 				},
@@ -1661,13 +1773,13 @@
 					"name" : "com.facebook.AccessTokenSource",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 						{
-							"name" : "boolean",
+							"name" : boolean,
 						}
 					],
 				},
@@ -1725,13 +1837,13 @@
 					"name" : "com.facebook.SessionState",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 						{
-							"name" : "com.facebook.SessionState$Category",
+							"name" : com.facebook.SessionState$Category,
 						}
 					],
 				},
@@ -1769,10 +1881,10 @@
 					"name" : "com.facebook.SessionState$Category",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 					],
 				},
@@ -2123,16 +2235,16 @@
 					"name" : "com.facebook.AccessToken",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "java.util.Date",
+							"name" : java.util.Date,
 						}
 						{
-							"name" : "java.util.List",
+							"name" : java.util.List,
 						}
 						{
-							"name" : "com.facebook.AccessTokenSource",
+							"name" : com.facebook.AccessTokenSource,
 						}
 					],
 				},
@@ -2374,25 +2486,25 @@
 					"name" : "com.facebook.Session$AuthorizationRequest",
 					"params" : [
 						{
-							"name" : "android.support.v4.app.Fragment",
+							"name" : android.support.v4.app.Fragment,
 						}
 						{
-							"name" : "com.facebook.SessionLoginBehavior",
+							"name" : com.facebook.SessionLoginBehavior,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 						{
-							"name" : "java.util.List",
+							"name" : java.util.List,
 						}
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "boolean",
+							"name" : boolean,
 						}
 						{
-							"name" : "android.app.Activity",
+							"name" : android.app.Activity,
 						}
 					],
 				},
@@ -2450,13 +2562,13 @@
 					"name" : "com.facebook.SessionLoginBehavior",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 						{
-							"name" : "boolean",
+							"name" : boolean,
 						}
 					],
 				},
@@ -2646,25 +2758,25 @@
 					"name" : "com.facebook.AuthorizationClient$AuthorizationRequest",
 					"params" : [
 						{
-							"name" : "com.facebook.SessionLoginBehavior",
+							"name" : com.facebook.SessionLoginBehavior,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 						{
-							"name" : "boolean",
+							"name" : boolean,
 						}
 						{
-							"name" : "java.util.List",
+							"name" : java.util.List,
 						}
 						{
-							"name" : "com.facebook.SessionDefaultAudience",
+							"name" : com.facebook.SessionDefaultAudience,
 						}
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "com.facebook.AuthorizationClient$StartActivityDelegate",
+							"name" : com.facebook.AuthorizationClient$StartActivityDelegate,
 						}
 					],
 				},
@@ -2712,10 +2824,10 @@
 					"name" : "com.facebook.SessionDefaultAudience",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 					],
 				},
@@ -2828,10 +2940,10 @@
 					"name" : "com.facebook.Session$OpenRequest",
 					"params" : [
 						{
-							"name" : "android.app.Activity",
+							"name" : android.app.Activity,
 						}
 						{
-							"name" : "android.support.v4.app.Fragment",
+							"name" : android.support.v4.app.Fragment,
 						}
 					],
 				},
@@ -2898,13 +3010,13 @@
 					"name" : "com.facebook.Session$NewPermissionsRequest",
 					"params" : [
 						{
-							"name" : "android.app.Activity",
+							"name" : android.app.Activity,
 						}
 						{
-							"name" : "java.util.List",
+							"name" : java.util.List,
 						}
 						{
-							"name" : "android.support.v4.app.Fragment",
+							"name" : android.support.v4.app.Fragment,
 						}
 					],
 				},
@@ -2958,13 +3070,13 @@
 					"name" : "com.facebook.AuthorizationClient$Result",
 					"params" : [
 						{
-							"name" : "com.facebook.AuthorizationClient$Result$Code",
+							"name" : com.facebook.AuthorizationClient$Result$Code,
 						}
 						{
-							"name" : "com.facebook.AccessToken",
+							"name" : com.facebook.AccessToken,
 						}
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 					],
 				},
@@ -3002,10 +3114,10 @@
 					"name" : "com.facebook.AuthorizationClient$Result$Code",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 					],
 				},
@@ -3079,7 +3191,7 @@
 					"name" : "com.facebook.Session$TokenRefreshRequest",
 					"params" : [
 						{
-							"name" : "com.facebook.Session",
+							"name" : com.facebook.Session,
 						}
 					],
 				},
@@ -3170,10 +3282,10 @@
 					"name" : "com.facebook.android.DialogError",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 					],
 				},
@@ -3208,10 +3320,10 @@
 					"name" : "com.facebook.android.FacebookError",
 					"params" : [
 						{
-							"name" : "java.lang.String",
+							"name" : java.lang.String,
 						}
 						{
-							"name" : "int",
+							"name" : int,
 						}
 					],
 				},
