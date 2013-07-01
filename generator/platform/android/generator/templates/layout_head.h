@@ -1,13 +1,13 @@
 #import datetime
 /*
- * ${head_filename}
+ * ${head_file_name}
  *
  * Author: cxx-bindings-generator
  */
 
 
-\#ifndef ${head_filename.upper().replace('.','_')}_
-\#define ${head_filename.upper().replace('.','_')}_
+\#ifndef ${head_file_name.upper().replace('.','_')}_
+\#define ${head_file_name.upper().replace('.','_')}_
 
 #for $include in $header_includes_list
 \#include <$include>

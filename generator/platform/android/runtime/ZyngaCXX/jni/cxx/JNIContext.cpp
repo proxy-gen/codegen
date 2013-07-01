@@ -10,6 +10,7 @@
 
 #include "JNIContext.hpp"
 #include <stdexcept>
+#include <algorithm>
 
 #ifdef ANDROID
 #include <android/log.h>
@@ -2499,7 +2500,7 @@ void JNIContext::setObjectArrayElement(jobjectArray array, int index, jobject va
 	if (array != 0)
 	{
 		JNIEnv *env = 0;
-		getEnv(env);
+		getEnv(&env);
 		env->SetObjectArrayElement(array, index, value);
 		checkException(env);	
 	}
@@ -2560,7 +2561,7 @@ jobject JNIContext::getMapKeyIterator(jobject java_map)
 	return 0;
 }
 
-jobject JNIContext::nextObjectIteratorElement(jobject java_iterator)
+jobject JNIContext::nextIteratorElement(jobject java_iterator)
 {
 	if (java_iterator != 0)
 	{

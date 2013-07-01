@@ -1,18 +1,16 @@
 /*
- * CXXConverter.h
+ * CXXConverter.cpp
  *
- * Created on: June 29, 2013
- * Author: rvergis
- *
- * Copyright (c) 2013 Zynga. All rights reserved.
+ *  Created on: June 30, 2013
+ *      Author: rvergis
  */
 
-#ifndef CXXCONVERTER_H_
-#define CXXCONVERTER_H_
-
-#include <jni.h>
+#include <CXXConverter.hpp>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
+
+#define LOG_ENABLED 1
+#define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
 
 void convert_java_util_Date_to_cxx(jobject& java_value, long& cxx_value)
 {
@@ -53,7 +51,7 @@ void convert_java_util_List_template_to_cxx(jobject& java_value, std::vector<C>&
 	int len = (int) jni->getArrayLength(java_value);
 	for (int idx = 0; idx < len; idx++)
 	{
-		jobject java_elem = jni->getObjectObjectArrayElement(java_value, idx);
+		jobject java_elem = jni->getObjectArrayElement(java_value, idx);
 		C cxx_elem((void *) java_value);
 		cxx_value.push(cxx_elem);
 	}
@@ -80,7 +78,7 @@ void convert_java_util_Map_template_to_cxx(jobject& java_value, std::map<std::st
 	int len = jni->getMapSize(java_value);
 	for (int idx = 0; idx < len; idx++)
 	{
-		jstring java_map_key = (jstring) jni->nextObjectIteratorElement(java_map_key_iterator);
+		jstring java_map_key = (jstring) jni->nextIteratorElement(java_map_key_iterator);
 		jobject java_map_value = jni->readMapValue(java_value, java_map_key);
 		std::string cxx_map_key = jni->getUTFString(java_map_value);
 		C cxx_map_value((void *) java_map_value);
@@ -94,16 +92,14 @@ void convert_java_util_Map_template_to_java(jobject& java_value, std::map<std::s
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	std::map<std::string, C>::const_iterator iter;
+	typename std::map<std::string, C>::const_iterator iter;
 	for (iter = cxx_value.begin(); iter != cxx_value.end(); iter++)
 	{
 		std::string cxx_map_key = (*iter).first;
 		long cxx_map_value = (long) (*iter).second;
 		jstring java_map_key = jni->toJString(cxx_map_key);
-		jobject java_map_value = ctx->findProxyComponent(address);
+		jobject java_map_value = ctx->findProxyComponent(cxx_map_value);
 		jni->putMapKeyValue(java_value, java_map_key, java_map_value);
 	}
 }
-
-#endif /* CXXCONVERTER_H_ */
 

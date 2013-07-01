@@ -130,7 +130,7 @@ void CXXContext::setAndroidContext(jobject applicationContext)
 	LOGV("updated actx_object %ld", (long) actx_object);
 }
 
-jobject createProxiedComponent(long contextAddress, const char *externalClassName, jmethodID, methodID, jvalue *args)
+jobject createProxiedComponent(long contextAddress, const char *externalClassName, jmethodID methodID, jvalue *args)
 {
 	LOGV("createProxiedComponent contextAddress %ld proxiedClass %s using args %ld", contextAddress, externalClassName, (long) args);
 	JNIContext *jni = JNIContext::sharedInstance();

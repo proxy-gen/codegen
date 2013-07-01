@@ -20,6 +20,8 @@ class BaseGenerator(object):
 		self.config['config_file_name'] = None
 		self.config['output_dir_name'] = None
 		self.config['package_name'] = None
+		self.config['file_name'] = None
+		self.config['wrapper_file_name'] = None
 		self.config['include_packages'] = list()
 		self.config['include_package_path'] = None
 		self.config['namespace_name'] = "CXX"
@@ -27,7 +29,7 @@ class BaseGenerator(object):
 	def setup(self):
 		raise NotImplementedError("subclasses should implement setup()")
 
-	def generate_header(self):
+	def generate_code(self):
 		raise NotImplementedError("subclasses should implement generate_code()")
 
 	def generate_impl(self):
@@ -77,14 +79,16 @@ def main():
 							help="Specifies the output directory where the code will be generated")
 	parser.add_option("--package", action="store", type="string", dest="package_name",
 							help="Specifies the package in which the code will be generated")
-	parser.add_option("--generate-wrapper", action="store_true", dest="generate_wrapper", default=False,
-							help="Flag to indicate if the wrapper file needs to be generated (default is False)")
+	parser.add_option("--file", action="store", type="string", dest="file_name",
+							help="Specifies the name used for the generated file(s)")
+	parser.add_option("--wrapper-file", action="store", type="string", dest="wrapper_file_name",
+							help="Specifies the name used for the generated wrapper file(s)")
+	parser.add_option("--generate-code", action="store_true", dest="generate_code", default=False,
+							help="Flag to indicate if the code file(s) needs to be generated (default is False)")
+	parser.add_option("--generate-wrapper-code", action="store_true", dest="generate_wrapper", default=False,
+							help="Flag to indicate if the wrapper code file(s) needs to be generated (default is False)")
 	parser.add_option("--generate-config", action="store_true", dest="generate_config", default=False,
 							help="Flag to indicate if the config file needs to be generated (default is False)")
-	parser.add_option("--generate-header", action="store_true", dest="generate_header", default=False,
-							help="Flag to indicate if the header file needs to be generated (default is False)")
-	parser.add_option("--generate-impl", action="store_true", dest="generate_impl", default=False,
-							help="Flag to indicate if the impl file needs to be generated (default is False)")
 	parser.add_option("--generate-reports", action="store_true", dest="generate_reports", default=False,
 							help="Flag to indicate if the reports file needs to be generated (default is False)")
 	parser.add_option("--namespace", action="store", dest="namespace_name",
@@ -121,7 +125,12 @@ def main():
 	platform_generator = create_platform_generator(opts.platform)
 	platform_generator.config['config_file_name'] = opts.config_file_name
 	platform_generator.config['output_dir_name'] = opts.output_dir_name
-	platform_generator.config['package_name'] = opts.package_name
+	if opts.package_name:
+		platform_generator.config['package_name'] = opts.package_name
+	if opts.wrapper_file_name:
+		platform_generator.config['wrapper_file_name'] = opts.wrapper_file_name
+	if opts.file_name:
+		platform_generator.config['file_name'] = opts.file_name
 	if opts.namespace_name:
 		platform_generator.config['namespace_name'] = opts.namespace_name
 	if opts.include_packages:
@@ -130,10 +139,8 @@ def main():
 		platform_generator.config['include_package_path'] = opts.include_package_path
 
 	platform_generator.setup()
-	if opts.generate_header:
-		platform_generator.generate_header()
-	if opts.generate_impl:
-		platform_generator.generate_impl()
+	if opts.generate_code:
+		platform_generator.generate_code()
 	if opts.generate_config:
 		platform_generator.generate_config()
 	if opts.generate_wrapper:

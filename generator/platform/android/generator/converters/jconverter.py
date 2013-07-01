@@ -91,7 +91,7 @@
 			"cxx"		:	"double",
 		},
 		{
-			"name"		:	"convert_java_lang_BigDecimal",
+			"name"		:	"convert_java_math_BigDecimal",
 			"java"		:	"java.lang.BigDecimal",
 			"cxx"		:	"double",
 		},
@@ -101,22 +101,15 @@
 			"cxx"		: 	"long",
 		},
 		{
-			"name"				:	"convert_proxy_template",
-			"java_template"		:	"J", 	# Java Template
-			"cxx_template"		:	"C", 	# CXX Template
+			"name"		:	"convert_proxy_template",
 		},
 		{
-			"name"				: 	"convert_java_util_List_template",
-			"java"				:	"java.util.List",
-			"cxx"				:	"std::vector",
-			"java_template" 	:	"J", 	# Java Template
-			"cxx_template"		:	"C"		# CXX Template
+			"name"		: 	"convert_java_util_List_template",
+			"java"		:	"java.util.List",
 		},
 		{
-			"name"				:	"convert_java_util_Map_template",
-			"java"				:	"java.util.List",
-			"cxx"				:	"std::map",
-			"java_template"		:	
+			"name"		:	"convert_java_util_Map_template",
+			"java"		:	"java.util.List",
 		},
 	]
 }

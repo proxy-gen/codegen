@@ -4,4 +4,4 @@
 }
 \#endif //__cplusplus
 
-\#endif /* ${head_filename.upper().replace('.','_')}_ */
+\#endif /* ${head_file_name.upper().replace('.','_')}_ */

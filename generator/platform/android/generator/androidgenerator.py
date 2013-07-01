@@ -31,139 +31,17 @@ class Generator(BaseGenerator):
 		self._setup_included_packages()
 		self._setup_config()
 
-	def generate_header(self):
-		pass
-
-	def generate_impl(self):
-		pass
+	def generate_code(self):
+		self._generate_code()
 
 	def generate_config(self):
-		pass
+		self._generate_config()
 
 	def generate_wrapper(self):
-		pass
+		self._generate_wrapper()
 
 	def generate_reports(self):
-		pass
-		
-	def generate(self):
-		logging.debug("Generator generate_code enter")
-
-		self.add_functions = {}
-		if self.add_functions_file:
-			stream = file(self.add_functions_file)
-			data = yaml.load(stream)
-			if data:
-				if 'add' in data:
-					self.add_functions = data['add']
-
-		self.remove_functions = {}
-		if self.remove_functions_file:
-			stream = file(self.remove_functions_file)
-			data = yaml.load(stream)
-			if data:
-				if 'remove' in data:
-					self.remove_functions = data['remove']
-
-		self.doc = {}
-		if self.doc_file:
-			stream = file(self.doc_file)
-			data = yaml.load(stream)
-			if data:
-				self.doc = data
-
-		self.impl_filename = self.file_prefix + ".cpp"
-		logging.debug("self.impl_filename " + str(self.impl_filename))
-
-		impl_filepath = os.path.join(self.impl_outdir_name, self.impl_filename)
-		logging.debug("impl_filepath " + str(impl_filepath))		
-
-		self.head_filename = self.file_prefix + ".hpp"
-		logging.debug("self.head_filename " + str(self.head_filename))		
-
-		head_filepath = os.path.join(self.header_outdir_name, self.head_filename)
-		logging.debug("head_filepath " + str(head_filepath))	
-
-		self.internal_androidmk_filename = "Android.mk"
-		logging.debug("self.internal_androidmk_filename " + str(self.internal_androidmk_filename))
-
-		internal_androidmk_filepath = os.path.join(self.internal_makefile_outdir_name, self.internal_androidmk_filename)
-		logging.debug("internal_androidmk_filepath " + str(internal_androidmk_filepath))
-
-		self.internal_applicationmk_filename = "Application.mk"
-		logging.debug("self.internal_applicationmk_filename " + str(self.internal_applicationmk_filename))
-
-		internal_applicationmk_filepath = os.path.join(self.internal_makefile_outdir_name, self.internal_applicationmk_filename)
-		logging.debug("internal_applicationmk_filepath " + str(internal_applicationmk_filepath))
-
-		self.exported_androidmk_filename = "Android.mk"
-		logging.debug("self.exported_androidmk_filename " + str(self.exported_androidmk_filename))
-
-		exported_androidmk_filepath = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_filename)
-		logging.debug("exported_androidmk_filepath " + str(exported_androidmk_filepath))
-
-		self.config_py_filename = "config.py"
-		logging.debug("self.config_py_filename " + str(self.config_py_filename))
-
-		config_py_filepath = os.path.join(self.config_py_outdir_name, self.config_py_filename)
-		logging.debug("config_py_filepath " + str(config_py_filepath))
-
-		self.report_filename = "converters_report.md"
-		logging.debug("self.report_filename " + str(self.report_filename))
-
-		self.impl_file = open(impl_filepath, "w+")
-		self.head_file = open(head_filepath, "w+")
-		self.internal_androidmk_file = open(internal_androidmk_filepath, "w+")
-		self.internal_applicationmk_file = open(internal_applicationmk_filepath, "w+")
-		self.exported_androidmk_file = open(exported_androidmk_filepath, "w+")
-		self.config_py_file = open(config_py_filepath, "w+")
-
-		self._parse_classes()
-
-		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[0]),searchList=[self])
-		logging.debug("layout_h " + str(layout_h))		
-
-		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[1]),searchList=[self])
-		logging.debug("layout_c " + str(layout_c))	
-
-		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[self])
-		logging.debug("internal_android_mk " + str(internal_android_mk))	
-
-		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[self])
-		logging.debug("internal_application_mk " + str(internal_application_mk))	
-
-		exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
-		logging.debug("exported_android_mk " + str(exported_android_mk))	
-
-		config_py = Template(file=os.path.join(self.target, "templates", "config.py"), searchList=[self])
-		logging.debug("config.py " + str(config_py))
-
-		self.head_file.write(str(layout_h))
-		self.impl_file.write(str(layout_c))
-		self.internal_androidmk_file.write(str(internal_android_mk))
-		self.internal_applicationmk_file.write(str(internal_application_mk))
-		self.exported_androidmk_file.write(str(exported_android_mk))
-		self.config_py_file.write(str(config_py))
-
-		self._generate_classes()
-
-		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[2]),searchList=[self])
-		logging.debug("layout_h " + str(layout_h))		
-
-		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[3]),searchList=[self])
-		logging.debug("layout_c " + str(layout_c))		
-
-		self.head_file.write(str(layout_h))
-		self.impl_file.write(str(layout_c))
-
-		self.impl_file.close()
-		self.head_file.close()
-		self.internal_androidmk_file.close()
-		self.internal_applicationmk_file.close()
-		self.exported_androidmk_file.close()
-		self.config_py_file.close()
-
-		logging.debug("Generator generate_code exit")
+		self._generate_converters_report()
 
 	def teardown(self):
 		self._teardown_index()
@@ -262,6 +140,10 @@ class Generator(BaseGenerator):
 		# setup output directories
 		self.package_name = self.config['package_name']
 
+		self.wrapper_file_name = self.config['wrapper_file_name']
+
+		self.file_name = self.config['file_name']
+
 		self.output_dir_name = self.config['output_dir_name']
 		if not os.path.exists(self.output_dir_name):
 			os.makedirs(self.output_dir_name)
@@ -282,20 +164,50 @@ class Generator(BaseGenerator):
 			os.makedirs(self.makefile_outdir_name)				
 		logging.debug("self.makefile_outdir_name " + str(self.makefile_outdir_name))
 
-		self.internal_makefile_outdir_name = self.makefile_outdir_name + '/internal/' +  self.package_name + '/jni'
+		self.internal_makefile_outdir_name = os.path.join(self.makefile_outdir_name, 'internal', self.package_name, 'jni')
 		if not os.path.exists(self.internal_makefile_outdir_name):
 			os.makedirs(self.internal_makefile_outdir_name)					
 		logging.debug("self.internal_makefile_outdir_name " + str(self.internal_makefile_outdir_name))
 
-		self.exported_makefile_outdir_name = self.makefile_outdir_name + '/exported/' + self.package_name
+		self.exported_makefile_outdir_name = os.path.join(self.makefile_outdir_name, 'exported', self.package_name)
 		if not os.path.exists(self.exported_makefile_outdir_name):
 			os.makedirs(self.exported_makefile_outdir_name)								
 		logging.debug("self.exported_makefile_outdir_name " + str(self.exported_makefile_outdir_name))
+
+		self.wrapper_header_outdir_name = os.path.join(self.output_dir_name, "wrapper-includes", self.package_name)
+		if not os.path.exists(self.wrapper_header_outdir_name):
+			os.makedirs(self.wrapper_header_outdir_name)
+		logging.debug("self.wrapper_header_outdir_name " + str(self.wrapper_header_outdir_name))
+
+		self.wrapper_impl_outdir_name = os.path.join(self.output_dir_name, "wrapper-src", self.package_name)
+		if not os.path.exists(self.wrapper_impl_outdir_name):
+			os.makedirs(self.wrapper_impl_outdir_name)
+		logging.debug("self.wrapper_impl_outdir_name " + str(self.wrapper_impl_outdir_name))
+
+		self.wrapper_makefile_outdir_name =  os.path.join(self.output_dir_name, "wrapper-output")
+		if not os.path.exists(self.wrapper_makefile_outdir_name):
+			os.makedirs(self.wrapper_makefile_outdir_name)				
+		logging.debug("self.wrapper_makefile_outdir_name " + str(self.wrapper_makefile_outdir_name))
+
+		self.wrapper_internal_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'internal', self.package_name, 'jni')
+		if not os.path.exists(self.wrapper_internal_makefile_outdir_name):
+			os.makedirs(self.wrapper_internal_makefile_outdir_name)					
+		logging.debug("self.wrapper_internal_makefile_outdir_name " + str(self.wrapper_internal_makefile_outdir_name))
+
+		self.wrapper_exported_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'exported', self.package_name)
+		if not os.path.exists(self.wrapper_exported_makefile_outdir_name):
+			os.makedirs(self.wrapper_exported_makefile_outdir_name)								
+		logging.debug("self.wrapper_exported_makefile_outdir_name " + str(self.wrapper_exported_makefile_outdir_name))
 
 		self.config_py_outdir_name = os.path.join(self.output_dir_name, "config", self.package_name)
 		if not os.path.exists(self.config_py_outdir_name):
 			os.makedirs(self.config_py_outdir_name)
 		logging.debug("self.config_py_outdir_name " + str(self.config_py_outdir_name))
+
+		self.report_outdir_name = os.path.join(self.output_dir_name, "report", self.package_name)
+		if not os.path.exists(self.report_outdir_name):
+			os.makedirs(self.report_outdir_name)
+		logging.debug("self.report_outdir_name " + str(self.report_outdir_name))
 
 		# setup config
 		config_file_name = self.config['config_file_name']
@@ -414,6 +326,217 @@ class Generator(BaseGenerator):
 		if jindex.Index.destroy() != jindex.INDEX_OK:
 			print("*** Found errors - could not shutdown generator")
 			raise Exception("Fatal error in shutdown generator")
+
+	def _generate_code(self):
+		logging.debug("Generator _generate_code enter")
+
+		self.add_functions = {}
+		if self.add_functions_file:
+			stream = file(self.add_functions_file)
+			data = yaml.load(stream)
+			if data:
+				if 'add' in data:
+					self.add_functions = data['add']
+
+		self.remove_functions = {}
+		if self.remove_functions_file:
+			stream = file(self.remove_functions_file)
+			data = yaml.load(stream)
+			if data:
+				if 'remove' in data:
+					self.remove_functions = data['remove']
+
+		self.doc = {}
+		if self.doc_file:
+			stream = file(self.doc_file)
+			data = yaml.load(stream)
+			if data:
+				self.doc = data
+
+		self.impl_file_name = self.file_prefix + ".cpp"
+		logging.debug("self.impl_file_name " + str(self.impl_file_name))
+
+		impl_file_path = os.path.join(self.impl_outdir_name, self.impl_file_name)
+		logging.debug("impl_file_path " + str(impl_file_path))		
+
+		self.head_file_name = self.file_prefix + ".hpp"
+		logging.debug("self.head_file_name " + str(self.head_file_name))		
+
+		head_file_path = os.path.join(self.header_outdir_name, self.head_file_name)
+		logging.debug("head_file_path " + str(head_file_path))	
+
+		self.internal_androidmk_file_name = "Android.mk"
+		logging.debug("self.internal_androidmk_file_name " + str(self.internal_androidmk_file_name))
+
+		internal_androidmk_file_path = os.path.join(self.internal_makefile_outdir_name, self.internal_androidmk_file_name)
+		logging.debug("internal_androidmk_file_path " + str(internal_androidmk_file_path))
+
+		self.internal_applicationmk_file_name = "Application.mk"
+		logging.debug("self.internal_applicationmk_file_name " + str(self.internal_applicationmk_file_name))
+
+		internal_applicationmk_file_path = os.path.join(self.internal_makefile_outdir_name, self.internal_applicationmk_file_name)
+		logging.debug("internal_applicationmk_file_path " + str(internal_applicationmk_file_path))
+
+		self.exported_androidmk_file_name = "Android.mk"
+		logging.debug("self.exported_androidmk_file_name " + str(self.exported_androidmk_file_name))
+
+		exported_androidmk_file_path = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_file_name)
+		logging.debug("exported_androidmk_file_path " + str(exported_androidmk_file_path))
+
+		self.impl_file = open(impl_file_path, "w+")
+		self.head_file = open(head_file_path, "w+")
+		self.internal_androidmk_file = open(internal_androidmk_file_path, "w+")
+		self.internal_applicationmk_file = open(internal_applicationmk_file_path, "w+")
+		self.exported_androidmk_file = open(exported_androidmk_file_path, "w+")
+
+		self._parse_classes()
+
+		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[0]),searchList=[self])
+		logging.debug("layout_h " + str(layout_h))		
+
+		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[1]),searchList=[self])
+		logging.debug("layout_c " + str(layout_c))	
+
+		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[self])
+		logging.debug("internal_android_mk " + str(internal_android_mk))	
+
+		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[self])
+		logging.debug("internal_application_mk " + str(internal_application_mk))	
+
+		exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
+		logging.debug("exported_android_mk " + str(exported_android_mk))	
+
+		self.head_file.write(str(layout_h))
+		self.impl_file.write(str(layout_c))
+		self.internal_androidmk_file.write(str(internal_android_mk))
+		self.internal_applicationmk_file.write(str(internal_application_mk))
+		self.exported_androidmk_file.write(str(exported_android_mk))
+
+		self._generate_classes()
+
+		layout_h = Template(file=os.path.join(self.target, "templates", self.layout_template_list[2]),searchList=[self])
+		logging.debug("layout_h " + str(layout_h))		
+
+		layout_c = Template(file=os.path.join(self.target, "templates", self.layout_template_list[3]),searchList=[self])
+		logging.debug("layout_c " + str(layout_c))		
+
+		self.head_file.write(str(layout_h))
+		self.impl_file.write(str(layout_c))
+
+		self.impl_file.close()
+		self.head_file.close()
+		self.internal_androidmk_file.close()
+		self.internal_applicationmk_file.close()
+		self.exported_androidmk_file.close()
+
+		logging.debug("Generator _generate_code exit")
+
+	def _generate_config(self):
+
+		logging.debug("Generator _generate_config enter")
+
+		self.config_py_file_name = "config.py"
+		logging.debug("self.config_py_file_name " + str(self.config_py_file_name))
+
+		config_py_file_path = os.path.join(self.config_py_outdir_name, self.config_py_file_name)
+		logging.debug("config_py_file_path " + str(config_py_file_path))
+
+		self.config_py_file = open(config_py_file_path, "w+")
+
+		config_py = Template(file=os.path.join(self.target, "templates", "config.py"), searchList=[self])
+		logging.debug("config.py " + str(config_py))
+
+		self.config_py_file.write(str(config_py))
+
+		self.config_py_file.close()
+
+		logging.debug("Generator _generate_config exit")
+
+	def _generate_wrapper(self):
+		logging.debug("Generator _generate_wrapper enter")
+
+		self.wrapper_impl_file_name = self.wrapper_file_name + ".cpp"
+		logging.debug("self.wrapper_impl_file_name " + str(self.wrapper_impl_file_name))
+
+		wrapper_impl_file_path = os.path.join(self.wrapper_impl_outdir_name, self.wrapper_impl_file_name)
+		logging.debug("wrapper_impl_file_path " + str(wrapper_impl_file_path))		
+
+		self.wrapper_head_file_name = self.wrapper_file_name + ".hpp"
+		logging.debug("self.head_file_name " + str(self.wrapper_head_file_name))		
+
+		wrapper_head_file_path = os.path.join(self.wrapper_header_outdir_name, self.wrapper_head_file_name)
+		logging.debug("wrapper_head_file_path " + str(wrapper_head_file_path))	
+
+		self.wrapper_internal_androidmk_file_name = "Android.mk.wrapper"
+		logging.debug("self.wrapper_internal_androidmk_file_name " + str(self.wrapper_internal_androidmk_file_name))
+
+		wrapper_internal_androidmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_androidmk_file_name)
+		logging.debug("wrapper_internal_androidmk_file_path " + str(wrapper_internal_androidmk_file_path))
+
+		self.wrapper_internal_applicationmk_file_name = "Application.mk"
+		logging.debug("self.wrapper_internal_applicationmk_file_name " + str(self.wrapper_internal_applicationmk_file_name))
+
+		wrapper_internal_applicationmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_applicationmk_file_name)
+		logging.debug("wrapper_internal_applicationmk_file_path " + str(wrapper_internal_applicationmk_file_path))
+
+		self.wrapper_exported_androidmk_file_name = "Android.mk"
+		logging.debug("self.wrapper_exported_androidmk_file_name " + str(self.wrapper_exported_androidmk_file_name))
+
+		wrapper_exported_androidmk_file_path = os.path.join(self.wrapper_exported_makefile_outdir_name, self.wrapper_exported_androidmk_file_name)
+		logging.debug("wrapper_exported_androidmk_file_path " + str(wrapper_exported_androidmk_file_path))
+
+		self.wrapper_impl_file = open(wrapper_impl_file_path, "w+")
+		self.wrapper_head_file = open(wrapper_head_file_path, "w+")
+		self.wrapper_internal_androidmk_file = open(wrapper_internal_androidmk_file_path, "w+")
+		self.wrapper_internal_applicationmk_file = open(wrapper_internal_applicationmk_file_path, "w+")
+		self.wrapper_exported_androidmk_file = open(wrapper_exported_androidmk_file_path, "w+")
+
+		# Wrapper Layout Templates go here
+
+		wrapper_internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.internal"), searchList=[self])
+		logging.debug("wrapper_internal_android_mk " + str(wrapper_internal_android_mk))	
+
+		wrapper_internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.wrapper.internal"), searchList=[self])
+		logging.debug("wrapper_internal_application_mk " + str(wrapper_internal_application_mk))	
+
+		wrapper_exported_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.exported"), searchList=[self])
+		logging.debug("wrapper_exported_android_mk " + str(wrapper_exported_android_mk))	
+
+		self.wrapper_internal_androidmk_file.write(str(wrapper_internal_android_mk))
+		self.wrapper_internal_applicationmk_file.write(str(wrapper_internal_application_mk))
+		self.wrapper_exported_androidmk_file.write(str(wrapper_exported_android_mk))
+
+		# Wrapper Layout Templates go here
+
+		# Wrapper Template output goes here
+
+		self.wrapper_impl_file.close()
+		self.wrapper_head_file.close()
+		self.wrapper_internal_androidmk_file.close()
+		self.wrapper_internal_applicationmk_file.close()
+		self.wrapper_exported_androidmk_file.close()
+
+		logging.debug("Generator _generate_wrapper exit")
+
+	def _generate_converters_report(self):
+		logging.debug("Generator _generate_converters_report enter")
+
+		self.converters_report_file_name = "converters_report.md"
+		logging.debug("self.converters_report_file_name " + str(self.converters_report_file_name))
+
+		converters_report_file_path = os.path.join(self.report_outdir_name, self.converters_report_file_name)
+		logging.debug("converters_report_file_path " + str(converters_report_file_path))
+
+		self.converters_report_file = open(converters_report_file_path, "w+")
+
+		converters_report_md = Template(file=os.path.join(self.target, "templates", "converters_report.md"), searchList=[self])
+		logging.debug("converters_report_md " + str(converters_report_md))
+
+		self.converters_report_file.write(str(converters_report_md))
+
+		self.converters_report_file.close()
+
+		logging.debug("Generator _generate_converters_report exit")
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):
