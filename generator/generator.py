@@ -24,6 +24,8 @@ class BaseGenerator(object):
 		self.config['wrapper_file_name'] = None
 		self.config['include_packages'] = list()
 		self.config['include_package_path'] = None
+		self.config['include_wrapper_packages'] = list()
+		self.config['include_wrapper_package_path'] = None
 		self.config['namespace_name'] = "CXX"
 	
 	def setup(self):
@@ -90,6 +92,10 @@ def main():
 							help="Flag to indicate if the reports file needs to be generated (default is False)")
 	parser.add_option("--namespace", action="store", dest="namespace_name",
 							help="Namespace of generated CXX (default value is CXX)")
+	parser.add_option("--include-wrapper-package", action="append", dest="include_wrapper_packages",
+							help="List of packages to include in the generated wrapper code.")
+	parser.add_option("--include-wrapper-package-path", action="store", dest="include_wrapper_package_path",
+							help="Base path to the included package. Package path is relative to --output-dir.")
 	parser.add_option("--include-package", action="append", dest="include_packages",
 							help="List of packages to include in the generated code.")
 	parser.add_option("--include-package-path", action="store", dest="include_package_path",
@@ -134,6 +140,10 @@ def main():
 		platform_generator.config['include_packages'] = opts.include_packages
 	if opts.include_package_path:
 		platform_generator.config['include_package_path'] = opts.include_package_path
+	if opts.include_wrapper_packages:
+		platform_generator.config['include_wrapper_packages'] = opts.include_wrapper_packages
+	if opts.include_wrapper_package_path:
+		platform_generator.config['include_wrapper_package_path'] = opts.include_wrapper_package_path
 
 	platform_generator.setup()
 	if opts.generate_config:

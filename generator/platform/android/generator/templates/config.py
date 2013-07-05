@@ -83,7 +83,7 @@ config = {
 						{
 						#for $param_key in $param
 							#set $param_value = $param[$param_key]
-							#if $type($param_value) == "str"
+							#if $type($param_value) == str
 							"$param_key" : "$param_value",
 							#else
 							"$param_key" : $param_value,

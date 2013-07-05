@@ -37,6 +37,8 @@ def setup_runtime():
 	
 	lib_name = "libCXXGenerator"
 	cxx_generator_root = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "generator") 
+	cxx_indexer_root = os.path.join(cxx_generator_root, "indexer") 
+	cxx_indexer_cxx = os.path.join(cxx_indexer_root, "cxx") 
 	base_cxx_dir = os.path.join(os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "runtime"), "ZyngaCXX", "jni", "cxx")
 
 	name = platform.system()
@@ -52,14 +54,14 @@ def setup_runtime():
 
 	command_output = (-1, None)
 	command_templates = []
-	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported ${base_cxx_dir}/JNIContext.cpp -o ${cxx_generator_root}/JNIContext.o"))
-	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported -I${cxx_generator_root}/indexer ${cxx_generator_root}/indexer/CXXUtils.cpp  -o ${cxx_generator_root}/CXXUtils.o"))
-	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported -I${cxx_generator_root}/indexer ${cxx_generator_root}/indexer/CXXGenerator.cpp  -o ${cxx_generator_root}/CXXGenerator.o"))
-	command_templates.append(Template("g++ -dynamiclib -framework JavaVM -o ${cxx_generator_root}/libCXXGenerator.dylib ${cxx_generator_root}/JNIContext.o ${cxx_generator_root}/CXXUtils.o ${cxx_generator_root}/CXXGenerator.o"))
+	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported ${base_cxx_dir}/JNIContext.cpp -o ${cxx_indexer_cxx}/JNIContext.o"))
+	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported -I${cxx_indexer_cxx} ${cxx_indexer_cxx}/CXXUtils.cpp  -o ${cxx_indexer_cxx}/CXXUtils.o"))
+	command_templates.append(Template("g++ -c -I${java_framework_headers1} -I${java_framework_headers2} -I${base_cxx_dir} -I${base_cxx_dir}/internal -I${base_cxx_dir}/exported -I${cxx_indexer_cxx} ${cxx_indexer_cxx}/CXXGenerator.cpp  -o ${cxx_indexer_cxx}/CXXGenerator.o"))
+	command_templates.append(Template("g++ -dynamiclib -framework JavaVM -o ${cxx_indexer_cxx}/libCXXGenerator.dylib ${cxx_indexer_cxx}/JNIContext.o ${cxx_indexer_cxx}/CXXUtils.o ${cxx_indexer_cxx}/CXXGenerator.o"))
 
 	for i in range(0, len(command_templates)):
 		command_template = command_templates[i]
-		command = command_template.substitute(java_framework_headers1=java_framework_headers1,java_framework_headers2=java_framework_headers2,base_cxx_dir=base_cxx_dir,cxx_generator_root=cxx_generator_root)
+		command = command_template.substitute(java_framework_headers1=java_framework_headers1,java_framework_headers2=java_framework_headers2,base_cxx_dir=base_cxx_dir,cxx_indexer_cxx=cxx_indexer_cxx)
 		command_output = commands.getstatusoutput(command)
 		if command_output[0] != 0:
 			libName = None

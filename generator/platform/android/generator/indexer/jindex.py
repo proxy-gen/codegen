@@ -274,6 +274,8 @@ TypeKind.JAVA_PUBLIC_CONSTRUCTOR = TypeKind(207)
 TypeKind.JAVA_PRIMITIVE = TypeKind(208)
 TypeKind.JAVA_ARRAY = TypeKind(209)
 TypeKind.JAVA_INTERFACE = TypeKind(210)
+TypeKind.JAVA_TYPE_VARIABLE = TypeKind(212)
+TypeKind.JAVA_GENERIC_ARRAY_TYPE = TypeKind(213)
 TypeKind.DUMMY = TypeKind(999)
 
 class Type(Structure):
@@ -337,8 +339,8 @@ class Index(JavaObject):
     def parse(self, res):
         return TranslationUnit.from_source(res, self)
 
-    def build_config_data(self, config_data):
-        return TranslationUnit.build_config_data(config_data)
+    def build_config_closure(self, config_data):
+        return TranslationUnit.build_config_closure(config_data)
 
     @property
     def status(self):
@@ -355,7 +357,7 @@ class Index(JavaObject):
 class TranslationUnit(JavaObject):
 
     @classmethod
-    def build_config_data(cls, config_data):
+    def build_config_closure(cls, config_data):
         assert "packages" in config_data
         assert "classes" in config_data
         def visitor(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
@@ -394,7 +396,7 @@ class TranslationUnit(JavaObject):
         return TranslationUnit_cursor(self)
 
     @classmethod
-    def _process_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         if CursorKind.from_id(cursor_type) == CursorKind.CLASS_DECL:
             TranslationUnit._process_class_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
         if CursorKind.from_id(cursor_type) == CursorKind.CONSTRUCTOR_DECL:
@@ -407,7 +409,7 @@ class TranslationUnit(JavaObject):
             TranslationUnit._process_return_config_data(callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack)
 
     @classmethod
-    def _process_class_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         print "_process_class_config_data " + name
         if callback_type == CallbackType.ENTER:
             config_data = config_data_stack[0] # classes at the root
@@ -420,7 +422,7 @@ class TranslationUnit(JavaObject):
             config_data_stack.pop()
 
     @classmethod
-    def _process_constructor_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_constructor_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         print "_process_constructor_config_data " + name
         if callback_type == CallbackType.ENTER:
             config_data = config_data_stack[len(config_data_stack)-1]
@@ -433,40 +435,44 @@ class TranslationUnit(JavaObject):
             config_data_stack.pop()
 
     @classmethod
-    def _process_function_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_function_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         print "_process_function_config_data " + name
         if callback_type == CallbackType.ENTER:
             config_data = config_data_stack[len(config_data_stack)-1]
-            config_data = TranslationUnit._find_or_create_function_config_data(config_data["functions"], name)
+            # restricted to public functions, TODO - fix??
+            if Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
+                config_data = TranslationUnit._find_or_create_function_config_data(config_data["functions"], name)
+            else:
+                config_data = TranslationUnit._find_or_create_function_config_data(list(), name)
             config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
-            # process
+            #process
             pass
         if callback_type == CallbackType.EXIT:
             config_data_stack.pop()
 
     @classmethod
-    def _process_param_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_param_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         print "_process_param_config_data " + name
         if callback_type == CallbackType.ENTER:
             config_data = config_data_stack[len(config_data_stack)-1]
             config_data = TranslationUnit._find_or_create_param_config_data(config_data["params"], name)
             config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
-            # process
+            #process
             pass
         if callback_type == CallbackType.EXIT:
             config_data_stack.pop()
 
     @classmethod
-    def _process_return_config_data(cls, callback_type, cursor_type, type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
+    def _process_return_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, str_attrs, int_attrs, config_data_stack):
         print "_process_return_config_data " + name
         if callback_type == CallbackType.ENTER:
             config_data = config_data_stack[len(config_data_stack)-1]
             config_data = TranslationUnit._find_or_create_return_config_data(config_data["returns"], name)
             config_data_stack.append(config_data)
         if callback_type == CallbackType.PROCESS:
-            # process
+            #process
             pass
         if callback_type == CallbackType.EXIT:
             config_data_stack.pop()

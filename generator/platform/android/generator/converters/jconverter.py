@@ -1,6 +1,11 @@
 config = {
 	"converters" : [
 		{
+			"name"		:	"convert_void",
+			"java"		:	"void",
+			"cxx"		: 	"void",
+		},
+		{
 			"name"		:	"convert_boolean",
 			"java"		: 	"boolean",
 			"cxx"		:	"bool",

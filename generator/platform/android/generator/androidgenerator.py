@@ -29,6 +29,7 @@ class Generator(BaseGenerator):
 		self._setup_default_runtime()
 		self._setup_default_converters()
 		self._setup_included_packages()
+		self._setup_included_wrapper_packages()
 		self._setup_config()
 
 	def generate_code(self):
@@ -122,6 +123,10 @@ class Generator(BaseGenerator):
 	def _setup_included_packages(self):
 		self.include_packages = self.config['include_packages']
 		self.include_package_path = self.config['include_package_path']
+
+	def _setup_included_wrapper_packages(self):
+		self.include_wrapper_packages = self.config['include_wrapper_packages']
+		self.include_wrapper_package_path = self.config['include_wrapper_package_path']
 
 	def _setup_config(self):
 		self._setup_new_config()
@@ -442,7 +447,7 @@ class Generator(BaseGenerator):
 		config_module = imp.load_module(config_module_name, filepath, pathname, description)
 
 		self.config_data = getattr(config_module, "config")
-		self.index.build_config_data(self.config_data)
+		self.index.build_config_closure(self.config_data)
 		self._update_config_data()
 
 		self.config_py_file_name = "config.py"
@@ -550,7 +555,12 @@ class Generator(BaseGenerator):
 
 	def _update_config_data(self):
 		logging.debug("Generator _update_config_data enter")
+		self._attach_default_converters()
+		self._attach_converters()
+		logging.debug("Generator _update_config_data exit")
 
+	def _attach_default_converters(self):
+		logging.debug("Generator _attach_default_converters enter")
 		if "converters" not in self.config_data:
 			self.config_data["converters"] = []
 
@@ -562,9 +572,49 @@ class Generator(BaseGenerator):
 					break
 			if found == False:
 				self.config_data["converters"].append(default_converter)
+		logging.debug("Generator _attach_default_converters exit")
 
-		logging.debug("Generator _update_config_data exit")
+	def _attach_converters(self):
+		self._attach_config_converters(self.config_data)
 
+	def _attach_config_converters(self, data):
+		logging.debug("Generator _attach_config_converters enter")
+		if "params" in data or "returns" in data:
+			if "params" in data:
+				for param in data["params"]:
+					self._attach_config_converter(param)
+			if "returns" in data:
+				for retrn in data["returns"]:
+					self._attach_config_converter(retrn)
+		else:
+			if "classes" in data:
+				for clazz in data["classes"]:
+					self._attach_config_converters(clazz)
+			if "functions" in data:
+				for function in data["functions"]:
+					self._attach_config_converters(function)
+			if "constructors" in data:
+				for constructor in data["constructors"]:
+					self._attach_config_converters(constructor)
+		logging.debug("Generator _attach_config_converters enter")
+
+	def _attach_config_converter(self, convertible):
+		logging.debug("Generator _attach_config_converter enter")
+		converters = self.config_data["converters"]
+		added_converter = False
+		for converter in converters:
+			if converter["java"] == convertible["name"]:
+				convertible["converter"] = converter["name"]
+				added_converter = True
+				break
+		if added_converter is False:
+			classes = self.config_data["classes"]
+			for clazz in classes:
+				if convertible["name"] == clazz["name"]:
+					convertible["is_proxied"] = True
+					added_converter = True
+					break
+		logging.debug("Generator _attach_config_converter exit")
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):

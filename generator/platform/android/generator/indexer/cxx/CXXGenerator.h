@@ -138,11 +138,11 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 
 void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx);
 
-void process_constructor_param(std::string constructor_name, jobject constructor, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
+void process_constructor_param(std::string constructor_name, jobject constructor, std::string param_name, jobject param, int idx, ProcessorContext ctx);
 
-void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
+void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, ProcessorContext ctx);
 
-void process_method_return(std::string method_name, jobject method, std::string retrn_name, jobject retrn, int idx, std::vector<std::string> param_generics, ProcessorContext ctx);
+void process_method_return(std::string method_name, jobject method, std::string retrn_name, jobject retrn, int idx, ProcessorContext ctx);
 
 int find_class_type(jclass clazz);
 
@@ -154,9 +154,7 @@ int find_param_type(jobject param);
 
 int find_return_type(jobject retrn);
 
-std::vector<std::string> find_param_generics(jobject param);
-
-std::vector<std::string> find_return_generics(jobject retrn);
+std::vector<std::string> find_generic_array_name(jobject param);
 
 std::string find_param_name(jobject param);
 
