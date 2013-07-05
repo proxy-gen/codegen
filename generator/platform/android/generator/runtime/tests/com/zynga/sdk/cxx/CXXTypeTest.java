@@ -179,7 +179,7 @@ public class CXXTypeTest extends TestCase {
 					for (Type type : types)
 					{
 						CXXType cxxType = new CXXType(type);
-						assertEquals(expected[testIdx++], cxxType.getTypeType().getName());
+						assertEquals(expected[testIdx++], cxxType.getTypeType());
 					}
 				}
 			}

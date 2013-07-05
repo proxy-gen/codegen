@@ -219,7 +219,7 @@ config = {
 		{
 			"name"					:	"convert_java_util_Map_java_lang_String_proxy_type_template",
 			"java"					:	{ 
-											"type" : "java.util.Map" 
+											"type" : "java.util.Map",
 											"children" : 
 											[
 												{

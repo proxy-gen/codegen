@@ -1,119 +1,119 @@
 config = {
 	"converters" : [
 		{
-			"cxx" : "void",
-			"java" : "void",
+			"cxx" : {'type': 'void'},
+			"java" : {'type': 'void'},
 			"name" : "convert_void",
 		}
 		{
-			"cxx" : "bool",
-			"java" : "boolean",
+			"cxx" : {'type': 'bool'},
+			"java" : {'type': 'boolean'},
 			"name" : "convert_boolean",
 		}
 		{
-			"cxx" : "int",
-			"java" : "byte",
+			"cxx" : {'type': 'int'},
+			"java" : {'type': 'byte'},
 			"name" : "convert_byte",
 		}
 		{
-			"cxx" : "char",
-			"java" : "char",
+			"cxx" : {'type': 'char'},
+			"java" : {'type': 'char'},
 			"name" : "convert_char",
 		}
 		{
-			"cxx" : "short",
-			"java" : "short",
+			"cxx" : {'type': 'short'},
+			"java" : {'type': 'short'},
 			"name" : "convert_short",
 		}
 		{
-			"cxx" : "int",
-			"java" : "int",
+			"cxx" : {'type': 'int'},
+			"java" : {'type': 'int'},
 			"name" : "convert_int",
 		}
 		{
-			"cxx" : "long",
-			"java" : "long",
+			"cxx" : {'type': 'long'},
+			"java" : {'type': 'long'},
 			"name" : "convert_long",
 		}
 		{
-			"cxx" : "float",
-			"java" : "float",
+			"cxx" : {'type': 'float'},
+			"java" : {'type': 'float'},
 			"name" : "convert_float",
 		}
 		{
-			"cxx" : "double",
-			"java" : "double",
+			"cxx" : {'type': 'double'},
+			"java" : {'type': 'double'},
 			"name" : "convert_double",
 		}
 		{
-			"cxx" : "std::string",
-			"java" : "java.lang.String",
+			"cxx" : {'type': 'std::string'},
+			"java" : {'type': 'java.lang.String'},
 			"name" : "convert_java_lang_String",
 		}
 		{
-			"cxx" : "bool",
-			"java" : "java.lang.Boolean",
+			"cxx" : {'type': 'bool'},
+			"java" : {'type': 'java.lang.Boolean'},
 			"name" : "convert_java_lang_Boolean",
 		}
 		{
-			"cxx" : "int",
-			"java" : "java.lang.Byte",
+			"cxx" : {'type': 'int'},
+			"java" : {'type': 'java.lang.Byte'},
 			"name" : "convert_java_lang_Byte",
 		}
 		{
-			"cxx" : "char",
-			"java" : "java.lang.Character",
+			"cxx" : {'type': 'char'},
+			"java" : {'type': 'java.lang.Character'},
 			"name" : "convert_java_lang_Character",
 		}
 		{
-			"cxx" : "short",
-			"java" : "java.lang.Short",
+			"cxx" : {'type': 'short'},
+			"java" : {'type': 'java.lang.Short'},
 			"name" : "convert_java_lang_Short",
 		}
 		{
-			"cxx" : "int",
-			"java" : "java.lang.Integer",
+			"cxx" : {'type': 'int'},
+			"java" : {'type': 'java.lang.Integer'},
 			"name" : "convert_java_lang_Integer",
 		}
 		{
-			"cxx" : "long",
-			"java" : "java.lang.Long",
+			"cxx" : {'type': 'long'},
+			"java" : {'type': 'java.lang.Long'},
 			"name" : "convert_java_lang_Long",
 		}
 		{
-			"cxx" : "float",
-			"java" : "java.lang.Float",
+			"cxx" : {'type': 'float'},
+			"java" : {'type': 'java.lang.Float'},
 			"name" : "convert_java_lang_Float",
 		}
 		{
-			"cxx" : "double",
-			"java" : "java.lang.Double",
+			"cxx" : {'type': 'double'},
+			"java" : {'type': 'java.lang.Double'},
 			"name" : "convert_java_lang_Double",
 		}
 		{
-			"cxx" : "double",
-			"java" : "java.lang.BigInteger",
+			"cxx" : {'type': 'double'},
+			"java" : {'type': 'java.lang.BigInteger'},
 			"name" : "convert_java_lang_BigInteger",
 		}
 		{
-			"cxx" : "double",
-			"java" : "java.lang.BigDecimal",
+			"cxx" : {'type': 'double'},
+			"java" : {'type': 'java.lang.BigDecimal'},
 			"name" : "convert_java_math_BigDecimal",
 		}
 		{
-			"cxx" : "long",
-			"java" : "java.util.Date",
+			"cxx" : {'type': 'long'},
+			"java" : {'type': 'java.util.Date'},
 			"name" : "convert_java_util_Date",
 		}
 		{
-			"is_proxy_converter" : True,
-			"java" : "java.util.List",
-			"name" : "convert_java_util_List_template",
+			"cxx" : {'type': 'std::vector', 'children': [{'type': 'cxx_proxied_type'}]},
+			"java" : {'type': 'java.util.List', 'children': [{'type': 'cxx_proxy_type'}]},
+			"name" : "convert_java_util_List_proxy_type_template",
 		}
 		{
-			"is_proxy_converter" : True,
-			"java" : "java.util.List",
-			"name" : "convert_java_util_Map_template",
+			"cxx" : {'type': 'std::map', 'children': [{'type': 'std::string'}, {'type': 'cxx_proxied_type'}]},
+			"java" : {'type': 'java.util.Map', 'children': [{'type': 'cxx_proxy_type'}]},
+			"name" : "convert_java_util_Map_java_lang_String_proxy_type_template",
 		}
 	],
 	"packages" : [
@@ -138,7 +138,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -149,7 +148,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -160,7 +158,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						},
 					],
 				},
@@ -171,7 +168,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.List",
-							"converter" : "convert_java_util_List_template",
 						},
 					],
 				},
@@ -193,7 +189,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -212,7 +207,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -223,7 +217,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -244,7 +237,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -255,7 +247,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -266,7 +257,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -277,7 +267,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						},
 					],
 				},
@@ -292,7 +281,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -307,7 +295,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -322,7 +309,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -337,7 +323,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -352,7 +337,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -364,7 +348,6 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "android.content.Intent",
@@ -373,7 +356,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -384,7 +366,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -399,7 +380,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -417,7 +397,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -468,7 +447,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -497,7 +475,6 @@ config = {
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 						{
 							"is_proxied" : True,
@@ -546,7 +523,6 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"is_proxied" : True,
@@ -562,11 +538,9 @@ config = {
 						}
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 						{
 							"is_proxied" : True,
@@ -586,7 +560,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -605,13 +578,11 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -623,13 +594,11 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -647,7 +616,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -658,7 +626,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -676,7 +643,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -687,7 +653,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -699,7 +664,6 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"is_proxied" : True,
@@ -712,7 +676,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -721,7 +684,6 @@ config = {
 					"params" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "android.content.Intent",
@@ -730,7 +692,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -741,7 +702,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -755,7 +715,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -766,7 +725,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						},
 					],
 				},
@@ -781,7 +739,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -803,7 +760,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						},
 					],
 				},
@@ -812,17 +768,14 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -831,13 +784,11 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -846,13 +797,11 @@ config = {
 					"params" : [
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -861,13 +810,11 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -878,7 +825,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -887,13 +833,11 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -907,7 +851,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -916,13 +859,11 @@ config = {
 					"params" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -936,7 +877,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -947,7 +887,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 				},
@@ -963,7 +902,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -987,7 +925,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.List",
-							"converter" : "convert_java_util_List_template",
 						},
 					],
 				},
@@ -1001,7 +938,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1015,7 +951,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -1029,7 +964,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -1043,7 +977,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						},
 					],
 				},
@@ -1069,13 +1002,11 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1087,13 +1018,11 @@ config = {
 						}
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1107,7 +1036,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						},
 					],
 				},
@@ -1119,13 +1047,11 @@ config = {
 						}
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1142,7 +1068,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1160,7 +1085,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1174,7 +1098,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						},
 					],
 				},
@@ -1186,13 +1109,11 @@ config = {
 						}
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1206,7 +1127,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						},
 					],
 				},
@@ -1218,13 +1138,11 @@ config = {
 						}
 						{
 							"name" : "long",
-							"converter" : "convert_long",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1255,7 +1173,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -1272,15 +1189,12 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 					],
 				},
@@ -1304,7 +1218,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -1321,7 +1234,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -1332,7 +1244,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						},
 					],
 				},
@@ -1343,11 +1254,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"is_proxied" : True,
@@ -1375,7 +1284,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -1392,11 +1300,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 				},
@@ -1412,7 +1318,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -1423,7 +1328,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.List",
-							"converter" : "convert_java_util_List_template",
 						},
 					],
 				},
@@ -1434,7 +1338,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -1445,7 +1348,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						},
 					],
 				},
@@ -1467,7 +1369,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						},
 					],
 				},
@@ -1476,11 +1377,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						}
 						{
 							"is_proxied" : True,
@@ -1518,11 +1417,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "java.util.Date",
-							"converter" : "convert_java_util_Date",
 						}
 						{
 							"name" : "",
@@ -1543,13 +1440,11 @@ config = {
 					"params" : [
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1567,18 +1462,15 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "",
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 						{
 							"name" : "android.app.Activity",
@@ -1605,7 +1497,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -1622,15 +1513,12 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 					],
 				},
@@ -1657,7 +1545,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1676,13 +1563,11 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1714,11 +1599,9 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 						{
 							"name" : "boolean",
-							"converter" : "convert_boolean",
 						}
 						{
 							"name" : "",
@@ -1729,7 +1612,6 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"is_proxied" : True,
@@ -1757,7 +1639,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -1774,11 +1655,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 				},
@@ -1795,13 +1674,11 @@ config = {
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -1857,7 +1734,6 @@ config = {
 					"params" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 					"returns" : [
@@ -1949,7 +1825,6 @@ config = {
 					"params" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 					"returns" : [
@@ -2010,7 +1885,6 @@ config = {
 						}
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 				},
@@ -2034,7 +1908,6 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 					],
 					"returns" : [
@@ -2051,11 +1924,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 				},
@@ -2071,7 +1942,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2088,7 +1958,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2102,7 +1971,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2132,7 +2000,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2143,7 +2010,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2158,7 +2024,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2173,7 +2038,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2191,7 +2055,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						},
 					],
 				},
@@ -2202,7 +2065,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -2213,11 +2075,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 				},
@@ -2233,7 +2093,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						},
 					],
 				},
@@ -2244,7 +2103,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						},
 					],
 				},
@@ -2255,11 +2113,9 @@ config = {
 					"params" : [
 						{
 							"name" : "java.lang.String",
-							"converter" : "convert_java_lang_String",
 						}
 						{
 							"name" : "int",
-							"converter" : "convert_int",
 						}
 					],
 				},
@@ -2278,7 +2134,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2292,7 +2147,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},
@@ -2307,7 +2161,6 @@ config = {
 					"returns" : [
 						{
 							"name" : "void",
-							"converter" : "convert_void",
 						},
 					],
 				},

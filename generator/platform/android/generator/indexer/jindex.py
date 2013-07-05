@@ -276,6 +276,7 @@ TypeKind.JAVA_ARRAY = TypeKind(209)
 TypeKind.JAVA_INTERFACE = TypeKind(210)
 TypeKind.JAVA_TYPE_VARIABLE = TypeKind(212)
 TypeKind.JAVA_GENERIC_ARRAY_TYPE = TypeKind(213)
+TypeKind.WILDCARD_TYPE = TypeKind(214)
 TypeKind.DUMMY = TypeKind(999)
 
 class Type(Structure):

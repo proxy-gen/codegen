@@ -138,11 +138,9 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 
 void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx);
 
-void process_constructor_param(std::string constructor_name, jobject constructor, std::string param_name, jobject param, int idx, ProcessorContext ctx);
+void process_param(std::string method_name, jobject method, jobject param, int idx, ProcessorContext ctx);
 
-void process_method_param(std::string method_name, jobject method, std::string param_name, jobject param, int idx, ProcessorContext ctx);
-
-void process_method_return(std::string method_name, jobject method, std::string retrn_name, jobject retrn, int idx, ProcessorContext ctx);
+void process_method_return(std::string method_name, jobject method, jobject retrn, int idx, ProcessorContext ctx);
 
 int find_class_type(jclass clazz);
 
@@ -154,13 +152,19 @@ int find_param_type(jobject param);
 
 int find_return_type(jobject retrn);
 
-std::vector<std::string> find_generic_array_name(jobject param);
-
 std::string find_param_name(jobject param);
 
 std::string find_return_name(jobject retrn);
 
-std::string find_package_name(std::string class_name);
+std::string find_param_package_name(jobject param);
+
+std::string find_return_package_name(jobject retrn);
+
+std::vector<std::string> find_generic_array_name(jobject param);
+
+void build_return_type_hierarchy(jobject retrn, char str_attrs[ATTR_COUNT][STR_ATTR_SIZE], int int_attrs[ATTR_COUNT], int idx);
+
+void build_param_type_hierarchy(jobject param, char str_attrs[ATTR_COUNT][STR_ATTR_SIZE], int int_attrs[ATTR_COUNT], int idx);
 
 #ifdef __cplusplus
 }

@@ -30,8 +30,8 @@ public class CXXType {
 		childTypes = buildChildTypes(type);
 	}
 	
-	public Class getTypeType() {
-		return typeType;
+	public String getTypeType() {
+		return typeType.getName();
 	}
 
 	public String getTypePackage() {
@@ -50,7 +50,7 @@ public class CXXType {
 	
 	public String toString() {
 		StringBuilder strBldr = new StringBuilder();
-		if (typeClass.isArray())
+		if (typeClass == Array.class)
 		{
 			CXXType componentType = childTypes.get(0);
 			strBldr.append(componentType.toString());
@@ -238,7 +238,11 @@ public class CXXType {
 	{
 		Class typeClass = inferTypeClass(type);
 		Package pkg = typeClass.getPackage();
-		return typeClass.getPackage();
+		if (typeClass == Array.class)
+		{
+			pkg = null;
+		}
+		return pkg;
 	}
 	
 	public static class Array
