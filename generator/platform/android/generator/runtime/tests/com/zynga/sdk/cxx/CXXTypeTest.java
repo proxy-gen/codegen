@@ -41,11 +41,59 @@ public class CXXTypeTest extends TestCase {
 		super.tearDown();
 	}
 	
+	public void testType()
+		throws NoSuchMethodException {
+		
+		System.out.println("====testType=====");
+		Class[] classes = new Class[] { A.class  };
+		
+		String[] expected = new String[] {
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.TypeVariable",
+				"java.lang.reflect.TypeVariable",
+				"java.lang.Class",
+				"java.lang.Class",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.Class",
+				"java.lang.Class",
+				"java.lang.reflect.GenericArrayType",
+				"java.lang.reflect.GenericArrayType",
+				"java.lang.reflect.GenericArrayType",
+				"java.lang.reflect.GenericArrayType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType",
+				"java.lang.reflect.ParameterizedType"
+			};
+			int testIdx = 0;
+			for (Class clazz : classes)
+			{
+				Method[] methods = clazz.getDeclaredMethods();
+				for (Method method : methods) 
+				{
+					Type[] types = method.getGenericParameterTypes();
+					for (Type type : types)
+					{
+						CXXType cxxType = new CXXType(type);
+						assertEquals(expected[testIdx++], cxxType.getTypeType().getName());
+					}
+				}
+			}
+	}
+	
 	@SuppressWarnings("rawtypes")
-	public void testGetTypeInfo()
+	public void testTypeHierarchy()
 			throws NoSuchMethodException
 		{
-			System.out.println("====testGetTypeInfo=====");
+			System.out.println("====testTypeHierarchy=====");
 			Class[] classes = new Class[] { A.class  };
 			String[] expected = new String[] {
 				"java.util.List<java.util.List<java.util.List<java.util.List<java.util.List<java.lang.Number>>>>>", //77
@@ -93,102 +141,102 @@ public class CXXTypeTest extends TestCase {
 
 	static class A<U extends Number> {
 		
-		public <T extends List<? extends U>> void m77(List<? extends List<? extends List<? extends List<T>>>> s)
+		public <T extends List<? extends U>> void m77(List<? extends List<? extends List<? extends List<T>>>> s) // java.lang.reflect.ParameterizedType
 		{
 			
 		}
 		
-		public <T extends U> void m78(List<? extends List<? extends T>> s)
+		public <T extends U> void m78(List<? extends List<? extends T>> s) // java.lang.reflect.ParameterizedType
 		{
 			
 		}
 		
-		public void m79(List<? extends List<? extends U>> s)
+		public void m79(List<? extends List<? extends U>> s) // java.lang.reflect.ParmeterizedType
 		{
 			
 		}
 		
-		public <T extends U> void m80(T s) {
+		public <T extends U> void m80(T s) { // java.lang.reflect.TypeVariable
 
 		}
 
-		public void m81(U s) {
+		public void m81(U s) { // java.lang.reflect.TypeVariable
 
 		}
 
-		public void m82(String s) {
+		public void m82(String s) { // java.lang.Class
 
 		}
 
-		public void m83(int s) {
+		public void m83(int s) { // java.lang.Class
 
 		}
 
-		public <T extends Integer> void m84(Map<Map, Map<String, T>> s) {
+		public <T extends Integer> void m84(Map<Map, Map<String, T>> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public <T> void m85(Map<Map, Map<String, T>> s) {
+		public <T> void m85(Map<Map, Map<String, T>> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m86(Map<Map, Map<String, Integer>> s) {
+		public void m86(Map<Map, Map<String, Integer>> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m87(Map<String, Integer> s) {
+		public void m87(Map<String, Integer> s) { // java.lang.ParameterizedType
 
 		}
 
-		public void m88(Integer[] s) {
+		public void m88(Integer[] s) { // java.lang.Class
 
 		}
 
-		public void m89(int[] s) {
+		public void m89(int[] s) { // java.lang.Class
 
 		}
 
-		public <T extends List<? extends U>> void m90(T[] s) {
+		public <T extends List<? extends U>> void m90(T[] s) { // java.lang.reflect.GenericTypeArray
 
 		}
 
-		public <T extends List<U>> void m91(T[] s) {
+		public <T extends List<U>> void m91(T[] s) { // java.lang.reflect.GenericTypeArray
 
 		}
 
-		public <T extends List<String>> void m92(List<T>[] s) {
+		public <T extends List<String>> void m92(List<T>[] s) { // java.lang.reflect.GenericArrayType
 
 		}
 
-		public void m93(List<List<String>>[] s) {
+		public void m93(List<List<String>>[] s) { // java.lang.reflect.GenericArrayType
 
 		}
 
-		public void m94(List<List<String[]>> s) {
+		public void m94(List<List<String[]>> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m95(List<String[]> s) {
+		public void m95(List<String[]> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m96(List<List<List<String>>> s) {
+		public void m96(List<List<List<String>>> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public <T extends U> void m97(List<? extends T> s) {
+		public <T extends U> void m97(List<? extends T> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public <T extends Integer> void m98(List<? extends T> s) {
+		public <T extends Integer> void m98(List<? extends T> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m99(List<? extends Double> s) {
+		public void m99(List<? extends Double> s) { // java.lang.reflect.ParameterizedType
 
 		}
 
-		public void m100(List<String> s) {
+		public void m100(List<String> s) { // java.lang.reflect.ParameterizedType
 
 		}
 	}
