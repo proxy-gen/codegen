@@ -11,8 +11,10 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public class CXXType {
 
-	private static Class ARRAY_CLASS = (new Object[0]).getClass();
+	private static Class ARRAY_CLASS = Array.class;
 	private static Class OBJECT_CLASS = Object.class;
+	
+	private Package typePackage;
 	
 	private Class typeType;
 	
@@ -24,6 +26,7 @@ public class CXXType {
 	{
 		typeType = inferTypeType(type);
 		typeClass = inferTypeClass(type);
+		typePackage = inferTypePackage(type);
 		childTypes = buildChildTypes(type);
 	}
 	
@@ -31,11 +34,15 @@ public class CXXType {
 		return typeType;
 	}
 
-	public Class getTypeClass() 
-	{
-		return typeClass;
+	public String getTypePackage() {
+		return typePackage == null ? null : typePackage.getName();
 	}
 
+	public String getTypeClass() 
+	{
+		return typeClass.getName();
+	}
+	
 	public List<CXXType> getChildTypes() 
 	{
 		return childTypes;
@@ -225,5 +232,17 @@ public class CXXType {
 		}
 		
 		throw new IllegalArgumentException("unknown type " + type.toString());
+	}
+	
+	private Package inferTypePackage(Type type)
+	{
+		Class typeClass = inferTypeClass(type);
+		Package pkg = typeClass.getPackage();
+		return typeClass.getPackage();
+	}
+	
+	public static class Array
+	{
+		
 	}
 }

@@ -41,6 +41,102 @@ public class CXXTypeTest extends TestCase {
 		super.tearDown();
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public void testTypeClass()
+			throws NoSuchMethodException
+	{
+		System.out.println("====testTypeClass=====");
+		Class[] classes = new Class[] { A.class  };
+		String[] expected = new String[] {
+			"java.util.List", //77
+			"java.util.List", //78
+			"java.util.List", //79
+			"java.lang.Number", //80
+			"java.lang.Number", //81
+			"java.lang.String", //82
+			"int", //83
+			"java.util.Map", //84
+			"java.util.Map", //85
+			"java.util.Map", //86
+			"java.util.Map", //87
+			"com.zynga.sdk.cxx.CXXType$Array", //88
+			"com.zynga.sdk.cxx.CXXType$Array", //89
+			"com.zynga.sdk.cxx.CXXType$Array", //90
+			"com.zynga.sdk.cxx.CXXType$Array", //91
+			"com.zynga.sdk.cxx.CXXType$Array", //92
+			"com.zynga.sdk.cxx.CXXType$Array", //93
+			"java.util.List", //94
+			"java.util.List", //95
+			"java.util.List", //96
+			"java.util.List", //97
+			"java.util.List", //98
+			"java.util.List", //99
+			"java.util.List" // 100
+		};
+		int testIdx = 0;
+		for (Class clazz : classes)
+		{
+			Method[] methods = clazz.getDeclaredMethods();
+			for (Method method : methods) 
+			{
+				Type[] types = method.getGenericParameterTypes();
+				for (Type type : types)
+				{
+					CXXType cxxType = new CXXType(type);
+					assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypeClass());
+				}
+			}
+		}
+	}	
+	
+	public void testTypePackage()
+		throws NoSuchMethodException {
+		
+		System.out.println("====testTypePackage=====");
+		Class[] classes = new Class[] { A.class  };
+		
+		String[] expected = new String[] {
+				"java.util", 	//m77
+				"java.util", 	//m78
+				"java.util", 	//m79
+				"java.lang", 	//m80
+				"java.lang", 	//m81
+				"java.lang", 	//m82
+				null,		 	//m83
+				"java.util",	//m84
+				"java.util",	//m85
+				"java.util",	//m86
+				"java.util",	//m87
+				null,			//m88
+				null,			//m89
+				null,			//m90
+				null,			//m91
+				null,			//m92
+				null,			//m93
+				"java.util",	//m94
+				"java.util",	//m95
+				"java.util",	//m96
+				"java.util",	//m97
+				"java.util",	//m98
+				"java.util",	//m99
+				"java.util"		//m100
+			};
+			int testIdx = 0;
+			for (Class clazz : classes)
+			{
+				Method[] methods = clazz.getDeclaredMethods();
+				for (Method method : methods) 
+				{
+					Type[] types = method.getGenericParameterTypes();
+					for (Type type : types)
+					{
+						CXXType cxxType = new CXXType(type);
+						assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypePackage());
+					}
+				}
+			}
+	}
+	
 	public void testType()
 		throws NoSuchMethodException {
 		
