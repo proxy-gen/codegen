@@ -477,7 +477,7 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
-		print "_process_class_config_data " + name
+		logging.debug("_process_class_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[0] # classes at the root
 			config_data = TranslationUnit._find_or_create_class_config_data(config_data["classes"], name)
@@ -490,7 +490,7 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _process_constructor_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
-		print "_process_constructor_config_data " + name
+		logging.debug("_process_constructor_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
 			config_data = TranslationUnit._find_or_create_constructor_config_data(config_data["constructors"], name)
@@ -503,7 +503,7 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _process_function_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
-		print "_process_function_config_data " + name
+		logging.debug("_process_function_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
 			config_data = TranslationUnit._find_or_create_function_config_data(config_data["functions"], name)
@@ -516,7 +516,7 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _process_param_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
-		print "_process_param_config_data " + name
+		logging.debug("_process_param_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
 			type_hierarchy = TranslationUnit._create_type_hierarchy(type_id)
@@ -531,7 +531,7 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _process_return_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
-		print "_process_return_config_data " + name
+		logging.debug("_process_return_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
 			type_hierarchy = TranslationUnit._create_type_hierarchy(type_id)
@@ -597,35 +597,13 @@ class TranslationUnit(JavaObject):
 	def _find_or_create_param_config_data(cls, params, param_type_hierarchy):
 		the_param_type_hierarchy = None
 		for a_param_type_hierarchy in params:
-			if TranslationUnit._type_hierarchy_matches(a_param_type_hierarchy, param_type_hierarchy):
+			if type_hierarchy_matches(a_param_type_hierarchy, param_type_hierarchy):
 				the_param_type_hierarchy = a_param_type_hierarchy
 				break
 		if not the_param_type_hierarchy:
 			the_param_type_hierarchy = param_type_hierarchy
 			params.append(the_param_type_hierarchy)
 		return the_param_type_hierarchy
-
-	@classmethod
-	def _type_hierarchy_matches(cls, type_hierarchy_1, type_hierarchy_2):
-		if type(type_hierarchy_1) is dict and type(type_hierarchy_2) is dict:
-			symm_set = set(type_hierarchy_1.keys()) ^ set(type_hierarchy_2.keys())
-			if len(symm_set) > 0:
-				return False
-			for key in type_hierarchy_1:
-				matches = TranslationUnit._type_hierarchy_matches(type_hierarchy_1[key], type_hierarchy_2[key])
-				if not matches:
-					return False
-		elif type(type_hierarchy_1) is list and type(type_hierarchy_2) is list:
-			if len(type_hierarchy_1) != len(type_hierarchy_2):
-				return False
-			for idx in range(0,len(type_hierarchy_1),1):
-				matches = TranslationUnit._type_hierarchy_matches(type_hierarchy_1[idx], type_hierarchy_2[idx])
-				if not matches:
-					return False
-		elif type(type_hierarchy_1) is str and type(type_hierarchy_2) is str:
-			if type_hierarchy_1 != type_hierarchy_2:
-				return False
-		return True
 
 	@classmethod
 	def _create_type_hierarchy(cls, type_id):
@@ -635,7 +613,7 @@ class TranslationUnit(JavaObject):
 	@classmethod
 	def _build_type_hierarchy_structure(cls, type_hierarchy):
 		structure = dict()
-		structure["name"] = type_hierarchy._class_name
+		structure["type"] = type_hierarchy._class_name
 		if type_hierarchy.child_count > 0:
 			structure["children"] = list()
 			children = type_hierarchy.get_children()
@@ -696,6 +674,31 @@ class DummyCursor(Cursor):
 	@property
 	def parent_name(self):
 		return self._parent_name
+
+# Utility Functions
+
+def type_hierarchy_matches(type_hierarchy_1, type_hierarchy_2):
+	if type(type_hierarchy_1) is dict and type(type_hierarchy_2) is dict:
+		symm_set = set(type_hierarchy_1.keys()) ^ set(type_hierarchy_2.keys())
+		if len(symm_set) > 0:
+			return False
+		for key in type_hierarchy_1:
+			matches = type_hierarchy_matches(type_hierarchy_1[key], type_hierarchy_2[key])
+			if not matches:
+				return False
+	elif type(type_hierarchy_1) is list and type(type_hierarchy_2) is list:
+		if len(type_hierarchy_1) != len(type_hierarchy_2):
+			return False
+		for idx in range(0,len(type_hierarchy_1),1):
+			matches = type_hierarchy_matches(type_hierarchy_1[idx], type_hierarchy_2[idx])
+			if not matches:
+				return False
+	elif type(type_hierarchy_1) is str and type(type_hierarchy_2) is str:
+		if type_hierarchy_1 != type_hierarchy_2:
+			return False
+	return True
+
+
 
 # Index Functions
 Index_create=lib.createIndex

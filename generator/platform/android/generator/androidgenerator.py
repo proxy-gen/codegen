@@ -601,19 +601,11 @@ class Generator(BaseGenerator):
 	def _attach_config_converter(self, convertible):
 		logging.debug("Generator _attach_config_converter enter")
 		converters = self.config_data["converters"]
-		added_converter = False
 		for converter in converters:
-			if converter["java"] == convertible["name"]:
+			print "type_hierarchy_matches " + str(converter["java"]) + ", " + str(convertible)
+			if jindex.type_hierarchy_matches(converter["java"], convertible):
 				convertible["converter"] = converter["name"]
-				added_converter = True
 				break
-		if added_converter is False:
-			classes = self.config_data["classes"]
-			for clazz in classes:
-				if convertible["name"] == clazz["name"]:
-					convertible["is_proxied"] = True
-					added_converter = True
-					break
 		logging.debug("Generator _attach_config_converter exit")
 		
 class NativeClass(object):

@@ -1,1772 +1,1822 @@
 config = {
-	"converters" : [
+	'converters' : [
 		{
-			"cxx" : {'type': 'void'},
-			"java" : {'type': 'void'},
-			"name" : "convert_void",
+			'cxx' : {'type': 'void'},
+			'java' : {'type': 'void'},
+			'name' : 'convert_void',
 		}
 		{
-			"cxx" : {'type': 'bool'},
-			"java" : {'type': 'boolean'},
-			"name" : "convert_boolean",
+			'cxx' : {'type': 'bool'},
+			'java' : {'type': 'boolean'},
+			'name' : 'convert_boolean',
 		}
 		{
-			"cxx" : {'type': 'int'},
-			"java" : {'type': 'byte'},
-			"name" : "convert_byte",
+			'cxx' : {'type': 'int'},
+			'java' : {'type': 'byte'},
+			'name' : 'convert_byte',
 		}
 		{
-			"cxx" : {'type': 'char'},
-			"java" : {'type': 'char'},
-			"name" : "convert_char",
+			'cxx' : {'type': 'char'},
+			'java' : {'type': 'char'},
+			'name' : 'convert_char',
 		}
 		{
-			"cxx" : {'type': 'short'},
-			"java" : {'type': 'short'},
-			"name" : "convert_short",
+			'cxx' : {'type': 'short'},
+			'java' : {'type': 'short'},
+			'name' : 'convert_short',
 		}
 		{
-			"cxx" : {'type': 'int'},
-			"java" : {'type': 'int'},
-			"name" : "convert_int",
+			'cxx' : {'type': 'int'},
+			'java' : {'type': 'int'},
+			'name' : 'convert_int',
 		}
 		{
-			"cxx" : {'type': 'long'},
-			"java" : {'type': 'long'},
-			"name" : "convert_long",
+			'cxx' : {'type': 'long'},
+			'java' : {'type': 'long'},
+			'name' : 'convert_long',
 		}
 		{
-			"cxx" : {'type': 'float'},
-			"java" : {'type': 'float'},
-			"name" : "convert_float",
+			'cxx' : {'type': 'float'},
+			'java' : {'type': 'float'},
+			'name' : 'convert_float',
 		}
 		{
-			"cxx" : {'type': 'double'},
-			"java" : {'type': 'double'},
-			"name" : "convert_double",
+			'cxx' : {'type': 'double'},
+			'java' : {'type': 'double'},
+			'name' : 'convert_double',
 		}
 		{
-			"cxx" : {'type': 'std::string'},
-			"java" : {'type': 'java.lang.String'},
-			"name" : "convert_java_lang_String",
+			'cxx' : {'type': 'std::string'},
+			'java' : {'type': 'java.lang.String'},
+			'name' : 'convert_java_lang_String',
 		}
 		{
-			"cxx" : {'type': 'bool'},
-			"java" : {'type': 'java.lang.Boolean'},
-			"name" : "convert_java_lang_Boolean",
+			'cxx' : {'type': 'bool'},
+			'java' : {'type': 'java.lang.Boolean'},
+			'name' : 'convert_java_lang_Boolean',
 		}
 		{
-			"cxx" : {'type': 'int'},
-			"java" : {'type': 'java.lang.Byte'},
-			"name" : "convert_java_lang_Byte",
+			'cxx' : {'type': 'int'},
+			'java' : {'type': 'java.lang.Byte'},
+			'name' : 'convert_java_lang_Byte',
 		}
 		{
-			"cxx" : {'type': 'char'},
-			"java" : {'type': 'java.lang.Character'},
-			"name" : "convert_java_lang_Character",
+			'cxx' : {'type': 'char'},
+			'java' : {'type': 'java.lang.Character'},
+			'name' : 'convert_java_lang_Character',
 		}
 		{
-			"cxx" : {'type': 'short'},
-			"java" : {'type': 'java.lang.Short'},
-			"name" : "convert_java_lang_Short",
+			'cxx' : {'type': 'short'},
+			'java' : {'type': 'java.lang.Short'},
+			'name' : 'convert_java_lang_Short',
 		}
 		{
-			"cxx" : {'type': 'int'},
-			"java" : {'type': 'java.lang.Integer'},
-			"name" : "convert_java_lang_Integer",
+			'cxx' : {'type': 'int'},
+			'java' : {'type': 'java.lang.Integer'},
+			'name' : 'convert_java_lang_Integer',
 		}
 		{
-			"cxx" : {'type': 'long'},
-			"java" : {'type': 'java.lang.Long'},
-			"name" : "convert_java_lang_Long",
+			'cxx' : {'type': 'long'},
+			'java' : {'type': 'java.lang.Long'},
+			'name' : 'convert_java_lang_Long',
 		}
 		{
-			"cxx" : {'type': 'float'},
-			"java" : {'type': 'java.lang.Float'},
-			"name" : "convert_java_lang_Float",
+			'cxx' : {'type': 'float'},
+			'java' : {'type': 'java.lang.Float'},
+			'name' : 'convert_java_lang_Float',
 		}
 		{
-			"cxx" : {'type': 'double'},
-			"java" : {'type': 'java.lang.Double'},
-			"name" : "convert_java_lang_Double",
+			'cxx' : {'type': 'double'},
+			'java' : {'type': 'java.lang.Double'},
+			'name' : 'convert_java_lang_Double',
 		}
 		{
-			"cxx" : {'type': 'double'},
-			"java" : {'type': 'java.lang.BigInteger'},
-			"name" : "convert_java_lang_BigInteger",
+			'cxx' : {'type': 'double'},
+			'java' : {'type': 'java.lang.BigInteger'},
+			'name' : 'convert_java_lang_BigInteger',
 		}
 		{
-			"cxx" : {'type': 'double'},
-			"java" : {'type': 'java.lang.BigDecimal'},
-			"name" : "convert_java_math_BigDecimal",
+			'cxx' : {'type': 'double'},
+			'java' : {'type': 'java.lang.BigDecimal'},
+			'name' : 'convert_java_math_BigDecimal',
 		}
 		{
-			"cxx" : {'type': 'long'},
-			"java" : {'type': 'java.util.Date'},
-			"name" : "convert_java_util_Date",
+			'cxx' : {'type': 'long'},
+			'java' : {'type': 'java.util.Date'},
+			'name' : 'convert_java_util_Date',
 		}
 		{
-			"cxx" : {'type': 'std::vector', 'children': [{'type': 'cxx_proxied_type'}]},
-			"java" : {'type': 'java.util.List', 'children': [{'type': 'cxx_proxy_type'}]},
-			"name" : "convert_java_util_List_proxy_type_template",
+			'cxx' : {'type': 'std::vector', 'children': [{'type': 'cxx_proxied_type'}]},
+			'java' : {'type': 'java.util.List', 'children': [{'type': 'cxx_proxy_type'}]},
+			'name' : 'convert_java_util_List_proxy_type_template',
 		}
 		{
-			"cxx" : {'type': 'std::map', 'children': [{'type': 'std::string'}, {'type': 'cxx_proxied_type'}]},
-			"java" : {'type': 'java.util.Map', 'children': [{'type': 'cxx_proxy_type'}]},
-			"name" : "convert_java_util_Map_java_lang_String_proxy_type_template",
+			'cxx' : {'type': 'std::map', 'children': [{'type': 'std::string'}, {'type': 'cxx_proxied_type'}]},
+			'java' : {'type': 'java.util.Map', 'children': [{'type': 'cxx_proxy_type'}]},
+			'name' : 'convert_java_util_Map_java_lang_String_proxy_type_template',
 		}
 	],
-	"packages" : [
+	'packages' : [
 		{
-			"name" : "com.facebook",
+			'name' : 'com.facebook',
 		},
 		{
-			"name" : "com.facebook.android",
+			'name' : 'com.facebook.android',
 		},
 	],
-	"classes" : [
+	'classes' : [
 		{
-			"name" : "com.facebook.Session",
-			"functions" : [
+			'name' : 'com.facebook.Session',
+			'functions' : [
 				{
-					"name" : "equals",
-					"params" : [
+					'name' : 'equals',
+					'params' : [
 						{
-							"name" : "java.lang.Object",
+								'type' : 'java.lang.Object',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "toString",
-					"params" : [
+					'name' : 'toString',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "hashCode",
-					"params" : [
+					'name' : 'hashCode',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "int",
-						},
+								'type' : 'int',
+								'converter' : 'convert_int',
+						}
 					],
 				},
 				{
-					"name" : "getPermissions",
-					"params" : [
+					'name' : 'getPermissions',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.util.List",
-						},
+								'type' : 'java.util.List',
+						}
 					],
 				},
 				{
-					"name" : "getState",
-					"params" : [
+					'name' : 'getState',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionState",
-						},
+								'type' : 'com.facebook.SessionState',
+						}
 					],
 				},
 				{
-					"name" : "close",
-					"params" : [
+					'name' : 'close',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "open",
-					"params" : [
+					'name' : 'open',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessToken",
+								'type' : 'com.facebook.AccessToken',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
+								'type' : 'com.facebook.Session$StatusCallback',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "isClosed",
-					"params" : [
+					'name' : 'isClosed',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "getAuthorizationBundle",
-					"params" : [
+					'name' : 'getAuthorizationBundle',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "android.os.Bundle",
-						},
+								'type' : 'android.os.Bundle',
+						}
 					],
 				},
 				{
-					"name" : "isOpened",
-					"params" : [
+					'name' : 'isOpened',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "getApplicationId",
-					"params" : [
+					'name' : 'getApplicationId',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "getAccessToken",
-					"params" : [
+					'name' : 'getAccessToken',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "getExpirationDate",
-					"params" : [
+					'name' : 'getExpirationDate',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.util.Date",
-						},
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
 					],
 				},
 				{
-					"name" : "openForRead",
-					"params" : [
+					'name' : 'openForRead',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
+								'type' : 'com.facebook.Session$OpenRequest',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "openForPublish",
-					"params" : [
+					'name' : 'openForPublish',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
+								'type' : 'com.facebook.Session$OpenRequest',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "addCallback",
-					"params" : [
+					'name' : 'addCallback',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
+								'type' : 'com.facebook.Session$StatusCallback',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "requestNewReadPermissions",
-					"params" : [
+					'name' : 'requestNewReadPermissions',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "requestNewPublishPermissions",
-					"params" : [
+					'name' : 'requestNewPublishPermissions',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "onActivityResult",
-					"params" : [
+					'name' : 'onActivityResult',
+					'params' : [
 						{
-							"name" : "android.app.Activity",
+								'type' : 'android.app.Activity',
 						}
 						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 						{
-							"name" : "android.content.Intent",
+								'type' : 'android.content.Intent',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
-					],
-				},
-				{
-					"name" : "closeAndClearTokenInformation",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "removeCallback",
-					"params" : [
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
-						}
+					'name' : 'closeAndClearTokenInformation',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "saveSession",
-					"params" : [
+					'name' : 'removeCallback',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						}
-						{
-							"name" : "android.os.Bundle",
+								'type' : 'com.facebook.Session$StatusCallback',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "restoreSession",
-					"params" : [
+					'name' : 'saveSession',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'com.facebook.Session',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.TokenCachingStrategy",
-						}
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
-						}
-						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "getActiveSession",
-					"params" : [
-					],
-					"returns" : [
+					'name' : 'restoreSession',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
-					],
-				},
-				{
-					"name" : "setActiveSession",
-					"params" : [
+								'type' : 'android.content.Context',
+						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
+								'type' : 'com.facebook.TokenCachingStrategy',
+						}
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
+						}
+						{
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'com.facebook.Session',
+						}
 					],
 				},
 				{
-					"name" : "openActiveSessionFromCache",
-					"params" : [
-						{
-							"name" : "android.content.Context",
-						}
+					'name' : 'getActiveSession',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
+								'type' : 'com.facebook.Session',
+						}
 					],
 				},
 				{
-					"name" : "openActiveSession",
-					"params" : [
+					'name' : 'setActiveSession',
+					'params' : [
 						{
-							"name" : "android.content.Context",
-						}
-						{
-							"name" : "android.support.v4.app.Fragment",
-						}
-						{
-							"name" : "boolean",
-						}
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
-						}
-						{
-							"name" : "android.app.Activity",
+								'type' : 'com.facebook.Session',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "openActiveSessionWithAccessToken",
-					"params" : [
+					'name' : 'openActiveSessionFromCache',
+					'params' : [
 						{
-							"name" : "android.content.Context",
-						}
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessToken",
-						}
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
+								'type' : 'android.content.Context',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
+								'type' : 'com.facebook.Session',
+						}
+					],
+				},
+				{
+					'name' : 'openActiveSession',
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+						}
+						{
+								'type' : 'android.support.v4.app.Fragment',
+						}
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
+						}
+						{
+								'type' : 'android.app.Activity',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Session',
+						}
+					],
+				},
+				{
+					'name' : 'openActiveSessionWithAccessToken',
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+						}
+						{
+								'type' : 'com.facebook.AccessToken',
+						}
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Session',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.Session",
-					"params" : [
+					'name' : 'com.facebook.Session',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'android.content.Context',
 						}
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.android.Facebook",
-			"functions" : [
+			'name' : 'com.facebook.android.Facebook',
+			'functions' : [
 				{
-					"name" : "getAccessToken",
-					"params" : [
+					'name' : 'getAccessToken',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "authorize",
-					"params" : [
+					'name' : 'authorize',
+					'params' : [
 						{
-							"name" : "android.app.Activity",
+								'type' : 'android.app.Activity',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.Facebook$DialogListener",
+								'type' : 'com.facebook.android.Facebook$DialogListener',
 						}
 						{
-							"name" : "com.zynga.sdk.cxx.CXXType$Array",
-							"children" : [{'name': 'java.lang.String'}],
+								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'children' : [{'type': 'java.lang.String'}],
 						}
 						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "request",
-					"params" : [
+					'name' : 'request',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "extendAccessTokenIfNeeded",
-					"params" : [
+					'name' : 'extendAccessTokenIfNeeded',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'android.content.Context',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.Facebook$ServiceListener",
+								'type' : 'com.facebook.android.Facebook$ServiceListener',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "shouldExtendAccessToken",
-					"params" : [
+					'name' : 'shouldExtendAccessToken',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "extendAccessToken",
-					"params" : [
+					'name' : 'extendAccessToken',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'android.content.Context',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.Facebook$ServiceListener",
+								'type' : 'com.facebook.android.Facebook$ServiceListener',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "getShouldAutoPublishInstall",
-					"params" : [
+					'name' : 'getShouldAutoPublishInstall',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "dialog",
-					"params" : [
+					'name' : 'dialog',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'android.content.Context',
 						}
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.Facebook$DialogListener",
+								'type' : 'com.facebook.android.Facebook$DialogListener',
 						}
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "authorizeCallback",
-					"params" : [
+					'name' : 'authorizeCallback',
+					'params' : [
 						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 						{
-							"name" : "android.content.Intent",
+								'type' : 'android.content.Intent',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
-					],
-				},
-				{
-					"name" : "isSessionValid",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "boolean",
-						},
-					],
-				},
-				{
-					"name" : "logout",
-					"params" : [
-						{
-							"name" : "android.content.Context",
+								'type' : 'void',
+								'converter' : 'convert_void',
 						}
 					],
-					"returns" : [
-						{
-							"name" : "java.lang.String",
-						},
-					],
 				},
 				{
-					"name" : "getAccessExpires",
-					"params" : [
+					'name' : 'isSessionValid',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "long",
-						},
-					],
-				},
-				{
-					"name" : "setSession",
-					"params" : [
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						}
 					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
-					],
 				},
 				{
-					"name" : "getSession",
-					"params" : [
-					],
-					"returns" : [
+					'name' : 'logout',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
-						},
-					],
-				},
-				{
-					"name" : "getLastAccessUpdate",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "long",
-						},
-					],
-				},
-				{
-					"name" : "setTokenFromCache",
-					"params" : [
-						{
-							"name" : "java.lang.String",
-						}
-						{
-							"name" : "long",
+								'type' : 'android.content.Context',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
-					],
-				},
-				{
-					"name" : "setAccessToken",
-					"params" : [
-						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
-					],
 				},
 				{
-					"name" : "setAccessExpires",
-					"params" : [
+					'name' : 'getAccessExpires',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"name" : "long",
+								'type' : 'long',
+								'converter' : 'convert_long',
 						}
 					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
-					],
 				},
 				{
-					"name" : "setAccessExpiresIn",
-					"params" : [
+					'name' : 'setSession',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'com.facebook.Session',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
-					],
-				},
-				{
-					"name" : "getAppId",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.lang.String",
-						},
-					],
-				},
-				{
-					"name" : "setAppId",
-					"params" : [
-						{
-							"name" : "java.lang.String",
+								'type' : 'void',
+								'converter' : 'convert_void',
 						}
 					],
-					"returns" : [
+				},
+				{
+					'name' : 'getSession',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'com.facebook.Session',
+						}
 					],
 				},
 				{
-					"name" : "getAttributionId",
-					"params" : [
-						{
-							"name" : "android.content.ContentResolver",
-						}
+					'name' : 'getLastAccessUpdate',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'long',
+								'converter' : 'convert_long',
+						}
 					],
 				},
 				{
-					"name" : "setShouldAutoPublishInstall",
-					"params" : [
+					'name' : 'setTokenFromCache',
+					'params' : [
 						{
-							"name" : "boolean",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "publishInstall",
-					"params" : [
+					'name' : 'setAccessToken',
+					'params' : [
 						{
-							"name" : "android.content.Context",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setAccessExpires',
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setAccessExpiresIn',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'getAppId',
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+					],
+				},
+				{
+					'name' : 'setAppId',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'getAttributionId',
+					'params' : [
+						{
+								'type' : 'android.content.ContentResolver',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+					],
+				},
+				{
+					'name' : 'setShouldAutoPublishInstall',
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'publishInstall',
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.android.Facebook",
-					"params" : [
+					'name' : 'com.facebook.android.Facebook',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.SessionState",
-			"functions" : [
+			'name' : 'com.facebook.SessionState',
+			'functions' : [
 				{
-					"name" : "values",
-					"params" : [
+					'name' : 'values',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "com.zynga.sdk.cxx.CXXType$Array",
-							"children" : [{'name': 'com.facebook.SessionState'}],
-						},
-					],
-				},
-				{
-					"name" : "valueOf",
-					"params" : [
-						{
-							"name" : "java.lang.String",
+								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'children' : [{'type': 'com.facebook.SessionState'}],
 						}
 					],
-					"returns" : [
+				},
+				{
+					'name' : 'valueOf',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionState",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.SessionState',
+						}
 					],
 				},
 				{
-					"name" : "isClosed",
-					"params" : [
+					'name' : 'isClosed',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "isOpened",
-					"params" : [
+					'name' : 'isOpened',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.AccessToken",
-			"functions" : [
+			'name' : 'com.facebook.AccessToken',
+			'functions' : [
 				{
-					"name" : "toString",
-					"params" : [
+					'name' : 'toString',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
-					],
-				},
-				{
-					"name" : "getPermissions",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.util.List",
-						},
-					],
-				},
-				{
-					"name" : "getToken",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.lang.String",
-						},
-					],
-				},
-				{
-					"name" : "getExpires",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.util.Date",
-						},
-					],
-				},
-				{
-					"name" : "getSource",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessTokenSource",
-						},
-					],
-				},
-				{
-					"name" : "getLastRefresh",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.util.Date",
-						},
-					],
-				},
-				{
-					"name" : "createFromExistingAccessToken",
-					"params" : [
-						{
-							"name" : "java.lang.String",
-						}
-						{
-							"name" : "java.util.Date",
-						}
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessTokenSource",
-						}
-						{
-							"name" : "java.util.List",
-							"children" : [{'name': 'java.lang.String'}],
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+				},
+				{
+					'name' : 'getPermissions',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessToken",
-						},
+								'type' : 'java.util.List',
+						}
 					],
 				},
 				{
-					"name" : "createFromNativeLinkingIntent",
-					"params" : [
+					'name' : 'getToken',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"name" : "android.content.Intent",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+				},
+				{
+					'name' : 'getExpires',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessToken",
-						},
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
+					],
+				},
+				{
+					'name' : 'getSource',
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.AccessTokenSource',
+						}
+					],
+				},
+				{
+					'name' : 'getLastRefresh',
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
+					],
+				},
+				{
+					'name' : 'createFromExistingAccessToken',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+						{
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
+						{
+								'type' : 'com.facebook.AccessTokenSource',
+						}
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String'}],
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.AccessToken',
+						}
+					],
+				},
+				{
+					'name' : 'createFromNativeLinkingIntent',
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.AccessToken',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.AccessTokenSource",
-			"functions" : [
+			'name' : 'com.facebook.AccessTokenSource',
+			'functions' : [
 				{
-					"name" : "values",
-					"params" : [
+					'name' : 'values',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "com.zynga.sdk.cxx.CXXType$Array",
-							"children" : [{'name': 'com.facebook.AccessTokenSource'}],
-						},
+								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'children' : [{'type': 'com.facebook.AccessTokenSource'}],
+						}
 					],
 				},
 				{
-					"name" : "valueOf",
-					"params" : [
+					'name' : 'valueOf',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessTokenSource",
-						},
+								'type' : 'com.facebook.AccessTokenSource',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.Session$StatusCallback",
-			"functions" : [
+			'name' : 'com.facebook.Session$StatusCallback',
+			'functions' : [
 				{
-					"name" : "call",
-					"params" : [
+					'name' : 'call',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session",
+								'type' : 'com.facebook.Session',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionState",
+								'type' : 'com.facebook.SessionState',
 						}
 						{
-							"name" : "java.lang.Exception",
+								'type' : 'java.lang.Exception',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.Session$OpenRequest",
-			"functions" : [
+			'name' : 'com.facebook.Session$OpenRequest',
+			'functions' : [
 				{
-					"name" : "setCallback",
-					"params" : [
+					'name' : 'setCallback',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
+								'type' : 'com.facebook.Session$StatusCallback',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
-						},
+								'type' : 'com.facebook.Session$OpenRequest',
+						}
 					],
 				},
 				{
-					"name" : "setLoginBehavior",
-					"params" : [
+					'name' : 'setLoginBehavior',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionLoginBehavior",
+								'type' : 'com.facebook.SessionLoginBehavior',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
-						},
+								'type' : 'com.facebook.Session$OpenRequest',
+						}
 					],
 				},
 				{
-					"name" : "setRequestCode",
-					"params" : [
+					'name' : 'setRequestCode',
+					'params' : [
 						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
-						},
+								'type' : 'com.facebook.Session$OpenRequest',
+						}
 					],
 				},
 				{
-					"name" : "setPermissions",
-					"params" : [
+					'name' : 'setPermissions',
+					'params' : [
 						{
-							"name" : "java.util.List",
-							"children" : [{'name': 'java.lang.String'}],
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String'}],
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
-						},
+								'type' : 'com.facebook.Session$OpenRequest',
+						}
 					],
 				},
 				{
-					"name" : "setDefaultAudience",
-					"params" : [
+					'name' : 'setDefaultAudience',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionDefaultAudience",
+								'type' : 'com.facebook.SessionDefaultAudience',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$OpenRequest",
-						},
+								'type' : 'com.facebook.Session$OpenRequest',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.Session$OpenRequest",
-					"params" : [
+					'name' : 'com.facebook.Session$OpenRequest',
+					'params' : [
 						{
-							"name" : "android.app.Activity",
+								'type' : 'android.app.Activity',
 						}
 						{
-							"name" : "android.support.v4.app.Fragment",
+								'type' : 'android.support.v4.app.Fragment',
 						}
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.SessionLoginBehavior",
-			"functions" : [
+			'name' : 'com.facebook.SessionLoginBehavior',
+			'functions' : [
 				{
-					"name" : "values",
-					"params" : [
+					'name' : 'values',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "com.zynga.sdk.cxx.CXXType$Array",
-							"children" : [{'name': 'com.facebook.SessionLoginBehavior'}],
-						},
+								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'children' : [{'type': 'com.facebook.SessionLoginBehavior'}],
+						}
 					],
 				},
 				{
-					"name" : "valueOf",
-					"params" : [
+					'name' : 'valueOf',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionLoginBehavior",
-						},
+								'type' : 'com.facebook.SessionLoginBehavior',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.SessionDefaultAudience",
-			"functions" : [
+			'name' : 'com.facebook.SessionDefaultAudience',
+			'functions' : [
 				{
-					"name" : "values",
-					"params" : [
+					'name' : 'values',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "com.zynga.sdk.cxx.CXXType$Array",
-							"children" : [{'name': 'com.facebook.SessionDefaultAudience'}],
-						},
+								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'children' : [{'type': 'com.facebook.SessionDefaultAudience'}],
+						}
 					],
 				},
 				{
-					"name" : "valueOf",
-					"params" : [
+					'name' : 'valueOf',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionDefaultAudience",
-						},
+								'type' : 'com.facebook.SessionDefaultAudience',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.Session$NewPermissionsRequest",
-			"functions" : [
+			'name' : 'com.facebook.Session$NewPermissionsRequest',
+			'functions' : [
 				{
-					"name" : "setCallback",
-					"params" : [
+					'name' : 'setCallback',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$StatusCallback",
+								'type' : 'com.facebook.Session$StatusCallback',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
-						},
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
+						}
 					],
 				},
 				{
-					"name" : "setLoginBehavior",
-					"params" : [
+					'name' : 'setLoginBehavior',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionLoginBehavior",
+								'type' : 'com.facebook.SessionLoginBehavior',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
-						},
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
+						}
 					],
 				},
 				{
-					"name" : "setRequestCode",
-					"params" : [
+					'name' : 'setRequestCode',
+					'params' : [
 						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
-						},
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
+						}
 					],
 				},
 				{
-					"name" : "setDefaultAudience",
-					"params" : [
+					'name' : 'setDefaultAudience',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.SessionDefaultAudience",
+								'type' : 'com.facebook.SessionDefaultAudience',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.Session$NewPermissionsRequest",
-						},
+								'type' : 'com.facebook.Session$NewPermissionsRequest',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.Session$NewPermissionsRequest",
-					"params" : [
+					'name' : 'com.facebook.Session$NewPermissionsRequest',
+					'params' : [
 						{
-							"name" : "android.app.Activity",
+								'type' : 'android.app.Activity',
 						}
 						{
-							"name" : "java.util.List",
-							"children" : [{'name': 'java.lang.String'}],
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String'}],
 						}
 						{
-							"name" : "android.support.v4.app.Fragment",
+								'type' : 'android.support.v4.app.Fragment',
 						}
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.TokenCachingStrategy",
-			"functions" : [
+			'name' : 'com.facebook.TokenCachingStrategy',
+			'functions' : [
 				{
-					"name" : "clear",
-					"params" : [
+					'name' : 'clear',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "load",
-					"params" : [
+					'name' : 'load',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "android.os.Bundle",
-						},
+								'type' : 'android.os.Bundle',
+						}
 					],
 				},
 				{
-					"name" : "getPermissions",
-					"params" : [
+					'name' : 'getPermissions',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.util.List",
-						},
+								'type' : 'java.util.List',
+						}
 					],
 				},
 				{
-					"name" : "save",
-					"params" : [
+					'name' : 'save',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "hasTokenInformation",
-					"params" : [
+					'name' : 'hasTokenInformation',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "boolean",
-						},
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						}
 					],
 				},
 				{
-					"name" : "getToken",
-					"params" : [
+					'name' : 'getToken',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 				{
-					"name" : "getExpirationDate",
-					"params" : [
+					'name' : 'getExpirationDate',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.util.Date",
-						},
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
 					],
 				},
 				{
-					"name" : "getSource",
-					"params" : [
+					'name' : 'getSource',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessTokenSource",
-						},
+								'type' : 'com.facebook.AccessTokenSource',
+						}
 					],
 				},
 				{
-					"name" : "putToken",
-					"params" : [
+					'name' : 'putToken',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "putExpirationDate",
-					"params" : [
+					'name' : 'putExpirationDate',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "java.util.Date",
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "getExpirationMilliseconds",
-					"params" : [
+					'name' : 'getExpirationMilliseconds',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "long",
-						},
+								'type' : 'long',
+								'converter' : 'convert_long',
+						}
 					],
 				},
 				{
-					"name" : "putExpirationMilliseconds",
-					"params" : [
+					'name' : 'putExpirationMilliseconds',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "long",
+								'type' : 'long',
+								'converter' : 'convert_long',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "putPermissions",
-					"params" : [
+					'name' : 'putPermissions',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "java.util.List",
-							"children" : [{'name': 'java.lang.String'}],
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String'}],
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "putSource",
-					"params" : [
+					'name' : 'putSource',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.AccessTokenSource",
+								'type' : 'com.facebook.AccessTokenSource',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "getLastRefreshDate",
-					"params" : [
+					'name' : 'getLastRefreshDate',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.util.Date",
-						},
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
+						}
 					],
 				},
 				{
-					"name" : "putLastRefreshDate",
-					"params" : [
+					'name' : 'putLastRefreshDate',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "java.util.Date",
+								'type' : 'java.util.Date',
+								'converter' : 'convert_java_util_Date',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "getLastRefreshMilliseconds",
-					"params" : [
+					'name' : 'getLastRefreshMilliseconds',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "long",
-						},
+								'type' : 'long',
+								'converter' : 'convert_long',
+						}
 					],
 				},
 				{
-					"name" : "putLastRefreshMilliseconds",
-					"params" : [
+					'name' : 'putLastRefreshMilliseconds',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 						{
-							"name" : "long",
+								'type' : 'long',
+								'converter' : 'convert_long',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.TokenCachingStrategy",
-					"params" : [
+					'name' : 'com.facebook.TokenCachingStrategy',
+					'params' : [
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.android.Facebook$DialogListener",
-			"functions" : [
+			'name' : 'com.facebook.android.Facebook$DialogListener',
+			'functions' : [
 				{
-					"name" : "onComplete",
-					"params" : [
+					'name' : 'onComplete',
+					'params' : [
 						{
-							"name" : "android.os.Bundle",
+								'type' : 'android.os.Bundle',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "onCancel",
-					"params" : [
+					'name' : 'onCancel',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "onError",
-					"params" : [
+					'name' : 'onError',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.DialogError",
+								'type' : 'com.facebook.android.DialogError',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 				{
-					"name" : "onFacebookError",
-					"params" : [
+					'name' : 'onFacebookError',
+					'params' : [
 						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.FacebookError",
+								'type' : 'com.facebook.android.FacebookError',
 						}
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 			],
 		},
 		{
-			"name" : "com.facebook.android.DialogError",
-			"functions" : [
+			'name' : 'com.facebook.android.DialogError',
+			'functions' : [
 				{
-					"name" : "getErrorCode",
-					"params" : [
+					'name' : 'getErrorCode',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "int",
-						},
+								'type' : 'int',
+								'converter' : 'convert_int',
+						}
 					],
 				},
 				{
-					"name" : "getFailingUrl",
-					"params" : [
+					'name' : 'getFailingUrl',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "java.lang.String",
-						},
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
 				{
-					"name" : "com.facebook.android.DialogError",
-					"params" : [
+					'name' : 'com.facebook.android.DialogError',
+					'params' : [
 						{
-							"name" : "java.lang.String",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
 						{
-							"name" : "int",
-						}
-					],
-				},
-			],
-		},
-		{
-			"name" : "com.facebook.android.FacebookError",
-			"functions" : [
-				{
-					"name" : "getErrorCode",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "int",
-						},
-					],
-				},
-				{
-					"name" : "getErrorType",
-					"params" : [
-					],
-					"returns" : [
-						{
-							"name" : "java.lang.String",
-						},
-					],
-				},
-			],			
-			"constructors" : [	
-				{
-					"name" : "com.facebook.android.FacebookError",
-					"params" : [
-						{
-							"name" : "java.lang.String",
-						}
-						{
-							"name" : "int",
+								'type' : 'int',
+								'converter' : 'convert_int',
 						}
 					],
 				},
 			],
 		},
 		{
-			"name" : "com.facebook.android.Facebook$ServiceListener",
-			"functions" : [
+			'name' : 'com.facebook.android.FacebookError',
+			'functions' : [
 				{
-					"name" : "onComplete",
-					"params" : [
-						{
-							"name" : "android.os.Bundle",
-						}
+					'name' : 'getErrorCode',
+					'params' : [
 					],
-					"returns" : [
+					'returns' : [
 						{
-							"name" : "void",
-						},
+								'type' : 'int',
+								'converter' : 'convert_int',
+						}
 					],
 				},
 				{
-					"name" : "onError",
-					"params" : [
+					'name' : 'getErrorType',
+					'params' : [
+					],
+					'returns' : [
 						{
-							"name" : "java.lang.Error",
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
 						}
-					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
-					],
-				},
-				{
-					"name" : "onFacebookError",
-					"params" : [
-						{
-							"is_proxied" : True,
-							"name" : "com.facebook.android.FacebookError",
-						}
-					],
-					"returns" : [
-						{
-							"name" : "void",
-						},
 					],
 				},
 			],			
-			"constructors" : [	
+			'constructors' : [	
+				{
+					'name' : 'com.facebook.android.FacebookError',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						}
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						}
+					],
+				},
+			],
+		},
+		{
+			'name' : 'com.facebook.android.Facebook$ServiceListener',
+			'functions' : [
+				{
+					'name' : 'onComplete',
+					'params' : [
+						{
+								'type' : 'android.os.Bundle',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'onError',
+					'params' : [
+						{
+								'type' : 'java.lang.Error',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'onFacebookError',
+					'params' : [
+						{
+								'type' : 'com.facebook.android.FacebookError',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],			
+			'constructors' : [	
 			],
 		},
 	],

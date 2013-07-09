@@ -22,7 +22,7 @@ ulimit -s 65532 #kB
 
 export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/android-8/android.jar:$sdk_dir/extras/android/support/v4/android-support-v4.jar:$facebook_sdk_dir/bin/facebooksdk.jar
 
-LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log debug
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace FacebookCXX --output-dir $my_dir/generated --package FacebookCXX --file FacebookCXX --wrapper-file FacebookWrapperCXX --log info
 
 echo "Generated CXX Bindings"
 
