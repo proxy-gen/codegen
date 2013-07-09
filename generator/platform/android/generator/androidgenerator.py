@@ -585,10 +585,6 @@ class Generator(BaseGenerator):
 		logging.debug("Generator _tag_config_data exit")
 
 	def _tag_param(self, param):
-		# replace all occurences of 
-		# com.zynga.sdk.cxx.CXXType$Array with _array_type
-		if param['type'] == 'com.zynga.sdk.cxx.CXXType$Array':
-			param['type'] = '_array_type'
 		if 'children' in param:
 			for child_param in param['children']:
 				self._tag_param(child_param)

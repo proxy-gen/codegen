@@ -1,15 +1,17 @@
 # 	Special Types
-#		_array_type		 			Java Array
-#		_proxy_type 				Java Component that proxies a CXX Component
-#		_proxied_type				Proxied CXX Component
-#   Special Tags
-#		_public						Tag to indicate a public entity
-#		_static						Tag to indicate a static entity
-#		_singleton					Tag to indicate a singleton entity
-#		_enum 						Tag to indicate an enum
-#		_callback 					Tag to indicate a callback
-#		_interface 					Tag to indicate an interface
-#	Generated Converters
+#		_array_type		 									Java Array
+#		_proxy_type 										CXX Component that proxies a Java component
+#		_proxied_type										Java Component that is proxied by a CXX component
+#   Special Class Tags
+#		_enumerate 											Tag to indicate an entity should be enumerated
+#		_generate_callback_using_interface 					Tag to indicate callback should be generated using interface
+#		_generate_callback_using_extension					Tag to indicate callback should be generated using extension		
+#		_do_not_generate_callback 							Tag to indicate the callback should not be generated
+#		_create_proxied_using_singleton_field				Tag to indicate the proxied should be created using a singleton field		
+#		_create_proxied_using_singleton_method				Tag to indicate the proxied should be created using a singleton method
+#		_create_proxied_using_constructor					Tag to indicate the proxied should be created using a publicconstructor 
+#		_do_not_create_proxied 								Tag to indicate the proxied java component should not be created
+
 
 config = {
 	'converters' : [
@@ -119,8 +121,8 @@ config = {
 			'name' : 'convert_java_util_Date',
 		}
 		{
-			'cxx' : {'type': '_proxied_type'},
-			'java' : {'type': '_proxy_type'},
+			'cxx' : {'type': '_proxy_type'},
+			'java' : {'type': '_proxied_type'},
 			'name' : 'convert_proxy',
 		}
 		{
@@ -145,6 +147,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.Session',
+			'tags' : ['_create_proxied_using_constructor']
 			'functions' : [
 				{
 					'name' : 'equals',
@@ -534,7 +537,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session',
@@ -548,6 +551,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook',
+			'tags' : ['_create_proxied_using_constructor']
 			'functions' : [
 				{
 					'name' : 'getAccessToken',
@@ -906,7 +910,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.Facebook',
@@ -921,6 +925,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState',
+			'tags' : ['_enumerate']
 			'functions' : [
 				{
 					'name' : 'values',
@@ -970,12 +975,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.AccessToken',
+			'tags' : ['_do_not_create_proxied', '_do_not_generate_callback']
 			'functions' : [
 				{
 					'name' : 'toString',
@@ -1082,12 +1088,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.AccessTokenSource',
+			'tags' : ['_enumerate']
 			'functions' : [
 				{
 					'name' : 'values',
@@ -1115,12 +1122,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
+			'tags' : ['_generate_callback_using_interface']
 			'functions' : [
 				{
 					'name' : 'call',
@@ -1142,12 +1150,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.Session$OpenRequest',
+			'tags' : ['_create_proxied_using_constructor', '_do_not_generate_callback']
 			'functions' : [
 				{
 					'name' : 'setCallback',
@@ -1217,7 +1226,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$OpenRequest',
@@ -1234,6 +1243,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionLoginBehavior',
+			'tags' : ['_enumerate']
 			'functions' : [
 				{
 					'name' : 'values',
@@ -1261,12 +1271,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.SessionDefaultAudience',
+			'tags' : ['_enumerate']
 			'functions' : [
 				{
 					'name' : 'values',
@@ -1294,12 +1305,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.Session$NewPermissionsRequest',
+			'tags' : ['_create_proxied_using_constructor', '_do_not_generate_callback']
 			'functions' : [
 				{
 					'name' : 'setCallback',
@@ -1354,7 +1366,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
@@ -1376,6 +1388,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TokenCachingStrategy',
+			'tags' : ['_do_not_create_proxied']
 			'functions' : [
 				{
 					'name' : 'clear',
@@ -1650,7 +1663,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.TokenCachingStrategy',
@@ -1661,6 +1674,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$DialogListener',
+			'tags' : ['_generate_callback_using_interface']
 			'functions' : [
 				{
 					'name' : 'onComplete',
@@ -1715,12 +1729,13 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},
 		{
 			'name' : 'com.facebook.android.DialogError',
+			'tags' : ['_create_proxied_using_constructor']
 			'functions' : [
 				{
 					'name' : 'getErrorCode',
@@ -1744,7 +1759,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.DialogError',
@@ -1763,6 +1778,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FacebookError',
+			'tags' : ['_create_proxied_using_constructor']
 			'functions' : [
 				{
 					'name' : 'getErrorCode',
@@ -1786,7 +1802,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.FacebookError',
@@ -1805,6 +1821,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$ServiceListener',
+			'tags' : ['_generate_callback_using_interface']
 			'functions' : [
 				{
 					'name' : 'onComplete',
@@ -1848,7 +1865,7 @@ config = {
 						}
 					],
 				},
-			],			
+			],	
 			'constructors' : [	
 			],
 		},

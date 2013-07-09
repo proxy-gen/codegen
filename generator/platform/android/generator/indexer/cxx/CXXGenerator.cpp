@@ -21,6 +21,8 @@
 #define TYPE_UNKNOWN 0
 #define TYPE_JAVA_INSTANCE 200
 #define TYPE_JAVA_SINGLETON_FIELD 201
+#define TYPE_JAVA_SINGLETON_ENUM_FIELD 215
+#define TYPE_JAVA_NOT_INSTANTIATABLE 216
 #define TYPE_JAVA_SINGLETON_INSTANCE 211
 #define TYPE_JAVA_ENUM 202
 #define TYPE_JAVA_ABSTRACT 203
@@ -480,10 +482,6 @@ int find_class_type(jclass clazz)
 	{
 		type = TYPE_JAVA_ABSTRACT;
 	}
-	else if (isEnum)
-	{
-		type = TYPE_JAVA_ENUM;
-	}
 	else
 	{
 		bool onlyStaticPublicMethods = true;
@@ -513,7 +511,14 @@ int find_class_type(jclass clazz)
 		}
 		if (onlyStaticPublicMethods)
 		{
-			type = TYPE_JAVA_STATIC_METHODS;
+			if (isEnum)
+			{
+				type = TYPE_JAVA_ENUM;
+			}
+			else
+			{
+				type = TYPE_JAVA_STATIC_METHODS;
+			}
 		}
 		else if (constructorCount == 0)
 		{
@@ -556,7 +561,7 @@ int find_class_type(jclass clazz)
 				bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
 				if (!isFieldPublic) continue;
 				if (!isFieldStatic) continue;
-				jobject jreturnType = (jobject) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getReturnType", "()Ljava/lang/Class;");
+				jobject jreturnType = (jobject) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getType", "()Ljava/lang/Class;");
 				isSingletonField = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
 			}
 			if (isSingletonInstance)
@@ -565,12 +570,23 @@ int find_class_type(jclass clazz)
 			}
 			else if (isSingletonField)
 			{
-				type = TYPE_JAVA_SINGLETON_FIELD;
+				if (isEnum)
+				{
+					type = TYPE_JAVA_SINGLETON_ENUM_FIELD;
+				}
+				else
+				{
+					type = TYPE_JAVA_SINGLETON_FIELD;
+				}
 			}
+			else if (isEnum)
+			{
+				type = TYPE_JAVA_ENUM;					
+			} 
 			else
 			{
-				//TODO: what type is this?
-				type = TYPE_JAVA_ABSTRACT;
+				//Type is not instantiatable
+				type = TYPE_JAVA_NOT_INSTANTIATABLE;
 			}
 		}
 		else

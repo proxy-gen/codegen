@@ -1,20 +1,18 @@
 # 	Special Types
-#		_array_type		 			Java Array
-#		_proxy_type 				Java Component that proxies a CXX Component
-#		_proxied_type				Proxied CXX Component
+#		_array_type		 									Java Array
+#		_proxy_type 										CXX Component that proxies a Java component
+#		_proxied_type										Java Component that is proxied by a CXX component
 #
-#   Special Tags
-#		_public						Tag to indicate a public entity
-#		_static						Tag to indicate a static entity
-#		_singleton					Tag to indicate a singleton entity
-#		_enum 						Tag to indicate an enum
-#		_callback 					Tag to indicate a callback
-#		_interface 					Tag to indicate an interface
-#
-#	Generated Converters
-#	
-#		
-#
+#   Special Class Tags
+#		_enumerate 											Tag to indicate an entity should be enumerated
+#		_generate_callback_using_interface 					Tag to indicate callback should be generated using interface
+#		_generate_callback_using_extension					Tag to indicate callback should be generated using extension		
+#		_do_not_generate_callback 							Tag to indicate the callback should not be generated
+#		_create_proxied_using_singleton_field				Tag to indicate the proxied should be created using a singleton field		
+#		_create_proxied_using_singleton_method				Tag to indicate the proxied should be created using a singleton method
+#		_create_proxied_using_constructor					Tag to indicate the proxied should be created using a publicconstructor 
+#		_do_not_create_proxied 								Tag to indicate the proxied java component should not be created
+
 
 config = {
 #set $converters = $config_data['converters']
@@ -52,6 +50,10 @@ config = {
 #for $clazz in $classes
 		{
 			'name' : '${clazz['name']}',
+			#if 'tags' in $clazz
+			'tags' : $clazz['tags']
+			#end if
+			#if 'functions' in $clazz
 			#set $functions = $clazz['functions']
 			'functions' : [
 				#for $function in $functions
@@ -89,7 +91,9 @@ config = {
 					],
 				},
 				#end for
-			],			
+			],	
+			#end if
+			#if 'constructors' in $clazz		
 			#set $constructors = $clazz['constructors']
 			'constructors' : [	
 				#for $constructor in $constructors
@@ -113,6 +117,7 @@ config = {
 				},
 				#end for	
 			],
+			#end if
 		},
 #end for
 	],

@@ -194,10 +194,10 @@ config = {
 		{
 			"name"					:	"convert_proxy",
 			"java"					:	{
-											"type" 	: "_proxy_type",
+											"type" 	: "_proxied_type",
 										},
 			"cxx"					:	{
-											"type" 	: "_proxied_type",
+											"type" 	: "_proxy_type",
 										},
 
 		},
