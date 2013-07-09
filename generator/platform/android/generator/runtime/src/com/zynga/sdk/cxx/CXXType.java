@@ -30,22 +30,32 @@ public class CXXType {
 		childTypes = buildChildTypes(type);
 	}
 	
-	public String getTypeType() {
-		return typeType.getName();
+	public Class getTypeType() {
+		return typeType;
 	}
 
-	public String getTypePackage() {
-		return typePackage == null ? null : typePackage.getName();
+	public Package getTypePackage() {
+		return typePackage;
 	}
 
-	public String getTypeClass() 
+	public Class getTypeClass() 
 	{
-		return typeClass.getName();
+		return typeClass;
 	}
 	
 	public List<CXXType> getChildTypes() 
 	{
 		return childTypes;
+	}
+	
+	public int getNumChildTypes()
+	{
+		return childTypes.size();
+	}
+	
+	public CXXType getChildType(int idx)
+	{
+		return childTypes.get(idx);
 	}
 	
 	public String toString() {

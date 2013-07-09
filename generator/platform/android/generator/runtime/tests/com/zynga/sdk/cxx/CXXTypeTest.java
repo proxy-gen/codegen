@@ -83,7 +83,7 @@ public class CXXTypeTest extends TestCase {
 				for (Type type : types)
 				{
 					CXXType cxxType = new CXXType(type);
-					assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypeClass());
+					assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypeClass() == null ? null : cxxType.getTypeClass().getName());
 				}
 			}
 		}
@@ -131,7 +131,7 @@ public class CXXTypeTest extends TestCase {
 					for (Type type : types)
 					{
 						CXXType cxxType = new CXXType(type);
-						assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypePackage());
+						assertEquals("method " + method.getName(), expected[testIdx++], cxxType.getTypePackage() == null ? null : cxxType.getTypePackage().getName());
 					}
 				}
 			}
@@ -179,7 +179,7 @@ public class CXXTypeTest extends TestCase {
 					for (Type type : types)
 					{
 						CXXType cxxType = new CXXType(type);
-						assertEquals(expected[testIdx++], cxxType.getTypeType());
+						assertEquals(expected[testIdx++], cxxType.getTypeType() == null ? null : cxxType.getTypeType().getName());
 					}
 				}
 			}

@@ -15,9 +15,11 @@ extern "C"
 {
 #endif //__cplusplus
 
-bool in_packages(char package[64], char packages[64][64], int package_count);
+#define STR_ATTR_SIZE 64
 
-bool in_classes(char clazz[64], char clazzes[1024][64], int class_count);
+bool in_packages(char package[STR_ATTR_SIZE], char packages[64][STR_ATTR_SIZE], int package_count);
+
+bool in_classes(char clazz[STR_ATTR_SIZE], char clazzes[1024][STR_ATTR_SIZE], int class_count);
 
 #ifdef __cplusplus
 }
