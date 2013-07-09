@@ -186,7 +186,7 @@ public class CXXTypeTest extends TestCase {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public void testTypeHierarchy()
+	public void testParamTypeHierarchy()
 			throws NoSuchMethodException
 		{
 			System.out.println("====testTypeHierarchy=====");
@@ -229,6 +229,28 @@ public class CXXTypeTest extends TestCase {
 						CXXType cxxType = new CXXType(type);
 						assertEquals(expected[testIdx++], cxxType.toString());
 					}
+				}
+			}
+		}	
+	
+	@SuppressWarnings("rawtypes")
+	public void testReturnTypeHierarchy()
+			throws NoSuchMethodException
+		{
+			System.out.println("====testTypeHierarchy=====");
+			Class[] classes = new Class[] { B.class  };
+			String[] expected = new String[] {
+				"java.util.List<java.lang.String>", //100
+			};
+			int testIdx = 0;
+			for (Class clazz : classes)
+			{
+				Method[] methods = clazz.getDeclaredMethods();
+				for (Method method : methods) 
+				{
+					Type type = method.getGenericReturnType();
+					CXXType cxxType = new CXXType(type);
+					assertEquals(expected[testIdx++], cxxType.toString());
 				}
 			}
 		}	
@@ -334,6 +356,13 @@ public class CXXTypeTest extends TestCase {
 
 		public void m100(List<String> s) { // java.lang.reflect.ParameterizedType
 
+		}
+	}
+	
+	class B {
+		
+		public List<String> m100() { 
+			return null;
 		}
 	}
 

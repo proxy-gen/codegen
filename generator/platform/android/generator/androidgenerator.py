@@ -108,7 +108,7 @@ class Generator(BaseGenerator):
 		self.include_default_converters = True
 
 		self.default_converters_file_name = os.path.join(self.target, "converters", "jconverter.py")
-		print "self.default_converters_file_name " + str(self.default_converters_file_name)
+		logging.debug("self.default_converters_file_name " + str(self.default_converters_file_name))
 
 		import imp
 		default_converters_module_path = os.path.dirname(self.default_converters_file_name)
@@ -555,43 +555,55 @@ class Generator(BaseGenerator):
 
 	def _update_config_data(self):
 		logging.debug("Generator _update_config_data enter")
-		self._mark_config_data(self.config_data)
+		self._tag_config_data(self.config_data)
 		self._attach_default_converters(self.config_data)
 		self._attach_config_converters(self.config_data)
 		logging.debug("Generator _update_config_data exit")
 
-	def _mark_config_data(self, data):
-		logging.debug("Generator _mark_config_data enter")
+	def _tag_config_data(self, data):
+		logging.debug("Generator _tag_config_data enter")
 		if "params" in data or "returns" in data:
 			if "params" in data:
 				for param in data["params"]:
-					self._mark_param(param)
+					self._tag_param(param)
 			if "returns" in data:
 				for retrn in data["returns"]:
-					self._mark_return(retrn)
+					self._tag_return(retrn)
 		else:
 			if "classes" in data:
 				for clazz in data["classes"]:
-					self._mark_config_data(clazz)
+					self._tag_class(clazz)
+					self._tag_config_data(clazz)
 			if "functions" in data:
 				for function in data["functions"]:
-					self._mark_config_data(function)
+					self._tag_function(function)
+					self._tag_config_data(function)
 			if "constructors" in data:
 				for constructor in data["constructors"]:
-					self._mark_config_data(constructor)
-		logging.debug("Generator _mark_config_data exit")
+					self._tag_constructor(constructor)
+					self._tag_config_data(constructor)
+		logging.debug("Generator _tag_config_data exit")
 
-	def _mark_param(self, param):
+	def _tag_param(self, param):
 		# replace all occurences of 
-		# com.zynga.sdk.cxx.CXXType$Array with cxx_array_type
+		# com.zynga.sdk.cxx.CXXType$Array with _array_type
 		if param['type'] == 'com.zynga.sdk.cxx.CXXType$Array':
-			param['type'] = 'cxx_array_type'
+			param['type'] = '_array_type'
 		if 'children' in param:
 			for child_param in param['children']:
-				self._mark_param(child_param)
+				self._tag_param(child_param)
 
-	def _mark_return(self, retrn):
-		self._mark_param(retrn)
+	def _tag_return(self, retrn):
+		self._tag_param(retrn)
+
+	def _tag_class(self, clazz):
+		pass
+
+	def _tag_function(self, function):
+		pass
+
+	def _tag_constructor(self, constructor):
+		pass
 
 	def _attach_default_converters(self, data):
 		logging.debug("Generator _attach_default_converters enter")
@@ -632,10 +644,19 @@ class Generator(BaseGenerator):
 		logging.debug("Generator _attach_config_converter enter")
 		converters = self.config_data["converters"]
 		for converter in converters:
-			print "type_hierarchy_matches " + str(converter["java"]) + ", " + str(convertible)
-			if jindex.type_hierarchy_matches(converter["java"], convertible):
-				convertible["converter"] = converter["name"]
-				break
+			if "java" in converter:
+				if "converter" not in convertible:
+					if converter["java"]["type"] == convertible["type"]:
+						convertible["converter"] = converter["name"]
+						if "children" in convertible:
+							for child_convertible in convertible["children"]:
+								self._attach_config_converter(child_convertible)
+		# for converter in converters:
+		# 	if "converter" not in convertible:
+		# 		if "children" not in convertible:
+		# 			for clazz in self.config_data["classes"]:
+		# 				if clazz["name"] == converter["type"]:
+		# 					convertible["converter"] = 
 		logging.debug("Generator _attach_config_converter exit")
 		
 class NativeClass(object):

@@ -1,21 +1,7 @@
 #	Default converters 
-# 	Special Keywords
-#		cxx_proxy_type 		Marker to represent a Java Component that proxies a CXX Component
-#		cxx_proxied_type 	Marker to represent the CXX Component that is proxied by a Java Component
-#		cxx_array_type 		Marker to represent a Java Array (note that Java Arrays do not have a representative type)
 
 config = {
 	"converters" : [
-		{
-			"name"		:	"convert_proxy",
-			"java"		:	{
-								"type" : "cxx_proxy_type"
-							},
-			"cxx"		:	{
-								"type" : "cxx_proxied_type"
-							},
-
-		},
 		{
 			"name"		:	"convert_void",
 			"java"		:	{ 
@@ -190,65 +176,49 @@ config = {
 		{
 			"name"					:	"convert_java_math_BigDecimal",
 			"java"					:	{ 
-											"type" : "java.lang.BigDecimal", 
+											"type" 	: "java.lang.BigDecimal", 
 										},
 			"cxx"					:	{
-											"type" : "double",
+											"type" 	: "double",
 										},
 		},
 		{
 			"name"					:	"convert_java_util_Date",
 			"java"					:	{ 
-											"type" : "java.util.Date",
+											"type" 	: "java.util.Date",
 										},
 			"cxx"					: 	{
-											"type" : "long",
+											"type" 	: "long",
 										},
 		},
 		{
-			"name"					: 	"convert_java_util_List_proxy_type_template",
-			"java"					:	{ 
-											"type" : "java.util.List",
-											"children" : 
-											[
-												{
-													"type" : "cxx_proxy_type",
-												},
-											],
-										},
-			"cxx"					:	{ 
-											"type" : "std::vector",
-											"children" :
-											[
-												{
-													"type" : "cxx_proxied_type",
-												},
-											]
-										},
-		},
-		{
-			"name"					:	"convert_java_util_Map_java_lang_String_proxy_type_template",
-			"java"					:	{ 
-											"type" : "java.util.Map",
-											"children" : 
-											[
-												{
-													"type" : "cxx_proxy_type",
-												},
-											],
+			"name"					:	"convert_proxy",
+			"java"					:	{
+											"type" 	: "_proxy_type",
 										},
 			"cxx"					:	{
-											"type" : "std::map",
-											"children" : 
-											[
-												{
-													"type" : "std::string",
-												},
-												{
-													"type" : "cxx_proxied_type",
-												},
-											],
-										}
+											"type" 	: "_proxied_type",
+										},
+
 		},
+		{
+			"name"					:	"convert__array_type",
+			"java"					:	{
+											"type"	:	"_array_type",
+										},
+			"cxx"					:	{
+											"type"	:	"std::vector",
+										},
+		},
+		{
+			"name"					:	"convert_java_util_List",
+			"java"					:	{
+											"type"	:	"java.util.List",
+										},
+			"cxx"					:	{
+											"type"	:	"std::vector",
+										},
+		},
+
 	],
 }

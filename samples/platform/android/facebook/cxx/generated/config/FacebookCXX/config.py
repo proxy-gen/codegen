@@ -1,16 +1,18 @@
-#	Default converters 
-# 	Special Keywords
-#		cxx_proxy_type 		Represents a Java Component that proxies a CXX Component
-#		cxx_proxied_type 	Represents the CXX Component that is proxied by a Java Component
-#		cxx_array_type 		Represents a Java Array (note that Java Arrays do not have a representative type)
+# 	Special Types
+#		_array_type		 			Java Array
+#		_proxy_type 				Java Component that proxies a CXX Component
+#		_proxied_type				Proxied CXX Component
+#   Special Tags
+#		_public						Tag to indicate a public entity
+#		_static						Tag to indicate a static entity
+#		_singleton					Tag to indicate a singleton entity
+#		_enum 						Tag to indicate an enum
+#		_callback 					Tag to indicate a callback
+#		_interface 					Tag to indicate an interface
+#	Generated Converters
 
 config = {
 	'converters' : [
-		{
-			'cxx' : {'type': 'cxx_proxied_type'},
-			'java' : {'type': 'cxx_proxied_type'},
-			'name' : 'convert_proxy',
-		}
 		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
@@ -117,14 +119,19 @@ config = {
 			'name' : 'convert_java_util_Date',
 		}
 		{
-			'cxx' : {'type': 'std::vector', 'children': [{'type': 'cxx_proxied_type'}]},
-			'java' : {'type': 'java.util.List', 'children': [{'type': 'cxx_proxy_type'}]},
-			'name' : 'convert_java_util_List_proxy_type_template',
+			'cxx' : {'type': '_proxied_type'},
+			'java' : {'type': '_proxy_type'},
+			'name' : 'convert_proxy',
 		}
 		{
-			'cxx' : {'type': 'std::map', 'children': [{'type': 'std::string'}, {'type': 'cxx_proxied_type'}]},
-			'java' : {'type': 'java.util.Map', 'children': [{'type': 'cxx_proxy_type'}]},
-			'name' : 'convert_java_util_Map_java_lang_String_proxy_type_template',
+			'cxx' : {'type': 'std::vector'},
+			'java' : {'type': '_array_type'},
+			'name' : 'convert__array_type',
+		}
+		{
+			'cxx' : {'type': 'std::vector'},
+			'java' : {'type': 'java.util.List'},
+			'name' : 'convert_java_util_List',
 		}
 	],
 	'packages' : [
@@ -182,6 +189,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 				},
@@ -561,8 +570,9 @@ config = {
 								'type' : 'com.facebook.android.Facebook$DialogListener',
 						}
 						{
-								'type' : 'cxx_array_type',
-								'children' : [{'type': 'java.lang.String'}],
+								'type' : '_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert__array_type',
 						}
 						{
 								'type' : 'int',
@@ -918,8 +928,9 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'cxx_array_type',
+								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionState'}],
+								'converter' : 'convert__array_type',
 						}
 					],
 				},
@@ -984,6 +995,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 				},
@@ -1046,7 +1059,8 @@ config = {
 						}
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 					'returns' : [
@@ -1081,8 +1095,9 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'cxx_array_type',
+								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.AccessTokenSource'}],
+								'converter' : 'convert__array_type',
 						}
 					],
 				},
@@ -1179,7 +1194,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 					'returns' : [
@@ -1225,8 +1241,9 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'cxx_array_type',
+								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionLoginBehavior'}],
+								'converter' : 'convert__array_type',
 						}
 					],
 				},
@@ -1257,8 +1274,9 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'cxx_array_type',
+								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionDefaultAudience'}],
+								'converter' : 'convert__array_type',
 						}
 					],
 				},
@@ -1346,7 +1364,8 @@ config = {
 						}
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 						{
 								'type' : 'android.support.v4.app.Fragment',
@@ -1389,6 +1408,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 				},
@@ -1537,7 +1558,8 @@ config = {
 						}
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
 						}
 					],
 					'returns' : [

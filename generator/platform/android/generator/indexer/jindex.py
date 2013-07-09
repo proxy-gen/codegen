@@ -483,8 +483,8 @@ class TranslationUnit(JavaObject):
 			config_data = TranslationUnit._find_or_create_class_config_data(config_data["classes"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
-			# process
-			pass
+			config_data = config_data_stack[len(config_data_stack)-1]
+			TranslationUnit._update_class_config_data(config_data, _type, modifiers, idx)
 		if callback_type == CallbackType.EXIT:
 			config_data_stack.pop()
 
@@ -558,6 +558,13 @@ class TranslationUnit(JavaObject):
 		the_clazz["constructors"] = the_clazz.get("constructors", list())
 		the_clazz["functions"] = the_clazz.get("functions", list())
 		return the_clazz
+
+	@classmethod
+	def _update_class_config_data(cls, clazz, _type, modifiers, idx):
+		the_clazz = clazz
+		the_clazz["type"] = _type
+		the_clazz["modifiers"] = modifiers
+		the_clazz["index"] = idx
 
 	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):

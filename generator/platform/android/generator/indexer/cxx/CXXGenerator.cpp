@@ -322,7 +322,7 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 				jni->popLocalFrame();
 			}	
 		}
-		jobject retrn = (jobject) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+		jobject retrn = (jobject) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getGenericReturnType", "()Ljava/lang/reflect/Type;");
 		jobject cxx_retrn = to_cxx_type(retrn);
 		if (retrn != 0)
 		{
