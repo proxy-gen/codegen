@@ -1,3 +1,10 @@
+#	Default converters 
+# 	Special Keywords
+#		cxx_proxy_type 		Marker to represent a Java Component that proxies a CXX Component
+#		cxx_proxied_type 	Marker to represent the CXX Component that is proxied by a Java Component
+#		cxx_array_type 		Marker to represent a Java Array
+#		cxx_
+
 config = {
 #set $converters = $config_data['converters']
 	'converters' : [

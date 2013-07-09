@@ -555,27 +555,57 @@ class Generator(BaseGenerator):
 
 	def _update_config_data(self):
 		logging.debug("Generator _update_config_data enter")
-		self._attach_default_converters()
-		self._attach_converters()
+		self._mark_config_data(self.config_data)
+		self._attach_default_converters(self.config_data)
+		self._attach_config_converters(self.config_data)
 		logging.debug("Generator _update_config_data exit")
 
-	def _attach_default_converters(self):
-		logging.debug("Generator _attach_default_converters enter")
-		if "converters" not in self.config_data:
-			self.config_data["converters"] = []
+	def _mark_config_data(self, data):
+		logging.debug("Generator _mark_config_data enter")
+		if "params" in data or "returns" in data:
+			if "params" in data:
+				for param in data["params"]:
+					self._mark_param(param)
+			if "returns" in data:
+				for retrn in data["returns"]:
+					self._mark_return(retrn)
+		else:
+			if "classes" in data:
+				for clazz in data["classes"]:
+					self._mark_config_data(clazz)
+			if "functions" in data:
+				for function in data["functions"]:
+					self._mark_config_data(function)
+			if "constructors" in data:
+				for constructor in data["constructors"]:
+					self._mark_config_data(constructor)
+		logging.debug("Generator _mark_config_data exit")
 
+	def _mark_param(self, param):
+		# replace all occurences of 
+		# com.zynga.sdk.cxx.CXXType$Array with cxx_array_type
+		if param['type'] == 'com.zynga.sdk.cxx.CXXType$Array':
+			param['type'] = 'cxx_array_type'
+		if 'children' in param:
+			for child_param in param['children']:
+				self._mark_param(child_param)
+
+	def _mark_return(self, retrn):
+		self._mark_param(retrn)
+
+	def _attach_default_converters(self, data):
+		logging.debug("Generator _attach_default_converters enter")
+		if "converters" not in data:
+			data["converters"] = []
 		for default_converter in self.default_converters:
 			found = False
-			for converter in self.config_data["converters"]:
+			for converter in data["converters"]:
 				if converter["name"] == default_converter["name"]:
 					found = True
 					break
 			if found == False:
-				self.config_data["converters"].append(default_converter)
+				data["converters"].append(default_converter)
 		logging.debug("Generator _attach_default_converters exit")
-
-	def _attach_converters(self):
-		self._attach_config_converters(self.config_data)
 
 	def _attach_config_converters(self, data):
 		logging.debug("Generator _attach_config_converters enter")

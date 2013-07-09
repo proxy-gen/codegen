@@ -1,5 +1,16 @@
+#	Default converters 
+# 	Special Keywords
+#		cxx_proxy_type 		Represents a Java Component that proxies a CXX Component
+#		cxx_proxied_type 	Represents the CXX Component that is proxied by a Java Component
+#		cxx_array_type 		Represents a Java Array (note that Java Arrays do not have a representative type)
+
 config = {
 	'converters' : [
+		{
+			'cxx' : {'type': 'cxx_proxied_type'},
+			'java' : {'type': 'cxx_proxied_type'},
+			'name' : 'convert_proxy',
+		}
 		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
@@ -550,7 +561,7 @@ config = {
 								'type' : 'com.facebook.android.Facebook$DialogListener',
 						}
 						{
-								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'type' : 'cxx_array_type',
 								'children' : [{'type': 'java.lang.String'}],
 						}
 						{
@@ -907,7 +918,7 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'type' : 'cxx_array_type',
 								'children' : [{'type': 'com.facebook.SessionState'}],
 						}
 					],
@@ -1070,7 +1081,7 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'type' : 'cxx_array_type',
 								'children' : [{'type': 'com.facebook.AccessTokenSource'}],
 						}
 					],
@@ -1214,7 +1225,7 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'type' : 'cxx_array_type',
 								'children' : [{'type': 'com.facebook.SessionLoginBehavior'}],
 						}
 					],
@@ -1246,7 +1257,7 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'com.zynga.sdk.cxx.CXXType$Array',
+								'type' : 'cxx_array_type',
 								'children' : [{'type': 'com.facebook.SessionDefaultAudience'}],
 						}
 					],

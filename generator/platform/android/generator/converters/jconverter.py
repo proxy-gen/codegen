@@ -1,16 +1,26 @@
 #	Default converters 
 # 	Special Keywords
-#		cxx_proxy_type 		Represents a Java Component that proxies a CXX Component
-#		cxx_proxied_type 	Represents the CXX Component that is proxied by a Java Component
-#		cxx_array_type 		Represents a Java Array (note that Java Arrays do not have a representative type)
+#		cxx_proxy_type 		Marker to represent a Java Component that proxies a CXX Component
+#		cxx_proxied_type 	Marker to represent the CXX Component that is proxied by a Java Component
+#		cxx_array_type 		Marker to represent a Java Array (note that Java Arrays do not have a representative type)
 
 config = {
 	"converters" : [
 		{
+			"name"		:	"convert_proxy",
+			"java"		:	{
+								"type" : "cxx_proxy_type"
+							},
+			"cxx"		:	{
+								"type" : "cxx_proxied_type"
+							},
+
+		},
+		{
 			"name"		:	"convert_void",
 			"java"		:	{ 
 								"type" : "void",
-							} ,
+							},
 			"cxx"		: 	{ 
 								"type" : "void",
 							},
