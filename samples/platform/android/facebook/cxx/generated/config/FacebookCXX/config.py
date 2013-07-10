@@ -1,16 +1,23 @@
 # 	Special Types
 #		_array_type		 									Java Array
-#		_proxy_type 										CXX Component that proxies a Java component
-#		_proxied_type										Java Component that is proxied by a CXX component
 #   Special Class Tags
-#		_enumerate 											Tag to indicate an entity should be enumerated
-#		_generate_callback_using_interface 					Tag to indicate callback should be generated using interface
-#		_generate_callback_using_extension					Tag to indicate callback should be generated using extension		
-#		_do_not_generate_callback 							Tag to indicate the callback should not be generated
-#		_create_proxied_using_singleton_field				Tag to indicate the proxied should be created using a singleton field		
-#		_create_proxied_using_singleton_method				Tag to indicate the proxied should be created using a singleton method
-#		_create_proxied_using_constructor					Tag to indicate the proxied should be created using a publicconstructor 
-#		_do_not_create_proxied 								Tag to indicate the proxied java component should not be created
+#		_enumerate 											Tag to indicate class should be enumerated
+#		_interface											Tag to indicate class is an interface
+#		_abstract											Tag to indicate class is abstract
+#		_instance											Tag to indicate class instance should be created
+#		_static 											Tag to indicate class has only static methods
+#		_callback 											Tag to indicate class is a callback
+#		_no_proxy											Tag to indicate class will not be proxied
+#	Special Field Tags
+#		_static												Tag to indicate field is a static field
+#		_instance 											Tag to indicate field is an instance field
+#		_singleton 											Tag to indicate field returns a singleton instance
+#		_no_proxy											Tag to indicate field will not be proxied
+#	Special Method Tags
+#		_static												Tag to indicate method is a static method
+#		_instance 											Tag to indicate method is an instance method
+#		_singleton											Tag to indicate method returns a singleton instance
+#		_no_proxy											Tag to indicate method will not be proxied
 
 
 config = {
@@ -19,122 +26,112 @@ config = {
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
 			'name' : 'convert_void',
-		}
+		},
 		{
 			'cxx' : {'type': 'bool'},
 			'java' : {'type': 'boolean'},
 			'name' : 'convert_boolean',
-		}
+		},
 		{
 			'cxx' : {'type': 'int'},
 			'java' : {'type': 'byte'},
 			'name' : 'convert_byte',
-		}
+		},
 		{
 			'cxx' : {'type': 'char'},
 			'java' : {'type': 'char'},
 			'name' : 'convert_char',
-		}
+		},
 		{
 			'cxx' : {'type': 'short'},
 			'java' : {'type': 'short'},
 			'name' : 'convert_short',
-		}
+		},
 		{
 			'cxx' : {'type': 'int'},
 			'java' : {'type': 'int'},
 			'name' : 'convert_int',
-		}
+		},
 		{
 			'cxx' : {'type': 'long'},
 			'java' : {'type': 'long'},
 			'name' : 'convert_long',
-		}
+		},
 		{
 			'cxx' : {'type': 'float'},
 			'java' : {'type': 'float'},
 			'name' : 'convert_float',
-		}
+		},
 		{
 			'cxx' : {'type': 'double'},
 			'java' : {'type': 'double'},
 			'name' : 'convert_double',
-		}
+		},
 		{
 			'cxx' : {'type': 'std::string'},
 			'java' : {'type': 'java.lang.String'},
 			'name' : 'convert_java_lang_String',
-		}
+		},
 		{
 			'cxx' : {'type': 'bool'},
 			'java' : {'type': 'java.lang.Boolean'},
 			'name' : 'convert_java_lang_Boolean',
-		}
+		},
 		{
 			'cxx' : {'type': 'int'},
 			'java' : {'type': 'java.lang.Byte'},
 			'name' : 'convert_java_lang_Byte',
-		}
+		},
 		{
 			'cxx' : {'type': 'char'},
 			'java' : {'type': 'java.lang.Character'},
 			'name' : 'convert_java_lang_Character',
-		}
+		},
 		{
 			'cxx' : {'type': 'short'},
 			'java' : {'type': 'java.lang.Short'},
 			'name' : 'convert_java_lang_Short',
-		}
+		},
 		{
 			'cxx' : {'type': 'int'},
 			'java' : {'type': 'java.lang.Integer'},
 			'name' : 'convert_java_lang_Integer',
-		}
+		},
 		{
 			'cxx' : {'type': 'long'},
 			'java' : {'type': 'java.lang.Long'},
 			'name' : 'convert_java_lang_Long',
-		}
+		},
 		{
 			'cxx' : {'type': 'float'},
 			'java' : {'type': 'java.lang.Float'},
 			'name' : 'convert_java_lang_Float',
-		}
+		},
 		{
 			'cxx' : {'type': 'double'},
 			'java' : {'type': 'java.lang.Double'},
 			'name' : 'convert_java_lang_Double',
-		}
+		},
 		{
 			'cxx' : {'type': 'double'},
 			'java' : {'type': 'java.lang.BigInteger'},
 			'name' : 'convert_java_lang_BigInteger',
-		}
+		},
 		{
 			'cxx' : {'type': 'double'},
 			'java' : {'type': 'java.lang.BigDecimal'},
 			'name' : 'convert_java_math_BigDecimal',
-		}
+		},
 		{
 			'cxx' : {'type': 'long'},
 			'java' : {'type': 'java.util.Date'},
 			'name' : 'convert_java_util_Date',
-		}
-		{
-			'cxx' : {'type': '_proxy_type'},
-			'java' : {'type': '_proxied_type'},
-			'name' : 'convert_proxy',
-		}
-		{
-			'cxx' : {'type': 'std::vector'},
-			'java' : {'type': '_array_type'},
-			'name' : 'convert__array_type',
-		}
+		},
 		{
 			'cxx' : {'type': 'std::vector'},
 			'java' : {'type': 'java.util.List'},
 			'name' : 'convert_java_util_List',
-		}
+		},
 	],
 	'packages' : [
 		{
@@ -147,10 +144,94 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.Session',
-			'tags' : ['_create_proxied_using_constructor']
+			'tags' : ['_instance']
+			'fields' : [
+				{
+					'name' : 'TAG',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'DEFAULT_AUTHORIZE_ACTIVITY_CODE',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					}
+				},
+				{
+					'name' : 'WEB_VIEW_ERROR_CODE_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'WEB_VIEW_FAILING_URL_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'ACTION_ACTIVE_SESSION_SET',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'ACTION_ACTIVE_SESSION_UNSET',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'ACTION_ACTIVE_SESSION_OPENED',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'ACTION_ACTIVE_SESSION_CLOSED',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'APPLICATION_ID_PROPERTY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'equals',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -165,6 +246,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -176,6 +258,7 @@ config = {
 				},
 				{
 					'name' : 'hashCode',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -187,6 +270,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -199,6 +283,7 @@ config = {
 				},
 				{
 					'name' : 'getState',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -209,6 +294,7 @@ config = {
 				},
 				{
 					'name' : 'close',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -220,6 +306,7 @@ config = {
 				},
 				{
 					'name' : 'open',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.AccessToken',
@@ -237,6 +324,7 @@ config = {
 				},
 				{
 					'name' : 'isClosed',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -248,6 +336,7 @@ config = {
 				},
 				{
 					'name' : 'getAuthorizationBundle',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -258,6 +347,7 @@ config = {
 				},
 				{
 					'name' : 'isOpened',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -269,6 +359,7 @@ config = {
 				},
 				{
 					'name' : 'getApplicationId',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -280,6 +371,7 @@ config = {
 				},
 				{
 					'name' : 'getAccessToken',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -291,6 +383,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationDate',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -302,6 +395,7 @@ config = {
 				},
 				{
 					'name' : 'openForRead',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
@@ -316,6 +410,7 @@ config = {
 				},
 				{
 					'name' : 'openForPublish',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
@@ -330,6 +425,7 @@ config = {
 				},
 				{
 					'name' : 'addCallback',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -344,6 +440,7 @@ config = {
 				},
 				{
 					'name' : 'requestNewReadPermissions',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -358,6 +455,7 @@ config = {
 				},
 				{
 					'name' : 'requestNewPublishPermissions',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -372,6 +470,7 @@ config = {
 				},
 				{
 					'name' : 'onActivityResult',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -393,6 +492,7 @@ config = {
 				},
 				{
 					'name' : 'closeAndClearTokenInformation',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -404,6 +504,7 @@ config = {
 				},
 				{
 					'name' : 'removeCallback',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -418,6 +519,7 @@ config = {
 				},
 				{
 					'name' : 'saveSession',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -435,6 +537,7 @@ config = {
 				},
 				{
 					'name' : 'restoreSession',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -457,6 +560,7 @@ config = {
 				},
 				{
 					'name' : 'getActiveSession',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 					],
 					'returns' : [
@@ -467,6 +571,7 @@ config = {
 				},
 				{
 					'name' : 'setActiveSession',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -481,6 +586,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionFromCache',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -494,6 +600,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSession',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -520,6 +627,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionWithAccessToken',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -551,10 +659,93 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook',
-			'tags' : ['_create_proxied_using_constructor']
+			'tags' : ['_instance']
+			'fields' : [
+				{
+					'name' : 'REDIRECT_URI',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'CANCEL_URI',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'TOKEN',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'EXPIRES',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'SINGLE_SIGN_ON_DISABLED',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'ATTRIBUTION_ID_CONTENT_URI',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'android.net.Uri',
+					}
+				},
+				{
+					'name' : 'ATTRIBUTION_ID_COLUMN_NAME',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'FORCE_DIALOG_AUTH',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					}
+				},
+				{
+					'name' : 'FB_APP_SIGNATURE',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'getAccessToken',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -566,6 +757,7 @@ config = {
 				},
 				{
 					'name' : 'authorize',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -575,8 +767,7 @@ config = {
 						}
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert__array_type',
+								'children' : [{'type': 'java.lang.String'}],
 						}
 						{
 								'type' : 'int',
@@ -592,6 +783,7 @@ config = {
 				},
 				{
 					'name' : 'request',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -610,6 +802,7 @@ config = {
 				},
 				{
 					'name' : 'extendAccessTokenIfNeeded',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -627,6 +820,7 @@ config = {
 				},
 				{
 					'name' : 'shouldExtendAccessToken',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -638,6 +832,7 @@ config = {
 				},
 				{
 					'name' : 'extendAccessToken',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -655,6 +850,7 @@ config = {
 				},
 				{
 					'name' : 'getShouldAutoPublishInstall',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -666,6 +862,7 @@ config = {
 				},
 				{
 					'name' : 'dialog',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -690,6 +887,7 @@ config = {
 				},
 				{
 					'name' : 'authorizeCallback',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'int',
@@ -708,6 +906,7 @@ config = {
 				},
 				{
 					'name' : 'isSessionValid',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -719,6 +918,7 @@ config = {
 				},
 				{
 					'name' : 'logout',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -733,6 +933,7 @@ config = {
 				},
 				{
 					'name' : 'getAccessExpires',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -744,6 +945,7 @@ config = {
 				},
 				{
 					'name' : 'setSession',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -758,6 +960,7 @@ config = {
 				},
 				{
 					'name' : 'getSession',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -768,6 +971,7 @@ config = {
 				},
 				{
 					'name' : 'getLastAccessUpdate',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -779,6 +983,7 @@ config = {
 				},
 				{
 					'name' : 'setTokenFromCache',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -798,6 +1003,7 @@ config = {
 				},
 				{
 					'name' : 'setAccessToken',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -813,6 +1019,7 @@ config = {
 				},
 				{
 					'name' : 'setAccessExpires',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'long',
@@ -828,6 +1035,7 @@ config = {
 				},
 				{
 					'name' : 'setAccessExpiresIn',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -843,6 +1051,7 @@ config = {
 				},
 				{
 					'name' : 'getAppId',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -854,6 +1063,7 @@ config = {
 				},
 				{
 					'name' : 'setAppId',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -869,6 +1079,7 @@ config = {
 				},
 				{
 					'name' : 'getAttributionId',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -883,6 +1094,7 @@ config = {
 				},
 				{
 					'name' : 'setShouldAutoPublishInstall',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -898,6 +1110,7 @@ config = {
 				},
 				{
 					'name' : 'publishInstall',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -926,21 +1139,80 @@ config = {
 		{
 			'name' : 'com.facebook.SessionState',
 			'tags' : ['_enumerate']
+			'fields' : [
+				{
+					'name' : 'CREATED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'CREATED_TOKEN_LOADED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'OPENING',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'OPENED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'OPENED_TOKEN_UPDATED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'CLOSED_LOGIN_FAILED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+				{
+					'name' : 'CLOSED',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionState',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'values',
+					'tags' : ['_static']
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionState'}],
-								'converter' : 'convert__array_type',
 						}
 					],
 				},
 				{
 					'name' : 'valueOf',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -955,6 +1227,7 @@ config = {
 				},
 				{
 					'name' : 'isClosed',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -966,6 +1239,7 @@ config = {
 				},
 				{
 					'name' : 'isOpened',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -981,10 +1255,12 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AccessToken',
-			'tags' : ['_do_not_create_proxied', '_do_not_generate_callback']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'toString',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -996,6 +1272,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1008,6 +1285,7 @@ config = {
 				},
 				{
 					'name' : 'getToken',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1019,6 +1297,7 @@ config = {
 				},
 				{
 					'name' : 'getExpires',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1030,6 +1309,7 @@ config = {
 				},
 				{
 					'name' : 'getSource',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1040,6 +1320,7 @@ config = {
 				},
 				{
 					'name' : 'getLastRefresh',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1051,6 +1332,7 @@ config = {
 				},
 				{
 					'name' : 'createFromExistingAccessToken',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1077,6 +1359,7 @@ config = {
 				},
 				{
 					'name' : 'createFromNativeLinkingIntent',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
@@ -1095,21 +1378,80 @@ config = {
 		{
 			'name' : 'com.facebook.AccessTokenSource',
 			'tags' : ['_enumerate']
+			'fields' : [
+				{
+					'name' : 'NONE',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'FACEBOOK_APPLICATION_WEB',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'FACEBOOK_APPLICATION_NATIVE',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'FACEBOOK_APPLICATION_SERVICE',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'WEB_VIEW',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'TEST_USER',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+				{
+					'name' : 'CLIENT_TOKEN',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.AccessTokenSource',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'values',
+					'tags' : ['_static']
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.AccessTokenSource'}],
-								'converter' : 'convert__array_type',
 						}
 					],
 				},
 				{
 					'name' : 'valueOf',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1128,10 +1470,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_generate_callback_using_interface']
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'call',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -1156,10 +1501,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$OpenRequest',
-			'tags' : ['_create_proxied_using_constructor', '_do_not_generate_callback']
+			'tags' : ['_instance']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'setCallback',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -1173,6 +1521,7 @@ config = {
 				},
 				{
 					'name' : 'setLoginBehavior',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
@@ -1186,6 +1535,7 @@ config = {
 				},
 				{
 					'name' : 'setRequestCode',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'int',
@@ -1200,6 +1550,7 @@ config = {
 				},
 				{
 					'name' : 'setPermissions',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -1215,6 +1566,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAudience',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
@@ -1244,21 +1596,48 @@ config = {
 		{
 			'name' : 'com.facebook.SessionLoginBehavior',
 			'tags' : ['_enumerate']
+			'fields' : [
+				{
+					'name' : 'SSO_WITH_FALLBACK',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionLoginBehavior',
+					}
+				},
+				{
+					'name' : 'SSO_ONLY',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionLoginBehavior',
+					}
+				},
+				{
+					'name' : 'SUPPRESS_SSO',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionLoginBehavior',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'values',
+					'tags' : ['_static']
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionLoginBehavior'}],
-								'converter' : 'convert__array_type',
 						}
 					],
 				},
 				{
 					'name' : 'valueOf',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1278,21 +1657,56 @@ config = {
 		{
 			'name' : 'com.facebook.SessionDefaultAudience',
 			'tags' : ['_enumerate']
+			'fields' : [
+				{
+					'name' : 'NONE',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionDefaultAudience',
+					}
+				},
+				{
+					'name' : 'ONLY_ME',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionDefaultAudience',
+					}
+				},
+				{
+					'name' : 'FRIENDS',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionDefaultAudience',
+					}
+				},
+				{
+					'name' : 'EVERYONE',
+					'tags' : ['_singleton', '_static']
+					'type' : 
+					{
+							'type' : 'com.facebook.SessionDefaultAudience',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'values',
+					'tags' : ['_static']
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_array_type',
 								'children' : [{'type': 'com.facebook.SessionDefaultAudience'}],
-								'converter' : 'convert__array_type',
 						}
 					],
 				},
 				{
 					'name' : 'valueOf',
+					'tags' : ['_singleton', '_static']
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1311,10 +1725,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$NewPermissionsRequest',
-			'tags' : ['_create_proxied_using_constructor', '_do_not_generate_callback']
+			'tags' : ['_instance']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'setCallback',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -1328,6 +1745,7 @@ config = {
 				},
 				{
 					'name' : 'setLoginBehavior',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
@@ -1341,6 +1759,7 @@ config = {
 				},
 				{
 					'name' : 'setRequestCode',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'int',
@@ -1355,6 +1774,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAudience',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
@@ -1388,10 +1808,67 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TokenCachingStrategy',
-			'tags' : ['_do_not_create_proxied']
+			'tags' : ['_abstract']
+			'fields' : [
+				{
+					'name' : 'TOKEN_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'EXPIRATION_DATE_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'LAST_REFRESH_DATE_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'USER_FBID_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'TOKEN_SOURCE_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+				{
+					'name' : 'PERMISSIONS_KEY',
+					'tags' : ['_static']
+					'type' : 
+					{
+							'type' : 'java.lang.String',
+							'converter' : 'convert_java_lang_String',
+					}
+				},
+			],	
 			'functions' : [
 				{
 					'name' : 'clear',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1403,6 +1880,7 @@ config = {
 				},
 				{
 					'name' : 'load',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1413,6 +1891,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1428,6 +1907,7 @@ config = {
 				},
 				{
 					'name' : 'save',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1442,6 +1922,7 @@ config = {
 				},
 				{
 					'name' : 'hasTokenInformation',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1456,6 +1937,7 @@ config = {
 				},
 				{
 					'name' : 'getToken',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1470,6 +1952,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationDate',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1484,6 +1967,7 @@ config = {
 				},
 				{
 					'name' : 'getSource',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1497,6 +1981,7 @@ config = {
 				},
 				{
 					'name' : 'putToken',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1515,6 +2000,7 @@ config = {
 				},
 				{
 					'name' : 'putExpirationDate',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1533,6 +2019,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationMilliseconds',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1547,6 +2034,7 @@ config = {
 				},
 				{
 					'name' : 'putExpirationMilliseconds',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1565,6 +2053,7 @@ config = {
 				},
 				{
 					'name' : 'putPermissions',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1584,6 +2073,7 @@ config = {
 				},
 				{
 					'name' : 'putSource',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1601,6 +2091,7 @@ config = {
 				},
 				{
 					'name' : 'getLastRefreshDate',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1615,6 +2106,7 @@ config = {
 				},
 				{
 					'name' : 'putLastRefreshDate',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1633,6 +2125,7 @@ config = {
 				},
 				{
 					'name' : 'getLastRefreshMilliseconds',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1647,6 +2140,7 @@ config = {
 				},
 				{
 					'name' : 'putLastRefreshMilliseconds',
+					'tags' : ['_static']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1674,10 +2168,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$DialogListener',
-			'tags' : ['_generate_callback_using_interface']
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'onComplete',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1692,6 +2189,7 @@ config = {
 				},
 				{
 					'name' : 'onCancel',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1703,6 +2201,7 @@ config = {
 				},
 				{
 					'name' : 'onError',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.android.DialogError',
@@ -1717,6 +2216,7 @@ config = {
 				},
 				{
 					'name' : 'onFacebookError',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.android.FacebookError',
@@ -1735,10 +2235,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.DialogError',
-			'tags' : ['_create_proxied_using_constructor']
+			'tags' : ['_instance']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'getErrorCode',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1750,6 +2253,7 @@ config = {
 				},
 				{
 					'name' : 'getFailingUrl',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1778,10 +2282,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FacebookError',
-			'tags' : ['_create_proxied_using_constructor']
+			'tags' : ['_instance']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'getErrorCode',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1793,6 +2300,7 @@ config = {
 				},
 				{
 					'name' : 'getErrorType',
+					'tags' : ['_instance']
 					'params' : [
 					],
 					'returns' : [
@@ -1821,10 +2329,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$ServiceListener',
-			'tags' : ['_generate_callback_using_interface']
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
 			'functions' : [
 				{
 					'name' : 'onComplete',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -1839,6 +2350,7 @@ config = {
 				},
 				{
 					'name' : 'onError',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'java.lang.Error',
@@ -1853,6 +2365,7 @@ config = {
 				},
 				{
 					'name' : 'onFacebookError',
+					'tags' : ['_instance']
 					'params' : [
 						{
 								'type' : 'com.facebook.android.FacebookError',

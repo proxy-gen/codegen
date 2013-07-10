@@ -8,16 +8,19 @@
 #		_instance											Tag to indicate class instance should be created
 #		_static 											Tag to indicate class has only static methods
 #		_callback 											Tag to indicate class is a callback
+#		_no_proxy											Tag to indicate class will not be proxied
 #
 #	Special Field Tags
-#		_static												Tag to indicate that the field is a static field
-#		_instance 											Tag to indicate that the field is an instance field
-#		_singleton 											Tag to indicate that the field returns a singleton instance
+#		_static												Tag to indicate field is a static field
+#		_instance 											Tag to indicate field is an instance field
+#		_singleton 											Tag to indicate field returns a singleton instance
+#		_no_proxy											Tag to indicate field will not be proxied
 #
 #	Special Method Tags
-#		_static												Tag to indicate that the method is a static method
-#		_instance 											Tag to indicate that the method is an instance method
-#		_singleton											Tag to indicate that the method returns a singleton instance
+#		_static												Tag to indicate method is a static method
+#		_instance 											Tag to indicate method is an instance method
+#		_singleton											Tag to indicate method returns a singleton instance
+#		_no_proxy											Tag to indicate method will not be proxied
 #
 
 

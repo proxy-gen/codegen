@@ -615,40 +615,41 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		type_kind = TypeKind.from_id(_type)
+		if not "no_proxy" in tags:
+			type_kind = TypeKind.from_id(_type)
 
-		if type_kind == TypeKind.JAVA_ENUM:
-			tags[:] = list()
-			tags.append("_enumerate")
-		elif type_kind == TypeKind.JAVA_INTERFACE:
-			tags[:] = list()
-			tags.append("_interface")
-			tags.append("_callback")
-		elif type_kind == TypeKind.JAVA_ABSTRACT:
-			if "callback" in tags:
+			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
-				tags.append("callback")
+				tags.append("_enumerate")
+			elif type_kind == TypeKind.JAVA_INTERFACE:
+				tags[:] = list()
+				tags.append("_interface")
+				tags.append("_callback")
+			elif type_kind == TypeKind.JAVA_ABSTRACT:
+				if "callback" in tags:
+					tags[:] = list()
+					tags.append("callback")
+				else:
+					tags[:] = list()
+				tags.append("_abstract")
+			elif type_kind == TypeKind.JAVA_INSTANCE:
+				if "callback" in tags:
+					tags[:] = list()
+					tags.append("callback")
+				else:
+					tags[:] = list()
+				tags.append("_instance")
+			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
+				tags[:] = list()
+				tags.append("_static")
+
+			tags = list(set(tags))
+
+			if len(tags) > 0:
+				clazz["tags"] = tags
 			else:
-				tags[:] = list()
-			tags.append("_abstract")
-		elif type_kind == TypeKind.JAVA_INSTANCE:
-			if "callback" in tags:
-				tags[:] = list()
-				tags.append("callback")
-			else:
-				tags[:] = list()
-			tags.append("_instance")
-		elif type_kind == TypeKind.JAVA_STATIC_METHODS:
-			tags[:] = list()
-			tags.append("_static")
-
-		tags = list(set(tags))
-
-		if len(tags) > 0:
-			clazz["tags"] = tags
-		else:
-			if "tags" in clazz:
-				del clazz["tags"]
+				if "tags" in clazz:
+					del clazz["tags"]
 
 	@classmethod
 	def _update_function_config_data(cls, clazz, function, _type, modifiers, idx):
@@ -657,25 +658,26 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		type_kind = TypeKind.from_id(_type)
+		if not "no_proxy" in tags:
+			type_kind = TypeKind.from_id(_type)
 
-		if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
-			tags.append("_static")
-			if "returns" in function:
-				for retrn in function["returns"]:
-					if retrn["type"] == clazz["name"]:
-						if "children" not in retrn:
-							tags.append("_singleton")
-		elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
-			tags.append("_instance")
+			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
+				tags.append("_static")
+				if "returns" in function:
+					for retrn in function["returns"]:
+						if retrn["type"] == clazz["name"]:
+							if "children" not in retrn:
+								tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
+				tags.append("_instance")
 
-		tags = list(set(tags))
+			tags = list(set(tags))
 
-		if len(tags) > 0:
-			function["tags"] = tags
-		else:
-			if "tags" in function:
-				del function["tags"]
+			if len(tags) > 0:
+				function["tags"] = tags
+			else:
+				if "tags" in function:
+					del function["tags"]
 
 	@classmethod
 	def _update_field_config_data(cls, clazz, field, _type, modifiers, idx):
@@ -684,25 +686,26 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		type_kind = TypeKind.from_id(_type)
+		if not "no_proxy" in tags:
+			type_kind = TypeKind.from_id(_type)
 
-		if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
-			tags.append("_static")
-			if "type" in field:
-				field_type = field["type"]
-				if field_type["type"] == clazz["name"]:
-					if "children" not in field_type:
-						tags.append("_singleton")
-		elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
-			tags.append("_instance")
+			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
+				tags.append("_static")
+				if "type" in field:
+					field_type = field["type"]
+					if field_type["type"] == clazz["name"]:
+						if "children" not in field_type:
+							tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
+				tags.append("_instance")
 
-		tags = list(set(tags))
+			tags = list(set(tags))
 
-		if len(tags) > 0:
-			field["tags"] = tags
-		else:
-			if "tags" in field:
-				del field["tags"]
+			if len(tags) > 0:
+				field["tags"] = tags
+			else:
+				if "tags" in field:
+					del field["tags"]
 
 	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):

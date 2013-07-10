@@ -634,6 +634,9 @@ class Generator(BaseGenerator):
 			if "constructors" in data:
 				for constructor in data["constructors"]:
 					self._attach_config_converters(constructor)
+			if "fields" in data:
+				for field in data["fields"]:
+					self._attach_config_converter(field["type"])
 		logging.debug("Generator _attach_config_converters enter")
 
 	def _attach_config_converter(self, convertible):
