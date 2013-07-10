@@ -102,6 +102,8 @@ CursorKind.CLASS_DECL = CursorKind(4)
 CursorKind.ENUM_DECL = CursorKind(5)
 CursorKind.CONSTRUCTOR_DECL = CursorKind(7)
 CursorKind.FUNCTION_DECL = CursorKind(8)
+CursorKind.FIELD_DECL = CursorKind(74)
+CursorKind.FIELD_TYPE_DECL = CursorKind(75)
 CursorKind.RETURN_DECL = CursorKind(9)
 CursorKind.PARAM_DECL = CursorKind(10)
 CursorKind.CONSTRUCTOR = CursorKind(24)
@@ -274,6 +276,8 @@ TypeKind.JAVA_ABSTRACT = TypeKind(203)
 TypeKind.JAVA_STATIC_METHODS = TypeKind(204)
 TypeKind.JAVA_PUBLIC_INSTANCE_METHOD = TypeKind(205)
 TypeKind.JAVA_PUBLIC_STATIC_METHOD = TypeKind(206)
+TypeKind.JAVA_PUBLIC_INSTANCE_FIELD = TypeKind(218)
+TypeKind.JAVA_PUBLIC_STATIC_FIELD = TypeKind(217)
 TypeKind.JAVA_PUBLIC_CONSTRUCTOR = TypeKind(207)
 TypeKind.JAVA_PRIMITIVE = TypeKind(208)
 TypeKind.JAVA_ARRAY = TypeKind(209)
@@ -472,10 +476,14 @@ class TranslationUnit(JavaObject):
 			TranslationUnit._process_constructor_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.FUNCTION_DECL:
 			TranslationUnit._process_function_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+		if CursorKind.from_id(cursor_type) == CursorKind.FIELD_DECL:
+			TranslationUnit._process_field_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.PARAM_DECL:
 			TranslationUnit._process_param_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.RETURN_DECL:
 			TranslationUnit._process_return_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+		if CursorKind.from_id(cursor_type) == CursorKind.FIELD_TYPE_DECL:
+			TranslationUnit._process_field_type_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
 
 	@classmethod
 	def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
@@ -511,8 +519,23 @@ class TranslationUnit(JavaObject):
 			config_data = TranslationUnit._find_or_create_function_config_data(config_data["functions"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
-			#process
-			pass
+			class_config_data = config_data_stack[len(config_data_stack)-2]
+			config_data = config_data_stack[len(config_data_stack)-1]
+			TranslationUnit._update_function_config_data(class_config_data, config_data, _type, modifiers, idx)
+		if callback_type == CallbackType.EXIT:
+			config_data_stack.pop()
+
+	@classmethod
+	def _process_field_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+		logging.debug("_process_field_config_data " + name)
+		if callback_type == CallbackType.ENTER:
+			config_data = config_data_stack[len(config_data_stack)-1]
+			config_data = TranslationUnit._find_or_create_field_config_data(config_data["fields"], name)
+			config_data_stack.append(config_data)
+		if callback_type == CallbackType.PROCESS:
+			class_config_data = config_data_stack[len(config_data_stack)-2]
+			config_data = config_data_stack[len(config_data_stack)-1]
+			TranslationUnit._update_field_config_data(class_config_data, config_data, _type, modifiers, idx)
 		if callback_type == CallbackType.EXIT:
 			config_data_stack.pop()
 
@@ -547,6 +570,21 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
+	def _process_field_type_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+		logging.debug("_process_field_type_config_data " + name) 
+		if callback_type == CallbackType.ENTER:
+			config_data = config_data_stack[len(config_data_stack)-1]
+			type_hierarchy = TranslationUnit._create_type_hierarchy(type_id)
+			type_hierarchy_structure = TranslationUnit._build_type_hierarchy_structure(type_hierarchy)
+			config_data = TranslationUnit._find_or_create_field_type_config_data(config_data, type_hierarchy_structure)
+			config_data_stack.append(config_data)
+		if callback_type == CallbackType.PROCESS:
+			#process
+			pass
+		if callback_type == CallbackType.EXIT:
+			config_data_stack.pop()
+
+	@classmethod
 	def _find_or_create_class_config_data(cls, classes, class_name):
 		the_clazz = None
 		for clazz in classes:
@@ -559,72 +597,112 @@ class TranslationUnit(JavaObject):
 		the_clazz["name"] = class_name
 		the_clazz["constructors"] = the_clazz.get("constructors", list())
 		the_clazz["functions"] = the_clazz.get("functions", list())
+		the_clazz["fields"] = the_clazz.get("fields", list())
 		return the_clazz
+
+#   Special Class Tags
+#		_enumerate 											Tag to indicate class should be enumerated
+#		_interface											Tag to indicate class is an interface
+#		_abstract											Tag to indicate class is abstract
+#		_instance											Tag to indicate class instance should be created
+#		_static 											Tag to indicate class has only static methods
+#		_callback 											Tag to indicate class is a callback
 
 	@classmethod
 	def _update_class_config_data(cls, clazz, _type, modifiers, idx):
-		the_clazz = clazz
 		if "tags" in clazz:
 			tags = clazz["tags"]
 		else:
-			clazz["tags"] = tags = list()
+			tags = list()
 
 		type_kind = TypeKind.from_id(_type)
 
-		tags = list(set(tags))
-
-		if type_kind == TypeKind.JAVA_INTERFACE:
-			if "_generate_callback_using_extension" in tags:
-				tags.remove(_generate_callback_using_extension)
-			tags.append("_generate_callback_using_interface")	
-		elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
-			tags.append("_do_not_generate_callback")
-		elif Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
-			tags.append("_do_not_generate_callback")
-
-		tags = list(set(tags))
-
-		if "_do_not_generate_callback" in tags:
-			if "_generate_callback_using_interface" in tags:
-				tags.remove("_generate_callback_using_interface")	
-			if "_generate_callback_using_extension" in tags:
-				tags.remove("_generate_callback_using_extension")
-			tags = list(set(tags))
-
-		if type_kind == TypeKind.JAVA_INSTANCE:
-			tags.append("_create_proxied_using_constructor")
-		elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
-			tags.append("_create_proxied_using_singleton_field")
-		elif type_kind == TypeKind.JAVA_SINGLETON_ENUM_FIELD:
-			tags.append("_create_proxied_using_singleton_field")
-		elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
-			tags.append("_create_proxied_using_singleton_method")
-		elif type_kind == TypeKind.JAVA_STATIC_METHODS:
-			tags.append("_do_not_create_proxied")
-		elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
-			tags.append("_do_not_create_proxied")
-		elif type_kind == TypeKind.JAVA_ABSTRACT:
-			tags.append("_do_not_create_proxied")
-
-		tags = list(set(tags))
-
-		if "_do_not_create_proxied" in tags:
-			if "_create_proxied_using_constructor" in tags:
-				tags.remove("_create_proxied_using_constructor")	
-			if "_create_proxied_using_singleton_field" in tags:
-				tags.remove("_create_proxied_using_singleton_field")
-			if "_create_proxied_using_singleton_method" in tags:
-				tags.remove("_create_proxied_using_singleton_method")
-
 		if type_kind == TypeKind.JAVA_ENUM:
+			tags[:] = list()
 			tags.append("_enumerate")
-			if "_do_not_generate_callback" in tags:
-				tags.remove("_do_not_generate_callback")						
-			
+		elif type_kind == TypeKind.JAVA_INTERFACE:
+			tags[:] = list()
+			tags.append("_interface")
+			tags.append("_callback")
+		elif type_kind == TypeKind.JAVA_ABSTRACT:
+			if "callback" in tags:
+				tags[:] = list()
+				tags.append("callback")
+			else:
+				tags[:] = list()
+			tags.append("_abstract")
+		elif type_kind == TypeKind.JAVA_INSTANCE:
+			if "callback" in tags:
+				tags[:] = list()
+				tags.append("callback")
+			else:
+				tags[:] = list()
+			tags.append("_instance")
+		elif type_kind == TypeKind.JAVA_STATIC_METHODS:
+			tags[:] = list()
+			tags.append("_static")
+
 		tags = list(set(tags))
 
 		if len(tags) > 0:
-			the_clazz["tags"] = tags
+			clazz["tags"] = tags
+		else:
+			if "tags" in clazz:
+				del clazz["tags"]
+
+	@classmethod
+	def _update_function_config_data(cls, clazz, function, _type, modifiers, idx):
+		if "tags" in function:
+			tags = function["tags"]
+		else:
+			tags = list()
+
+		type_kind = TypeKind.from_id(_type)
+
+		if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
+			tags.append("_static")
+			if "returns" in function:
+				for retrn in function["returns"]:
+					if retrn["type"] == clazz["name"]:
+						if "children" not in retrn:
+							tags.append("_singleton")
+		elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
+			tags.append("_instance")
+
+		tags = list(set(tags))
+
+		if len(tags) > 0:
+			function["tags"] = tags
+		else:
+			if "tags" in function:
+				del function["tags"]
+
+	@classmethod
+	def _update_field_config_data(cls, clazz, field, _type, modifiers, idx):
+		if "tags" in field:
+			tags = field["tags"]
+		else:
+			tags = list()
+
+		type_kind = TypeKind.from_id(_type)
+
+		if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
+			tags.append("_static")
+			if "type" in field:
+				field_type = field["type"]
+				if field_type["type"] == clazz["name"]:
+					if "children" not in field_type:
+						tags.append("_singleton")
+		elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
+			tags.append("_instance")
+
+		tags = list(set(tags))
+
+		if len(tags) > 0:
+			field["tags"] = tags
+		else:
+			if "tags" in field:
+				del field["tags"]
 
 	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):
@@ -656,6 +734,19 @@ class TranslationUnit(JavaObject):
 		return the_function
 
 	@classmethod
+	def _find_or_create_field_config_data(cls, fields, field_name):
+		the_field = None
+		for field in fields:
+			if field["name"] == field_name:
+				the_field = field
+				break
+		if not the_field:
+			the_field = dict()
+			fields.append(the_field)
+		the_field["name"] = field_name
+		return the_field
+
+	@classmethod
 	def _find_or_create_return_config_data(cls, returns, retrn_type_hierarchy):
 		the_retrn = TranslationUnit._find_or_create_param_config_data(returns, retrn_type_hierarchy)
 		return the_retrn
@@ -671,6 +762,16 @@ class TranslationUnit(JavaObject):
 			the_param_type_hierarchy = param_type_hierarchy
 			params.append(the_param_type_hierarchy)
 		return the_param_type_hierarchy
+
+	@classmethod
+	def _find_or_create_field_type_config_data(cls, field, field_type_hierarchy):
+		the_field_type_hierarchy = None
+		if "type" in field:
+			the_field_type_hierarchy = field["type"]
+		if not the_field_type_hierarchy:
+			the_field_type_hierarchy = field_type_hierarchy
+			field["type"] = the_field_type_hierarchy
+		return the_field_type_hierarchy
 
 	@classmethod
 	def _create_type_hierarchy(cls, type_id):

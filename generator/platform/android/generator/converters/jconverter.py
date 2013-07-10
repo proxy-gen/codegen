@@ -192,25 +192,6 @@ config = {
 										},
 		},
 		{
-			"name"					:	"convert_proxy",
-			"java"					:	{
-											"type" 	: "_proxied_type",
-										},
-			"cxx"					:	{
-											"type" 	: "_proxy_type",
-										},
-
-		},
-		{
-			"name"					:	"convert__array_type",
-			"java"					:	{
-											"type"	:	"_array_type",
-										},
-			"cxx"					:	{
-											"type"	:	"std::vector",
-										},
-		},
-		{
 			"name"					:	"convert_java_util_List",
 			"java"					:	{
 											"type"	:	"java.util.List",

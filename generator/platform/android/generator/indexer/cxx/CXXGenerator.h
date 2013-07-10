@@ -145,19 +145,19 @@ int visitEnumValues(CXXCursor cursor, CXXType type, VisitEnumValuesCallback call
 
 void visitCursorAttrs(CXXCursor cursor, CursorVisitAttrsCallback callback, void * host_object);
 
-void process_class(std::string class_name, jclass clazz, ProcessorContext ctx);
-
 CXXTypeHierarchy createTypeHierarchy(long type_id);
 
 int visitTypeHierarchyChildren(CXXTypeHierarchy parent, TypeHierarchyVisitCallback callback, void * host_object);
+
+void process_class(std::string class_name, jclass clazz, ProcessorContext ctx);
 
 void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext ctx);
 
 void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx);
 
-void process_param(std::string method_name, jobject method, jobject param, int idx, ProcessorContext ctx);
+void process_field(std::string class_name, jclass clazz, std::string field_name, jobject field, int idx, ProcessorContext ctx);
 
-void process_method_return(std::string method_name, jobject method, jobject retrn, int idx, ProcessorContext ctx);
+void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext ctx, int cursor_type);
 
 int find_class_type(jclass clazz);
 
@@ -165,21 +165,15 @@ int find_method_type(jobject method);
 
 int find_constructor_type(jobject constructor);
 
-int find_param_type(jobject param);
+int find_field_type(jobject method);
 
-int find_return_type(jobject retrn);
+int find_arg_type(jobject param);
 
-std::string find_param_type_name(jobject param);
+std::string find_type_name(jobject param);
 
-std::string find_return_type_name(jobject param);
+std::string find_type_class_name(jobject param);
 
-std::string find_param_name(jobject param);
-
-std::string find_return_name(jobject retrn);
-
-std::string find_param_package_name(jobject param);
-
-std::string find_return_package_name(jobject retrn);
+std::string find_type_package_name(jobject param);
 
 std::vector<std::string> find_generic_array_name(jobject param);
 
