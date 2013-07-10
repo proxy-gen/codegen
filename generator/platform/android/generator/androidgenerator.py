@@ -641,21 +641,26 @@ class Generator(BaseGenerator):
 
 	def _attach_config_converter(self, convertible):
 		logging.debug("Generator _attach_config_converter enter")
-		converters = self.config_data["converters"]
-		for converter in converters:
-			if "java" in converter:
-				if "converter" not in convertible:
-					if converter["java"]["type"] == convertible["type"]:
-						convertible["converter"] = converter["name"]
-						if "children" in convertible:
-							for child_convertible in convertible["children"]:
-								self._attach_config_converter(child_convertible)
-		# for converter in converters:
-		# 	if "converter" not in convertible:
-		# 		if "children" not in convertible:
-		# 			for clazz in self.config_data["classes"]:
-		# 				if clazz["name"] == converter["type"]:
-		# 					convertible["converter"] = 
+		if "converter" not in convertible:
+			converters = self.config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if converter["java"]["type"] == convertible["type"]:
+							convertible["converter"] = converter["name"]
+		if "converter" not in convertible:
+			for clazz in self.config_data["classes"]:
+				if clazz["name"] == convertible["type"]:
+					no_proxy = False
+					if "tags" in clazz:
+						if "no_proxy" in clazz["tags"]:
+							no_proxy = True
+					if not no_proxy:
+						convertible["converter"] = 'convert_proxy'						
+		if "converter" not in convertible:
+			convertible["converter"] = "_TODO_"
+		if "children" in convertible:
+			for child_convertible in convertible["children"]:
+				self._attach_config_converter(child_convertible)
 		logging.debug("Generator _attach_config_converter exit")
 		
 class NativeClass(object):

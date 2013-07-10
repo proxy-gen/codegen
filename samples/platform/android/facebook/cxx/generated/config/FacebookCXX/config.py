@@ -130,7 +130,12 @@ config = {
 		{
 			'cxx' : {'type': 'std::vector'},
 			'java' : {'type': 'java.util.List'},
-			'name' : 'convert_java_util_List',
+			'name' : 'convert_java_util_List_template',
+		},
+		{
+			'cxx' : {'type': 'std::vector'},
+			'java' : {'type': '_array_type'},
+			'name' : 'convert__array_type_template',
 		},
 	],
 	'packages' : [
@@ -235,6 +240,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -277,7 +283,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 				},
@@ -289,6 +295,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionState',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -310,9 +317,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.AccessToken',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -342,6 +351,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 				},
@@ -399,6 +409,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -414,6 +425,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -429,6 +441,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -444,6 +457,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -459,6 +473,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -474,6 +489,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'int',
@@ -481,6 +497,7 @@ config = {
 						}
 						{
 								'type' : 'android.content.Intent',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -508,6 +525,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -523,9 +541,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -541,20 +561,25 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.TokenCachingStrategy',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -566,6 +591,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -575,6 +601,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -590,11 +617,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -604,9 +633,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'android.support.v4.app.Fragment',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'boolean',
@@ -614,14 +645,17 @@ config = {
 						}
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'android.app.Activity',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -631,17 +665,21 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.AccessToken',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -652,6 +690,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 					],
 				},
@@ -712,6 +751,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.net.Uri',
+							'converter' : '_TODO_',
 					}
 				},
 				{
@@ -761,13 +801,16 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'java.lang.String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert__array_type_template',
 						}
 						{
 								'type' : 'int',
@@ -787,6 +830,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.lang.String',
@@ -806,9 +850,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.android.Facebook$ServiceListener',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -836,9 +882,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.android.Facebook$ServiceListener',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -866,6 +914,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.lang.String',
@@ -873,9 +922,11 @@ config = {
 						}
 						{
 								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -895,6 +946,7 @@ config = {
 						}
 						{
 								'type' : 'android.content.Intent',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -922,6 +974,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -949,6 +1002,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -966,6 +1020,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1083,6 +1138,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1114,6 +1170,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1146,6 +1203,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1154,6 +1212,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1162,6 +1221,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1170,6 +1230,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1178,6 +1239,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1186,6 +1248,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1194,6 +1257,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
+							'converter' : 'convert_proxy',
 					}
 				},
 			],	
@@ -1206,7 +1270,8 @@ config = {
 					'returns' : [
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'com.facebook.SessionState'}],
+								'children' : [{'type': 'com.facebook.SessionState', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__array_type_template',
 						}
 					],
 				},
@@ -1222,6 +1287,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionState',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1279,7 +1345,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 				},
@@ -1315,6 +1381,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.AccessTokenSource',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1344,16 +1411,18 @@ config = {
 						}
 						{
 								'type' : 'com.facebook.AccessTokenSource',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.AccessToken',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1363,11 +1432,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.AccessToken',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1385,6 +1456,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1393,6 +1465,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1401,6 +1474,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1409,6 +1483,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1417,6 +1492,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1425,6 +1501,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1433,6 +1510,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
+							'converter' : 'convert_proxy',
 					}
 				},
 			],	
@@ -1445,7 +1523,8 @@ config = {
 					'returns' : [
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'com.facebook.AccessTokenSource'}],
+								'children' : [{'type': 'com.facebook.AccessTokenSource', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__array_type_template',
 						}
 					],
 				},
@@ -1461,6 +1540,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.AccessTokenSource',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1480,12 +1560,15 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'com.facebook.SessionState',
+								'converter' : 'convert_proxy',
 						}
 						{
 								'type' : 'java.lang.Exception',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1511,11 +1594,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1525,11 +1610,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1545,6 +1632,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1555,12 +1643,13 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1570,11 +1659,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1585,9 +1676,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'android.support.v4.app.Fragment',
+								'converter' : '_TODO_',
 						}
 					],
 				},
@@ -1603,6 +1696,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1611,6 +1705,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1619,6 +1714,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
+							'converter' : 'convert_proxy',
 					}
 				},
 			],	
@@ -1631,7 +1727,8 @@ config = {
 					'returns' : [
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'com.facebook.SessionLoginBehavior'}],
+								'children' : [{'type': 'com.facebook.SessionLoginBehavior', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__array_type_template',
 						}
 					],
 				},
@@ -1647,6 +1744,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1664,6 +1762,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1672,6 +1771,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1680,6 +1780,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
+							'converter' : 'convert_proxy',
 					}
 				},
 				{
@@ -1688,6 +1789,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
+							'converter' : 'convert_proxy',
 					}
 				},
 			],	
@@ -1700,7 +1802,8 @@ config = {
 					'returns' : [
 						{
 								'type' : '_array_type',
-								'children' : [{'type': 'com.facebook.SessionDefaultAudience'}],
+								'children' : [{'type': 'com.facebook.SessionDefaultAudience', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__array_type_template',
 						}
 					],
 				},
@@ -1716,6 +1819,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1735,11 +1839,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1749,11 +1855,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1769,6 +1877,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1778,11 +1887,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1793,14 +1904,16 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 						{
 								'type' : 'android.support.v4.app.Fragment',
+								'converter' : '_TODO_',
 						}
 					],
 				},
@@ -1886,6 +1999,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 				},
@@ -1895,13 +2009,14 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 				},
@@ -1911,6 +2026,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1926,6 +2042,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1941,6 +2058,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1956,6 +2074,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -1971,11 +2090,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.AccessTokenSource',
+								'converter' : 'convert_proxy',
 						}
 					],
 				},
@@ -1985,6 +2106,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.lang.String',
@@ -2004,6 +2126,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.util.Date',
@@ -2023,6 +2146,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2038,6 +2162,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'long',
@@ -2057,11 +2182,12 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_java_util_List_template',
 						}
 					],
 					'returns' : [
@@ -2077,9 +2203,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'com.facebook.AccessTokenSource',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -2095,6 +2223,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2110,6 +2239,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'java.util.Date',
@@ -2129,6 +2259,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2144,6 +2275,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 						{
 								'type' : 'long',
@@ -2178,6 +2310,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2205,6 +2338,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.android.DialogError',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -2220,6 +2354,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.android.FacebookError',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [
@@ -2339,6 +2474,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2354,6 +2490,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Error',
+								'converter' : '_TODO_',
 						}
 					],
 					'returns' : [
@@ -2369,6 +2506,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'com.facebook.android.FacebookError',
+								'converter' : 'convert_proxy',
 						}
 					],
 					'returns' : [

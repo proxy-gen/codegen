@@ -1,4 +1,6 @@
 #	Default converters 
+# 	Special Types
+#		_array_type		 									Java Array
 
 config = {
 	"converters" : [
@@ -192,7 +194,7 @@ config = {
 										},
 		},
 		{
-			"name"					:	"convert_java_util_List",
+			"name"					:	"convert_java_util_List_template",
 			"java"					:	{
 											"type"	:	"java.util.List",
 										},
@@ -200,6 +202,15 @@ config = {
 											"type"	:	"std::vector",
 										},
 		},
+		{
+			"name"					:	"convert__array_type_template",
+			"java"					:	{
+											"type"	:	"_array_type"
+										},
+			"cxx"					:	{
+											"type"	: "std::vector"
+										}
+		}
 
 	],
 }
