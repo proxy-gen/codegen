@@ -1,5 +1,13 @@
-# 	Special Types
-#		_array_type		 									Java Array
+# 	Special Type Markers
+#		_object_array_type		 							Object array type
+#		_byte_array_type									byte array type
+#		_short_array_type									short array type
+#		_int_array_type										int array type
+#		_long_array_type									long array type
+#		_float_array_type									float array type
+#		_double_array_type									double array type
+#		_boolean_array_type									boolean array type
+#		_char_array_type									char array type
 #
 #   Special Class Tags
 #		_enumerate 											Tag to indicate class should be enumerated
@@ -8,20 +16,22 @@
 #		_instance											Tag to indicate class instance should be created
 #		_static 											Tag to indicate class has only static methods
 #		_callback 											Tag to indicate class is a callback
+#		_proxy 												Tag to indicate class will be proxied
 #		_no_proxy											Tag to indicate class will not be proxied
 #
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field
 #		_instance 											Tag to indicate field is an instance field
 #		_singleton 											Tag to indicate field returns a singleton instance
+#		_proxy 												Tag to indicate field will be proxied
 #		_no_proxy											Tag to indicate field will not be proxied
 #
 #	Special Method Tags
 #		_static												Tag to indicate method is a static method
 #		_instance 											Tag to indicate method is an instance method
 #		_singleton											Tag to indicate method returns a singleton instance
+#		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
-#
 
 
 config = {

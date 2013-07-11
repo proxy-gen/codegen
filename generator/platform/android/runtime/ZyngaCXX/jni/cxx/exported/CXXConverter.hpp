@@ -1,5 +1,6 @@
 /*
- * CXXConverter.h
+ * CXXConverter.hpp
+ * ZyngaCXX
  *
  * Created on: June 29, 2013
  * Author: rvergis
@@ -11,21 +12,47 @@
 #define CXXCONVERTER_H_
 
 #include <jni.h>
-#include <vector>
-#include <map>
+#include <cstdarg>
 #include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <CXXTypeHierarchy.hpp>
 
-void convert_java_util_Date_to_cxx(jobject& java_value, long& cxx_value);
+#define CONVERT_TO_JAVA 1
+#define CONVERT_TO_CXX 2
 
-void convert_java_util_Date_to_java(jobject& java_value, long& cxx_value);
+typedef unsigned int converter_t;
 
-void convert_java_util_List_to_cxx(jobject& java_value, std::vector<C>& cxx_value);
+typedef void (*cxx_converter)(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert_java_util_List_to_java(jobject& java_value, C& cxx_value);
+cxx_converter get_converter(std::stack<long>& converter_stack);
 
-void convert_java_util_Map_to_cxx(jobject& java_value, std::map<std::string, C>& cxx_value);
+void convert_boolean(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert_java_util_Map_to_java(jobject& java_value, std::map<std::string, C>& cxx_value);
+void convert_java_util_Date(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert_java_util_List(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert_java_util_Map(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__double_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__object_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 #endif /* CXXCONVERTER_H_ */
 

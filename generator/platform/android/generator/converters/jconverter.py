@@ -1,6 +1,6 @@
 #	Default converters 
 # 	Special Types
-#		_array_type		 									Java Array
+#		_array_type		 Java Array
 
 config = {
 	"converters" : [
@@ -28,7 +28,7 @@ config = {
 								"type" : "byte",
 							},
 			"cxx"		:	{ 
-								"type" : "int",
+								"type" : "unsigned char",
 							}
 		},
 		{
@@ -194,7 +194,16 @@ config = {
 										},
 		},
 		{
-			"name"					:	"convert_java_util_List_template",
+			"name"					:	"convert_java_util_Map",
+			"java"					:	{
+											"type"	: "java.util.Map",
+										},
+			"cxx"					:	{
+											"type"	: "std::map"	
+										},
+		},
+		{
+			"name"					:	"convert_java_util_List",
 			"java"					:	{
 											"type"	:	"java.util.List",
 										},
@@ -203,14 +212,77 @@ config = {
 										},
 		},
 		{
-			"name"					:	"convert__array_type_template",
+			"name"					:	"convert__object_array_type",
 			"java"					:	{
-											"type"	:	"_array_type"
+											"type"	:	"_object_array_type",
 										},
 			"cxx"					:	{
-											"type"	: "std::vector"
+											"type"	: "std::vector",
 										}
-		}
+		},
+		{
+			"name"					:	"convert__byte_array_type",
+			"java"					:	{
+											"type"	:	"_byte_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__short_array_type",
+			"java"					:	{
+											"type"	:	"_short_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__int_array_type",
+			"java"					:	{
+											"type"	:	"_int_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__float_array_type",
+			"java"					:	{
+											"type"	:	"_float_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__double_array_type",
+			"java"					:	{
+											"type"	:	"_double_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__boolean_array_type",
+			"java"					:	{
+											"type"	:	"_boolean_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
+			"name"					:	"convert__char_array_type",
+			"java"					:	{
+											"type"	:	"_char_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
 
 	],
 }

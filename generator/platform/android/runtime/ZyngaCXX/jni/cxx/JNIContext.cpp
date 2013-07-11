@@ -2495,6 +2495,23 @@ jobjectArray JNIContext::createStringArray(std::string& array, int count)
 	return 0;
 }
 
+jobjectArray JNIContext::createObjectArray(int count, jclass clazz)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	if (clazz != 0)
+	{
+		jobjectArray jArray = env->NewObjectArray(count, clazz, 0);
+		if (checkException(env))
+		{
+			deleteLocalRef(jArray);
+			return 0;
+		}
+		return jArray;
+	}
+	return 0;
+}
+
 void JNIContext::setObjectArrayElement(jobjectArray array, int index, jobject value)
 {
 	if (array != 0)

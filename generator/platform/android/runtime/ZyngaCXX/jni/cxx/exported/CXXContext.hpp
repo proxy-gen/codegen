@@ -1,5 +1,5 @@
 /*
- * CXXContext.h
+ * CXXContext.hpp
  * ZyngaCXX
  *
  * Created on: Jan 30, 2013

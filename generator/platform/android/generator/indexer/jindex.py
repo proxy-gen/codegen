@@ -397,6 +397,59 @@ class Modifier(object):
 	def is_modifier(cls, modifiers, modifier):
 		return modifiers & modifier == modifier
 
+class PrimitiveType(object):
+
+	_types_map = {}
+	_name_map = None
+
+	def __init__(self, value):
+		if value in PrimitiveType._types_map:
+			raise ValueError,'PrimitiveType already loaded'
+		self.value = value
+		PrimitiveType._types_map[value] = self
+		PrimitiveType._name_map = None
+
+	def from_param(self):
+		return self.value
+
+	@property
+	def name(self):
+		if self._name_map is None:
+			self._name_map = {}
+			for key,value in PrimitiveType.__dict__.items():
+				if isinstance(value,PrimitiveType):
+					self._name_map[value] = key
+		return self._name_map[self]
+
+	@property
+	def id(self):
+		return self.value
+
+	@staticmethod
+	def from_id(id):
+		if id in PrimitiveType._types_map:
+			return PrimitiveType._types_map[id]
+		return None
+
+	@staticmethod
+	def from_name(name):
+		for key,value in PrimitiveType.__dict__.items():
+				if isinstance(value,PrimitiveType):
+					return value
+		return None
+
+	def __repr__(self):
+		return 'PrimitiveType.%s' % (self.name,)
+
+PrimitiveType.BYTE = PrimitiveType("byte")
+PrimitiveType.SHORT = PrimitiveType("short")
+PrimitiveType.INT = PrimitiveType("int")
+PrimitiveType.LONG = PrimitiveType("long")
+PrimitiveType.FLOAT = PrimitiveType("float")
+PrimitiveType.DOUBLE = PrimitiveType("double")
+PrimitiveType.BOOLEAN = PrimitiveType("boolean")
+PrimitiveType.CHAR = PrimitiveType("char")
+
 class CallbackType(object):
 	UNKNOWN = 0
 	ENTER = 1
@@ -615,9 +668,16 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		if not "no_proxy" in tags:
-			type_kind = TypeKind.from_id(_type)
+		tags = list(set(tags))
 
+		if "_no_proxy" in tags:
+			tags = list()
+			tags.append("_no_proxy")
+		else:
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
+			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
 				tags.append("_enumerate")
@@ -643,13 +703,13 @@ class TranslationUnit(JavaObject):
 				tags[:] = list()
 				tags.append("_static")
 
-			tags = list(set(tags))
+		tags = list(set(tags))
 
-			if len(tags) > 0:
-				clazz["tags"] = tags
-			else:
-				if "tags" in clazz:
-					del clazz["tags"]
+		if len(tags) > 0:
+			clazz["tags"] = tags
+		else:
+			if "tags" in clazz:
+				del clazz["tags"]
 
 	@classmethod
 	def _update_function_config_data(cls, clazz, function, _type, modifiers, idx):
@@ -658,9 +718,16 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		if not "no_proxy" in tags:
-			type_kind = TypeKind.from_id(_type)
+		tags = list(set(tags))
 
+		if "_no_proxy" in tags:
+			tags = list()
+			tags.append("_no_proxy")
+		else:
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
+			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
 				tags.append("_static")
 				if "returns" in function:
@@ -671,13 +738,12 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
 				tags.append("_instance")
 
-			tags = list(set(tags))
-
-			if len(tags) > 0:
-				function["tags"] = tags
-			else:
-				if "tags" in function:
-					del function["tags"]
+		tags = list(set(tags))
+		if len(tags) > 0:
+			function["tags"] = tags
+		else:
+			if "tags" in function:
+				del function["tags"]
 
 	@classmethod
 	def _update_field_config_data(cls, clazz, field, _type, modifiers, idx):
@@ -686,9 +752,14 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		if not "no_proxy" in tags:
+		if "_no_proxy" in tags:
+			tags = list()
+			tags.append("_no_proxy")
+		else:
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
-
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
 				tags.append("_static")
 				if "type" in field:
@@ -698,14 +769,12 @@ class TranslationUnit(JavaObject):
 							tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
 				tags.append("_instance")
-
-			tags = list(set(tags))
-
-			if len(tags) > 0:
-				field["tags"] = tags
-			else:
-				if "tags" in field:
-					del field["tags"]
+		tags = list(set(tags))
+		if len(tags) > 0:
+			field["tags"] = tags
+		else:
+			if "tags" in field:
+				del field["tags"]
 
 	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):
@@ -786,7 +855,14 @@ class TranslationUnit(JavaObject):
 		structure = dict()
 		class_name = type_hierarchy._class_name
 		if class_name == 'com.zynga.sdk.cxx.CXXType$Array':
-			class_name = '_array_type' # Special type marker representing Java array
+			class_name = '_object_array_type' # Special type marker representing Java array
+			if type_hierarchy.child_count > 0:
+				children = type_hierarchy.get_children()
+				child = children[0]
+				child_class_name = child._class_name
+				type_kind = PrimitiveType.from_id(child_class_name)
+				if type_kind is not None:
+					class_name = '_%s_array_type' % child_class_name
 		structure["type"] = class_name
 		if type_hierarchy.child_count > 0:
 			structure["children"] = list()

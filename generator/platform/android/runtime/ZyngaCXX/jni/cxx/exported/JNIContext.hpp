@@ -215,6 +215,7 @@ public:
 	jfloatArray createFloatArray(float& array, int count);
 	jdoubleArray createDoubleArray(double& array, int count);
 	jobjectArray createStringArray(std::string& array, int count);
+	jobjectArray createObjectArray(int count, jclass clazz);
 
 	jboolean readBooleanObjectArrayElement(jobjectArray array, int index);
 	jbyte readByteObjectArrayElement(jobjectArray array, int index);
