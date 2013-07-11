@@ -30,6 +30,7 @@ class Generator(BaseGenerator):
 		self._setup_default_converters()
 		self._setup_included_packages()
 		self._setup_included_wrapper_packages()
+		self._setup_include_configs()
 		self._setup_config()
 
 	def generate_code(self):
@@ -127,6 +128,9 @@ class Generator(BaseGenerator):
 	def _setup_included_wrapper_packages(self):
 		self.include_wrapper_packages = self.config['include_wrapper_packages']
 		self.include_wrapper_package_path = self.config['include_wrapper_package_path']
+
+	def _setup_include_configs(self):
+		self.include_configs = self.config['include_configs']
 
 	def _setup_config(self):
 		self._setup_new_config()

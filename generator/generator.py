@@ -26,6 +26,7 @@ class BaseGenerator(object):
 		self.config['include_package_path'] = None
 		self.config['include_wrapper_packages'] = list()
 		self.config['include_wrapper_package_path'] = None
+		self.config['include_configs'] = list()
 		self.config['namespace_name'] = "CXX"
 	
 	def setup(self):
@@ -100,6 +101,8 @@ def main():
 							help="List of packages to include in the generated code.")
 	parser.add_option("--include-package-path", action="store", dest="include_package_path",
 							help="Base path to the included package. Package path is relative to --output-dir.")
+	parser.add_option("--include-config", action="append", dest="include_configs"
+							help="Specifies the configuration file to be included for code generation")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 	(opts, args) = parser.parse_args()
@@ -144,6 +147,8 @@ def main():
 		platform_generator.config['include_wrapper_packages'] = opts.include_wrapper_packages
 	if opts.include_wrapper_package_path:
 		platform_generator.config['include_wrapper_package_path'] = opts.include_wrapper_package_path
+	if opts.include_configs:
+		platform_generator.config['include_configs'] = opts.include_configs
 
 	platform_generator.setup()
 	if opts.generate_config:
