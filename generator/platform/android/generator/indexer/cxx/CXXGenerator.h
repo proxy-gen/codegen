@@ -25,11 +25,9 @@ extern "C"
 #define OK	(0)
 #define	ERR	(-1)
 #define MAX_PACKAGE_COUNT 256
-#define BASE_PACKAGE_SIZE 64
 #define MAX_CLASS_COUNT 1024
-#define BASE_CLASS_SIZE 64
+#define STR_ATTR_SIZE 80
 #define ATTR_COUNT 64
-#define STR_ATTR_SIZE 64
 #define CALLBACK_TYPE_ENTER (1)
 #define CALLBACK_TYPE_PROCESS (2)
 #define CALLBACK_TYPE_EXIT (4)

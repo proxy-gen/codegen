@@ -44,7 +44,7 @@ c_object_p = POINTER(c_void_p)
 lib_name = "libCXXGenerator"
 lib = load_jindex_library(lib_name)
 
-STR_ATTR_SIZE = 64
+STR_ATTR_SIZE = 80
 MAX_PACKAGE_COUNT = 256
 MAX_CLASSE_COUNT = 1024
 

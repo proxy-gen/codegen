@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 
-bool in_packages(char package[STR_ATTR_SIZE], char packages[64][STR_ATTR_SIZE], int package_count)
+bool in_packages(char package[STR_ATTR_SIZE], char packages[MAX_PACKAGE_COUNT][STR_ATTR_SIZE], int package_count)
 {
 	for (int idx = 0; idx < package_count; idx++)
 	{
@@ -21,7 +21,7 @@ bool in_packages(char package[STR_ATTR_SIZE], char packages[64][STR_ATTR_SIZE], 
 	return false;
 }
 
-bool in_classes(char clazz[STR_ATTR_SIZE], char clazzes[1024][STR_ATTR_SIZE], int class_count)
+bool in_classes(char clazz[STR_ATTR_SIZE], char clazzes[MAX_CLASS_COUNT][STR_ATTR_SIZE], int class_count)
 {
 	for (int idx = 0; idx < class_count; idx++)
 	{

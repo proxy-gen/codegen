@@ -8431,6 +8431,61 @@ config = {
 			],
 		},
 		{
+			'name' : 'com.facebook.internal.FileLruCache$CloseCallbackOutputStream',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						}
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'flush',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'close',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
 			'name' : 'com.facebook.internal.FileLruCache$CopyingInputStream',
 			'tags' : ['_proxy']
 			'fields' : [
@@ -9129,6 +9184,36 @@ config = {
 						{
 								'type' : 'com.facebook.internal.SessionAuthorizationType',
 								'converter' : 'convert_proxy',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'onReceive',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : '_TODO_',
+						}
+						{
+								'type' : 'android.content.Intent',
+								'converter' : '_TODO_',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						}
 					],
 				},
@@ -11383,6 +11468,40 @@ config = {
 			],
 		},
 		{
+			'name' : 'com.facebook.widget.FacebookFragment$DefaultSessionStatusCallback',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'call',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						}
+						{
+								'type' : 'com.facebook.SessionState',
+								'converter' : 'convert_proxy',
+						}
+						{
+								'type' : 'java.lang.Exception',
+								'converter' : '_TODO_',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
 			'name' : 'com.facebook.widget.FacebookFragment',
 			'tags' : ['_proxy']
 			'fields' : [
@@ -11458,6 +11577,16 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$1',
+			'tags' : ['_static']
+			'fields' : [
+			],	
+			'functions' : [
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy',
 			'tags' : ['_static']
 			'fields' : [
 			],	
@@ -12661,6 +12790,60 @@ config = {
 			],
 		},
 		{
+			'name' : 'com.facebook.widget.GraphObjectPagingLoader$OnErrorListener',
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'onError',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.FacebookException',
+								'converter' : 'convert_proxy',
+						}
+						{
+								'type' : 'com.facebook.widget.GraphObjectPagingLoader',
+								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.GraphObjectPagingLoader$PagedResults',
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'getData',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.model.GraphObjectList',
+								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader',
 			'tags' : ['_instance']
 			'fields' : [
@@ -12990,6 +13173,28 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.ImageResponseCache$BufferedHttpInputStream',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'close',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
 			],	
 			'constructors' : [	
 			],
@@ -14146,6 +14351,33 @@ config = {
 			],
 		},
 		{
+			'name' : 'com.facebook.widget.PickerFragment$OnDoneButtonClickedListener',
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'onDoneButtonClicked',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.widget.PickerFragment',
+								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
 			'name' : 'com.facebook.widget.PickerFragment$OnErrorListener',
 			'tags' : ['_interface', '_callback']
 			'fields' : [
@@ -14162,6 +14394,33 @@ config = {
 						}
 						{
 								'type' : 'com.facebook.FacebookException',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.PickerFragment$OnSelectionChangedListener',
+			'tags' : ['_interface', '_callback']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'onSelectionChanged',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.widget.PickerFragment',
+								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
 								'converter' : 'convert_proxy',
 						}
 					],
@@ -14809,6 +15068,55 @@ config = {
 					'name' : 'run',
 					'tags' : ['_instance', '_proxy']
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy$1',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'onDataNeeded',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
+			'name' : 'com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy',
+			'tags' : ['_proxy']
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'attach',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.widget.GraphObjectAdapter',
+								'children' : [{'type': 'com.facebook.model.GraphPlace', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						}
 					],
 					'returns' : [
 						{
@@ -15776,12 +16084,243 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UserSettingsFragment',
-			'tags' : ['_static']
+			'tags' : ['_instance']
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'onCreate',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'onResume',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'onCreateView',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'android.view.LayoutInflater',
+								'converter' : '_TODO_',
+						}
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : '_TODO_',
+						}
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : '_TODO_',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : '_TODO_',
+						}
+					],
+				},
+				{
+					'name' : 'getLoginBehavior',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.SessionLoginBehavior',
+								'converter' : 'convert_proxy',
+						}
+					],
+				},
+				{
+					'name' : 'setSession',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setLoginBehavior',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.SessionLoginBehavior',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setDefaultAudience',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.SessionDefaultAudience',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'getDefaultAudience',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.SessionDefaultAudience',
+								'converter' : 'convert_proxy',
+						}
+					],
+				},
+				{
+					'name' : 'getOnErrorListener',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.widget.LoginButton$OnErrorListener',
+								'converter' : 'convert_proxy',
+						}
+					],
+				},
+				{
+					'name' : 'setOnErrorListener',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.widget.LoginButton$OnErrorListener',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setReadPermissions',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setPublishPermissions',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert_java_util_List',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'clearPermissions',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'setSessionStatusCallback',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
+						}
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						}
+					],
+				},
+				{
+					'name' : 'getSessionStatusCallback',
+					'tags' : ['_instance', '_proxy']
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
+								'converter' : 'convert_proxy',
+						}
+					],
+				},
 			],	
 			'constructors' : [	
+				{
+					'name' : 'com.facebook.widget.UserSettingsFragment',
+					'params' : [
+					],
+				},
 			],
 		},
 		{
@@ -16584,91 +17123,6 @@ config = {
 				},
 			],	
 			'functions' : [
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.widget.GraphObjectPagingLoader$OnErrorListener',
-			'tags' : ['_interface', '_callback']
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onError',
-					'tags' : ['_instance', '_proxy']
-					'params' : [
-						{
-								'type' : 'com.facebook.FacebookException',
-								'converter' : 'convert_proxy',
-						}
-						{
-								'type' : 'com.facebook.widget.GraphObjectPagingLoader',
-								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
-								'converter' : 'convert_proxy',
-						}
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						}
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.widget.PickerFragment$OnSelectionChangedListener',
-			'tags' : ['_interface', '_callback']
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onSelectionChanged',
-					'tags' : ['_instance', '_proxy']
-					'params' : [
-						{
-								'type' : 'com.facebook.widget.PickerFragment',
-								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
-								'converter' : 'convert_proxy',
-						}
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						}
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.widget.PickerFragment$OnDoneButtonClickedListener',
-			'tags' : ['_interface', '_callback']
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onDoneButtonClicked',
-					'tags' : ['_instance', '_proxy']
-					'params' : [
-						{
-								'type' : 'com.facebook.widget.PickerFragment',
-								'children' : [{'type': 'java.lang.Object', 'converter': '_TODO_'}],
-								'converter' : 'convert_proxy',
-						}
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						}
-					],
-				},
 			],	
 			'constructors' : [	
 			],

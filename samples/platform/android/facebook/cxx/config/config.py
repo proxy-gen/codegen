@@ -395,9 +395,9 @@ config = {
 		{
 			"name" : "com.facebook.internal.FileLruCache$BufferFile",
 		},
-		# {
-		# 	"name" : "com.facebook.internal.FileLruCache$CloseCallbackOutputStream",
-		# },
+		{
+			"name" : "com.facebook.internal.FileLruCache$CloseCallbackOutputStream",
+		},
 		{
 			"name" : "com.facebook.internal.FileLruCache$CopyingInputStream",
 		},
@@ -425,9 +425,9 @@ config = {
 		{
 			"name" : "com.facebook.internal.SessionAuthorizationType",
 		},
-		# {
-		# 	"name" : "com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver",
-		# },
+		{
+			"name" : "com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver",
+		},
 		{
 			"name" : "com.facebook.internal.SessionTracker$CallbackWrapper",
 		},
@@ -485,18 +485,18 @@ config = {
 		{
 			"name" : "com.facebook.model.PropertyName",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.FacebookFragment$DefaultSessionStatusCallback",
-		# },
+		{
+			"name" : "com.facebook.widget.FacebookFragment$DefaultSessionStatusCallback",
+		},
 		{
 			"name" : "com.facebook.widget.FacebookFragment",
 		},
 		{
 			"name" : "com.facebook.widget.FriendPickerFragment$1",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy",
-		# },
+		{
+			"name" : "com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy",
+		},
 		{
 			"name" : "com.facebook.widget.FriendPickerFragment",
 		},
@@ -542,12 +542,12 @@ config = {
 		{
 			"name" : "com.facebook.widget.GraphObjectPagingLoader$3",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.GraphObjectPagingLoader$OnErrorListener",
-		# },
-		# {
-		# 	"name" : "com.facebook.widget.GraphObjectPagingLoader$PagedResults",
-		# },
+		{
+			"name" : "com.facebook.widget.GraphObjectPagingLoader$OnErrorListener",
+		},
+		{
+			"name" : "com.facebook.widget.GraphObjectPagingLoader$PagedResults",
+		},
 		{
 			"name" : "com.facebook.widget.GraphObjectPagingLoader",
 		},
@@ -581,9 +581,9 @@ config = {
 		{
 			"name" : "com.facebook.widget.ImageResponse",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.ImageResponseCache$BufferedHttpInputStream",
-		# },
+		{
+			"name" : "com.facebook.widget.ImageResponseCache$BufferedHttpInputStream",
+		},
 		{
 			"name" : "com.facebook.widget.ImageResponseCache",
 		},
@@ -650,15 +650,15 @@ config = {
 		{
 			"name" : "com.facebook.widget.PickerFragment$OnDataChangedListener",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.PickerFragment$OnDoneButtonClickedListener",
-		# },
+		{
+			"name" : "com.facebook.widget.PickerFragment$OnDoneButtonClickedListener",
+		},
 		{
 			"name" : "com.facebook.widget.PickerFragment$OnErrorListener",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.PickerFragment$OnSelectionChangedListener",
-		# },
+		{
+			"name" : "com.facebook.widget.PickerFragment$OnSelectionChangedListener",
+		},
 		{
 			"name" : "com.facebook.widget.PickerFragment$PickerFragmentAdapter",
 		},
@@ -680,12 +680,12 @@ config = {
 		{
 			"name" : "com.facebook.widget.PlacePickerFragment$3",
 		},
-		# {
-		# 	"name" : "com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy$1",
-		# },
-		# {
-		# 	"name" : "com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy",
-		# },
+		{
+			"name" : "com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy$1",
+		},
+		{
+			"name" : "com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy",
+		},
 		{
 			"name" : "com.facebook.widget.PlacePickerFragment$SearchTextWatcher",
 		},
