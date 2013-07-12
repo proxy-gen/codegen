@@ -9,7 +9,7 @@
 #include <JNIContext.hpp>
 #include <sys/resource.h>
 
-#define LOG_ENABLED 1
+#define LOG_ENABLED 0
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
 
 #define CURSOR_CLASS_DECL 4
@@ -50,6 +50,7 @@
 
 #define CXX_TYPE_CLASS_JNI_NAME "com/zynga/sdk/cxx/CXXType"
 #define CXX_TYPE_CLASS_GET_CHILD_TYPE_JNI_SIG "(I)Lcom/zynga/sdk/cxx/CXXType;"
+#define CXX_TYPE_CLASS_GET_CHILD_TYPES_JNI_SIG "()Ljava/util/List;"
 #define CXX_TYPE_ARRAY_CLASS_NAME "com.zynga.sdk.cxx.CXXType$Array"
 
 JNIContext *jni = 0;
@@ -140,24 +141,25 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu)
 	return cursor;
 }
 
-void visitTranslationUnitClasses(char packages[64][STR_ATTR_SIZE], int package_count, char classes[1024][STR_ATTR_SIZE], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object)
+void visitTranslationUnitClasses(char packages[MAX_PACKAGE_COUNT][STR_ATTR_SIZE], int package_count, char classes[MAX_CLASS_COUNT][STR_ATTR_SIZE], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object)
 {
 	log("visitTranslationUnitClasses enter\n");
 	jni->pushLocalFrame();
-	ProcessorContext ctx;
-	memcpy(ctx.packages, packages, sizeof(char) * 64 * STR_ATTR_SIZE);
-	ctx.package_count = package_count;
-	memcpy(ctx.classes, classes, sizeof(char) * 1024 * STR_ATTR_SIZE);
-	ctx.class_count = class_count;
-	ctx.callback = callback;
-	ctx.host_object = host_object;
+	ProcessorContext *ctx = new ProcessorContext;
+	memcpy(ctx->packages, packages, sizeof(char) * MAX_PACKAGE_COUNT * STR_ATTR_SIZE);
+	ctx->package_count = package_count;
+	memcpy(ctx->classes, classes, sizeof(char) * MAX_CLASS_COUNT * STR_ATTR_SIZE);
+	ctx->class_count = class_count;
+	ctx->callback = callback;
+	ctx->host_object = host_object;
 	for (int idx = 0; idx < class_count; idx++)
 	{
 		std::string class_name = std::string(classes[idx]);
 		std::string jni_name = jni->getJNIName(class_name);
 		jclass clazz = (jclass) jni->getClassRef(jni_name.c_str());
-		process_class(class_name, clazz, ctx);		
+		process_class(class_name, clazz, *ctx);		
 	}
+	delete ctx;
 	jni->popLocalFrame();
 	log("visitTranslationUnitClasses exit\n");
 }
@@ -183,7 +185,7 @@ CXXTypeHierarchy createTypeHierarchy(long type_id)
 
 	std::string cxx_class_name = find_type_class_name(cxx_type);
 	strcpy(typeHierarchy._class_name, cxx_class_name.c_str());
-	
+
 	jni->popLocalFrame();
 
 	log("createTypeHierarchy exit\n");
@@ -198,10 +200,11 @@ int visitTypeHierarchyChildren(CXXTypeHierarchy parentTypeHierarchy, TypeHierarc
 	jobject cxx_type = (jobject) parentTypeHierarchy._type_id;
 	if (cxx_type != 0)
 	{
-		int num_child_types = parentTypeHierarchy._child_count;
-		for (int idx = 0; idx < num_child_types; idx++)
+		jobject jchild_cxx_types = jni->invokeObjectMethod(cxx_type, CXX_TYPE_CLASS_JNI_NAME, "getChildTypes", CXX_TYPE_CLASS_GET_CHILD_TYPES_JNI_SIG);
+		int size = jni->invokeIntMethod(jchild_cxx_types, "java/util/List", "size", "()I");
+		for (int idx = 0; idx < size; idx++)
 		{
-			jobject jchild_cxx_type = jni->invokeObjectMethod(cxx_type, CXX_TYPE_CLASS_JNI_NAME, "getChildType", CXX_TYPE_CLASS_GET_CHILD_TYPE_JNI_SIG, (jint) idx);
+			jobject jchild_cxx_type = jni->invokeObjectMethod(jchild_cxx_types, "java/util/List", "get", "(I)Ljava/lang/Object;", idx);
 			CXXTypeHierarchy childTypeHierarchy = createTypeHierarchy((long) jchild_cxx_type);
 			callback(childTypeHierarchy, parentTypeHierarchy, host_object);
 		}
@@ -211,13 +214,13 @@ int visitTypeHierarchyChildren(CXXTypeHierarchy parentTypeHierarchy, TypeHierarc
 	return 1;
 }
 
-void process_class(std::string class_name, jclass clazz, ProcessorContext ctx)
+void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 {
 	log("process_class enter\n");
 	log("process_class class %s\n", class_name.c_str());
 	if (ctx.processed_classes.count(class_name) > 0)
 	{
-		log("class already processed, skipping %s\n", class_name.c_str());
+		log("class already processed, skipping %s\n", class_name.c_str());	
 		return;
 	}
 	ctx.processed_classes.insert(std::pair<std::string, long>(class_name, (long) clazz));
@@ -295,7 +298,7 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext ctx)
 	log("process_class exit\n");
 }
 
-void process_field(std::string class_name, jclass clazz, std::string field_name, jobject field, int idx, ProcessorContext ctx)
+void process_field(std::string class_name, jclass clazz, std::string field_name, jobject field, int idx, ProcessorContext& ctx)
 {
 	log("process_field enter\n");
 	log("process_field field %s\n", field_name.c_str());
@@ -350,7 +353,7 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 	log("process_method exit\n");
 }
 
-void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext ctx)
+void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext& ctx)
 {
 	log("process_method enter\n");
 	log("process_method method %s\n", method_name.c_str());
@@ -433,7 +436,7 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 	log("process_method exit\n");
 }
 
-void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx)
+void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext& ctx)
 {
 	log("process_constructor enter\n");
 	jni->pushLocalFrame();
@@ -492,7 +495,7 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 	log("process_constructor exit\n");
 }
 
-void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext ctx, int cursor_type)
+void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext& ctx, int cursor_type)
 {
 	log("process_type enter\n");
 	jni->pushLocalFrame();

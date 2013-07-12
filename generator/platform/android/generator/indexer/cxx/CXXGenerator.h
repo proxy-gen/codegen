@@ -24,9 +24,9 @@ extern "C"
 
 #define OK	(0)
 #define	ERR	(-1)
-#define BASE_PACKAGE_COUNT 64
+#define MAX_PACKAGE_COUNT 256
 #define BASE_PACKAGE_SIZE 64
-#define BASE_CLASS_COUNT 1024
+#define MAX_CLASS_COUNT 1024
 #define BASE_CLASS_SIZE 64
 #define ATTR_COUNT 64
 #define STR_ATTR_SIZE 64
@@ -104,9 +104,9 @@ struct CXXType
 
 struct ProcessorContext
 {
-	char packages[64][STR_ATTR_SIZE];
+	char packages[MAX_PACKAGE_COUNT][STR_ATTR_SIZE];
 	int package_count;
-	char classes[1024][STR_ATTR_SIZE];
+	char classes[MAX_CLASS_COUNT][STR_ATTR_SIZE];
 	int class_count;
 	TranslationUnitVisitClassesCallback callback;
 	void * host_object;
@@ -127,7 +127,7 @@ CXXCursor getTranslationUnitCursor(CXXTranslationUnit *tu);
 
 void disposeTranslationUnit(CXXTranslationUnit * tu);
 
-void visitTranslationUnitClasses(char packages[64][STR_ATTR_SIZE], int package_count, char classes[1024][STR_ATTR_SIZE], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object);
+void visitTranslationUnitClasses(char packages[MAX_PACKAGE_COUNT][STR_ATTR_SIZE], int package_count, char classes[MAX_CLASS_COUNT][STR_ATTR_SIZE], int class_count, TranslationUnitVisitClassesCallback callback, void * host_object);
 
 CXXTranslationUnit * getCursorTranslationUnit(CXXCursor cursor);
 
@@ -149,15 +149,15 @@ CXXTypeHierarchy createTypeHierarchy(long type_id);
 
 int visitTypeHierarchyChildren(CXXTypeHierarchy parent, TypeHierarchyVisitCallback callback, void * host_object);
 
-void process_class(std::string class_name, jclass clazz, ProcessorContext ctx);
+void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx);
 
-void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext ctx);
+void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext& ctx);
 
-void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext ctx);
+void process_constructor(std::string class_name, jclass clazz, std::string constructor_name, jobject constructor, int idx, ProcessorContext& ctx);
 
-void process_field(std::string class_name, jclass clazz, std::string field_name, jobject field, int idx, ProcessorContext ctx);
+void process_field(std::string class_name, jclass clazz, std::string field_name, jobject field, int idx, ProcessorContext& ctx);
 
-void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext ctx, int cursor_type);
+void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext& ctx, int cursor_type);
 
 int find_class_type(jclass clazz);
 

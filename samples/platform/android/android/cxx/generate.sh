@@ -13,14 +13,13 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-facebook_sdk_dir=$my_parent_dir/java/facebook-android-sdk-3.0.1/facebook
 
 $android_dir/setup.py -s $sdk_dir -n $ndk_dir
 
-# Bump up the max stack size to 64MB ()
+# Bump up the max stack size to 64MB (max) 
 ulimit -s 65532 #kB
 
-export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/android-8/android.jar:$sdk_dir/extras/android/support/v4/android-support-v4.jar:$facebook_sdk_dir/bin/facebooksdk.jar
+export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/android-17/android.jar:$sdk_dir/extras/android/support/v13/android-support-v13.jar
 
 LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
 

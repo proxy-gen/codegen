@@ -53,11 +53,6 @@ public class CXXType {
 		return childTypes.size();
 	}
 	
-	public CXXType getChildType(int idx)
-	{
-		return childTypes.get(idx);
-	}
-	
 	public String toString() {
 		StringBuilder strBldr = new StringBuilder();
 		if (typeClass == Array.class)

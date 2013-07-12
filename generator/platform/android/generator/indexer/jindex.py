@@ -45,6 +45,8 @@ lib_name = "libCXXGenerator"
 lib = load_jindex_library(lib_name)
 
 STR_ATTR_SIZE = 64
+MAX_PACKAGE_COUNT = 256
+MAX_CLASSE_COUNT = 1024
 
 ### Exception Classes ###
 
@@ -141,13 +143,14 @@ class Cursor(Structure):
 		return res
 
 	def get_children(self):
-
-		def visitor(child, parent, children):
-			children.append(child)
-			return 1
-		children = []
-		Cursor_visit(self, Cursor_visit_callback(visitor), children)
-		return children
+		if not hasattr(self, '_children'):
+			def visitor(child, parent, children):
+				children.append(child)
+				return 1
+			children = []
+			Cursor_visit(self, Cursor_visit_callback(visitor), children)
+			self._children = children
+		return self._children
 
 	@property
 	def kind(self):
@@ -337,13 +340,14 @@ class TypeHierarchy(Structure):
 		return res
 
 	def get_children(self):
-
-		def visitor(child, parent, children):
-			children.append(child)
-			return 1
-		children = list()
-		TypeHierarchy_visit(self, TypeHierarchy_visit_callback(visitor), children)
-		return children
+		if not hasattr(self, '_children'):
+			def visitor(child, parent, children):
+				children.append(child)
+				return 1
+			children = list()
+			TypeHierarchy_visit(self, TypeHierarchy_visit_callback(visitor), children)
+			self._children = children
+		return self._children
 
 	@property
 	def child_count(self):
@@ -491,11 +495,11 @@ class TranslationUnit(JavaObject):
 			return 0
 		packages = config_data["packages"]
 		classes = config_data["classes"]
-		c_types_packages = ((c_char * STR_ATTR_SIZE) * 64)()
+		c_types_packages = ((c_char * STR_ATTR_SIZE) * MAX_PACKAGE_COUNT)()
 		for idx in range(len(packages)):
 			c_types_packages[idx].value = packages[idx]["name"]
 		c_types_packages_count = len(packages)
-		c_types_classes = ((c_char * STR_ATTR_SIZE) * 1024)()
+		c_types_classes = ((c_char * STR_ATTR_SIZE) * MAX_CLASSE_COUNT)()
 		for idx in range(len(classes)):
 			c_types_classes[idx].value = classes[idx]["name"]
 		c_types_classes_count = len(classes)
@@ -971,7 +975,7 @@ Index_destroy.restype = c_int
 
 TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_int, c_int, c_int, c_int, c_char_p, c_int, c_long, py_object)
 TranslationUnit_classes_visit = lib.visitTranslationUnitClasses
-TranslationUnit_classes_visit.argtypes = [(c_char * STR_ATTR_SIZE) * 64, c_int, (c_char * STR_ATTR_SIZE) * 1024, c_int, TranslationUnit_classes_visit_callback, py_object]
+TranslationUnit_classes_visit.argtypes = [(c_char * STR_ATTR_SIZE) * MAX_PACKAGE_COUNT, c_int, (c_char * STR_ATTR_SIZE) * MAX_CLASSE_COUNT, c_int, TranslationUnit_classes_visit_callback, py_object]
 
 TranslationUnit_parse = lib.parseTranslationUnit
 TranslationUnit_parse.argtypes = [Index, c_char_p]
