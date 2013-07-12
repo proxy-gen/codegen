@@ -330,16 +330,7 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 			{
 				jni->pushLocalFrame();
 				jobject cxx_type = to_cxx_type(type);
-				std::string field_type_name = find_type_class_name(cxx_type);
-				std::string field_type_package_name = find_type_package_name(cxx_type);
-				char package[STR_ATTR_SIZE];
-				strcpy(package, field_type_package_name.c_str());
-				if (in_packages(package, ctx.packages, ctx.package_count))
-				{
-					std::string jni_name = jni->getJNIName(field_type_name);
-					jclass field_type_class = jni->getClassRef(jni_name.c_str());
-					process_class(field_type_name, field_type_class, ctx);
-				}
+				process_type_hierarchy(cxx_type, ctx);
 				jni->popLocalFrame();
 			}				
 		}
@@ -389,40 +380,23 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 				jni->pushLocalFrame();
 				jobject param = jni->getObjectArrayElement(params, idx);
 				jobject cxx_param = to_cxx_type(param);
-				std::string param_package_name = find_type_package_name(cxx_param);
-				char package[STR_ATTR_SIZE];
-				strcpy(package, param_package_name.c_str());
-				if (in_packages(package, ctx.packages, ctx.package_count))
-				{
-					std::string param_name = find_type_class_name(cxx_param);
-					std::string jni_name = jni->getJNIName(param_name);
-					jclass param_class = jni->getClassRef(jni_name.c_str());
-					process_class(param_name, param_class, ctx);
-				}
+				process_type_hierarchy(cxx_param, ctx);
 				jni->popLocalFrame();
 			}	
 		}
 		jobject retrn = (jobject) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getGenericReturnType", "()Ljava/lang/reflect/Type;");
-		jobject cxx_retrn = to_cxx_type(retrn);
 		if (retrn != 0)
 		{
 			jni->pushLocalFrame();
+			jobject cxx_retrn = to_cxx_type(retrn);
 			process_type(method_name, method, cxx_retrn, 0, ctx, CURSOR_RETURN_DECL);
 			jni->popLocalFrame();
 		}
 		if (retrn != 0)
 		{
 			jni->pushLocalFrame();
-			std::string retrn_name = find_type_class_name(cxx_retrn);
-			std::string retrn_package_name = find_type_package_name(cxx_retrn);
-			char package[STR_ATTR_SIZE];
-			strcpy(package, retrn_package_name.c_str());
-			if (in_packages(package, ctx.packages, ctx.package_count))
-			{
-				std::string jni_name = jni->getJNIName(retrn_name);
-				jclass retrn_class = jni->getClassRef(jni_name.c_str());
-				process_class(retrn_name, retrn_class, ctx);
-			}
+			jobject cxx_retrn = to_cxx_type(retrn);
+			process_type_hierarchy(cxx_retrn, ctx);
 			jni->popLocalFrame();
 		}
 		{
@@ -471,16 +445,7 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 				jni->pushLocalFrame();
 				jobject param = jni->getObjectArrayElement(params, idx);
 				jobject cxx_param = to_cxx_type(param);
-				std::string param_package_name = find_type_package_name(cxx_param);
-				char package[STR_ATTR_SIZE];
-				strcpy(package, param_package_name.c_str());
-				if (in_packages(package, ctx.packages, ctx.package_count))
-				{
-					std::string param_name = find_type_class_name(cxx_param);
-					std::string jni_name = jni->getJNIName(param_name);
-					jclass param_class = jni->getClassRef(jni_name.c_str());
-					process_class(param_name, param_class, ctx);
-				}
+				process_type_hierarchy(cxx_param, ctx);
 				jni->popLocalFrame();
 			}		
 		}
@@ -515,6 +480,31 @@ void process_type(std::string parent_name, jobject parent, jobject type, int idx
 	}
 	jni->popLocalFrame();
 	log("process_type exit\n");
+}
+
+void process_type_hierarchy(jobject& cxx_type, ProcessorContext& ctx)
+{
+	log("process_type_hierarchy enter\n");
+	jni->pushLocalFrame();
+	std::string type_package_name = find_type_package_name(cxx_type);
+	char package[STR_ATTR_SIZE];
+	strcpy(package, type_package_name.c_str());
+	if (in_packages(package, ctx.packages, ctx.package_count))
+	{
+		std::string type_class_name = find_type_class_name(cxx_type);
+		std::string type_class_jni_name = jni->getJNIName(type_class_name);
+		jclass type_class = jni->getClassRef(type_class_jni_name.c_str());
+		process_class(type_class_name, type_class, ctx);
+	}
+	jobject jchild_cxx_types = jni->invokeObjectMethod(cxx_type, CXX_TYPE_CLASS_JNI_NAME, "getChildTypes", CXX_TYPE_CLASS_GET_CHILD_TYPES_JNI_SIG);
+	int size = jni->invokeIntMethod(jchild_cxx_types, "java/util/List", "size", "()I");
+	for (int idx = 0; idx < size; idx++)
+	{
+		jobject jchild_cxx_type = jni->invokeObjectMethod(jchild_cxx_types, "java/util/List", "get", "(I)Ljava/lang/Object;", idx);
+		process_type_hierarchy(jchild_cxx_type, ctx);
+	}	
+	jni->popLocalFrame();
+	log("process_type_hierarchy exit\n");
 }
 
 int find_class_type(jclass clazz)

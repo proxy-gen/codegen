@@ -248,6 +248,15 @@ config = {
 										}
 		},
 		{
+			"name"					:	"convert__long_array_type",
+			"java"					:	{
+											"type"	:	"_long_array_type",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector",
+										}
+		},
+		{
 			"name"					:	"convert__float_array_type",
 			"java"					:	{
 											"type"	:	"_float_array_type",

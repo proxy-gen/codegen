@@ -157,6 +157,8 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 
 void process_type(std::string parent_name, jobject parent, jobject type, int idx, ProcessorContext& ctx, int cursor_type);
 
+void process_type_hierarchy(jobject& cxx_type, ProcessorContext& ctx);
+
 int find_class_type(jclass clazz);
 
 int find_method_type(jobject method);
