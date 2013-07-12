@@ -4,6 +4,9 @@ config = {
 			"name" : "android.os",
 		},
 		{
+			"name" : "android.util",
+		},
+		{
 			"name" : "android.content",
 		},
 	],

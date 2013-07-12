@@ -9,7 +9,7 @@
 #include <JNIContext.hpp>
 #include <sys/resource.h>
 
-#define LOG_ENABLED 0
+#define LOG_ENABLED 1
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
 
 #define CURSOR_CLASS_DECL 4

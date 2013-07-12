@@ -27,6 +27,7 @@ class BaseGenerator(object):
 		self.config['include_wrapper_packages'] = list()
 		self.config['include_wrapper_package_path'] = None
 		self.config['include_configs'] = list()
+		self.config['include_converters'] = list()
 		self.config['namespace_name'] = "CXX"
 	
 	def setup(self):
@@ -74,7 +75,7 @@ def main():
 	parser.add_option("--platform", action="store", type="string", dest="platform",
 							help="Indicates the platform for which code will be generated. Supported platforms are " + str(supported_platforms))
 	parser.add_option("--config", action="store", type="string", dest="config_file_name",
-							help="Specifies the configuration file to be used for code generation")
+							help="Specifies the configuration file to be used for generating code.")
 	parser.add_option("--output-dir", action="store", type="string", dest="output_dir_name",
 							help="Specifies the output directory where the code will be generated")
 	parser.add_option("--package", action="store", type="string", dest="package_name",
@@ -101,8 +102,10 @@ def main():
 							help="List of packages to include in the generated code.")
 	parser.add_option("--include-package-path", action="store", dest="include_package_path",
 							help="Base path to the included package. Package path is relative to --output-dir.")
-	parser.add_option("--include-config", action="append", dest="include_configs"
-							help="Specifies the configuration file to be included for code generation")
+	parser.add_option("--include-config", action="append", dest="include_configs",
+							help="Specifies the additional configuration file(s) to be used for generating code")
+	parser.add_option("--include-converter", action="append", dest="include_converters",
+							help="Specifies the additional converter file(s) to be used for generating code")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 	(opts, args) = parser.parse_args()
@@ -149,6 +152,8 @@ def main():
 		platform_generator.config['include_wrapper_package_path'] = opts.include_wrapper_package_path
 	if opts.include_configs:
 		platform_generator.config['include_configs'] = opts.include_configs
+	if opts.include_converters:
+		platform_generator.config['include_converters'] = opts.include_converters
 
 	platform_generator.setup()
 	if opts.generate_config:
