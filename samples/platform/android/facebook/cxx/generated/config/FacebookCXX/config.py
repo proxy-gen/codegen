@@ -1393,7 +1393,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1405,7 +1405,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -8321,7 +8321,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -9573,7 +9573,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
@@ -10355,7 +10355,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONArray',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10366,7 +10366,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONArray',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Class',
@@ -10427,7 +10427,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Class',
@@ -10460,7 +10460,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Class',
@@ -10481,7 +10481,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONArray',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Class',
@@ -10597,7 +10597,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10653,7 +10653,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONArray',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11413,7 +11413,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'org.json.JSONObject', 'converter': '_TODO_'}],
+								'children' : [{'type': 'org.json.JSONObject', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_java_util_List',
 						},
 					],
@@ -11424,7 +11424,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'org.json.JSONObject', 'converter': '_TODO_'}],
+								'children' : [{'type': 'org.json.JSONObject', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_java_util_List',
 						},
 					],
@@ -11471,7 +11471,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11481,7 +11481,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11515,7 +11515,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11525,7 +11525,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : '_TODO_',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [

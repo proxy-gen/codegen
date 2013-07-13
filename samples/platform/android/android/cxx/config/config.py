@@ -540,6 +540,12 @@ config = {
 	],
 	"classes" : [ 
 		{
+			"name" : "org.json.JSONObject",
+		},
+		{
+			"name" : "org.json.JSONArray",
+		},
+		{
 			"name" : "java.lang.Error"
 		},
 		{

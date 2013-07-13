@@ -735,6 +735,982 @@ config = {
 	],
 	'classes' : [
 		{
+			'name' : 'org.json.JSONObject',
+			'tags' : ['_instance'],
+			'fields' : [
+				{
+					'name' : 'NULL',
+					'tags' : ['_static', '_proxy'],
+					'type' : 
+					{
+							'type' : 'java.lang.Object',
+							'converter' : 'convert_proxy',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'getBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'getDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'length',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'remove',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'keys',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Iterator',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'names',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'quote',
+					'tags' : ['_static', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'has',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'putOpt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'accumulate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'isNull',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'opt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'optDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'optInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'optLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'optString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'getJSONArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optJSONArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getJSONObject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optJSONObject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toJSONArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'numberToString',
+					'tags' : ['_static', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Number',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'org.json.JSONObject',
+					'params' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'org.json.JSONTokener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'java.util.Map',
+								'converter' : 'convert_java_util_Map',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'org.json.JSONArray',
+			'tags' : ['_instance'],
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'getDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'length',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'join',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'isNull',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'opt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'optDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'optInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'optLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'optString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'getJSONArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optJSONArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getJSONObject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optJSONObject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toJSONObject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'org.json.JSONArray',
+					'params' : [
+						{
+								'type' : 'org.json.JSONTokener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'java.util.Collection',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
 			'name' : 'java.lang.Error',
 			'tags' : ['_static'],
 			'fields' : [
@@ -48466,6 +49442,315 @@ config = {
 			],
 		},
 		{
+			'name' : 'org.json.JSONTokener',
+			'tags' : ['_instance'],
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'next',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'nextValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'nextString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'syntaxError',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONException',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'more',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'nextClean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'nextTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+				{
+					'name' : 'skipPast',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'skipTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'back',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'dehexchar',
+					'tags' : ['_static', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'org.json.JSONTokener',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'org.json.JSONException',
+			'tags' : ['_static'],
+			'fields' : [
+			],	
+			'functions' : [
+			],	
+			'constructors' : [	
+				{
+					'name' : 'org.json.JSONException',
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_java_lang_String',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'java.lang.Number',
+			'tags' : ['_abstract'],
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'byteValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+				},
+				{
+					'name' : 'shortValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
+				{
+					'name' : 'intValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'longValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'floatValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'doubleValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.lang.Number',
+					'params' : [
+					],
+				},
+			],
+		},
+		{
 			'name' : 'java.lang.Throwable',
 			'tags' : ['_instance'],
 			'fields' : [
@@ -85831,6 +87116,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'isNull',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'registerContentObserver',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -86109,22 +87410,6 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'isNull',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -86874,6 +88159,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'copyFrom',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'describeContents',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -86941,22 +88242,6 @@ config = {
 					'name' : 'recycle',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'copyFrom',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.os.Message',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
@@ -132741,6 +134026,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'copyFrom',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.WindowManager$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
 					'name' : 'getTitle',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -132781,22 +134082,6 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'copyFrom',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.view.WindowManager$LayoutParams',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
