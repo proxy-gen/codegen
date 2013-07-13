@@ -30,7 +30,7 @@ class Generator(BaseGenerator):
 		self._setup_default_converters()
 		self._setup_included_packages()
 		self._setup_included_wrapper_packages()
-		self._setup_included_configs()
+		self._setup_included_config_file_path()
 		self._setup_included_converters()
 		self._setup_config()
 
@@ -125,8 +125,8 @@ class Generator(BaseGenerator):
 		self.include_wrapper_packages = self.config['include_wrapper_packages']
 		self.include_wrapper_package_path = self.config['include_wrapper_package_path']
 
-	def _setup_included_configs(self):
-		self.include_config_file_names = self.config['include_config_file_names']
+	def _setup_included_config_file_path(self):
+		self.include_config_file_path = self.config['include_config_file_path']
 
 	def _setup_included_converters(self):
 		self.include_converters = self.config['include_converters']
@@ -443,8 +443,9 @@ class Generator(BaseGenerator):
 		logging.debug("Generator _generate_config enter")
 
 		self.config_data = ConfigModuleLoader.load_config(self.config_file_name)
+		self.include_config_data_list = ConfigModuleLoader.load_included_configs(self.config_data, self.include_config_file_path)
 		self.index.build_config_closure(self.config_data)
-		self._update_config_data()
+		self._update_config_data(self.config_data)
 
 		self.config_py_file_name = "config.py"
 		logging.debug("self.config_py_file_name " + str(self.config_py_file_name))
@@ -549,11 +550,11 @@ class Generator(BaseGenerator):
 
 		logging.debug("Generator _generate_converters_report exit")
 
-	def _update_config_data(self):
+	def _update_config_data(self, data):
 		logging.debug("Generator _update_config_data enter")
-		self._tag_config_data(self.config_data)
-		self._attach_default_converters(self.config_data)
-		self._attach_config_converters(self.config_data)
+		self._tag_config_data(data)
+		self._attach_default_converters(data)
+		self._attach_config_converters(data)
 		logging.debug("Generator _update_config_data exit")
 
 	def _tag_config_data(self, data):
@@ -651,7 +652,17 @@ class Generator(BaseGenerator):
 						if "no_proxy" in clazz["tags"]:
 							no_proxy = True
 					if not no_proxy:
-						convertible["converter"] = 'convert_proxy'						
+						convertible["converter"] = 'convert_proxy'
+		if "converter" not in convertible:
+			for include_config_data in self.include_config_data_list:
+				for clazz in include_config_data["classes"]:
+					if clazz["name"] == convertible["type"]:
+						no_proxy = False
+						if "tags" in clazz:
+							if "no_proxy" in clazz["tags"]:
+								no_proxy = True
+						if not no_proxy:
+							convertible["converter"] = 'convert_proxy'					
 		if "converter" not in convertible:
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
@@ -671,6 +682,17 @@ class ConfigModuleLoader(object):
 		config_data = getattr(config_module, "config")
 		return config_data
 
+	@classmethod
+	def load_included_configs(cls, config_data, include_config_file_path):
+		include_config_data_list = list()
+		if "includes" in config_data:
+			includes = config_data["includes"]
+			for include in includes:
+				include_rel_config_file_name = include["name"]
+				include_config_file_name = os.path.join(include_config_file_path, include_rel_config_file_name)
+				include_config_data = ConfigModuleLoader.load_config(include_config_file_name)
+				include_config_data_list.append(include_config_data)
+		return include_config_data_list
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):

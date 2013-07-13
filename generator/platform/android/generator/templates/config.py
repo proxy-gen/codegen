@@ -35,6 +35,23 @@
 
 
 config = {
+#if 'includes' in $config_data
+#set $includes = $config_data['includes']
+	'includes' : [
+#for $include in $includes
+		{
+		#for $include_key in $include
+			#set $include_value = $include[$include_key]
+			#if $type($include_value) == str
+			'$include_key'  : '$include_value',
+			#else
+			'$include_key'  : $include_value,
+			#end if
+		#end for
+		},
+#end for
+	],
+#end if
 #set $converters = $config_data['converters']
 	'converters' : [
 #for $converter in $converters
@@ -71,7 +88,7 @@ config = {
 		{
 			'name' : '${clazz['name']}',
 			#if 'tags' in $clazz
-			'tags' : $clazz['tags']
+			'tags' : $clazz['tags'],
 			#end if
 			#if 'fields' in $clazz
 			#set $fields = $clazz['fields']
@@ -80,7 +97,7 @@ config = {
 				{
 					'name' : '${field['name']}',
 					#if 'tags' in $field
-					'tags' : $field['tags']
+					'tags' : $field['tags'],
 					#end if
 					#if 'type' in $field
 					'type' : 
@@ -94,7 +111,7 @@ config = {
 							'$type_key' : $type_value,
 							#end if
 						#end for
-					}
+					},
 					#end if
 				},
 				#end for
@@ -107,7 +124,7 @@ config = {
 				{
 					'name' : '${function['name']}',
 					#if 'tags' in $function
-					'tags' : $function['tags']
+					'tags' : $function['tags'],
 					#end if
 					#set $params = $function['params']
 					'params' : [
@@ -121,7 +138,7 @@ config = {
 								'$type_key' : $type_value,
 								#end if
 							#end for
-						}
+						},
 						#end for
 					],
 					#set $returns = $function['returns']
@@ -136,7 +153,7 @@ config = {
 								'$type_key' : $type_value,
 								#end if
 							#end for
-						}
+						},
 						#end for
 					],
 				},
@@ -161,7 +178,7 @@ config = {
 								'$type_key' : $type_value,
 								#end if
 							#end for
-						}
+						},
 						#end for
 					],
 				},

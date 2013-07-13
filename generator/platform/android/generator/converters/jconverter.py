@@ -169,7 +169,7 @@ config = {
 		{
 			"name"		:	"convert_java_lang_BigInteger",
 			"java"		:	{ 
-								"type" : "java.lang.BigInteger",
+								"type" : "java.math.BigInteger",
 							},
 			"cxx"		:	{
 								"type" : "double",
@@ -178,7 +178,7 @@ config = {
 		{
 			"name"					:	"convert_java_math_BigDecimal",
 			"java"					:	{ 
-											"type" 	: "java.lang.BigDecimal", 
+											"type" 	: "java.math.BigDecimal", 
 										},
 			"cxx"					:	{
 											"type" 	: "double",

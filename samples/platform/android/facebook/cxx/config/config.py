@@ -1,4 +1,9 @@
 config = {
+	"includes" : [
+		{
+			"name" : "android/cxx/generated/config/AndroidCXX/config.py",
+		},
+	],
 	"packages" : [
 		{
 			"name" : "com.facebook",
@@ -47,9 +52,9 @@ config = {
 		{
 			"name" : "com.facebook.AuthorizationClient$AuthorizationRequest",
 		},
-		# {
-		# 	"name" : "com.facebook.AuthorizationClient$BackgroundProcessingListener",
-		# },
+		{
+			"name" : "com.facebook.AuthorizationClient$BackgroundProcessingListener",
+		},
 		{
 			"name" : "com.facebook.AuthorizationClient$GetTokenAuthHandler$1",
 		},
@@ -59,9 +64,9 @@ config = {
 		{
 			"name" : "com.facebook.AuthorizationClient$KatanaAuthHandler",
 		},
-		# {
-		# 	"name" : "com.facebook.AuthorizationClient$KatanaLoginDialogAuthHandler",
-		# },
+		{
+			"name" : "com.facebook.AuthorizationClient$KatanaLoginDialogAuthHandler",
+		},
 		{
 			"name" : "com.facebook.AuthorizationClient$KatanaProxyAuthHandler",
 		},
@@ -236,9 +241,9 @@ config = {
 		{
 			"name" : "com.facebook.Session$AuthorizationRequest$4",
 		},
-		# {
-		# 	"name" : "com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1",
-		# },
+		{
+			"name" : "com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1",
+		},
 		{
 			"name" : "com.facebook.Session$AuthorizationRequest",
 		},
@@ -323,9 +328,9 @@ config = {
 		{
 			"name" : "com.facebook.TokenCachingStrategy",
 		},
-		# {
-		# 	"name" : "com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver",
-		# },
+		{
+			"name" : "com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver",
+		},
 		{
 			"name" : "com.facebook.UiLifecycleHelper",
 		},

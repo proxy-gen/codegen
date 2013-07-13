@@ -540,6 +540,48 @@ config = {
 	],
 	"classes" : [ 
 		{
+			"name" : "java.lang.Error"
+		},
+		{
+			"name" : "java.util.concurrent.Executor",
+		},
+		{
+			"name" : "java.io.BufferedOutputStream",
+		},
+		{
+			"name" : "java.io.FileNotFoundException",
+		},
+		{
+			"name" : "java.io.IOException",
+		},
+		{
+			"name" : "java.io.Closeable",
+		},
+		{
+			"name" : "java.net.HttpURLConnection",
+		},
+		{
+			"name" : "java.net.MalformedURLException",
+		},
+		{
+			"name" : "java.util.Currency",
+		},
+		{
+			"name" : "android.webkit.WebView",
+		},
+		{
+			"name" : "android.webkit.SslErrorHandler",
+		},
+		{
+			"name" : "android.net.http.SslError",
+		},
+		{
+			"name" : "android.support.v4.app.Fragment",
+		},
+		{
+			"name" : "android.location.Location",
+		},
+		{
 			"name" : "android.widget.AbsListView",
 		},
 		{
