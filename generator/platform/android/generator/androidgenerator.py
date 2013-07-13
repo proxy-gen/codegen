@@ -112,12 +112,7 @@ class Generator(BaseGenerator):
 		self.default_converters_file_name = os.path.join(self.target, "converters", "jconverter.py")
 		logging.debug("self.default_converters_file_name " + str(self.default_converters_file_name))
 
-		import imp
-		default_converters_module_path = os.path.dirname(self.default_converters_file_name)
-		default_converters_module_name, default_converters_file_extension = os.path.splitext(os.path.basename(self.default_converters_file_name))
-		filepath, pathname, description = imp.find_module(default_converters_module_name, [default_converters_module_path])
-		default_converters_module = imp.load_module(default_converters_module_name, filepath, pathname, description)
-		config = getattr(default_converters_module, "config")
+		config = ConfigModuleLoader.load_config(self.default_converters_file_name)
 
 		assert "converters" in config
 		self.default_converters = config["converters"]
@@ -131,7 +126,7 @@ class Generator(BaseGenerator):
 		self.include_wrapper_package_path = self.config['include_wrapper_package_path']
 
 	def _setup_included_configs(self):
-		self.include_configs = self.config['include_configs']
+		self.include_config_file_names = self.config['include_config_file_names']
 
 	def _setup_included_converters(self):
 		self.include_converters = self.config['include_converters']
@@ -447,14 +442,7 @@ class Generator(BaseGenerator):
 
 		logging.debug("Generator _generate_config enter")
 
-		import imp
-
-		config_module_path = os.path.dirname(self.config_file_name)
-		config_module_name, config_file_extension = os.path.splitext(os.path.basename(self.config_file_name))
-		filepath, pathname, description = imp.find_module(config_module_name, [config_module_path])
-		config_module = imp.load_module(config_module_name, filepath, pathname, description)
-
-		self.config_data = getattr(config_module, "config")
+		self.config_data = ConfigModuleLoader.load_config(self.config_file_name)
 		self.index.build_config_closure(self.config_data)
 		self._update_config_data()
 
@@ -670,6 +658,19 @@ class Generator(BaseGenerator):
 			for child_convertible in convertible["children"]:
 				self._attach_config_converter(child_convertible)
 		logging.debug("Generator _attach_config_converter exit")
+
+class ConfigModuleLoader(object):
+
+	@classmethod
+	def load_config(cls, config_file_name):
+		import imp
+		config_module_path = os.path.dirname(config_file_name)
+		config_module_name, config_file_extension = os.path.splitext(os.path.basename(config_file_name))
+		filepath, pathname, description = imp.find_module(config_module_name, [config_module_path])
+		config_module = imp.load_module(config_module_name, filepath, pathname, description)
+		config_data = getattr(config_module, "config")
+		return config_data
+
 		
 class NativeClass(object):
 	def __init__(self, cursor, generator, idx):
