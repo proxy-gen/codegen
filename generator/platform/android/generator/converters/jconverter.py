@@ -1,6 +1,14 @@
 #	Default converters 
-# 	Special Types
-#		_array_type		 Java Array
+# 	Special Type Markers
+#		_object_array_type		 							Object array type
+#		_byte_array_type									byte array type
+#		_short_array_type									short array type
+#		_int_array_type										int array type
+#		_long_array_type									long array type
+#		_float_array_type									float array type
+#		_double_array_type									double array type
+#		_boolean_array_type									boolean array type
+#		_char_array_type									char array type
 
 config = {
 	"converters" : [

@@ -2163,6 +2163,166 @@ jobject JNIContext::readObjectObjectArrayElement(jobjectArray array, int index)
 	return 0;
 }
 
+bool * JNIContext::getBooleanArray(jbooleanArray array)
+{
+	bool * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetBooleanArrayRegion(array,0,count,(jboolean *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+char * JNIContext::getByteArray(jbyteArray array)
+{
+	char * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetByteArrayRegion(array,0,count,(jbyte *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+char * JNIContext::getCharArray(jcharArray array)
+{
+	char * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetCharArrayRegion(array,0,count,(jchar *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+short * JNIContext::getShortArray(jshortArray array)
+{
+	short * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetShortArrayRegion(array,0,count,(jshort *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+int * JNIContext::getIntArray(jintArray array)
+{
+	int * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetIntArrayRegion(array,0,count,(jint *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
+long * JNIContext::getLongArray(jlongArray array)
+{
+	long * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetLongArrayRegion(array,0,count,(jlong *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+	
+float * JNIContext::getFloatArray(jfloatArray array)
+{
+	float * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetFloatArrayRegion(array,0,count,(jfloat *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+	
+double * JNIContext::getDoubleArray(jdoubleArray array)
+{
+	double * result = 0;
+	if (array != 0)
+	{
+		int count = getArrayLength(array);
+		if (count > 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);			
+			env->GetDoubleArrayRegion(array,0,count,(jdouble *) result);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return result;
+}
+
 jobject JNIContext::createNewObject(jclass clazz, jmethodID methodID, jvalue *args)
 {
 	JNIEnv *env = 0;
@@ -2306,6 +2466,29 @@ jbyteArray JNIContext::createByteArray(jbyte& array, int count)
 	getEnv(&env);
 	jbyte buf[count];
 	jbyte * ptr = &array;
+	for (int i = 0; i < count; i++)
+	{
+		buf[i] = (jbyte) ptr[i];
+	}
+	jbyteArray jArray = env->NewByteArray(count);
+	if (checkException(env))
+	{
+		return 0;
+	}
+	env->SetByteArrayRegion(jArray, 0, count, buf);
+	if (checkException(env))
+	{
+		return 0;
+	}
+	return jArray;
+}
+
+jbyteArray JNIContext::createByteArray(char& array, int count)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	jbyte buf[count];
+	jbyte * ptr = (jbyte *) &array;
 	for (int i = 0; i < count; i++)
 	{
 		buf[i] = (jbyte) ptr[i];

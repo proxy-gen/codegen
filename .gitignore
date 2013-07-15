@@ -16,7 +16,7 @@
 .DS_Store
 
 # Android
-android/libs
+libs
 *.o.d
 
 # iOS
@@ -27,7 +27,6 @@ iOS/generator/out.xml
 
 # Generated
 libs
-generated/output/
 local.properties
 
 # Java
@@ -35,4 +34,6 @@ local.properties
 
 # Eclipse
 bin
+.settings
+gen
 

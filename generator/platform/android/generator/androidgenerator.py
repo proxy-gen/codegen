@@ -158,12 +158,17 @@ class Generator(BaseGenerator):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
 
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "src", self.package_name)
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "src", "cxx", self.package_name)
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
 
-		self.makefile_outdir_name =  os.path.join(self.output_dir_name, "output")
+		self.jimpl_outdir_name = os.path.join(self.output_dir_name, "src", "java", self.package_name)
+		if not os.path.exists(self.jimpl_outdir_name):
+			os.makedirs(self.jimpl_outdir_name)
+		logging.debug("self.jimpl_outdir_name " + str(self.jimpl_outdir_name))
+
+		self.makefile_outdir_name =  os.path.join(self.output_dir_name, "project")
 		if not os.path.exists(self.makefile_outdir_name):
 			os.makedirs(self.makefile_outdir_name)				
 		logging.debug("self.makefile_outdir_name " + str(self.makefile_outdir_name))
@@ -183,12 +188,17 @@ class Generator(BaseGenerator):
 			os.makedirs(self.wrapper_header_outdir_name)
 		logging.debug("self.wrapper_header_outdir_name " + str(self.wrapper_header_outdir_name))
 
-		self.wrapper_impl_outdir_name = os.path.join(self.output_dir_name, "wrapper-src", self.package_name)
+		self.wrapper_impl_outdir_name = os.path.join(self.output_dir_name, "wrapper-src", "cxx", self.package_name)
 		if not os.path.exists(self.wrapper_impl_outdir_name):
 			os.makedirs(self.wrapper_impl_outdir_name)
 		logging.debug("self.wrapper_impl_outdir_name " + str(self.wrapper_impl_outdir_name))
 
-		self.wrapper_makefile_outdir_name =  os.path.join(self.output_dir_name, "wrapper-output")
+		self.wrapper_jimpl_outdir_name = os.path.join(self.output_dir_name, "wrapper-src", "java", self.package_name)
+		if not os.path.exists(self.wrapper_jimpl_outdir_name):
+			os.makedirs(self.wrapper_jimpl_outdir_name)
+		logging.debug("self.wrapper_jimpl_outdir_name " + str(self.wrapper_jimpl_outdir_name))
+
+		self.wrapper_makefile_outdir_name =  os.path.join(self.output_dir_name, "wrapper-project")
 		if not os.path.exists(self.wrapper_makefile_outdir_name):
 			os.makedirs(self.wrapper_makefile_outdir_name)				
 		logging.debug("self.wrapper_makefile_outdir_name " + str(self.wrapper_makefile_outdir_name))

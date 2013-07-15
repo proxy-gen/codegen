@@ -204,10 +204,9 @@ public:
 	jobject getStaticObjectField(jclass clazz, jfieldID fieldID);
 
 	jsize getArrayLength(jarray array);
-	jobject getObjectArrayElement(jobjectArray array, int index);
-	void setObjectArrayElement(jobjectArray array, int index, jobject value);
 	jbooleanArray createBooleanArray(bool& array, int count);
 	jbyteArray createByteArray(jbyte& array, int count);
+	jbyteArray createByteArray(char& array, int count);
 	jcharArray createCharArray(char& array, int count);
 	jshortArray createShortArray(short& array, int count);
 	jintArray createIntArray(int& array, int count);
@@ -217,6 +216,9 @@ public:
 	jobjectArray createStringArray(std::string& array, int count);
 	jobjectArray createObjectArray(int count, jclass clazz);
 
+
+	jobject getObjectArrayElement(jobjectArray array, int index);
+	void setObjectArrayElement(jobjectArray array, int index, jobject value);
 	jboolean readBooleanObjectArrayElement(jobjectArray array, int index);
 	jbyte readByteObjectArrayElement(jobjectArray array, int index);
 	jchar readCharObjectArrayElement(jobjectArray array, int index);
@@ -227,6 +229,15 @@ public:
 	jdouble readDoubleObjectArrayElement(jobjectArray array, int index);
 	jstring readStringObjectArrayElement(jobjectArray array, int index);
 	jobject readObjectObjectArrayElement(jobjectArray array, int index);
+
+	bool * getBooleanArray(jbooleanArray array);
+	char * getByteArray(jbyteArray array);
+	char * getCharArray(jcharArray array);
+	short * getShortArray(jshortArray array);
+	int * getIntArray(jintArray array);
+	long * getLongArray(jlongArray array);
+	float * getFloatArray(jfloatArray array);
+	double * getDoubleArray(jdoubleArray array);
 
 	jsize getMapSize(jobject java_map); // java_map should implement java.util.Map
 	jobject getMapKeyIterator(jobject java_map); // java_map should implement java.util.Map
