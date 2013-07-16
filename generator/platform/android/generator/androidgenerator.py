@@ -134,13 +134,13 @@ class Generator(BaseGenerator):
 	def _setup_included_packages(self):
 		logging.debug("_setup_included_packages enter")
 		self.include_packages = self.config['include_packages']
-		self.include_package_path = self.config['include_package_path']
+		self.include_package_rel_paths = self.config['include_package_rel_paths']
 		logging.debug("_setup_included_packages exit")
 
 	def _setup_included_wrapper_packages(self):
 		logging.debug("_setup_included_wrapper_packages enter")
 		self.include_wrapper_packages = self.config['include_wrapper_packages']
-		self.include_wrapper_package_path = self.config['include_wrapper_package_path']
+		self.include_wrapper_package_rel_paths = self.config['include_wrapper_package_rel_paths']
 		logging.debug("_setup_included_wrapper_packages exit")
 
 	def _setup_config_file_name(self):
@@ -374,6 +374,7 @@ class Generator(BaseGenerator):
 	def _update_config(self, config_module):
 		logging.debug("Generator _update_config_data enter")
 		self._tag_config_data(config_module.config_data)
+		self._attach_include_converters(config_module.config_data)
 		self._attach_default_converters(config_module.config_data)
 		self._attach_config_converters(config_module.config_data, config_module)
 		logging.debug("Generator _update_config_data exit")
@@ -419,8 +420,22 @@ class Generator(BaseGenerator):
 	def _tag_constructor(self, constructor):
 		pass
 
+	def _attach_include_converters(self, data):
+		logging.debug("_attach_include_converters enter")
+		if "converters" not in data:
+			data["converters"] = []
+		for include_converter in self.include_converters:
+			found = False
+			for converter in data["converters"]:
+				if converter["name"] == include_converter["name"]:
+					found = True
+					break
+			if found == False:
+				data["converters"].append(include_converter)
+		logging.debug("_attach_include_converters exit")
+
 	def _attach_default_converters(self, data):
-		logging.debug("Generator _attach_default_converters enter")
+		logging.debug("_attach_default_converters enter")
 		if "converters" not in data:
 			data["converters"] = []
 		for default_converter in self.default_converters:
@@ -431,10 +446,10 @@ class Generator(BaseGenerator):
 					break
 			if found == False:
 				data["converters"].append(default_converter)
-		logging.debug("Generator _attach_default_converters exit")
+		logging.debug("_attach_default_converters exit")
 
 	def _attach_config_converters(self, data, module):
-		logging.debug("Generator _attach_config_converters enter")
+		logging.debug("_attach_config_converters enter")
 		if "params" in data or "returns" in data:
 			if "params" in data:
 				for param in data["params"]:
@@ -455,10 +470,10 @@ class Generator(BaseGenerator):
 			if "fields" in data:
 				for field in data["fields"]:
 					self._attach_config_converter(field["type"], module)
-		logging.debug("Generator _attach_config_converters enter")
+		logging.debug("_attach_config_converters enter")
 
 	def _attach_config_converter(self, convertible, module):
-		logging.debug("Generator _attach_config_converter enter")
+		logging.debug("_attach_config_converter enter")
 		if "converter" not in convertible:
 			converters = config_module.config_data["converters"]
 			for converter in converters:
@@ -489,7 +504,7 @@ class Generator(BaseGenerator):
 		if "children" in convertible:
 			for child_convertible in convertible["children"]:
 				self._attach_config_converter(child_convertible, module)
-		logging.debug("Generator _attach_config_converter exit")
+		logging.debug("_attach_config_converter exit")
 
 
 	def _teardown_index(self):

@@ -16,13 +16,13 @@ LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_EXPORT_C_INCLUDES :=\$(CXX_INCLUDES)
-LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
+LOCAL_CFLAGS    := -DANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
 #if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 #end if
-#for $include_package in $include_packages
-LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
+#for $include_wrapper_package in $include_wrapper_packages
+LOCAL_WHOLE_STATIC_LIBRARIES += ${include_wrapper_package}_static
 #end for
 include \$(BUILD_STATIC_LIBRARY)
 
@@ -32,18 +32,20 @@ LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
 LOCAL_EXPORT_C_INCLUDES := \$(CXX_INCLUDES)
-LOCAL_CFLAGS    := -DZDK_ANDROID_PLATFORM
+LOCAL_CFLAGS    := -DANDROID_PLATFORM
 LOCAL_EXPORT_LDLIBS := -llog
 #if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 #end if
-#for $include_package in $include_packages
-LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}_static
+#for $include_wrapper_package in $include_wrapper_packages
+LOCAL_WHOLE_STATIC_LIBRARIES += ${include_wrapper_package}
 #end for
 include \$(BUILD_SHARED_LIBRARY)
 
+\$(call import-module, project/exported/${package_name})
+
 \$(call import-module, runtime/ZyngaCXX/jni)
 
-#for $include_package in $include_packages
-\$(call import-module, $include_package)
+#for $include_wrapper_package_rel_path in $include_wrapper_package_rel_paths
+\$(call import-module, $include_wrapper_package_rel_path)
 #end for

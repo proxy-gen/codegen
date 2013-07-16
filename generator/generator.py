@@ -49,9 +49,9 @@ class Configurator(object):
 		generator.config['generate_wrapper_code'] = opts.generate_wrapper_code if opts.generate_wrapper_code else False
 		generator.config['generate_wrapper_projects'] = opts.generate_wrapper_projects if opts.generate_wrapper_projects else False
 		generator.config['include_packages'] = opts.include_packages if opts.include_packages else list()
-		generator.config['include_package_path'] = opts.include_package_path if opts.include_package_path else None
+		generator.config['include_package_rel_paths'] = opts.include_package_rel_paths if opts.include_package_rel_paths else list()
 		generator.config['include_wrapper_packages'] = opts.include_wrapper_packages if opts.include_wrapper_packages else list()
-		generator.config['include_wrapper_package_path'] = opts.include_wrapper_package_path if opts.include_wrapper_package_path else None
+		generator.config['include_wrapper_package_rel_paths'] = opts.include_wrapper_package_rel_paths if opts.include_wrapper_package_rel_paths else list()
 		generator.config['include_config_file_path'] = opts.include_config_file_path if opts.include_config_file_path else None
 		generator.config['include_converters'] = opts.include_converters if opts.include_converters else list()
 
@@ -94,7 +94,7 @@ def main():
 	parser.add_option("--wrapper-file", action="store", type="string", dest="wrapper_file_name",
 							help="Specifies the name used for the generated wrapper file(s)")
 	parser.add_option("--namespace", action="store", dest="namespace_name",
-							help="Namespace of generated CXX (default value is CXX)")
+							help="Namespace of generated CXX (default value is 'CXX')")
 	parser.add_option("--generate-reports", action="store_true", dest="generate_reports", default=False,
 							help="Flag to indicate if the report(s) file needs to be generated (default is False)")
 	parser.add_option("--generate-code", action="store_true", dest="generate_code", default=False,
@@ -109,12 +109,12 @@ def main():
 							help="Flag to indicate if the platform wrapper project(s) need to be generated (default is False")
 	parser.add_option("--include-wrapper-package", action="append", dest="include_wrapper_packages",
 							help="List of packages to include in the generated wrapper code.")
-	parser.add_option("--include-wrapper-package-path", action="store", dest="include_wrapper_package_path",
-							help="Base path to the included package. Package path is relative to --output-dir.")
+	parser.add_option("--include-wrapper-package-rel-path", action="append", dest="include_wrapper_package_rel_paths",
+							help="Relative path to the included packages (relative to --output-dir)")
 	parser.add_option("--include-package", action="append", dest="include_packages",
 							help="List of packages to include in the generated code.")
-	parser.add_option("--include-package-path", action="store", dest="include_package_path",
-							help="Base path to the included package. Package path is relative to --output-dir.")
+	parser.add_option("--include-package-rel-path", action="append", dest="include_package_rel_paths",
+							help="Relative path to the included packages (relative to --output-dir)")
 	parser.add_option("--include-config-path", action="store", dest="include_config_file_path",
 							help="Base path to the included configs. Config path is absolute.")
 	parser.add_option("--include-converter", action="append", dest="include_converters",
