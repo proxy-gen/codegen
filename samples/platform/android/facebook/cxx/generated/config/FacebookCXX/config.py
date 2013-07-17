@@ -306,7 +306,7 @@ config = {
 				},
 				{
 					'name' : 'createFromExistingAccessToken',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -335,7 +335,7 @@ config = {
 				},
 				{
 					'name' : 'createFromNativeLinkingIntent',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
@@ -359,7 +359,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NONE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -368,7 +368,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_WEB',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -377,7 +377,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_NATIVE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -386,7 +386,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_SERVICE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -395,7 +395,7 @@ config = {
 				},
 				{
 					'name' : 'WEB_VIEW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -404,7 +404,7 @@ config = {
 				},
 				{
 					'name' : 'TEST_USER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -413,7 +413,7 @@ config = {
 				},
 				{
 					'name' : 'CLIENT_TOKEN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -437,7 +437,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -808,7 +808,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SUCCESS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -817,7 +817,7 @@ config = {
 				},
 				{
 					'name' : 'CANCEL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -826,7 +826,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -850,7 +850,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1115,7 +1115,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'AUTHENTICATION_RETRY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1124,7 +1124,7 @@ config = {
 				},
 				{
 					'name' : 'AUTHENTICATION_REOPEN_SESSION',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1133,7 +1133,7 @@ config = {
 				},
 				{
 					'name' : 'PERMISSION',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1142,7 +1142,7 @@ config = {
 				},
 				{
 					'name' : 'SERVER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1151,7 +1151,7 @@ config = {
 				},
 				{
 					'name' : 'THROTTLING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1160,7 +1160,7 @@ config = {
 				},
 				{
 					'name' : 'OTHER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1169,7 +1169,7 @@ config = {
 				},
 				{
 					'name' : 'BAD_REQUEST',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1178,7 +1178,7 @@ config = {
 				},
 				{
 					'name' : 'CLIENT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1202,7 +1202,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1618,7 +1618,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'GET',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1627,7 +1627,7 @@ config = {
 				},
 				{
 					'name' : 'POST',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1636,7 +1636,7 @@ config = {
 				},
 				{
 					'name' : 'DELETE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1660,7 +1660,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1819,7 +1819,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'REQUESTS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1828,7 +1828,7 @@ config = {
 				},
 				{
 					'name' : 'INCLUDE_ACCESS_TOKENS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1837,7 +1837,7 @@ config = {
 				},
 				{
 					'name' : 'INCLUDE_RAW_RESPONSES',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1846,7 +1846,7 @@ config = {
 				},
 				{
 					'name' : 'CACHE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1855,7 +1855,7 @@ config = {
 				},
 				{
 					'name' : 'DEVELOPER_ERRORS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1879,7 +1879,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -2490,7 +2490,7 @@ config = {
 				},
 				{
 					'name' : 'newPostRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2534,7 +2534,7 @@ config = {
 				},
 				{
 					'name' : 'newRestRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2578,7 +2578,7 @@ config = {
 				},
 				{
 					'name' : 'newMeRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2598,7 +2598,7 @@ config = {
 				},
 				{
 					'name' : 'newMyFriendsRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2646,7 +2646,7 @@ config = {
 				},
 				{
 					'name' : 'newUploadVideoRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2670,7 +2670,7 @@ config = {
 				},
 				{
 					'name' : 'newGraphPathRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2694,7 +2694,7 @@ config = {
 				},
 				{
 					'name' : 'newPlacesSearchRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2726,7 +2726,7 @@ config = {
 				},
 				{
 					'name' : 'newStatusUpdateRequest',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3660,7 +3660,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NEXT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.Response$PagingDirection',
@@ -3669,7 +3669,7 @@ config = {
 				},
 				{
 					'name' : 'PREVIOUS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.Response$PagingDirection',
@@ -3693,7 +3693,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5050,7 +5050,7 @@ config = {
 				},
 				{
 					'name' : 'restoreSession',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5078,7 +5078,7 @@ config = {
 				},
 				{
 					'name' : 'getActiveSession',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5106,7 +5106,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionFromCache',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5154,7 +5154,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionWithAccessToken',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5195,7 +5195,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NONE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5204,7 +5204,7 @@ config = {
 				},
 				{
 					'name' : 'ONLY_ME',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5213,7 +5213,7 @@ config = {
 				},
 				{
 					'name' : 'FRIENDS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5222,7 +5222,7 @@ config = {
 				},
 				{
 					'name' : 'EVERYONE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5246,7 +5246,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5270,7 +5270,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SSO_WITH_FALLBACK',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5279,7 +5279,7 @@ config = {
 				},
 				{
 					'name' : 'SSO_ONLY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5288,7 +5288,7 @@ config = {
 				},
 				{
 					'name' : 'SUPPRESS_SSO',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5312,7 +5312,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5336,7 +5336,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATED_CATEGORY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5345,7 +5345,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED_CATEGORY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5354,7 +5354,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED_CATEGORY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5378,7 +5378,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5402,7 +5402,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5411,7 +5411,7 @@ config = {
 				},
 				{
 					'name' : 'CREATED_TOKEN_LOADED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5420,7 +5420,7 @@ config = {
 				},
 				{
 					'name' : 'OPENING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5429,7 +5429,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5438,7 +5438,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED_TOKEN_UPDATED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5447,7 +5447,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED_LOGIN_FAILED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5456,7 +5456,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5480,7 +5480,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5955,7 +5955,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'PRIVATE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.TestSession$Mode',
@@ -5964,7 +5964,7 @@ config = {
 				},
 				{
 					'name' : 'SHARED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.TestSession$Mode',
@@ -5988,7 +5988,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -6188,7 +6188,7 @@ config = {
 				},
 				{
 					'name' : 'createSessionWithPrivateUser',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -10237,7 +10237,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'GRAPH_OBJECT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -10246,7 +10246,7 @@ config = {
 				},
 				{
 					'name' : 'SECTION_HEADER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -10255,7 +10255,7 @@ config = {
 				},
 				{
 					'name' : 'ACTIVITY_CIRCLE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -10279,7 +10279,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',

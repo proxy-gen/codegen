@@ -36828,7 +36828,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36837,7 +36837,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_CROP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36846,7 +36846,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_INSIDE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36855,7 +36855,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_CENTER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36864,7 +36864,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_END',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36873,7 +36873,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_START',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36882,7 +36882,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_XY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36891,7 +36891,7 @@ config = {
 				},
 				{
 					'name' : 'MATRIX',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36915,7 +36915,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -36939,7 +36939,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EDITABLE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36948,7 +36948,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36957,7 +36957,7 @@ config = {
 				},
 				{
 					'name' : 'SPANNABLE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36981,7 +36981,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37782,7 +37782,7 @@ config = {
 				},
 				{
 					'name' : 'forName',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37922,7 +37922,7 @@ config = {
 				},
 				{
 					'name' : 'defaultCharset',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -38953,7 +38953,7 @@ config = {
 				},
 				{
 					'name' : 'getSystemClassLoader',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -39796,7 +39796,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -39957,7 +39957,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NO_PROXY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy',
@@ -40053,7 +40053,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIRECT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40062,7 +40062,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40071,7 +40071,7 @@ config = {
 				},
 				{
 					'name' : 'SOCKS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40095,7 +40095,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -42609,7 +42609,7 @@ config = {
 				},
 				{
 					'name' : 'getPackage',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -45416,7 +45416,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -45444,7 +45444,7 @@ config = {
 				},
 				{
 					'name' : 'allocateDirect',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -45596,7 +45596,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BIG_ENDIAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.ByteOrder',
@@ -45605,7 +45605,7 @@ config = {
 				},
 				{
 					'name' : 'LITTLE_ENDIAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.ByteOrder',
@@ -45628,7 +45628,7 @@ config = {
 				},
 				{
 					'name' : 'nativeOrder',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -45922,7 +45922,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46254,7 +46254,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46516,7 +46516,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46782,7 +46782,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47048,7 +47048,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47314,7 +47314,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47577,7 +47577,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ENGLISH',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47586,7 +47586,7 @@ config = {
 				},
 				{
 					'name' : 'FRENCH',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47595,7 +47595,7 @@ config = {
 				},
 				{
 					'name' : 'GERMAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47604,7 +47604,7 @@ config = {
 				},
 				{
 					'name' : 'ITALIAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47613,7 +47613,7 @@ config = {
 				},
 				{
 					'name' : 'JAPANESE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47622,7 +47622,7 @@ config = {
 				},
 				{
 					'name' : 'KOREAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47631,7 +47631,7 @@ config = {
 				},
 				{
 					'name' : 'CHINESE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47640,7 +47640,7 @@ config = {
 				},
 				{
 					'name' : 'SIMPLIFIED_CHINESE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47649,7 +47649,7 @@ config = {
 				},
 				{
 					'name' : 'TRADITIONAL_CHINESE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47658,7 +47658,7 @@ config = {
 				},
 				{
 					'name' : 'FRANCE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47667,7 +47667,7 @@ config = {
 				},
 				{
 					'name' : 'GERMANY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47676,7 +47676,7 @@ config = {
 				},
 				{
 					'name' : 'ITALY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47685,7 +47685,7 @@ config = {
 				},
 				{
 					'name' : 'JAPAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47694,7 +47694,7 @@ config = {
 				},
 				{
 					'name' : 'KOREA',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47703,7 +47703,7 @@ config = {
 				},
 				{
 					'name' : 'CHINA',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47712,7 +47712,7 @@ config = {
 				},
 				{
 					'name' : 'PRC',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47721,7 +47721,7 @@ config = {
 				},
 				{
 					'name' : 'TAIWAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47730,7 +47730,7 @@ config = {
 				},
 				{
 					'name' : 'UK',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47739,7 +47739,7 @@ config = {
 				},
 				{
 					'name' : 'US',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47748,7 +47748,7 @@ config = {
 				},
 				{
 					'name' : 'CANADA',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47757,7 +47757,7 @@ config = {
 				},
 				{
 					'name' : 'CANADA_FRENCH',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47766,7 +47766,7 @@ config = {
 				},
 				{
 					'name' : 'ROOT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47841,7 +47841,7 @@ config = {
 				},
 				{
 					'name' : 'getDefault',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -48259,7 +48259,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'UNDERFLOW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CoderResult',
@@ -48268,7 +48268,7 @@ config = {
 				},
 				{
 					'name' : 'OVERFLOW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CoderResult',
@@ -48351,7 +48351,7 @@ config = {
 				},
 				{
 					'name' : 'malformedForLength',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -48391,7 +48391,7 @@ config = {
 				},
 				{
 					'name' : 'unmappableForLength',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -48415,7 +48415,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'IGNORE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -48424,7 +48424,7 @@ config = {
 				},
 				{
 					'name' : 'REPLACE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -48433,7 +48433,7 @@ config = {
 				},
 				{
 					'name' : 'REPORT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -53440,7 +53440,7 @@ config = {
 				},
 				{
 					'name' : 'getSystem',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -54430,7 +54430,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -54450,7 +54450,7 @@ config = {
 				},
 				{
 					'name' : 'dup',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -54510,7 +54510,7 @@ config = {
 				},
 				{
 					'name' : 'fromFd',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -54526,7 +54526,7 @@ config = {
 				},
 				{
 					'name' : 'adoptFd',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -54542,7 +54542,7 @@ config = {
 				},
 				{
 					'name' : 'fromSocket',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.Socket',
@@ -54558,7 +54558,7 @@ config = {
 				},
 				{
 					'name' : 'fromDatagramSocket',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.DatagramSocket',
@@ -54640,7 +54640,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'in',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54649,7 +54649,7 @@ config = {
 				},
 				{
 					'name' : 'out',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54658,7 +54658,7 @@ config = {
 				},
 				{
 					'name' : 'err',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54988,7 +54988,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -56516,7 +56516,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EMPTY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Bundle',
@@ -58094,7 +58094,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -59001,7 +59001,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60363,7 +60363,7 @@ config = {
 				},
 				{
 					'name' : 'getByName',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60569,7 +60569,7 @@ config = {
 				},
 				{
 					'name' : 'getLocalHost',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -60667,7 +60667,7 @@ config = {
 				},
 				{
 					'name' : 'getByName',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60722,7 +60722,7 @@ config = {
 				},
 				{
 					'name' : 'getByInetAddress',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.InetAddress',
@@ -61836,7 +61836,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -62435,7 +62435,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'READ_ONLY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -62444,7 +62444,7 @@ config = {
 				},
 				{
 					'name' : 'READ_WRITE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -62453,7 +62453,7 @@ config = {
 				},
 				{
 					'name' : 'PRIVATE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -65063,7 +65063,7 @@ config = {
 				},
 				{
 					'name' : 'createFromStream',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -65511,7 +65511,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXml',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -65531,7 +65531,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXmlInner',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -65555,7 +65555,7 @@ config = {
 				},
 				{
 					'name' : 'createFromPath',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -66956,7 +66956,7 @@ config = {
 				},
 				{
 					'name' : 'unflattenFromString',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -68439,7 +68439,7 @@ config = {
 				},
 				{
 					'name' : 'createScaledBitmap',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -68840,7 +68840,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ALPHA_8',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68849,7 +68849,7 @@ config = {
 				},
 				{
 					'name' : 'ARGB_4444',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68858,7 +68858,7 @@ config = {
 				},
 				{
 					'name' : 'ARGB_8888',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68867,7 +68867,7 @@ config = {
 				},
 				{
 					'name' : 'RGB_565',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68891,7 +68891,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -70191,7 +70191,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70200,7 +70200,7 @@ config = {
 				},
 				{
 					'name' : 'END',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70209,7 +70209,7 @@ config = {
 				},
 				{
 					'name' : 'FILL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70218,7 +70218,7 @@ config = {
 				},
 				{
 					'name' : 'START',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70242,7 +70242,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -70266,7 +70266,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'JPEG',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70275,7 +70275,7 @@ config = {
 				},
 				{
 					'name' : 'PNG',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70284,7 +70284,7 @@ config = {
 				},
 				{
 					'name' : 'WEBP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70308,7 +70308,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -71601,7 +71601,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FILL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71610,7 +71610,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_AND_STROKE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71619,7 +71619,7 @@ config = {
 				},
 				{
 					'name' : 'STROKE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71643,7 +71643,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -71667,7 +71667,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BUTT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71676,7 +71676,7 @@ config = {
 				},
 				{
 					'name' : 'ROUND',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71685,7 +71685,7 @@ config = {
 				},
 				{
 					'name' : 'SQUARE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71709,7 +71709,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -71733,7 +71733,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BEVEL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71742,7 +71742,7 @@ config = {
 				},
 				{
 					'name' : 'MITER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71751,7 +71751,7 @@ config = {
 				},
 				{
 					'name' : 'ROUND',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71775,7 +71775,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72331,7 +72331,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EVEN_ODD',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72340,7 +72340,7 @@ config = {
 				},
 				{
 					'name' : 'INVERSE_EVEN_ODD',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72349,7 +72349,7 @@ config = {
 				},
 				{
 					'name' : 'INVERSE_WINDING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72358,7 +72358,7 @@ config = {
 				},
 				{
 					'name' : 'WINDING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72382,7 +72382,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72406,7 +72406,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CCW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$Direction',
@@ -72415,7 +72415,7 @@ config = {
 				},
 				{
 					'name' : 'CW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$Direction',
@@ -72439,7 +72439,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72570,7 +72570,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEFAULT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72579,7 +72579,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_BOLD',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72588,7 +72588,7 @@ config = {
 				},
 				{
 					'name' : 'SANS_SERIF',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72597,7 +72597,7 @@ config = {
 				},
 				{
 					'name' : 'SERIF',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72606,7 +72606,7 @@ config = {
 				},
 				{
 					'name' : 'MONOSPACE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72741,7 +72741,7 @@ config = {
 				},
 				{
 					'name' : 'defaultFromStyle',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -72757,7 +72757,7 @@ config = {
 				},
 				{
 					'name' : 'createFromAsset',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.AssetManager',
@@ -72820,7 +72820,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72829,7 +72829,7 @@ config = {
 				},
 				{
 					'name' : 'LEFT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72838,7 +72838,7 @@ config = {
 				},
 				{
 					'name' : 'RIGHT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72862,7 +72862,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73018,7 +73018,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIFFERENCE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73027,7 +73027,7 @@ config = {
 				},
 				{
 					'name' : 'INTERSECT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73036,7 +73036,7 @@ config = {
 				},
 				{
 					'name' : 'REPLACE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73045,7 +73045,7 @@ config = {
 				},
 				{
 					'name' : 'REVERSE_DIFFERENCE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73054,7 +73054,7 @@ config = {
 				},
 				{
 					'name' : 'UNION',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73063,7 +73063,7 @@ config = {
 				},
 				{
 					'name' : 'XOR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73087,7 +73087,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73479,7 +73479,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'AA',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$EdgeType',
@@ -73488,7 +73488,7 @@ config = {
 				},
 				{
 					'name' : 'BW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$EdgeType',
@@ -73512,7 +73512,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73536,7 +73536,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ADD',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73545,7 +73545,7 @@ config = {
 				},
 				{
 					'name' : 'CLEAR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73554,7 +73554,7 @@ config = {
 				},
 				{
 					'name' : 'DARKEN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73563,7 +73563,7 @@ config = {
 				},
 				{
 					'name' : 'DST',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73572,7 +73572,7 @@ config = {
 				},
 				{
 					'name' : 'DST_ATOP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73581,7 +73581,7 @@ config = {
 				},
 				{
 					'name' : 'DST_IN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73590,7 +73590,7 @@ config = {
 				},
 				{
 					'name' : 'DST_OUT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73599,7 +73599,7 @@ config = {
 				},
 				{
 					'name' : 'DST_OVER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73608,7 +73608,7 @@ config = {
 				},
 				{
 					'name' : 'LIGHTEN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73617,7 +73617,7 @@ config = {
 				},
 				{
 					'name' : 'MULTIPLY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73626,7 +73626,7 @@ config = {
 				},
 				{
 					'name' : 'OVERLAY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73635,7 +73635,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73644,7 +73644,7 @@ config = {
 				},
 				{
 					'name' : 'SRC',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73653,7 +73653,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_ATOP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73662,7 +73662,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_IN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73671,7 +73671,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_OUT',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73680,7 +73680,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_OVER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73689,7 +73689,7 @@ config = {
 				},
 				{
 					'name' : 'XOR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73713,7 +73713,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73737,7 +73737,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRIANGLES',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73746,7 +73746,7 @@ config = {
 				},
 				{
 					'name' : 'TRIANGLE_FAN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73755,7 +73755,7 @@ config = {
 				},
 				{
 					'name' : 'TRIANGLE_STRIP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73779,7 +73779,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73873,7 +73873,7 @@ config = {
 				},
 				{
 					'name' : 'createFromStream',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -74249,7 +74249,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -74309,7 +74309,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXml',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -74491,7 +74491,7 @@ config = {
 				},
 				{
 					'name' : 'decodeStream',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -74507,7 +74507,7 @@ config = {
 				},
 				{
 					'name' : 'decodeByteArray',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -74528,7 +74528,7 @@ config = {
 				},
 				{
 					'name' : 'decodeFile',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81456,7 +81456,7 @@ config = {
 				},
 				{
 					'name' : 'createChooser',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
@@ -81488,7 +81488,7 @@ config = {
 				},
 				{
 					'name' : 'makeMainActivity',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
@@ -81504,7 +81504,7 @@ config = {
 				},
 				{
 					'name' : 'makeMainSelectorActivity',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81520,7 +81520,7 @@ config = {
 				},
 				{
 					'name' : 'makeRestartActivityTask',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
@@ -81536,7 +81536,7 @@ config = {
 				},
 				{
 					'name' : 'getIntent',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81552,7 +81552,7 @@ config = {
 				},
 				{
 					'name' : 'parseUri',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81572,7 +81572,7 @@ config = {
 				},
 				{
 					'name' : 'getIntentOld',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -82820,7 +82820,7 @@ config = {
 				},
 				{
 					'name' : 'parseIntent',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -83068,7 +83068,7 @@ config = {
 				},
 				{
 					'name' : 'parse',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83265,7 +83265,7 @@ config = {
 				},
 				{
 					'name' : 'fromFile',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -83281,7 +83281,7 @@ config = {
 				},
 				{
 					'name' : 'fromParts',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83375,7 +83375,7 @@ config = {
 				},
 				{
 					'name' : 'withAppendedPath',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -83555,7 +83555,7 @@ config = {
 				},
 				{
 					'name' : 'readFromParcel',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -83595,7 +83595,7 @@ config = {
 				},
 				{
 					'name' : 'unflattenFromString',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85302,7 +85302,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85662,7 +85662,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86647,7 +86647,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRUE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
@@ -86656,7 +86656,7 @@ config = {
 				},
 				{
 					'name' : 'FALSE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
@@ -88478,7 +88478,7 @@ config = {
 				},
 				{
 					'name' : 'readMessengerOrNullFromParcel',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -88541,7 +88541,7 @@ config = {
 				},
 				{
 					'name' : 'getMainLooper',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88597,7 +88597,7 @@ config = {
 				},
 				{
 					'name' : 'myLooper',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88798,7 +88798,7 @@ config = {
 				},
 				{
 					'name' : 'currentThread',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89615,7 +89615,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NEW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89624,7 +89624,7 @@ config = {
 				},
 				{
 					'name' : 'RUNNABLE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89633,7 +89633,7 @@ config = {
 				},
 				{
 					'name' : 'BLOCKED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89642,7 +89642,7 @@ config = {
 				},
 				{
 					'name' : 'WAITING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89651,7 +89651,7 @@ config = {
 				},
 				{
 					'name' : 'TIMED_WAITING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89660,7 +89660,7 @@ config = {
 				},
 				{
 					'name' : 'TERMINATED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89684,7 +89684,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -91407,7 +91407,7 @@ config = {
 				},
 				{
 					'name' : 'newKey',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -91736,7 +91736,7 @@ config = {
 				},
 				{
 					'name' : 'newPlainText',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91752,7 +91752,7 @@ config = {
 				},
 				{
 					'name' : 'newHtmlText',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91772,7 +91772,7 @@ config = {
 				},
 				{
 					'name' : 'newIntent',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91792,7 +91792,7 @@ config = {
 				},
 				{
 					'name' : 'newUri',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -91816,7 +91816,7 @@ config = {
 				},
 				{
 					'name' : 'newRawUri',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -92814,7 +92814,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -94664,7 +94664,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
@@ -95986,7 +95986,7 @@ config = {
 				},
 				{
 					'name' : 'readIntentSenderOrNullFromParcel',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -96140,7 +96140,7 @@ config = {
 				},
 				{
 					'name' : 'readFromParcel',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -97154,7 +97154,7 @@ config = {
 				},
 				{
 					'name' : 'restoreState',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -97542,7 +97542,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ZERO',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97551,7 +97551,7 @@ config = {
 				},
 				{
 					'name' : 'ONE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97560,7 +97560,7 @@ config = {
 				},
 				{
 					'name' : 'TEN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97767,7 +97767,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -97884,7 +97884,7 @@ config = {
 				},
 				{
 					'name' : 'probablePrime',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102047,7 +102047,7 @@ config = {
 				},
 				{
 					'name' : 'changeAction',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102067,7 +102067,7 @@ config = {
 				},
 				{
 					'name' : 'changeFlags',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102907,7 +102907,7 @@ config = {
 				},
 				{
 					'name' : 'load',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -104477,7 +104477,7 @@ config = {
 				},
 				{
 					'name' : 'inflate',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -116673,7 +116673,7 @@ config = {
 				},
 				{
 					'name' : 'obtainNoHistory',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.MotionEvent',
@@ -122988,7 +122988,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEBUG',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -122997,7 +122997,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123006,7 +123006,7 @@ config = {
 				},
 				{
 					'name' : 'LOG',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123015,7 +123015,7 @@ config = {
 				},
 				{
 					'name' : 'TIP',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123024,7 +123024,7 @@ config = {
 				},
 				{
 					'name' : 'WARNING',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123048,7 +123048,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124489,7 +124489,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'LARGER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124498,7 +124498,7 @@ config = {
 				},
 				{
 					'name' : 'LARGEST',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124507,7 +124507,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124516,7 +124516,7 @@ config = {
 				},
 				{
 					'name' : 'SMALLER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124525,7 +124525,7 @@ config = {
 				},
 				{
 					'name' : 'SMALLEST',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124549,7 +124549,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124573,7 +124573,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CLOSE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124582,7 +124582,7 @@ config = {
 				},
 				{
 					'name' : 'FAR',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124591,7 +124591,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIUM',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124615,7 +124615,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124639,7 +124639,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NARROW_COLUMNS',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124648,7 +124648,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124657,7 +124657,7 @@ config = {
 				},
 				{
 					'name' : 'SINGLE_COLUMN',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124681,7 +124681,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124705,7 +124705,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'OFF',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124714,7 +124714,7 @@ config = {
 				},
 				{
 					'name' : 'ON',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124723,7 +124723,7 @@ config = {
 				},
 				{
 					'name' : 'ON_DEMAND',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124747,7 +124747,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124771,7 +124771,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'HIGH',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124780,7 +124780,7 @@ config = {
 				},
 				{
 					'name' : 'LOW',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124789,7 +124789,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124813,7 +124813,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -126537,7 +126537,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'from',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -136634,7 +136634,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'create',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -136916,7 +136916,7 @@ config = {
 				},
 				{
 					'name' : 'getService',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137020,7 +137020,7 @@ config = {
 				},
 				{
 					'name' : 'getBroadcast',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137145,7 +137145,7 @@ config = {
 				},
 				{
 					'name' : 'readPendingIntentOrNullFromParcel',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -138661,7 +138661,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ALIGN_CENTER',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138670,7 +138670,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_NORMAL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138679,7 +138679,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_OPPOSITE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138703,7 +138703,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -139286,7 +139286,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getInstance',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -139329,7 +139329,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getInstance',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -139370,7 +139370,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'START',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139379,7 +139379,7 @@ config = {
 				},
 				{
 					'name' : 'MIDDLE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139388,7 +139388,7 @@ config = {
 				},
 				{
 					'name' : 'END',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139397,7 +139397,7 @@ config = {
 				},
 				{
 					'name' : 'MARQUEE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139406,7 +139406,7 @@ config = {
 				},
 				{
 					'name' : 'END_SMALL',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139430,7 +139430,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -139769,7 +139769,7 @@ config = {
 				},
 				{
 					'name' : 'ofPropertyValuesHolder',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
