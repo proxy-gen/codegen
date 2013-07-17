@@ -251,7 +251,7 @@ class Generator(BaseGenerator):
 			self.callback_class_name = cxx_class_name
 			callback_file_name = self.callback_class_name + ".cpp"
 			logging.debug("callback_file_name " + str(callback_file_name))		
-			callback_file_path = os.path.join(self.header_outdir_name, callback_file_name)
+			callback_file_path = os.path.join(self.impl_outdir_name, callback_file_name)
 			if not os.path.exists(os.path.dirname(callback_file_path)):
 				os.makedirs(os.path.dirname(callback_file_path))
 			logging.debug("callback_file_path " + str(callback_file_path))	
