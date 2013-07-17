@@ -21,20 +21,11 @@ namespace ${namespace} {
 #set $todo_list = list()
 #for $param in $params
 	#set $param_type = None
-	#if $param['converter'] == 'convert_proxy'
-		#set $classes = $config_module.list_all_classes(tags=None,name=$param['type'])
-		#for $clazz in $classes
-			#set $param_type = $clazz['name']
-			#set $param_type = $config_module.to_class_name($param_type)
-			#break
-		#end for
-	#else
-		#set $converters = $config_module.list_all_converters(name=$param['converter'],cxx_type=None,java_type=None)
+	#set $converters = $config_module.list_all_converters(name=$param['jniconverter'],cxx_type=None,java_type=None)
 		#for $converter in $converters
-			#set $param_type = $converter['cxx']['type']
+			#set $param_type = $converter['jni']['type']
 			#break
 		#end for
-	#end if
 	#if $param_type is None
 		$todo_list.append($param)
 	#else 
@@ -46,20 +37,11 @@ namespace ${namespace} {
 #end for
 #set $retrn = $function['returns'][0]
 #set $retrn_type = None
-#if $retrn['converter'] == 'convert_proxy'
-	#set $classes = $config_module.list_all_classes(tags=None,name=$retrn['type'])
-	#for $clazz in $classes
-		#set $retrn_type = $clazz['name']
-		#set $retrn_type = $config_module.to_class_name($retrn_type)
-		#break
-	#end for
-#else
-	#set $converters = $config_module.list_all_converters(name=$retrn['converter'],cxx_type=None,java_type=None)
-	#for $converter in $converters
-		#set $retrn_type = $converter['cxx']['type']
-		#break
-	#end for
-#end if
+#set $converters = $config_module.list_all_converters(name=$retrn['jniconverter'],cxx_type=None,java_type=None)
+#for $converter in $converters
+	#set $retrn_type = $converter['jni']['type']
+	#break
+#end for
 #if $retrn_type is None
 	$todo_list.append($retrn)
 #end if

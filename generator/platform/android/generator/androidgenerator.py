@@ -448,6 +448,7 @@ class Generator(BaseGenerator):
 		self._attach_include_converters(config_module.config_data)
 		self._attach_default_converters(config_module.config_data)
 		self._attach_config_converters(config_module.config_data, config_module)
+		self._attach_jni_converters(config_module.config_data, config_module)
 		logging.debug("Generator _update_config_data exit")
 
 	def _add_namespace_to_config_data(self, config_data):
@@ -597,6 +598,52 @@ class Generator(BaseGenerator):
 				self._attach_config_converter(child_convertible, config_module)
 		logging.debug("_attach_config_converter exit")
 
+	def _attach_jni_converters(self, config_data, config_module):
+		logging.debug("_attach_jni_converters enter")
+		if "params" in config_data or "returns" in config_data:
+			if "params" in config_data:
+				for param in config_data["params"]:
+					self._attach_jni_converter(param, config_module)
+			if "returns" in config_data:
+				for retrn in config_data["returns"]:
+					self._attach_jni_converter(retrn, config_module)
+		else:
+			if "classes" in config_data:
+				for clazz in config_data["classes"]:
+					self._attach_jni_converters(clazz, config_module)
+			if "functions" in config_data:
+				for function in config_data["functions"]:
+					self._attach_jni_converters(function, config_module)
+			if "constructors" in config_data:
+				for constructor in config_data["constructors"]:
+					self._attach_jni_converters(constructor, config_module)
+			if "fields" in config_data:
+				for field in config_data["fields"]:
+					self._attach_jni_converter(field["type"], config_module)
+		logging.debug("_attach_jni_converters enter")
+
+	def _attach_jni_converter(self, convertible, config_module):
+		logging.debug("_attach_jni_converter enter")
+		if "jniconverter" not in convertible:
+			converters = config_module.config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if "jni" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
+								jindex.VoidType.is_void_id(convertible["type"]) or\
+								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if convertible["type"] == converter["java"]["type"]:
+									convertible["jniconverter"] = converter["name"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+									convertible["jniconverter"] = converter["name"]
+		if "children" in convertible:
+			for child_convertible in convertible["children"]:
+				self._attach_jni_converter(child_convertible, config_module)
+		logging.debug("_attach_jni_converter exit")
 
 	def _teardown_index(self):
 		if jindex.Index.destroy() != jindex.INDEX_OK:

@@ -4,8 +4,8 @@
  */
 namespace FacebookCXX {
 
-JNIEXPORT com_facebook_model_GraphObjectList Java_FacebookCXX_com_facebook_model_GraphObjectList_castToListOf(JNIEnv *jni_env, jobject java_object,java_lang_Class& arg0);
-JNIEXPORT org_json_JSONArray Java_FacebookCXX_com_facebook_model_GraphObjectList_getInnerJSONArray(JNIEnv *jni_env, jobject java_object);
+JNIEXPORT jobject Java_FacebookCXX_com_facebook_model_GraphObjectList_castToListOf(JNIEnv *jni_env, jobject java_object,jobject& arg0);
+JNIEXPORT jobject Java_FacebookCXX_com_facebook_model_GraphObjectList_getInnerJSONArray(JNIEnv *jni_env, jobject java_object);
  
 
 }
