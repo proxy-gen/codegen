@@ -213,7 +213,7 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
-		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes")
+		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes", self.package_name)
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
