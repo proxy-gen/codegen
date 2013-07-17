@@ -741,7 +741,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Object',
@@ -936,7 +936,7 @@ config = {
 				},
 				{
 					'name' : 'quote',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1232,7 +1232,7 @@ config = {
 				},
 				{
 					'name' : 'numberToString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Number',
@@ -1736,7 +1736,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.concurrent.Executor',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1860,7 +1860,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Closeable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1886,7 +1886,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'HTTP_OK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1895,7 +1895,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_CREATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1904,7 +1904,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_ACCEPTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1913,7 +1913,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NOT_AUTHORITATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1922,7 +1922,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NO_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1931,7 +1931,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_RESET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1940,7 +1940,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_PARTIAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1949,7 +1949,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_MULT_CHOICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1958,7 +1958,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_MOVED_PERM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1967,7 +1967,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_MOVED_TEMP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1976,7 +1976,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_SEE_OTHER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1985,7 +1985,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NOT_MODIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1994,7 +1994,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_USE_PROXY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2003,7 +2003,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_BAD_REQUEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2012,7 +2012,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_UNAUTHORIZED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2021,7 +2021,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_PAYMENT_REQUIRED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2030,7 +2030,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_FORBIDDEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2039,7 +2039,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NOT_FOUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2048,7 +2048,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_BAD_METHOD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2057,7 +2057,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NOT_ACCEPTABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2066,7 +2066,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_PROXY_AUTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2075,7 +2075,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_CLIENT_TIMEOUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2084,7 +2084,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_CONFLICT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2093,7 +2093,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_GONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2102,7 +2102,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_LENGTH_REQUIRED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2111,7 +2111,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_PRECON_FAILED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2120,7 +2120,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_ENTITY_TOO_LARGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2129,7 +2129,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_REQ_TOO_LONG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2138,7 +2138,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_UNSUPPORTED_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2147,7 +2147,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_SERVER_ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2156,7 +2156,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_INTERNAL_ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2165,7 +2165,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_NOT_IMPLEMENTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2174,7 +2174,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_BAD_GATEWAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2183,7 +2183,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_UNAVAILABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2192,7 +2192,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_GATEWAY_TIMEOUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2201,7 +2201,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP_VERSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2336,7 +2336,7 @@ config = {
 				},
 				{
 					'name' : 'setFollowRedirects',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -2352,7 +2352,7 @@ config = {
 				},
 				{
 					'name' : 'getFollowRedirects',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -2493,7 +2493,7 @@ config = {
 				},
 				{
 					'name' : 'getInstance',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.util.Locale',
@@ -2561,7 +2561,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SCHEME_TEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -2570,7 +2570,7 @@ config = {
 				},
 				{
 					'name' : 'SCHEME_MAILTO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -2579,7 +2579,7 @@ config = {
 				},
 				{
 					'name' : 'SCHEME_GEO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -3418,7 +3418,7 @@ config = {
 				},
 				{
 					'name' : 'findAddress',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -4153,7 +4153,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SSL_NOTYETVALID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4162,7 +4162,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_EXPIRED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4171,7 +4171,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_IDMISMATCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4180,7 +4180,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_UNTRUSTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4189,7 +4189,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_DATE_INVALID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4198,7 +4198,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_INVALID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4207,7 +4207,7 @@ config = {
 				},
 				{
 					'name' : 'SSL_MAX_ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4631,7 +4631,7 @@ config = {
 				},
 				{
 					'name' : 'instantiate',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5360,7 +5360,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FORMAT_DEGREES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5369,7 +5369,7 @@ config = {
 				},
 				{
 					'name' : 'FORMAT_MINUTES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5378,7 +5378,7 @@ config = {
 				},
 				{
 					'name' : 'FORMAT_SECONDS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5387,7 +5387,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -5479,7 +5479,7 @@ config = {
 				},
 				{
 					'name' : 'convert',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -5571,7 +5571,7 @@ config = {
 				},
 				{
 					'name' : 'distanceBetween',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -5969,7 +5969,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRANSCRIPT_MODE_DISABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5978,7 +5978,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSCRIPT_MODE_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5987,7 +5987,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSCRIPT_MODE_ALWAYS_SCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -5996,7 +5996,7 @@ config = {
 				},
 				{
 					'name' : 'CHOICE_MODE_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -6005,7 +6005,7 @@ config = {
 				},
 				{
 					'name' : 'CHOICE_MODE_SINGLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -6014,7 +6014,7 @@ config = {
 				},
 				{
 					'name' : 'CHOICE_MODE_MULTIPLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -6023,7 +6023,7 @@ config = {
 				},
 				{
 					'name' : 'CHOICE_MODE_MULTIPLE_MODAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7417,7 +7417,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$MultiChoiceModeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7455,11 +7455,11 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$OnScrollListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7468,7 +7468,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLL_STATE_TOUCH_SCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7477,7 +7477,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLL_STATE_FLING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7532,7 +7532,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$RecyclerListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7558,7 +7558,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$SelectionBoundsAdjuster',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7584,11 +7584,11 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Adapter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'IGNORE_ITEM_VIEW_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7597,7 +7597,7 @@ config = {
 				},
 				{
 					'name' : 'NO_SELECTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7764,7 +7764,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7803,7 +7803,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemLongClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7842,7 +7842,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemSelectedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7898,7 +7898,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Advanceable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7932,7 +7932,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$OnDismissListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7954,7 +7954,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$Validator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7996,7 +7996,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CalendarView$OnDateChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8026,7 +8026,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Checkable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8076,7 +8076,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Chronometer$OnChronometerTickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8102,7 +8102,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CompoundButton$OnCheckedChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8132,7 +8132,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DatePicker$OnDateChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8162,7 +8162,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListAdapter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8468,7 +8468,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnChildClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8506,7 +8506,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8544,7 +8544,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupCollapseListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8570,7 +8570,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupExpandListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8596,7 +8596,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8622,7 +8622,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filterable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8644,7 +8644,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.FilterQueryProvider',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8670,7 +8670,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.HeterogeneousExpandableList',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8736,7 +8736,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListAdapter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8774,7 +8774,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MediaController$MediaPlayerControl',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8908,7 +8908,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView$Tokenizer',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8974,7 +8974,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$Formatter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9000,11 +9000,11 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnScrollListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -9013,7 +9013,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLL_STATE_TOUCH_SCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -9022,7 +9022,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLL_STATE_FLING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -9057,7 +9057,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnValueChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9087,7 +9087,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnDismissListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9113,7 +9113,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnMenuItemClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9139,7 +9139,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupWindow$OnDismissListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9161,7 +9161,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioGroup$OnCheckedChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9191,7 +9191,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RatingBar$OnRatingBarChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9225,7 +9225,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViewsService$RemoteViewsFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9351,7 +9351,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnCloseListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9373,7 +9373,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnQueryTextListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9415,7 +9415,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnSuggestionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9457,7 +9457,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SectionIndexer',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9512,7 +9512,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SeekBar$OnSeekBarChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9578,7 +9578,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ShareActionProvider$OnShareTargetSelectedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9608,7 +9608,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleAdapter$ViewBinder',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9642,7 +9642,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$CursorToStringConverter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9668,7 +9668,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$ViewBinder',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9702,7 +9702,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorTreeAdapter$ViewBinder',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9736,7 +9736,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerCloseListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9758,7 +9758,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerOpenListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9780,7 +9780,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerScrollListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9814,7 +9814,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SpinnerAdapter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9848,7 +9848,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$OnTabChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9874,7 +9874,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$TabContentFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9900,7 +9900,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView$OnEditorActionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9934,7 +9934,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TimePicker$OnTimeChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9964,7 +9964,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewSwitcher$ViewFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9986,7 +9986,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.WrapperListAdapter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10008,7 +10008,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomButtonsController$OnZoomListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10604,7 +10604,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ITEM_VIEW_TYPE_IGNORE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -10613,7 +10613,7 @@ config = {
 				},
 				{
 					'name' : 'ITEM_VIEW_TYPE_HEADER_OR_FOOTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -10622,7 +10622,7 @@ config = {
 				},
 				{
 					'name' : 'INVALID_POSITION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -10631,7 +10631,7 @@ config = {
 				},
 				{
 					'name' : 'INVALID_ROW_ID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -12235,7 +12235,7 @@ config = {
 				},
 				{
 					'name' : 'createFromResource',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -14510,7 +14510,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FLAG_AUTO_REQUERY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -14519,7 +14519,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_REGISTER_CONTENT_OBSERVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15549,7 +15549,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIGITS_AND_LETTERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15558,7 +15558,7 @@ config = {
 				},
 				{
 					'name' : 'DIGITS_AND_LETTERS_NO_DIGITS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15567,7 +15567,7 @@ config = {
 				},
 				{
 					'name' : 'DIGITS_AND_LETTERS_NO_LETTERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15576,7 +15576,7 @@ config = {
 				},
 				{
 					'name' : 'DIGITS_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15585,7 +15585,7 @@ config = {
 				},
 				{
 					'name' : 'LETTERS_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -16150,7 +16150,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'PACKED_POSITION_TYPE_GROUP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -16159,7 +16159,7 @@ config = {
 				},
 				{
 					'name' : 'PACKED_POSITION_TYPE_CHILD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -16168,7 +16168,7 @@ config = {
 				},
 				{
 					'name' : 'PACKED_POSITION_TYPE_NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -16177,7 +16177,7 @@ config = {
 				},
 				{
 					'name' : 'PACKED_POSITION_VALUE_NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -16186,7 +16186,7 @@ config = {
 				},
 				{
 					'name' : 'CHILD_INDICATOR_INHERIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -16565,7 +16565,7 @@ config = {
 				},
 				{
 					'name' : 'getPackedPositionType',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -16581,7 +16581,7 @@ config = {
 				},
 				{
 					'name' : 'getPackedPositionGroup',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -16597,7 +16597,7 @@ config = {
 				},
 				{
 					'name' : 'getPackedPositionChild',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -16613,7 +16613,7 @@ config = {
 				},
 				{
 					'name' : 'getPackedPositionForChild',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -16629,7 +16629,7 @@ config = {
 				},
 				{
 					'name' : 'getPackedPositionForGroup',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -17565,7 +17565,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'HORIZONTAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17574,7 +17574,7 @@ config = {
 				},
 				{
 					'name' : 'VERTICAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17583,7 +17583,7 @@ config = {
 				},
 				{
 					'name' : 'UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17592,7 +17592,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_BOUNDS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17601,7 +17601,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_MARGINS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17610,7 +17610,7 @@ config = {
 				},
 				{
 					'name' : 'TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17619,7 +17619,7 @@ config = {
 				},
 				{
 					'name' : 'BOTTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17628,7 +17628,7 @@ config = {
 				},
 				{
 					'name' : 'START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17637,7 +17637,7 @@ config = {
 				},
 				{
 					'name' : 'END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17646,7 +17646,7 @@ config = {
 				},
 				{
 					'name' : 'LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17655,7 +17655,7 @@ config = {
 				},
 				{
 					'name' : 'RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17664,7 +17664,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17673,7 +17673,7 @@ config = {
 				},
 				{
 					'name' : 'BASELINE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17682,7 +17682,7 @@ config = {
 				},
 				{
 					'name' : 'FILL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.GridLayout$Alignment',
@@ -17741,7 +17741,7 @@ config = {
 				},
 				{
 					'name' : 'spec',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -18143,7 +18143,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NO_STRETCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -18152,7 +18152,7 @@ config = {
 				},
 				{
 					'name' : 'STRETCH_SPACING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -18161,7 +18161,7 @@ config = {
 				},
 				{
 					'name' : 'STRETCH_COLUMN_WIDTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -18170,7 +18170,7 @@ config = {
 				},
 				{
 					'name' : 'STRETCH_SPACING_UNIFORM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -18179,7 +18179,7 @@ config = {
 				},
 				{
 					'name' : 'AUTO_FIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20117,7 +20117,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'HORIZONTAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20126,7 +20126,7 @@ config = {
 				},
 				{
 					'name' : 'VERTICAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20135,7 +20135,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_DIVIDER_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20144,7 +20144,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_DIVIDER_BEGINNING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20153,7 +20153,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_DIVIDER_MIDDLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20162,7 +20162,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_DIVIDER_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20615,7 +20615,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'POSITION_PROMPT_ABOVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20624,7 +20624,7 @@ config = {
 				},
 				{
 					'name' : 'POSITION_PROMPT_BELOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20633,7 +20633,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20642,7 +20642,7 @@ config = {
 				},
 				{
 					'name' : 'WRAP_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20651,7 +20651,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_FROM_FOCUSABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20660,7 +20660,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -20669,7 +20669,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_NOT_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -23187,7 +23187,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'INPUT_METHOD_FROM_FOCUSABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -23196,7 +23196,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -23205,7 +23205,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_NOT_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24812,7 +24812,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24821,7 +24821,7 @@ config = {
 				},
 				{
 					'name' : 'LEFT_OF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24830,7 +24830,7 @@ config = {
 				},
 				{
 					'name' : 'RIGHT_OF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24839,7 +24839,7 @@ config = {
 				},
 				{
 					'name' : 'ABOVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24848,7 +24848,7 @@ config = {
 				},
 				{
 					'name' : 'BELOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24857,7 +24857,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_BASELINE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24866,7 +24866,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24875,7 +24875,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24884,7 +24884,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24893,7 +24893,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_BOTTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24902,7 +24902,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24911,7 +24911,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24920,7 +24920,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24929,7 +24929,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_BOTTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24938,7 +24938,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_IN_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24947,7 +24947,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_HORIZONTAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24956,7 +24956,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_VERTICAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24965,7 +24965,7 @@ config = {
 				},
 				{
 					'name' : 'START_OF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24974,7 +24974,7 @@ config = {
 				},
 				{
 					'name' : 'END_OF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24983,7 +24983,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -24992,7 +24992,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -25001,7 +25001,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -25010,7 +25010,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_PARENT_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -25343,7 +25343,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -27905,7 +27905,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEFAULT_SHARE_HISTORY_FILE_NAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -28838,7 +28838,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ORIENTATION_HORIZONTAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -28847,7 +28847,7 @@ config = {
 				},
 				{
 					'name' : 'ORIENTATION_VERTICAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -29182,7 +29182,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MODE_DIALOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -29191,7 +29191,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_DROPDOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -31343,7 +31343,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEFAULT_FORMAT_12_HOUR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.CharSequence',
@@ -31352,7 +31352,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_FORMAT_24_HOUR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.CharSequence',
@@ -32943,7 +32943,7 @@ config = {
 				},
 				{
 					'name' : 'getTextColors',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -34380,7 +34380,7 @@ config = {
 				},
 				{
 					'name' : 'getTextColor',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -34513,7 +34513,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -34796,7 +34796,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'LENGTH_SHORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -34805,7 +34805,7 @@ config = {
 				},
 				{
 					'name' : 'LENGTH_LONG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -35008,7 +35008,7 @@ config = {
 				},
 				{
 					'name' : 'makeText',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36828,7 +36828,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36837,7 +36837,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_CROP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36846,7 +36846,7 @@ config = {
 				},
 				{
 					'name' : 'CENTER_INSIDE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36855,7 +36855,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36864,7 +36864,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36873,7 +36873,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36882,7 +36882,7 @@ config = {
 				},
 				{
 					'name' : 'FIT_XY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36891,7 +36891,7 @@ config = {
 				},
 				{
 					'name' : 'MATRIX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.ImageView$ScaleType',
@@ -36902,7 +36902,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -36915,7 +36915,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -36939,7 +36939,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EDITABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36948,7 +36948,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36957,7 +36957,7 @@ config = {
 				},
 				{
 					'name' : 'SPANNABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.widget.TextView$BufferType',
@@ -36968,7 +36968,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -36981,7 +36981,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37028,7 +37028,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CASE_INSENSITIVE_ORDER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Comparator',
@@ -37116,7 +37116,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -37662,7 +37662,7 @@ config = {
 				},
 				{
 					'name' : 'format',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37687,7 +37687,7 @@ config = {
 				},
 				{
 					'name' : 'copyValueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_char_array_type',
@@ -37782,7 +37782,7 @@ config = {
 				},
 				{
 					'name' : 'forName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37906,7 +37906,7 @@ config = {
 				},
 				{
 					'name' : 'isSupported',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -37922,7 +37922,7 @@ config = {
 				},
 				{
 					'name' : 'defaultCharset',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -37947,7 +37947,7 @@ config = {
 				},
 				{
 					'name' : 'availableCharsets',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -38146,7 +38146,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'forName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -38953,7 +38953,7 @@ config = {
 				},
 				{
 					'name' : 'getSystemClassLoader',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -38997,7 +38997,7 @@ config = {
 				},
 				{
 					'name' : 'getSystemResourceAsStream',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -39013,7 +39013,7 @@ config = {
 				},
 				{
 					'name' : 'getSystemResource',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -39046,7 +39046,7 @@ config = {
 				},
 				{
 					'name' : 'getSystemResources',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -39514,7 +39514,7 @@ config = {
 				},
 				{
 					'name' : 'setURLStreamHandlerFactory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.URLStreamHandlerFactory',
@@ -39796,7 +39796,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -39957,7 +39957,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NO_PROXY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy',
@@ -40053,7 +40053,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIRECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40062,7 +40062,7 @@ config = {
 				},
 				{
 					'name' : 'HTTP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40071,7 +40071,7 @@ config = {
 				},
 				{
 					'name' : 'SOCKS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.net.Proxy$Type',
@@ -40082,7 +40082,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -40095,7 +40095,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -40313,7 +40313,7 @@ config = {
 				},
 				{
 					'name' : 'getFileNameMap',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -40370,7 +40370,7 @@ config = {
 				},
 				{
 					'name' : 'guessContentTypeFromStream',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -40386,7 +40386,7 @@ config = {
 				},
 				{
 					'name' : 'guessContentTypeFromName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -40402,7 +40402,7 @@ config = {
 				},
 				{
 					'name' : 'setFileNameMap',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.FileNameMap',
@@ -40647,7 +40647,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAllowUserInteraction',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -40663,7 +40663,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultAllowUserInteraction',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -40759,7 +40759,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultRequestProperty',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -40775,7 +40775,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultRequestProperty',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -40791,7 +40791,7 @@ config = {
 				},
 				{
 					'name' : 'setContentHandlerFactory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.ContentHandlerFactory',
@@ -41034,7 +41034,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Enumeration',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41068,7 +41068,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.FileNameMap',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41094,7 +41094,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41304,7 +41304,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Collection',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41525,7 +41525,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Iterator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41571,7 +41571,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Set',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41792,7 +41792,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map$Entry',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41870,7 +41870,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.List',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42213,7 +42213,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.ListIterator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42399,7 +42399,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.ContentHandlerFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42461,7 +42461,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLStreamHandlerFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42487,7 +42487,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.TypeVariable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42534,7 +42534,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Type',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42544,7 +42544,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.GenericDeclaration',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42609,7 +42609,7 @@ config = {
 				},
 				{
 					'name' : 'getPackage',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -42685,7 +42685,7 @@ config = {
 				},
 				{
 					'name' : 'getPackages',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -42806,7 +42806,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.annotation.Annotation',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44447,11 +44447,11 @@ config = {
 		},
 		{
 			'name' : 'java.security.PublicKey',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'serialVersionUID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -44659,7 +44659,7 @@ config = {
 				},
 				{
 					'name' : 'parse',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -44775,7 +44775,7 @@ config = {
 				},
 				{
 					'name' : 'UTC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -44956,7 +44956,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Principal',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -45395,7 +45395,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -45416,7 +45416,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -45444,7 +45444,7 @@ config = {
 				},
 				{
 					'name' : 'allocateDirect',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -45596,7 +45596,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BIG_ENDIAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.ByteOrder',
@@ -45605,7 +45605,7 @@ config = {
 				},
 				{
 					'name' : 'LITTLE_ENDIAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.ByteOrder',
@@ -45628,7 +45628,7 @@ config = {
 				},
 				{
 					'name' : 'nativeOrder',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -45881,7 +45881,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -45922,7 +45922,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46002,7 +46002,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.CharSequence',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46233,7 +46233,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_short_array_type',
@@ -46254,7 +46254,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46495,7 +46495,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -46516,7 +46516,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -46761,7 +46761,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_long_array_type',
@@ -46782,7 +46782,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47027,7 +47027,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_float_array_type',
@@ -47048,7 +47048,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47293,7 +47293,7 @@ config = {
 				},
 				{
 					'name' : 'wrap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_double_array_type',
@@ -47314,7 +47314,7 @@ config = {
 				},
 				{
 					'name' : 'allocate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -47394,7 +47394,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.SortedMap',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47531,7 +47531,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Comparator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47577,7 +47577,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ENGLISH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47586,7 +47586,7 @@ config = {
 				},
 				{
 					'name' : 'FRENCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47595,7 +47595,7 @@ config = {
 				},
 				{
 					'name' : 'GERMAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47604,7 +47604,7 @@ config = {
 				},
 				{
 					'name' : 'ITALIAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47613,7 +47613,7 @@ config = {
 				},
 				{
 					'name' : 'JAPANESE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47622,7 +47622,7 @@ config = {
 				},
 				{
 					'name' : 'KOREAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47631,7 +47631,7 @@ config = {
 				},
 				{
 					'name' : 'CHINESE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47640,7 +47640,7 @@ config = {
 				},
 				{
 					'name' : 'SIMPLIFIED_CHINESE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47649,7 +47649,7 @@ config = {
 				},
 				{
 					'name' : 'TRADITIONAL_CHINESE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47658,7 +47658,7 @@ config = {
 				},
 				{
 					'name' : 'FRANCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47667,7 +47667,7 @@ config = {
 				},
 				{
 					'name' : 'GERMANY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47676,7 +47676,7 @@ config = {
 				},
 				{
 					'name' : 'ITALY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47685,7 +47685,7 @@ config = {
 				},
 				{
 					'name' : 'JAPAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47694,7 +47694,7 @@ config = {
 				},
 				{
 					'name' : 'KOREA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47703,7 +47703,7 @@ config = {
 				},
 				{
 					'name' : 'CHINA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47712,7 +47712,7 @@ config = {
 				},
 				{
 					'name' : 'PRC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47721,7 +47721,7 @@ config = {
 				},
 				{
 					'name' : 'TAIWAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47730,7 +47730,7 @@ config = {
 				},
 				{
 					'name' : 'UK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47739,7 +47739,7 @@ config = {
 				},
 				{
 					'name' : 'US',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47748,7 +47748,7 @@ config = {
 				},
 				{
 					'name' : 'CANADA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47757,7 +47757,7 @@ config = {
 				},
 				{
 					'name' : 'CANADA_FRENCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47766,7 +47766,7 @@ config = {
 				},
 				{
 					'name' : 'ROOT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.util.Locale',
@@ -47841,7 +47841,7 @@ config = {
 				},
 				{
 					'name' : 'getDefault',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -47853,7 +47853,7 @@ config = {
 				},
 				{
 					'name' : 'setDefault',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.util.Locale',
@@ -47869,7 +47869,7 @@ config = {
 				},
 				{
 					'name' : 'getAvailableLocales',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -47882,7 +47882,7 @@ config = {
 				},
 				{
 					'name' : 'getISOCountries',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -47895,7 +47895,7 @@ config = {
 				},
 				{
 					'name' : 'getISOLanguages',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -48259,7 +48259,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'UNDERFLOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CoderResult',
@@ -48268,7 +48268,7 @@ config = {
 				},
 				{
 					'name' : 'OVERFLOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CoderResult',
@@ -48351,7 +48351,7 @@ config = {
 				},
 				{
 					'name' : 'malformedForLength',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -48391,7 +48391,7 @@ config = {
 				},
 				{
 					'name' : 'unmappableForLength',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -48415,7 +48415,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'IGNORE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -48424,7 +48424,7 @@ config = {
 				},
 				{
 					'name' : 'REPLACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -48433,7 +48433,7 @@ config = {
 				},
 				{
 					'name' : 'REPORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.charset.CodingErrorAction',
@@ -49618,7 +49618,7 @@ config = {
 				},
 				{
 					'name' : 'dehexchar',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'char',
@@ -50166,7 +50166,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'separatorChar',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'char',
@@ -50175,7 +50175,7 @@ config = {
 				},
 				{
 					'name' : 'separator',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -50184,7 +50184,7 @@ config = {
 				},
 				{
 					'name' : 'pathSeparatorChar',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'char',
@@ -50193,7 +50193,7 @@ config = {
 				},
 				{
 					'name' : 'pathSeparator',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -50690,7 +50690,7 @@ config = {
 				},
 				{
 					'name' : 'listRoots',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -50739,7 +50739,7 @@ config = {
 				},
 				{
 					'name' : 'createTempFile',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -50780,7 +50780,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FilenameFilter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50810,7 +50810,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileFilter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51310,7 +51310,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Runnable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51336,7 +51336,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MODE_PRIVATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51345,7 +51345,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_WORLD_READABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51354,7 +51354,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_WORLD_WRITEABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51363,7 +51363,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_APPEND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51372,7 +51372,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_MULTI_PROCESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51381,7 +51381,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_ENABLE_WRITE_AHEAD_LOGGING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51390,7 +51390,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_AUTO_CREATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51399,7 +51399,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_DEBUG_UNBIND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51408,7 +51408,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_NOT_FOREGROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51417,7 +51417,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_ABOVE_CLIENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51426,7 +51426,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_ALLOW_OOM_MANAGEMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51435,7 +51435,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_WAIVE_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51444,7 +51444,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_IMPORTANT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51453,7 +51453,7 @@ config = {
 				},
 				{
 					'name' : 'BIND_ADJUST_WITH_ACTIVITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51462,7 +51462,7 @@ config = {
 				},
 				{
 					'name' : 'POWER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51471,7 +51471,7 @@ config = {
 				},
 				{
 					'name' : 'WINDOW_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51480,7 +51480,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_INFLATER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51489,7 +51489,7 @@ config = {
 				},
 				{
 					'name' : 'ACCOUNT_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51498,7 +51498,7 @@ config = {
 				},
 				{
 					'name' : 'ACTIVITY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51507,7 +51507,7 @@ config = {
 				},
 				{
 					'name' : 'ALARM_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51516,7 +51516,7 @@ config = {
 				},
 				{
 					'name' : 'NOTIFICATION_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51525,7 +51525,7 @@ config = {
 				},
 				{
 					'name' : 'ACCESSIBILITY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51534,7 +51534,7 @@ config = {
 				},
 				{
 					'name' : 'KEYGUARD_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51543,7 +51543,7 @@ config = {
 				},
 				{
 					'name' : 'LOCATION_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51552,7 +51552,7 @@ config = {
 				},
 				{
 					'name' : 'SEARCH_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51561,7 +51561,7 @@ config = {
 				},
 				{
 					'name' : 'SENSOR_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51570,7 +51570,7 @@ config = {
 				},
 				{
 					'name' : 'STORAGE_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51579,7 +51579,7 @@ config = {
 				},
 				{
 					'name' : 'WALLPAPER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51588,7 +51588,7 @@ config = {
 				},
 				{
 					'name' : 'VIBRATOR_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51597,7 +51597,7 @@ config = {
 				},
 				{
 					'name' : 'CONNECTIVITY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51606,7 +51606,7 @@ config = {
 				},
 				{
 					'name' : 'WIFI_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51615,7 +51615,7 @@ config = {
 				},
 				{
 					'name' : 'WIFI_P2P_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51624,7 +51624,7 @@ config = {
 				},
 				{
 					'name' : 'NSD_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51633,7 +51633,7 @@ config = {
 				},
 				{
 					'name' : 'AUDIO_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51642,7 +51642,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ROUTER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51651,7 +51651,7 @@ config = {
 				},
 				{
 					'name' : 'TELEPHONY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51660,7 +51660,7 @@ config = {
 				},
 				{
 					'name' : 'CLIPBOARD_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51669,7 +51669,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_METHOD_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51678,7 +51678,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_SERVICES_MANAGER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51687,7 +51687,7 @@ config = {
 				},
 				{
 					'name' : 'DROPBOX_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51696,7 +51696,7 @@ config = {
 				},
 				{
 					'name' : 'DEVICE_POLICY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51705,7 +51705,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51714,7 +51714,7 @@ config = {
 				},
 				{
 					'name' : 'DOWNLOAD_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51723,7 +51723,7 @@ config = {
 				},
 				{
 					'name' : 'NFC_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51732,7 +51732,7 @@ config = {
 				},
 				{
 					'name' : 'USB_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51741,7 +51741,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51750,7 +51750,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51759,7 +51759,7 @@ config = {
 				},
 				{
 					'name' : 'USER_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -51768,7 +51768,7 @@ config = {
 				},
 				{
 					'name' : 'CONTEXT_INCLUDE_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51777,7 +51777,7 @@ config = {
 				},
 				{
 					'name' : 'CONTEXT_IGNORE_SECURITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -51786,7 +51786,7 @@ config = {
 				},
 				{
 					'name' : 'CONTEXT_RESTRICTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -53440,7 +53440,7 @@ config = {
 				},
 				{
 					'name' : 'getSystem',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -53976,7 +53976,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ACCESS_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -53985,7 +53985,7 @@ config = {
 				},
 				{
 					'name' : 'ACCESS_RANDOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -53994,7 +53994,7 @@ config = {
 				},
 				{
 					'name' : 'ACCESS_STREAMING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54003,7 +54003,7 @@ config = {
 				},
 				{
 					'name' : 'ACCESS_BUFFER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54140,7 +54140,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'UNKNOWN_LENGTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -54149,7 +54149,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -54322,7 +54322,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MODE_WORLD_READABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54331,7 +54331,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_WORLD_WRITEABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54340,7 +54340,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_READ_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54349,7 +54349,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_WRITE_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54358,7 +54358,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_READ_WRITE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54367,7 +54367,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_CREATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54376,7 +54376,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_TRUNCATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54385,7 +54385,7 @@ config = {
 				},
 				{
 					'name' : 'MODE_APPEND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -54394,7 +54394,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -54430,7 +54430,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -54450,7 +54450,7 @@ config = {
 				},
 				{
 					'name' : 'dup',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -54510,7 +54510,7 @@ config = {
 				},
 				{
 					'name' : 'fromFd',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -54526,7 +54526,7 @@ config = {
 				},
 				{
 					'name' : 'adoptFd',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -54542,7 +54542,7 @@ config = {
 				},
 				{
 					'name' : 'fromSocket',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.Socket',
@@ -54558,7 +54558,7 @@ config = {
 				},
 				{
 					'name' : 'fromDatagramSocket',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.DatagramSocket',
@@ -54574,7 +54574,7 @@ config = {
 				},
 				{
 					'name' : 'createPipe',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -54640,7 +54640,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'in',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54649,7 +54649,7 @@ config = {
 				},
 				{
 					'name' : 'out',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54658,7 +54658,7 @@ config = {
 				},
 				{
 					'name' : 'err',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.io.FileDescriptor',
@@ -54706,7 +54706,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'STRING_CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -54988,7 +54988,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -56232,11 +56232,11 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'FIRST_CALL_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56245,7 +56245,7 @@ config = {
 				},
 				{
 					'name' : 'LAST_CALL_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56254,7 +56254,7 @@ config = {
 				},
 				{
 					'name' : 'PING_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56263,7 +56263,7 @@ config = {
 				},
 				{
 					'name' : 'DUMP_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56272,7 +56272,7 @@ config = {
 				},
 				{
 					'name' : 'INTERFACE_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56281,7 +56281,7 @@ config = {
 				},
 				{
 					'name' : 'TWEET_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56290,7 +56290,7 @@ config = {
 				},
 				{
 					'name' : 'LIKE_TRANSACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56299,7 +56299,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ONEWAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -56468,7 +56468,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IInterface',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56490,7 +56490,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder$DeathRecipient',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56516,7 +56516,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EMPTY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Bundle',
@@ -56525,7 +56525,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -57899,7 +57899,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'byte',
@@ -57908,7 +57908,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'byte',
@@ -57917,7 +57917,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -57927,7 +57927,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -57954,7 +57954,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'byte',
@@ -58070,7 +58070,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -58094,7 +58094,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -58110,7 +58110,7 @@ config = {
 				},
 				{
 					'name' : 'parseByte',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -58147,11 +58147,11 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'PARCELABLE_WRITE_RETURN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -58160,7 +58160,7 @@ config = {
 				},
 				{
 					'name' : 'CONTENTS_FILE_DESCRIPTOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -58730,7 +58730,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -58739,7 +58739,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -58748,7 +58748,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -58758,7 +58758,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -58769,7 +58769,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'numberOfLeadingZeros',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58785,7 +58785,7 @@ config = {
 				},
 				{
 					'name' : 'numberOfTrailingZeros',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58801,7 +58801,7 @@ config = {
 				},
 				{
 					'name' : 'bitCount',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58833,7 +58833,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58861,7 +58861,7 @@ config = {
 				},
 				{
 					'name' : 'reverseBytes',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58965,7 +58965,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -58985,7 +58985,7 @@ config = {
 				},
 				{
 					'name' : 'toHexString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59001,7 +59001,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -59017,7 +59017,7 @@ config = {
 				},
 				{
 					'name' : 'reverse',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59033,7 +59033,7 @@ config = {
 				},
 				{
 					'name' : 'parseInt',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -59053,7 +59053,7 @@ config = {
 				},
 				{
 					'name' : 'toOctalString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59069,7 +59069,7 @@ config = {
 				},
 				{
 					'name' : 'toBinaryString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59085,7 +59085,7 @@ config = {
 				},
 				{
 					'name' : 'getInteger',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -59109,7 +59109,7 @@ config = {
 				},
 				{
 					'name' : 'highestOneBit',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59125,7 +59125,7 @@ config = {
 				},
 				{
 					'name' : 'lowestOneBit',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59141,7 +59141,7 @@ config = {
 				},
 				{
 					'name' : 'rotateLeft',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59157,7 +59157,7 @@ config = {
 				},
 				{
 					'name' : 'rotateRight',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59173,7 +59173,7 @@ config = {
 				},
 				{
 					'name' : 'signum',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -59206,7 +59206,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Serializable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59216,7 +59216,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$Creator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -60219,7 +60219,7 @@ config = {
 				},
 				{
 					'name' : 'setSocketImplFactory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.SocketImplFactory',
@@ -60363,7 +60363,7 @@ config = {
 				},
 				{
 					'name' : 'getByName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60531,7 +60531,7 @@ config = {
 				},
 				{
 					'name' : 'getByAddress',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -60552,7 +60552,7 @@ config = {
 				},
 				{
 					'name' : 'getAllByName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60569,7 +60569,7 @@ config = {
 				},
 				{
 					'name' : 'getLocalHost',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -60667,7 +60667,7 @@ config = {
 				},
 				{
 					'name' : 'getByName',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -60722,7 +60722,7 @@ config = {
 				},
 				{
 					'name' : 'getByInetAddress',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.InetAddress',
@@ -60738,7 +60738,7 @@ config = {
 				},
 				{
 					'name' : 'getNetworkInterfaces',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -60990,7 +60990,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.SocketAddress',
@@ -61086,7 +61086,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.SocketImplFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61525,7 +61525,7 @@ config = {
 				},
 				{
 					'name' : 'setDatagramSocketImplFactory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.DatagramSocketImplFactory',
@@ -61836,7 +61836,7 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -61932,7 +61932,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramSocketImplFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62435,7 +62435,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'READ_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -62444,7 +62444,7 @@ config = {
 				},
 				{
 					'name' : 'READ_WRITE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -62453,7 +62453,7 @@ config = {
 				},
 				{
 					'name' : 'PRIVATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.nio.channels.FileChannel$MapMode',
@@ -62526,7 +62526,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.WritableByteChannel',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62552,7 +62552,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.ReadableByteChannel',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62666,7 +62666,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.XmlResourceParser',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62692,7 +62692,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DENSITY_LOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62701,7 +62701,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_MEDIUM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62710,7 +62710,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_TV',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62719,7 +62719,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_HIGH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62728,7 +62728,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_XHIGH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62737,7 +62737,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_XXHIGH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62746,7 +62746,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62941,7 +62941,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62950,7 +62950,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62959,7 +62959,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_SMALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62968,7 +62968,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62977,7 +62977,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_LARGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62986,7 +62986,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_SIZE_XLARGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -62995,7 +62995,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LONG_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63004,7 +63004,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LONG_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63013,7 +63013,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LONG_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63022,7 +63022,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LONG_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63031,7 +63031,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LAYOUTDIR_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63040,7 +63040,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LAYOUTDIR_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63049,7 +63049,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LAYOUTDIR_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63058,7 +63058,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LAYOUTDIR_LTR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63067,7 +63067,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_LAYOUTDIR_RTL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63076,7 +63076,7 @@ config = {
 				},
 				{
 					'name' : 'SCREENLAYOUT_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63094,7 +63094,7 @@ config = {
 				},
 				{
 					'name' : 'TOUCHSCREEN_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63103,7 +63103,7 @@ config = {
 				},
 				{
 					'name' : 'TOUCHSCREEN_NOTOUCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63112,7 +63112,7 @@ config = {
 				},
 				{
 					'name' : 'TOUCHSCREEN_STYLUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63121,7 +63121,7 @@ config = {
 				},
 				{
 					'name' : 'TOUCHSCREEN_FINGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63139,7 +63139,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARD_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63148,7 +63148,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARD_NOKEYS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63157,7 +63157,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARD_QWERTY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63166,7 +63166,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARD_12KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63184,7 +63184,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARDHIDDEN_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63193,7 +63193,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARDHIDDEN_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63202,7 +63202,7 @@ config = {
 				},
 				{
 					'name' : 'KEYBOARDHIDDEN_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63220,7 +63220,7 @@ config = {
 				},
 				{
 					'name' : 'HARDKEYBOARDHIDDEN_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63229,7 +63229,7 @@ config = {
 				},
 				{
 					'name' : 'HARDKEYBOARDHIDDEN_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63238,7 +63238,7 @@ config = {
 				},
 				{
 					'name' : 'HARDKEYBOARDHIDDEN_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63256,7 +63256,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63265,7 +63265,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_NONAV',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63274,7 +63274,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_DPAD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63283,7 +63283,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_TRACKBALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63292,7 +63292,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_WHEEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63310,7 +63310,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATIONHIDDEN_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63319,7 +63319,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATIONHIDDEN_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63328,7 +63328,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATIONHIDDEN_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63346,7 +63346,7 @@ config = {
 				},
 				{
 					'name' : 'ORIENTATION_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63355,7 +63355,7 @@ config = {
 				},
 				{
 					'name' : 'ORIENTATION_PORTRAIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63364,7 +63364,7 @@ config = {
 				},
 				{
 					'name' : 'ORIENTATION_LANDSCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63373,7 +63373,7 @@ config = {
 				},
 				{
 					'name' : 'ORIENTATION_SQUARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63391,7 +63391,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63400,7 +63400,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63409,7 +63409,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63418,7 +63418,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_DESK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63427,7 +63427,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_CAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63436,7 +63436,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_TELEVISION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63445,7 +63445,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_TYPE_APPLIANCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63454,7 +63454,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_NIGHT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63463,7 +63463,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_NIGHT_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63472,7 +63472,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_NIGHT_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63481,7 +63481,7 @@ config = {
 				},
 				{
 					'name' : 'UI_MODE_NIGHT_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63499,7 +63499,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_WIDTH_DP_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63517,7 +63517,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_HEIGHT_DP_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63535,7 +63535,7 @@ config = {
 				},
 				{
 					'name' : 'SMALLEST_SCREEN_WIDTH_DP_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63553,7 +63553,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_DPI_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63571,7 +63571,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -63811,7 +63811,7 @@ config = {
 				},
 				{
 					'name' : 'needNewResources',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -63844,7 +63844,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TYPE_NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63853,7 +63853,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_REFERENCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63862,7 +63862,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_ATTRIBUTE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63871,7 +63871,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_STRING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63880,7 +63880,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_FLOAT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63889,7 +63889,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_DIMENSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63898,7 +63898,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_FRACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63907,7 +63907,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_FIRST_INT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63916,7 +63916,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_DEC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63925,7 +63925,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_HEX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63934,7 +63934,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_BOOLEAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63943,7 +63943,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_FIRST_COLOR_INT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63952,7 +63952,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_COLOR_ARGB8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63961,7 +63961,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_COLOR_RGB8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63970,7 +63970,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_COLOR_ARGB4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63979,7 +63979,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INT_COLOR_RGB4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63988,7 +63988,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_LAST_COLOR_INT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -63997,7 +63997,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_LAST_INT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64006,7 +64006,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64015,7 +64015,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64024,7 +64024,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_PX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64033,7 +64033,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_DIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64042,7 +64042,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_SP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64051,7 +64051,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_PT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64060,7 +64060,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_IN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64069,7 +64069,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_MM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64078,7 +64078,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_FRACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64087,7 +64087,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_UNIT_FRACTION_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64096,7 +64096,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64105,7 +64105,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64114,7 +64114,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_23p0',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64123,7 +64123,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_16p7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64132,7 +64132,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_8p15',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64141,7 +64141,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_RADIX_0p23',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64150,7 +64150,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_MANTISSA_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64159,7 +64159,7 @@ config = {
 				},
 				{
 					'name' : 'COMPLEX_MANTISSA_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64168,7 +64168,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64177,7 +64177,7 @@ config = {
 				},
 				{
 					'name' : 'DENSITY_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -64323,7 +64323,7 @@ config = {
 				},
 				{
 					'name' : 'complexToFloat',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64339,7 +64339,7 @@ config = {
 				},
 				{
 					'name' : 'complexToDimension',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64359,7 +64359,7 @@ config = {
 				},
 				{
 					'name' : 'complexToDimensionPixelOffset',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64379,7 +64379,7 @@ config = {
 				},
 				{
 					'name' : 'complexToDimensionPixelSize',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64399,7 +64399,7 @@ config = {
 				},
 				{
 					'name' : 'complexToDimensionNoisy',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64419,7 +64419,7 @@ config = {
 				},
 				{
 					'name' : 'applyDimension',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64443,7 +64443,7 @@ config = {
 				},
 				{
 					'name' : 'complexToFraction',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -64463,7 +64463,7 @@ config = {
 				},
 				{
 					'name' : 'coerceToString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -65063,7 +65063,7 @@ config = {
 				},
 				{
 					'name' : 'createFromStream',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -65399,7 +65399,7 @@ config = {
 				},
 				{
 					'name' : 'resolveOpacity',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -65479,7 +65479,7 @@ config = {
 				},
 				{
 					'name' : 'createFromResourceStream',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -65511,7 +65511,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXml',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -65531,7 +65531,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXmlInner',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -65555,7 +65555,7 @@ config = {
 				},
 				{
 					'name' : 'createFromPath',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -65592,11 +65592,11 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlPullParser',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'NO_NAMESPACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -65605,7 +65605,7 @@ config = {
 				},
 				{
 					'name' : 'START_DOCUMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65614,7 +65614,7 @@ config = {
 				},
 				{
 					'name' : 'END_DOCUMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65623,7 +65623,7 @@ config = {
 				},
 				{
 					'name' : 'START_TAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65632,7 +65632,7 @@ config = {
 				},
 				{
 					'name' : 'END_TAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65641,7 +65641,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65650,7 +65650,7 @@ config = {
 				},
 				{
 					'name' : 'CDSECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65659,7 +65659,7 @@ config = {
 				},
 				{
 					'name' : 'ENTITY_REF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65668,7 +65668,7 @@ config = {
 				},
 				{
 					'name' : 'IGNORABLE_WHITESPACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65677,7 +65677,7 @@ config = {
 				},
 				{
 					'name' : 'PROCESSING_INSTRUCTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65686,7 +65686,7 @@ config = {
 				},
 				{
 					'name' : 'COMMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65695,7 +65695,7 @@ config = {
 				},
 				{
 					'name' : 'DOCDECL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -65704,7 +65704,7 @@ config = {
 				},
 				{
 					'name' : 'TYPES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : '_object_array_type',
@@ -65714,7 +65714,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_PROCESS_NAMESPACES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -65723,7 +65723,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_REPORT_NAMESPACE_ATTRIBUTES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -65732,7 +65732,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_PROCESS_DOCDECL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -65741,7 +65741,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_VALIDATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -66377,7 +66377,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.AttributeSet',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -66688,7 +66688,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -66820,7 +66820,7 @@ config = {
 				},
 				{
 					'name' : 'intersects',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -66956,7 +66956,7 @@ config = {
 				},
 				{
 					'name' : 'unflattenFromString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -67121,7 +67121,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MATRIX_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -67130,7 +67130,7 @@ config = {
 				},
 				{
 					'name' : 'CLIP_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -67139,7 +67139,7 @@ config = {
 				},
 				{
 					'name' : 'HAS_ALPHA_LAYER_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -67148,7 +67148,7 @@ config = {
 				},
 				{
 					'name' : 'FULL_COLOR_LAYER_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -67157,7 +67157,7 @@ config = {
 				},
 				{
 					'name' : 'CLIP_TO_LAYER_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -67166,7 +67166,7 @@ config = {
 				},
 				{
 					'name' : 'ALL_SAVE_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -68234,7 +68234,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DENSITY_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -68243,7 +68243,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -68439,7 +68439,7 @@ config = {
 				},
 				{
 					'name' : 'createScaledBitmap',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -68463,7 +68463,7 @@ config = {
 				},
 				{
 					'name' : 'createBitmap',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.util.DisplayMetrics',
@@ -68840,7 +68840,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ALPHA_8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68849,7 +68849,7 @@ config = {
 				},
 				{
 					'name' : 'ARGB_4444',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68858,7 +68858,7 @@ config = {
 				},
 				{
 					'name' : 'ARGB_8888',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68867,7 +68867,7 @@ config = {
 				},
 				{
 					'name' : 'RGB_565',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$Config',
@@ -68878,7 +68878,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -68891,7 +68891,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -69121,7 +69121,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MSCALE_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69130,7 +69130,7 @@ config = {
 				},
 				{
 					'name' : 'MSKEW_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69139,7 +69139,7 @@ config = {
 				},
 				{
 					'name' : 'MTRANS_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69148,7 +69148,7 @@ config = {
 				},
 				{
 					'name' : 'MSKEW_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69157,7 +69157,7 @@ config = {
 				},
 				{
 					'name' : 'MSCALE_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69166,7 +69166,7 @@ config = {
 				},
 				{
 					'name' : 'MTRANS_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69175,7 +69175,7 @@ config = {
 				},
 				{
 					'name' : 'MPERSP_0',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69184,7 +69184,7 @@ config = {
 				},
 				{
 					'name' : 'MPERSP_1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69193,7 +69193,7 @@ config = {
 				},
 				{
 					'name' : 'MPERSP_2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -69770,7 +69770,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -69922,7 +69922,7 @@ config = {
 				},
 				{
 					'name' : 'intersects',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.graphics.RectF',
@@ -70191,7 +70191,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70200,7 +70200,7 @@ config = {
 				},
 				{
 					'name' : 'END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70209,7 +70209,7 @@ config = {
 				},
 				{
 					'name' : 'FILL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70218,7 +70218,7 @@ config = {
 				},
 				{
 					'name' : 'START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Matrix$ScaleToFit',
@@ -70229,7 +70229,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -70242,7 +70242,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -70266,7 +70266,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'JPEG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70275,7 +70275,7 @@ config = {
 				},
 				{
 					'name' : 'PNG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70284,7 +70284,7 @@ config = {
 				},
 				{
 					'name' : 'WEBP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Bitmap$CompressFormat',
@@ -70295,7 +70295,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -70308,7 +70308,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -70332,7 +70332,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ANTI_ALIAS_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70341,7 +70341,7 @@ config = {
 				},
 				{
 					'name' : 'FILTER_BITMAP_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70350,7 +70350,7 @@ config = {
 				},
 				{
 					'name' : 'DITHER_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70359,7 +70359,7 @@ config = {
 				},
 				{
 					'name' : 'UNDERLINE_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70368,7 +70368,7 @@ config = {
 				},
 				{
 					'name' : 'STRIKE_THRU_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70377,7 +70377,7 @@ config = {
 				},
 				{
 					'name' : 'FAKE_BOLD_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70386,7 +70386,7 @@ config = {
 				},
 				{
 					'name' : 'LINEAR_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70395,7 +70395,7 @@ config = {
 				},
 				{
 					'name' : 'SUBPIXEL_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70404,7 +70404,7 @@ config = {
 				},
 				{
 					'name' : 'DEV_KERN_TEXT_FLAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70413,7 +70413,7 @@ config = {
 				},
 				{
 					'name' : 'HINTING_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -70422,7 +70422,7 @@ config = {
 				},
 				{
 					'name' : 'HINTING_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -71601,7 +71601,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FILL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71610,7 +71610,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_AND_STROKE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71619,7 +71619,7 @@ config = {
 				},
 				{
 					'name' : 'STROKE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Style',
@@ -71630,7 +71630,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -71643,7 +71643,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -71667,7 +71667,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BUTT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71676,7 +71676,7 @@ config = {
 				},
 				{
 					'name' : 'ROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71685,7 +71685,7 @@ config = {
 				},
 				{
 					'name' : 'SQUARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Cap',
@@ -71696,7 +71696,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -71709,7 +71709,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -71733,7 +71733,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BEVEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71742,7 +71742,7 @@ config = {
 				},
 				{
 					'name' : 'MITER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71751,7 +71751,7 @@ config = {
 				},
 				{
 					'name' : 'ROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Join',
@@ -71762,7 +71762,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -71775,7 +71775,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72331,7 +72331,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'EVEN_ODD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72340,7 +72340,7 @@ config = {
 				},
 				{
 					'name' : 'INVERSE_EVEN_ODD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72349,7 +72349,7 @@ config = {
 				},
 				{
 					'name' : 'INVERSE_WINDING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72358,7 +72358,7 @@ config = {
 				},
 				{
 					'name' : 'WINDING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$FillType',
@@ -72369,7 +72369,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -72382,7 +72382,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72406,7 +72406,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CCW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$Direction',
@@ -72415,7 +72415,7 @@ config = {
 				},
 				{
 					'name' : 'CW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Path$Direction',
@@ -72426,7 +72426,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -72439,7 +72439,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72570,7 +72570,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72579,7 +72579,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_BOLD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72588,7 +72588,7 @@ config = {
 				},
 				{
 					'name' : 'SANS_SERIF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72597,7 +72597,7 @@ config = {
 				},
 				{
 					'name' : 'SERIF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72606,7 +72606,7 @@ config = {
 				},
 				{
 					'name' : 'MONOSPACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Typeface',
@@ -72615,7 +72615,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -72624,7 +72624,7 @@ config = {
 				},
 				{
 					'name' : 'BOLD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -72633,7 +72633,7 @@ config = {
 				},
 				{
 					'name' : 'ITALIC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -72642,7 +72642,7 @@ config = {
 				},
 				{
 					'name' : 'BOLD_ITALIC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -72681,7 +72681,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72741,7 +72741,7 @@ config = {
 				},
 				{
 					'name' : 'defaultFromStyle',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -72757,7 +72757,7 @@ config = {
 				},
 				{
 					'name' : 'createFromAsset',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.AssetManager',
@@ -72777,7 +72777,7 @@ config = {
 				},
 				{
 					'name' : 'createFromFile',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -72820,7 +72820,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72829,7 +72829,7 @@ config = {
 				},
 				{
 					'name' : 'LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72838,7 +72838,7 @@ config = {
 				},
 				{
 					'name' : 'RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Paint$Align',
@@ -72849,7 +72849,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -72862,7 +72862,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73018,7 +73018,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIFFERENCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73027,7 +73027,7 @@ config = {
 				},
 				{
 					'name' : 'INTERSECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73036,7 +73036,7 @@ config = {
 				},
 				{
 					'name' : 'REPLACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73045,7 +73045,7 @@ config = {
 				},
 				{
 					'name' : 'REVERSE_DIFFERENCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73054,7 +73054,7 @@ config = {
 				},
 				{
 					'name' : 'UNION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73063,7 +73063,7 @@ config = {
 				},
 				{
 					'name' : 'XOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Region$Op',
@@ -73074,7 +73074,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -73087,7 +73087,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73111,7 +73111,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -73479,7 +73479,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'AA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$EdgeType',
@@ -73488,7 +73488,7 @@ config = {
 				},
 				{
 					'name' : 'BW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$EdgeType',
@@ -73499,7 +73499,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -73512,7 +73512,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73536,7 +73536,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ADD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73545,7 +73545,7 @@ config = {
 				},
 				{
 					'name' : 'CLEAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73554,7 +73554,7 @@ config = {
 				},
 				{
 					'name' : 'DARKEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73563,7 +73563,7 @@ config = {
 				},
 				{
 					'name' : 'DST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73572,7 +73572,7 @@ config = {
 				},
 				{
 					'name' : 'DST_ATOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73581,7 +73581,7 @@ config = {
 				},
 				{
 					'name' : 'DST_IN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73590,7 +73590,7 @@ config = {
 				},
 				{
 					'name' : 'DST_OUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73599,7 +73599,7 @@ config = {
 				},
 				{
 					'name' : 'DST_OVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73608,7 +73608,7 @@ config = {
 				},
 				{
 					'name' : 'LIGHTEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73617,7 +73617,7 @@ config = {
 				},
 				{
 					'name' : 'MULTIPLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73626,7 +73626,7 @@ config = {
 				},
 				{
 					'name' : 'OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73635,7 +73635,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73644,7 +73644,7 @@ config = {
 				},
 				{
 					'name' : 'SRC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73653,7 +73653,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_ATOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73662,7 +73662,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_IN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73671,7 +73671,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_OUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73680,7 +73680,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_OVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73689,7 +73689,7 @@ config = {
 				},
 				{
 					'name' : 'XOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.PorterDuff$Mode',
@@ -73700,7 +73700,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -73713,7 +73713,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73737,7 +73737,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRIANGLES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73746,7 +73746,7 @@ config = {
 				},
 				{
 					'name' : 'TRIANGLE_FAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73755,7 +73755,7 @@ config = {
 				},
 				{
 					'name' : 'TRIANGLE_STRIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.graphics.Canvas$VertexMode',
@@ -73766,7 +73766,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -73779,7 +73779,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -73873,7 +73873,7 @@ config = {
 				},
 				{
 					'name' : 'createFromStream',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -73918,7 +73918,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.drawable.Drawable$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -74225,7 +74225,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -74249,7 +74249,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -74309,7 +74309,7 @@ config = {
 				},
 				{
 					'name' : 'createFromXml',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -74491,7 +74491,7 @@ config = {
 				},
 				{
 					'name' : 'decodeStream',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
@@ -74507,7 +74507,7 @@ config = {
 				},
 				{
 					'name' : 'decodeByteArray',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -74528,7 +74528,7 @@ config = {
 				},
 				{
 					'name' : 'decodeFile',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -74667,7 +74667,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'GET_ACTIVITIES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74676,7 +74676,7 @@ config = {
 				},
 				{
 					'name' : 'GET_RECEIVERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74685,7 +74685,7 @@ config = {
 				},
 				{
 					'name' : 'GET_SERVICES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74694,7 +74694,7 @@ config = {
 				},
 				{
 					'name' : 'GET_PROVIDERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74703,7 +74703,7 @@ config = {
 				},
 				{
 					'name' : 'GET_INSTRUMENTATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74712,7 +74712,7 @@ config = {
 				},
 				{
 					'name' : 'GET_INTENT_FILTERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74721,7 +74721,7 @@ config = {
 				},
 				{
 					'name' : 'GET_SIGNATURES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74730,7 +74730,7 @@ config = {
 				},
 				{
 					'name' : 'GET_RESOLVED_FILTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74739,7 +74739,7 @@ config = {
 				},
 				{
 					'name' : 'GET_META_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74748,7 +74748,7 @@ config = {
 				},
 				{
 					'name' : 'GET_GIDS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74757,7 +74757,7 @@ config = {
 				},
 				{
 					'name' : 'GET_DISABLED_COMPONENTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74766,7 +74766,7 @@ config = {
 				},
 				{
 					'name' : 'GET_SHARED_LIBRARY_FILES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74775,7 +74775,7 @@ config = {
 				},
 				{
 					'name' : 'GET_URI_PERMISSION_PATTERNS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74784,7 +74784,7 @@ config = {
 				},
 				{
 					'name' : 'GET_PERMISSIONS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74793,7 +74793,7 @@ config = {
 				},
 				{
 					'name' : 'GET_UNINSTALLED_PACKAGES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74802,7 +74802,7 @@ config = {
 				},
 				{
 					'name' : 'GET_CONFIGURATIONS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74811,7 +74811,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_DEFAULT_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74820,7 +74820,7 @@ config = {
 				},
 				{
 					'name' : 'PERMISSION_GRANTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74829,7 +74829,7 @@ config = {
 				},
 				{
 					'name' : 'PERMISSION_DENIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74838,7 +74838,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_MATCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74847,7 +74847,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_NEITHER_SIGNED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74856,7 +74856,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_FIRST_NOT_SIGNED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74865,7 +74865,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_SECOND_NOT_SIGNED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74874,7 +74874,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_NO_MATCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74883,7 +74883,7 @@ config = {
 				},
 				{
 					'name' : 'SIGNATURE_UNKNOWN_PACKAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74892,7 +74892,7 @@ config = {
 				},
 				{
 					'name' : 'COMPONENT_ENABLED_STATE_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74901,7 +74901,7 @@ config = {
 				},
 				{
 					'name' : 'COMPONENT_ENABLED_STATE_ENABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74910,7 +74910,7 @@ config = {
 				},
 				{
 					'name' : 'COMPONENT_ENABLED_STATE_DISABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74919,7 +74919,7 @@ config = {
 				},
 				{
 					'name' : 'COMPONENT_ENABLED_STATE_DISABLED_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74928,7 +74928,7 @@ config = {
 				},
 				{
 					'name' : 'DONT_KILL_APP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74937,7 +74937,7 @@ config = {
 				},
 				{
 					'name' : 'VERIFICATION_ALLOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74946,7 +74946,7 @@ config = {
 				},
 				{
 					'name' : 'VERIFICATION_REJECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -74955,7 +74955,7 @@ config = {
 				},
 				{
 					'name' : 'MAXIMUM_VERIFICATION_TIMEOUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -74964,7 +74964,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_AUDIO_LOW_LATENCY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -74973,7 +74973,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_BLUETOOTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -74982,7 +74982,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CAMERA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -74991,7 +74991,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CAMERA_AUTOFOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75000,7 +75000,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CAMERA_ANY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75009,7 +75009,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CAMERA_FLASH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75018,7 +75018,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CAMERA_FRONT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75027,7 +75027,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_LOCATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75036,7 +75036,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_LOCATION_GPS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75045,7 +75045,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_LOCATION_NETWORK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75054,7 +75054,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_MICROPHONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75063,7 +75063,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_NFC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75072,7 +75072,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_ACCELEROMETER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75081,7 +75081,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_BAROMETER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75090,7 +75090,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_COMPASS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75099,7 +75099,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_GYROSCOPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75108,7 +75108,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_LIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75117,7 +75117,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SENSOR_PROXIMITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75126,7 +75126,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TELEPHONY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75135,7 +75135,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TELEPHONY_CDMA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75144,7 +75144,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TELEPHONY_GSM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75153,7 +75153,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_USB_HOST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75162,7 +75162,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_USB_ACCESSORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75171,7 +75171,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75180,7 +75180,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SIP_VOIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75189,7 +75189,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TOUCHSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75198,7 +75198,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TOUCHSCREEN_MULTITOUCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75207,7 +75207,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TOUCHSCREEN_MULTITOUCH_DISTINCT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75216,7 +75216,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TOUCHSCREEN_MULTITOUCH_JAZZHAND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75225,7 +75225,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_FAKETOUCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75234,7 +75234,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_FAKETOUCH_MULTITOUCH_DISTINCT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75243,7 +75243,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_FAKETOUCH_MULTITOUCH_JAZZHAND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75252,7 +75252,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SCREEN_PORTRAIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75261,7 +75261,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_SCREEN_LANDSCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75270,7 +75270,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_LIVE_WALLPAPER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75279,7 +75279,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_WIFI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75288,7 +75288,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_WIFI_DIRECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75297,7 +75297,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_TELEVISION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75306,7 +75306,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_VERIFICATION_ID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -75315,7 +75315,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_VERIFICATION_RESULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -76684,7 +76684,7 @@ config = {
 				},
 				{
 					'name' : 'REQUESTED_PERMISSION_REQUIRED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76693,7 +76693,7 @@ config = {
 				},
 				{
 					'name' : 'REQUESTED_PERMISSION_GRANTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76732,7 +76732,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -76882,7 +76882,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SYSTEM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76891,7 +76891,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_DEBUGGABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76900,7 +76900,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_HAS_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76909,7 +76909,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_PERSISTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76918,7 +76918,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FACTORY_TEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76927,7 +76927,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALLOW_TASK_REPARENTING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76936,7 +76936,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALLOW_CLEAR_USER_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76945,7 +76945,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_UPDATED_SYSTEM_APP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76954,7 +76954,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_TEST_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76963,7 +76963,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_SMALL_SCREENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76972,7 +76972,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_NORMAL_SCREENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76981,7 +76981,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_LARGE_SCREENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76990,7 +76990,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_RESIZEABLE_FOR_SCREENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -76999,7 +76999,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_SCREEN_DENSITIES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77008,7 +77008,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_VM_SAFE_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77017,7 +77017,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALLOW_BACKUP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77026,7 +77026,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_KILL_AFTER_RESTORE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77035,7 +77035,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_RESTORE_ANY_VERSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77044,7 +77044,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_EXTERNAL_STORAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77053,7 +77053,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_XLARGE_SCREENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77062,7 +77062,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_LARGE_HEAP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77071,7 +77071,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_STOPPED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77080,7 +77080,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_RTL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77089,7 +77089,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_INSTALLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77098,7 +77098,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_IS_DATA_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77216,7 +77216,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -77321,7 +77321,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.Printer',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -77360,7 +77360,7 @@ config = {
 				},
 				{
 					'name' : 'LAUNCH_MULTIPLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77369,7 +77369,7 @@ config = {
 				},
 				{
 					'name' : 'LAUNCH_SINGLE_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77378,7 +77378,7 @@ config = {
 				},
 				{
 					'name' : 'LAUNCH_SINGLE_TASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77387,7 +77387,7 @@ config = {
 				},
 				{
 					'name' : 'LAUNCH_SINGLE_INSTANCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77432,7 +77432,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_MULTIPROCESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77441,7 +77441,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FINISH_ON_TASK_LAUNCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77450,7 +77450,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_CLEAR_TASK_ON_LAUNCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77459,7 +77459,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALWAYS_RETAIN_TASK_STATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77468,7 +77468,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_STATE_NOT_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77477,7 +77477,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_EXCLUDE_FROM_RECENTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77486,7 +77486,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALLOW_TASK_REPARENTING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77495,7 +77495,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_NO_HISTORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77504,7 +77504,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FINISH_ON_CLOSE_SYSTEM_DIALOGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77513,7 +77513,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_HARDWARE_ACCELERATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77522,7 +77522,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SINGLE_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77540,7 +77540,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_UNSPECIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77549,7 +77549,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_LANDSCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77558,7 +77558,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_PORTRAIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77567,7 +77567,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77576,7 +77576,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_BEHIND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77585,7 +77585,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_SENSOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77594,7 +77594,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_NOSENSOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77603,7 +77603,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_SENSOR_LANDSCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77612,7 +77612,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_SENSOR_PORTRAIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77621,7 +77621,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_REVERSE_LANDSCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77630,7 +77630,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_REVERSE_PORTRAIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77639,7 +77639,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_FULL_SENSOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77657,7 +77657,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_MCC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77666,7 +77666,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_MNC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77675,7 +77675,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_LOCALE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77684,7 +77684,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_TOUCHSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77693,7 +77693,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_KEYBOARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77702,7 +77702,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_KEYBOARD_HIDDEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77711,7 +77711,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_NAVIGATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77720,7 +77720,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_ORIENTATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77729,7 +77729,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_SCREEN_LAYOUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77738,7 +77738,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_UI_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77747,7 +77747,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_SCREEN_SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77756,7 +77756,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_SMALLEST_SCREEN_SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77765,7 +77765,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_DENSITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77774,7 +77774,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_LAYOUT_DIRECTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77783,7 +77783,7 @@ config = {
 				},
 				{
 					'name' : 'CONFIG_FONT_SCALE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77819,7 +77819,7 @@ config = {
 				},
 				{
 					'name' : 'UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77837,7 +77837,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -77951,7 +77951,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_STOP_WITH_TASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77960,7 +77960,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ISOLATED_PROCESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77969,7 +77969,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SINGLE_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -77987,7 +77987,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78154,7 +78154,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SINGLE_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78181,7 +78181,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78254,7 +78254,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'PATTERN_LITERAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78263,7 +78263,7 @@ config = {
 				},
 				{
 					'name' : 'PATTERN_PREFIX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78272,7 +78272,7 @@ config = {
 				},
 				{
 					'name' : 'PATTERN_SIMPLE_GLOB',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78281,7 +78281,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78402,7 +78402,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78537,7 +78537,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78610,7 +78610,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'PROTECTION_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78619,7 +78619,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_DANGEROUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78628,7 +78628,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_SIGNATURE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78637,7 +78637,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_SIGNATURE_OR_SYSTEM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78646,7 +78646,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_FLAG_SYSTEM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78655,7 +78655,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_FLAG_DEVELOPMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78664,7 +78664,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_MASK_BASE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78673,7 +78673,7 @@ config = {
 				},
 				{
 					'name' : 'PROTECTION_MASK_FLAGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78700,7 +78700,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_COSTS_MONEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -78736,7 +78736,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78825,7 +78825,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -78994,7 +78994,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_FEATURE_HARD_KEYBOARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -79003,7 +79003,7 @@ config = {
 				},
 				{
 					'name' : 'INPUT_FEATURE_FIVE_WAY_NAV',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -79021,7 +79021,7 @@ config = {
 				},
 				{
 					'name' : 'GL_ES_VERSION_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -79039,7 +79039,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -79133,7 +79133,7 @@ config = {
 				},
 				{
 					'name' : 'GL_ES_VERSION_UNDEFINED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -79151,7 +79151,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_REQUIRED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -79169,7 +79169,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -79254,7 +79254,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ACTION_MAIN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79263,7 +79263,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_VIEW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79272,7 +79272,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79281,7 +79281,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ATTACH_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79290,7 +79290,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_EDIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79299,7 +79299,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_INSERT_OR_EDIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79308,7 +79308,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PICK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79317,7 +79317,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CREATE_SHORTCUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79326,7 +79326,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_SHORTCUT_INTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79335,7 +79335,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_SHORTCUT_NAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79344,7 +79344,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_SHORTCUT_ICON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79353,7 +79353,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_SHORTCUT_ICON_RESOURCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79362,7 +79362,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CHOOSER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79371,7 +79371,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_GET_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79380,7 +79380,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DIAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79389,7 +79389,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79398,7 +79398,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SENDTO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79407,7 +79407,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SEND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79416,7 +79416,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SEND_MULTIPLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79425,7 +79425,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ANSWER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79434,7 +79434,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_INSERT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79443,7 +79443,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PASTE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79452,7 +79452,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DELETE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79461,7 +79461,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_RUN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79470,7 +79470,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SYNC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79479,7 +79479,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PICK_ACTIVITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79488,7 +79488,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SEARCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79497,7 +79497,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SYSTEM_TUTORIAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79506,7 +79506,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_WEB_SEARCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79515,7 +79515,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ASSIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79524,7 +79524,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ALL_APPS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79533,7 +79533,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SET_WALLPAPER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79542,7 +79542,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_BUG_REPORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79551,7 +79551,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_FACTORY_TEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79560,7 +79560,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CALL_BUTTON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79569,7 +79569,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_VOICE_COMMAND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79578,7 +79578,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SEARCH_LONG_PRESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79587,7 +79587,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_APP_ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79596,7 +79596,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POWER_USAGE_SUMMARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79605,7 +79605,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MANAGE_NETWORK_USAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79614,7 +79614,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_INSTALL_PACKAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79623,7 +79623,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_INSTALLER_PACKAGE_NAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79632,7 +79632,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_NOT_UNKNOWN_SOURCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79641,7 +79641,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_ORIGINATING_URI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79650,7 +79650,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_REFERRER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79659,7 +79659,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_ALLOW_REPLACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79668,7 +79668,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_RETURN_RESULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79677,7 +79677,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UNINSTALL_PACKAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79686,7 +79686,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SCREEN_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79695,7 +79695,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SCREEN_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79704,7 +79704,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DREAMING_STOPPED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79713,7 +79713,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DREAMING_STARTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79722,7 +79722,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_USER_PRESENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79731,7 +79731,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_TIME_TICK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79740,7 +79740,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_TIME_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79749,7 +79749,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DATE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79758,7 +79758,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_TIMEZONE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79767,7 +79767,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_BOOT_COMPLETED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79776,7 +79776,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CLOSE_SYSTEM_DIALOGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79785,7 +79785,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_INSTALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79794,7 +79794,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_ADDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79803,7 +79803,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_REPLACED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79812,7 +79812,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MY_PACKAGE_REPLACED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79821,7 +79821,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_REMOVED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79830,7 +79830,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_FULLY_REMOVED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79839,7 +79839,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79848,7 +79848,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_RESTARTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79857,7 +79857,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_DATA_CLEARED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79866,7 +79866,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UID_REMOVED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79875,7 +79875,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_FIRST_LAUNCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79884,7 +79884,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_NEEDS_VERIFICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79893,7 +79893,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PACKAGE_VERIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79902,7 +79902,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_EXTERNAL_APPLICATIONS_AVAILABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79911,7 +79911,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79920,7 +79920,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_WALLPAPER_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79929,7 +79929,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CONFIGURATION_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79938,7 +79938,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_LOCALE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79947,7 +79947,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_BATTERY_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79956,7 +79956,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_BATTERY_LOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79965,7 +79965,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_BATTERY_OKAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79974,7 +79974,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POWER_CONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79983,7 +79983,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POWER_DISCONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -79992,7 +79992,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SHUTDOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80001,7 +80001,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DEVICE_STORAGE_LOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80010,7 +80010,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DEVICE_STORAGE_OK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80019,7 +80019,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MANAGE_PACKAGE_STORAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80028,7 +80028,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UMS_CONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80037,7 +80037,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UMS_DISCONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80046,7 +80046,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_REMOVED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80055,7 +80055,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_UNMOUNTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80064,7 +80064,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_CHECKING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80073,7 +80073,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_NOFS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80082,7 +80082,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_MOUNTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80091,7 +80091,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_SHARED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80100,7 +80100,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_BAD_REMOVAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80109,7 +80109,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_UNMOUNTABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80118,7 +80118,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_EJECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80127,7 +80127,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_SCANNER_STARTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80136,7 +80136,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_SCANNER_FINISHED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80145,7 +80145,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_SCANNER_SCAN_FILE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80154,7 +80154,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MEDIA_BUTTON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80163,7 +80163,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CAMERA_BUTTON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80172,7 +80172,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_GTALK_SERVICE_CONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80181,7 +80181,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_GTALK_SERVICE_DISCONNECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80190,7 +80190,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_INPUT_METHOD_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80199,7 +80199,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_AIRPLANE_MODE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80208,7 +80208,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PROVIDER_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80217,7 +80217,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_HEADSET_PLUG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80226,7 +80226,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_NEW_OUTGOING_CALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80235,7 +80235,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_REBOOT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80244,7 +80244,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DOCK_EVENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80253,7 +80253,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_USER_INITIALIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80262,7 +80262,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_USER_FOREGROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80271,7 +80271,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_USER_BACKGROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80280,7 +80280,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_QUICK_CLOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80289,7 +80289,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80298,7 +80298,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_BROWSABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80307,7 +80307,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_ALTERNATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80316,7 +80316,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_SELECTED_ALTERNATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80325,7 +80325,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_TAB',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80334,7 +80334,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_LAUNCHER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80343,7 +80343,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_INFO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80352,7 +80352,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80361,7 +80361,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_PREFERENCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80370,7 +80370,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_DEVELOPMENT_PREFERENCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80379,7 +80379,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_EMBED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80388,7 +80388,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_MARKET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80397,7 +80397,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_MONKEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80406,7 +80406,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_TEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80415,7 +80415,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_UNIT_TEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80424,7 +80424,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_SAMPLE_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80433,7 +80433,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_OPENABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80442,7 +80442,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80451,7 +80451,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_CAR_DOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80460,7 +80460,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_DESK_DOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80469,7 +80469,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_LE_DESK_DOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80478,7 +80478,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_HE_DESK_DOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80487,7 +80487,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_CAR_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80496,7 +80496,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_BROWSER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80505,7 +80505,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_CALCULATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80514,7 +80514,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_CALENDAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80523,7 +80523,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_CONTACTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80532,7 +80532,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_EMAIL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80541,7 +80541,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_GALLERY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80550,7 +80550,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_MAPS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80559,7 +80559,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_MESSAGING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80568,7 +80568,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_APP_MUSIC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80577,7 +80577,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_TEMPLATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80586,7 +80586,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_TEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80595,7 +80595,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_HTML_TEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80604,7 +80604,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_STREAM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80613,7 +80613,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_EMAIL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80622,7 +80622,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_CC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80631,7 +80631,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_BCC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80640,7 +80640,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_SUBJECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80649,7 +80649,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_INTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80658,7 +80658,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_TITLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80667,7 +80667,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_INITIAL_INTENTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80676,7 +80676,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_KEY_EVENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80685,7 +80685,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DONT_KILL_APP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80694,7 +80694,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_PHONE_NUMBER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80703,7 +80703,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_UID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80712,7 +80712,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DATA_REMOVED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80721,7 +80721,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_REPLACING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80730,7 +80730,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_ALARM_COUNT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80739,7 +80739,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80748,7 +80748,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE_UNDOCKED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80757,7 +80757,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE_DESK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80766,7 +80766,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE_CAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80775,7 +80775,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE_LE_DESK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80784,7 +80784,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_DOCK_STATE_HE_DESK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80793,7 +80793,7 @@ config = {
 				},
 				{
 					'name' : 'METADATA_DOCK_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80802,7 +80802,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_BUG_REPORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80811,7 +80811,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_REMOTE_INTENT_TOKEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80820,7 +80820,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_CHANGED_COMPONENT_NAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80829,7 +80829,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_CHANGED_COMPONENT_NAME_LIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80838,7 +80838,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_CHANGED_PACKAGE_LIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80847,7 +80847,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_CHANGED_UID_LIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80856,7 +80856,7 @@ config = {
 				},
 				{
 					'name' : 'EXTRA_LOCAL_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -80865,7 +80865,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_GRANT_READ_URI_PERMISSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80874,7 +80874,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_GRANT_WRITE_URI_PERMISSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80883,7 +80883,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FROM_BACKGROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80892,7 +80892,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_DEBUG_LOG_RESOLUTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80901,7 +80901,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_EXCLUDE_STOPPED_PACKAGES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80910,7 +80910,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_INCLUDE_STOPPED_PACKAGES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80919,7 +80919,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_NO_HISTORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80928,7 +80928,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_SINGLE_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80937,7 +80937,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_NEW_TASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80946,7 +80946,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_MULTIPLE_TASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80955,7 +80955,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_CLEAR_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80964,7 +80964,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_FORWARD_RESULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80973,7 +80973,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_PREVIOUS_IS_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80982,7 +80982,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -80991,7 +80991,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_BROUGHT_TO_FRONT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81000,7 +81000,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_RESET_TASK_IF_NEEDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81009,7 +81009,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81018,7 +81018,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81027,7 +81027,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_NO_USER_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81036,7 +81036,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_REORDER_TO_FRONT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81045,7 +81045,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_NO_ANIMATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81054,7 +81054,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_CLEAR_TASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81063,7 +81063,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ACTIVITY_TASK_ON_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81072,7 +81072,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_RECEIVER_REGISTERED_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81081,7 +81081,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_RECEIVER_REPLACE_PENDING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81090,7 +81090,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_RECEIVER_FOREGROUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81099,7 +81099,7 @@ config = {
 				},
 				{
 					'name' : 'URI_INTENT_SCHEME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81108,7 +81108,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81117,7 +81117,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81126,7 +81126,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_CATEGORIES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81135,7 +81135,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_COMPONENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81144,7 +81144,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_PACKAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81153,7 +81153,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_SOURCE_BOUNDS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81162,7 +81162,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_SELECTOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81171,7 +81171,7 @@ config = {
 				},
 				{
 					'name' : 'FILL_IN_CLIP_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -81180,7 +81180,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -81456,7 +81456,7 @@ config = {
 				},
 				{
 					'name' : 'createChooser',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
@@ -81488,7 +81488,7 @@ config = {
 				},
 				{
 					'name' : 'makeMainActivity',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
@@ -81504,7 +81504,7 @@ config = {
 				},
 				{
 					'name' : 'makeMainSelectorActivity',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81520,7 +81520,7 @@ config = {
 				},
 				{
 					'name' : 'makeRestartActivityTask',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
@@ -81536,7 +81536,7 @@ config = {
 				},
 				{
 					'name' : 'getIntent',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81552,7 +81552,7 @@ config = {
 				},
 				{
 					'name' : 'parseUri',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -81572,7 +81572,7 @@ config = {
 				},
 				{
 					'name' : 'getIntentOld',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -82820,7 +82820,7 @@ config = {
 				},
 				{
 					'name' : 'parseIntent',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
@@ -82844,7 +82844,7 @@ config = {
 				},
 				{
 					'name' : 'normalizeMimeType',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -82952,7 +82952,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -82968,7 +82968,7 @@ config = {
 				},
 				{
 					'name' : 'encode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83068,7 +83068,7 @@ config = {
 				},
 				{
 					'name' : 'parse',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83265,7 +83265,7 @@ config = {
 				},
 				{
 					'name' : 'fromFile',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -83281,7 +83281,7 @@ config = {
 				},
 				{
 					'name' : 'fromParts',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83375,7 +83375,7 @@ config = {
 				},
 				{
 					'name' : 'withAppendedPath',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -83415,7 +83415,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -83531,7 +83531,7 @@ config = {
 				},
 				{
 					'name' : 'writeToParcel',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -83555,7 +83555,7 @@ config = {
 				},
 				{
 					'name' : 'readFromParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -83595,7 +83595,7 @@ config = {
 				},
 				{
 					'name' : 'unflattenFromString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -83665,7 +83665,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SYNC_EXTRAS_ACCOUNT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83674,7 +83674,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_EXPEDITED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83683,7 +83683,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_FORCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83692,7 +83692,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_IGNORE_SETTINGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83701,7 +83701,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_IGNORE_BACKOFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83710,7 +83710,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_DO_NOT_RETRY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83719,7 +83719,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_MANUAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83728,7 +83728,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_UPLOAD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83737,7 +83737,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83746,7 +83746,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83755,7 +83755,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_EXTRAS_INITIALIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83764,7 +83764,7 @@ config = {
 				},
 				{
 					'name' : 'SCHEME_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83773,7 +83773,7 @@ config = {
 				},
 				{
 					'name' : 'SCHEME_ANDROID_RESOURCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83782,7 +83782,7 @@ config = {
 				},
 				{
 					'name' : 'SCHEME_FILE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83791,7 +83791,7 @@ config = {
 				},
 				{
 					'name' : 'CURSOR_ITEM_BASE_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83800,7 +83800,7 @@ config = {
 				},
 				{
 					'name' : 'CURSOR_DIR_BASE_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -83809,7 +83809,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_OBSERVER_TYPE_SETTINGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -83818,7 +83818,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_OBSERVER_TYPE_PENDING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -83827,7 +83827,7 @@ config = {
 				},
 				{
 					'name' : 'SYNC_OBSERVER_TYPE_ACTIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -84269,7 +84269,7 @@ config = {
 				},
 				{
 					'name' : 'requestSync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84293,7 +84293,7 @@ config = {
 				},
 				{
 					'name' : 'validateSyncExtrasBundle',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -84309,7 +84309,7 @@ config = {
 				},
 				{
 					'name' : 'cancelSync',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -84333,7 +84333,7 @@ config = {
 				},
 				{
 					'name' : 'getSyncAdapterTypes',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -84346,7 +84346,7 @@ config = {
 				},
 				{
 					'name' : 'getSyncAutomatically',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84366,7 +84366,7 @@ config = {
 				},
 				{
 					'name' : 'setSyncAutomatically',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84390,7 +84390,7 @@ config = {
 				},
 				{
 					'name' : 'addPeriodicSync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84418,7 +84418,7 @@ config = {
 				},
 				{
 					'name' : 'removePeriodicSync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84442,7 +84442,7 @@ config = {
 				},
 				{
 					'name' : 'getPeriodicSyncs',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84463,7 +84463,7 @@ config = {
 				},
 				{
 					'name' : 'getIsSyncable',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84483,7 +84483,7 @@ config = {
 				},
 				{
 					'name' : 'setIsSyncable',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84507,7 +84507,7 @@ config = {
 				},
 				{
 					'name' : 'getMasterSyncAutomatically',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -84519,7 +84519,7 @@ config = {
 				},
 				{
 					'name' : 'setMasterSyncAutomatically',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -84535,7 +84535,7 @@ config = {
 				},
 				{
 					'name' : 'isSyncActive',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84555,7 +84555,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrentSync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -84567,7 +84567,7 @@ config = {
 				},
 				{
 					'name' : 'getCurrentSyncs',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -84580,7 +84580,7 @@ config = {
 				},
 				{
 					'name' : 'isSyncPending',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -84600,7 +84600,7 @@ config = {
 				},
 				{
 					'name' : 'addStatusChangeListener',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -84620,7 +84620,7 @@ config = {
 				},
 				{
 					'name' : 'removeStatusChangeListener',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -84653,7 +84653,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -84662,7 +84662,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -85091,7 +85091,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'short',
@@ -85100,7 +85100,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'short',
@@ -85109,7 +85109,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -85119,7 +85119,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -85146,7 +85146,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'short',
@@ -85174,7 +85174,7 @@ config = {
 				},
 				{
 					'name' : 'reverseBytes',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'short',
@@ -85278,7 +85278,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'short',
@@ -85302,7 +85302,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85318,7 +85318,7 @@ config = {
 				},
 				{
 					'name' : 'parseShort',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85359,7 +85359,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -85368,7 +85368,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'long',
@@ -85377,7 +85377,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -85387,7 +85387,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -85398,7 +85398,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'numberOfLeadingZeros',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85414,7 +85414,7 @@ config = {
 				},
 				{
 					'name' : 'numberOfTrailingZeros',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85430,7 +85430,7 @@ config = {
 				},
 				{
 					'name' : 'bitCount',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85462,7 +85462,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85494,7 +85494,7 @@ config = {
 				},
 				{
 					'name' : 'reverseBytes',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85526,7 +85526,7 @@ config = {
 				},
 				{
 					'name' : 'getLong',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85622,7 +85622,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85646,7 +85646,7 @@ config = {
 				},
 				{
 					'name' : 'toHexString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85662,7 +85662,7 @@ config = {
 				},
 				{
 					'name' : 'decode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85678,7 +85678,7 @@ config = {
 				},
 				{
 					'name' : 'reverse',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85694,7 +85694,7 @@ config = {
 				},
 				{
 					'name' : 'toOctalString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85710,7 +85710,7 @@ config = {
 				},
 				{
 					'name' : 'toBinaryString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85726,7 +85726,7 @@ config = {
 				},
 				{
 					'name' : 'highestOneBit',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85742,7 +85742,7 @@ config = {
 				},
 				{
 					'name' : 'lowestOneBit',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85758,7 +85758,7 @@ config = {
 				},
 				{
 					'name' : 'rotateLeft',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85778,7 +85778,7 @@ config = {
 				},
 				{
 					'name' : 'rotateRight',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85798,7 +85798,7 @@ config = {
 				},
 				{
 					'name' : 'signum',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -85814,7 +85814,7 @@ config = {
 				},
 				{
 					'name' : 'parseLong',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -85855,7 +85855,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'POSITIVE_INFINITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85864,7 +85864,7 @@ config = {
 				},
 				{
 					'name' : 'NEGATIVE_INFINITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85873,7 +85873,7 @@ config = {
 				},
 				{
 					'name' : 'NaN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85882,7 +85882,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85891,7 +85891,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85900,7 +85900,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -85909,7 +85909,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_EXPONENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -85918,7 +85918,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_EXPONENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -85927,7 +85927,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -85936,7 +85936,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -85964,7 +85964,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -85992,7 +85992,7 @@ config = {
 				},
 				{
 					'name' : 'floatToRawIntBits',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86008,7 +86008,7 @@ config = {
 				},
 				{
 					'name' : 'floatToIntBits',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86024,7 +86024,7 @@ config = {
 				},
 				{
 					'name' : 'intBitsToFloat',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -86128,7 +86128,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86148,7 +86148,7 @@ config = {
 				},
 				{
 					'name' : 'toHexString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86164,7 +86164,7 @@ config = {
 				},
 				{
 					'name' : 'compare',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86180,7 +86180,7 @@ config = {
 				},
 				{
 					'name' : 'isNaN',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86196,7 +86196,7 @@ config = {
 				},
 				{
 					'name' : 'parseFloat',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86212,7 +86212,7 @@ config = {
 				},
 				{
 					'name' : 'isInfinite',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -86253,7 +86253,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'POSITIVE_INFINITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86262,7 +86262,7 @@ config = {
 				},
 				{
 					'name' : 'NEGATIVE_INFINITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86271,7 +86271,7 @@ config = {
 				},
 				{
 					'name' : 'NaN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86280,7 +86280,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86289,7 +86289,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86298,7 +86298,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_VALUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'double',
@@ -86307,7 +86307,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_EXPONENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86316,7 +86316,7 @@ config = {
 				},
 				{
 					'name' : 'MIN_EXPONENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86325,7 +86325,7 @@ config = {
 				},
 				{
 					'name' : 'SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86334,7 +86334,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -86362,7 +86362,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86390,7 +86390,7 @@ config = {
 				},
 				{
 					'name' : 'doubleToRawLongBits',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86406,7 +86406,7 @@ config = {
 				},
 				{
 					'name' : 'doubleToLongBits',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86422,7 +86422,7 @@ config = {
 				},
 				{
 					'name' : 'longBitsToDouble',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -86526,7 +86526,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86546,7 +86546,7 @@ config = {
 				},
 				{
 					'name' : 'toHexString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86562,7 +86562,7 @@ config = {
 				},
 				{
 					'name' : 'compare',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86578,7 +86578,7 @@ config = {
 				},
 				{
 					'name' : 'isNaN',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86594,7 +86594,7 @@ config = {
 				},
 				{
 					'name' : 'isInfinite',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -86610,7 +86610,7 @@ config = {
 				},
 				{
 					'name' : 'parseDouble',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86647,7 +86647,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
@@ -86656,7 +86656,7 @@ config = {
 				},
 				{
 					'name' : 'FALSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
@@ -86665,7 +86665,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
@@ -86693,7 +86693,7 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -86737,7 +86737,7 @@ config = {
 				},
 				{
 					'name' : 'getBoolean',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86765,7 +86765,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86785,7 +86785,7 @@ config = {
 				},
 				{
 					'name' : 'parseBoolean',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -86885,7 +86885,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.CancellationSignal$OnCancelListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86907,11 +86907,11 @@ config = {
 		},
 		{
 			'name' : 'android.database.Cursor',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'FIELD_TYPE_NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86920,7 +86920,7 @@ config = {
 				},
 				{
 					'name' : 'FIELD_TYPE_INTEGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86929,7 +86929,7 @@ config = {
 				},
 				{
 					'name' : 'FIELD_TYPE_FLOAT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86938,7 +86938,7 @@ config = {
 				},
 				{
 					'name' : 'FIELD_TYPE_STRING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -86947,7 +86947,7 @@ config = {
 				},
 				{
 					'name' : 'FIELD_TYPE_BLOB',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -88050,7 +88050,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Handler$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -88125,7 +88125,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -88209,7 +88209,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Handler',
@@ -88358,7 +88358,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -88458,7 +88458,7 @@ config = {
 				},
 				{
 					'name' : 'writeMessengerOrNullToParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Messenger',
@@ -88478,7 +88478,7 @@ config = {
 				},
 				{
 					'name' : 'readMessengerOrNullFromParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -88529,7 +88529,7 @@ config = {
 				},
 				{
 					'name' : 'loop',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88541,7 +88541,7 @@ config = {
 				},
 				{
 					'name' : 'getMainLooper',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88573,7 +88573,7 @@ config = {
 				},
 				{
 					'name' : 'prepare',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88585,7 +88585,7 @@ config = {
 				},
 				{
 					'name' : 'prepareMainLooper',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88597,7 +88597,7 @@ config = {
 				},
 				{
 					'name' : 'myLooper',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88625,7 +88625,7 @@ config = {
 				},
 				{
 					'name' : 'myQueue',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88707,7 +88707,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.MessageQueue$IdleHandler',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -88733,7 +88733,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIN_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -88742,7 +88742,7 @@ config = {
 				},
 				{
 					'name' : 'NORM_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -88751,7 +88751,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -88798,7 +88798,7 @@ config = {
 				},
 				{
 					'name' : 'currentThread',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88847,7 +88847,7 @@ config = {
 				},
 				{
 					'name' : 'dumpStack',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88903,7 +88903,7 @@ config = {
 				},
 				{
 					'name' : 'yield',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -88915,7 +88915,7 @@ config = {
 				},
 				{
 					'name' : 'sleep',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -88963,7 +88963,7 @@ config = {
 				},
 				{
 					'name' : 'interrupted',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89051,7 +89051,7 @@ config = {
 				},
 				{
 					'name' : 'activeCount',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89063,7 +89063,7 @@ config = {
 				},
 				{
 					'name' : 'enumerate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -89164,7 +89164,7 @@ config = {
 				},
 				{
 					'name' : 'holdsLock',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -89180,7 +89180,7 @@ config = {
 				},
 				{
 					'name' : 'getAllStackTraces',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89217,7 +89217,7 @@ config = {
 				},
 				{
 					'name' : 'setDefaultUncaughtExceptionHandler',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Thread$UncaughtExceptionHandler',
@@ -89233,7 +89233,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultUncaughtExceptionHandler',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89615,7 +89615,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NEW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89624,7 +89624,7 @@ config = {
 				},
 				{
 					'name' : 'RUNNABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89633,7 +89633,7 @@ config = {
 				},
 				{
 					'name' : 'BLOCKED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89642,7 +89642,7 @@ config = {
 				},
 				{
 					'name' : 'WAITING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89651,7 +89651,7 @@ config = {
 				},
 				{
 					'name' : 'TIMED_WAITING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89660,7 +89660,7 @@ config = {
 				},
 				{
 					'name' : 'TERMINATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.Thread$State',
@@ -89671,7 +89671,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -89684,7 +89684,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -89704,7 +89704,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread$UncaughtExceptionHandler',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89820,7 +89820,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -89876,7 +89876,7 @@ config = {
 				},
 				{
 					'name' : 'newInsert',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -89892,7 +89892,7 @@ config = {
 				},
 				{
 					'name' : 'newUpdate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -89908,7 +89908,7 @@ config = {
 				},
 				{
 					'name' : 'newDelete',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -89924,7 +89924,7 @@ config = {
 				},
 				{
 					'name' : 'newAssertQuery',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
@@ -90693,7 +90693,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -90770,7 +90770,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentProvider$PipeDataWriter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -91131,7 +91131,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -91263,7 +91263,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -91407,7 +91407,7 @@ config = {
 				},
 				{
 					'name' : 'newKey',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -91484,7 +91484,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -91638,7 +91638,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SyncStatusObserver',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -91668,7 +91668,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -91736,7 +91736,7 @@ config = {
 				},
 				{
 					'name' : 'newPlainText',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91752,7 +91752,7 @@ config = {
 				},
 				{
 					'name' : 'newHtmlText',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91772,7 +91772,7 @@ config = {
 				},
 				{
 					'name' : 'newIntent',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -91792,7 +91792,7 @@ config = {
 				},
 				{
 					'name' : 'newUri',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -91816,7 +91816,7 @@ config = {
 				},
 				{
 					'name' : 'newRawUri',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -92053,7 +92053,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MIMETYPE_TEXT_PLAIN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -92062,7 +92062,7 @@ config = {
 				},
 				{
 					'name' : 'MIMETYPE_TEXT_HTML',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -92071,7 +92071,7 @@ config = {
 				},
 				{
 					'name' : 'MIMETYPE_TEXT_URILIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -92080,7 +92080,7 @@ config = {
 				},
 				{
 					'name' : 'MIMETYPE_TEXT_INTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -92089,7 +92089,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -92145,7 +92145,7 @@ config = {
 				},
 				{
 					'name' : 'compareMimeTypes',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -92278,7 +92278,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_PERSONAL_INFO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92305,7 +92305,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -92502,7 +92502,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -92639,7 +92639,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'SYSTEM_HIGH_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92648,7 +92648,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_LOW_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92657,7 +92657,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92666,7 +92666,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_ADJUSTMENT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92675,7 +92675,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_ADJUSTMENT_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92684,7 +92684,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_EMPTY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92693,7 +92693,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_SCHEME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92702,7 +92702,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_HOST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92711,7 +92711,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_PORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92720,7 +92720,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_PATH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92729,7 +92729,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_CATEGORY_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92738,7 +92738,7 @@ config = {
 				},
 				{
 					'name' : 'NO_MATCH_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92747,7 +92747,7 @@ config = {
 				},
 				{
 					'name' : 'NO_MATCH_DATA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92756,7 +92756,7 @@ config = {
 				},
 				{
 					'name' : 'NO_MATCH_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92765,7 +92765,7 @@ config = {
 				},
 				{
 					'name' : 'NO_MATCH_CATEGORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -92774,7 +92774,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -92814,7 +92814,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -93538,7 +93538,7 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlSerializer',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93929,7 +93929,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ComponentCallbacks',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93967,7 +93967,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94168,7 +94168,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$Editor',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94347,7 +94347,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$OnSharedPreferenceChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94377,7 +94377,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94419,7 +94419,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CONFLICT_ROLLBACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94428,7 +94428,7 @@ config = {
 				},
 				{
 					'name' : 'CONFLICT_ABORT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94437,7 +94437,7 @@ config = {
 				},
 				{
 					'name' : 'CONFLICT_FAIL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94446,7 +94446,7 @@ config = {
 				},
 				{
 					'name' : 'CONFLICT_IGNORE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94455,7 +94455,7 @@ config = {
 				},
 				{
 					'name' : 'CONFLICT_REPLACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94464,7 +94464,7 @@ config = {
 				},
 				{
 					'name' : 'CONFLICT_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94473,7 +94473,7 @@ config = {
 				},
 				{
 					'name' : 'SQLITE_MAX_LIKE_PATTERN_LENGTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94482,7 +94482,7 @@ config = {
 				},
 				{
 					'name' : 'OPEN_READWRITE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94491,7 +94491,7 @@ config = {
 				},
 				{
 					'name' : 'OPEN_READONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94500,7 +94500,7 @@ config = {
 				},
 				{
 					'name' : 'NO_LOCALIZED_COLLATORS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94509,7 +94509,7 @@ config = {
 				},
 				{
 					'name' : 'CREATE_IF_NECESSARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94518,7 +94518,7 @@ config = {
 				},
 				{
 					'name' : 'ENABLE_WRITE_AHEAD_LOGGING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94527,7 +94527,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_SQL_CACHE_SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -94664,7 +94664,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
@@ -94761,7 +94761,7 @@ config = {
 				},
 				{
 					'name' : 'openOrCreateDatabase',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -94789,7 +94789,7 @@ config = {
 				},
 				{
 					'name' : 'deleteDatabase',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
@@ -94805,7 +94805,7 @@ config = {
 				},
 				{
 					'name' : 'releaseMemory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -94990,7 +94990,7 @@ config = {
 				},
 				{
 					'name' : 'openDatabase',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -95090,7 +95090,7 @@ config = {
 				},
 				{
 					'name' : 'findEditTable',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -95436,7 +95436,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.DatabaseErrorHandler',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95462,7 +95462,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteTransactionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95654,7 +95654,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -95684,7 +95684,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteCursorDriver',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95798,7 +95798,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -95966,7 +95966,7 @@ config = {
 				},
 				{
 					'name' : 'writeIntentSenderOrNullToParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.IntentSender',
@@ -95986,7 +95986,7 @@ config = {
 				},
 				{
 					'name' : 'readIntentSenderOrNullFromParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -96006,7 +96006,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentSender$OnFinished',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96052,7 +96052,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -96116,7 +96116,7 @@ config = {
 				},
 				{
 					'name' : 'writeToParcel',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -96140,7 +96140,7 @@ config = {
 				},
 				{
 					'name' : 'readFromParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -96622,7 +96622,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ServiceConnection',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96672,7 +96672,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEFAULT_DISPLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -96681,7 +96681,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SUPPORTS_PROTECTED_BUFFERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -96690,7 +96690,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SECURE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -96955,7 +96955,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -97138,7 +97138,7 @@ config = {
 				},
 				{
 					'name' : 'saveState',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.net.http.SslCertificate',
@@ -97154,7 +97154,7 @@ config = {
 				},
 				{
 					'name' : 'restoreState',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -97542,7 +97542,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ZERO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97551,7 +97551,7 @@ config = {
 				},
 				{
 					'name' : 'ONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97560,7 +97560,7 @@ config = {
 				},
 				{
 					'name' : 'TEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
@@ -97767,7 +97767,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -97884,7 +97884,7 @@ config = {
 				},
 				{
 					'name' : 'probablePrime',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -98367,7 +98367,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'RFC1779',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -98376,7 +98376,7 @@ config = {
 				},
 				{
 					'name' : 'RFC2253',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -98385,7 +98385,7 @@ config = {
 				},
 				{
 					'name' : 'CANONICAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -98688,7 +98688,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ValueCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98718,7 +98718,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'UNKNOWN_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98727,7 +98727,7 @@ config = {
 				},
 				{
 					'name' : 'ANCHOR_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98736,7 +98736,7 @@ config = {
 				},
 				{
 					'name' : 'PHONE_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98745,7 +98745,7 @@ config = {
 				},
 				{
 					'name' : 'GEO_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98754,7 +98754,7 @@ config = {
 				},
 				{
 					'name' : 'EMAIL_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98763,7 +98763,7 @@ config = {
 				},
 				{
 					'name' : 'IMAGE_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98772,7 +98772,7 @@ config = {
 				},
 				{
 					'name' : 'IMAGE_ANCHOR_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98781,7 +98781,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_ANCHOR_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98790,7 +98790,7 @@ config = {
 				},
 				{
 					'name' : 'SRC_IMAGE_ANCHOR_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98799,7 +98799,7 @@ config = {
 				},
 				{
 					'name' : 'EDIT_TEXT_TYPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98838,7 +98838,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$FindListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98872,7 +98872,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ERROR_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98881,7 +98881,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_HOST_LOOKUP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98890,7 +98890,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_UNSUPPORTED_AUTH_SCHEME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98899,7 +98899,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_AUTHENTICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98908,7 +98908,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_PROXY_AUTHENTICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98917,7 +98917,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_CONNECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98926,7 +98926,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_IO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98935,7 +98935,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_TIMEOUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98944,7 +98944,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_REDIRECT_LOOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98953,7 +98953,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_UNSUPPORTED_SCHEME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98962,7 +98962,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_FAILED_SSL_HANDSHAKE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98971,7 +98971,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_BAD_URL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98980,7 +98980,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_FILE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98989,7 +98989,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_FILE_NOT_FOUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -98998,7 +98998,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR_TOO_MANY_REQUESTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99499,7 +99499,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'KEYCODE_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99508,7 +99508,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SOFT_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99517,7 +99517,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SOFT_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99526,7 +99526,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99535,7 +99535,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99544,7 +99544,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99553,7 +99553,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ENDCALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99562,7 +99562,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_0',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99571,7 +99571,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99580,7 +99580,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99589,7 +99589,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99598,7 +99598,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99607,7 +99607,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_5',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99616,7 +99616,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_6',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99625,7 +99625,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99634,7 +99634,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99643,7 +99643,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_9',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99652,7 +99652,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_STAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99661,7 +99661,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_POUND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99670,7 +99670,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DPAD_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99679,7 +99679,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DPAD_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99688,7 +99688,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DPAD_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99697,7 +99697,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DPAD_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99706,7 +99706,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DPAD_CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99715,7 +99715,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_VOLUME_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99724,7 +99724,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_VOLUME_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99733,7 +99733,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_POWER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99742,7 +99742,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CAMERA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99751,7 +99751,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CLEAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99760,7 +99760,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_A',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99769,7 +99769,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_B',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99778,7 +99778,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_C',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99787,7 +99787,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_D',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99796,7 +99796,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_E',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99805,7 +99805,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99814,7 +99814,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_G',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99823,7 +99823,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_H',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99832,7 +99832,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_I',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99841,7 +99841,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_J',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99850,7 +99850,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_K',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99859,7 +99859,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_L',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99868,7 +99868,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_M',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99877,7 +99877,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_N',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99886,7 +99886,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_O',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99895,7 +99895,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_P',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99904,7 +99904,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_Q',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99913,7 +99913,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_R',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99922,7 +99922,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_S',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99931,7 +99931,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_T',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99940,7 +99940,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_U',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99949,7 +99949,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_V',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99958,7 +99958,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_W',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99967,7 +99967,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99976,7 +99976,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99985,7 +99985,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_Z',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -99994,7 +99994,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_COMMA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100003,7 +100003,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PERIOD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100012,7 +100012,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ALT_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100021,7 +100021,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ALT_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100030,7 +100030,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SHIFT_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100039,7 +100039,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SHIFT_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100048,7 +100048,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_TAB',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100057,7 +100057,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SPACE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100066,7 +100066,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SYM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100075,7 +100075,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_EXPLORER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100084,7 +100084,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ENVELOPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100093,7 +100093,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100102,7 +100102,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100111,7 +100111,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_GRAVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100120,7 +100120,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MINUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100129,7 +100129,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_EQUALS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100138,7 +100138,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_LEFT_BRACKET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100147,7 +100147,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_RIGHT_BRACKET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100156,7 +100156,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BACKSLASH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100165,7 +100165,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SEMICOLON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100174,7 +100174,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_APOSTROPHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100183,7 +100183,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SLASH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100192,7 +100192,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_AT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100201,7 +100201,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100210,7 +100210,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_HEADSETHOOK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100219,7 +100219,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_FOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100228,7 +100228,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PLUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100237,7 +100237,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MENU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100246,7 +100246,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NOTIFICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100255,7 +100255,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SEARCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100264,7 +100264,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_PLAY_PAUSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100273,7 +100273,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_STOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100282,7 +100282,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_NEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100291,7 +100291,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_PREVIOUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100300,7 +100300,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_REWIND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100309,7 +100309,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_FAST_FORWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100318,7 +100318,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MUTE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100327,7 +100327,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PAGE_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100336,7 +100336,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PAGE_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100345,7 +100345,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PICTSYMBOLS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100354,7 +100354,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SWITCH_CHARSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100363,7 +100363,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_A',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100372,7 +100372,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_B',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100381,7 +100381,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_C',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100390,7 +100390,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100399,7 +100399,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100408,7 +100408,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_Z',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100417,7 +100417,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_L1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100426,7 +100426,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_R1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100435,7 +100435,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_L2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100444,7 +100444,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_R2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100453,7 +100453,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_THUMBL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100462,7 +100462,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_THUMBR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100471,7 +100471,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100480,7 +100480,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_SELECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100489,7 +100489,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100498,7 +100498,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ESCAPE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100507,7 +100507,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_FORWARD_DEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100516,7 +100516,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CTRL_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100525,7 +100525,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CTRL_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100534,7 +100534,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CAPS_LOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100543,7 +100543,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SCROLL_LOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100552,7 +100552,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_META_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100561,7 +100561,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_META_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100570,7 +100570,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_FUNCTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100579,7 +100579,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SYSRQ',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100588,7 +100588,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BREAK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100597,7 +100597,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MOVE_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100606,7 +100606,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MOVE_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100615,7 +100615,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_INSERT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100624,7 +100624,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_FORWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100633,7 +100633,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_PLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100642,7 +100642,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_PAUSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100651,7 +100651,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100660,7 +100660,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_EJECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100669,7 +100669,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MEDIA_RECORD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100678,7 +100678,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100687,7 +100687,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100696,7 +100696,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100705,7 +100705,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100714,7 +100714,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F5',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100723,7 +100723,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F6',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100732,7 +100732,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100741,7 +100741,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100750,7 +100750,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F9',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100759,7 +100759,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F10',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100768,7 +100768,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F11',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100777,7 +100777,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_F12',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100786,7 +100786,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUM_LOCK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100795,7 +100795,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_0',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100804,7 +100804,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100813,7 +100813,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100822,7 +100822,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100831,7 +100831,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100840,7 +100840,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_5',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100849,7 +100849,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_6',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100858,7 +100858,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100867,7 +100867,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100876,7 +100876,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_9',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100885,7 +100885,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_DIVIDE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100894,7 +100894,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_MULTIPLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100903,7 +100903,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_SUBTRACT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100912,7 +100912,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_ADD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100921,7 +100921,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_DOT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100930,7 +100930,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_COMMA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100939,7 +100939,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_ENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100948,7 +100948,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_EQUALS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100957,7 +100957,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_LEFT_PAREN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100966,7 +100966,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_NUMPAD_RIGHT_PAREN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100975,7 +100975,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_VOLUME_MUTE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100984,7 +100984,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_INFO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -100993,7 +100993,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CHANNEL_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101002,7 +101002,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CHANNEL_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101011,7 +101011,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ZOOM_IN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101020,7 +101020,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ZOOM_OUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101029,7 +101029,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_TV',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101038,7 +101038,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101047,7 +101047,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_GUIDE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101056,7 +101056,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_DVR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101065,7 +101065,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BOOKMARK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101074,7 +101074,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CAPTIONS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101083,7 +101083,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_SETTINGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101092,7 +101092,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_TV_POWER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101101,7 +101101,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_TV_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101110,7 +101110,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_STB_POWER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101119,7 +101119,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_STB_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101128,7 +101128,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_AVR_POWER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101137,7 +101137,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_AVR_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101146,7 +101146,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PROG_RED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101155,7 +101155,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PROG_GREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101164,7 +101164,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PROG_YELLOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101173,7 +101173,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_PROG_BLUE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101182,7 +101182,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_APP_SWITCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101191,7 +101191,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101200,7 +101200,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101209,7 +101209,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101218,7 +101218,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101227,7 +101227,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_5',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101236,7 +101236,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_6',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101245,7 +101245,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101254,7 +101254,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101263,7 +101263,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_9',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101272,7 +101272,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_10',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101281,7 +101281,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_11',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101290,7 +101290,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_12',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101299,7 +101299,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_13',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101308,7 +101308,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_14',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101317,7 +101317,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_15',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101326,7 +101326,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_BUTTON_16',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101335,7 +101335,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_LANGUAGE_SWITCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101344,7 +101344,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MANNER_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101353,7 +101353,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_3D_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101362,7 +101362,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CONTACTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101371,7 +101371,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CALENDAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101380,7 +101380,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MUSIC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101389,7 +101389,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_CALCULATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101398,7 +101398,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ZENKAKU_HANKAKU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101407,7 +101407,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_EISU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101416,7 +101416,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_MUHENKAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101425,7 +101425,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_HENKAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101434,7 +101434,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_KATAKANA_HIRAGANA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101443,7 +101443,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_YEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101452,7 +101452,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_RO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101461,7 +101461,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_KANA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101470,7 +101470,7 @@ config = {
 				},
 				{
 					'name' : 'KEYCODE_ASSIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101479,7 +101479,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_KEYCODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101488,7 +101488,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101497,7 +101497,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101506,7 +101506,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MULTIPLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101515,7 +101515,7 @@ config = {
 				},
 				{
 					'name' : 'META_ALT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101524,7 +101524,7 @@ config = {
 				},
 				{
 					'name' : 'META_ALT_LEFT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101533,7 +101533,7 @@ config = {
 				},
 				{
 					'name' : 'META_ALT_RIGHT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101542,7 +101542,7 @@ config = {
 				},
 				{
 					'name' : 'META_SHIFT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101551,7 +101551,7 @@ config = {
 				},
 				{
 					'name' : 'META_SHIFT_LEFT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101560,7 +101560,7 @@ config = {
 				},
 				{
 					'name' : 'META_SHIFT_RIGHT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101569,7 +101569,7 @@ config = {
 				},
 				{
 					'name' : 'META_SYM_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101578,7 +101578,7 @@ config = {
 				},
 				{
 					'name' : 'META_FUNCTION_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101587,7 +101587,7 @@ config = {
 				},
 				{
 					'name' : 'META_CTRL_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101596,7 +101596,7 @@ config = {
 				},
 				{
 					'name' : 'META_CTRL_LEFT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101605,7 +101605,7 @@ config = {
 				},
 				{
 					'name' : 'META_CTRL_RIGHT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101614,7 +101614,7 @@ config = {
 				},
 				{
 					'name' : 'META_META_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101623,7 +101623,7 @@ config = {
 				},
 				{
 					'name' : 'META_META_LEFT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101632,7 +101632,7 @@ config = {
 				},
 				{
 					'name' : 'META_META_RIGHT_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101641,7 +101641,7 @@ config = {
 				},
 				{
 					'name' : 'META_CAPS_LOCK_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101650,7 +101650,7 @@ config = {
 				},
 				{
 					'name' : 'META_NUM_LOCK_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101659,7 +101659,7 @@ config = {
 				},
 				{
 					'name' : 'META_SCROLL_LOCK_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101668,7 +101668,7 @@ config = {
 				},
 				{
 					'name' : 'META_SHIFT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101677,7 +101677,7 @@ config = {
 				},
 				{
 					'name' : 'META_ALT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101686,7 +101686,7 @@ config = {
 				},
 				{
 					'name' : 'META_CTRL_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101695,7 +101695,7 @@ config = {
 				},
 				{
 					'name' : 'META_META_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101704,7 +101704,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_WOKE_HERE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101713,7 +101713,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SOFT_KEYBOARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101722,7 +101722,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_KEEP_TOUCH_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101731,7 +101731,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FROM_SYSTEM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101740,7 +101740,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_EDITOR_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101749,7 +101749,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_CANCELED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101758,7 +101758,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_VIRTUAL_HARD_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101767,7 +101767,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_LONG_PRESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101776,7 +101776,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_CANCELED_LONG_PRESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101785,7 +101785,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_TRACKING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101794,7 +101794,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FALLBACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -101803,7 +101803,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -101995,7 +101995,7 @@ config = {
 				},
 				{
 					'name' : 'getMaxKeyCode',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -102007,7 +102007,7 @@ config = {
 				},
 				{
 					'name' : 'getDeadChar',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102023,7 +102023,7 @@ config = {
 				},
 				{
 					'name' : 'changeTimeRepeat',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102047,7 +102047,7 @@ config = {
 				},
 				{
 					'name' : 'changeAction',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102067,7 +102067,7 @@ config = {
 				},
 				{
 					'name' : 'changeFlags',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102099,7 +102099,7 @@ config = {
 				},
 				{
 					'name' : 'isGamepadButton',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102115,7 +102115,7 @@ config = {
 				},
 				{
 					'name' : 'getModifierMetaStateMask',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -102127,7 +102127,7 @@ config = {
 				},
 				{
 					'name' : 'isModifierKey',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102143,7 +102143,7 @@ config = {
 				},
 				{
 					'name' : 'normalizeMetaState',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102159,7 +102159,7 @@ config = {
 				},
 				{
 					'name' : 'metaStateHasNoModifiers',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102175,7 +102175,7 @@ config = {
 				},
 				{
 					'name' : 'metaStateHasModifiers',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102512,7 +102512,7 @@ config = {
 				},
 				{
 					'name' : 'keyCodeToString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102528,7 +102528,7 @@ config = {
 				},
 				{
 					'name' : 'keyCodeFromString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -102569,7 +102569,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyEvent$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -102762,7 +102762,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'BUILT_IN_KEYBOARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102771,7 +102771,7 @@ config = {
 				},
 				{
 					'name' : 'VIRTUAL_KEYBOARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102780,7 +102780,7 @@ config = {
 				},
 				{
 					'name' : 'NUMERIC',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102789,7 +102789,7 @@ config = {
 				},
 				{
 					'name' : 'PREDICTIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102798,7 +102798,7 @@ config = {
 				},
 				{
 					'name' : 'ALPHA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102807,7 +102807,7 @@ config = {
 				},
 				{
 					'name' : 'FULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102816,7 +102816,7 @@ config = {
 				},
 				{
 					'name' : 'SPECIAL_FUNCTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102825,7 +102825,7 @@ config = {
 				},
 				{
 					'name' : 'HEX_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'char',
@@ -102834,7 +102834,7 @@ config = {
 				},
 				{
 					'name' : 'PICKER_DIALOG_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'char',
@@ -102843,7 +102843,7 @@ config = {
 				},
 				{
 					'name' : 'MODIFIER_BEHAVIOR_CHORDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102852,7 +102852,7 @@ config = {
 				},
 				{
 					'name' : 'MODIFIER_BEHAVIOR_CHORDED_OR_TOGGLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102861,7 +102861,7 @@ config = {
 				},
 				{
 					'name' : 'COMBINING_ACCENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102870,7 +102870,7 @@ config = {
 				},
 				{
 					'name' : 'COMBINING_ACCENT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -102879,7 +102879,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -102907,7 +102907,7 @@ config = {
 				},
 				{
 					'name' : 'load',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -102971,7 +102971,7 @@ config = {
 				},
 				{
 					'name' : 'getDeadChar',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103102,7 +103102,7 @@ config = {
 				},
 				{
 					'name' : 'deviceHasKey',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -103118,7 +103118,7 @@ config = {
 				},
 				{
 					'name' : 'deviceHasKeys',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : '_int_array_type',
@@ -103144,7 +103144,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'META_LENGTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103192,7 +103192,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.DownloadListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -103670,7 +103670,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NO_ID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103679,7 +103679,7 @@ config = {
 				},
 				{
 					'name' : 'VISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103688,7 +103688,7 @@ config = {
 				},
 				{
 					'name' : 'INVISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103697,7 +103697,7 @@ config = {
 				},
 				{
 					'name' : 'GONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103706,7 +103706,7 @@ config = {
 				},
 				{
 					'name' : 'DRAWING_CACHE_QUALITY_LOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103715,7 +103715,7 @@ config = {
 				},
 				{
 					'name' : 'DRAWING_CACHE_QUALITY_HIGH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103724,7 +103724,7 @@ config = {
 				},
 				{
 					'name' : 'DRAWING_CACHE_QUALITY_AUTO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103733,7 +103733,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBARS_INSIDE_OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103742,7 +103742,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBARS_INSIDE_INSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103751,7 +103751,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBARS_OUTSIDE_OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103760,7 +103760,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBARS_OUTSIDE_INSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103769,7 +103769,7 @@ config = {
 				},
 				{
 					'name' : 'KEEP_SCREEN_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103778,7 +103778,7 @@ config = {
 				},
 				{
 					'name' : 'SOUND_EFFECTS_ENABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103787,7 +103787,7 @@ config = {
 				},
 				{
 					'name' : 'HAPTIC_FEEDBACK_ENABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103796,7 +103796,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUSABLES_ALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103805,7 +103805,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUSABLES_TOUCH_MODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103814,7 +103814,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_BACKWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103823,7 +103823,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_FORWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103832,7 +103832,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103841,7 +103841,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103850,7 +103850,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103859,7 +103859,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103868,7 +103868,7 @@ config = {
 				},
 				{
 					'name' : 'MEASURED_SIZE_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103877,7 +103877,7 @@ config = {
 				},
 				{
 					'name' : 'MEASURED_STATE_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103886,7 +103886,7 @@ config = {
 				},
 				{
 					'name' : 'MEASURED_HEIGHT_STATE_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103895,7 +103895,7 @@ config = {
 				},
 				{
 					'name' : 'MEASURED_STATE_TOO_SMALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103904,7 +103904,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_DIRECTION_LTR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103913,7 +103913,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_DIRECTION_RTL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103922,7 +103922,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_DIRECTION_INHERIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103931,7 +103931,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_DIRECTION_LOCALE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103940,7 +103940,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_INHERIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103949,7 +103949,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_FIRST_STRONG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103958,7 +103958,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_ANY_RTL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103967,7 +103967,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_LTR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103976,7 +103976,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_RTL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103985,7 +103985,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_DIRECTION_LOCALE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -103994,7 +103994,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_INHERIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104003,7 +104003,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_GRAVITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104012,7 +104012,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_TEXT_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104021,7 +104021,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_TEXT_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104030,7 +104030,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104039,7 +104039,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_VIEW_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104048,7 +104048,7 @@ config = {
 				},
 				{
 					'name' : 'TEXT_ALIGNMENT_VIEW_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104057,7 +104057,7 @@ config = {
 				},
 				{
 					'name' : 'IMPORTANT_FOR_ACCESSIBILITY_AUTO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104066,7 +104066,7 @@ config = {
 				},
 				{
 					'name' : 'IMPORTANT_FOR_ACCESSIBILITY_YES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104075,7 +104075,7 @@ config = {
 				},
 				{
 					'name' : 'IMPORTANT_FOR_ACCESSIBILITY_NO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104084,7 +104084,7 @@ config = {
 				},
 				{
 					'name' : 'OVER_SCROLL_ALWAYS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104093,7 +104093,7 @@ config = {
 				},
 				{
 					'name' : 'OVER_SCROLL_IF_CONTENT_SCROLLS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104102,7 +104102,7 @@ config = {
 				},
 				{
 					'name' : 'OVER_SCROLL_NEVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104111,7 +104111,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_VISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104120,7 +104120,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_LOW_PROFILE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104129,7 +104129,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_HIDE_NAVIGATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104138,7 +104138,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_FULLSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104147,7 +104147,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_LAYOUT_STABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104156,7 +104156,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104165,7 +104165,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104174,7 +104174,7 @@ config = {
 				},
 				{
 					'name' : 'STATUS_BAR_HIDDEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104183,7 +104183,7 @@ config = {
 				},
 				{
 					'name' : 'STATUS_BAR_VISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104192,7 +104192,7 @@ config = {
 				},
 				{
 					'name' : 'SYSTEM_UI_LAYOUT_FLAGS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104201,7 +104201,7 @@ config = {
 				},
 				{
 					'name' : 'FIND_VIEWS_WITH_TEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104210,7 +104210,7 @@ config = {
 				},
 				{
 					'name' : 'FIND_VIEWS_WITH_CONTENT_DESCRIPTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104219,7 +104219,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_STATE_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104228,7 +104228,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_STATE_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104237,7 +104237,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBAR_POSITION_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104246,7 +104246,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBAR_POSITION_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104255,7 +104255,7 @@ config = {
 				},
 				{
 					'name' : 'SCROLLBAR_POSITION_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104264,7 +104264,7 @@ config = {
 				},
 				{
 					'name' : 'LAYER_TYPE_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104273,7 +104273,7 @@ config = {
 				},
 				{
 					'name' : 'LAYER_TYPE_SOFTWARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104282,7 +104282,7 @@ config = {
 				},
 				{
 					'name' : 'LAYER_TYPE_HARDWARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -104291,7 +104291,7 @@ config = {
 				},
 				{
 					'name' : 'ALPHA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104301,7 +104301,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSLATION_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104311,7 +104311,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSLATION_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104321,7 +104321,7 @@ config = {
 				},
 				{
 					'name' : 'X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104331,7 +104331,7 @@ config = {
 				},
 				{
 					'name' : 'Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104341,7 +104341,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104351,7 +104351,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104361,7 +104361,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104371,7 +104371,7 @@ config = {
 				},
 				{
 					'name' : 'SCALE_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104381,7 +104381,7 @@ config = {
 				},
 				{
 					'name' : 'SCALE_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.util.Property',
@@ -104477,7 +104477,7 @@ config = {
 				},
 				{
 					'name' : 'inflate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -109028,7 +109028,7 @@ config = {
 				},
 				{
 					'name' : 'combineMeasuredStates',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -109044,7 +109044,7 @@ config = {
 				},
 				{
 					'name' : 'resolveSize',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -109060,7 +109060,7 @@ config = {
 				},
 				{
 					'name' : 'resolveSizeAndState',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -109076,7 +109076,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultSize',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -109420,7 +109420,7 @@ config = {
 				},
 				{
 					'name' : 'generateViewId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -109453,7 +109453,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewParent',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -109832,7 +109832,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionMode$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -110141,11 +110141,11 @@ config = {
 		},
 		{
 			'name' : 'android.view.Menu',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110154,7 +110154,7 @@ config = {
 				},
 				{
 					'name' : 'FIRST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110163,7 +110163,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_CONTAINER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110172,7 +110172,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_SYSTEM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110181,7 +110181,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_SECONDARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110190,7 +110190,7 @@ config = {
 				},
 				{
 					'name' : 'CATEGORY_ALTERNATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110199,7 +110199,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_APPEND_TO_GROUP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110208,7 +110208,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_PERFORM_NO_CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110217,7 +110217,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALWAYS_PERFORM_CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110550,11 +110550,11 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'SHOW_AS_ACTION_NEVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110563,7 +110563,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_AS_ACTION_IF_ROOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110572,7 +110572,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_AS_ACTION_ALWAYS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110581,7 +110581,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_AS_ACTION_WITH_TEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -110590,7 +110590,7 @@ config = {
 				},
 				{
 					'name' : 'SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111141,7 +111141,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SubMenu',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111251,7 +111251,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnMenuItemClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111277,7 +111277,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu$ContextMenuInfo',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111414,7 +111414,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionProvider$VisibilityListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111440,7 +111440,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnActionExpandListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111525,7 +111525,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'INVALID_POSITION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111534,7 +111534,7 @@ config = {
 				},
 				{
 					'name' : 'MAX_TEXT_LENGTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111543,7 +111543,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_CLICKED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111552,7 +111552,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_LONG_CLICKED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111561,7 +111561,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_SELECTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111570,7 +111570,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_FOCUSED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111579,7 +111579,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_TEXT_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111588,7 +111588,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_WINDOW_STATE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111597,7 +111597,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_NOTIFICATION_STATE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111606,7 +111606,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_HOVER_ENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111615,7 +111615,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_HOVER_EXIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111624,7 +111624,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_TOUCH_EXPLORATION_GESTURE_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111633,7 +111633,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_TOUCH_EXPLORATION_GESTURE_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111642,7 +111642,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_WINDOW_CONTENT_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111651,7 +111651,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_SCROLLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111660,7 +111660,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_TEXT_SELECTION_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111669,7 +111669,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_ANNOUNCEMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111678,7 +111678,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_ACCESSIBILITY_FOCUSED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111687,7 +111687,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111696,7 +111696,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111705,7 +111705,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_GESTURE_DETECTION_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111714,7 +111714,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_GESTURE_DETECTION_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111723,7 +111723,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_TOUCH_INTERACTION_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111732,7 +111732,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_TOUCH_INTERACTION_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111741,7 +111741,7 @@ config = {
 				},
 				{
 					'name' : 'TYPES_ALL_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -111750,7 +111750,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -111818,7 +111818,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -112038,7 +112038,7 @@ config = {
 				},
 				{
 					'name' : 'eventTypeToString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -112213,7 +112213,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.accessibility.AccessibilityRecord',
@@ -112701,7 +112701,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ACTION_FOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112710,7 +112710,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CLEAR_FOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112719,7 +112719,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SELECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112728,7 +112728,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CLEAR_SELECTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112737,7 +112737,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CLICK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112746,7 +112746,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_LONG_CLICK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112755,7 +112755,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ACCESSIBILITY_FOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112764,7 +112764,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CLEAR_ACCESSIBILITY_FOCUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112773,7 +112773,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_NEXT_AT_MOVEMENT_GRANULARITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112782,7 +112782,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112791,7 +112791,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_NEXT_HTML_ELEMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112800,7 +112800,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_PREVIOUS_HTML_ELEMENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112809,7 +112809,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SCROLL_FORWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112818,7 +112818,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SCROLL_BACKWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112827,7 +112827,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -112836,7 +112836,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_ARGUMENT_HTML_ELEMENT_STRING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -112845,7 +112845,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_INPUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112854,7 +112854,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_ACCESSIBILITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112863,7 +112863,7 @@ config = {
 				},
 				{
 					'name' : 'MOVEMENT_GRANULARITY_CHARACTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112872,7 +112872,7 @@ config = {
 				},
 				{
 					'name' : 'MOVEMENT_GRANULARITY_WORD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112881,7 +112881,7 @@ config = {
 				},
 				{
 					'name' : 'MOVEMENT_GRANULARITY_LINE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112890,7 +112890,7 @@ config = {
 				},
 				{
 					'name' : 'MOVEMENT_GRANULARITY_PARAGRAPH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112899,7 +112899,7 @@ config = {
 				},
 				{
 					'name' : 'MOVEMENT_GRANULARITY_PAGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -112908,7 +112908,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -113344,7 +113344,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -113845,7 +113845,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -113927,7 +113927,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FOCUS_BEFORE_DESCENDANTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113936,7 +113936,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_AFTER_DESCENDANTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113945,7 +113945,7 @@ config = {
 				},
 				{
 					'name' : 'FOCUS_BLOCK_DESCENDANTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113954,7 +113954,7 @@ config = {
 				},
 				{
 					'name' : 'PERSISTENT_NO_CACHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113963,7 +113963,7 @@ config = {
 				},
 				{
 					'name' : 'PERSISTENT_ANIMATION_CACHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113972,7 +113972,7 @@ config = {
 				},
 				{
 					'name' : 'PERSISTENT_SCROLLING_CACHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -113981,7 +113981,7 @@ config = {
 				},
 				{
 					'name' : 'PERSISTENT_ALL_CACHES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115253,7 +115253,7 @@ config = {
 				},
 				{
 					'name' : 'getChildMeasureSpec',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -115454,7 +115454,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FILL_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115463,7 +115463,7 @@ config = {
 				},
 				{
 					'name' : 'MATCH_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115472,7 +115472,7 @@ config = {
 				},
 				{
 					'name' : 'WRAP_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115588,7 +115588,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ACTION_DRAG_STARTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115597,7 +115597,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DRAG_LOCATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115606,7 +115606,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DROP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115615,7 +115615,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DRAG_ENDED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115624,7 +115624,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DRAG_ENTERED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115633,7 +115633,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DRAG_EXITED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115642,7 +115642,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -115790,7 +115790,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'INVALID_POINTER_ID',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115799,7 +115799,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115808,7 +115808,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115817,7 +115817,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115826,7 +115826,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_MOVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115835,7 +115835,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_CANCEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115844,7 +115844,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_OUTSIDE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115853,7 +115853,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115862,7 +115862,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115871,7 +115871,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_HOVER_MOVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115880,7 +115880,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_SCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115889,7 +115889,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_HOVER_ENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115898,7 +115898,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_HOVER_EXIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115907,7 +115907,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_INDEX_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115916,7 +115916,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_INDEX_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115925,7 +115925,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_1_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115934,7 +115934,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_2_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115943,7 +115943,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_3_DOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115952,7 +115952,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_1_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115961,7 +115961,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_2_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115970,7 +115970,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_3_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115979,7 +115979,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_ID_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115988,7 +115988,7 @@ config = {
 				},
 				{
 					'name' : 'ACTION_POINTER_ID_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -115997,7 +115997,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_WINDOW_IS_OBSCURED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116006,7 +116006,7 @@ config = {
 				},
 				{
 					'name' : 'EDGE_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116015,7 +116015,7 @@ config = {
 				},
 				{
 					'name' : 'EDGE_BOTTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116024,7 +116024,7 @@ config = {
 				},
 				{
 					'name' : 'EDGE_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116033,7 +116033,7 @@ config = {
 				},
 				{
 					'name' : 'EDGE_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116042,7 +116042,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116051,7 +116051,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116060,7 +116060,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_PRESSURE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116069,7 +116069,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116078,7 +116078,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_TOUCH_MAJOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116087,7 +116087,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_TOUCH_MINOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116096,7 +116096,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_TOOL_MAJOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116105,7 +116105,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_TOOL_MINOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116114,7 +116114,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_ORIENTATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116123,7 +116123,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_VSCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116132,7 +116132,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_HSCROLL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116141,7 +116141,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_Z',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116150,7 +116150,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_RX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116159,7 +116159,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_RY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116168,7 +116168,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_RZ',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116177,7 +116177,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_HAT_X',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116186,7 +116186,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_HAT_Y',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116195,7 +116195,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_LTRIGGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116204,7 +116204,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_RTRIGGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116213,7 +116213,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_THROTTLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116222,7 +116222,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_RUDDER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116231,7 +116231,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_WHEEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116240,7 +116240,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GAS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116249,7 +116249,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_BRAKE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116258,7 +116258,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_DISTANCE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116267,7 +116267,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_TILT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116276,7 +116276,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116285,7 +116285,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116294,7 +116294,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116303,7 +116303,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_4',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116312,7 +116312,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_5',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116321,7 +116321,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_6',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116330,7 +116330,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_7',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116339,7 +116339,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_8',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116348,7 +116348,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_9',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116357,7 +116357,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_10',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116366,7 +116366,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_11',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116375,7 +116375,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_12',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116384,7 +116384,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_13',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116393,7 +116393,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_14',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116402,7 +116402,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_15',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116411,7 +116411,7 @@ config = {
 				},
 				{
 					'name' : 'AXIS_GENERIC_16',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116420,7 +116420,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_PRIMARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116429,7 +116429,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_SECONDARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116438,7 +116438,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_TERTIARY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116447,7 +116447,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_BACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116456,7 +116456,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_FORWARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116465,7 +116465,7 @@ config = {
 				},
 				{
 					'name' : 'TOOL_TYPE_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116474,7 +116474,7 @@ config = {
 				},
 				{
 					'name' : 'TOOL_TYPE_FINGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116483,7 +116483,7 @@ config = {
 				},
 				{
 					'name' : 'TOOL_TYPE_STYLUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116492,7 +116492,7 @@ config = {
 				},
 				{
 					'name' : 'TOOL_TYPE_MOUSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116501,7 +116501,7 @@ config = {
 				},
 				{
 					'name' : 'TOOL_TYPE_ERASER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -116510,7 +116510,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -116618,7 +116618,7 @@ config = {
 				},
 				{
 					'name' : 'obtain',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -116673,7 +116673,7 @@ config = {
 				},
 				{
 					'name' : 'obtainNoHistory',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.view.MotionEvent',
@@ -117398,7 +117398,7 @@ config = {
 				},
 				{
 					'name' : 'axisToString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -117414,7 +117414,7 @@ config = {
 				},
 				{
 					'name' : 'axisFromString',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -117691,7 +117691,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup$OnHierarchyChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117737,7 +117737,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CHANGE_APPEARING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -117746,7 +117746,7 @@ config = {
 				},
 				{
 					'name' : 'CHANGE_DISAPPEARING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -117755,7 +117755,7 @@ config = {
 				},
 				{
 					'name' : 'APPEARING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -117764,7 +117764,7 @@ config = {
 				},
 				{
 					'name' : 'DISAPPEARING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -117773,7 +117773,7 @@ config = {
 				},
 				{
 					'name' : 'CHANGING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118194,7 +118194,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TimeInterpolator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118476,7 +118476,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.Animator$AnimatorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118550,7 +118550,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.LayoutTransition$TransitionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118620,7 +118620,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ORDER_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118629,7 +118629,7 @@ config = {
 				},
 				{
 					'name' : 'ORDER_REVERSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118638,7 +118638,7 @@ config = {
 				},
 				{
 					'name' : 'ORDER_RANDOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118858,7 +118858,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'INFINITE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118867,7 +118867,7 @@ config = {
 				},
 				{
 					'name' : 'RESTART',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118876,7 +118876,7 @@ config = {
 				},
 				{
 					'name' : 'REVERSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118885,7 +118885,7 @@ config = {
 				},
 				{
 					'name' : 'START_ON_FIRST_FRAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118894,7 +118894,7 @@ config = {
 				},
 				{
 					'name' : 'ABSOLUTE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118903,7 +118903,7 @@ config = {
 				},
 				{
 					'name' : 'RELATIVE_TO_SELF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118912,7 +118912,7 @@ config = {
 				},
 				{
 					'name' : 'RELATIVE_TO_PARENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118921,7 +118921,7 @@ config = {
 				},
 				{
 					'name' : 'ZORDER_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118930,7 +118930,7 @@ config = {
 				},
 				{
 					'name' : 'ZORDER_TOP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -118939,7 +118939,7 @@ config = {
 				},
 				{
 					'name' : 'ZORDER_BOTTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119519,7 +119519,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Interpolator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119529,7 +119529,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Animation$AnimationListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119591,7 +119591,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TYPE_IDENTITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119600,7 +119600,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_ALPHA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119609,7 +119609,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_MATRIX',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119618,7 +119618,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_BOTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119787,7 +119787,7 @@ config = {
 				},
 				{
 					'name' : 'IME_MASK_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119796,7 +119796,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_UNSPECIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119805,7 +119805,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119814,7 +119814,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_GO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119823,7 +119823,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_SEARCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119832,7 +119832,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_SEND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119841,7 +119841,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_NEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119850,7 +119850,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_DONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119859,7 +119859,7 @@ config = {
 				},
 				{
 					'name' : 'IME_ACTION_PREVIOUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119868,7 +119868,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NO_FULLSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119877,7 +119877,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NAVIGATE_PREVIOUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119886,7 +119886,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NAVIGATE_NEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119895,7 +119895,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NO_EXTRACT_UI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119904,7 +119904,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NO_ACCESSORY_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119913,7 +119913,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_NO_ENTER_ACTION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119922,7 +119922,7 @@ config = {
 				},
 				{
 					'name' : 'IME_FLAG_FORCE_ASCII',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -119931,7 +119931,7 @@ config = {
 				},
 				{
 					'name' : 'IME_NULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -120057,7 +120057,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -120146,11 +120146,11 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.InputConnection',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'GET_TEXT_WITH_STYLES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -120159,7 +120159,7 @@ config = {
 				},
 				{
 					'name' : 'GET_EXTRACTED_TEXT_MONITOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -120554,7 +120554,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -120665,7 +120665,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SINGLE_LINE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -120674,7 +120674,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SELECTING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -120692,7 +120692,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -120749,7 +120749,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -120878,7 +120878,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -121473,7 +121473,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnFocusChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121503,7 +121503,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLayoutChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121533,7 +121533,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnAttachStateChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121575,7 +121575,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121601,7 +121601,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLongClickListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121627,7 +121627,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnCreateContextMenuListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121661,7 +121661,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnKeyListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121695,7 +121695,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnTouchListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121725,7 +121725,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnGenericMotionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121755,7 +121755,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnHoverListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121785,7 +121785,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnDragListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122090,7 +122090,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ABOVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -122099,7 +122099,7 @@ config = {
 				},
 				{
 					'name' : 'BELOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -122108,7 +122108,7 @@ config = {
 				},
 				{
 					'name' : 'TO_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -122117,7 +122117,7 @@ config = {
 				},
 				{
 					'name' : 'TO_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -122427,7 +122427,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalFocusChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122453,7 +122453,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalLayoutListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122475,7 +122475,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnPreDrawListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122497,7 +122497,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnDrawListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122519,7 +122519,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnScrollChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122541,7 +122541,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnTouchModeChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122567,7 +122567,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnSystemUiVisibilityChangeListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122731,7 +122731,7 @@ config = {
 				},
 				{
 					'name' : 'of',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
@@ -122771,7 +122771,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebChromeClient$CustomViewCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122853,7 +122853,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebStorage$QuotaUpdater',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122879,7 +122879,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.GeolocationPermissions$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122988,7 +122988,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DEBUG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -122997,7 +122997,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123006,7 +123006,7 @@ config = {
 				},
 				{
 					'name' : 'LOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123015,7 +123015,7 @@ config = {
 				},
 				{
 					'name' : 'TIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123024,7 +123024,7 @@ config = {
 				},
 				{
 					'name' : 'WARNING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.ConsoleMessage$MessageLevel',
@@ -123035,7 +123035,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -123048,7 +123048,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -123068,7 +123068,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$PictureListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123102,7 +123102,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'LOAD_DEFAULT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -123111,7 +123111,7 @@ config = {
 				},
 				{
 					'name' : 'LOAD_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -123120,7 +123120,7 @@ config = {
 				},
 				{
 					'name' : 'LOAD_CACHE_ELSE_NETWORK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -123129,7 +123129,7 @@ config = {
 				},
 				{
 					'name' : 'LOAD_NO_CACHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -123138,7 +123138,7 @@ config = {
 				},
 				{
 					'name' : 'LOAD_CACHE_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -124405,7 +124405,7 @@ config = {
 				},
 				{
 					'name' : 'getDefaultUserAgent',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -124489,7 +124489,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'LARGER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124498,7 +124498,7 @@ config = {
 				},
 				{
 					'name' : 'LARGEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124507,7 +124507,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124516,7 +124516,7 @@ config = {
 				},
 				{
 					'name' : 'SMALLER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124525,7 +124525,7 @@ config = {
 				},
 				{
 					'name' : 'SMALLEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$TextSize',
@@ -124536,7 +124536,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -124549,7 +124549,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124573,7 +124573,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124582,7 +124582,7 @@ config = {
 				},
 				{
 					'name' : 'FAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124591,7 +124591,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIUM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$ZoomDensity',
@@ -124602,7 +124602,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -124615,7 +124615,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124639,7 +124639,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NARROW_COLUMNS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124648,7 +124648,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124657,7 +124657,7 @@ config = {
 				},
 				{
 					'name' : 'SINGLE_COLUMN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$LayoutAlgorithm',
@@ -124668,7 +124668,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -124681,7 +124681,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124705,7 +124705,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124714,7 +124714,7 @@ config = {
 				},
 				{
 					'name' : 'ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124723,7 +124723,7 @@ config = {
 				},
 				{
 					'name' : 'ON_DEMAND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$PluginState',
@@ -124734,7 +124734,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -124747,7 +124747,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124771,7 +124771,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'HIGH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124780,7 +124780,7 @@ config = {
 				},
 				{
 					'name' : 'LOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124789,7 +124789,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.webkit.WebSettings$RenderPriority',
@@ -124800,7 +124800,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -124813,7 +124813,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -124837,7 +124837,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -125233,7 +125233,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125305,7 +125305,7 @@ config = {
 				},
 				{
 					'name' : 'enableDebugLogging',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -125530,7 +125530,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125539,7 +125539,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_EXIT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125548,7 +125548,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_UNSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125557,7 +125557,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125566,7 +125566,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_OPEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125575,7 +125575,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125584,7 +125584,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_FADE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -125896,7 +125896,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$BackStackEntry',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -125978,7 +125978,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126120,7 +126120,7 @@ config = {
 				},
 				{
 					'name' : 'enableDebugLogging',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -126431,7 +126431,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126462,7 +126462,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126537,7 +126537,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'from',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -126717,7 +126717,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126751,7 +126751,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory2',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126789,7 +126789,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Filter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126819,7 +126819,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'RESULT_CANCELED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126828,7 +126828,7 @@ config = {
 				},
 				{
 					'name' : 'RESULT_OK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126837,7 +126837,7 @@ config = {
 				},
 				{
 					'name' : 'RESULT_FIRST_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126846,7 +126846,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_KEYS_DISABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126855,7 +126855,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_KEYS_DIALER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126864,7 +126864,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_KEYS_SHORTCUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126873,7 +126873,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_KEYS_SEARCH_LOCAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -126882,7 +126882,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_KEYS_SEARCH_GLOBAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -129269,7 +129269,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -129353,7 +129353,7 @@ config = {
 				},
 				{
 					'name' : 'enableDebugLogging',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -129902,7 +129902,7 @@ config = {
 				},
 				{
 					'name' : 'instantiate',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -130619,7 +130619,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$ClassLoaderCreator',
@@ -130667,7 +130667,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$ClassLoaderCreator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -130817,7 +130817,7 @@ config = {
 				},
 				{
 					'name' : 'enableDebugLogging',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -131174,7 +131174,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131205,7 +131205,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCanceledListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131232,7 +131232,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131305,7 +131305,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131314,7 +131314,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_EXIT_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131323,7 +131323,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_UNSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131332,7 +131332,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131341,7 +131341,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_OPEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131350,7 +131350,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_CLOSE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131359,7 +131359,7 @@ config = {
 				},
 				{
 					'name' : 'TRANSIT_FRAGMENT_FADE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131671,7 +131671,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$BackStackEntry',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131753,7 +131753,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131779,7 +131779,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FEATURE_OPTIONS_PANEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131788,7 +131788,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_NO_TITLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131797,7 +131797,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_PROGRESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131806,7 +131806,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_LEFT_ICON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131815,7 +131815,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_RIGHT_ICON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131824,7 +131824,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_INDETERMINATE_PROGRESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131833,7 +131833,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CONTEXT_MENU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131842,7 +131842,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_CUSTOM_TITLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131851,7 +131851,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_ACTION_BAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131860,7 +131860,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_ACTION_BAR_OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131869,7 +131869,7 @@ config = {
 				},
 				{
 					'name' : 'FEATURE_ACTION_MODE_OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131878,7 +131878,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_VISIBILITY_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131887,7 +131887,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_VISIBILITY_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131896,7 +131896,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_INDETERMINATE_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131905,7 +131905,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_INDETERMINATE_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131914,7 +131914,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131923,7 +131923,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131932,7 +131932,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_SECONDARY_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131941,7 +131941,7 @@ config = {
 				},
 				{
 					'name' : 'PROGRESS_SECONDARY_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -131950,7 +131950,7 @@ config = {
 				},
 				{
 					'name' : 'ID_ANDROID_CONTENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133079,7 +133079,7 @@ config = {
 				},
 				{
 					'name' : 'FIRST_APPLICATION_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133088,7 +133088,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_BASE_APPLICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133097,7 +133097,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133106,7 +133106,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION_STARTING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133115,7 +133115,7 @@ config = {
 				},
 				{
 					'name' : 'LAST_APPLICATION_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133124,7 +133124,7 @@ config = {
 				},
 				{
 					'name' : 'FIRST_SUB_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133133,7 +133133,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION_PANEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133142,7 +133142,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION_MEDIA',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133151,7 +133151,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION_SUB_PANEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133160,7 +133160,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_APPLICATION_ATTACHED_DIALOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133169,7 +133169,7 @@ config = {
 				},
 				{
 					'name' : 'LAST_SUB_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133178,7 +133178,7 @@ config = {
 				},
 				{
 					'name' : 'FIRST_SYSTEM_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133187,7 +133187,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_STATUS_BAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133196,7 +133196,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_SEARCH_BAR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133205,7 +133205,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_PHONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133214,7 +133214,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_SYSTEM_ALERT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133223,7 +133223,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_KEYGUARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133232,7 +133232,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_TOAST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133241,7 +133241,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_SYSTEM_OVERLAY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133250,7 +133250,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_PRIORITY_PHONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133259,7 +133259,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_SYSTEM_DIALOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133268,7 +133268,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_KEYGUARD_DIALOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133277,7 +133277,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_SYSTEM_ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133286,7 +133286,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INPUT_METHOD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133295,7 +133295,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_INPUT_METHOD_DIALOG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133304,7 +133304,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_WALLPAPER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133313,7 +133313,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_STATUS_BAR_PANEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133322,7 +133322,7 @@ config = {
 				},
 				{
 					'name' : 'LAST_SYSTEM_WINDOW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133331,7 +133331,7 @@ config = {
 				},
 				{
 					'name' : 'MEMORY_TYPE_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133340,7 +133340,7 @@ config = {
 				},
 				{
 					'name' : 'MEMORY_TYPE_HARDWARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133349,7 +133349,7 @@ config = {
 				},
 				{
 					'name' : 'MEMORY_TYPE_GPU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133358,7 +133358,7 @@ config = {
 				},
 				{
 					'name' : 'MEMORY_TYPE_PUSH_BUFFERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133376,7 +133376,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALLOW_LOCK_WHILE_SCREEN_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133385,7 +133385,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_DIM_BEHIND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133394,7 +133394,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_BLUR_BEHIND',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133403,7 +133403,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_NOT_FOCUSABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133412,7 +133412,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_NOT_TOUCHABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133421,7 +133421,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_NOT_TOUCH_MODAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133430,7 +133430,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_TOUCHABLE_WHEN_WAKING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133439,7 +133439,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_KEEP_SCREEN_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133448,7 +133448,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_LAYOUT_IN_SCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133457,7 +133457,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_LAYOUT_NO_LIMITS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133466,7 +133466,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FULLSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133475,7 +133475,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_FORCE_NOT_FULLSCREEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133484,7 +133484,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_DITHER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133493,7 +133493,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SECURE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133502,7 +133502,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SCALED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133511,7 +133511,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_IGNORE_CHEEK_PRESSES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133520,7 +133520,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_LAYOUT_INSET_DECOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133529,7 +133529,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_ALT_FOCUSABLE_IM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133538,7 +133538,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_WATCH_OUTSIDE_TOUCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133547,7 +133547,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SHOW_WHEN_LOCKED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133556,7 +133556,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SHOW_WALLPAPER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133565,7 +133565,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_TURN_SCREEN_ON',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133574,7 +133574,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_DISMISS_KEYGUARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133583,7 +133583,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_SPLIT_TOUCH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133592,7 +133592,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_HARDWARE_ACCELERATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133610,7 +133610,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_MASK_STATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133619,7 +133619,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_UNSPECIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133628,7 +133628,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_UNCHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133637,7 +133637,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_HIDDEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133646,7 +133646,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_ALWAYS_HIDDEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133655,7 +133655,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_VISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133664,7 +133664,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_STATE_ALWAYS_VISIBLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133673,7 +133673,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_MASK_ADJUST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133682,7 +133682,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_ADJUST_UNSPECIFIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133691,7 +133691,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_ADJUST_RESIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133700,7 +133700,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_ADJUST_PAN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133709,7 +133709,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_ADJUST_NOTHING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133718,7 +133718,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_IS_FORWARD_NAVIGATION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133799,7 +133799,7 @@ config = {
 				},
 				{
 					'name' : 'BRIGHTNESS_OVERRIDE_NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -133808,7 +133808,7 @@ config = {
 				},
 				{
 					'name' : 'BRIGHTNESS_OVERRIDE_OFF',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -133817,7 +133817,7 @@ config = {
 				},
 				{
 					'name' : 'BRIGHTNESS_OVERRIDE_FULL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'float',
@@ -133880,7 +133880,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -133890,7 +133890,7 @@ config = {
 				},
 				{
 					'name' : 'LAYOUT_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133899,7 +133899,7 @@ config = {
 				},
 				{
 					'name' : 'TYPE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133908,7 +133908,7 @@ config = {
 				},
 				{
 					'name' : 'FLAGS_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133917,7 +133917,7 @@ config = {
 				},
 				{
 					'name' : 'FORMAT_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133926,7 +133926,7 @@ config = {
 				},
 				{
 					'name' : 'ANIMATION_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133935,7 +133935,7 @@ config = {
 				},
 				{
 					'name' : 'DIM_AMOUNT_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133944,7 +133944,7 @@ config = {
 				},
 				{
 					'name' : 'TITLE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133953,7 +133953,7 @@ config = {
 				},
 				{
 					'name' : 'ALPHA_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133962,7 +133962,7 @@ config = {
 				},
 				{
 					'name' : 'MEMORY_TYPE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133971,7 +133971,7 @@ config = {
 				},
 				{
 					'name' : 'SOFT_INPUT_MODE_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133980,7 +133980,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_ORIENTATION_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -133989,7 +133989,7 @@ config = {
 				},
 				{
 					'name' : 'SCREEN_BRIGHTNESS_CHANGED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134104,7 +134104,7 @@ config = {
 				},
 				{
 					'name' : 'mayUseInputMethod',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -134137,7 +134137,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Window$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134491,7 +134491,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.WindowManager',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134529,7 +134529,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback2',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134555,11 +134555,11 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'SURFACE_TYPE_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134568,7 +134568,7 @@ config = {
 				},
 				{
 					'name' : 'SURFACE_TYPE_HARDWARE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134577,7 +134577,7 @@ config = {
 				},
 				{
 					'name' : 'SURFACE_TYPE_GPU',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134586,7 +134586,7 @@ config = {
 				},
 				{
 					'name' : 'SURFACE_TYPE_PUSH_BUFFERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134777,7 +134777,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134843,7 +134843,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -134853,7 +134853,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_0',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134862,7 +134862,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_90',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134871,7 +134871,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_180',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -134880,7 +134880,7 @@ config = {
 				},
 				{
 					'name' : 'ROTATION_270',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135168,7 +135168,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.SurfaceTexture$OnFrameAvailableListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135194,7 +135194,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135393,7 +135393,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Application$ActivityLifecycleCallbacks',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135527,7 +135527,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'NAVIGATION_MODE_STANDARD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135536,7 +135536,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_MODE_LIST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135545,7 +135545,7 @@ config = {
 				},
 				{
 					'name' : 'NAVIGATION_MODE_TABS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135554,7 +135554,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_USE_LOGO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135563,7 +135563,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_SHOW_HOME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135572,7 +135572,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_HOME_AS_UP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135581,7 +135581,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_SHOW_TITLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -135590,7 +135590,7 @@ config = {
 				},
 				{
 					'name' : 'DISPLAY_SHOW_CUSTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136282,7 +136282,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnNavigationListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136316,7 +136316,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'INVALID_POSITION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136532,7 +136532,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$TabListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136602,7 +136602,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnMenuVisibilityListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136634,7 +136634,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -136792,7 +136792,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'FLAG_ONE_SHOT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136801,7 +136801,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_NO_CREATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136810,7 +136810,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_CANCEL_CURRENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136819,7 +136819,7 @@ config = {
 				},
 				{
 					'name' : 'FLAG_UPDATE_CURRENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -136828,7 +136828,7 @@ config = {
 				},
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -136916,7 +136916,7 @@ config = {
 				},
 				{
 					'name' : 'getService',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137020,7 +137020,7 @@ config = {
 				},
 				{
 					'name' : 'getBroadcast',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137056,7 +137056,7 @@ config = {
 				},
 				{
 					'name' : 'getActivity',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137084,7 +137084,7 @@ config = {
 				},
 				{
 					'name' : 'getActivities',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -137125,7 +137125,7 @@ config = {
 				},
 				{
 					'name' : 'writePendingIntentOrNullToParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.app.PendingIntent',
@@ -137145,7 +137145,7 @@ config = {
 				},
 				{
 					'name' : 'readPendingIntentOrNullFromParcel',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -137165,7 +137165,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.PendingIntent$OnFinished',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137207,7 +137207,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Editable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137351,7 +137351,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.InputFilter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137385,11 +137385,11 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spanned',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'SPAN_POINT_MARK_MASK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137398,7 +137398,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_MARK_MARK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137407,7 +137407,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_MARK_POINT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137416,7 +137416,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_POINT_MARK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137425,7 +137425,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_POINT_POINT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137434,7 +137434,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_PARAGRAPH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137443,7 +137443,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_INCLUSIVE_EXCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137452,7 +137452,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_INCLUSIVE_INCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137461,7 +137461,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_EXCLUSIVE_EXCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137470,7 +137470,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_EXCLUSIVE_INCLUSIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137479,7 +137479,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_COMPOSING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137488,7 +137488,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_INTERMEDIATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137497,7 +137497,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_USER_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137506,7 +137506,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137515,7 +137515,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_PRIORITY_SHIFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137524,7 +137524,7 @@ config = {
 				},
 				{
 					'name' : 'SPAN_PRIORITY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137832,7 +137832,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'DIR_LEFT_TO_RIGHT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137841,7 +137841,7 @@ config = {
 				},
 				{
 					'name' : 'DIR_RIGHT_TO_LEFT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -137960,7 +137960,7 @@ config = {
 				},
 				{
 					'name' : 'getDesiredWidth',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -138661,7 +138661,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'ALIGN_CENTER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138670,7 +138670,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138679,7 +138679,7 @@ config = {
 				},
 				{
 					'name' : 'ALIGN_OPPOSITE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.Layout$Alignment',
@@ -138690,7 +138690,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -138703,7 +138703,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -138733,7 +138733,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.KeyListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -138859,7 +138859,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.MovementMethod',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139077,7 +139077,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spannable',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139123,7 +139123,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.TransformationMethod',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139286,7 +139286,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getInstance',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -139329,7 +139329,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getInstance',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -139370,7 +139370,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139379,7 +139379,7 @@ config = {
 				},
 				{
 					'name' : 'MIDDLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139388,7 +139388,7 @@ config = {
 				},
 				{
 					'name' : 'END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139397,7 +139397,7 @@ config = {
 				},
 				{
 					'name' : 'MARQUEE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139406,7 +139406,7 @@ config = {
 				},
 				{
 					'name' : 'END_SMALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.text.TextUtils$TruncateAt',
@@ -139417,7 +139417,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -139430,7 +139430,7 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -139450,7 +139450,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextWatcher',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139670,7 +139670,7 @@ config = {
 				},
 				{
 					'name' : 'ofInt',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -139700,7 +139700,7 @@ config = {
 				},
 				{
 					'name' : 'ofFloat',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -139730,7 +139730,7 @@ config = {
 				},
 				{
 					'name' : 'ofObject',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -139769,7 +139769,7 @@ config = {
 				},
 				{
 					'name' : 'ofPropertyValuesHolder',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -139850,7 +139850,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TypeEvaluator',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139954,7 +139954,7 @@ config = {
 				},
 				{
 					'name' : 'ofInt',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -139980,7 +139980,7 @@ config = {
 				},
 				{
 					'name' : 'ofFloat',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.util.Property',
@@ -140006,7 +140006,7 @@ config = {
 				},
 				{
 					'name' : 'ofObject',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -140107,7 +140107,7 @@ config = {
 				},
 				{
 					'name' : 'ofKeyframe',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.util.Property',
@@ -140263,7 +140263,7 @@ config = {
 				},
 				{
 					'name' : 'ofInt',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -140283,7 +140283,7 @@ config = {
 				},
 				{
 					'name' : 'ofFloat',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -140299,7 +140299,7 @@ config = {
 				},
 				{
 					'name' : 'ofObject',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -140348,7 +140348,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'CREATOR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
@@ -140684,11 +140684,11 @@ config = {
 		},
 		{
 			'name' : 'android.content.DialogInterface',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 				{
 					'name' : 'BUTTON_POSITIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140697,7 +140697,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_NEGATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140706,7 +140706,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON_NEUTRAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140715,7 +140715,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON1',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140724,7 +140724,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON2',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140733,7 +140733,7 @@ config = {
 				},
 				{
 					'name' : 'BUTTON3',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -140971,7 +140971,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnPreparedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141001,7 +141001,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'VIDEO_SCALING_MODE_SCALE_TO_FIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141010,7 +141010,7 @@ config = {
 				},
 				{
 					'name' : 'VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141019,7 +141019,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_MIMETYPE_TEXT_SUBRIP',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
@@ -141028,7 +141028,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141037,7 +141037,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_SERVER_DIED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141046,7 +141046,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141055,7 +141055,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_IO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141064,7 +141064,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_MALFORMED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141073,7 +141073,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_UNSUPPORTED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141082,7 +141082,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_ERROR_TIMED_OUT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141091,7 +141091,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141100,7 +141100,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_VIDEO_RENDERING_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141109,7 +141109,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_VIDEO_TRACK_LAGGING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141118,7 +141118,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_BUFFERING_START',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141127,7 +141127,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_BUFFERING_END',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141136,7 +141136,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_BAD_INTERLEAVING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141145,7 +141145,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_NOT_SEEKABLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141154,7 +141154,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_INFO_METADATA_UPDATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141213,7 +141213,7 @@ config = {
 				},
 				{
 					'name' : 'create',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -141824,7 +141824,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnCompletionListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141850,7 +141850,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141880,7 +141880,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnInfoListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141914,7 +141914,7 @@ config = {
 			'fields' : [
 				{
 					'name' : 'MEDIA_TRACK_TYPE_UNKNOWN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141923,7 +141923,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_TRACK_TYPE_VIDEO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141932,7 +141932,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_TRACK_TYPE_AUDIO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -141941,7 +141941,7 @@ config = {
 				},
 				{
 					'name' : 'MEDIA_TRACK_TYPE_TIMEDTEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -142012,7 +142012,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnBufferingUpdateListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142042,7 +142042,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnSeekCompleteListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142068,7 +142068,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnVideoSizeChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142098,7 +142098,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnTimedTextListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface'],
 			'fields' : [
 			],	
 			'functions' : [
