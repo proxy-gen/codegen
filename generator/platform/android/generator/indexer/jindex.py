@@ -678,9 +678,6 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
@@ -706,6 +703,9 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
 				tags[:] = list()
 				tags.append("_static")
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
 
 		tags = sorted(list(set(tags)))
 
@@ -728,9 +728,6 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
 				tags.append("_static")
@@ -741,6 +738,9 @@ class TranslationUnit(JavaObject):
 								tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
 				tags.append("_instance")
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
 
 		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
@@ -760,9 +760,6 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
 				tags.append("_static")
@@ -773,6 +770,10 @@ class TranslationUnit(JavaObject):
 							tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
 				tags.append("_instance")
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
+			
 		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			field["tags"] = tags

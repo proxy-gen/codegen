@@ -217,7 +217,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.AccessToken$SerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -355,7 +355,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AccessTokenSource',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
@@ -619,7 +619,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -658,7 +658,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -668,7 +668,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthorizationRequest',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -678,7 +678,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$BackgroundProcessingListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -738,7 +738,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$GetTokenAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -748,7 +748,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaAuthHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -758,7 +758,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaLoginDialogAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -768,7 +768,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaProxyAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -778,7 +778,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$OnCompletedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -804,7 +804,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$Result$Code',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SUCCESS',
@@ -870,7 +870,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$Result',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -880,7 +880,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$StartActivityDelegate',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -952,7 +952,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$WebViewAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -962,7 +962,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -972,7 +972,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookAuthorizationException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -995,7 +995,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookDialogException',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1042,7 +1042,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1065,7 +1065,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookGraphObjectException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1088,7 +1088,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookOperationCanceledException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1111,7 +1111,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Category',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'AUTHENTICATION_RETRY',
@@ -1222,7 +1222,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Range',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1232,7 +1232,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'INVALID_ERROR_CODE',
@@ -1441,7 +1441,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookSdkVersion',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'BUILD',
@@ -1469,7 +1469,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookServiceException',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1542,7 +1542,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.GetTokenClient$CompletedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1614,7 +1614,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.HttpMethod',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GET',
@@ -1780,7 +1780,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LegacyHelper',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1815,7 +1815,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoggingBehavior',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'REQUESTS',
@@ -1959,7 +1959,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoginActivity',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2030,7 +2030,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.NativeProtocol',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'KATANA_PROXY_AUTH_PERMISSIONS_KEY',
@@ -2058,7 +2058,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.NonCachingTokenCachingStrategy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2239,7 +2239,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2265,7 +2265,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2296,7 +2296,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2326,7 +2326,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2357,7 +2357,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$KeyValueSerializer',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2383,7 +2383,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MAXIMUM_BATCH_SIZE',
@@ -3336,7 +3336,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestAsyncTask',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3381,7 +3381,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3407,7 +3407,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3621,7 +3621,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagedResults',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3656,7 +3656,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingDirection',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NEXT',
@@ -3713,7 +3713,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingInfo',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3902,7 +3902,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4150,7 +4150,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4186,7 +4186,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AutoPublishAsyncTask',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4213,7 +4213,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$Builder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4276,7 +4276,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$NewPermissionsRequest',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4368,7 +4368,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$OpenRequest',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4472,7 +4472,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$SerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4482,7 +4482,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StartActivityDelegate',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4524,7 +4524,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4642,7 +4642,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TAG',
@@ -5191,7 +5191,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionDefaultAudience',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
@@ -5266,7 +5266,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionLoginBehavior',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SSO_WITH_FALLBACK',
@@ -5332,7 +5332,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState$Category',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATED_CATEGORY',
@@ -5398,7 +5398,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATED',
@@ -5594,7 +5594,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5842,7 +5842,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5905,7 +5905,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResponse',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5928,7 +5928,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResult',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5951,7 +5951,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$Mode',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PRIVATE',
@@ -6008,7 +6008,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$TestAccount',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6120,7 +6120,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$UserAccount',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6306,7 +6306,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TokenCachingStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TOKEN_KEY',
@@ -6715,7 +6715,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.UiLifecycleHelper',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6870,7 +6870,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6980,7 +6980,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7051,7 +7051,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.DialogError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7132,7 +7132,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$DialogListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7202,7 +7202,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$ServiceListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7336,7 +7336,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$TokenRefreshServiceConnection',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7399,7 +7399,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'REDIRECT_URI',
@@ -7896,7 +7896,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FacebookError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7973,7 +7973,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FbDialog',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8008,7 +8008,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Util',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8147,7 +8147,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphLocation',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8353,7 +8353,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphMultiResult',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8376,7 +8376,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectListImpl',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8600,7 +8600,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectProxy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8661,7 +8661,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$ProxyBase',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8671,7 +8671,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8740,7 +8740,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8844,7 +8844,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObjectList',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8884,7 +8884,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphPlace',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9006,7 +9006,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphUser',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9318,7 +9318,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.JsonUtil',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9328,7 +9328,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.OpenGraphAction',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9762,7 +9762,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.PropertyName',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9892,7 +9892,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9902,7 +9902,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9912,7 +9912,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'USER_ID_BUNDLE_KEY',
@@ -10110,7 +10110,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$DataNeededListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10132,7 +10132,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$Filter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10158,7 +10158,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPicture',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10180,7 +10180,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPictureData',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10202,7 +10202,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10233,7 +10233,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GRAPH_OBJECT',
@@ -10299,7 +10299,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'sectionKey',
@@ -10352,7 +10352,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10810,7 +10810,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectCursor',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11106,7 +11106,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11137,7 +11137,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$PagedResults',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11160,7 +11160,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11380,7 +11380,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$DownloaderContext',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11428,7 +11428,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11438,7 +11438,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Builder',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11448,7 +11448,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11474,7 +11474,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11484,7 +11484,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponse',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11516,7 +11516,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponseCache',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11822,7 +11822,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11848,7 +11848,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$UserInfoChangedCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11874,7 +11874,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12368,7 +12368,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$GraphObjectFilter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12526,7 +12526,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$LoadingStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12640,7 +12640,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDataChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12667,7 +12667,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDoneButtonClickedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12694,7 +12694,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12725,7 +12725,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnSelectionChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12752,7 +12752,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$PickerFragmentAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12775,7 +12775,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$SelectionStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12820,7 +12820,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SHOW_PICTURES_BUNDLE_KEY',
@@ -13343,7 +13343,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13512,7 +13512,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'RADIUS_IN_METERS_BUNDLE_KEY',
@@ -13848,7 +13848,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13874,7 +13874,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TAG',
@@ -14333,7 +14333,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UrlRedirectCache',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14399,7 +14399,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UserSettingsFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14718,7 +14718,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$Builder',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14927,7 +14927,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$FeedDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15082,7 +15082,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$OnCompleteListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15112,7 +15112,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$RequestsDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15203,7 +15203,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_THEME',
@@ -15333,7 +15333,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue$WorkItem',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15425,7 +15425,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_MAX_CONCURRENT',

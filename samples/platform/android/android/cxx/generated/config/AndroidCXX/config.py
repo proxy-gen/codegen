@@ -737,7 +737,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'org.json.JSONObject',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NULL',
@@ -756,7 +756,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -772,7 +772,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -814,7 +814,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -824,7 +824,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -840,7 +840,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -856,7 +856,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -872,7 +872,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -900,7 +900,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -940,13 +940,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -956,13 +956,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -972,7 +972,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -988,7 +988,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -1008,7 +1008,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -1028,7 +1028,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1044,7 +1044,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1060,7 +1060,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -1080,7 +1080,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -1100,7 +1100,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -1120,7 +1120,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -1140,13 +1140,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1156,7 +1156,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1172,7 +1172,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1188,7 +1188,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1204,7 +1204,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1242,7 +1242,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1257,7 +1257,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -1266,11 +1266,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1278,7 +1278,7 @@ config = {
 		},
 		{
 			'name' : 'org.json.JSONArray',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1358,7 +1358,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1456,13 +1456,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1478,7 +1478,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1600,13 +1600,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1701,7 +1701,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Collection',
@@ -1713,7 +1713,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Error',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1724,7 +1724,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -1736,7 +1736,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.concurrent.Executor',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1762,7 +1762,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.BufferedOutputStream',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1818,7 +1818,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileNotFoundException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1829,7 +1829,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1837,7 +1837,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.IOException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1848,7 +1848,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -1860,7 +1860,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Closeable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1882,7 +1882,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.HttpURLConnection',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'HTTP_OK',
@@ -2228,7 +2228,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2262,7 +2262,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2278,7 +2278,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2288,7 +2288,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -2398,7 +2398,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2410,7 +2410,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2456,7 +2456,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.MalformedURLException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2467,7 +2467,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2487,7 +2487,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2501,7 +2501,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2519,7 +2519,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2535,7 +2535,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2557,7 +2557,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SCHEME_TEL',
@@ -2565,7 +2565,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -2574,7 +2574,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -2583,7 +2583,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -2718,7 +2718,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2734,7 +2734,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2750,13 +2750,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -2815,12 +2815,12 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2836,7 +2836,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_byte_array_type',
@@ -2857,7 +2857,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2873,7 +2873,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2889,7 +2889,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -2897,7 +2897,7 @@ config = {
 						},
 						{
 								'type' : 'android.webkit.ValueCallback',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -3172,7 +3172,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3184,7 +3184,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3196,7 +3196,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3370,7 +3370,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3386,7 +3386,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3402,7 +3402,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -3422,13 +3422,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3534,7 +3534,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3550,7 +3550,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -4149,7 +4149,7 @@ config = {
 		},
 		{
 			'name' : 'android.net.http.SslError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SSL_NOTYETVALID',
@@ -4224,7 +4224,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4248,7 +4248,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4315,7 +4315,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4323,7 +4323,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.Fragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4351,7 +4351,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4420,7 +4420,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4432,7 +4432,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4554,7 +4554,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -4566,7 +4566,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -4639,7 +4639,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -5356,7 +5356,7 @@ config = {
 		},
 		{
 			'name' : 'android.location.Location',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FORMAT_DEGREES',
@@ -5405,7 +5405,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5473,7 +5473,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5483,7 +5483,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -5501,7 +5501,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5547,7 +5547,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5628,7 +5628,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5953,7 +5953,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.location.Location',
@@ -5965,7 +5965,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRANSCRIPT_MODE_DISABLED',
@@ -6888,7 +6888,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -7285,7 +7285,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -7386,7 +7386,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7417,7 +7417,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$MultiChoiceModeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7455,7 +7455,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$OnScrollListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
@@ -7532,7 +7532,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$RecyclerListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7558,7 +7558,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$SelectionBoundsAdjuster',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7584,7 +7584,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Adapter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'IGNORE_ITEM_VIEW_TYPE',
@@ -7764,7 +7764,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7803,7 +7803,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemLongClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7842,7 +7842,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemSelectedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7898,7 +7898,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Advanceable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7932,7 +7932,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$OnDismissListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7954,7 +7954,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$Validator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7996,7 +7996,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CalendarView$OnDateChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8026,7 +8026,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Checkable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8076,7 +8076,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Chronometer$OnChronometerTickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8102,7 +8102,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CompoundButton$OnCheckedChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8132,7 +8132,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DatePicker$OnDateChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8162,7 +8162,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListAdapter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8468,7 +8468,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnChildClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8506,7 +8506,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8544,7 +8544,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupCollapseListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8570,7 +8570,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupExpandListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8596,7 +8596,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8622,7 +8622,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filterable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8644,7 +8644,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.FilterQueryProvider',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8670,7 +8670,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.HeterogeneousExpandableList',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8736,7 +8736,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListAdapter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8774,7 +8774,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MediaController$MediaPlayerControl',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8908,7 +8908,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView$Tokenizer',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8974,7 +8974,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$Formatter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8990,7 +8990,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -9000,7 +9000,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnScrollListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
@@ -9057,7 +9057,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnValueChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9087,7 +9087,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnDismissListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9113,7 +9113,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnMenuItemClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9139,7 +9139,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupWindow$OnDismissListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9161,7 +9161,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioGroup$OnCheckedChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9191,7 +9191,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RatingBar$OnRatingBarChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9225,7 +9225,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViewsService$RemoteViewsFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9351,7 +9351,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnCloseListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9373,7 +9373,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnQueryTextListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9383,7 +9383,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9399,7 +9399,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9415,7 +9415,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnSuggestionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9457,7 +9457,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SectionIndexer',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9512,7 +9512,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SeekBar$OnSeekBarChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9578,7 +9578,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ShareActionProvider$OnShareTargetSelectedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9608,7 +9608,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9626,7 +9626,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9642,7 +9642,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$CursorToStringConverter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9668,7 +9668,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9702,7 +9702,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorTreeAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9736,7 +9736,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerCloseListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9758,7 +9758,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerOpenListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9780,7 +9780,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerScrollListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9814,7 +9814,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SpinnerAdapter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9848,7 +9848,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$OnTabChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9858,7 +9858,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9874,7 +9874,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$TabContentFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9884,7 +9884,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9900,7 +9900,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView$OnEditorActionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9934,7 +9934,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TimePicker$OnTimeChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9964,7 +9964,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewSwitcher$ViewFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9986,7 +9986,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.WrapperListAdapter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10008,7 +10008,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomButtonsController$OnZoomListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10050,7 +10050,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsoluteLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10105,7 +10105,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsoluteLayout$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'x',
@@ -10133,13 +10133,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10170,7 +10170,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsSeekBar',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10413,7 +10413,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsSpinner',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10600,7 +10600,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ITEM_VIEW_TYPE_IGNORE',
@@ -11159,7 +11159,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$AdapterContextMenuInfo',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'targetView',
@@ -11213,7 +11213,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterViewAnimator',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11612,7 +11612,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterViewFlipper',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11811,7 +11811,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AlphabetIndexer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11923,7 +11923,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AnalogClock',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11950,7 +11950,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ArrayAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12275,7 +12275,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -12283,7 +12283,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12970,7 +12970,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.BaseAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13145,7 +13145,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.BaseExpandableListAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13360,7 +13360,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Button',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13419,7 +13419,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CalendarView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13922,7 +13922,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CheckBox',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13981,7 +13981,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CheckedTextView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14128,7 +14128,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Chronometer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14164,7 +14164,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -14174,7 +14174,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -14295,7 +14295,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CompoundButton',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14506,7 +14506,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CursorAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FLAG_AUTO_REQUERY',
@@ -14847,7 +14847,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CursorTreeAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15067,7 +15067,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15230,7 +15230,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DatePicker',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15545,7 +15545,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DialerFilter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DIGITS_AND_LETTERS',
@@ -15600,7 +15600,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -15821,7 +15821,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DigitalClock',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15876,7 +15876,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.EdgeEffect',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15995,7 +15995,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.EditText',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16146,7 +16146,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PACKED_POSITION_TYPE_GROUP',
@@ -16730,7 +16730,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$ExpandableListContextMenuInfo',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'targetView',
@@ -16780,7 +16780,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16831,7 +16831,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterResults',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'values',
@@ -16864,7 +16864,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.FrameLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17091,7 +17091,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.FrameLayout$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'gravity',
@@ -17135,7 +17135,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Gallery',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17530,7 +17530,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Gallery$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17561,7 +17561,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.GridLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'HORIZONTAL',
@@ -17990,7 +17990,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.GridLayout$Alignment',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -18000,7 +18000,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.GridLayout$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'rowSpec',
@@ -18139,7 +18139,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.GridView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NO_STRETCH',
@@ -18587,7 +18587,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.HeaderViewListAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -18871,7 +18871,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.HorizontalScrollView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -19358,7 +19358,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ImageButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -19417,7 +19417,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ImageSwitcher',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -19520,7 +19520,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ImageView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -20113,7 +20113,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.LinearLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'HORIZONTAL',
@@ -20538,7 +20538,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.LinearLayout$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'weight',
@@ -20566,13 +20566,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -20611,7 +20611,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListPopupWindow',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'POSITION_PROMPT_ABOVE',
@@ -21345,7 +21345,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -21953,7 +21953,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListView$FixedViewInfo',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'view',
@@ -21999,7 +21999,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MediaController',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -22222,7 +22222,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -22321,7 +22321,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView$CommaTokenizer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -22392,7 +22392,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -22744,7 +22744,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -22755,7 +22755,7 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -22789,7 +22789,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.OverScroller',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -23064,7 +23064,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -23183,7 +23183,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupWindow',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'INPUT_METHOD_FROM_FOCUSABLE',
@@ -23761,7 +23761,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ProgressBar',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24140,7 +24140,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.QuickContactBadge',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24242,7 +24242,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -24262,7 +24262,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -24282,7 +24282,7 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -24316,7 +24316,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24387,7 +24387,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioGroup',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24554,7 +24554,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioGroup$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24593,7 +24593,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RatingBar',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -24808,7 +24808,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RelativeLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRUE',
@@ -25218,7 +25218,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RelativeLayout$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'alignWithParent',
@@ -25237,13 +25237,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -25339,7 +25339,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViews',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -25373,7 +25373,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -25387,7 +25387,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -25411,7 +25411,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
@@ -25435,7 +25435,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'char',
@@ -25459,7 +25459,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'short',
@@ -25483,7 +25483,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -25503,7 +25503,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -25527,7 +25527,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -25551,7 +25551,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -25679,7 +25679,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -25723,7 +25723,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Intent',
@@ -26003,7 +26003,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -26175,7 +26175,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -26195,7 +26195,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -26219,7 +26219,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.net.Uri',
@@ -26243,7 +26243,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -26284,7 +26284,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -26304,7 +26304,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViewsService',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26351,7 +26351,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ResourceCursorAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26462,7 +26462,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ResourceCursorTreeAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26545,7 +26545,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Scroller',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26828,7 +26828,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ScrollView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -27315,7 +27315,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -27826,7 +27826,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SeekBar',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -27901,7 +27901,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ShareActionProvider',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_SHARE_HISTORY_FILE_NAME',
@@ -27909,7 +27909,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -27976,7 +27976,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28017,7 +28017,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -28183,7 +28183,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28203,7 +28203,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28224,8 +28224,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_java_util_Map'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -28233,7 +28233,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -28247,7 +28247,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -28345,7 +28345,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28365,7 +28365,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28441,7 +28441,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -28476,7 +28476,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -28490,7 +28490,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorTreeAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -28532,7 +28532,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -28561,7 +28561,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -28575,7 +28575,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleExpandableListAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -28806,8 +28806,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_java_util_Map'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -28815,7 +28815,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -28825,8 +28825,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_java_util_Map'}], 'converter': 'convert_java_util_List'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -28834,7 +28834,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ORIENTATION_HORIZONTAL',
@@ -29135,7 +29135,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Space',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -29178,7 +29178,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Spinner',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MODE_DIALOG',
@@ -29547,7 +29547,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.StackView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -29710,7 +29710,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Switch',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -30137,7 +30137,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -30287,7 +30287,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -30341,7 +30341,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -30363,7 +30363,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -30448,7 +30448,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -30506,7 +30506,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TableLayout',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -30793,7 +30793,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TableLayout$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -30832,7 +30832,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TableRow',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -30947,7 +30947,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TableRow$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'column',
@@ -31004,7 +31004,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabWidget',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -31339,7 +31339,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextClock',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_FORMAT_12_HOUR',
@@ -31369,7 +31369,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -31379,7 +31379,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -31480,7 +31480,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextSwitcher',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -31591,7 +31591,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -33844,7 +33844,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -33862,7 +33862,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -34068,7 +34068,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -34531,7 +34531,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -34561,7 +34561,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TimePicker',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -34693,7 +34693,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -34703,7 +34703,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -34719,7 +34719,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -34749,7 +34749,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -34759,7 +34759,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -34792,7 +34792,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Toast',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'LENGTH_SHORT',
@@ -35045,7 +35045,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ToggleButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -35192,7 +35192,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TwoLineListItem',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -35275,7 +35275,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.VideoView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -35533,7 +35533,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -35674,7 +35674,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewAnimator',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36021,7 +36021,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewFlipper',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36156,7 +36156,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewSwitcher',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36275,7 +36275,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36438,7 +36438,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomButtonsController',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36637,7 +36637,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomControls',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36824,7 +36824,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ImageView$ScaleType',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CENTER',
@@ -36919,7 +36919,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -36935,7 +36935,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView$BufferType',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'EDITABLE',
@@ -36985,7 +36985,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37001,7 +37001,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViews$ActionException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -37016,7 +37016,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37024,7 +37024,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.String',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CASE_INSENSITIVE_ORDER',
@@ -37032,7 +37032,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.util.Comparator',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -37062,7 +37062,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37084,7 +37084,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37104,7 +37104,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37155,7 +37155,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37290,7 +37290,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -37344,7 +37344,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37360,7 +37360,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37380,7 +37380,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -37400,7 +37400,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -37420,7 +37420,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37436,7 +37436,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -37462,7 +37462,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37488,13 +37488,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37514,7 +37514,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37524,7 +37524,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37556,13 +37556,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37572,13 +37572,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37588,7 +37588,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -37598,7 +37598,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -37615,7 +37615,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37631,7 +37631,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37643,7 +37643,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37666,7 +37666,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -37681,7 +37681,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37702,7 +37702,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37714,7 +37714,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37725,7 +37725,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -37764,7 +37764,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.charset.Charset',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -37776,7 +37776,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37786,7 +37786,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37820,7 +37820,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37894,7 +37894,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37910,7 +37910,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -37940,7 +37940,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -37953,7 +37953,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.SortedMap',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.nio.charset.Charset', 'converter': 'convert_proxy'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.nio.charset.Charset', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -37970,7 +37970,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38028,7 +38028,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Object',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -38076,7 +38076,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38150,7 +38150,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -38177,7 +38177,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38296,7 +38296,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38483,7 +38483,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38495,7 +38495,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -38593,7 +38593,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38609,7 +38609,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -38700,7 +38700,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38716,7 +38716,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -38755,7 +38755,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38771,7 +38771,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38930,7 +38930,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.ClassLoader',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -38940,7 +38940,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38969,7 +38969,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -38985,7 +38985,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39001,7 +39001,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39017,7 +39017,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39033,7 +39033,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39050,7 +39050,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39095,7 +39095,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -39115,7 +39115,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -39147,7 +39147,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.InputStream',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -39263,7 +39263,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URL',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -39291,7 +39291,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39327,7 +39327,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39351,7 +39351,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39363,7 +39363,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39375,7 +39375,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39411,7 +39411,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39423,7 +39423,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39435,7 +39435,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39447,7 +39447,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39475,7 +39475,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39535,7 +39535,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -39555,7 +39555,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLStreamHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -39570,7 +39570,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URI',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -39598,7 +39598,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39650,7 +39650,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39672,7 +39672,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.net.URI',
@@ -39718,7 +39718,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39730,7 +39730,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39742,7 +39742,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39754,7 +39754,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39766,7 +39766,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39790,7 +39790,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39800,7 +39800,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -39846,7 +39846,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39858,7 +39858,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39870,7 +39870,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39882,7 +39882,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39894,7 +39894,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39906,7 +39906,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39918,7 +39918,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39930,7 +39930,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -39941,7 +39941,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -39953,7 +39953,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.Proxy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NO_PROXY',
@@ -40002,7 +40002,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40049,7 +40049,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.Proxy$Type',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DIRECT',
@@ -40099,7 +40099,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -40115,7 +40115,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.SocketAddress',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -40130,7 +40130,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLConnection',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -40142,7 +40142,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40217,7 +40217,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -40247,7 +40247,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40269,7 +40269,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -40279,7 +40279,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40295,7 +40295,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40329,7 +40329,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -40345,13 +40345,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40363,8 +40363,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.util.List', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}], 'converter': 'convert_java_util_List'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.util.List', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40380,7 +40380,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40390,13 +40390,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40480,7 +40480,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40504,8 +40504,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.util.List', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}], 'converter': 'convert_java_util_List'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.util.List', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40515,7 +40515,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -40535,7 +40535,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -40763,7 +40763,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -40779,13 +40779,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40811,7 +40811,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Permission',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -40839,7 +40839,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40863,7 +40863,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40891,7 +40891,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40930,7 +40930,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -40938,7 +40938,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.PermissionCollection',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -40966,7 +40966,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -41034,7 +41034,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Enumeration',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41068,7 +41068,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.FileNameMap',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41078,13 +41078,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -41094,7 +41094,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41227,7 +41227,7 @@ config = {
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -41304,7 +41304,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Collection',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41525,7 +41525,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Iterator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41571,7 +41571,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Set',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41792,7 +41792,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map$Entry',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -41870,7 +41870,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.List',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42152,7 +42152,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42213,7 +42213,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.ListIterator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42339,7 +42339,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.OutputStream',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42399,7 +42399,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.ContentHandlerFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42409,7 +42409,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -42425,7 +42425,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.ContentHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42461,7 +42461,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLStreamHandlerFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42471,7 +42471,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -42487,7 +42487,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.TypeVariable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42499,7 +42499,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42534,7 +42534,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Type',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42544,7 +42544,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.GenericDeclaration',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42579,7 +42579,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42603,7 +42603,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42613,7 +42613,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -42720,7 +42720,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42732,7 +42732,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42744,7 +42744,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42756,7 +42756,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42768,7 +42768,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42780,7 +42780,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42790,7 +42790,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -42806,7 +42806,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.annotation.Annotation',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42834,7 +42834,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42918,7 +42918,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -42954,7 +42954,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43060,7 +43060,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43198,7 +43198,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43234,7 +43234,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43344,7 +43344,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43462,7 +43462,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43626,7 +43626,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43730,7 +43730,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -43916,7 +43916,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.ProtectionDomain',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43928,7 +43928,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44025,7 +44025,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.CodeSource',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44053,7 +44053,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44148,7 +44148,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.CodeSigner',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44176,7 +44176,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44235,7 +44235,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.cert.CertPath',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44263,7 +44263,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44288,7 +44288,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.security.cert.Certificate', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44300,7 +44300,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44310,7 +44310,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44329,7 +44329,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Iterator',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -44340,7 +44340,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.cert.Certificate',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44368,7 +44368,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44392,7 +44392,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44419,7 +44419,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44447,7 +44447,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.PublicKey',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'serialVersionUID',
@@ -44466,7 +44466,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Timestamp',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44494,7 +44494,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44530,7 +44530,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44541,7 +44541,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.security.cert.CertPath',
@@ -44553,7 +44553,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Date',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44581,7 +44581,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44615,7 +44615,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44631,7 +44631,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44647,7 +44647,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44663,7 +44663,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -44905,7 +44905,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44917,7 +44917,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44948,7 +44948,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -44956,7 +44956,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Principal',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44984,7 +44984,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -45008,7 +45008,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -45018,7 +45018,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.ByteBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -45100,7 +45100,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -45622,7 +45622,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -45644,7 +45644,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.CharBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -45687,7 +45687,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -45730,7 +45730,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46002,7 +46002,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.CharSequence',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46014,7 +46014,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46068,7 +46068,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.ShortBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46150,7 +46150,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46334,7 +46334,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.IntBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46412,7 +46412,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46596,7 +46596,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.LongBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46678,7 +46678,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46862,7 +46862,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.FloatBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46944,7 +46944,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47128,7 +47128,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.DoubleBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47210,7 +47210,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47394,7 +47394,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.SortedMap',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47531,7 +47531,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Comparator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47573,7 +47573,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Locale',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ENGLISH',
@@ -47799,7 +47799,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47835,7 +47835,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47888,7 +47888,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -47901,7 +47901,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -47914,7 +47914,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47926,7 +47926,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47938,7 +47938,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47950,7 +47950,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47966,7 +47966,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47982,7 +47982,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47998,7 +47998,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48014,7 +48014,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48025,7 +48025,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48033,7 +48033,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.charset.CharsetDecoder',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -48145,7 +48145,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48179,7 +48179,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -48285,7 +48285,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48450,7 +48450,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48460,7 +48460,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.charset.CharsetEncoder',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -48685,7 +48685,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StringBuffer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -48697,7 +48697,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48720,7 +48720,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.StringBuffer',
@@ -48764,7 +48764,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -48897,7 +48897,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -48923,7 +48923,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48953,7 +48953,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -49126,7 +49126,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -49163,7 +49163,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -49175,7 +49175,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StringBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49187,7 +49187,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49234,7 +49234,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.StringBuffer',
@@ -49254,7 +49254,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -49274,7 +49274,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -49298,7 +49298,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -49383,7 +49383,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -49432,7 +49432,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -49444,7 +49444,7 @@ config = {
 		},
 		{
 			'name' : 'org.json.JSONTokener',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49456,7 +49456,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49480,7 +49480,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49508,7 +49508,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49518,7 +49518,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -49558,7 +49558,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'char',
@@ -49568,7 +49568,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49578,7 +49578,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -49639,7 +49639,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49647,7 +49647,7 @@ config = {
 		},
 		{
 			'name' : 'org.json.JSONException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49658,7 +49658,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49666,7 +49666,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Number',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49753,7 +49753,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Throwable',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49825,7 +49825,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49837,7 +49837,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49849,7 +49849,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -49890,7 +49890,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -49902,7 +49902,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.PrintStream',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49924,7 +49924,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -49989,7 +49989,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -50044,7 +50044,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -50116,7 +50116,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -50150,7 +50150,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -50162,7 +50162,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.File',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'separatorChar',
@@ -50179,7 +50179,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -50197,7 +50197,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -50226,7 +50226,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50266,7 +50266,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50290,7 +50290,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50314,7 +50314,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50342,7 +50342,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -50391,7 +50391,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50403,7 +50403,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -50743,7 +50743,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -50768,7 +50768,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -50780,7 +50780,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FilenameFilter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50794,7 +50794,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -50810,7 +50810,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileFilter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50836,7 +50836,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.PrintWriter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50858,7 +50858,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -50923,7 +50923,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -50953,7 +50953,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -50969,7 +50969,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -51054,7 +51054,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -51092,7 +51092,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -51104,7 +51104,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Writer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51147,7 +51147,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -51187,7 +51187,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StackTraceElement',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51215,7 +51215,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -51239,7 +51239,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -51263,7 +51263,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -51275,7 +51275,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -51298,7 +51298,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -51310,7 +51310,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Runnable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51332,7 +51332,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Context',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MODE_PRIVATE',
@@ -51466,7 +51466,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51475,7 +51475,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51484,7 +51484,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51493,7 +51493,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51502,7 +51502,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51511,7 +51511,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51520,7 +51520,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51529,7 +51529,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51538,7 +51538,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51547,7 +51547,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51556,7 +51556,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51565,7 +51565,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51574,7 +51574,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51583,7 +51583,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51592,7 +51592,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51601,7 +51601,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51610,7 +51610,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51619,7 +51619,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51628,7 +51628,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51637,7 +51637,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51646,7 +51646,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51655,7 +51655,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51664,7 +51664,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51673,7 +51673,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51682,7 +51682,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51691,7 +51691,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51700,7 +51700,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51709,7 +51709,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51718,7 +51718,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51727,7 +51727,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51736,7 +51736,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51745,7 +51745,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51754,7 +51754,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51763,7 +51763,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -51813,7 +51813,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -51847,7 +51847,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -51868,7 +51868,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -52053,7 +52053,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -52065,7 +52065,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -52075,7 +52075,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -52095,7 +52095,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52111,7 +52111,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -52131,7 +52131,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52147,7 +52147,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52175,7 +52175,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52229,7 +52229,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -52240,7 +52240,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -52260,7 +52260,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -52288,7 +52288,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52304,7 +52304,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52322,7 +52322,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -52486,7 +52486,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52506,7 +52506,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.BroadcastReceiver',
@@ -52546,7 +52546,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52570,7 +52570,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.BroadcastReceiver',
@@ -52634,7 +52634,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -52710,7 +52710,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -52758,7 +52758,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Handler',
@@ -52870,7 +52870,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -52890,7 +52890,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52906,7 +52906,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52922,7 +52922,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52938,7 +52938,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -52958,7 +52958,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52974,7 +52974,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -52990,7 +52990,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.net.Uri',
@@ -53042,7 +53042,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53106,7 +53106,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53130,7 +53130,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53154,7 +53154,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53170,7 +53170,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -53239,7 +53239,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.Resources',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -53277,7 +53277,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53320,7 +53320,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53330,7 +53330,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53352,7 +53352,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -53483,7 +53483,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53829,7 +53829,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53845,7 +53845,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53861,7 +53861,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53877,7 +53877,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -53907,7 +53907,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.util.AttributeSet',
@@ -54018,13 +54018,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -54047,7 +54047,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -54067,7 +54067,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -54083,7 +54083,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -54107,7 +54107,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -54125,7 +54125,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -54136,7 +54136,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.AssetFileDescriptor',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'UNKNOWN_LENGTH',
@@ -54167,7 +54167,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -54318,7 +54318,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.ParcelFileDescriptor',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MODE_WORLD_READABLE',
@@ -54412,7 +54412,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -54636,7 +54636,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileDescriptor',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'in',
@@ -54710,7 +54710,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.os.Parcelable$Creator',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -54848,7 +54848,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -54886,7 +54886,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55154,7 +55154,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55170,7 +55170,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55239,7 +55239,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Map',
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55271,7 +55271,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55602,7 +55602,7 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -55621,7 +55621,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -55632,7 +55632,7 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -55697,7 +55697,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.os.Parcelable', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55713,8 +55713,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55731,7 +55731,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.os.IBinder', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55836,7 +55836,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -55864,7 +55864,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Map',
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -55884,7 +55884,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.ClassLoader',
@@ -56029,7 +56029,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Parcelable$Creator',
@@ -56052,7 +56052,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -56076,8 +56076,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -56094,7 +56094,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.os.IBinder', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -56232,7 +56232,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FIRST_CALL_TRANSACTION',
@@ -56318,7 +56318,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -56337,7 +56337,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -56371,7 +56371,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -56391,7 +56391,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -56468,7 +56468,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IInterface',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56490,7 +56490,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder$DeathRecipient',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56512,7 +56512,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Bundle',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'EMPTY',
@@ -56541,7 +56541,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -56559,7 +56559,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -56581,7 +56581,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -56601,7 +56601,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -56621,7 +56621,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
@@ -56631,7 +56631,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
@@ -56645,7 +56645,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
@@ -56665,7 +56665,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'short',
@@ -56685,7 +56685,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'short',
@@ -56705,7 +56705,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'char',
@@ -56725,7 +56725,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'char',
@@ -56745,7 +56745,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -56765,7 +56765,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -56785,7 +56785,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -56805,7 +56805,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -56825,7 +56825,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -56845,7 +56845,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -56865,7 +56865,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -56885,7 +56885,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -56969,7 +56969,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -56987,7 +56987,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -56998,7 +56998,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57014,7 +57014,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57030,13 +57030,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -57046,13 +57046,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -57091,7 +57091,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57107,7 +57107,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -57127,7 +57127,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Parcelable',
@@ -57147,7 +57147,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -57168,7 +57168,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
@@ -57189,7 +57189,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.util.SparseArray',
@@ -57210,11 +57210,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -57231,11 +57231,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -57252,7 +57252,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
@@ -57273,7 +57273,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.Serializable',
@@ -57293,7 +57293,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_boolean_array_type',
@@ -57314,7 +57314,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_byte_array_type',
@@ -57335,7 +57335,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_short_array_type',
@@ -57356,7 +57356,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -57377,7 +57377,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_int_array_type',
@@ -57398,7 +57398,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_long_array_type',
@@ -57419,7 +57419,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_float_array_type',
@@ -57440,7 +57440,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_double_array_type',
@@ -57461,11 +57461,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -57482,7 +57482,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -57503,7 +57503,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -57523,7 +57523,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -57543,7 +57543,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57559,7 +57559,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57576,7 +57576,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57593,7 +57593,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57610,7 +57610,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57626,13 +57626,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -57643,13 +57643,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -57660,7 +57660,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57677,7 +57677,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57694,7 +57694,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57711,7 +57711,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57728,7 +57728,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57745,7 +57745,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57762,7 +57762,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57779,7 +57779,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57796,7 +57796,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57813,7 +57813,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -57895,7 +57895,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Byte',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
@@ -57921,7 +57921,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Byte', 'converter': 'convert_java_lang_Byte'}],
+							'children' : [{'type': 'java.lang.Byte', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -57964,7 +57964,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -57986,7 +57986,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -58074,7 +58074,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -58088,7 +58088,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -58098,13 +58098,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -58114,7 +58114,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -58139,7 +58139,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -58147,7 +58147,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PARCELABLE_WRITE_RETURN_VALUE',
@@ -58207,7 +58207,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.ArrayList',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -58478,7 +58478,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.SparseArray',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -58726,7 +58726,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Integer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
@@ -58752,7 +58752,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+							'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -58843,7 +58843,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -58881,7 +58881,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -58969,7 +58969,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -58979,7 +58979,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -58995,7 +58995,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59005,13 +59005,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59037,7 +59037,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -59063,7 +59063,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59079,7 +59079,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59089,11 +59089,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -59103,7 +59103,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59198,7 +59198,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59206,7 +59206,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Serializable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59216,7 +59216,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$Creator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59259,7 +59259,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.SparseBooleanArray',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59454,7 +59454,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Exception',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59465,7 +59465,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -59477,7 +59477,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.HashMap',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59594,7 +59594,7 @@ config = {
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -59681,7 +59681,7 @@ config = {
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -59689,7 +59689,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.Socket',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59701,7 +59701,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60260,7 +60260,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -60308,7 +60308,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60345,7 +60345,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60357,7 +60357,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60367,7 +60367,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -60525,7 +60525,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60540,7 +60540,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -60556,7 +60556,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -60613,7 +60613,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60637,7 +60637,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60661,7 +60661,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60671,7 +60671,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -60703,7 +60703,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.net.InterfaceAddress', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60868,7 +60868,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -60926,7 +60926,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.SocketChannel',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61086,7 +61086,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.SocketImplFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61108,7 +61108,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.SocketImpl',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61120,7 +61120,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -61135,7 +61135,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramSocket',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61562,7 +61562,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramPacket',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61752,7 +61752,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.DatagramChannel',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61932,7 +61932,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramSocketImplFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61954,7 +61954,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramSocketImpl',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -61969,7 +61969,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileInputStream',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62065,7 +62065,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -62081,7 +62081,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.FileChannel',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62321,7 +62321,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.FileLock',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62333,7 +62333,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -62470,7 +62470,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -62480,7 +62480,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.MappedByteBuffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62526,7 +62526,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.WritableByteChannel',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62552,7 +62552,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.ReadableByteChannel',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62578,7 +62578,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileOutputStream',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62650,7 +62650,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -62666,7 +62666,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.XmlResourceParser',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62688,7 +62688,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.DisplayMetrics',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DENSITY_LOW',
@@ -62846,7 +62846,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -62901,7 +62901,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.Configuration',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'fontScale',
@@ -63609,7 +63609,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -63840,7 +63840,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.TypedValue',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TYPE_NULL',
@@ -64257,7 +64257,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64477,7 +64477,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64504,7 +64504,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64636,7 +64636,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64680,7 +64680,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64857,7 +64857,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -64871,7 +64871,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -64935,7 +64935,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.drawable.Drawable',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -65071,7 +65071,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -65495,7 +65495,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.BitmapFactory$Options',
@@ -65559,7 +65559,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -65592,7 +65592,7 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlPullParser',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NO_NAMESPACE',
@@ -65600,7 +65600,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -65708,7 +65708,7 @@ config = {
 					'type' : 
 					{
 							'type' : '_object_array_type',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 							'converter' : 'convert__object_array_type',
 					},
 				},
@@ -65718,7 +65718,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -65727,7 +65727,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -65736,7 +65736,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -65745,7 +65745,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -65756,7 +65756,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -65776,7 +65776,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -65794,7 +65794,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65856,7 +65856,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.Reader',
@@ -65878,7 +65878,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65888,7 +65888,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -65898,7 +65898,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65910,7 +65910,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65938,7 +65938,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65950,7 +65950,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -65964,7 +65964,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -65992,7 +65992,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -66012,7 +66012,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -66030,7 +66030,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66040,7 +66040,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -66078,7 +66078,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66094,7 +66094,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66104,13 +66104,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66180,7 +66180,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66196,7 +66196,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66212,7 +66212,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66240,7 +66240,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66262,7 +66262,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Reader',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -66377,7 +66377,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.AttributeSet',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -66391,13 +66391,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66425,7 +66425,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66437,7 +66437,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66463,11 +66463,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -66488,7 +66488,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -66512,7 +66512,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -66536,7 +66536,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -66552,7 +66552,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -66572,7 +66572,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -66598,7 +66598,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66610,7 +66610,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66648,7 +66648,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Rect',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'left',
@@ -66722,7 +66722,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66938,7 +66938,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66950,7 +66950,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -66960,7 +66960,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -67117,7 +67117,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Canvas',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MATRIX_SAVE_FLAG',
@@ -68106,7 +68106,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -68144,7 +68144,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -68181,7 +68181,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -68836,7 +68836,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Bitmap$Config',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ALPHA_8',
@@ -68895,7 +68895,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -68911,7 +68911,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.Buffer',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -69117,7 +69117,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Matrix',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MSCALE_X',
@@ -69226,7 +69226,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -69266,7 +69266,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -69730,7 +69730,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.RectF',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'left',
@@ -69804,7 +69804,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -70040,7 +70040,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -70187,7 +70187,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Matrix$ScaleToFit',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CENTER',
@@ -70246,7 +70246,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -70262,7 +70262,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Bitmap$CompressFormat',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'JPEG',
@@ -70312,7 +70312,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -70328,7 +70328,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ANTI_ALIAS_FLAG',
@@ -71417,7 +71417,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -71467,7 +71467,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -71501,7 +71501,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -71522,7 +71522,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -71555,7 +71555,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -71597,7 +71597,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Style',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FILL',
@@ -71647,7 +71647,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71663,7 +71663,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Cap',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'BUTT',
@@ -71713,7 +71713,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71729,7 +71729,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Join',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'BEVEL',
@@ -71779,7 +71779,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71795,7 +71795,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Path',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72327,7 +72327,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Path$FillType',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'EVEN_ODD',
@@ -72386,7 +72386,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -72402,7 +72402,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Path$Direction',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CCW',
@@ -72443,7 +72443,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -72459,7 +72459,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Shader',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72506,7 +72506,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.ColorFilter',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72521,7 +72521,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Xfermode',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72536,7 +72536,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.PathEffect',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72551,7 +72551,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.MaskFilter',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72685,7 +72685,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -72765,7 +72765,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -72781,7 +72781,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
@@ -72801,7 +72801,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Rasterizer',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72816,7 +72816,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Align',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CENTER',
@@ -72866,7 +72866,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -72882,7 +72882,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$FontMetrics',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'top',
@@ -72942,7 +72942,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$FontMetricsInt',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'top',
@@ -72999,7 +72999,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -73014,7 +73014,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Region$Op',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DIFFERENCE',
@@ -73091,7 +73091,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -73107,7 +73107,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Region',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -73145,7 +73145,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -73460,7 +73460,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.DrawFilter',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -73475,7 +73475,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Canvas$EdgeType',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'AA',
@@ -73516,7 +73516,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -73532,7 +73532,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.PorterDuff$Mode',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ADD',
@@ -73717,7 +73717,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -73733,7 +73733,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Canvas$VertexMode',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRIANGLES',
@@ -73783,7 +73783,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -73799,7 +73799,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Picture',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -73918,7 +73918,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.drawable.Drawable$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -73988,7 +73988,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.BitmapFactory$Options',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'inBitmap',
@@ -74131,7 +74131,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -74178,7 +74178,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.drawable.Drawable$ConstantState',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -74221,7 +74221,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.ColorStateList',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -74243,7 +74243,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -74532,7 +74532,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -74603,7 +74603,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -74663,7 +74663,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.PackageManager',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GET_ACTIVITIES',
@@ -74968,7 +74968,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -74977,7 +74977,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -74986,7 +74986,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -74995,7 +74995,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75004,7 +75004,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75013,7 +75013,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75022,7 +75022,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75031,7 +75031,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75040,7 +75040,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75049,7 +75049,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75058,7 +75058,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75067,7 +75067,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75076,7 +75076,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75085,7 +75085,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75094,7 +75094,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75103,7 +75103,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75112,7 +75112,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75121,7 +75121,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75130,7 +75130,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75139,7 +75139,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75148,7 +75148,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75157,7 +75157,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75166,7 +75166,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75175,7 +75175,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75184,7 +75184,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75193,7 +75193,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75202,7 +75202,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75211,7 +75211,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75220,7 +75220,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75229,7 +75229,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75238,7 +75238,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75247,7 +75247,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75256,7 +75256,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75265,7 +75265,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75274,7 +75274,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75283,7 +75283,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75292,7 +75292,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75301,7 +75301,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75310,7 +75310,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -75319,7 +75319,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -75330,7 +75330,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75346,7 +75346,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75366,7 +75366,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75390,7 +75390,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75410,7 +75410,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75434,7 +75434,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75458,14 +75458,14 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -75476,14 +75476,14 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -75494,7 +75494,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75510,7 +75510,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75527,7 +75527,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75547,7 +75547,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75558,7 +75558,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.PermissionInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75568,7 +75568,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -75595,7 +75595,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.PermissionGroupInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75692,7 +75692,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.PackageInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75734,7 +75734,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75754,7 +75754,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75776,7 +75776,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -75793,7 +75793,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75810,7 +75810,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ApplicationInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75822,7 +75822,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -75846,7 +75846,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -75893,7 +75893,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ResolveInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75923,7 +75923,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ResolveInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75944,7 +75944,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ResolveInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75985,7 +75985,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ResolveInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -75995,7 +75995,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -76015,7 +76015,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -76026,7 +76026,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.ProviderInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -76056,7 +76056,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -76067,7 +76067,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.InstrumentationInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -76109,7 +76109,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.pm.ApplicationInfo',
@@ -76149,7 +76149,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.pm.ApplicationInfo',
@@ -76205,7 +76205,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76221,7 +76221,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -76277,7 +76277,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76293,13 +76293,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -76309,7 +76309,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76325,7 +76325,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76348,7 +76348,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.pm.PackageInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -76387,7 +76387,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76404,16 +76404,16 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.IntentFilter', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.ComponentName', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76465,7 +76465,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -76485,7 +76485,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76518,7 +76518,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.PackageInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'packageName',
@@ -76526,7 +76526,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76544,7 +76544,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76553,7 +76553,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76668,7 +76668,7 @@ config = {
 					'type' : 
 					{
 							'type' : '_object_array_type',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 							'converter' : 'convert__object_array_type',
 					},
 				},
@@ -76750,7 +76750,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -76797,7 +76797,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ApplicationInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'taskAffinity',
@@ -76805,7 +76805,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76814,7 +76814,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76823,7 +76823,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76832,7 +76832,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76859,7 +76859,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -76868,7 +76868,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77147,7 +77147,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77156,7 +77156,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77165,7 +77165,7 @@ config = {
 					'type' : 
 					{
 							'type' : '_object_array_type',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 							'converter' : 'convert__object_array_type',
 					},
 				},
@@ -77175,7 +77175,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77184,7 +77184,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77234,7 +77234,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -77280,7 +77280,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -77321,7 +77321,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.Printer',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -77331,7 +77331,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -77347,7 +77347,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ActivityInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'theme',
@@ -77409,7 +77409,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77418,7 +77418,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77427,7 +77427,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77832,7 +77832,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -77855,7 +77855,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -77901,7 +77901,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -77938,7 +77938,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ServiceInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'permission',
@@ -77946,7 +77946,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78005,7 +78005,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78051,7 +78051,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -78076,7 +78076,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ProviderInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'authority',
@@ -78084,7 +78084,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78093,7 +78093,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78102,7 +78102,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78199,7 +78199,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78250,7 +78250,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.PatternMatcher',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PATTERN_LITERAL',
@@ -78299,7 +78299,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78323,7 +78323,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78333,7 +78333,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -78382,7 +78382,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -78398,7 +78398,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.PathPermission',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -78440,7 +78440,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78452,7 +78452,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78463,7 +78463,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -78479,7 +78479,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.InstrumentationInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'targetPackage',
@@ -78487,7 +78487,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78496,7 +78496,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78505,7 +78505,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78514,7 +78514,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78555,7 +78555,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78606,7 +78606,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.PermissionInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PROTECTION_NORMAL',
@@ -78695,7 +78695,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -78754,7 +78754,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78821,7 +78821,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.Signature',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -78939,7 +78939,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78955,7 +78955,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -78963,7 +78963,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ConfigurationInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'reqTouchScreen',
@@ -79057,7 +79057,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -79101,7 +79101,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -79120,7 +79120,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.FeatureInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'name',
@@ -79128,7 +79128,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79187,7 +79187,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -79231,7 +79231,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -79250,7 +79250,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Intent',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ACTION_MAIN',
@@ -79258,7 +79258,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79267,7 +79267,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79276,7 +79276,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79285,7 +79285,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79294,7 +79294,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79303,7 +79303,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79312,7 +79312,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79321,7 +79321,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79330,7 +79330,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79339,7 +79339,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79348,7 +79348,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79357,7 +79357,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79366,7 +79366,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79375,7 +79375,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79384,7 +79384,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79393,7 +79393,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79402,7 +79402,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79411,7 +79411,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79420,7 +79420,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79429,7 +79429,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79438,7 +79438,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79447,7 +79447,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79456,7 +79456,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79465,7 +79465,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79474,7 +79474,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79483,7 +79483,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79492,7 +79492,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79501,7 +79501,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79510,7 +79510,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79519,7 +79519,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79528,7 +79528,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79537,7 +79537,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79546,7 +79546,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79555,7 +79555,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79564,7 +79564,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79573,7 +79573,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79582,7 +79582,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79591,7 +79591,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79600,7 +79600,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79609,7 +79609,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79618,7 +79618,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79627,7 +79627,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79636,7 +79636,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79645,7 +79645,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79654,7 +79654,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79663,7 +79663,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79672,7 +79672,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79681,7 +79681,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79690,7 +79690,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79699,7 +79699,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79708,7 +79708,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79717,7 +79717,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79726,7 +79726,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79735,7 +79735,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79744,7 +79744,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79753,7 +79753,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79762,7 +79762,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79771,7 +79771,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79780,7 +79780,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79789,7 +79789,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79798,7 +79798,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79807,7 +79807,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79816,7 +79816,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79825,7 +79825,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79834,7 +79834,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79843,7 +79843,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79852,7 +79852,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79861,7 +79861,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79870,7 +79870,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79879,7 +79879,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79888,7 +79888,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79897,7 +79897,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79906,7 +79906,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79915,7 +79915,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79924,7 +79924,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79933,7 +79933,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79942,7 +79942,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79951,7 +79951,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79960,7 +79960,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79969,7 +79969,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79978,7 +79978,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79987,7 +79987,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -79996,7 +79996,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80005,7 +80005,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80014,7 +80014,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80023,7 +80023,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80032,7 +80032,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80041,7 +80041,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80050,7 +80050,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80059,7 +80059,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80068,7 +80068,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80077,7 +80077,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80086,7 +80086,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80095,7 +80095,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80104,7 +80104,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80113,7 +80113,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80122,7 +80122,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80131,7 +80131,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80140,7 +80140,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80149,7 +80149,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80158,7 +80158,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80167,7 +80167,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80176,7 +80176,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80185,7 +80185,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80194,7 +80194,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80203,7 +80203,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80212,7 +80212,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80221,7 +80221,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80230,7 +80230,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80239,7 +80239,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80248,7 +80248,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80257,7 +80257,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80266,7 +80266,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80275,7 +80275,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80284,7 +80284,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80293,7 +80293,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80302,7 +80302,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80311,7 +80311,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80320,7 +80320,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80329,7 +80329,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80338,7 +80338,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80347,7 +80347,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80356,7 +80356,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80365,7 +80365,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80374,7 +80374,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80383,7 +80383,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80392,7 +80392,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80401,7 +80401,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80410,7 +80410,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80419,7 +80419,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80428,7 +80428,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80437,7 +80437,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80446,7 +80446,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80455,7 +80455,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80464,7 +80464,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80473,7 +80473,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80482,7 +80482,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80491,7 +80491,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80500,7 +80500,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80509,7 +80509,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80518,7 +80518,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80527,7 +80527,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80536,7 +80536,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80545,7 +80545,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80554,7 +80554,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80563,7 +80563,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80572,7 +80572,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80581,7 +80581,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80590,7 +80590,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80599,7 +80599,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80608,7 +80608,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80617,7 +80617,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80626,7 +80626,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80635,7 +80635,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80644,7 +80644,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80653,7 +80653,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80662,7 +80662,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80671,7 +80671,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80680,7 +80680,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80689,7 +80689,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80698,7 +80698,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80707,7 +80707,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80716,7 +80716,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80725,7 +80725,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80734,7 +80734,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80743,7 +80743,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80797,7 +80797,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80806,7 +80806,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80815,7 +80815,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80824,7 +80824,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80833,7 +80833,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80842,7 +80842,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80851,7 +80851,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -80860,7 +80860,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -81198,7 +81198,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81222,7 +81222,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81234,7 +81234,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81246,7 +81246,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81258,7 +81258,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81370,7 +81370,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81392,7 +81392,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81408,7 +81408,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -81508,7 +81508,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81540,7 +81540,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81556,7 +81556,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -81576,7 +81576,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81594,7 +81594,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81614,7 +81614,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81630,7 +81630,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81640,7 +81640,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81658,7 +81658,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -81709,7 +81709,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81725,7 +81725,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -81745,7 +81745,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
@@ -81765,7 +81765,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'short',
@@ -81785,7 +81785,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'char',
@@ -81805,7 +81805,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -81825,7 +81825,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -81845,7 +81845,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -81865,7 +81865,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -81885,13 +81885,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -81901,7 +81901,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81917,7 +81917,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81933,7 +81933,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81950,7 +81950,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81967,7 +81967,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -81983,13 +81983,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -82000,13 +82000,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -82017,7 +82017,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82034,7 +82034,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82051,7 +82051,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82068,7 +82068,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82085,7 +82085,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82102,7 +82102,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82119,7 +82119,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82136,7 +82136,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82153,7 +82153,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82170,13 +82170,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -82187,7 +82187,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82204,7 +82204,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82280,7 +82280,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82296,7 +82296,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82316,7 +82316,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82336,7 +82336,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82352,7 +82352,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82368,7 +82368,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82416,7 +82416,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -82477,7 +82477,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -82535,7 +82535,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
@@ -82556,11 +82556,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -82577,11 +82577,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -82598,7 +82598,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
@@ -82659,7 +82659,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82691,7 +82691,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -82814,7 +82814,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -82848,13 +82848,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -82869,7 +82869,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.net.Uri',
@@ -82890,7 +82890,7 @@ config = {
 		},
 		{
 			'name' : 'android.net.Uri',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -82918,7 +82918,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -82956,13 +82956,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -82972,13 +82972,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83002,7 +83002,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83026,7 +83026,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83038,7 +83038,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83050,7 +83050,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83062,7 +83062,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83072,7 +83072,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -83090,7 +83090,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83114,7 +83114,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83126,7 +83126,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83162,7 +83162,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83174,7 +83174,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83186,7 +83186,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83198,7 +83198,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83210,7 +83210,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83222,7 +83222,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83234,8 +83234,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83247,7 +83247,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83259,7 +83259,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83285,7 +83285,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -83303,7 +83303,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -83314,14 +83314,14 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83331,13 +83331,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83347,7 +83347,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -83383,7 +83383,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -83411,7 +83411,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ComponentName',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -83449,7 +83449,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83501,7 +83501,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83513,7 +83513,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83577,7 +83577,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83589,7 +83589,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83599,7 +83599,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -83617,7 +83617,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83629,7 +83629,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83640,7 +83640,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -83661,7 +83661,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentResolver',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SYNC_EXTRAS_ACCOUNT',
@@ -83669,7 +83669,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83678,7 +83678,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83687,7 +83687,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83696,7 +83696,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83705,7 +83705,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83714,7 +83714,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83723,7 +83723,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83732,7 +83732,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83741,7 +83741,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83750,7 +83750,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83759,7 +83759,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83768,7 +83768,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83777,7 +83777,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83786,7 +83786,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83795,7 +83795,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83804,7 +83804,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -83848,7 +83848,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -83862,11 +83862,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -83907,12 +83907,12 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.CancellationSignal',
@@ -83940,11 +83940,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -83965,13 +83965,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -84002,7 +84002,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84022,7 +84022,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84042,7 +84042,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84062,7 +84062,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -84082,7 +84082,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.ArrayList',
@@ -84129,7 +84129,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -84153,7 +84153,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84173,7 +84173,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84277,7 +84277,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -84321,7 +84321,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84354,7 +84354,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84374,7 +84374,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -84398,7 +84398,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -84426,7 +84426,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -84450,14 +84450,14 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.PeriodicSync', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84471,7 +84471,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84491,7 +84491,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -84543,7 +84543,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84574,7 +84574,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.content.SyncInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84588,7 +84588,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84649,7 +84649,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentValues',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TAG',
@@ -84657,7 +84657,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -84678,7 +84678,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84694,31 +84694,31 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Short',
-								'converter' : 'convert_java_lang_Short',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Float',
-								'converter' : 'convert_java_lang_Float',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Double',
-								'converter' : 'convert_java_lang_Double',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_byte_array_type',
@@ -84727,7 +84727,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84761,7 +84761,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84823,7 +84823,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84841,7 +84841,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -84852,7 +84852,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84868,13 +84868,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84884,7 +84884,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -84932,13 +84932,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84948,13 +84948,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Integer',
-								'converter' : 'convert_java_lang_Integer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84964,13 +84964,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Short',
-								'converter' : 'convert_java_lang_Short',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84980,13 +84980,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Byte',
-								'converter' : 'convert_java_lang_Byte',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -84996,13 +84996,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Double',
-								'converter' : 'convert_java_lang_Double',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85012,13 +85012,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Float',
-								'converter' : 'convert_java_lang_Float',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85028,13 +85028,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85044,7 +85044,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -85063,7 +85063,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.util.Map$Entry', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'children' : [{'type': 'java.util.Map$Entry', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -85087,7 +85087,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Short',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
@@ -85113,7 +85113,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Short', 'converter': 'convert_java_lang_Short'}],
+							'children' : [{'type': 'java.lang.Short', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -85156,7 +85156,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85194,7 +85194,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Short',
-								'converter' : 'convert_java_lang_Short',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -85286,7 +85286,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -85296,7 +85296,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Short',
-								'converter' : 'convert_java_lang_Short',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85306,13 +85306,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Short',
-								'converter' : 'convert_java_lang_Short',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85322,7 +85322,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -85347,7 +85347,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85355,7 +85355,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Long',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIN_VALUE',
@@ -85381,7 +85381,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Long', 'converter': 'convert_java_lang_Long'}],
+							'children' : [{'type': 'java.lang.Long', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -85476,7 +85476,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85514,7 +85514,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -85530,7 +85530,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -85538,13 +85538,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85626,7 +85626,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -85640,7 +85640,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85656,7 +85656,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85666,13 +85666,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Long',
-								'converter' : 'convert_java_lang_Long',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85704,7 +85704,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85720,7 +85720,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85818,7 +85818,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -85843,7 +85843,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85851,7 +85851,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Float',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'POSITIVE_INFINITY',
@@ -85940,7 +85940,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -85974,7 +85974,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86044,7 +86044,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Float',
-								'converter' : 'convert_java_lang_Float',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86132,7 +86132,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -86142,7 +86142,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Float',
-								'converter' : 'convert_java_lang_Float',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86158,7 +86158,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86200,7 +86200,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86237,7 +86237,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -86249,7 +86249,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Double',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'POSITIVE_INFINITY',
@@ -86338,7 +86338,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Double', 'converter': 'convert_java_lang_Double'}],
+							'children' : [{'type': 'java.lang.Double', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -86372,7 +86372,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86442,7 +86442,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Double',
-								'converter' : 'convert_java_lang_Double',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86530,7 +86530,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -86540,7 +86540,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Double',
-								'converter' : 'convert_java_lang_Double',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86556,7 +86556,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86614,7 +86614,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86635,7 +86635,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86643,7 +86643,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Boolean',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRUE',
@@ -86651,7 +86651,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
-							'converter' : 'convert_java_lang_Boolean',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -86660,7 +86660,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Boolean',
-							'converter' : 'convert_java_lang_Boolean',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -86669,7 +86669,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Class',
-							'children' : [{'type': 'java.lang.Boolean', 'converter': 'convert_java_lang_Boolean'}],
+							'children' : [{'type': 'java.lang.Boolean', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -86703,7 +86703,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86725,7 +86725,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86741,7 +86741,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86769,7 +86769,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -86779,7 +86779,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86789,7 +86789,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -86810,7 +86810,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -86818,7 +86818,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.CancellationSignal',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86885,7 +86885,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.CancellationSignal$OnCancelListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86907,7 +86907,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.Cursor',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FIELD_TYPE_NULL',
@@ -87076,7 +87076,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -87310,7 +87310,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -87326,7 +87326,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -87348,7 +87348,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -87360,7 +87360,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -87524,7 +87524,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.ContentObserver',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -87595,7 +87595,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Handler',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -87607,7 +87607,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -87677,7 +87677,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -87731,7 +87731,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -88050,7 +88050,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Handler$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -88076,7 +88076,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Message',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'what',
@@ -88143,7 +88143,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -88354,7 +88354,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Messenger',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -88523,7 +88523,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -88561,7 +88561,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -88707,7 +88707,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.MessageQueue$IdleHandler',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -88729,7 +88729,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIN_PRIORITY',
@@ -88780,7 +88780,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -88816,7 +88816,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -89039,7 +89039,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -89187,7 +89187,7 @@ config = {
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.Thread', 'converter': 'convert_proxy'}, {'type': '_object_array_type', 'children': [{'type': 'java.lang.StackTraceElement', 'converter': 'convert_proxy'}], 'converter': 'convert__object_array_type'}],
-								'converter' : 'convert_java_util_Map',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -89286,7 +89286,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -89298,7 +89298,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.ThreadGroup',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89330,7 +89330,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -89342,7 +89342,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -89599,7 +89599,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.ThreadGroup',
@@ -89611,7 +89611,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread$State',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NEW',
@@ -89688,7 +89688,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -89704,7 +89704,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread$UncaughtExceptionHandler',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89734,7 +89734,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.CharArrayBuffer',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'data',
@@ -89777,7 +89777,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.DataSetObserver',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89838,7 +89838,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90049,7 +90049,7 @@ config = {
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90098,7 +90098,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -90150,7 +90150,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -90170,11 +90170,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90223,7 +90223,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentProvider',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -90263,7 +90263,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90277,11 +90277,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90322,12 +90322,12 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.CancellationSignal',
@@ -90355,11 +90355,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90396,13 +90396,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90452,7 +90452,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -90486,7 +90486,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90498,7 +90498,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90512,7 +90512,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -90532,7 +90532,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -90593,7 +90593,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -90617,7 +90617,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -90671,7 +90671,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentProviderResult',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'uri',
@@ -90688,7 +90688,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.Integer',
-							'converter' : 'convert_java_lang_Integer',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -90711,7 +90711,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90770,7 +90770,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentProvider$PipeDataWriter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -90788,7 +90788,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -90828,7 +90828,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -90842,11 +90842,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90899,12 +90899,12 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.CancellationSignal',
@@ -90932,11 +90932,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90957,13 +90957,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -90978,7 +90978,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -91037,7 +91037,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -91061,7 +91061,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -91081,7 +91081,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -91109,7 +91109,7 @@ config = {
 		},
 		{
 			'name' : 'android.accounts.Account',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'name',
@@ -91117,7 +91117,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91126,7 +91126,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91165,7 +91165,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -91220,7 +91220,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Parcel',
@@ -91232,7 +91232,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SyncAdapterType',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'authority',
@@ -91240,7 +91240,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91249,7 +91249,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91297,7 +91297,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -91401,7 +91401,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -91411,7 +91411,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -91428,7 +91428,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -91444,7 +91444,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.PeriodicSync',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'account',
@@ -91461,7 +91461,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91553,7 +91553,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -91586,7 +91586,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -91638,7 +91638,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SyncStatusObserver',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -91664,7 +91664,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ClipData',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -91686,7 +91686,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -91760,7 +91760,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -91889,7 +91889,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -91910,7 +91910,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ClipData$Item',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -91922,7 +91922,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -91970,7 +91970,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92018,7 +92018,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92033,7 +92033,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Intent',
@@ -92049,7 +92049,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ClipDescription',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MIMETYPE_TEXT_PLAIN',
@@ -92057,7 +92057,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -92066,7 +92066,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -92075,7 +92075,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -92084,7 +92084,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -92107,7 +92107,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92149,7 +92149,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92177,7 +92177,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92193,13 +92193,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -92228,7 +92228,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92243,7 +92243,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -92256,7 +92256,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.PermissionGroupInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'descriptionRes',
@@ -92323,7 +92323,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92390,7 +92390,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ResolveInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'activityInfo',
@@ -92497,7 +92497,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -92520,7 +92520,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92566,7 +92566,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92635,7 +92635,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentFilter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SYSTEM_HIGH_PRIORITY',
@@ -92818,7 +92818,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92834,7 +92834,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.net.Uri',
@@ -92842,7 +92842,7 @@ config = {
 						},
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -92909,7 +92909,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -92919,7 +92919,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92939,7 +92939,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92955,7 +92955,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92971,7 +92971,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -92999,7 +92999,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93015,7 +93015,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93033,7 +93033,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Iterator',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -93044,7 +93044,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93060,7 +93060,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93094,7 +93094,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93106,7 +93106,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Iterator',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -93117,7 +93117,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93151,7 +93151,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93161,7 +93161,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93179,7 +93179,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Iterator',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -93190,7 +93190,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93263,7 +93263,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -93311,7 +93311,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93356,7 +93356,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.net.Uri',
@@ -93394,7 +93394,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93406,7 +93406,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Iterator',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -93417,14 +93417,14 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93467,7 +93467,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.IntentFilter',
@@ -93479,7 +93479,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentFilter$AuthorityEntry',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93503,7 +93503,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93530,7 +93530,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93538,7 +93538,7 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlSerializer',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93548,7 +93548,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -93568,7 +93568,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93586,7 +93586,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93608,7 +93608,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93624,7 +93624,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -93634,7 +93634,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93644,7 +93644,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
@@ -93669,7 +93669,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -93689,7 +93689,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93707,7 +93707,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -93733,7 +93733,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.Writer',
@@ -93753,11 +93753,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Boolean',
-								'converter' : 'convert_java_lang_Boolean',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93785,7 +93785,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93801,7 +93801,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93817,7 +93817,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93833,7 +93833,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93849,7 +93849,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93865,7 +93865,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93881,7 +93881,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93897,7 +93897,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93913,7 +93913,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -93929,7 +93929,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ComponentCallbacks',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93967,7 +93967,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -93977,7 +93977,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -93997,7 +93997,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -94017,7 +94017,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -94037,7 +94037,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -94057,7 +94057,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -94073,13 +94073,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -94091,8 +94091,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -94102,18 +94102,18 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -94168,7 +94168,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$Editor',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94178,7 +94178,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -94198,7 +94198,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -94218,7 +94218,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -94238,7 +94238,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'float',
@@ -94270,7 +94270,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -94286,7 +94286,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -94314,11 +94314,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -94347,7 +94347,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$OnSharedPreferenceChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94361,7 +94361,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -94377,7 +94377,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94395,7 +94395,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.database.sqlite.SQLiteQuery',
@@ -94544,7 +94544,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -94554,7 +94554,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -94574,11 +94574,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -94595,7 +94595,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -94629,7 +94629,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -94643,11 +94643,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -94696,7 +94696,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -94704,7 +94704,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -94773,7 +94773,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.database.DatabaseErrorHandler',
@@ -94983,8 +94983,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -94994,7 +94994,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
@@ -95078,7 +95078,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -95094,13 +95094,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95110,7 +95110,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -95134,11 +95134,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -95159,11 +95159,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -95188,11 +95188,11 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -95213,7 +95213,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -95233,7 +95233,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -95253,7 +95253,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -95277,7 +95277,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.ContentValues',
@@ -95285,7 +95285,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -95306,7 +95306,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -95413,8 +95413,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'android.util.Pair', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}], 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'android.util.Pair', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95436,7 +95436,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.DatabaseErrorHandler',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95462,7 +95462,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteTransactionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95520,7 +95520,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95580,7 +95580,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95602,7 +95602,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.Pair',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'first',
@@ -95684,7 +95684,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteCursorDriver',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95698,7 +95698,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -95755,7 +95755,7 @@ config = {
 					'params' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -95784,7 +95784,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95832,7 +95832,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95906,7 +95906,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -95924,7 +95924,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -95936,7 +95936,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96006,7 +96006,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentSender$OnFinished',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96028,7 +96028,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -96048,7 +96048,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.UserHandle',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -96086,7 +96086,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96169,7 +96169,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.BroadcastReceiver',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96259,7 +96259,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -96277,7 +96277,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96323,7 +96323,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -96502,7 +96502,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -96520,7 +96520,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96566,7 +96566,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -96622,7 +96622,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ServiceConnection',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96707,7 +96707,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96719,7 +96719,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -96933,7 +96933,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Point',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'x',
@@ -96993,7 +96993,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97120,7 +97120,7 @@ config = {
 		},
 		{
 			'name' : 'android.net.http.SslCertificate',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97132,7 +97132,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97176,7 +97176,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97188,7 +97188,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97200,7 +97200,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97212,7 +97212,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97247,11 +97247,11 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.security.cert.X509Certificate',
@@ -97263,7 +97263,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.cert.X509Certificate',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97312,7 +97312,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97347,7 +97347,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -97401,7 +97401,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97413,7 +97413,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97425,7 +97425,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97437,7 +97437,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97501,8 +97501,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97514,7 +97514,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_java_util_List'}],
+								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -97527,7 +97527,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_java_util_List'}],
+								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -97538,7 +97538,7 @@ config = {
 		},
 		{
 			'name' : 'java.math.BigInteger',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ZERO',
@@ -97546,7 +97546,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_java_lang_BigInteger',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -97555,7 +97555,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_java_lang_BigInteger',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -97564,7 +97564,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_java_lang_BigInteger',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -97575,13 +97575,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97625,7 +97625,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97649,7 +97649,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97665,7 +97665,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97675,13 +97675,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97691,13 +97691,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97707,7 +97707,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -97777,7 +97777,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97812,13 +97812,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97828,13 +97828,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97844,13 +97844,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97860,13 +97860,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97898,7 +97898,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97910,7 +97910,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97920,13 +97920,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97936,13 +97936,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97952,13 +97952,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -97968,13 +97968,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.math.BigInteger', 'converter': 'convert_java_lang_BigInteger'}],
+								'children' : [{'type': 'java.math.BigInteger', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -97985,13 +97985,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98001,13 +98001,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98019,7 +98019,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98029,13 +98029,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98045,13 +98045,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98061,13 +98061,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98083,7 +98083,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98099,7 +98099,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98111,7 +98111,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98143,7 +98143,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98159,7 +98159,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98175,7 +98175,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_java_lang_BigInteger',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98223,7 +98223,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Random',
@@ -98235,7 +98235,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Random',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98363,7 +98363,7 @@ config = {
 		},
 		{
 			'name' : 'javax.security.auth.x500.X500Principal',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'RFC1779',
@@ -98371,7 +98371,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -98380,7 +98380,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -98389,7 +98389,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -98418,7 +98418,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98440,18 +98440,18 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98479,12 +98479,12 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_byte_array_type',
@@ -98497,7 +98497,7 @@ config = {
 		},
 		{
 			'name' : 'android.net.http.SslCertificate$DName',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98509,7 +98509,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98521,7 +98521,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98533,7 +98533,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98545,7 +98545,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98560,7 +98560,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98642,7 +98642,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98654,7 +98654,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98666,7 +98666,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98688,7 +98688,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ValueCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98828,7 +98828,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -98838,7 +98838,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$FindListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98868,7 +98868,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebViewClient',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ERROR_UNKNOWN',
@@ -99017,7 +99017,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99037,7 +99037,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -99061,7 +99061,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99081,7 +99081,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99101,7 +99101,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99145,7 +99145,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99185,7 +99185,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -99237,7 +99237,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99317,7 +99317,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99338,7 +99338,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebResourceResponse',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -99350,7 +99350,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -99390,7 +99390,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -99400,7 +99400,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99416,7 +99416,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99433,7 +99433,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.InputStream',
@@ -99467,7 +99467,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -99495,7 +99495,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyEvent',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'KEYCODE_UNKNOWN',
@@ -101845,7 +101845,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -102393,7 +102393,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -102522,7 +102522,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -102532,7 +102532,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -102557,7 +102557,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.view.KeyEvent',
@@ -102569,7 +102569,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyEvent$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -102659,7 +102659,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyEvent$DispatcherState',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -103140,7 +103140,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyCharacterMap$KeyData',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'META_LENGTH',
@@ -103192,7 +103192,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.DownloadListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -103202,7 +103202,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -103222,7 +103222,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebChromeClient',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -103256,7 +103256,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -103296,7 +103296,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -103412,7 +103412,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.webkit.JsResult',
@@ -103436,7 +103436,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.webkit.JsResult',
@@ -103460,7 +103460,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.webkit.JsPromptResult',
@@ -103484,7 +103484,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.webkit.JsResult',
@@ -103504,7 +103504,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -103548,7 +103548,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.webkit.GeolocationPermissions$Callback',
@@ -103592,7 +103592,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -103644,7 +103644,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.webkit.ValueCallback',
-								'children' : [{'type': '_object_array_type', 'children': [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}], 'converter': 'convert__object_array_type'}],
+								'children' : [{'type': '_object_array_type', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}], 'converter': 'convert__object_array_type'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -103666,7 +103666,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NO_ID',
@@ -104295,7 +104295,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104305,7 +104305,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104315,7 +104315,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104325,7 +104325,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104335,7 +104335,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104345,7 +104345,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104355,7 +104355,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104365,7 +104365,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104375,7 +104375,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104385,7 +104385,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'android.util.Property',
-							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+							'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -104399,7 +104399,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -109453,7 +109453,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewParent',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -109832,7 +109832,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionMode$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -109918,7 +109918,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionMode',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -110141,7 +110141,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Menu',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
@@ -110550,7 +110550,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SHOW_AS_ACTION_NEVER',
@@ -111141,7 +111141,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SubMenu',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111251,7 +111251,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnMenuItemClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111277,7 +111277,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu$ContextMenuInfo',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111287,7 +111287,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionProvider',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111414,7 +111414,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionProvider$VisibilityListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111440,7 +111440,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnActionExpandListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111482,7 +111482,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuInflater',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -111768,7 +111768,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -112048,7 +112048,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -112070,7 +112070,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -112207,7 +112207,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.lang.CharSequence', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -112831,7 +112831,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -112840,7 +112840,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -112942,7 +112942,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -113516,14 +113516,14 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.view.accessibility.AccessibilityNodeInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -113845,7 +113845,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -113923,7 +113923,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FOCUS_BEFORE_DESCENDANTS',
@@ -115450,7 +115450,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FILL_PARENT',
@@ -115551,7 +115551,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.LayoutAnimationController$AnimationParameters',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'count',
@@ -115660,7 +115660,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -116528,7 +116528,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -117408,7 +117408,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -117418,7 +117418,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -117434,7 +117434,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MotionEvent$PointerProperties',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'id',
@@ -117527,7 +117527,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MotionEvent$PointerCoords',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'x',
@@ -117691,7 +117691,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup$OnHierarchyChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117733,7 +117733,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.LayoutTransition',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CHANGE_APPEARING',
@@ -118179,7 +118179,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.animation.LayoutTransition$TransitionListener', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -118194,7 +118194,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TimeInterpolator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118220,7 +118220,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.Animator',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118476,7 +118476,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.Animator$AnimatorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118550,7 +118550,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.LayoutTransition$TransitionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118616,7 +118616,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.LayoutAnimationController',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ORDER_NORMAL',
@@ -118854,7 +118854,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Animation',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'INFINITE',
@@ -119519,7 +119519,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Interpolator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119529,7 +119529,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Animation$AnimationListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119587,7 +119587,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Transformation',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TYPE_IDENTITY',
@@ -119635,7 +119635,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -119731,7 +119731,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -119774,7 +119774,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.EditorInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'inputType',
@@ -119953,7 +119953,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -120025,7 +120025,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -120043,7 +120043,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -120125,7 +120125,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -120146,7 +120146,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.InputConnection',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GET_TEXT_WITH_STYLES',
@@ -120494,7 +120494,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -120514,7 +120514,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.ExtractedTextRequest',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'token',
@@ -120607,7 +120607,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.ExtractedText',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'text',
@@ -120745,7 +120745,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.CompletionInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -120767,7 +120767,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -120874,7 +120874,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.CorrectionInfo',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -120896,7 +120896,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -121473,7 +121473,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnFocusChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121503,7 +121503,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLayoutChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121533,7 +121533,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnAttachStateChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121575,7 +121575,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121601,7 +121601,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLongClickListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121627,7 +121627,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnCreateContextMenuListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121661,7 +121661,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnKeyListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121695,7 +121695,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnTouchListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121725,7 +121725,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnGenericMotionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121755,7 +121755,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnHoverListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121785,7 +121785,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnDragListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121815,7 +121815,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$AccessibilityDelegate',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122014,7 +122014,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.accessibility.AccessibilityNodeProvider',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122060,7 +122060,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -122071,7 +122071,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'android.view.accessibility.AccessibilityNodeInfo', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -122086,7 +122086,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.TouchDelegate',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ABOVE',
@@ -122427,7 +122427,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalFocusChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122453,7 +122453,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalLayoutListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122475,7 +122475,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnPreDrawListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122497,7 +122497,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnDrawListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122519,7 +122519,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnScrollChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122541,7 +122541,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnTouchModeChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122567,7 +122567,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnSystemUiVisibilityChangeListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122593,7 +122593,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$DragShadowBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122656,7 +122656,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.Property',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122684,7 +122684,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -122740,7 +122740,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -122763,7 +122763,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -122771,7 +122771,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebChromeClient$CustomViewCallback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122837,7 +122837,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -122853,7 +122853,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebStorage$QuotaUpdater',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122879,7 +122879,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.GeolocationPermissions$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122889,7 +122889,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -122909,7 +122909,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ConsoleMessage',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122933,7 +122933,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -122945,7 +122945,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -122968,7 +122968,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -122984,7 +122984,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ConsoleMessage$MessageLevel',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEBUG',
@@ -123052,7 +123052,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123068,7 +123068,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$PictureListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123098,7 +123098,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'LOAD_DEFAULT',
@@ -123155,7 +123155,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123641,7 +123641,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123659,7 +123659,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123669,7 +123669,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123687,7 +123687,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123697,7 +123697,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123715,7 +123715,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123725,7 +123725,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123743,7 +123743,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123753,7 +123753,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123771,7 +123771,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -123781,7 +123781,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -123799,7 +123799,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -124085,7 +124085,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124101,7 +124101,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124117,7 +124117,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124149,7 +124149,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124315,7 +124315,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -124353,7 +124353,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124371,7 +124371,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -124381,7 +124381,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124399,7 +124399,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -124415,7 +124415,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -124485,7 +124485,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$TextSize',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'LARGER',
@@ -124553,7 +124553,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124569,7 +124569,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$ZoomDensity',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CLOSE',
@@ -124619,7 +124619,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124635,7 +124635,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$LayoutAlgorithm',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NARROW_COLUMNS',
@@ -124685,7 +124685,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124701,7 +124701,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$PluginState',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'OFF',
@@ -124751,7 +124751,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124767,7 +124767,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$RenderPriority',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'HIGH',
@@ -124817,7 +124817,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -124885,7 +124885,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentActivity',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -124931,7 +124931,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -124943,7 +124943,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -124992,7 +124992,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -125229,7 +125229,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
@@ -125252,7 +125252,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -125268,7 +125268,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -125280,7 +125280,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -125365,7 +125365,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -125381,7 +125381,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -125401,7 +125401,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -125485,7 +125485,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.support.v4.app.Fragment',
@@ -125526,7 +125526,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentTransaction',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
@@ -125607,7 +125607,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -125643,7 +125643,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -125799,7 +125799,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -125896,7 +125896,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$BackStackEntry',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -125908,7 +125908,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -125978,7 +125978,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126000,7 +126000,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.LoaderManager',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126027,7 +126027,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -126039,7 +126039,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -126157,7 +126157,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.content.Loader',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126169,7 +126169,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -126227,7 +126227,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -126239,7 +126239,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -126412,7 +126412,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -126431,7 +126431,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126462,7 +126462,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126531,7 +126531,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126697,7 +126697,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.util.AttributeSet',
@@ -126717,7 +126717,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126727,7 +126727,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -126751,7 +126751,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory2',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126765,7 +126765,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -126789,7 +126789,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Filter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -126815,7 +126815,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Activity',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'RESULT_CANCELED',
@@ -127382,7 +127382,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -127398,7 +127398,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -127410,7 +127410,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -127623,7 +127623,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -128047,12 +128047,12 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -128460,7 +128460,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -128484,7 +128484,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -128758,7 +128758,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -128958,7 +128958,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -129265,7 +129265,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
@@ -129300,7 +129300,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -129316,7 +129316,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -129328,7 +129328,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -129401,7 +129401,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -129421,7 +129421,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -129441,7 +129441,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -129521,7 +129521,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.app.Fragment',
@@ -129574,7 +129574,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Fragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -129602,7 +129602,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -129671,7 +129671,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -129683,7 +129683,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -129809,7 +129809,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -129821,7 +129821,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -129910,7 +129910,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -130667,7 +130667,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$ClassLoaderCreator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -130697,7 +130697,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.LoaderManager',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -130724,7 +130724,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -130736,7 +130736,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -130842,7 +130842,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -130854,7 +130854,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -130912,7 +130912,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.FileDescriptor',
@@ -130924,7 +130924,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 					],
@@ -131097,7 +131097,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -131174,7 +131174,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131205,7 +131205,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCanceledListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131232,7 +131232,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131301,7 +131301,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentTransaction',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
@@ -131382,7 +131382,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -131418,7 +131418,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -131574,7 +131574,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -131671,7 +131671,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$BackStackEntry',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131683,7 +131683,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -131753,7 +131753,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131775,7 +131775,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Window',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FEATURE_OPTIONS_PANEL',
@@ -132489,7 +132489,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -133030,7 +133030,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.WindowManager$LayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'x',
@@ -133857,7 +133857,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -134006,7 +134006,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -134016,13 +134016,13 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -134137,7 +134137,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Window$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134491,7 +134491,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.WindowManager',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134529,7 +134529,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback2',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134555,7 +134555,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SURFACE_TYPE_NORMAL',
@@ -134777,7 +134777,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134839,7 +134839,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Surface',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATOR',
@@ -134897,7 +134897,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -135036,7 +135036,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.SurfaceTexture',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135168,7 +135168,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.SurfaceTexture$OnFrameAvailableListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135194,7 +135194,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue$Callback',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135236,7 +135236,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135246,7 +135246,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Application',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135393,7 +135393,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Application$ActivityLifecycleCallbacks',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135523,7 +135523,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NAVIGATION_MODE_STANDARD',
@@ -136238,7 +136238,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$LayoutParams',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'gravity',
@@ -136282,7 +136282,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnNavigationListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136312,7 +136312,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$Tab',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'INVALID_POSITION',
@@ -136532,7 +136532,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$TabListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136602,7 +136602,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnMenuVisibilityListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -136862,7 +136862,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -136904,7 +136904,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -136978,7 +136978,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -136990,7 +136990,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -137165,7 +137165,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.PendingIntent$OnFinished',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137187,7 +137187,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -137207,7 +137207,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Editable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137351,7 +137351,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.InputFilter',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137385,7 +137385,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spanned',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SPAN_POINT_MARK_MASK',
@@ -137629,7 +137629,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup$MarginLayoutParams',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'leftMargin',
@@ -137828,7 +137828,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Layout',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DIR_LEFT_TO_RIGHT',
@@ -138572,7 +138572,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextPaint',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'bgColor',
@@ -138657,7 +138657,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Layout$Alignment',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'ALIGN_CENTER',
@@ -138707,7 +138707,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -138723,7 +138723,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Layout$Directions',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -138733,7 +138733,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.KeyListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -138859,7 +138859,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.MovementMethod',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139077,7 +139077,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spannable',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139123,7 +139123,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.TransformationMethod',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139185,7 +139185,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.style.URLSpan',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139197,7 +139197,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -139268,7 +139268,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Parcel',
@@ -139280,7 +139280,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Editable$Factory',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139323,7 +139323,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spannable$Factory',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139366,7 +139366,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextUtils$TruncateAt',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enumerate', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'START',
@@ -139434,7 +139434,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -139450,7 +139450,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextWatcher',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139516,7 +139516,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.ObjectAnimator',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139544,7 +139544,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -139646,7 +139646,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -139664,7 +139664,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -139678,7 +139678,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_int_array_type',
@@ -139687,7 +139687,7 @@ config = {
 						},
 						{
 								'type' : 'android.util.Property',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -139708,7 +139708,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_float_array_type',
@@ -139717,7 +139717,7 @@ config = {
 						},
 						{
 								'type' : 'android.util.Property',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -139753,7 +139753,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.animation.TypeEvaluator',
@@ -139850,7 +139850,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TypeEvaluator',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139908,7 +139908,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -139930,7 +139930,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -139948,7 +139948,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -139958,7 +139958,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_int_array_type',
@@ -139967,7 +139967,7 @@ config = {
 						},
 						{
 								'type' : 'android.util.Property',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_java_lang_Integer'}],
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -139984,7 +139984,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.util.Property',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_java_lang_Float'}],
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -139994,7 +139994,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -140010,7 +140010,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.animation.TypeEvaluator',
@@ -140120,7 +140120,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -140153,7 +140153,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.Keyframe',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -140422,7 +140422,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140434,7 +140434,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140494,7 +140494,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140506,7 +140506,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140518,7 +140518,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140530,7 +140530,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140684,7 +140684,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.DialogInterface',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'BUTTON_POSITIVE',
@@ -140772,7 +140772,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.LocalActivityManager',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -140782,7 +140782,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Intent',
@@ -140802,7 +140802,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -140890,7 +140890,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -140924,7 +140924,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -140971,7 +140971,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnPreparedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -140997,7 +140997,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'VIDEO_SCALING_MODE_SCALE_TO_FIT',
@@ -141023,7 +141023,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -141445,12 +141445,12 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -141695,7 +141695,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -141824,7 +141824,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnCompletionListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141850,7 +141850,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnErrorListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141880,7 +141880,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnInfoListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141958,7 +141958,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -142012,7 +142012,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnBufferingUpdateListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142042,7 +142042,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnSeekCompleteListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142068,7 +142068,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnVideoSizeChangedListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142098,7 +142098,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnTimedTextListener',
-			'tags' : ['_callback', '_interface'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142152,7 +142152,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},

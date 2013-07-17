@@ -541,12 +541,6 @@ class Generator(BaseGenerator):
 	def _attach_config_converter(self, convertible, config_module):
 		logging.debug("_attach_config_converter enter")
 		if "converter" not in convertible:
-			converters = config_module.config_data["converters"]
-			for converter in converters:
-				if "java" in converter:
-						if converter["java"]["type"] == convertible["type"]:
-							convertible["converter"] = converter["name"]
-		if "converter" not in convertible:
 			for clazz in config_module.config_data["classes"]:
 				if clazz["name"] == convertible["type"]:
 					no_proxy = False
@@ -566,6 +560,12 @@ class Generator(BaseGenerator):
 						if not no_proxy:
 							convertible["converter"] = 'convert_proxy'					
 		if "converter" not in convertible:
+			converters = config_module.config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if converter["java"]["type"] == convertible["type"]:
+							convertible["converter"] = converter["name"]
+		if "converter" not in convertible:
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
 			for child_convertible in convertible["children"]:
@@ -581,6 +581,7 @@ class Generator(BaseGenerator):
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_path):
 		self.config_data = ConfigModule.load_config(config_file_name)
+		self.include_config_data_list = list()
 		if include_config_file_path is not None:
 			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
 		self.is_valid = self.config_data is not None
