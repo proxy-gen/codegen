@@ -3,6 +3,9 @@
  * Author: cxx-bindings-generator
  */
 
+#include <com_facebook_widget_GraphObjectCursor.hpp>
+#include <jni.h>
+
 namespace FacebookCXX {
 
 JNIEXPORT void Java_FacebookCXX_com_facebook_widget_GraphObjectCursor_close(JNIEnv *jni_env, jobject java_object);

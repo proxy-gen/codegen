@@ -3,6 +3,9 @@
  * Author: cxx-bindings-generator
  */
 
+#include <com_facebook_model_OpenGraphAction.hpp>
+#include <jni.h>
+
 namespace FacebookCXX {
 
 JNIEXPORT jobject Java_FacebookCXX_com_facebook_model_OpenGraphAction_getMessage(JNIEnv *jni_env, jobject java_object);

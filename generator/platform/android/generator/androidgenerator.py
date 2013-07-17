@@ -229,9 +229,9 @@ class Generator(BaseGenerator):
 			class_name = callback_class['name']
 			cxx_class_name = Utils.to_class_name(class_name)
 			self.callback_class_name = cxx_class_name
-			callback_file_name = self.callback_class_name + ".hpp"
-			logging.debug("callback_file_name " + str(callback_file_name))		
-			callback_file_path = os.path.join(self.header_outdir_name, callback_file_name)
+			self.callback_head_file_name = self.callback_class_name + ".hpp"
+			logging.debug("callback_head_file_name " + str(self.callback_head_file_name))		
+			callback_file_path = os.path.join(self.header_outdir_name, self.callback_head_file_name)
 			if not os.path.exists(os.path.dirname(callback_file_path)):
 				os.makedirs(os.path.dirname(callback_file_path))
 			logging.debug("callback_file_path " + str(callback_file_path))	
@@ -249,9 +249,10 @@ class Generator(BaseGenerator):
 			class_name = callback_class['name']
 			cxx_class_name = Utils.to_class_name(class_name)
 			self.callback_class_name = cxx_class_name
-			callback_file_name = self.callback_class_name + ".cpp"
-			logging.debug("callback_file_name " + str(callback_file_name))		
-			callback_file_path = os.path.join(self.impl_outdir_name, callback_file_name)
+			self.callback_head_file_name = self.callback_class_name + ".hpp"
+			self.callback_impl_file_name = self.callback_class_name + ".cpp"
+			logging.debug("callback_impl_file_name " + str(self.callback_impl_file_name))		
+			callback_file_path = os.path.join(self.impl_outdir_name, self.callback_impl_file_name)
 			if not os.path.exists(os.path.dirname(callback_file_path)):
 				os.makedirs(os.path.dirname(callback_file_path))
 			logging.debug("callback_file_path " + str(callback_file_path))	
@@ -294,6 +295,9 @@ class Generator(BaseGenerator):
 
 	def _generate_internal_project(self):
 		logging.debug("_generate_internal_project enter")
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
 		self.internal_build_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
 		if not os.path.exists(self.internal_build_outdir_name):
 			os.makedirs(self.internal_build_outdir_name)					
@@ -302,9 +306,6 @@ class Generator(BaseGenerator):
 		logging.debug("self.internal_build_file_name " + str(self.internal_build_file_name))
 		internal_build_file_path = os.path.join(self.internal_build_outdir_name, self.internal_build_file_name)
 		logging.debug("internal_build_file_path " + str(internal_build_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid, "config_module is not valid"
-		self._update_config(self.config_module)
 		self.internal_build_file = open(internal_build_file_path, "w+")
 		internal_build_xml = Template(file=os.path.join(self.target, "templates", "android.build.xml"), searchList=[{'CONFIG': self}])
 		logging.debug("internal_build_xml " + str(internal_build_xml))	

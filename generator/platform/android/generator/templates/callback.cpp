@@ -2,7 +2,6 @@
  * Implementation (CXX)
  * Author: cxx-bindings-generator
  */
-
 #set $SPACE = " "
 #set $COMMA = ","
 #set $REF = "&"
@@ -12,6 +11,11 @@
 #set $namespace = $config_data['namespace']
 #set $callback_class = $CONFIG.callback_class
 #set $callback_class_name = $CONFIG.callback_class_name
+#set $callback_head_file_name = $CONFIG.callback_head_file_name
+
+\#include <$callback_head_file_name>
+\#include <jni.h>
+
 namespace ${namespace} {
 
 #set $functions = $callback_class['functions']

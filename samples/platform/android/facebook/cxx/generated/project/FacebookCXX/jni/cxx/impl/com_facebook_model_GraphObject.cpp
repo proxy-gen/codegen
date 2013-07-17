@@ -3,6 +3,9 @@
  * Author: cxx-bindings-generator
  */
 
+#include <com_facebook_model_GraphObject.hpp>
+#include <jni.h>
+
 namespace FacebookCXX {
 
 JNIEXPORT void Java_FacebookCXX_com_facebook_model_GraphObject_setProperty(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
