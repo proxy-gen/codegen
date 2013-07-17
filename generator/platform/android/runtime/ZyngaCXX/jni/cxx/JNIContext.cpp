@@ -176,6 +176,48 @@ jobject JNIContext::popLocalFrame(jobject localRef)
 	return newLocalRef;
 }
 
+bool JNIContext::isSuperclass(const char *superClazName, const char *subClazName)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	jclass superClaz = env->FindClass(superClazName);
+	if (checkException(env) == false)
+	{
+		jclass subClazz = env->FindClass(subClazName);
+		if (checkException(env) == false)
+		{
+			bool isAssignableFrom = (bool) env->IsAssignableFrom(subClazz, superClaz);
+			if (checkException(env) == false)
+			{
+				return isAssignableFrom;	
+			}
+			return false;
+		}
+	}
+	return false;
+}
+
+bool JNIContext::isSubclass(const char *subClazName, const char *superClazName)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	jclass superClaz = env->FindClass(superClazName);
+	if (checkException(env) == false)
+	{
+		jclass subClazz = env->FindClass(subClazName);
+		if (checkException(env) == false)
+		{
+			bool isAssignableFrom = (bool) env->IsAssignableFrom(subClazz, superClaz);
+			if (checkException(env) == false)
+			{
+				return isAssignableFrom;	
+			}
+			return false;
+		}
+	}
+	return false;
+}
+
 
 jclass JNIContext::getClassRef(const char *clazzName)
 {
