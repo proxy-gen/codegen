@@ -216,13 +216,13 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
 		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes")
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid, "config_module is not valid"
-		self._update_config(self.config_module)
 		callback_classes = self.config_module.list_classes(tags=['_callback'],name=None)
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
@@ -244,15 +244,22 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
-		self.impl_file_name = self.file_name + ".cpp"
-		logging.debug("self.impl_file_name " + str(self.impl_file_name))
-		impl_file_path = os.path.join(self.impl_outdir_name, self.impl_file_name)
-		logging.debug("impl_file_path " + str(impl_file_path))		
-		self.impl_file = open(impl_file_path, "w+")
-		impl_cpp = Template(file=os.path.join(self.target, "templates", "impl.cpp"), searchList=[{'CONFIG': self}])
-		logging.debug("impl_cpp " + str(impl_cpp))
-		self.impl_file.write(str(impl_cpp))
-		self.impl_file.close()
+		for callback_class in callback_classes:
+			self.callback_class = callback_class
+			class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(class_name)
+			self.callback_class_name = cxx_class_name
+			callback_file_name = self.callback_class_name + ".cpp"
+			logging.debug("callback_file_name " + str(callback_file_name))		
+			callback_file_path = os.path.join(self.header_outdir_name, callback_file_name)
+			if not os.path.exists(os.path.dirname(callback_file_path)):
+				os.makedirs(os.path.dirname(callback_file_path))
+			logging.debug("callback_file_path " + str(callback_file_path))	
+			self.callback_file = open(callback_file_path, "w+")
+			callback_impl_cxx = Template(file=os.path.join(self.target, "templates", "callback.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("callback_impl_cxx " + str(callback_impl_cxx))
+			self.callback_file.write(str(callback_impl_cxx))
+			self.callback_file.close()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
  
