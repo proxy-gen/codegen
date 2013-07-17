@@ -672,7 +672,7 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if "_no_proxy" in tags:
 			tags = list()
@@ -707,7 +707,7 @@ class TranslationUnit(JavaObject):
 				tags[:] = list()
 				tags.append("_static")
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if len(tags) > 0:
 			clazz["tags"] = tags
@@ -722,7 +722,7 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if "_no_proxy" in tags:
 			tags = list()
@@ -742,7 +742,7 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
 				tags.append("_instance")
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			function["tags"] = tags
 		else:
@@ -773,7 +773,7 @@ class TranslationUnit(JavaObject):
 							tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
 				tags.append("_instance")
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			field["tags"] = tags
 		else:
@@ -823,9 +823,16 @@ class TranslationUnit(JavaObject):
 		return the_field
 
 	@classmethod
-	def _find_or_create_return_config_data(cls, returns, retrn_type_hierarchy):
-		the_retrn = TranslationUnit._find_or_create_param_config_data(returns, retrn_type_hierarchy)
-		return the_retrn
+	def _find_or_create_return_config_data(cls, returns, return_type_hierarchy):
+		the_return_type_hierarchy = None
+		for a_return_type_hierarchy in returns:
+			if type_hierarchy_matches(a_return_type_hierarchy, return_type_hierarchy):
+				the_return_type_hierarchy = a_return_type_hierarchy
+				break
+		if not the_return_type_hierarchy:
+			the_return_type_hierarchy = return_type_hierarchy
+			returns.append(the_return_type_hierarchy)
+		return the_return_type_hierarchy
 
 	@classmethod
 	def _find_or_create_param_config_data(cls, params, param_type_hierarchy):
@@ -933,6 +940,12 @@ class DummyCursor(Cursor):
 
 def type_hierarchy_matches(type_hierarchy_1, type_hierarchy_2):
 	if type(type_hierarchy_1) is dict and type(type_hierarchy_2) is dict:
+		type_hierarchy_1 = dict(type_hierarchy_1)
+		if 'converter' in type_hierarchy_1:
+			del type_hierarchy_1['converter']
+		type_hierarchy_2 = dict(type_hierarchy_2)
+		if 'converter' in type_hierarchy_2:
+			del type_hierarchy_2['converter']
 		symm_set = set(type_hierarchy_1.keys()) ^ set(type_hierarchy_2.keys())
 		if len(symm_set) > 0:
 			return False
