@@ -19,7 +19,7 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jboolean"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_byte",
@@ -28,7 +28,7 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jbyte"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_char",
@@ -37,7 +37,7 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jchar"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_short",
@@ -46,7 +46,7 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jshort"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_int",
@@ -55,7 +55,7 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jint"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_long",
@@ -64,34 +64,43 @@ config = {
 							},
 			"jni"		:	{
 								"type" : "jlong"
-							}
+							},
 		},
 		{
 			"name"		:	"convert_jni_float",
 			"java"		:	{
-								"type" : "float"
+								"type" : "float",
 							},
 			"jni"		:	{
-								"type" : "jfloat"
-							}
+								"type" : "jfloat",
+							},
 		},
 		{
 			"name"		:	"convert_jni_double",
 			"java"		:	{
-								"type" : "double"
+								"type" : "double",
 							},
 			"jni"		:	{
-								"type" : "jdouble"
-							}
+								"type" : "jdouble",
+							},
 		},
 		{
 			"name"		:	"convert_jni_void",
 			"java"		:	{
-								"type" : "void"
+								"type" : "void",
 							},
 			"jni"		:	{
-								"type" : "void"
-							}
+								"type" : "void",
+							},
+		},
+		{
+			"name"		:	"convert_jni_java_lang_Object",
+			"java"		:	{
+								"type" : "java.lang.Object",
+							},
+			"jni"		:	{
+								"type" : "jobject",
+							},
 		},
 		{
 			"name"		:	"convert_void",

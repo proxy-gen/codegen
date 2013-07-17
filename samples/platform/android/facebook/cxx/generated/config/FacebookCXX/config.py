@@ -85,6 +85,11 @@ config = {
 			'name' : 'convert_jni_void',
 		},
 		{
+			'jni' : {'type': 'jobject'},
+			'java' : {'type': 'java.lang.Object'},
+			'name' : 'convert_jni_java_lang_Object',
+		},
+		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
 			'name' : 'convert_void',

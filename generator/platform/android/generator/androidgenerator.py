@@ -128,12 +128,13 @@ class Generator(BaseGenerator):
 		self.include_default_converters = True
 		self.default_converters_file_name = os.path.join(self.target, "converters", "jconverter.py")
 		logging.debug("self.default_converters_file_name " + str(self.default_converters_file_name))
-		config_module = ConfigModule(self.default_converters_file_name,None)
-		assert config_module.is_valid
-		config_data = config_module.config_data
-		assert config_data is not None
-		assert "converters" in config_data
+		self.config_module = ConfigModule(self.default_converters_file_name,None)
+		assert self.config_module.is_valid, "config_module is not valid"
+		config_data = self.config_module.config_data
+		assert config_data is not None, "config does not exist"
+		assert "converters" in config_data, "converters not in config"
 		self.default_converters = config_data["converters"]
+		self.config_module = None
 		logging.debug("_setup_default_converters exit")
 
 	def _setup_includes(self):
@@ -179,20 +180,22 @@ class Generator(BaseGenerator):
 		logging.debug("self.config_report_file_name " + str(self.config_report_file_name))
 		config_report_file_path = os.path.join(self.report_outdir_name, self.config_report_file_name)
 		logging.debug("config_report_file_path " + str(config_report_file_path))
-		config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert config_module.is_valid
-		config_report = config_module.analyze_config()
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
+		config_report = self.config_module.analyze_config()
 		config_report_file = open(config_report_file_path, "w+")
 		config_report_md = Template(file=os.path.join(self.target, "templates", "config_report.md"), searchList=[{'CONFIG': self}])
 		logging.debug("config_report_md " + str(config_report_md))
 		self.config_report_file.write(str(config_report_md))
 		self.config_report_file.close()
+		self.config_module = None
 		logging.debug("Generator _generate_converters_report exit")
 
 	def _generate_config(self):
 		logging.debug("_generate_config enter")
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid
+		assert self.config_module.is_valid, "config_module is not valid"
 		self.index.build_config_closure(self.config_module.config_data)
 		self._update_config(self.config_module)
 		self.config_py_outdir_name = os.path.join(self.output_dir_name, "config", self.package_name)
@@ -218,7 +221,8 @@ class Generator(BaseGenerator):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
 		callback_classes = self.config_module.list_classes(tags=['_callback'],name=None)
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
@@ -259,7 +263,8 @@ class Generator(BaseGenerator):
 			os.makedirs(self.java_outdir_name)
 		logging.debug("self.java_outdir_name " + str(self.java_outdir_name))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert self.config_module.is_valid
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
 		callback_classes = self.config_module.list_classes(tags=['_callback'],name=None)
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
@@ -291,6 +296,8 @@ class Generator(BaseGenerator):
 		internal_build_file_path = os.path.join(self.internal_build_outdir_name, self.internal_build_file_name)
 		logging.debug("internal_build_file_path " + str(internal_build_file_path))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
 		self.internal_build_file = open(internal_build_file_path, "w+")
 		internal_build_xml = Template(file=os.path.join(self.target, "templates", "android.build.xml"), searchList=[{'CONFIG': self}])
 		logging.debug("internal_build_xml " + str(internal_build_xml))	
@@ -335,6 +342,8 @@ class Generator(BaseGenerator):
 		exported_androidmk_file_path = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_file_name)
 		logging.debug("exported_androidmk_file_path " + str(exported_androidmk_file_path))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.external_androidmk_file = open(exported_androidmk_file_path, "w+")
 		external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[{'CONFIG': self}])
 		logging.debug("external_android_mk " + str(external_android_mk))	
@@ -354,6 +363,8 @@ class Generator(BaseGenerator):
 		wrapper_head_file_path = os.path.join(self.wrapper_header_outdir_name, self.wrapper_head_file_name)
 		logging.debug("wrapper_head_file_path " + str(wrapper_head_file_path))	
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_head_file = open(wrapper_head_file_path, "w+")
 		wrapper_head_hpp = Template(file=os.path.join(self.target, "templates", "wrapper-head.hpp"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_head_hpp " + str(wrapper_head_hpp))
@@ -386,6 +397,8 @@ class Generator(BaseGenerator):
 		wrapper_internal_androidmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_androidmk_file_name)
 		logging.debug("wrapper_internal_androidmk_file_path " + str(wrapper_internal_androidmk_file_path))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_internal_androidmk_file = open(wrapper_internal_androidmk_file_path, "w+")
 		wrapper_internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.internal"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_internal_android_mk " + str(wrapper_internal_android_mk))	
@@ -417,6 +430,8 @@ class Generator(BaseGenerator):
 		wrapper_exported_androidmk_file_path = os.path.join(self.wrapper_makefile_outdir_name, self.wrapper_exported_androidmk_file_name)
 		logging.debug("wrapper_exported_androidmk_file_path " + str(wrapper_exported_androidmk_file_path))
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_external_androidmk_file = open(wrapper_exported_androidmk_file_path, "w+")
 		wrapper_external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.exported"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_external_android_mk " + str(wrapper_external_android_mk))	

@@ -1074,11 +1074,14 @@ class DummyCursor(Cursor):
 def type_hierarchy_matches(type_hierarchy_1, type_hierarchy_2):
 	if type(type_hierarchy_1) is dict and type(type_hierarchy_2) is dict:
 		type_hierarchy_1 = dict(type_hierarchy_1)
-		if 'converter' in type_hierarchy_1:
-			del type_hierarchy_1['converter']
+		type_hierarchy_keys = ['type','children']
+		for key in type_hierarchy_1:
+			if key not in type_hierarchy_keys:
+				del type_hierarchy_1[key]
 		type_hierarchy_2 = dict(type_hierarchy_2)
-		if 'converter' in type_hierarchy_2:
-			del type_hierarchy_2['converter']
+		for key in type_hierarchy_2:
+			if key not in type_hierarchy_keys:
+				del type_hierarchy_2[key]
 		symm_set = set(type_hierarchy_1.keys()) ^ set(type_hierarchy_2.keys())
 		if len(symm_set) > 0:
 			return False
