@@ -16,6 +16,14 @@ namespace FacebookCXX {
 
 class com_facebook_TestSession_UserAccount
 {
+public:
+
+	
+    "//TODO: add CONVERTER for java.lang.String"
+	void setName(java_lang_String& arg0);
+	
+    "//TODO: add CONVERTER for java.lang.String"
+
 
 };
 

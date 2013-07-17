@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_AuthorizationClient_BackgroundProcessingListener
 {
+public:
+
+	void onBackgroundProcessingStarted();
+	void onBackgroundProcessingStopped();
+
 
 };
 

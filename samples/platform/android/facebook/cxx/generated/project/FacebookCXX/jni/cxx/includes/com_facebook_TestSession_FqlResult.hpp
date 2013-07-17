@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_TestSession_FqlResult
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
+
 
 };
 

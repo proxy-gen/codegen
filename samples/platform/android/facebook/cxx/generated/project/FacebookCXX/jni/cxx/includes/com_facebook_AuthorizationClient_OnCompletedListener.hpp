@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_AuthorizationClient_OnCompletedListener
 {
+public:
+
+	void onCompleted(com_facebook_AuthorizationClient_Result& arg0);
+
 
 };
 

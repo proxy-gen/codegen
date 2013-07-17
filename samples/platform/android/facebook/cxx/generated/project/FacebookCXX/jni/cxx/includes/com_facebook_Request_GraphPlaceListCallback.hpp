@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_Request_GraphPlaceListCallback
 {
+public:
+
+	void onCompleted(java_util_List& arg0,com_facebook_Response& arg1);
+
 
 };
 

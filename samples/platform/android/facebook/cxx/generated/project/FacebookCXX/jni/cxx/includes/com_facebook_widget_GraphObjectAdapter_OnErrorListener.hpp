@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_OnErrorListener
 {
+public:
+
+	void onError(com_facebook_widget_GraphObjectAdapter& arg0,com_facebook_FacebookException& arg1);
+
 
 };
 

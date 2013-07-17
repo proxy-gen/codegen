@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_PickerFragment_OnDataChangedListener
 {
+public:
+
+	void onDataChanged(com_facebook_widget_PickerFragment& arg0);
+
 
 };
 

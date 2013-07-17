@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_WebDialog_OnCompleteListener
 {
+public:
+
+	void onComplete(android_os_Bundle& arg0,com_facebook_FacebookException& arg1);
+
 
 };
 

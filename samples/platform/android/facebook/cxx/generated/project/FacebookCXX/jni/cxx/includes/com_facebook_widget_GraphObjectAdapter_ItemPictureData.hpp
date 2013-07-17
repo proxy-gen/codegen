@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_ItemPictureData
 {
+public:
+
+	
+    "//TODO: add CONVERTER for java.lang.String"
+
 
 };
 

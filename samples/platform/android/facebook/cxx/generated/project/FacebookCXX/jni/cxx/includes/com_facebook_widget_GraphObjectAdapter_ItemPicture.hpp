@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_ItemPicture
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.widget.GraphObjectAdapter$ItemPictureData"
+
 
 };
 

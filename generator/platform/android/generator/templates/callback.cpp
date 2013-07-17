@@ -27,10 +27,10 @@ namespace ${namespace} {
 #for $param in $params
 	#set $param_type = None
 	#set $converters = $config_module.list_all_converters(name=$param['jniconverter'],cxx_type=None,java_type=None)
-		#for $converter in $converters
-			#set $param_type = $converter['jni']['type']
-			#break
-		#end for
+	#for $converter in $converters
+		#set $param_type = $converter['jni']['type']
+		#break
+	#end for
 	#if $param_type is None
 		$todo_list.append($param)
 	#else 

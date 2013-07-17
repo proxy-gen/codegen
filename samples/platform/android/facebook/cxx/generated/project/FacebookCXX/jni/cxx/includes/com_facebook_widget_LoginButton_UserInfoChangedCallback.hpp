@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_LoginButton_UserInfoChangedCallback
 {
+public:
+
+	void onUserInfoFetched(com_facebook_model_GraphUser& arg0);
+
 
 };
 

@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_ImageRequest_Callback
 {
+public:
+
+	void onCompleted(com_facebook_widget_ImageResponse& arg0);
+
 
 };
 

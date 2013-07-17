@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_PickerFragment_OnErrorListener
 {
+public:
+
+	void onError(com_facebook_widget_PickerFragment& arg0,com_facebook_FacebookException& arg1);
+
 
 };
 

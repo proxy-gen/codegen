@@ -16,6 +16,12 @@ namespace FacebookCXX {
 
 class com_facebook_android_Facebook_ServiceListener
 {
+public:
+
+	void onComplete(android_os_Bundle& arg0);
+	void onFacebookError(com_facebook_android_FacebookError& arg0);
+	void onError(java_lang_Error& arg0);
+
 
 };
 

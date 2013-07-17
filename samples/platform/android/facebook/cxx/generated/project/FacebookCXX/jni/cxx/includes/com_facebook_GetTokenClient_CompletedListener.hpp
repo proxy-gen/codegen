@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_GetTokenClient_CompletedListener
 {
+public:
+
+	void completed(android_os_Bundle& arg0);
+
 
 };
 

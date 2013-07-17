@@ -16,6 +16,21 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphPlace
 {
+public:
+
+	
+    "//TODO: add CONVERTER for java.lang.String"
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphLocation"
+	void setName(java_lang_String& arg0);
+	
+    "//TODO: add CONVERTER for java.lang.String"
+	
+    "//TODO: add CONVERTER for java.lang.String"
+	void setId(java_lang_String& arg0);
+	void setLocation(com_facebook_model_GraphLocation& arg0);
+	void setCategory(java_lang_String& arg0);
+
 
 };
 

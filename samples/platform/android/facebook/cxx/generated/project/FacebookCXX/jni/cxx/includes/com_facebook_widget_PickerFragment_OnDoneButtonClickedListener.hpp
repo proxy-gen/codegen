@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_PickerFragment_OnDoneButtonClickedListener
 {
+public:
+
+	void onDoneButtonClicked(com_facebook_widget_PickerFragment& arg0);
+
 
 };
 

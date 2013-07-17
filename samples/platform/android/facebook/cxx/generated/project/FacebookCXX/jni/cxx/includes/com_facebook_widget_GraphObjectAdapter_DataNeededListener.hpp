@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_DataNeededListener
 {
+public:
+
+	void onDataNeeded();
+
 
 };
 

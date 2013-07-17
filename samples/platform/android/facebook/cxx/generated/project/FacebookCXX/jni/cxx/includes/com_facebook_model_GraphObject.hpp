@@ -16,6 +16,19 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObject
 {
+public:
+
+	void setProperty(java_lang_String& arg0,java_lang_Object& arg1);
+	
+    "//TODO: add CONVERTER for java.lang.Object"
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObject"
+	
+    "//TODO: add CONVERTER for java.util.Map"
+	
+    "//TODO: add CONVERTER for org.json.JSONObject"
+	void removeProperty(java_lang_String& arg0);
+
 
 };
 

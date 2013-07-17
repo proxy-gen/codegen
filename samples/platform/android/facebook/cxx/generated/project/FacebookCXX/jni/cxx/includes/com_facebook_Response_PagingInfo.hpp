@@ -16,6 +16,13 @@ namespace FacebookCXX {
 
 class com_facebook_Response_PagingInfo
 {
+public:
+
+	
+    "//TODO: add CONVERTER for java.lang.String"
+	
+    "//TODO: add CONVERTER for java.lang.String"
+
 
 };
 

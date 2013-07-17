@@ -16,6 +16,13 @@ namespace FacebookCXX {
 
 class com_facebook_android_Facebook_DialogListener
 {
+public:
+
+	void onComplete(android_os_Bundle& arg0);
+	void onCancel();
+	void onFacebookError(com_facebook_android_FacebookError& arg0);
+	void onError(com_facebook_android_DialogError& arg0);
+
 
 };
 

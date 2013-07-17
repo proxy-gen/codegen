@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphMultiResult
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
+
 
 };
 

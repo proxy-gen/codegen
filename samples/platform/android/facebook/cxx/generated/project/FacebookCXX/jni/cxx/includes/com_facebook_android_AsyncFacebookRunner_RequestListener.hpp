@@ -16,6 +16,14 @@ namespace FacebookCXX {
 
 class com_facebook_android_AsyncFacebookRunner_RequestListener
 {
+public:
+
+	void onComplete(java_lang_String& arg0,java_lang_Object& arg1);
+	void onFacebookError(com_facebook_android_FacebookError& arg0,java_lang_Object& arg1);
+	void onFileNotFoundException(java_io_FileNotFoundException& arg0,java_lang_Object& arg1);
+	void onMalformedURLException(java_net_MalformedURLException& arg0,java_lang_Object& arg1);
+	void onIOException(java_io_IOException& arg0,java_lang_Object& arg1);
+
 
 };
 

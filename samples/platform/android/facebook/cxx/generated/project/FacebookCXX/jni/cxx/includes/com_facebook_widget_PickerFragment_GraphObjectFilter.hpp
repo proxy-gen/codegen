@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_PickerFragment_GraphObjectFilter
 {
+public:
+
+	bool includeItem(java_lang_Object& arg0);
+
 
 };
 

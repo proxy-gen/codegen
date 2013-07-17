@@ -16,6 +16,11 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectPagingLoader_PagedResults
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
+
 
 };
 

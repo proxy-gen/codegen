@@ -16,6 +16,13 @@ namespace FacebookCXX {
 
 class com_facebook_Response_PagedResults
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
+	
+    "//TODO: add CONVERTER for com.facebook.Response$PagingInfo"
+
 
 };
 

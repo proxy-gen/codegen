@@ -16,6 +16,13 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObjectList
 {
+public:
+
+	
+    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
+	
+    "//TODO: add CONVERTER for org.json.JSONArray"
+
 
 };
 

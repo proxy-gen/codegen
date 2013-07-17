@@ -226,8 +226,8 @@ class Generator(BaseGenerator):
 		callback_classes = self.config_module.list_classes(tags=['_callback'],name=None)
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
-			class_name = callback_class['name']
-			cxx_class_name = Utils.to_class_name(class_name)
+			self.class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
 			self.callback_class_name = cxx_class_name
 			self.callback_head_file_name = self.callback_class_name + ".hpp"
 			logging.debug("callback_head_file_name " + str(self.callback_head_file_name))		
@@ -240,14 +240,19 @@ class Generator(BaseGenerator):
 			logging.debug("callback_head_cxx " + str(callback_head_cxx))
 			self.callback_file.write(str(callback_head_cxx))
 			self.callback_file.close()
+			self.callback_file = None
+			self.callback_head_file_name = None
+			self.callback_class_name = None
+			self.class_name = None
+			self.callback_class = None			
 		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
 		for callback_class in callback_classes:
 			self.callback_class = callback_class
-			class_name = callback_class['name']
-			cxx_class_name = Utils.to_class_name(class_name)
+			self.class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
 			self.callback_class_name = cxx_class_name
 			self.callback_head_file_name = self.callback_class_name + ".hpp"
 			self.callback_impl_file_name = self.callback_class_name + ".cpp"
@@ -260,7 +265,13 @@ class Generator(BaseGenerator):
 			callback_impl_cxx = Template(file=os.path.join(self.target, "templates", "callback.cpp"), searchList=[{'CONFIG': self}])			
 			logging.debug("callback_impl_cxx " + str(callback_impl_cxx))
 			self.callback_file.write(str(callback_impl_cxx))
-			self.callback_file.close()			
+			self.callback_file.close()
+			self.callback_file = None
+			self.callback_head_file_name = None
+			self.callback_impl_file_name = None
+			self.callback_class_name = None
+			self.class_name = None
+			self.callback_class = None			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
  
@@ -698,6 +709,13 @@ class ConfigModule(object):
 			classes.extend(self._list_classes_in_config_data(tags,name,include_config_data))
 		return classes
 
+	def list_functions(self,class_tags,class_name,function_tags,function_name):
+		functions = list()
+		classes = self.list_classes(class_tags,class_name)
+		for clazz in classes:
+			functions.extend(self._list_functions_for_class_in_config_data(clazz,function_tags,function_name,self.config_data))
+		return functions
+
 	def _list_converters_in_config_data(self,name,cxx_type,java_type,config_data):
 		converters_list = list()
 		if 'converters' in config_data:
@@ -736,6 +754,25 @@ class ConfigModule(object):
 				if append:
 					class_list.append(clazz)									
 		return class_list
+
+	def _list_functions_for_class_in_config_data(self,clazz,tags,name,config_data):
+		if tags:
+			tags = set(tags)
+		function_list = list()
+		if 'functions' in clazz:
+			functions = clazz['functions']
+			for function in functions:
+				append = True
+				if tags is not None:
+					c_tags = function['tags']
+					if not tags.issubset(c_tags):
+						append = False
+				if name is not None:
+					if function['name'] != name:
+						append = False
+				if append:
+					function_list.append(function)
+		return function_list
 
 	def to_class_name(cls, class_name):
 		return Utils.to_class_name(class_name)

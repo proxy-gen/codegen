@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_Request_GraphUserCallback
 {
+public:
+
+	void onCompleted(com_facebook_model_GraphUser& arg0,com_facebook_Response& arg1);
+
 
 };
 

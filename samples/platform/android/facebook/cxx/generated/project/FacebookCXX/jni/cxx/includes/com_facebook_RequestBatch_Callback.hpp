@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_RequestBatch_Callback
 {
+public:
+
+	void onBatchCompleted(com_facebook_RequestBatch& arg0);
+
 
 };
 

@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_LoginButton_OnErrorListener
 {
+public:
+
+	void onError(com_facebook_FacebookException& arg0);
+
 
 };
 

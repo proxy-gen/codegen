@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_Filter
 {
+public:
+
+	bool includeItem(java_lang_Object& arg0);
+
 
 };
 

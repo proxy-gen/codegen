@@ -16,6 +16,10 @@ namespace FacebookCXX {
 
 class com_facebook_Request_Callback
 {
+public:
+
+	void onCompleted(com_facebook_Response& arg0);
+
 
 };
 

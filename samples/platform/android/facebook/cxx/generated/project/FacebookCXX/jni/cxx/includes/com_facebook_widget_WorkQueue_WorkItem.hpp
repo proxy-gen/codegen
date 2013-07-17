@@ -16,6 +16,12 @@ namespace FacebookCXX {
 
 class com_facebook_widget_WorkQueue_WorkItem
 {
+public:
+
+	bool cancel();
+	bool isRunning();
+	void moveToFront();
+
 
 };
 
