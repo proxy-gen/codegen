@@ -563,17 +563,18 @@ class Generator(BaseGenerator):
 			converters = config_module.config_data["converters"]
 			for converter in converters:
 				if "java" in converter:
-						if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
-							jindex.VoidType.is_void_id(convertible["type"]) or\
-							jindex.ArrayType.is_array_id(convertible["type"]) or\
-						   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
-						   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
-						   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
-							if convertible["type"] == converter["java"]["type"]:
-								convertible["converter"] = converter["name"]
-						else:
-							if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
-								convertible["converter"] = converter["name"]
+						if "cxx" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
+								jindex.VoidType.is_void_id(convertible["type"]) or\
+								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if convertible["type"] == converter["java"]["type"]:
+									convertible["converter"] = converter["name"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+									convertible["converter"] = converter["name"]
 		if "converter" not in convertible:
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:

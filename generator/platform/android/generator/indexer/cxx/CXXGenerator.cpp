@@ -214,9 +214,13 @@ int visitTypeHierarchyChildren(CXXTypeHierarchy parentTypeHierarchy, TypeHierarc
 	return 1;
 }
 
-bool canCastClass1ToClass2(const char * clazz1_name, const char * clazz2_name)
+bool canCastClass1ToClass2(char clazz1_name[STR_ATTR_SIZE], char clazz2_name[STR_ATTR_SIZE])
 {
-	return (bool) jni->canCastClass1ToClass2(clazz1_name, clazz2_name);
+	std::string clazz1_str = std::string(clazz1_name);
+	std::string clazz1_jni_str = jni->getJNIName(clazz1_str);
+	std::string clazz2_str = std::string(clazz2_name);
+	std::string clazz2_jni_str = jni->getJNIName(clazz2_str);
+	return (bool) jni->canCastClass1ToClass2(clazz1_jni_str.c_str(), clazz2_jni_str.c_str());
 }
 
 void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)

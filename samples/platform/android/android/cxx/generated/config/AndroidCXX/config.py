@@ -35,6 +35,51 @@ config = {
 	'package'	: 'AndroidCXX',
 	'converters' : [
 		{
+			'jni' : {'type': 'jboolean'},
+			'java' : {'type': 'boolean'},
+			'name' : 'convert_jni_boolean',
+		},
+		{
+			'jni' : {'type': 'jbyte'},
+			'java' : {'type': 'byte'},
+			'name' : 'convert_jni_byte',
+		},
+		{
+			'jni' : {'type': 'jchar'},
+			'java' : {'type': 'char'},
+			'name' : 'convert_jni_char',
+		},
+		{
+			'jni' : {'type': 'jshort'},
+			'java' : {'type': 'short'},
+			'name' : 'convert_jni_short',
+		},
+		{
+			'jni' : {'type': 'jint'},
+			'java' : {'type': 'int'},
+			'name' : 'convert_jni_int',
+		},
+		{
+			'jni' : {'type': 'jlong'},
+			'java' : {'type': 'long'},
+			'name' : 'convert_jni_long',
+		},
+		{
+			'jni' : {'type': 'jfloat'},
+			'java' : {'type': 'float'},
+			'name' : 'convert_jni_float',
+		},
+		{
+			'jni' : {'type': 'jdouble'},
+			'java' : {'type': 'double'},
+			'name' : 'convert_jni_double',
+		},
+		{
+			'jni' : {'type': 'void'},
+			'java' : {'type': 'void'},
+			'name' : 'convert_jni_void',
+		},
+		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
 			'name' : 'convert_void',

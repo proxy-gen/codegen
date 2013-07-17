@@ -391,7 +391,11 @@ class TypeHierarchy(Structure):
 
 	@classmethod
 	def canCastClass1ToClass2(cls, clazz1_name, clazz2_name):
-		return TypeHierarchy_canCastClass1ToClass2(clazz1_name, clazz2_name)
+		c_types_clazz1_name = (c_char * STR_ATTR_SIZE)()
+		c_types_clazz1_name.value = clazz1_name
+		c_types_clazz2_name = (c_char * STR_ATTR_SIZE)()
+		c_types_clazz2_name.value = clazz2_name
+		return TypeHierarchy_canCastClass1ToClass2(c_types_clazz1_name, c_types_clazz2_name)
 
 class Modifier(object):
 	UNKNOWN = 0
@@ -1182,7 +1186,7 @@ TypeHierarchy_visit.argtypes = [TypeHierarchy, TypeHierarchy_visit_callback, py_
 TypeHierarchy_visit.restype = c_uint
 
 TypeHierarchy_canCastClass1ToClass2 = lib.canCastClass1ToClass2
-TypeHierarchy_canCastClass1ToClass2.argtypes = [c_char_p,c_char_p]
+TypeHierarchy_canCastClass1ToClass2.argtypes = [c_char * STR_ATTR_SIZE,c_char * STR_ATTR_SIZE]
 TypeHierarchy_canCastClass1ToClass2.restype = c_bool
 
 # Globals
