@@ -30,8 +30,9 @@
 #		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
 
-
 config = {
+	'namespace' : 'FacebookCXX',
+	'package'	: 'FacebookCXX',
 	'includes' : [
 		{
 			'name'  : 'android/cxx/generated/config/AndroidCXX/config.py',

@@ -1,9 +1,10 @@
 LOCAL_PATH := \$(call my-dir)
 
 include \$(CLEAR_VARS)
-
-LOCAL_MODULE    := ${package_name}
-LOCAL_SRC_FILES := libs/\$(TARGET_ARCH_ABI)/lib${package_name}_static.a
+#set $config_data = $CONFIG.config_module.config_data
+#set $package = $config_data['package']
+LOCAL_MODULE    := $package
+LOCAL_SRC_FILES := libs/\$(TARGET_ARCH_ABI)/lib${package}_static.a
 LOCAL_EXPORT_C_INCLUDES := \$(LOCAL_PATH)/../includes
 LOCAL_EXPORT_LDLIBS := -llog
 

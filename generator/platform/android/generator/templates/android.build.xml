@@ -1,5 +1,7 @@
+#set $config_data = $CONFIG.config_module.config_data
+#set $package = $config_data['package']
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="${package_name}" default="help">
+<project name="${package}" default="help">
 
     <!-- The local.properties file is created and updated by the 'android' tool.
          It contains the path to the SDK. It should *NOT* be checked into

@@ -10,8 +10,13 @@ CXX_SRC_FILES := \$(call find_src_files,cxx/impl)
 
 CXX_INCLUDES := \$(LOCAL_PATH)/cxx/includes
 
+#set $config_data = $CONFIG.config_module.config_data
+#set $package = $config_data['package']
+#set $include_packages = $CONFIG.include_packages
+#set $include_default_runtime = $CONFIG.include_default_runtime
+#set $include_package_rel_paths = $CONFIG.include_package_rel_paths
 include \$(CLEAR_VARS)
-LOCAL_MODULE := ${package_name}_static
+LOCAL_MODULE := ${package}_static
 LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
@@ -27,7 +32,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += ${include_package}
 include \$(BUILD_STATIC_LIBRARY)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := ${package_name}_shared
+LOCAL_MODULE := ${package}_shared
 LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
