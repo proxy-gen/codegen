@@ -389,6 +389,10 @@ class TypeHierarchy(Structure):
 			self._package_name_str = "".join(chars)
 		return self._package_name_str
 
+	@classmethod
+	def canCastClass1ToClass2(cls, clazz1_name, clazz2_name):
+		return TypeHierarchy_canCastClass1ToClass2(clazz1_name, clazz2_name)
+
 class Modifier(object):
 	UNKNOWN = 0
 	JAVA_PUBLIC = 1
@@ -436,11 +440,19 @@ class PrimitiveType(object):
 		return None
 
 	@staticmethod
+	def is_primitive_id(id):
+		return PrimitiveType.from_id(id) is not None
+
+	@staticmethod
 	def from_name(name):
 		for key,value in PrimitiveType.__dict__.items():
 				if isinstance(value,PrimitiveType):
 					return value
 		return None
+
+	@staticmethod
+	def is_primitive_name(name):
+		return PrimitiveType.from_name(name) is not None
 
 	def __repr__(self):
 		return 'PrimitiveType.%s' % (self.name,)
@@ -453,6 +465,122 @@ PrimitiveType.FLOAT = PrimitiveType("float")
 PrimitiveType.DOUBLE = PrimitiveType("double")
 PrimitiveType.BOOLEAN = PrimitiveType("boolean")
 PrimitiveType.CHAR = PrimitiveType("char")
+
+class VoidType(object):
+
+	_types_map = {}
+	_name_map = None
+
+	def __init__(self, value):
+		if value in VoidType._types_map:
+			raise ValueError,'VoidType already loaded'
+		self.value = value
+		VoidType._types_map[value] = self
+		VoidType._name_map = None
+
+	def from_param(self):
+		return self.value
+
+	@property
+	def name(self):
+		if self._name_map is None:
+			self._name_map = {}
+			for key,value in VoidType.__dict__.items():
+				if isinstance(value,VoidType):
+					self._name_map[value] = key
+		return self._name_map[self]
+
+	@property
+	def id(self):
+		return self.value
+
+	@staticmethod
+	def from_id(id):
+		if id in VoidType._types_map:
+			return VoidType._types_map[id]
+		return None
+
+	@staticmethod
+	def is_void_id(id):
+		return VoidType.from_id(id) is not None
+
+	@staticmethod
+	def from_name(name):
+		for key,value in VoidType.__dict__.items():
+				if isinstance(value,VoidType):
+					return value
+		return None
+
+	@staticmethod
+	def is_void_name(name):
+		return VoidType.from_name(name) is not None
+
+	def __repr__(self):
+		return 'VoidType.%s' % (self.name,)
+
+VoidType.VOID = VoidType("void")
+
+class ArrayType(object):
+
+	_types_map = {}
+	_name_map = None
+
+	def __init__(self, value):
+		if value in ArrayType._types_map:
+			raise ValueError,'ArrayType already loaded'
+		self.value = value
+		ArrayType._types_map[value] = self
+		ArrayType._name_map = None
+
+	def from_param(self):
+		return self.value
+
+	@property
+	def name(self):
+		if self._name_map is None:
+			self._name_map = {}
+			for key,value in ArrayType.__dict__.items():
+				if isinstance(value,ArrayType):
+					self._name_map[value] = key
+		return self._name_map[self]
+
+	@property
+	def id(self):
+		return self.value
+
+	@staticmethod
+	def from_id(id):
+		if id in ArrayType._types_map:
+			return ArrayType._types_map[id]
+		return None
+
+	@staticmethod
+	def is_array_id(id):
+		return ArrayType.from_id(id) is not None
+
+	@staticmethod
+	def from_name(name):
+		for key,value in ArrayType.__dict__.items():
+				if isinstance(value,ArrayType):
+					return value
+		return None
+
+	@staticmethod
+	def is_array_name(name):
+		return ArrayType.from_name(name) is not None
+
+	def __repr__(self):
+		return 'ArrayType.%s' % (self.name,)
+
+ArrayType.OBJECT_ARRAY = ArrayType("_object_array_type")		
+ArrayType.BYTE_ARRAY = ArrayType("_byte_array_type")
+ArrayType.SHORT_ARRAY = ArrayType("_short_array_type")
+ArrayType.INT_ARRAY = ArrayType("_int_array_type")
+ArrayType.LONG_ARRAY = ArrayType("_long_array_type")
+ArrayType.FLOAT_ARRAY = ArrayType("_float_array_type")
+ArrayType.DOUBLE_ARRAY = ArrayType("_double_array_type")
+ArrayType.BOOLEAN_ARRAY = ArrayType("_boolean_array_type")
+ArrayType.CHAR_ARRAY = ArrayType("_char_array_type")
 
 class CallbackType(object):
 	UNKNOWN = 0
@@ -773,7 +901,7 @@ class TranslationUnit(JavaObject):
 			if "_no_proxy" in tags:
 				tags.remove("_no_proxy")
 			tags.append("_proxy")
-			
+
 		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			field["tags"] = tags
@@ -1052,6 +1180,10 @@ TypeHierarchy_visit_callback = CFUNCTYPE(c_int, TypeHierarchy, TypeHierarchy, py
 TypeHierarchy_visit = lib.visitTypeHierarchyChildren
 TypeHierarchy_visit.argtypes = [TypeHierarchy, TypeHierarchy_visit_callback, py_object]
 TypeHierarchy_visit.restype = c_uint
+
+TypeHierarchy_canCastClass1ToClass2 = lib.canCastClass1ToClass2
+TypeHierarchy_canCastClass1ToClass2.argtypes = [c_char_p,c_char_p]
+TypeHierarchy_canCastClass1ToClass2.restype = c_bool
 
 # Globals
 INDEX_OK = 0

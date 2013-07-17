@@ -214,6 +214,11 @@ int visitTypeHierarchyChildren(CXXTypeHierarchy parentTypeHierarchy, TypeHierarc
 	return 1;
 }
 
+bool canCastClass1ToClass2(const char * clazz1_name, const char * clazz2_name)
+{
+	return (bool) jni->canCastClass1ToClass2(clazz1_name, clazz2_name);
+}
+
 void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 {
 	log("process_class enter\n");

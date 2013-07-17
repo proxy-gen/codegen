@@ -176,17 +176,19 @@ jobject JNIContext::popLocalFrame(jobject localRef)
 	return newLocalRef;
 }
 
-bool JNIContext::isSuperclass(const char *superClazName, const char *subClazName)
+bool JNIContext::canCastClass1ToClass2(const char *clazz1_name, const char *clazz2_name)
 {
 	JNIEnv *env = 0;
 	getEnv(&env);
-	jclass superClaz = env->FindClass(superClazName);
+	jclass clazz1 = env->FindClass(clazz1_name);
 	if (checkException(env) == false)
 	{
-		jclass subClazz = env->FindClass(subClazName);
+		jclass clazz2 = env->FindClass(clazz2_name);
 		if (checkException(env) == false)
 		{
-			bool isAssignableFrom = (bool) env->IsAssignableFrom(subClazz, superClaz);
+			//	Determines whether an object of class or interface clazz1 can
+			//	be safely cast to class or interface clazz2
+			bool isAssignableFrom = (bool) env->IsAssignableFrom(clazz1, clazz2);
 			if (checkException(env) == false)
 			{
 				return isAssignableFrom;	
@@ -196,28 +198,6 @@ bool JNIContext::isSuperclass(const char *superClazName, const char *subClazName
 	}
 	return false;
 }
-
-bool JNIContext::isSubclass(const char *subClazName, const char *superClazName)
-{
-	JNIEnv *env = 0;
-	getEnv(&env);
-	jclass superClaz = env->FindClass(superClazName);
-	if (checkException(env) == false)
-	{
-		jclass subClazz = env->FindClass(subClazName);
-		if (checkException(env) == false)
-		{
-			bool isAssignableFrom = (bool) env->IsAssignableFrom(subClazz, superClaz);
-			if (checkException(env) == false)
-			{
-				return isAssignableFrom;	
-			}
-			return false;
-		}
-	}
-	return false;
-}
-
 
 jclass JNIContext::getClassRef(const char *clazzName)
 {

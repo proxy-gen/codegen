@@ -41,8 +41,7 @@ public:
 	void pushLocalFrame(int frameSize=0);
 	jobject popLocalFrame(jobject localRef=0);
 
-	bool isSuperclass(const char *superClazName, const char *subClazName);
-	bool isSubclass(const char *subClazName, const char *superClazName);
+	bool canCastClass1ToClass2(const char *clazz1_name, const char *clazz2_name);
 	jclass getClassRef(const char *clazName);
 	jobject getStaticObjectRef(bool isField, const char *clazName, const char *name, const char *signature, ...);
 	jobject createNewObjectRef(const char *clazName);
