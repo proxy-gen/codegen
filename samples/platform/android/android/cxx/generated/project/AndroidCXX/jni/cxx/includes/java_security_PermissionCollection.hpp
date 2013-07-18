@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,9 +14,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_security_PermissionCollection
 #define _java_security_PermissionCollection
+//
+// Scroll Down 
+//
 
 
 
@@ -24,10 +28,14 @@
 
 
 
+
+
+#include <java_security_Permission.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_util_Enumeration.hpp>
-#include <java_security_Permission.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -39,6 +47,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_security_Permission;
+
+class java_lang_String;
+
+class java_util_Enumeration;
 
 class java_security_PermissionCollection
 {

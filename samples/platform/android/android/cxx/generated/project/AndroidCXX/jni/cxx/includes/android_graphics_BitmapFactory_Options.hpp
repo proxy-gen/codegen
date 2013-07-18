@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_graphics_BitmapFactory_Options
 #define _android_graphics_BitmapFactory_Options
+//
+// Scroll Down 
+//
+
 
 
 
@@ -27,6 +32,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_graphics_BitmapFactory_Options
 {

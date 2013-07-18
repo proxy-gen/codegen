@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -16,9 +16,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_nio_channels_SocketChannel
 #define _java_nio_channels_SocketChannel
+//
+// Scroll Down 
+//
 
 
 
@@ -29,10 +33,15 @@
 
 
 
+
+
+#include <java_nio_ByteBuffer.hpp>
 
 #include <java_net_SocketAddress.hpp>
+
+
 #include <java_net_Socket.hpp>
-#include <java_nio_ByteBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -44,6 +53,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_nio_ByteBuffer;
+
+class java_net_SocketAddress;
+
+
+class java_net_Socket;
 
 class java_nio_channels_SocketChannel
 {

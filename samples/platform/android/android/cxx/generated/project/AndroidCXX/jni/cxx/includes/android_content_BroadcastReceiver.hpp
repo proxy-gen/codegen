@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -22,9 +22,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_BroadcastReceiver
 #define _android_content_BroadcastReceiver
+//
+// Scroll Down 
+//
 
 
 
@@ -44,13 +48,20 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <android_os_Bundle.hpp>
+
 #include <android_content_Context.hpp>
+
 #include <android_content_Intent.hpp>
-#include <android_os_IBinder.hpp>
+
 #include <android_content_BroadcastReceiver_PendingResult.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_os_IBinder.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,6 +73,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_os_Bundle;
+
+class android_content_Context;
+
+class android_content_Intent;
+
+class android_content_BroadcastReceiver_PendingResult;
+
+class android_os_IBinder;
 
 class android_content_BroadcastReceiver
 {

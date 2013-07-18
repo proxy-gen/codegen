@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -23,9 +23,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_ViewTreeObserver
 #define _android_view_ViewTreeObserver
+//
+// Scroll Down 
+//
 
 
 
@@ -44,13 +48,20 @@
 
 
 
+
+
+#include <android_view_ViewTreeObserver_OnGlobalFocusChangeListener.hpp>
+
+#include <android_view_ViewTreeObserver_OnGlobalLayoutListener.hpp>
 
 #include <android_view_ViewTreeObserver_OnPreDrawListener.hpp>
+
 #include <android_view_ViewTreeObserver_OnDrawListener.hpp>
-#include <android_view_ViewTreeObserver_OnGlobalFocusChangeListener.hpp>
-#include <android_view_ViewTreeObserver_OnGlobalLayoutListener.hpp>
+
 #include <android_view_ViewTreeObserver_OnScrollChangedListener.hpp>
+
 #include <android_view_ViewTreeObserver_OnTouchModeChangeListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,6 +73,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_ViewTreeObserver_OnGlobalFocusChangeListener;
+
+class android_view_ViewTreeObserver_OnGlobalLayoutListener;
+
+class android_view_ViewTreeObserver_OnPreDrawListener;
+
+class android_view_ViewTreeObserver_OnDrawListener;
+
+class android_view_ViewTreeObserver_OnScrollChangedListener;
+
+class android_view_ViewTreeObserver_OnTouchModeChangeListener;
 
 class android_view_ViewTreeObserver
 {

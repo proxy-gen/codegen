@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_database_DatabaseErrorHandler.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_database_DatabaseErrorHandler_onCorruption(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_database_DatabaseErrorHandler::onCorruption(android_database_sqlite_SQLiteDatabase& arg0)
+{
+	// TODO: Implementation
+
 }

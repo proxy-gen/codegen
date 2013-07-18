@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,22 @@
 //
 
 
+
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_widget_SpinnerAdapter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_widget_SpinnerAdapter_getDropDownView(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1,jobject& arg2);
-    
+android_view_View android_widget_SpinnerAdapter::getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
 }

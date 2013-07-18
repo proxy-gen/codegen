@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AdapterView_OnItemClickListener
 #define _android_widget_AdapterView_OnItemClickListener
+//
+// Scroll Down 
+//
 
 
+
+
+#include <android_widget_AdapterView.hpp>
 
 #include <android_view_View.hpp>
-#include <android_widget_AdapterView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_AdapterView;
+
+class android_view_View;
+
 class android_widget_AdapterView_OnItemClickListener
 {
 public:
-	void onItemClick(android_widget_AdapterView& arg0,android_view_View& arg1,int& arg2,long& arg3);
+ void onItemClick(android_widget_AdapterView& arg0,android_view_View& arg1,int& arg2,long& arg3);
 
 
 };

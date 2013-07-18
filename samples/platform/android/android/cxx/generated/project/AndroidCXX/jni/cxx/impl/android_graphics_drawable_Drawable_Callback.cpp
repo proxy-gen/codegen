@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,32 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_graphics_drawable_Drawable_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_graphics_drawable_Drawable_Callback_invalidateDrawable(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_graphics_drawable_Drawable_Callback_scheduleDrawable(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jlong& arg2);
-JNIEXPORT void Java_AndroidCXX_android_graphics_drawable_Drawable_Callback_unscheduleDrawable(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+void android_graphics_drawable_Drawable_Callback::invalidateDrawable(android_graphics_drawable_Drawable& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_graphics_drawable_Drawable_Callback::scheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1,long& arg2)
+{
+	// TODO: Implementation
+
+}
+void android_graphics_drawable_Drawable_Callback::unscheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1)
+{
+	// TODO: Implementation
+
 }

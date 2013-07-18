@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -16,9 +16,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_CompoundButton
 #define _android_widget_CompoundButton
+//
+// Scroll Down 
+//
+
 
 
 
@@ -35,10 +40,15 @@
 
 
 #include <android_os_Parcelable.hpp>
-#include <android_widget_CompoundButton_OnCheckedChangeListener.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_CompoundButton_OnCheckedChangeListener.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,6 +60,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcelable;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_CompoundButton_OnCheckedChangeListener;
+
+class android_graphics_drawable_Drawable;
 
 class android_widget_CompoundButton
 {

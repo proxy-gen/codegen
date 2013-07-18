@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_view_TouchDelegate
 #define _android_view_TouchDelegate
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_MotionEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -29,6 +35,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_MotionEvent;
 
 class android_view_TouchDelegate
 {

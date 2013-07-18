@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_webkit_ValueCallback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_ValueCallback_onReceiveValue(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_webkit_ValueCallback::onReceiveValue(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+
 }

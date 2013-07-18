@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_View_OnCreateContextMenuListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_View_OnCreateContextMenuListener_onCreateContextMenu(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2);
-    
+void android_view_View_OnCreateContextMenuListener::onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2)
+{
+	// TODO: Implementation
+
 }

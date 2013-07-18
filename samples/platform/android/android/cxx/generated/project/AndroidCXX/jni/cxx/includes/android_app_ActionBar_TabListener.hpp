@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -16,16 +16,23 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_app_ActionBar_TabListener
 #define _android_app_ActionBar_TabListener
+//
+// Scroll Down 
+//
 
 
 
 
+
+
+#include <android_app_ActionBar_Tab.hpp>
 
 #include <android_app_FragmentTransaction.hpp>
-#include <android_app_ActionBar_Tab.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -38,12 +45,18 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_app_ActionBar_Tab;
+
+class android_app_FragmentTransaction;
+
 class android_app_ActionBar_TabListener
 {
 public:
-	void onTabSelected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
-	void onTabUnselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
-	void onTabReselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+ void onTabSelected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+ void onTabUnselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+ void onTabReselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
 
 
 };

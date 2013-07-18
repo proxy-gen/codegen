@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -36,9 +36,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_FragmentTransaction
 #define _android_app_FragmentTransaction
+//
+// Scroll Down 
+//
 
 
 
@@ -57,11 +61,16 @@
 
 
 
+
+
+
+#include <android_app_Fragment.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_lang_CharSequence.hpp>
-#include <android_app_Fragment.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -73,6 +82,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_app_Fragment;
+
+class java_lang_String;
+
+
+class java_lang_CharSequence;
 
 class android_app_FragmentTransaction
 {

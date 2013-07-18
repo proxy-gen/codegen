@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -33,9 +33,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_ActionBar
 #define _android_app_ActionBar
+//
+// Scroll Down 
+//
 
 
 
@@ -78,16 +82,26 @@
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_app_ActionBar_LayoutParams.hpp>
+
+#include <android_widget_SpinnerAdapter.hpp>
+
+#include <android_app_ActionBar_OnNavigationListener.hpp>
+
+#include <android_app_ActionBar_Tab.hpp>
+
+#include <android_app_ActionBar_OnMenuVisibilityListener.hpp>
 
 #include <android_content_Context.hpp>
-#include <android_app_ActionBar_LayoutParams.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_app_ActionBar_OnMenuVisibilityListener.hpp>
-#include <android_app_ActionBar_OnNavigationListener.hpp>
-#include <android_view_View.hpp>
-#include <android_widget_SpinnerAdapter.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_app_ActionBar_Tab.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -99,6 +113,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
+
+class android_view_View;
+
+class android_app_ActionBar_LayoutParams;
+
+class android_widget_SpinnerAdapter;
+
+class android_app_ActionBar_OnNavigationListener;
+
+class android_app_ActionBar_Tab;
+
+class android_app_ActionBar_OnMenuVisibilityListener;
+
+class android_content_Context;
 
 class android_app_ActionBar
 {

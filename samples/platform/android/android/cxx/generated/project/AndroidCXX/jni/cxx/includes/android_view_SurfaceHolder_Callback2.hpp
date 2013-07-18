@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_view_SurfaceHolder_Callback2
 #define _android_view_SurfaceHolder_Callback2
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_SurfaceHolder.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_SurfaceHolder;
+
 class android_view_SurfaceHolder_Callback2
 {
 public:
-	void surfaceRedrawNeeded(android_view_SurfaceHolder& arg0);
+ void surfaceRedrawNeeded(android_view_SurfaceHolder& arg0);
 
 
 };

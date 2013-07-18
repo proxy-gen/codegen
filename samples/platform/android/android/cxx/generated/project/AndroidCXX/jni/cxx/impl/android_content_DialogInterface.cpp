@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_content_DialogInterface.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_content_DialogInterface_cancel(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_content_DialogInterface_dismiss(JNIEnv *jni_env, jobject java_object);
-    
+void android_content_DialogInterface::cancel()
+{
+	// TODO: Implementation
+
+}
+void android_content_DialogInterface::dismiss()
+{
+	// TODO: Implementation
+
 }

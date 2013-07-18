@@ -11,9 +11,14 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AlphabetIndexer
 #define _android_widget_AlphabetIndexer
+//
+// Scroll Down 
+//
+
 
 
 
@@ -23,6 +28,7 @@
 
 
 #include <android_database_Cursor.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +40,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_database_Cursor;
 
 class android_widget_AlphabetIndexer
 {

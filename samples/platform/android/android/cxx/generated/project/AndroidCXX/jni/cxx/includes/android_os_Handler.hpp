@@ -36,9 +36,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_os_Handler
 #define _android_os_Handler
+//
+// Scroll Down 
+//
 
 
 
@@ -64,13 +68,20 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_util_Printer.hpp>
+
+#include <java_lang_Runnable.hpp>
 
 #include <java_lang_Object.hpp>
-#include <android_os_Message.hpp>
+
 #include <android_os_Looper.hpp>
-#include <java_lang_Runnable.hpp>
-#include <android_util_Printer.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_os_Message.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -82,6 +93,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_util_Printer;
+
+class java_lang_Runnable;
+
+class java_lang_Object;
+
+class android_os_Looper;
+
+class android_os_Message;
 
 class android_os_Handler
 {

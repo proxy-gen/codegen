@@ -22,9 +22,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_SimpleExpandableListAdapter
 #define _android_widget_SimpleExpandableListAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -38,10 +42,14 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
 
 #include <android_view_View.hpp>
-#include <java_lang_Object.hpp>
+
 #include <android_view_ViewGroup.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,6 +61,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class android_view_View;
+
+class android_view_ViewGroup;
 
 class android_widget_SimpleExpandableListAdapter
 {

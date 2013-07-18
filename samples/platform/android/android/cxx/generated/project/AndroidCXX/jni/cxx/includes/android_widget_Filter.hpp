@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,16 +14,24 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_Filter
 #define _android_widget_Filter
+//
+// Scroll Down 
+//
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
 
 #include <android_widget_Filter_FilterListener.hpp>
-#include <java_lang_CharSequence.hpp>
+
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -35,6 +43,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_widget_Filter_FilterListener;
+
+class java_lang_Object;
 
 class android_widget_Filter
 {

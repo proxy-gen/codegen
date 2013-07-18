@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -23,9 +23,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_security_cert_X509Certificate
 #define _java_security_cert_X509Certificate
+//
+// Scroll Down 
+//
 
 
 
@@ -48,14 +52,22 @@
 
 
 
+
+
+#include <java_math_BigInteger.hpp>
+
+#include <java_security_Principal.hpp>
+
+#include <java_util_Date.hpp>
 
 #include <javax_security_auth_x500_X500Principal.hpp>
-#include <java_util_List.hpp>
-#include <java_math_BigInteger.hpp>
-#include <java_util_Collection.hpp>
-#include <java_security_Principal.hpp>
-#include <java_util_Date.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <java_util_List.hpp>
+
+#include <java_util_Collection.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,6 +79,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_math_BigInteger;
+
+class java_security_Principal;
+
+class java_util_Date;
+
+class javax_security_auth_x500_X500Principal;
+
+class java_lang_String;
+
+class java_util_List;
+
+class java_util_Collection;
 
 class java_security_cert_X509Certificate
 {

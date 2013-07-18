@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_View_OnTouchListener
 #define _android_view_View_OnTouchListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_View.hpp>
+
 #include <android_view_MotionEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_MotionEvent;
+
 class android_view_View_OnTouchListener
 {
 public:
-	bool onTouch(android_view_View& arg0,android_view_MotionEvent& arg1);
+ bool onTouch(android_view_View& arg0,android_view_MotionEvent& arg1);
 
 
 };

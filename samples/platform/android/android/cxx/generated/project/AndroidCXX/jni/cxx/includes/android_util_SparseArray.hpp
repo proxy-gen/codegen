@@ -18,9 +18,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_util_SparseArray
 #define _android_util_SparseArray
+//
+// Scroll Down 
+//
+
 
 
 
@@ -38,6 +43,8 @@
 
 
 #include <java_lang_Object.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,6 +57,11 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+
 class android_util_SparseArray
 {
 public:
@@ -60,7 +72,7 @@ public:
  void clear();
  int size();
  void remove(int& arg0);
- void delete(int& arg0);
+ void _delete(int& arg0);
  void removeAt(int& arg0);
  int keyAt(int& arg0);
  java_lang_Object valueAt(int& arg0);

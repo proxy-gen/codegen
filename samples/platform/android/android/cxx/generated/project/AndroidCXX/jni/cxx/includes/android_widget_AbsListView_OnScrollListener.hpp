@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AbsListView_OnScrollListener
 #define _android_widget_AbsListView_OnScrollListener
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_widget_AbsListView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,11 +38,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_AbsListView;
+
 class android_widget_AbsListView_OnScrollListener
 {
 public:
-	void onScrollStateChanged(android_widget_AbsListView& arg0,int& arg1);
-	void onScroll(android_widget_AbsListView& arg0,int& arg1);
+ void onScrollStateChanged(android_widget_AbsListView& arg0,int& arg1);
+ void onScroll(android_widget_AbsListView& arg0,int& arg1);
 
 
 };

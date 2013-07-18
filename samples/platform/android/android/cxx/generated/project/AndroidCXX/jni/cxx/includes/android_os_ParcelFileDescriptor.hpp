@@ -23,9 +23,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_os_ParcelFileDescriptor
 #define _android_os_ParcelFileDescriptor
+//
+// Scroll Down 
+//
 
 
 
@@ -42,13 +46,21 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_io_File.hpp>
+
+
+#include <java_io_FileDescriptor.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <java_net_Socket.hpp>
 
 #include <java_net_DatagramSocket.hpp>
-#include <java_io_File.hpp>
-#include <java_net_Socket.hpp>
-#include <android_os_Parcel.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,6 +72,21 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_io_File;
+
+
+class java_io_FileDescriptor;
+
+class android_os_Parcel;
+
+class java_net_Socket;
+
+class java_net_DatagramSocket;
 
 class android_os_ParcelFileDescriptor
 {

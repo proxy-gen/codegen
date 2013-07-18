@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -30,9 +30,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_nio_charset_Charset
 #define _java_nio_charset_Charset
+//
+// Scroll Down 
+//
 
 
 
@@ -52,16 +56,27 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_nio_ByteBuffer.hpp>
+
+#include <java_nio_CharBuffer.hpp>
+
+#include <java_util_Set.hpp>
+
+#include <java_util_SortedMap.hpp>
+
+#include <java_util_Locale.hpp>
 
 #include <java_nio_charset_CharsetDecoder.hpp>
-#include <java_lang_Object.hpp>
+
 #include <java_nio_charset_CharsetEncoder.hpp>
-#include <java_util_Locale.hpp>
-#include <java_nio_CharBuffer.hpp>
-#include <java_nio_ByteBuffer.hpp>
-#include <java_util_SortedMap.hpp>
-#include <java_lang_String.hpp>
-#include <java_util_Set.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -73,6 +88,27 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+
+class java_lang_Object;
+
+class java_nio_ByteBuffer;
+
+class java_nio_CharBuffer;
+
+class java_util_Set;
+
+class java_util_SortedMap;
+
+class java_util_Locale;
+
+class java_nio_charset_CharsetDecoder;
+
+class java_nio_charset_CharsetEncoder;
 
 class java_nio_charset_Charset
 {

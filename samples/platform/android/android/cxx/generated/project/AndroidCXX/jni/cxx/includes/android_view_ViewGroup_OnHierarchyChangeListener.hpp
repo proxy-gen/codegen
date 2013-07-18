@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_ViewGroup_OnHierarchyChangeListener
 #define _android_view_ViewGroup_OnHierarchyChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,11 +38,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
 class android_view_ViewGroup_OnHierarchyChangeListener
 {
 public:
-	void onChildViewAdded(android_view_View& arg0);
-	void onChildViewRemoved(android_view_View& arg0);
+ void onChildViewAdded(android_view_View& arg0);
+ void onChildViewRemoved(android_view_View& arg0);
 
 
 };

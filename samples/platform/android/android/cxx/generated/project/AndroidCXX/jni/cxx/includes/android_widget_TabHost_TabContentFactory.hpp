@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_TabHost_TabContentFactory
 #define _android_widget_TabHost_TabContentFactory
+//
+// Scroll Down 
+//
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <android_view_View.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class android_view_View;
+
 class android_widget_TabHost_TabContentFactory
 {
 public:
-	android_view_View createTabContent(java_lang_String& arg0);
+ android_view_View createTabContent(java_lang_String& arg0);
 
 
 };

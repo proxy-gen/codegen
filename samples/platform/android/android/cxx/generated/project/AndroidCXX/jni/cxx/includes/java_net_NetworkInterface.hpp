@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -23,9 +23,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_net_NetworkInterface
 #define _java_net_NetworkInterface
+//
+// Scroll Down 
+//
 
 
 
@@ -46,12 +50,19 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <java_util_Enumeration.hpp>
 
 #include <java_util_List.hpp>
-#include <java_lang_Object.hpp>
-#include <java_util_Enumeration.hpp>
+
 #include <java_net_InetAddress.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,6 +74,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class java_util_Enumeration;
+
+class java_util_List;
+
+class java_net_InetAddress;
 
 class java_net_NetworkInterface
 {

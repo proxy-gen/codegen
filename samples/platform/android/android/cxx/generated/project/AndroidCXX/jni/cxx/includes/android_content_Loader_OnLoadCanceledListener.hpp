@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_content_Loader_OnLoadCanceledListener
 #define _android_content_Loader_OnLoadCanceledListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_content_Loader.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_content_Loader;
+
 class android_content_Loader_OnLoadCanceledListener
 {
 public:
-	void onLoadCanceled(android_content_Loader& arg0);
+ void onLoadCanceled(android_content_Loader& arg0);
 
 
 };

@@ -33,9 +33,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_support_v4_app_FragmentActivity
 #define _android_support_v4_app_FragmentActivity
+//
+// Scroll Down 
+//
 
 
 
@@ -56,22 +60,38 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
-#include <java_lang_Object.hpp>
-#include <android_content_Context.hpp>
-#include <android_support_v4_app_LoaderManager.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_view_MenuItem.hpp>
+
 #include <android_content_Intent.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_support_v4_app_Fragment.hpp>
-#include <android_support_v4_app_FragmentManager.hpp>
-#include <android_view_Menu.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
 #include <android_view_View.hpp>
-#include <java_io_FileDescriptor.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_support_v4_app_Fragment.hpp>
+
+#include <android_view_Menu.hpp>
+
 #include <android_view_KeyEvent.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_view_MenuItem.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_support_v4_app_FragmentManager.hpp>
+
+#include <android_support_v4_app_LoaderManager.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,6 +103,38 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_content_Intent;
+
+class android_content_Context;
+
+class android_util_AttributeSet;
+
+class android_view_View;
+
+class android_content_res_Configuration;
+
+class android_support_v4_app_Fragment;
+
+class android_view_Menu;
+
+class android_view_KeyEvent;
+
+class android_view_MenuItem;
+
+class java_lang_Object;
+
+class android_support_v4_app_FragmentManager;
+
+class android_support_v4_app_LoaderManager;
 
 class android_support_v4_app_FragmentActivity
 {

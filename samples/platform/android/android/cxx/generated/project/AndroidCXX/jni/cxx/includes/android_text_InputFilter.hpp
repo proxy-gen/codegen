@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,14 +13,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_text_InputFilter
 #define _android_text_InputFilter
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_CharSequence.hpp>
+
 #include <android_text_Spanned.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,10 +40,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_text_Spanned;
+
 class android_text_InputFilter
 {
 public:
-	java_lang_CharSequence filter(java_lang_CharSequence& arg0,int& arg1,android_text_Spanned& arg2);
+ java_lang_CharSequence filter(java_lang_CharSequence& arg0,int& arg1,android_text_Spanned& arg2);
 
 
 };

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,24 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_text_Spannable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_text_Spannable_setSpan(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT void Java_AndroidCXX_android_text_Spannable_removeSpan(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_text_Spannable::setSpan(java_lang_Object& arg0,int& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_text_Spannable::removeSpan(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+
 }

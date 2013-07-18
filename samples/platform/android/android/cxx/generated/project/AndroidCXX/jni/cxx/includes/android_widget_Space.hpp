@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_Space
 #define _android_widget_Space
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_graphics_Canvas.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -29,6 +35,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_Canvas;
 
 class android_widget_Space
 {

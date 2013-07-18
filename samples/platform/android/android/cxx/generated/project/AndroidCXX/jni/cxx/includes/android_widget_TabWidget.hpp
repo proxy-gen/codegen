@@ -22,9 +22,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_TabWidget
 #define _android_widget_TabWidget
+//
+// Scroll Down 
+//
 
 
 
@@ -45,12 +49,18 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_graphics_Canvas.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_graphics_Canvas.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,6 +72,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_graphics_Canvas;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_graphics_drawable_Drawable;
 
 class android_widget_TabWidget
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteTransactionListener
 #define _android_database_sqlite_SQLiteTransactionListener
+//
+// Scroll Down 
+//
+
 
 
 
@@ -30,12 +35,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_database_sqlite_SQLiteTransactionListener
 {
 public:
-	void onBegin();
-	void onCommit();
-	void onRollback();
+ void onBegin();
+ void onCommit();
+ void onRollback();
 
 
 };

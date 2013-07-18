@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,23 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_content_ComponentCallbacks.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_content_ComponentCallbacks_onConfigurationChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_content_ComponentCallbacks_onLowMemory(JNIEnv *jni_env, jobject java_object);
-    
+void android_content_ComponentCallbacks::onConfigurationChanged(android_content_res_Configuration& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_content_ComponentCallbacks::onLowMemory()
+{
+	// TODO: Implementation
+
 }

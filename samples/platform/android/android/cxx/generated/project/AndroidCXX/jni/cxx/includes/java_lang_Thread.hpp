@@ -25,9 +25,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_lang_Thread
 #define _java_lang_Thread
+//
+// Scroll Down 
+//
 
 
 
@@ -67,15 +71,25 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+
+#include <java_lang_ThreadGroup.hpp>
+
+#include <java_lang_Throwable.hpp>
+
+#include <java_lang_ClassLoader.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_util_Map.hpp>
 
 #include <java_lang_Thread_State.hpp>
-#include <java_lang_Throwable.hpp>
-#include <java_lang_Object.hpp>
-#include <java_util_Map.hpp>
-#include <java_lang_ThreadGroup.hpp>
+
 #include <java_lang_Thread_UncaughtExceptionHandler.hpp>
-#include <java_lang_ClassLoader.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,6 +101,24 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+
+class java_lang_ThreadGroup;
+
+class java_lang_Throwable;
+
+class java_lang_ClassLoader;
+
+class java_lang_Object;
+
+class java_util_Map;
+
+
+class java_lang_Thread_UncaughtExceptionHandler;
 
 class java_lang_Thread
 {

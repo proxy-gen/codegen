@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_lang_Thread_UncaughtExceptionHandler.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_java_lang_Thread_UncaughtExceptionHandler_uncaughtException(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+void java_lang_Thread_UncaughtExceptionHandler::uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1)
+{
+	// TODO: Implementation
+
 }

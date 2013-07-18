@@ -11,14 +11,20 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_view_inputmethod_ExtractedText
 #define _android_view_inputmethod_ExtractedText
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_os_Parcel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,6 +36,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcel;
 
 class android_view_inputmethod_ExtractedText
 {

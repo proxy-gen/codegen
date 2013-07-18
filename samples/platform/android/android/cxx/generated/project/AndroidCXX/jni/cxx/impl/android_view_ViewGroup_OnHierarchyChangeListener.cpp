@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,24 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_ViewGroup_OnHierarchyChangeListener_onChildViewAdded(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_ViewGroup_OnHierarchyChangeListener_onChildViewRemoved(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_view_ViewGroup_OnHierarchyChangeListener::onChildViewAdded(android_view_View& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_ViewGroup_OnHierarchyChangeListener::onChildViewRemoved(android_view_View& arg0)
+{
+	// TODO: Implementation
+
 }

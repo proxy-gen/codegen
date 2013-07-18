@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -15,9 +15,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_util_Map_Entry
 #define _java_util_Map_Entry
+//
+// Scroll Down 
+//
+
 
 
 
@@ -26,6 +31,7 @@
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -38,14 +44,18 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class java_util_Map_Entry
 {
 public:
-	bool equals(java_lang_Object& arg0);
-	int hashCode();
-	java_lang_Object getValue();
-	java_lang_Object getKey();
-	java_lang_Object setValue(java_lang_Object& arg0);
+ bool equals(java_lang_Object& arg0);
+ int hashCode();
+ java_lang_Object getValue();
+ java_lang_Object getKey();
+ java_lang_Object setValue(java_lang_Object& arg0);
 
 
 };

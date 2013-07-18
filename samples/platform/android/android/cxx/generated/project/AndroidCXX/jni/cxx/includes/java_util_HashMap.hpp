@@ -23,9 +23,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_util_HashMap
 #define _java_util_HashMap
+//
+// Scroll Down 
+//
 
 
 
@@ -40,11 +44,16 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_util_Collection.hpp>
+
+#include <java_util_Set.hpp>
 
 #include <java_util_Map.hpp>
-#include <java_util_Collection.hpp>
-#include <java_lang_Object.hpp>
-#include <java_util_Set.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,6 +65,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_util_Collection;
+
+class java_util_Set;
+
+class java_util_Map;
 
 class java_util_HashMap
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AbsListView_SelectionBoundsAdjuster
 #define _android_widget_AbsListView_SelectionBoundsAdjuster
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_graphics_Rect.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_graphics_Rect;
+
 class android_widget_AbsListView_SelectionBoundsAdjuster
 {
 public:
-	void adjustListItemSelectionBounds(android_graphics_Rect& arg0);
+ void adjustListItemSelectionBounds(android_graphics_Rect& arg0);
 
 
 };

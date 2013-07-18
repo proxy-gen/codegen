@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -64,9 +64,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteDatabase
 #define _android_database_sqlite_SQLiteDatabase
+//
+// Scroll Down 
+//
 
 
 
@@ -121,19 +125,33 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_content_ContentValues.hpp>
+
+#include <android_os_CancellationSignal.hpp>
+
+#include <android_database_Cursor.hpp>
+
+#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
+
+
+#include <java_util_Locale.hpp>
+
+#include <java_io_File.hpp>
+
+#include <android_database_DatabaseErrorHandler.hpp>
+
+#include <android_database_sqlite_SQLiteTransactionListener.hpp>
+
+#include <java_util_Map.hpp>
+
+#include <android_database_sqlite_SQLiteStatement.hpp>
 
 #include <java_util_List.hpp>
-#include <android_database_sqlite_SQLiteTransactionListener.hpp>
-#include <android_database_Cursor.hpp>
-#include <java_io_File.hpp>
-#include <java_util_Map.hpp>
-#include <android_content_ContentValues.hpp>
-#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
-#include <java_util_Locale.hpp>
-#include <android_os_CancellationSignal.hpp>
-#include <android_database_sqlite_SQLiteStatement.hpp>
-#include <android_database_DatabaseErrorHandler.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -146,12 +164,39 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class android_content_ContentValues;
+
+class android_os_CancellationSignal;
+
+class android_database_Cursor;
+
+class android_database_sqlite_SQLiteDatabase_CursorFactory;
+
+
+class java_util_Locale;
+
+class java_io_File;
+
+class android_database_DatabaseErrorHandler;
+
+class android_database_sqlite_SQLiteTransactionListener;
+
+class java_util_Map;
+
+class android_database_sqlite_SQLiteStatement;
+
+class java_util_List;
+
 class android_database_sqlite_SQLiteDatabase
 {
 public:
  java_lang_String toString();
  long replace(java_lang_String& arg0,android_content_ContentValues& arg1);
- int delete(java_lang_String& arg0,std::vector<long>& arg1);
+ int _delete(java_lang_String& arg0,std::vector<long>& arg1);
  long insert(java_lang_String& arg0,android_content_ContentValues& arg1);
  bool isReadOnly();
  java_lang_String getPath();

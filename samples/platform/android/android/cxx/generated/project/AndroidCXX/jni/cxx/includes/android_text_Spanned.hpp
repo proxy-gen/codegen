@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -15,9 +15,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_text_Spanned
 #define _android_text_Spanned
+//
+// Scroll Down 
+//
+
 
 
 
@@ -26,7 +31,9 @@
 
 
 #include <java_lang_Class.hpp>
+
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -39,14 +46,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Class;
+
+class java_lang_Object;
+
 class android_text_Spanned
 {
 public:
-	std::vector<long> getSpans(int& arg0,java_lang_Class& arg1);
-	int getSpanStart(java_lang_Object& arg0);
-	int getSpanEnd(java_lang_Object& arg0);
-	int getSpanFlags(java_lang_Object& arg0);
-	int nextSpanTransition(int& arg0,java_lang_Class& arg1);
+ std::vector<long> getSpans(int& arg0,java_lang_Class& arg1);
+ int getSpanStart(java_lang_Object& arg0);
+ int getSpanEnd(java_lang_Object& arg0);
+ int getSpanFlags(java_lang_Object& arg0);
+ int nextSpanTransition(int& arg0,java_lang_Class& arg1);
 
 
 };

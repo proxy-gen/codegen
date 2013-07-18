@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_app_ActionBar_OnNavigationListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_app_ActionBar_OnNavigationListener_onNavigationItemSelected(JNIEnv *jni_env, jobject java_object,jint& arg0,jlong& arg1);
-    
+bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& arg0,long& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

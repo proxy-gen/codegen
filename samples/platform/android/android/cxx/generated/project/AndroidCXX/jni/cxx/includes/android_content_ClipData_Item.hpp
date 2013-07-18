@@ -21,9 +21,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_ClipData_Item
 #define _android_content_ClipData_Item
+//
+// Scroll Down 
+//
 
 
 
@@ -33,12 +37,18 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_content_Intent.hpp>
 
 #include <android_net_Uri.hpp>
-#include <android_content_Intent.hpp>
-#include <java_lang_CharSequence.hpp>
+
 #include <android_content_Context.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,6 +60,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class android_content_Intent;
+
+class android_net_Uri;
+
+class android_content_Context;
 
 class android_content_ClipData_Item
 {

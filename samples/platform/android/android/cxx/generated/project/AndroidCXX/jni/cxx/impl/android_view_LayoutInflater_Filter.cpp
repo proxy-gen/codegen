@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_view_LayoutInflater_Filter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_LayoutInflater_Filter_onLoadClass(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_view_LayoutInflater_Filter::onLoadClass(java_lang_Class& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

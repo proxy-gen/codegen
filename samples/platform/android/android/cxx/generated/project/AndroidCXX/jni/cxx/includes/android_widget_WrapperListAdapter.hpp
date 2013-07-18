@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
 		
 
+// Generated Code 
 
 #ifndef _android_widget_WrapperListAdapter
 #define _android_widget_WrapperListAdapter
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_ListAdapter.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_ListAdapter;
+
 class android_widget_WrapperListAdapter
 {
 public:
-	android_widget_ListAdapter getWrappedAdapter();
+ android_widget_ListAdapter getWrappedAdapter();
 
 
 };

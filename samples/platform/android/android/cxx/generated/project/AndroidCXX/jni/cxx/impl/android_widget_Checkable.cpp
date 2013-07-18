@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,29 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_Checkable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_Checkable_setChecked(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_Checkable_isChecked(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_Checkable_toggle(JNIEnv *jni_env, jobject java_object);
-    
+void android_widget_Checkable::setChecked(bool& arg0)
+{
+	// TODO: Implementation
+
+}
+bool android_widget_Checkable::isChecked()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_widget_Checkable::toggle()
+{
+	// TODO: Implementation
+
 }

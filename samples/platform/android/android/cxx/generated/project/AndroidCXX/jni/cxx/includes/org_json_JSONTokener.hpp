@@ -18,9 +18,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _org_json_JSONTokener
 #define _org_json_JSONTokener
+//
+// Scroll Down 
+//
 
 
 
@@ -34,10 +38,14 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <org_json_JSONException.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,6 +57,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Object;
+
+class org_json_JSONException;
 
 class org_json_JSONTokener
 {

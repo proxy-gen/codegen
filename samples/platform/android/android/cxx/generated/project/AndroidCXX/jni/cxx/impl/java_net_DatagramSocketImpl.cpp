@@ -1,5 +1,5 @@
 /*
- * Implementation (Abstract CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,12 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <java_net_DatagramSocketImpl.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-}

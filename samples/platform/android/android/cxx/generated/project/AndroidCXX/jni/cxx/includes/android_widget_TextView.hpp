@@ -92,9 +92,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_TextView
 #define _android_widget_TextView
+//
+// Scroll Down 
+//
 
 
 
@@ -292,44 +296,82 @@
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_widget_TextView_BufferType.hpp>
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_text_Layout.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <java_util_ArrayList.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_inputmethod_EditorInfo.hpp>
+
+#include <android_view_inputmethod_InputConnection.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_view_DragEvent.hpp>
+
+#include <android_graphics_Typeface.hpp>
+
+#include <java_util_Locale.hpp>
+
+#include <android_text_Editable.hpp>
+
+#include <android_text_method_KeyListener.hpp>
+
+#include <android_text_method_MovementMethod.hpp>
+
+#include <android_text_method_TransformationMethod.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_content_res_ColorStateList.hpp>
+
+#include <android_content_res_TypedArray.hpp>
+
+#include <android_text_TextPaint.hpp>
+
+#include <android_text_Editable_Factory.hpp>
+
+#include <android_text_Spannable_Factory.hpp>
+
+#include <android_widget_TextView_OnEditorActionListener.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_view_inputmethod_ExtractedTextRequest.hpp>
+
+#include <android_view_inputmethod_ExtractedText.hpp>
+
+#include <android_view_inputmethod_CompletionInfo.hpp>
 
 #include <android_view_inputmethod_CorrectionInfo.hpp>
-#include <android_text_method_KeyListener.hpp>
-#include <android_view_inputmethod_EditorInfo.hpp>
-#include <android_view_ActionMode_Callback.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_widget_Scroller.hpp>
-#include <android_text_Spannable_Factory.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_inputmethod_CompletionInfo.hpp>
-#include <android_content_res_TypedArray.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_view_DragEvent.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_inputmethod_InputConnection.hpp>
-#include <android_text_Layout.hpp>
-#include <android_text_Editable_Factory.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_inputmethod_ExtractedTextRequest.hpp>
-#include <android_content_Context.hpp>
-#include <android_content_res_ColorStateList.hpp>
-#include <android_text_Editable.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_util_ArrayList.hpp>
+
 #include <android_text_TextUtils_TruncateAt.hpp>
-#include <android_widget_TextView_BufferType.hpp>
-#include <android_os_Parcelable.hpp>
-#include <java_util_Locale.hpp>
-#include <android_view_inputmethod_ExtractedText.hpp>
-#include <android_text_method_TransformationMethod.hpp>
-#include <android_text_method_MovementMethod.hpp>
-#include <android_graphics_Typeface.hpp>
+
 #include <android_text_TextWatcher.hpp>
-#include <android_text_TextPaint.hpp>
-#include <android_widget_TextView_OnEditorActionListener.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_widget_Scroller.hpp>
+
+#include <android_view_ActionMode_Callback.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -341,6 +383,80 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
+
+
+class android_os_Parcelable;
+
+class android_text_Layout;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class java_util_ArrayList;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
+
+class android_graphics_Rect;
+
+class android_view_DragEvent;
+
+class android_graphics_Typeface;
+
+class java_util_Locale;
+
+class android_text_Editable;
+
+class android_text_method_KeyListener;
+
+class android_text_method_MovementMethod;
+
+class android_text_method_TransformationMethod;
+
+class android_content_Context;
+
+class android_content_res_ColorStateList;
+
+class android_content_res_TypedArray;
+
+class android_text_TextPaint;
+
+class android_text_Editable_Factory;
+
+class android_text_Spannable_Factory;
+
+class android_widget_TextView_OnEditorActionListener;
+
+class java_lang_String;
+
+class android_os_Bundle;
+
+class android_view_inputmethod_ExtractedTextRequest;
+
+class android_view_inputmethod_ExtractedText;
+
+class android_view_inputmethod_CompletionInfo;
+
+class android_view_inputmethod_CorrectionInfo;
+
+
+class android_text_TextWatcher;
+
+class android_widget_Scroller;
+
+class android_view_ActionMode_Callback;
 
 class android_widget_TextView
 {

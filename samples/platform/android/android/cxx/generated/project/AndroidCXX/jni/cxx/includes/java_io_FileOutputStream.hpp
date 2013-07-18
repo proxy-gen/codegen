@@ -12,9 +12,14 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_io_FileOutputStream
 #define _java_io_FileOutputStream
+//
+// Scroll Down 
+//
+
 
 
 
@@ -22,7 +27,9 @@
 
 
 #include <java_io_FileDescriptor.hpp>
+
 #include <java_nio_channels_FileChannel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +41,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_io_FileDescriptor;
+
+class java_nio_channels_FileChannel;
 
 class java_io_FileOutputStream
 {

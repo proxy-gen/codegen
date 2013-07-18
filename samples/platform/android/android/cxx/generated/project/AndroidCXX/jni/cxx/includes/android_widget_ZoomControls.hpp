@@ -15,9 +15,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ZoomControls
 #define _android_widget_ZoomControls
+//
+// Scroll Down 
+//
 
 
 
@@ -30,11 +34,16 @@
 
 
 
+
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_view_View_OnClickListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_MotionEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,6 +55,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_View_OnClickListener;
 
 class android_widget_ZoomControls
 {

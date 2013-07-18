@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <java_nio_channels_WritableByteChannel.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jint Java_AndroidCXX_java_nio_channels_WritableByteChannel_write(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+int java_nio_channels_WritableByteChannel::write(java_nio_ByteBuffer& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

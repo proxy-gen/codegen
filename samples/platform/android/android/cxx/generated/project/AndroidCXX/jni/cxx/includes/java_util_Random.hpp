@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _java_util_Random
 #define _java_util_Random
+//
+// Scroll Down 
+//
+
 
 
 
@@ -34,6 +39,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class java_util_Random
 {

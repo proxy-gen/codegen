@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
 		
 
+// Generated Code 
 
 #ifndef _java_net_DatagramSocketImplFactory
 #define _java_net_DatagramSocketImplFactory
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_net_DatagramSocketImpl.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_net_DatagramSocketImpl;
+
 class java_net_DatagramSocketImplFactory
 {
 public:
-	java_net_DatagramSocketImpl createDatagramSocketImpl();
+ java_net_DatagramSocketImpl createDatagramSocketImpl();
 
 
 };

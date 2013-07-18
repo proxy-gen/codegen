@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_io_FilenameFilter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_io_FilenameFilter_accept(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+bool java_io_FilenameFilter::accept(java_io_File& arg0,java_lang_String& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

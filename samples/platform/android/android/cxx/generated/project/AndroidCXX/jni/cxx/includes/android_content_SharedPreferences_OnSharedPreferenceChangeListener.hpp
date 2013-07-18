@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_content_SharedPreferences_OnSharedPreferenceChangeListener
 #define _android_content_SharedPreferences_OnSharedPreferenceChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_content_SharedPreferences.hpp>
+
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_content_SharedPreferences;
+
+class java_lang_String;
+
 class android_content_SharedPreferences_OnSharedPreferenceChangeListener
 {
 public:
-	void onSharedPreferenceChanged(android_content_SharedPreferences& arg0,java_lang_String& arg1);
+ void onSharedPreferenceChanged(android_content_SharedPreferences& arg0,java_lang_String& arg1);
 
 
 };

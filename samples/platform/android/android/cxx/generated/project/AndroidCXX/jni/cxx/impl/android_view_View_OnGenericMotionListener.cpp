@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_View_OnGenericMotionListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_View_OnGenericMotionListener_onGenericMotion(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+bool android_view_View_OnGenericMotionListener::onGenericMotion(android_view_View& arg0,android_view_MotionEvent& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

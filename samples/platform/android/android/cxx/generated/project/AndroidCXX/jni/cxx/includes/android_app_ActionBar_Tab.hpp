@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -27,9 +27,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_ActionBar_Tab
 #define _android_app_ActionBar_Tab
+//
+// Scroll Down 
+//
+
 
 
 
@@ -46,10 +51,16 @@
 
 
 #include <java_lang_Object.hpp>
-#include <android_app_ActionBar_TabListener.hpp>
+
 #include <java_lang_CharSequence.hpp>
-#include <android_view_View.hpp>
+
+
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_app_ActionBar_TabListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,6 +72,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_CharSequence;
+
+
+class android_graphics_drawable_Drawable;
+
+class android_view_View;
+
+class android_app_ActionBar_TabListener;
 
 class android_app_ActionBar_Tab
 {

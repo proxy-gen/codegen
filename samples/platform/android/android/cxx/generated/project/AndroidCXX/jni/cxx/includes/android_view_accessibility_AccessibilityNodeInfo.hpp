@@ -1,5 +1,5 @@
 /*
- * Header (Singleton CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -42,9 +42,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_view_accessibility_AccessibilityNodeInfo
 #define _android_view_accessibility_AccessibilityNodeInfo
+//
+// Scroll Down 
+//
 
 
 
@@ -108,15 +112,25 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <java_util_List.hpp>
-#include <java_lang_Object.hpp>
-#include <android_os_Bundle.hpp>
+
 #include <android_graphics_Rect.hpp>
-#include <android_os_Parcel.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -128,6 +142,25 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class java_lang_CharSequence;
+
+class android_view_View;
+
+class android_os_Parcel;
+
+class android_os_Bundle;
+
+class java_util_List;
+
+class android_graphics_Rect;
 
 class android_view_accessibility_AccessibilityNodeInfo
 {

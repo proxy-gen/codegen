@@ -48,9 +48,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_RemoteViews
 #define _android_widget_RemoteViews
+//
+// Scroll Down 
+//
 
 
 
@@ -100,19 +104,33 @@
 
 
 
+
+
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+#include <android_view_View.hpp>
 
 #include <java_lang_Class.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_content_Context.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_content_Intent.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_os_Parcel.hpp>
-#include <android_view_View.hpp>
+
 #include <android_net_Uri.hpp>
+
 #include <android_app_PendingIntent.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -124,6 +142,33 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_String;
+
+class android_os_Parcel;
+
+class android_content_Intent;
+
+class java_lang_CharSequence;
+
+class android_graphics_Bitmap;
+
+class android_content_Context;
+
+class android_view_ViewGroup;
+
+class android_view_View;
+
+class java_lang_Class;
+
+class android_net_Uri;
+
+class android_app_PendingIntent;
+
+class android_os_Bundle;
 
 class android_widget_RemoteViews
 {

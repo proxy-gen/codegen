@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_lang_Thread_UncaughtExceptionHandler
 #define _java_lang_Thread_UncaughtExceptionHandler
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_Thread.hpp>
+
 #include <java_lang_Throwable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Thread;
+
+class java_lang_Throwable;
+
 class java_lang_Thread_UncaughtExceptionHandler
 {
 public:
-	void uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1);
+ void uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1);
 
 
 };

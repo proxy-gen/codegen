@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,16 +8,57 @@
 //
 
 
+
+		
+		
+		
+
+// Generated Code 
+
 #include <android_support_v4_app_FragmentManager_BackStackEntry.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getName(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getId(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getBreadCrumbTitleRes(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getBreadCrumbShortTitleRes(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getBreadCrumbTitle(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_support_v4_app_FragmentManager_BackStackEntry_getBreadCrumbShortTitle(JNIEnv *jni_env, jobject java_object);
-    
+java_lang_String android_support_v4_app_FragmentManager_BackStackEntry::getName()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int android_support_v4_app_FragmentManager_BackStackEntry::getId()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_support_v4_app_FragmentManager_BackStackEntry::getBreadCrumbTitleRes()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_support_v4_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitleRes()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_CharSequence android_support_v4_app_FragmentManager_BackStackEntry::getBreadCrumbTitle()
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+java_lang_CharSequence android_support_v4_app_FragmentManager_BackStackEntry::getBreadCrumbShortTitle()
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
 }

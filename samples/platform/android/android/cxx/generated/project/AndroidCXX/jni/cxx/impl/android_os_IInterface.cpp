@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <android_os_IInterface.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_os_IInterface_asBinder(JNIEnv *jni_env, jobject java_object);
-    
+android_os_IBinder android_os_IInterface::asBinder()
+{
+	// TODO: Implementation
+	android_os_IBinder result;
+
+	return result;
 }

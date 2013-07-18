@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,30 @@
 //
 
 
+
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_SurfaceHolder_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_Callback_surfaceCreated(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_Callback_surfaceChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_Callback_surfaceDestroyed(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_view_SurfaceHolder_Callback::surfaceCreated(android_view_SurfaceHolder& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder_Callback::surfaceChanged(android_view_SurfaceHolder& arg0,int& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder_Callback::surfaceDestroyed(android_view_SurfaceHolder& arg0)
+{
+	// TODO: Implementation
+
 }

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_animation_TimeInterpolator
 #define _android_animation_TimeInterpolator
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,10 +33,12 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_animation_TimeInterpolator
 {
 public:
-	float getInterpolation(float& arg0);
+ float getInterpolation(float& arg0);
 
 
 };

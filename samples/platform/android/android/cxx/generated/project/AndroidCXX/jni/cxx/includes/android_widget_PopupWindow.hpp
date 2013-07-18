@@ -20,9 +20,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_PopupWindow
 #define _android_widget_PopupWindow
+//
+// Scroll Down 
+//
 
 
 
@@ -59,11 +63,16 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_widget_PopupWindow_OnDismissListener.hpp>
-#include <android_view_View.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <android_view_View_OnTouchListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -75,6 +84,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_graphics_drawable_Drawable;
+
+class android_widget_PopupWindow_OnDismissListener;
+
+class android_view_View_OnTouchListener;
 
 class android_widget_PopupWindow
 {

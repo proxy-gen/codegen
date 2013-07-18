@@ -20,9 +20,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_support_v4_content_Loader
 #define _android_support_v4_content_Loader
+//
+// Scroll Down 
+//
 
 
 
@@ -42,13 +46,20 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
+
 #include <java_lang_Object.hpp>
-#include <android_content_Context.hpp>
-#include <java_lang_String.hpp>
-#include <java_io_FileDescriptor.hpp>
+
 #include <android_support_v4_content_Loader_OnLoadCompleteListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,6 +71,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_content_Context;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class java_lang_Object;
+
+class android_support_v4_content_Loader_OnLoadCompleteListener;
 
 class android_support_v4_content_Loader
 {

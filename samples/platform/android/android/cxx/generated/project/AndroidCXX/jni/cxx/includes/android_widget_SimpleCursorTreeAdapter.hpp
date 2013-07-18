@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,17 +14,25 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SimpleCursorTreeAdapter
 #define _android_widget_SimpleCursorTreeAdapter
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <android_widget_SimpleCursorTreeAdapter_ViewBinder.hpp>
+
 #include <android_widget_TextView.hpp>
+
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -36,6 +44,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_widget_SimpleCursorTreeAdapter_ViewBinder;
+
+class android_widget_TextView;
+
+class java_lang_String;
 
 class android_widget_SimpleCursorTreeAdapter
 {

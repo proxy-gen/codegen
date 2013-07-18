@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,15 +12,22 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_graphics_drawable_Drawable_ConstantState
 #define _android_graphics_drawable_Drawable_ConstantState
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_content_res_Resources.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,6 +39,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_res_Resources;
+
+class android_graphics_drawable_Drawable;
 
 class android_graphics_drawable_Drawable_ConstantState
 {

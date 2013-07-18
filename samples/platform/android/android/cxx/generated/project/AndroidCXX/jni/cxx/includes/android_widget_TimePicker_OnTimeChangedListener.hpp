@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_TimePicker_OnTimeChangedListener
 #define _android_widget_TimePicker_OnTimeChangedListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_TimePicker.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_TimePicker;
+
 class android_widget_TimePicker_OnTimeChangedListener
 {
 public:
-	void onTimeChanged(android_widget_TimePicker& arg0,int& arg1);
+ void onTimeChanged(android_widget_TimePicker& arg0,int& arg1);
 
 
 };

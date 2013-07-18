@@ -1,5 +1,5 @@
 /*
- * Implementation (Static CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,12 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_ExpandableListView_ExpandableListContextMenuInfo.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-}

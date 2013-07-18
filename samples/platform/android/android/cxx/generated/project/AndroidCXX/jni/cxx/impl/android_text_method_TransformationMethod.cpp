@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,30 @@
 //
 
 
+
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_text_method_TransformationMethod.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_text_method_TransformationMethod_getTransformation(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_text_method_TransformationMethod_onFocusChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jboolean& arg2,jint& arg3,jobject& arg4);
-    
+java_lang_CharSequence android_text_method_TransformationMethod::getTransformation(java_lang_CharSequence& arg0,android_view_View& arg1)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+void android_text_method_TransformationMethod::onFocusChanged(android_view_View& arg0,java_lang_CharSequence& arg1,bool& arg2,int& arg3,android_graphics_Rect& arg4)
+{
+	// TODO: Implementation
+
 }

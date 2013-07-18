@@ -24,9 +24,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_RectF
 #define _android_graphics_RectF
+//
+// Scroll Down 
+//
 
 
 
@@ -53,11 +57,17 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <android_graphics_Rect.hpp>
 
 #include <android_os_Parcel.hpp>
-#include <android_graphics_Rect.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,6 +79,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class android_graphics_Rect;
+
+class android_os_Parcel;
 
 class android_graphics_RectF
 {
@@ -83,7 +104,7 @@ public:
  void sort();
  void round(android_graphics_Rect& arg0);
 static bool intersects(android_graphics_RectF& arg0,float& arg1);
- void union(float& arg0,android_graphics_RectF& arg1);
+ void _union(float& arg0,android_graphics_RectF& arg1);
  int describeContents();
  void writeToParcel(android_os_Parcel& arg0,int& arg1);
  void readFromParcel(android_os_Parcel& arg0);

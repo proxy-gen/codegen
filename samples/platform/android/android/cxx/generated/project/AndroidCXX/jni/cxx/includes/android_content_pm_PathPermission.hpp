@@ -13,16 +13,23 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_content_pm_PathPermission
 #define _android_content_pm_PathPermission
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <android_os_Parcel.hpp>
+
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +41,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcel;
+
+class java_lang_String;
 
 class android_content_pm_PathPermission
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,9 +13,14 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_io_Writer
 #define _java_io_Writer
+//
+// Scroll Down 
+//
+
 
 
 
@@ -23,7 +28,10 @@
 
 
 #include <java_lang_CharSequence.hpp>
+
+
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -35,6 +43,13 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+
+class java_lang_String;
 
 class java_io_Writer
 {

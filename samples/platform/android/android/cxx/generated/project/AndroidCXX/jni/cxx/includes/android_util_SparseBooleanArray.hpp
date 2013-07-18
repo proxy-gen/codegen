@@ -11,9 +11,15 @@
 
 		
 
+// Generated Code 
 
 #ifndef _android_util_SparseBooleanArray
 #define _android_util_SparseBooleanArray
+//
+// Scroll Down 
+//
+
+
 
 
 
@@ -39,6 +45,9 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+
 class android_util_SparseBooleanArray
 {
 public:
@@ -48,7 +57,7 @@ public:
  android_util_SparseBooleanArray clone();
  void clear();
  int size();
- void delete(int& arg0);
+ void _delete(int& arg0);
  int keyAt(int& arg0);
  bool valueAt(int& arg0);
  int indexOfKey(int& arg0);

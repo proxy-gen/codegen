@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -51,9 +51,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_net_Uri
 #define _android_net_Uri
+//
+// Scroll Down 
+//
 
 
 
@@ -92,13 +96,20 @@
 
 
 
+
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_util_List.hpp>
-#include <java_lang_Object.hpp>
+
 #include <java_io_File.hpp>
+
 #include <java_util_Set.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -110,6 +121,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class java_util_List;
+
+class java_io_File;
+
+class java_util_Set;
 
 class android_net_Uri
 {

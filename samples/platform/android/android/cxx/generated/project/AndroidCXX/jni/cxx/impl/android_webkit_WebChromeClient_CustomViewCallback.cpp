@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_webkit_WebChromeClient_CustomViewCallback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_WebChromeClient_CustomViewCallback_onCustomViewHidden(JNIEnv *jni_env, jobject java_object);
-    
+void android_webkit_WebChromeClient_CustomViewCallback::onCustomViewHidden()
+{
+	// TODO: Implementation
+
 }

@@ -13,17 +13,25 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_View_DragShadowBuilder
 #define _android_view_View_DragShadowBuilder
+//
+// Scroll Down 
+//
 
 
 
 
+
+
+#include <android_view_View.hpp>
 
 #include <android_graphics_Point.hpp>
-#include <android_view_View.hpp>
+
 #include <android_graphics_Canvas.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -35,6 +43,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_graphics_Point;
+
+class android_graphics_Canvas;
 
 class android_view_View_DragShadowBuilder
 {

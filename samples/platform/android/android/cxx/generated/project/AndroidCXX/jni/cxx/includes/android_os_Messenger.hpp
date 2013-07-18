@@ -18,9 +18,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_os_Messenger
 #define _android_os_Messenger
+//
+// Scroll Down 
+//
 
 
 
@@ -30,11 +34,17 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <android_os_Message.hpp>
 
 #include <android_os_Parcel.hpp>
+
 #include <android_os_IBinder.hpp>
-#include <java_lang_Object.hpp>
-#include <android_os_Message.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,6 +56,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class android_os_Message;
+
+class android_os_Parcel;
+
+class android_os_IBinder;
+
 
 class android_os_Messenger
 {

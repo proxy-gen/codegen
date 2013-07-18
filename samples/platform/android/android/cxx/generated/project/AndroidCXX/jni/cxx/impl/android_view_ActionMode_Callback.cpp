@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,14 +8,45 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_ActionMode_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_ActionMode_Callback_onCreateActionMode(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_ActionMode_Callback_onPrepareActionMode(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_ActionMode_Callback_onActionItemClicked(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_view_ActionMode_Callback_onDestroyActionMode(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_view_ActionMode_Callback::onCreateActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_ActionMode_Callback::onPrepareActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_ActionMode_Callback::onActionItemClicked(android_view_ActionMode& arg0,android_view_MenuItem& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_view_ActionMode_Callback::onDestroyActionMode(android_view_ActionMode& arg0)
+{
+	// TODO: Implementation
+
 }

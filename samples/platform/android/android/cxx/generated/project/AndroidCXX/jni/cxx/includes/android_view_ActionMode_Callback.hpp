@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -17,18 +17,26 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_ActionMode_Callback
 #define _android_view_ActionMode_Callback
+//
+// Scroll Down 
+//
 
 
 
 
 
+
+
+#include <android_view_ActionMode.hpp>
 
 #include <android_view_Menu.hpp>
-#include <android_view_ActionMode.hpp>
+
 #include <android_view_MenuItem.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,13 +49,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_ActionMode;
+
+class android_view_Menu;
+
+class android_view_MenuItem;
+
 class android_view_ActionMode_Callback
 {
 public:
-	bool onCreateActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
-	bool onPrepareActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
-	bool onActionItemClicked(android_view_ActionMode& arg0,android_view_MenuItem& arg1);
-	void onDestroyActionMode(android_view_ActionMode& arg0);
+ bool onCreateActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
+ bool onPrepareActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
+ bool onActionItemClicked(android_view_ActionMode& arg0,android_view_MenuItem& arg1);
+ void onDestroyActionMode(android_view_ActionMode& arg0);
 
 
 };

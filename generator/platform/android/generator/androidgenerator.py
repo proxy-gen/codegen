@@ -241,198 +241,204 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_instance_code(self):
 		logging.debug("_generate_cxx_instance_code enter")
-		instance_classes = self.config_module.list_classes(tags=['_instance','_proxy'],xtags=['_singleton'],name=None)
-		for instance_class in instance_classes:
-			self.instance_class = instance_class
-			self.class_name = instance_class['name']
+		entity_classes = self.config_module.list_classes(tags=['_instance','_proxy'],xtags=['_singleton'],name=None)
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.instance_class_name = cxx_class_name
-			self.instance_head_file_name = self.instance_class_name + ".hpp"
-			logging.debug("instance_head_file_name " + str(self.instance_head_file_name))	
-			instance_file_path = os.path.join(self.header_outdir_name, self.instance_head_file_name)
-			if not os.path.exists(os.path.dirname(instance_file_path)):
-				os.makedirs(os.path.dirname(instance_file_path))
-			logging.debug("instance_file_path " + str(instance_file_path))	
-			self.instance_file = open(instance_file_path, "w+")
-			instance_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("instance_head_cxx " + str(instance_head_cxx))
-			self.instance_file.write(str(instance_head_cxx))
-			self.instance_file.close()
-			self.instance_file = None
-			self.instance_head_file_name = None
-			self.instance_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.instance_class = None	
-		for instance_class in instance_classes:
-			self.instance_class = instance_class
-			self.class_name = instance_class['name']
+			self.entity_class = None	
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.instance_class_name = cxx_class_name
-			self.instance_head_file_name = self.instance_class_name + ".hpp"
-			self.instance_impl_file_name = self.instance_class_name + ".cpp"
-			logging.debug("instance_impl_file_name " + str(self.instance_impl_file_name))		
-			instance_file_path = os.path.join(self.impl_outdir_name, self.instance_impl_file_name)
-			if not os.path.exists(os.path.dirname(instance_file_path)):
-				os.makedirs(os.path.dirname(instance_file_path))
-			logging.debug("instance_file_path " + str(instance_file_path))	
-			self.instance_file = open(instance_file_path, "w+")
-			instance_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("instance_impl_cxx " + str(instance_impl_cxx))
-			self.instance_file.write(str(instance_impl_cxx))
-			self.instance_file.close()
-			self.instance_file = None
-			self.instance_head_file_name = None
-			self.instance_impl_file_name = None
-			self.instance_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
+			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_impl_cxx " + str(entity_impl_cxx))
+			self.entity_file.write(str(entity_impl_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_impl_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.instance_class = None					
+			self.entity_class = None					
 		logging.debug("_generate_cxx_instance_code exit")
 
 	def _generate_cxx_abstract_code(self):
 		logging.debug("_generate_cxx_abstract_code enter")
-		abstract_classes = self.config_module.list_classes(tags=['_abstract','_proxy'],xtags=None,name=None)
-		for abstract_class in abstract_classes:
-			self.abstract_class = abstract_class
-			self.class_name = abstract_class['name']
+		entity_classes = self.config_module.list_classes(tags=['_abstract','_proxy'],xtags=None,name=None)
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.abstract_class_name = cxx_class_name
-			self.abstract_head_file_name = self.abstract_class_name + ".hpp"
-			logging.debug("abstract_head_file_name " + str(self.abstract_head_file_name))	
-			abstract_file_path = os.path.join(self.header_outdir_name, self.abstract_head_file_name)
-			if not os.path.exists(os.path.dirname(abstract_file_path)):
-				os.makedirs(os.path.dirname(abstract_file_path))
-			logging.debug("abstract_file_path " + str(abstract_file_path))	
-			self.abstract_file = open(abstract_file_path, "w+")
-			abstract_head_cxx = Template(file=os.path.join(self.target, "templates", "abstract.hpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("abstract_head_cxx " + str(abstract_head_cxx))
-			self.abstract_file.write(str(abstract_head_cxx))
-			self.abstract_file.close()
-			self.abstract_file = None
-			self.abstract_head_file_name = None
-			self.abstract_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			# TODO: replace template name
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.abstract_class = None	
-		for abstract_class in abstract_classes:
-			self.abstract_class = abstract_class
-			self.class_name = abstract_class['name']
+			self.entity_class = None	
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.abstract_class_name = cxx_class_name
-			self.abstract_head_file_name = self.abstract_class_name + ".hpp"
-			self.abstract_impl_file_name = self.abstract_class_name + ".cpp"
-			logging.debug("abstract_impl_file_name " + str(self.abstract_impl_file_name))		
-			abstract_file_path = os.path.join(self.impl_outdir_name, self.abstract_impl_file_name)
-			if not os.path.exists(os.path.dirname(abstract_file_path)):
-				os.makedirs(os.path.dirname(abstract_file_path))
-			logging.debug("abstract_file_path " + str(abstract_file_path))	
-			self.abstract_file = open(abstract_file_path, "w+")
-			abstract_impl_cxx = Template(file=os.path.join(self.target, "templates", "abstract.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("abstract_impl_cxx " + str(abstract_impl_cxx))
-			self.abstract_file.write(str(abstract_impl_cxx))
-			self.abstract_file.close()
-			self.abstract_file = None
-			self.abstract_head_file_name = None
-			self.abstract_impl_file_name = None
-			self.abstract_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
+			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_impl_cxx " + str(entity_impl_cxx))
+			self.entity_file.write(str(entity_impl_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_impl_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.abstract_class = None					
+			self.entity_class = None					
 		logging.debug("_generate_cxx_abstract_code exit")
 
 	def _generate_cxx_static_code(self):
 		logging.debug("_generate_cxx_static_code enter")
-		static_classes = self.config_module.list_classes(tags=['_static','_proxy'],xtags=None,name=None)
-		for static_class in static_classes:
-			self.static_class = static_class
-			self.class_name = static_class['name']
+		entity_classes = self.config_module.list_classes(tags=['_static','_proxy'],xtags=None,name=None)
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.static_class_name = cxx_class_name
-			self.static_head_file_name = self.static_class_name + ".hpp"
-			logging.debug("static_head_file_name " + str(self.static_head_file_name))	
-			static_file_path = os.path.join(self.header_outdir_name, self.static_head_file_name)
-			if not os.path.exists(os.path.dirname(static_file_path)):
-				os.makedirs(os.path.dirname(static_file_path))
-			logging.debug("static_file_path " + str(static_file_path))	
-			self.static_file = open(static_file_path, "w+")
-			static_head_cxx = Template(file=os.path.join(self.target, "templates", "static.hpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("static_head_cxx " + str(static_head_cxx))
-			self.static_file.write(str(static_head_cxx))
-			self.static_file.close()
-			self.static_file = None
-			self.static_head_file_name = None
-			self.static_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.static_class = None	
-		for static_class in static_classes:
-			self.static_class = static_class
-			self.class_name = static_class['name']
+			self.entity_class = None	
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.static_class_name = cxx_class_name
-			self.static_head_file_name = self.static_class_name + ".hpp"
-			self.static_impl_file_name = self.static_class_name + ".cpp"
-			logging.debug("static_impl_file_name " + str(self.static_impl_file_name))		
-			static_file_path = os.path.join(self.impl_outdir_name, self.static_impl_file_name)
-			if not os.path.exists(os.path.dirname(static_file_path)):
-				os.makedirs(os.path.dirname(static_file_path))
-			logging.debug("static_file_path " + str(static_file_path))	
-			self.static_file = open(static_file_path, "w+")
-			static_impl_cxx = Template(file=os.path.join(self.target, "templates", "static.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("static_impl_cxx " + str(static_impl_cxx))
-			self.static_file.write(str(static_impl_cxx))
-			self.static_file.close()
-			self.static_file = None
-			self.static_head_file_name = None
-			self.static_impl_file_name = None
-			self.static_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
+			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_impl_cxx " + str(entity_impl_cxx))
+			self.entity_file.write(str(entity_impl_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_impl_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.static_class = None					
+			self.entity_class = None					
 		logging.debug("_generate_cxx_static_code exit")				
 
 	def _generate_cxx_singleton_code(self):
 		logging.debug("_generate_cxx_singleton_code enter")
-		singleton_classes = self.config_module.list_classes(tags=['_singleton','_proxy'],xtags=None,name=None)
-		for singleton_class in singleton_classes:
-			self.singleton_class = singleton_class
-			self.class_name = singleton_class['name']
+		entity_classes = self.config_module.list_classes(tags=['_singleton','_proxy'],xtags=None,name=None)
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.singleton_class_name = cxx_class_name
-			self.singleton_head_file_name = self.singleton_class_name + ".hpp"
-			logging.debug("singleton_head_file_name " + str(self.singleton_head_file_name))	
-			singleton_file_path = os.path.join(self.header_outdir_name, self.singleton_head_file_name)
-			if not os.path.exists(os.path.dirname(singleton_file_path)):
-				os.makedirs(os.path.dirname(singleton_file_path))
-			logging.debug("singleton_file_path " + str(singleton_file_path))	
-			self.singleton_file = open(singleton_file_path, "w+")
-			singleton_head_cxx = Template(file=os.path.join(self.target, "templates", "singleton.hpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("singleton_head_cxx " + str(singleton_head_cxx))
-			self.singleton_file.write(str(singleton_head_cxx))
-			self.singleton_file.close()
-			self.singleton_file = None
-			self.singleton_head_file_name = None
-			self.singleton_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.singleton_class = None	
-		for singleton_class in singleton_classes:
-			self.singleton_class = singleton_class
-			self.class_name = singleton_class['name']
+			self.entity_class = None	
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.singleton_class_name = cxx_class_name
-			self.singleton_head_file_name = self.singleton_class_name + ".hpp"
-			self.singleton_impl_file_name = self.singleton_class_name + ".cpp"
-			logging.debug("singleton_impl_file_name " + str(self.singleton_impl_file_name))		
-			singleton_file_path = os.path.join(self.impl_outdir_name, self.singleton_impl_file_name)
-			if not os.path.exists(os.path.dirname(singleton_file_path)):
-				os.makedirs(os.path.dirname(singleton_file_path))
-			logging.debug("singleton_file_path " + str(singleton_file_path))	
-			self.singleton_file = open(singleton_file_path, "w+")
-			singleton_impl_cxx = Template(file=os.path.join(self.target, "templates", "singleton.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("singleton_impl_cxx " + str(singleton_impl_cxx))
-			self.singleton_file.write(str(singleton_impl_cxx))
-			self.singleton_file.close()
-			self.singleton_file = None
-			self.singleton_head_file_name = None
-			self.singleton_impl_file_name = None
-			self.singleton_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
+			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_impl_cxx " + str(entity_impl_cxx))
+			self.entity_file.write(str(entity_impl_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_impl_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.singleton_class = None					
+			self.entity_class = None					
 		logging.debug("_generate_cxx_singleton_code exit")		
 
 	def _generate_cxx_enum_code(self):
@@ -486,51 +492,53 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_callbacks_code(self):
 		logging.debug("_generate_cxx_callbacks_code enter")
-		callback_classes = self.config_module.list_classes(tags=['_callback','_proxy'],xtags=None,name=None)
-		for callback_class in callback_classes:
-			self.callback_class = callback_class
-			self.class_name = callback_class['name']
+		entity_classes = self.config_module.list_classes(tags=['_callback','_proxy'],xtags=None,name=None)
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.callback_class_name = cxx_class_name
-			self.callback_head_file_name = self.callback_class_name + ".hpp"
-			logging.debug("callback_head_file_name " + str(self.callback_head_file_name))		
-			callback_file_path = os.path.join(self.header_outdir_name, self.callback_head_file_name)
-			if not os.path.exists(os.path.dirname(callback_file_path)):
-				os.makedirs(os.path.dirname(callback_file_path))
-			logging.debug("callback_file_path " + str(callback_file_path))	
-			self.callback_file = open(callback_file_path, "w+")
-			callback_head_cxx = Template(file=os.path.join(self.target, "templates", "callback.hpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("callback_head_cxx " + str(callback_head_cxx))
-			self.callback_file.write(str(callback_head_cxx))
-			self.callback_file.close()
-			self.callback_file = None
-			self.callback_head_file_name = None
-			self.callback_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))		
+			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.callback_class = None			
-		for callback_class in callback_classes:
-			self.callback_class = callback_class
-			self.class_name = callback_class['name']
+			self.entity_class = None			
+		for entity_class in entity_classes:
+			self.entity_class = entity_class
+			self.class_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.callback_class_name = cxx_class_name
-			self.callback_head_file_name = self.callback_class_name + ".hpp"
-			self.callback_impl_file_name = self.callback_class_name + ".cpp"
-			logging.debug("callback_impl_file_name " + str(self.callback_impl_file_name))		
-			callback_file_path = os.path.join(self.impl_outdir_name, self.callback_impl_file_name)
-			if not os.path.exists(os.path.dirname(callback_file_path)):
-				os.makedirs(os.path.dirname(callback_file_path))
-			logging.debug("callback_file_path " + str(callback_file_path))	
-			self.callback_file = open(callback_file_path, "w+")
-			callback_impl_cxx = Template(file=os.path.join(self.target, "templates", "callback.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("callback_impl_cxx " + str(callback_impl_cxx))
-			self.callback_file.write(str(callback_impl_cxx))
-			self.callback_file.close()
-			self.callback_file = None
-			self.callback_head_file_name = None
-			self.callback_impl_file_name = None
-			self.callback_class_name = None
+			self.entity_class_name = cxx_class_name
+			self.entity_head_file_name = self.entity_class_name + ".hpp"
+			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
+			entity_file_path = os.path.join(self.impl_outdir_name, self.entity_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			#TODO: replace template name
+			entity_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_impl_cxx " + str(entity_impl_cxx))
+			self.entity_file.write(str(entity_impl_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.entity_head_file_name = None
+			self.entity_impl_file_name = None
+			self.entity_class_name = None
 			self.class_name = None
-			self.callback_class = None
+			self.entity_class = None
 		logging.debug("_generate_cxx_callbacks_code exit")
  
 	def _generate_java_code(self):
@@ -1082,6 +1090,9 @@ class ConfigModule(object):
 	def to_class_name(cls, class_name):
 		return Utils.to_class_name(class_name)
 
+	def to_safe_cxx_name(cls, cxx_name):
+		return Utils.to_safe_cxx_name(cxx_name)
+
 	def to_file_name(cls, base_name, extension):
 		file_name = ".".join([base_name, extension])
 		return file_name
@@ -1137,6 +1148,93 @@ class ConfigModule(object):
 
 class Utils(object):
 
+	cxx_reserved_names = ( 	
+							'alignas', 			# C++11
+							'alignof',			# C++11
+							'and', 		
+							'and_eq',
+							'asm',
+							'auto',
+							'bitand',
+							'bitor',
+							'bool',
+							'break',
+							'case',
+							'catch',
+							'char',
+							'char16_t',			# C++11
+							'char32_t',			# C++11
+							'class',
+							'compl',
+							'const',
+							'constexpr',		# C++11
+							'const_cast',
+							'continue',
+							'decltype',			# C++11
+							'default',			
+							'delete',		
+							'do',
+							'double',
+							'dynamic_cast',
+							'else',
+							'enum',
+							'explicit',
+							'export',
+							'extern',
+							'false',
+							'float',
+							'for',
+							'friend',
+							'goto',
+							'if',
+							'inline',
+							'int',
+							'long',
+							'mutable',
+							'namespace',
+							'new',
+							'noexcept',			# C++11
+							'not',
+							'not_eq',
+							'nullptr'			# C++11
+							'operator',
+							'or',
+							'or_eq',
+							'private',
+							'protected',
+							'public',
+							'register',
+							'reinterpret_cast',
+							'return',
+							'short',
+							'signed',
+							'sizeof',
+							'static',
+							'static_assert',	# C++11
+							'static_cast',
+							'struct',
+							'switch',
+							'template',
+							'this',
+							'thread_local',		# C++11
+							'throw',
+							'true',
+							'try',
+							'typedef',
+							'typeid',
+							'typename',
+							'union',
+							'unsigned',
+							'using',
+							'virtual',
+							'void',
+							'volatile',
+							'wchar_t',
+							'while',
+							'xor',
+							'xor_eq',
+						)
+
 	@classmethod
 	def to_resource_name(cls, class_name):
 		return class_name.replace('.', '/')
@@ -1146,5 +1244,12 @@ class Utils(object):
 		class_name = class_name.replace('.','_')
 		class_name = class_name.replace('$','_')
 		return class_name
+
+	@classmethod
+	def to_safe_cxx_name(cls, cxx_name):
+		if cxx_name in Utils.cxx_reserved_names:
+			return '_' + cxx_name
+		return cxx_name
+
 
 

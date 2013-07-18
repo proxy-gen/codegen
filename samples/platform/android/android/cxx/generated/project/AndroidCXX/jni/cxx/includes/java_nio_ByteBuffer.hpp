@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -36,9 +36,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_nio_ByteBuffer
 #define _java_nio_ByteBuffer
+//
+// Scroll Down 
+//
 
 
 
@@ -76,16 +80,27 @@
 
 
 
+
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_nio_ByteOrder.hpp>
-#include <java_nio_LongBuffer.hpp>
-#include <java_nio_DoubleBuffer.hpp>
-#include <java_lang_Object.hpp>
-#include <java_nio_FloatBuffer.hpp>
-#include <java_nio_ShortBuffer.hpp>
-#include <java_nio_IntBuffer.hpp>
+
 #include <java_nio_CharBuffer.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_nio_ShortBuffer.hpp>
+
+#include <java_nio_IntBuffer.hpp>
+
+#include <java_nio_LongBuffer.hpp>
+
+#include <java_nio_FloatBuffer.hpp>
+
+#include <java_nio_DoubleBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -97,6 +112,27 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_nio_ByteOrder;
+
+class java_nio_CharBuffer;
+
+class java_nio_ShortBuffer;
+
+class java_nio_IntBuffer;
+
+class java_nio_LongBuffer;
+
+class java_nio_FloatBuffer;
+
+class java_nio_DoubleBuffer;
 
 class java_nio_ByteBuffer
 {

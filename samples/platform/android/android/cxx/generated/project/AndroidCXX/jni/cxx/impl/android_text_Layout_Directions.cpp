@@ -1,5 +1,5 @@
 /*
- * Implementation (Static CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,12 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_text_Layout_Directions.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-}

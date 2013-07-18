@@ -12,15 +12,22 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_AbsoluteLayout
 #define _android_widget_AbsoluteLayout
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_util_AttributeSet.hpp>
+
 #include <android_view_ViewGroup_LayoutParams.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,6 +39,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_AttributeSet;
+
+class android_view_ViewGroup_LayoutParams;
 
 class android_widget_AbsoluteLayout
 {

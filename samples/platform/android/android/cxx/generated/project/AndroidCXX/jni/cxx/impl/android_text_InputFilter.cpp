@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,22 @@
 //
 
 
+
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_text_InputFilter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_text_InputFilter_filter(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1,jobject& arg2);
-    
+java_lang_CharSequence android_text_InputFilter::filter(java_lang_CharSequence& arg0,int& arg1,android_text_Spanned& arg2)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
 }

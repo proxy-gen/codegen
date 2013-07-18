@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,9 +12,14 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_lang_CharSequence
 #define _java_lang_CharSequence
+//
+// Scroll Down 
+//
+
 
 
 
@@ -22,6 +27,8 @@
 
 
 #include <java_lang_String.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,13 +41,18 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+
 class java_lang_CharSequence
 {
 public:
-	java_lang_String toString();
-	int length();
-	char charAt(int& arg0);
-	java_lang_CharSequence subSequence(int& arg0);
+ java_lang_String toString();
+ int length();
+ char charAt(int& arg0);
+ java_lang_CharSequence subSequence(int& arg0);
 
 
 };

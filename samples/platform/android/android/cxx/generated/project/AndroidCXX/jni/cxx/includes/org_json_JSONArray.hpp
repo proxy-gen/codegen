@@ -27,9 +27,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _org_json_JSONArray
 #define _org_json_JSONArray
+//
+// Scroll Down 
+//
 
 
 
@@ -55,10 +59,15 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+
+#include <java_lang_String.hpp>
 
 #include <org_json_JSONObject.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -70,6 +79,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+
+class java_lang_String;
+
+class org_json_JSONObject;
 
 class org_json_JSONArray
 {

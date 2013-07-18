@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_ExpandableListView_OnGroupCollapseListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_ExpandableListView_OnGroupCollapseListener_onGroupCollapse(JNIEnv *jni_env, jobject java_object,jint& arg0);
-    
+void android_widget_ExpandableListView_OnGroupCollapseListener::onGroupCollapse(int& arg0)
+{
+	// TODO: Implementation
+
 }

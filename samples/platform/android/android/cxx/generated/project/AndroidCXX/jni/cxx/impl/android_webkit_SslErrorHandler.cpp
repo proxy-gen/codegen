@@ -1,5 +1,5 @@
 /*
- * Implementation (Abstract CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_webkit_SslErrorHandler.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
+
+void android_webkit_SslErrorHandler::cancel()
+{
+	// TODO: Implementation
+
+}
+void android_webkit_SslErrorHandler::proceed()
+{
+	// TODO: Implementation
 
 }

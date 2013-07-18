@@ -20,9 +20,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_HeaderViewListAdapter
 #define _android_widget_HeaderViewListAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -42,13 +46,20 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+#include <android_widget_Filter.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_database_DataSetObserver.hpp>
 
 #include <android_widget_ListAdapter.hpp>
-#include <java_lang_Object.hpp>
-#include <android_widget_Filter.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_view_View.hpp>
-#include <android_database_DataSetObserver.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,6 +71,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
+class android_widget_Filter;
+
+class java_lang_Object;
+
+class android_database_DataSetObserver;
+
+class android_widget_ListAdapter;
 
 class android_widget_HeaderViewListAdapter
 {

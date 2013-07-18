@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,28 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_util_Comparator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Comparator_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Comparator_compare(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool java_util_Comparator::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Comparator::compare(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

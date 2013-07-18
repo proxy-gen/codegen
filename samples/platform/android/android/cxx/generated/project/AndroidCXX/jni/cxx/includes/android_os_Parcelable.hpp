@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,14 +11,20 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_os_Parcelable
 #define _android_os_Parcelable
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_os_Parcel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,11 +37,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_os_Parcel;
+
 class android_os_Parcelable
 {
 public:
-	int describeContents();
-	void writeToParcel(android_os_Parcel& arg0,int& arg1);
+ int describeContents();
+ void writeToParcel(android_os_Parcel& arg0,int& arg1);
 
 
 };

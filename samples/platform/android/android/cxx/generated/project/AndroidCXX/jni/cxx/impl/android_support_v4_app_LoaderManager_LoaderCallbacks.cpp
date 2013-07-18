@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,34 @@
 //
 
 
+
+ 			
+		
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_support_v4_app_LoaderManager_LoaderCallbacks.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_support_v4_app_LoaderManager_LoaderCallbacks_onCreateLoader(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_support_v4_app_LoaderManager_LoaderCallbacks_onLoadFinished(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_support_v4_app_LoaderManager_LoaderCallbacks_onLoaderReset(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+android_support_v4_content_Loader android_support_v4_app_LoaderManager_LoaderCallbacks::onCreateLoader(int& arg0,android_os_Bundle& arg1)
+{
+	// TODO: Implementation
+	android_support_v4_content_Loader result;
+
+	return result;
+}
+void android_support_v4_app_LoaderManager_LoaderCallbacks::onLoadFinished(android_support_v4_content_Loader& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_support_v4_app_LoaderManager_LoaderCallbacks::onLoaderReset(android_support_v4_content_Loader& arg0)
+{
+	// TODO: Implementation
+
 }

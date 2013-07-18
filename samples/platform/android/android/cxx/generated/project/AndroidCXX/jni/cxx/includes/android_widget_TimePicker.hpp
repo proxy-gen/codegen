@@ -20,9 +20,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_widget_TimePicker
 #define _android_widget_TimePicker
+//
+// Scroll Down 
+//
 
 
 
@@ -38,12 +42,18 @@
 
 
 
+
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_widget_TimePicker_OnTimeChangedListener.hpp>
-#include <java_lang_Boolean.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <java_lang_Integer.hpp>
+
+#include <java_lang_Boolean.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,6 +65,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_TimePicker_OnTimeChangedListener;
+
+class java_lang_Integer;
+
+class java_lang_Boolean;
 
 class android_widget_TimePicker
 {

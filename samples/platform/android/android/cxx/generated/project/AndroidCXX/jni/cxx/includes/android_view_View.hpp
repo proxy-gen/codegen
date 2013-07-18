@@ -134,9 +134,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_View
 #define _android_view_View
+//
+// Scroll Down 
+//
 
 
 
@@ -483,61 +487,117 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_content_res_Resources.hpp>
+
+#include <android_view_ViewParent.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_os_Handler.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+
+#include <java_lang_Object.hpp>
+
+#include <android_graphics_Rect.hpp>
 
 #include <android_util_SparseArray.hpp>
-#include <android_view_KeyEvent_DispatcherState.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_view_View_DragShadowBuilder.hpp>
-#include <android_view_View_OnTouchListener.hpp>
-#include <android_view_ActionMode.hpp>
-#include <android_content_res_Resources.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_view_ViewPropertyAnimator.hpp>
-#include <android_view_View_OnClickListener.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_view_View_OnDragListener.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_View_OnSystemUiVisibilityChangeListener.hpp>
-#include <android_view_View_OnFocusChangeListener.hpp>
-#include <android_view_View_AccessibilityDelegate.hpp>
-#include <java_lang_Object.hpp>
-#include <android_view_DragEvent.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_inputmethod_InputConnection.hpp>
+
 #include <android_os_IBinder.hpp>
-#include <android_os_Handler.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_ContextMenu.hpp>
-#include <android_graphics_Paint.hpp>
-#include <android_content_Context.hpp>
-#include <android_graphics_Point.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_view_View_OnKeyListener.hpp>
-#include <android_view_View_OnHoverListener.hpp>
-#include <android_graphics_Matrix.hpp>
-#include <java_lang_Runnable.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_view_ActionMode_Callback.hpp>
-#include <android_content_ClipData.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_accessibility_AccessibilityNodeProvider.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_util_ArrayList.hpp>
-#include <android_view_Display.hpp>
-#include <android_view_animation_Animation.hpp>
-#include <android_view_ViewGroup_LayoutParams.hpp>
-#include <android_view_inputmethod_EditorInfo.hpp>
-#include <android_view_ViewParent.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_view_View_OnLongClickListener.hpp>
+
 #include <android_view_View_OnCreateContextMenuListener.hpp>
-#include <android_view_View_OnGenericMotionListener.hpp>
-#include <android_view_View_OnAttachStateChangeListener.hpp>
-#include <android_view_ViewTreeObserver.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_view_animation_Animation.hpp>
+
+#include <java_lang_Runnable.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_ActionMode_Callback.hpp>
+
+#include <android_view_ActionMode.hpp>
+
+#include <java_util_ArrayList.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_DragEvent.hpp>
+
+#include <android_view_ViewPropertyAnimator.hpp>
+
+#include <android_view_ContextMenu.hpp>
+
+#include <android_view_View_OnFocusChangeListener.hpp>
+
 #include <android_view_View_OnLayoutChangeListener.hpp>
+
+#include <android_view_View_OnAttachStateChangeListener.hpp>
+
+#include <android_view_View_OnClickListener.hpp>
+
+#include <android_view_View_OnLongClickListener.hpp>
+
+#include <android_view_View_OnKeyListener.hpp>
+
+#include <android_view_View_OnTouchListener.hpp>
+
+#include <android_view_View_OnGenericMotionListener.hpp>
+
+#include <android_view_View_OnHoverListener.hpp>
+
+#include <android_view_View_OnDragListener.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_View_AccessibilityDelegate.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeProvider.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_view_KeyEvent_DispatcherState.hpp>
+
+#include <android_view_inputmethod_EditorInfo.hpp>
+
+#include <android_view_inputmethod_InputConnection.hpp>
+
 #include <android_view_TouchDelegate.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_graphics_Matrix.hpp>
+
+#include <android_graphics_Point.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_view_Display.hpp>
+
+#include <android_graphics_Paint.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_graphics_Canvas.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_ViewTreeObserver.hpp>
+
+#include <android_view_View_OnSystemUiVisibilityChangeListener.hpp>
+
+#include <android_content_ClipData.hpp>
+
+#include <android_view_View_DragShadowBuilder.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -549,6 +609,117 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_content_res_Resources;
+
+class android_view_ViewParent;
+
+class android_content_Context;
+
+class android_os_Handler;
+
+class android_view_ViewGroup;
+
+
+class java_lang_Object;
+
+class android_graphics_Rect;
+
+class android_util_SparseArray;
+
+class android_os_IBinder;
+
+class android_view_View_OnCreateContextMenuListener;
+
+class android_content_res_Configuration;
+
+class android_view_animation_Animation;
+
+class java_lang_Runnable;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_ActionMode_Callback;
+
+class android_view_ActionMode;
+
+class java_util_ArrayList;
+
+class java_lang_CharSequence;
+
+class android_view_DragEvent;
+
+class android_view_ViewPropertyAnimator;
+
+class android_view_ContextMenu;
+
+class android_view_View_OnFocusChangeListener;
+
+class android_view_View_OnLayoutChangeListener;
+
+class android_view_View_OnAttachStateChangeListener;
+
+class android_view_View_OnClickListener;
+
+class android_view_View_OnLongClickListener;
+
+class android_view_View_OnKeyListener;
+
+class android_view_View_OnTouchListener;
+
+class android_view_View_OnGenericMotionListener;
+
+class android_view_View_OnHoverListener;
+
+class android_view_View_OnDragListener;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_View_AccessibilityDelegate;
+
+class android_view_accessibility_AccessibilityNodeProvider;
+
+class android_os_Bundle;
+
+class android_view_KeyEvent_DispatcherState;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
+
+class android_view_TouchDelegate;
+
+class android_graphics_Matrix;
+
+class android_graphics_Point;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_view_Display;
+
+class android_graphics_Paint;
+
+class android_graphics_Bitmap;
+
+class android_graphics_Canvas;
+
+class android_graphics_drawable_Drawable;
+
+class android_view_ViewTreeObserver;
+
+class android_view_View_OnSystemUiVisibilityChangeListener;
+
+class android_content_ClipData;
+
+class android_view_View_DragShadowBuilder;
 
 class android_view_View
 {

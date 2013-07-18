@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,14 +8,40 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_HeterogeneousExpandableList.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jint Java_AndroidCXX_android_widget_HeterogeneousExpandableList_getGroupType(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_HeterogeneousExpandableList_getChildType(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_HeterogeneousExpandableList_getGroupTypeCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_HeterogeneousExpandableList_getChildTypeCount(JNIEnv *jni_env, jobject java_object);
-    
+int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_HeterogeneousExpandableList::getChildType(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_HeterogeneousExpandableList::getGroupTypeCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_HeterogeneousExpandableList::getChildTypeCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

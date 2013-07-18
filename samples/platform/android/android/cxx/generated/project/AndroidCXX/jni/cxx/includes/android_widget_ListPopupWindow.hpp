@@ -26,9 +26,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_ListPopupWindow
 #define _android_widget_ListPopupWindow
+//
+// Scroll Down 
+//
 
 
 
@@ -75,16 +79,26 @@
 
 
 
+
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_widget_PopupWindow_OnDismissListener.hpp>
 
 #include <android_widget_ListAdapter.hpp>
-#include <android_widget_AdapterView_OnItemSelectedListener.hpp>
-#include <java_lang_Object.hpp>
-#include <android_widget_PopupWindow_OnDismissListener.hpp>
-#include <android_widget_ListView.hpp>
+
 #include <android_view_View.hpp>
+
 #include <android_widget_AdapterView_OnItemClickListener.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_KeyEvent.hpp>
+
+#include <android_widget_AdapterView_OnItemSelectedListener.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_widget_ListView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -96,6 +110,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_KeyEvent;
+
+class android_graphics_drawable_Drawable;
+
+class android_widget_PopupWindow_OnDismissListener;
+
+class android_widget_ListAdapter;
+
+class android_view_View;
+
+class android_widget_AdapterView_OnItemClickListener;
+
+class android_widget_AdapterView_OnItemSelectedListener;
+
+class java_lang_Object;
+
+class android_widget_ListView;
 
 class android_widget_ListPopupWindow
 {

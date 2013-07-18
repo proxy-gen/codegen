@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,15 +8,56 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_text_method_KeyListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_text_method_KeyListener_onKeyDown(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jint& arg2,jobject& arg3);
-JNIEXPORT jboolean Java_AndroidCXX_android_text_method_KeyListener_onKeyUp(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jint& arg2,jobject& arg3);
-JNIEXPORT jint Java_AndroidCXX_android_text_method_KeyListener_getInputType(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_text_method_KeyListener_onKeyOther(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2);
-JNIEXPORT void Java_AndroidCXX_android_text_method_KeyListener_clearMetaKeyState(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jint& arg2);
-    
+bool android_text_method_KeyListener::onKeyDown(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_text_method_KeyListener::onKeyUp(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int android_text_method_KeyListener::getInputType()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+bool android_text_method_KeyListener::onKeyOther(android_view_View& arg0,android_text_Editable& arg1,android_view_KeyEvent& arg2)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_text_method_KeyListener::clearMetaKeyState(android_view_View& arg0,android_text_Editable& arg1,int& arg2)
+{
+	// TODO: Implementation
+
 }

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,30 @@
 //
 
 
+
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_animation_Animation_AnimationListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_animation_Animation_AnimationListener_onAnimationStart(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_animation_Animation_AnimationListener_onAnimationEnd(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_animation_Animation_AnimationListener_onAnimationRepeat(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_view_animation_Animation_AnimationListener::onAnimationStart(android_view_animation_Animation& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_animation_Animation_AnimationListener::onAnimationEnd(android_view_animation_Animation& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_animation_Animation_AnimationListener::onAnimationRepeat(android_view_animation_Animation& arg0)
+{
+	// TODO: Implementation
+
 }

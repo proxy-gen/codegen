@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_util_Comparator
 #define _java_util_Comparator
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,11 +38,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class java_util_Comparator
 {
 public:
-	bool equals(java_lang_Object& arg0);
-	int compare(java_lang_Object& arg0);
+ bool equals(java_lang_Object& arg0);
+ int compare(java_lang_Object& arg0);
 
 
 };

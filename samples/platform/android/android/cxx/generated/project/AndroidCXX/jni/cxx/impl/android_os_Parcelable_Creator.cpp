@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,28 @@
 //
 
 
+
+ 			
+		
+
+// Generated Code 
+
 #include <android_os_Parcelable_Creator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobjectArray Java_AndroidCXX_android_os_Parcelable_Creator_newArray(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_os_Parcelable_Creator_createFromParcel(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+std::vector<long> android_os_Parcelable_Creator::newArray(int& arg0)
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+java_lang_Object android_os_Parcelable_Creator::createFromParcel(android_os_Parcel& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
 }

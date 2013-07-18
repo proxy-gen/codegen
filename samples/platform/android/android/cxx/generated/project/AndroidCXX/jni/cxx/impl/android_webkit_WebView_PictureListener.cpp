@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_webkit_WebView_PictureListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_WebView_PictureListener_onNewPicture(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+void android_webkit_WebView_PictureListener::onNewPicture(android_webkit_WebView& arg0,android_graphics_Picture& arg1)
+{
+	// TODO: Implementation
+
 }

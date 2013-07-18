@@ -22,9 +22,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_VideoView
 #define _android_widget_VideoView
+//
+// Scroll Down 
+//
 
 
 
@@ -52,18 +56,30 @@
 
 
 
+
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_net_Uri.hpp>
 
 #include <android_widget_MediaController.hpp>
-#include <android_view_MotionEvent.hpp>
+
 #include <android_media_MediaPlayer_OnPreparedListener.hpp>
+
 #include <android_media_MediaPlayer_OnCompletionListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <android_media_MediaPlayer_OnErrorListener.hpp>
+
 #include <android_media_MediaPlayer_OnInfoListener.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_net_Uri.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -75,6 +91,30 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class java_lang_String;
+
+class android_net_Uri;
+
+class android_widget_MediaController;
+
+class android_media_MediaPlayer_OnPreparedListener;
+
+class android_media_MediaPlayer_OnCompletionListener;
+
+class android_media_MediaPlayer_OnErrorListener;
+
+class android_media_MediaPlayer_OnInfoListener;
 
 class android_widget_VideoView
 {

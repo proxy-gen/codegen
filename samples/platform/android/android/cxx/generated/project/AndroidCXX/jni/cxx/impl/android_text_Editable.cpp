@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,18 +8,69 @@
 //
 
 
+
+ 			
+		
+ 			
+		
+		
+ 			
+		
+
+// Generated Code 
+
 #include <android_text_Editable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_text_Editable_append(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1,jchar& arg2);
-JNIEXPORT void Java_AndroidCXX_android_text_Editable_clear(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_text_Editable_replace(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_text_Editable_delete(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_text_Editable_insert(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_text_Editable_clearSpans(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_text_Editable_setFilters(JNIEnv *jni_env, jobject java_object,jobjectArray& arg0);
-JNIEXPORT jobjectArray Java_AndroidCXX_android_text_Editable_getFilters(JNIEnv *jni_env, jobject java_object);
-    
+android_text_Editable android_text_Editable::append(java_lang_CharSequence& arg0,int& arg1,char& arg2)
+{
+	// TODO: Implementation
+	android_text_Editable result;
+
+	return result;
+}
+void android_text_Editable::clear()
+{
+	// TODO: Implementation
+
+}
+android_text_Editable android_text_Editable::replace(int& arg0,java_lang_CharSequence& arg1)
+{
+	// TODO: Implementation
+	android_text_Editable result;
+
+	return result;
+}
+android_text_Editable android_text_Editable::_delete(int& arg0)
+{
+	// TODO: Implementation
+	android_text_Editable result;
+
+	return result;
+}
+android_text_Editable android_text_Editable::insert(int& arg0,java_lang_CharSequence& arg1)
+{
+	// TODO: Implementation
+	android_text_Editable result;
+
+	return result;
+}
+void android_text_Editable::clearSpans()
+{
+	// TODO: Implementation
+
+}
+void android_text_Editable::setFilters(std::vector<long>& arg0)
+{
+	// TODO: Implementation
+
+}
+std::vector<long> android_text_Editable::getFilters()
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
 }

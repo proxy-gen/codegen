@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -78,9 +78,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_ViewGroup
 #define _android_view_ViewGroup
+//
+// Scroll Down 
+//
 
 
 
@@ -172,27 +176,48 @@
 
 
 
+
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_ActionMode_Callback.hpp>
+
+#include <android_view_ActionMode.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <java_util_ArrayList.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_graphics_Point.hpp>
-#include <android_view_ViewGroup_LayoutParams.hpp>
-#include <android_view_DragEvent.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_view_ActionMode.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
-#include <android_view_animation_LayoutAnimationController.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_animation_LayoutTransition.hpp>
-#include <android_view_ActionMode_Callback.hpp>
-#include <android_view_animation_Animation_AnimationListener.hpp>
-#include <android_view_View.hpp>
-#include <android_graphics_Region.hpp>
+
 #include <java_lang_CharSequence.hpp>
-#include <android_view_KeyEvent.hpp>
+
+#include <android_view_DragEvent.hpp>
+
+#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
+
+#include <android_animation_LayoutTransition.hpp>
+
 #include <android_view_ViewParent.hpp>
+
+#include <android_graphics_Point.hpp>
+
+#include <android_view_animation_LayoutAnimationController.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_graphics_Region.hpp>
+
+#include <android_view_animation_Animation_AnimationListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -204,6 +229,48 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_res_Configuration;
+
+class android_view_View;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class android_view_ActionMode_Callback;
+
+class android_view_ActionMode;
+
+class android_graphics_Rect;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class java_util_ArrayList;
+
+class java_lang_CharSequence;
+
+class android_view_DragEvent;
+
+class android_view_ViewGroup_OnHierarchyChangeListener;
+
+class android_animation_LayoutTransition;
+
+class android_view_ViewParent;
+
+class android_graphics_Point;
+
+class android_view_animation_LayoutAnimationController;
+
+class android_util_AttributeSet;
+
+class android_graphics_Region;
+
+class android_view_animation_Animation_AnimationListener;
 
 class android_view_ViewGroup
 {

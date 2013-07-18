@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,22 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_content_ContentProvider_PipeDataWriter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_content_ContentProvider_PipeDataWriter_writeDataToPipe(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2,jobject& arg3,jobject& arg4);
-    
+void android_content_ContentProvider_PipeDataWriter::writeDataToPipe(android_os_ParcelFileDescriptor& arg0,android_net_Uri& arg1,java_lang_String& arg2,android_os_Bundle& arg3,java_lang_Object& arg4)
+{
+	// TODO: Implementation
+
 }

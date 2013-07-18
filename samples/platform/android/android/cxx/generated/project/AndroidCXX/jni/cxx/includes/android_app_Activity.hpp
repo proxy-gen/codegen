@@ -142,9 +142,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_Activity
 #define _android_app_Activity
+//
+// Scroll Down 
+//
 
 
 
@@ -290,49 +294,93 @@
 
 
 
+
+
+
+#include <java_lang_String.hpp>
+
+#include <java_io_FileDescriptor.hpp>
+
+#include <java_io_PrintWriter.hpp>
+
+#include <android_app_FragmentManager.hpp>
+
+#include <android_app_LoaderManager.hpp>
+
+#include <android_content_Intent.hpp>
 
 #include <android_os_Bundle.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_view_ActionMode_Callback.hpp>
-#include <android_content_Intent.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <android_app_Application.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_app_FragmentManager.hpp>
-#include <java_io_PrintWriter.hpp>
-#include <java_lang_Object.hpp>
-#include <android_view_MenuItem.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_Window.hpp>
-#include <android_content_SharedPreferences.hpp>
-#include <android_view_MenuInflater.hpp>
-#include <android_view_Menu.hpp>
-#include <android_app_Fragment.hpp>
-#include <android_view_WindowManager_LayoutParams.hpp>
-#include <android_app_PendingIntent.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_ContextMenu.hpp>
-#include <android_content_ComponentName.hpp>
-#include <android_database_Cursor.hpp>
-#include <android_content_Context.hpp>
+
 #include <android_view_LayoutInflater.hpp>
-#include <android_app_ActionBar.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_app_LoaderManager.hpp>
-#include <android_view_ActionMode.hpp>
-#include <java_lang_Runnable.hpp>
-#include <android_view_WindowManager.hpp>
-#include <android_view_ContextMenu_ContextMenuInfo.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <android_net_Uri.hpp>
-#include <android_view_ViewGroup_LayoutParams.hpp>
-#include <android_content_IntentSender.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_app_TaskStackBuilder.hpp>
+
 #include <android_view_View.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_view_Menu.hpp>
+
+#include <android_view_MenuItem.hpp>
+
+#include <android_view_ContextMenu.hpp>
+
+#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
+#include <android_app_Fragment.hpp>
+
+#include <android_view_Window.hpp>
+
+#include <android_content_IntentSender.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MenuInflater.hpp>
+
+#include <android_app_Application.hpp>
+
+#include <android_view_WindowManager.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_graphics_Canvas.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_net_Uri.hpp>
+
+#include <android_database_Cursor.hpp>
+
+#include <android_app_ActionBar.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_WindowManager_LayoutParams.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_app_TaskStackBuilder.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_content_ComponentName.hpp>
+
+#include <android_app_PendingIntent.hpp>
+
+#include <android_content_SharedPreferences.hpp>
+
+#include <java_lang_Runnable.hpp>
+
+#include <android_view_ActionMode_Callback.hpp>
+
+#include <android_view_ActionMode.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -344,6 +392,93 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_String;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_app_FragmentManager;
+
+class android_app_LoaderManager;
+
+class android_content_Intent;
+
+class android_os_Bundle;
+
+class android_view_LayoutInflater;
+
+class android_view_View;
+
+class android_content_Context;
+
+class android_util_AttributeSet;
+
+class android_content_res_Configuration;
+
+class android_view_Menu;
+
+class android_view_MenuItem;
+
+class android_view_ContextMenu;
+
+class android_view_ContextMenu_ContextMenuInfo;
+
+class android_app_Fragment;
+
+class android_view_Window;
+
+class android_content_IntentSender;
+
+class java_lang_Object;
+
+class android_view_KeyEvent;
+
+class android_view_MenuInflater;
+
+class android_app_Application;
+
+class android_view_WindowManager;
+
+class android_graphics_Bitmap;
+
+class android_graphics_Canvas;
+
+class java_lang_CharSequence;
+
+class android_net_Uri;
+
+class android_database_Cursor;
+
+class android_app_ActionBar;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_view_MotionEvent;
+
+class android_view_WindowManager_LayoutParams;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_app_TaskStackBuilder;
+
+class android_graphics_drawable_Drawable;
+
+class android_content_ComponentName;
+
+class android_app_PendingIntent;
+
+class android_content_SharedPreferences;
+
+class java_lang_Runnable;
+
+class android_view_ActionMode_Callback;
+
+class android_view_ActionMode;
 
 class android_app_Activity
 {

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_content_IntentSender_OnFinished.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_content_IntentSender_OnFinished_onSendFinished(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jint& arg2,jobject& arg3,jobject& arg4);
-    
+void android_content_IntentSender_OnFinished::onSendFinished(android_content_IntentSender& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4)
+{
+	// TODO: Implementation
+
 }

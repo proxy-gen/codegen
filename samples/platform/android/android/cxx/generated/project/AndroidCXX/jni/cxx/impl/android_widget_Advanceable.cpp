@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_Advanceable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_Advanceable_advance(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_Advanceable_fyiWillBeAdvancedByHostKThx(JNIEnv *jni_env, jobject java_object);
-    
+void android_widget_Advanceable::advance()
+{
+	// TODO: Implementation
+
+}
+void android_widget_Advanceable::fyiWillBeAdvancedByHostKThx()
+{
+	// TODO: Implementation
+
 }

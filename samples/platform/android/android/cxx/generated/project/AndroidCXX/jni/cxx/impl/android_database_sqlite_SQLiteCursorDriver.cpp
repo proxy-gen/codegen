@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,15 +8,42 @@
 //
 
 
+
+ 			
+		
+ 			
+
+// Generated Code 
+
 #include <android_database_sqlite_SQLiteCursorDriver.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_database_sqlite_SQLiteCursorDriver_query(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobjectArray& arg1);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteCursorDriver_cursorDeactivated(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteCursorDriver_cursorRequeried(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteCursorDriver_cursorClosed(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteCursorDriver_setBindArguments(JNIEnv *jni_env, jobject java_object,jobjectArray& arg0);
-    
+android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<long>& arg1)
+{
+	// TODO: Implementation
+	android_database_Cursor result;
+
+	return result;
+}
+void android_database_sqlite_SQLiteCursorDriver::cursorDeactivated()
+{
+	// TODO: Implementation
+
+}
+void android_database_sqlite_SQLiteCursorDriver::cursorRequeried(android_database_Cursor& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_database_sqlite_SQLiteCursorDriver::cursorClosed()
+{
+	// TODO: Implementation
+
+}
+void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<long>& arg0)
+{
+	// TODO: Implementation
+
 }

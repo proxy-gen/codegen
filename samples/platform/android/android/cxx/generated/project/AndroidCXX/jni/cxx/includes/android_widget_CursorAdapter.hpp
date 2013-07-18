@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -39,9 +39,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_widget_CursorAdapter
 #define _android_widget_CursorAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -60,15 +64,24 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+#include <android_widget_Filter.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <android_database_Cursor.hpp>
-#include <android_content_Context.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_view_View.hpp>
-#include <android_widget_FilterQueryProvider.hpp>
+
 #include <java_lang_CharSequence.hpp>
-#include <android_widget_Filter.hpp>
-#include <java_lang_Object.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_widget_FilterQueryProvider.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -80,6 +93,24 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
+class android_widget_Filter;
+
+class java_lang_Object;
+
+class android_database_Cursor;
+
+class java_lang_CharSequence;
+
+class android_content_Context;
+
+class android_widget_FilterQueryProvider;
 
 class android_widget_CursorAdapter
 {

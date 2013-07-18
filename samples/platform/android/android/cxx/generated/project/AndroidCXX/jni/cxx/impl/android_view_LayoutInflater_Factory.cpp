@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,23 @@
 //
 
 
+
+ 			
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_view_LayoutInflater_Factory.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_view_LayoutInflater_Factory_onCreateView(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2);
-    
+android_view_View android_view_LayoutInflater_Factory::onCreateView(java_lang_String& arg0,android_content_Context& arg1,android_util_AttributeSet& arg2)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
 }

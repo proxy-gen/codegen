@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_view_View_OnLongClickListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_View_OnLongClickListener_onLongClick(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_view_View_OnLongClickListener::onLongClick(android_view_View& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

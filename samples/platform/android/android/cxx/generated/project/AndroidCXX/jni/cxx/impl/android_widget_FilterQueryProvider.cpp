@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+		
+
+// Generated Code 
+
 #include <android_widget_FilterQueryProvider.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_widget_FilterQueryProvider_runQuery(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+android_database_Cursor android_widget_FilterQueryProvider::runQuery(java_lang_CharSequence& arg0)
+{
+	// TODO: Implementation
+	android_database_Cursor result;
+
+	return result;
 }

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -31,9 +31,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_support_v4_app_FragmentManager
 #define _android_support_v4_app_FragmentManager
+//
+// Scroll Down 
+//
 
 
 
@@ -51,16 +55,26 @@
 
 
 
+
+
+#include <android_os_Bundle.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_support_v4_app_Fragment.hpp>
+
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_support_v4_app_Fragment.hpp>
+
 #include <android_support_v4_app_FragmentTransaction.hpp>
-#include <android_support_v4_app_Fragment_SavedState.hpp>
+
 #include <android_support_v4_app_FragmentManager_BackStackEntry.hpp>
+
 #include <android_support_v4_app_FragmentManager_OnBackStackChangedListener.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_support_v4_app_Fragment_SavedState.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -72,6 +86,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Bundle;
+
+class java_lang_String;
+
+class android_support_v4_app_Fragment;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_support_v4_app_FragmentTransaction;
+
+class android_support_v4_app_FragmentManager_BackStackEntry;
+
+class android_support_v4_app_FragmentManager_OnBackStackChangedListener;
+
+class android_support_v4_app_Fragment_SavedState;
 
 class android_support_v4_app_FragmentManager
 {

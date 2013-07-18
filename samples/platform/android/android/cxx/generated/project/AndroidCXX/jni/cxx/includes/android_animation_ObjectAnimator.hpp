@@ -34,9 +34,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_ObjectAnimator
 #define _android_animation_ObjectAnimator
+//
+// Scroll Down 
+//
 
 
 
@@ -55,12 +59,18 @@
 
 
 
+
+
+
+#include <android_util_Property.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_lang_Object.hpp>
+
 #include <android_animation_TypeEvaluator.hpp>
-#include <java_lang_String.hpp>
-#include <android_util_Property.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -72,6 +82,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_Property;
+
+class java_lang_String;
+
+
+class java_lang_Object;
+
+class android_animation_TypeEvaluator;
 
 class android_animation_ObjectAnimator
 {

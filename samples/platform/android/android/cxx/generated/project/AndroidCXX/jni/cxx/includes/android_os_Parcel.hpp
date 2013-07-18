@@ -1,5 +1,5 @@
 /*
- * Header (Singleton CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -64,9 +64,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_os_Parcel
 #define _android_os_Parcel
+//
+// Scroll Down 
+//
 
 
 
@@ -164,25 +168,45 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_ClassLoader.hpp>
+
+#include <android_os_ParcelFileDescriptor.hpp>
+
+#include <java_io_FileDescriptor.hpp>
+
+
+#include <android_os_IBinder.hpp>
+
+#include <android_os_IInterface.hpp>
+
+#include <java_util_Map.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <java_util_List.hpp>
 
 #include <android_util_SparseArray.hpp>
-#include <java_util_ArrayList.hpp>
-#include <java_util_List.hpp>
-#include <android_os_IInterface.hpp>
-#include <java_lang_Object.hpp>
-#include <android_os_Bundle.hpp>
-#include <java_util_Map.hpp>
-#include <java_io_Serializable.hpp>
-#include <android_os_Parcelable.hpp>
-#include <java_lang_Exception.hpp>
-#include <android_os_ParcelFileDescriptor.hpp>
-#include <java_lang_ClassLoader.hpp>
+
 #include <android_util_SparseBooleanArray.hpp>
-#include <android_os_IBinder.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <android_os_Parcelable_Creator.hpp>
+
+#include <android_os_Parcelable.hpp>
+
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Exception.hpp>
+
 #include <java_util_HashMap.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_util_ArrayList.hpp>
+
+#include <android_os_Parcelable_Creator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -194,6 +218,45 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Object;
+
+class java_lang_ClassLoader;
+
+class android_os_ParcelFileDescriptor;
+
+class java_io_FileDescriptor;
+
+
+class android_os_IBinder;
+
+class android_os_IInterface;
+
+class java_util_Map;
+
+class android_os_Bundle;
+
+class java_util_List;
+
+class android_util_SparseArray;
+
+class android_util_SparseBooleanArray;
+
+class android_os_Parcelable;
+
+class java_io_Serializable;
+
+class java_lang_Exception;
+
+class java_util_HashMap;
+
+class java_util_ArrayList;
+
+class android_os_Parcelable_Creator;
 
 class android_os_Parcel
 {

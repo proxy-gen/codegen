@@ -16,9 +16,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_GridLayout
 #define _android_widget_GridLayout
+//
+// Scroll Down 
+//
+
 
 
 
@@ -41,11 +46,17 @@
 
 
 #include <android_util_AttributeSet.hpp>
-#include <android_widget_GridLayout_Alignment.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_widget_GridLayout_Spec.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_widget_GridLayout_LayoutParams.hpp>
+
+#include <android_widget_GridLayout_Alignment.hpp>
+
+#include <android_widget_GridLayout_Spec.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,6 +68,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_AttributeSet;
+
+class android_widget_GridLayout_LayoutParams;
+
+class android_widget_GridLayout_Alignment;
+
+class android_widget_GridLayout_Spec;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_GridLayout
 {

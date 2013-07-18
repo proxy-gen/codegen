@@ -25,9 +25,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_LayoutTransition
 #define _android_animation_LayoutTransition
+//
+// Scroll Down 
+//
 
 
 
@@ -52,13 +56,20 @@
 
 
 
+
+
+#include <android_animation_TimeInterpolator.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_animation_Animator.hpp>
+
+#include <android_animation_LayoutTransition_TransitionListener.hpp>
 
 #include <java_util_List.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_animation_TimeInterpolator.hpp>
-#include <android_animation_Animator.hpp>
-#include <android_view_View.hpp>
-#include <android_animation_LayoutTransition_TransitionListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -70,6 +81,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_animation_TimeInterpolator;
+
+class android_view_ViewGroup;
+
+class android_view_View;
+
+class android_animation_Animator;
+
+class android_animation_LayoutTransition_TransitionListener;
+
+class java_util_List;
 
 class android_animation_LayoutTransition
 {

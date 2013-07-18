@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,14 +8,43 @@
 //
 
 
+
+ 			
+		
+		
+
+// Generated Code 
+
 #include <java_lang_annotation_Annotation.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_lang_annotation_Annotation_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_lang_annotation_Annotation_toString(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_lang_annotation_Annotation_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_lang_annotation_Annotation_annotationType(JNIEnv *jni_env, jobject java_object);
-    
+bool java_lang_annotation_Annotation::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_String java_lang_annotation_Annotation::toString()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int java_lang_annotation_Annotation::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_Class java_lang_annotation_Annotation::annotationType()
+{
+	// TODO: Implementation
+	java_lang_Class result;
+
+	return result;
 }

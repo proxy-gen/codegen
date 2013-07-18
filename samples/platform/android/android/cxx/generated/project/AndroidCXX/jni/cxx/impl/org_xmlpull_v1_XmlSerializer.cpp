@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,33 +8,177 @@
 //
 
 
+
+ 			
+ 			
+ 			
+		
+		
+ 			
+ 			
+		
+ 			
+		
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+		
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <org_xmlpull_v1_XmlSerializer.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_setProperty(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getProperty(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getName(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_flush(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_comment(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getPrefix(JNIEnv *jni_env, jobject java_object,jobject& arg0,jboolean& arg1);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_text(JNIEnv *jni_env, jobject java_object,jobject& arg0,jcharArray& arg1,jint& arg2);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_setFeature(JNIEnv *jni_env, jobject java_object,jobject& arg0,jboolean& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getFeature(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getNamespace(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_getDepth(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_setOutput(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_startDocument(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_endDocument(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_setPrefix(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_startTag(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_attribute(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_endTag(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_cdsect(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_entityRef(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_processingInstruction(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_docdecl(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlSerializer_ignorableWhitespace(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void org_xmlpull_v1_XmlSerializer::setProperty(java_lang_String& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+
+}
+java_lang_Object org_xmlpull_v1_XmlSerializer::getProperty(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlSerializer::getName()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlSerializer::flush()
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::comment(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+java_lang_String org_xmlpull_v1_XmlSerializer::getPrefix(java_lang_String& arg0,bool& arg1)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(java_lang_String& arg0,std::vector<char>& arg1,int& arg2)
+{
+	// TODO: Implementation
+	org_xmlpull_v1_XmlSerializer result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlSerializer::setFeature(java_lang_String& arg0,bool& arg1)
+{
+	// TODO: Implementation
+
+}
+bool org_xmlpull_v1_XmlSerializer::getFeature(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlSerializer::getNamespace()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlSerializer::getDepth()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlSerializer::setOutput(java_io_OutputStream& arg0,java_lang_String& arg1,java_io_Writer& arg2)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::startDocument(java_lang_String& arg0,java_lang_Boolean& arg1)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::endDocument()
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::setPrefix(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::startTag(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	org_xmlpull_v1_XmlSerializer result;
+
+	return result;
+}
+org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::attribute(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	org_xmlpull_v1_XmlSerializer result;
+
+	return result;
+}
+org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::endTag(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	org_xmlpull_v1_XmlSerializer result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlSerializer::cdsect(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::entityRef(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::processingInstruction(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::docdecl(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+void org_xmlpull_v1_XmlSerializer::ignorableWhitespace(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
 }

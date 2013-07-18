@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_Scroller
 #define _android_widget_Scroller
+//
+// Scroll Down 
+//
+
 
 
 
@@ -45,6 +50,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_widget_Scroller
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -20,9 +20,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_support_v4_app_LoaderManager
 #define _android_support_v4_app_LoaderManager
+//
+// Scroll Down 
+//
 
 
 
@@ -31,13 +35,20 @@
 
 
 
+
+
+#include <android_support_v4_content_Loader.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
+
 #include <android_os_Bundle.hpp>
+
 #include <android_support_v4_app_LoaderManager_LoaderCallbacks.hpp>
-#include <android_support_v4_content_Loader.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,6 +60,20 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_support_v4_content_Loader;
+
+class java_lang_String;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_os_Bundle;
+
+class android_support_v4_app_LoaderManager_LoaderCallbacks;
 
 class android_support_v4_app_LoaderManager
 {

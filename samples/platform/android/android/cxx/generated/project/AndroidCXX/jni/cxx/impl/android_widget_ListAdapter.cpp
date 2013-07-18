@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,26 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_ListAdapter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ListAdapter_isEnabled(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ListAdapter_areAllItemsEnabled(JNIEnv *jni_env, jobject java_object);
-    
+bool android_widget_ListAdapter::isEnabled(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_widget_ListAdapter::areAllItemsEnabled()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

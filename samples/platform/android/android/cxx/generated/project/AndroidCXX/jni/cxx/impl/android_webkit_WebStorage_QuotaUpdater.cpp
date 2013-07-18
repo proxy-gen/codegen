@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_webkit_WebStorage_QuotaUpdater.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_WebStorage_QuotaUpdater_updateQuota(JNIEnv *jni_env, jobject java_object,jlong& arg0);
-    
+void android_webkit_WebStorage_QuotaUpdater::updateQuota(long& arg0)
+{
+	// TODO: Implementation
+
 }

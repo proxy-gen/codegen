@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,44 +8,267 @@
 //
 
 
+
+ 			
+ 			
+ 			
+		
+		
+ 			
+ 			
+ 			
+		
+ 			
+		
+		
+		
+		
+ 			
+ 			
+		
+ 			
+		
+		
+ 			
+		
+		
+		
+		
+ 			
+		
+
+// Generated Code 
+
 #include <org_xmlpull_v1_XmlPullParser.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_setProperty(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getProperty(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getName(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_next(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getLineNumber(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_isWhitespace(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_nextToken(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_setInput(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getPrefix(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributeValue(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getText(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getPositionDescription(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributeCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributeName(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_setFeature(JNIEnv *jni_env, jobject java_object,jobject& arg0,jboolean& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getFeature(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getInputEncoding(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_defineEntityReplacementText(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getNamespaceCount(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getNamespacePrefix(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getNamespaceUri(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getNamespace(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getDepth(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getColumnNumber(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jcharArray Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getTextCharacters(JNIEnv *jni_env, jobject java_object,jintArray& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_isEmptyElementTag(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributeNamespace(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributePrefix(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getAttributeType(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_isAttributeDefault(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_getEventType(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_require(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_nextText(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_org_xmlpull_v1_XmlPullParser_nextTag(JNIEnv *jni_env, jobject java_object);
-    
+void org_xmlpull_v1_XmlPullParser::setProperty(java_lang_String& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+
+}
+java_lang_Object org_xmlpull_v1_XmlPullParser::getProperty(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getName()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::next()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::getLineNumber()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+bool org_xmlpull_v1_XmlPullParser::isWhitespace()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::nextToken()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlPullParser::setInput(java_io_InputStream& arg0,java_lang_String& arg1,java_io_Reader& arg2)
+{
+	// TODO: Implementation
+
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getPrefix()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeValue(java_lang_String& arg0,int& arg1)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getText()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getPositionDescription()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::getAttributeCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeName(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlPullParser::setFeature(java_lang_String& arg0,bool& arg1)
+{
+	// TODO: Implementation
+
+}
+bool org_xmlpull_v1_XmlPullParser::getFeature(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getInputEncoding()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlPullParser::defineEntityReplacementText(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
+}
+int org_xmlpull_v1_XmlPullParser::getNamespaceCount(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getNamespacePrefix(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getNamespaceUri(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getNamespace(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::getDepth()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::getColumnNumber()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+std::vector<char> org_xmlpull_v1_XmlPullParser::getTextCharacters(std::vector<int>& arg0)
+{
+	// TODO: Implementation
+	std::vector<char> result;
+
+	return result;
+}
+bool org_xmlpull_v1_XmlPullParser::isEmptyElementTag()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeNamespace(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getAttributePrefix(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::getAttributeType(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+bool org_xmlpull_v1_XmlPullParser::isAttributeDefault(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::getEventType()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void org_xmlpull_v1_XmlPullParser::require(int& arg0,java_lang_String& arg1)
+{
+	// TODO: Implementation
+
+}
+java_lang_String org_xmlpull_v1_XmlPullParser::nextText()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+int org_xmlpull_v1_XmlPullParser::nextTag()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

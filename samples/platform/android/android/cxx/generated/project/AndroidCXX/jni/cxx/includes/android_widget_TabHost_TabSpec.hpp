@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -18,20 +18,32 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_TabHost_TabSpec
 #define _android_widget_TabHost_TabSpec
+//
+// Scroll Down 
+//
 
 
 
+
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_View.hpp>
 
 
 #include <android_widget_TabHost_TabContentFactory.hpp>
+
 #include <android_content_Intent.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_String.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,6 +55,21 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
+
+class android_view_View;
+
+
+class android_widget_TabHost_TabContentFactory;
+
+class android_content_Intent;
 
 class android_widget_TabHost_TabSpec
 {

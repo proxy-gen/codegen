@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_webkit_ValueCallback
 #define _android_webkit_ValueCallback
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class android_webkit_ValueCallback
 {
 public:
-	void onReceiveValue(java_lang_Object& arg0);
+ void onReceiveValue(java_lang_Object& arg0);
 
 
 };

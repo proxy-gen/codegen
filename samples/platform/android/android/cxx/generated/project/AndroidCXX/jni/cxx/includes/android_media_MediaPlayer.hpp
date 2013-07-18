@@ -35,9 +35,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_media_MediaPlayer
 #define _android_media_MediaPlayer
+//
+// Scroll Down 
+//
 
 
 
@@ -80,22 +84,39 @@
 
 
 
+
+
+#include <android_content_Context.hpp>
+
+#include <android_net_Uri.hpp>
+
+#include <android_view_SurfaceHolder.hpp>
+
+
+#include <android_media_MediaPlayer_OnPreparedListener.hpp>
+
+#include <android_media_MediaPlayer_OnCompletionListener.hpp>
+
+#include <android_media_MediaPlayer_OnErrorListener.hpp>
+
+#include <android_media_MediaPlayer_OnInfoListener.hpp>
+
+#include <android_view_Surface.hpp>
 
 #include <java_io_FileDescriptor.hpp>
-#include <android_view_Surface.hpp>
-#include <android_content_Context.hpp>
-#include <java_util_Map.hpp>
-#include <android_media_MediaPlayer_OnTimedTextListener.hpp>
-#include <android_media_MediaPlayer_OnPreparedListener.hpp>
-#include <android_view_SurfaceHolder.hpp>
-#include <android_media_MediaPlayer_OnCompletionListener.hpp>
-#include <android_media_MediaPlayer_OnErrorListener.hpp>
-#include <android_media_MediaPlayer_OnInfoListener.hpp>
-#include <android_media_MediaPlayer_OnSeekCompleteListener.hpp>
-#include <android_media_MediaPlayer_OnVideoSizeChangedListener.hpp>
-#include <android_net_Uri.hpp>
-#include <android_media_MediaPlayer_OnBufferingUpdateListener.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <java_util_Map.hpp>
+
+#include <android_media_MediaPlayer_OnBufferingUpdateListener.hpp>
+
+#include <android_media_MediaPlayer_OnSeekCompleteListener.hpp>
+
+#include <android_media_MediaPlayer_OnVideoSizeChangedListener.hpp>
+
+#include <android_media_MediaPlayer_OnTimedTextListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -107,6 +128,39 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Context;
+
+class android_net_Uri;
+
+class android_view_SurfaceHolder;
+
+
+class android_media_MediaPlayer_OnPreparedListener;
+
+class android_media_MediaPlayer_OnCompletionListener;
+
+class android_media_MediaPlayer_OnErrorListener;
+
+class android_media_MediaPlayer_OnInfoListener;
+
+class android_view_Surface;
+
+class java_io_FileDescriptor;
+
+class java_lang_String;
+
+class java_util_Map;
+
+class android_media_MediaPlayer_OnBufferingUpdateListener;
+
+class android_media_MediaPlayer_OnSeekCompleteListener;
+
+class android_media_MediaPlayer_OnVideoSizeChangedListener;
+
+class android_media_MediaPlayer_OnTimedTextListener;
 
 class android_media_MediaPlayer
 {

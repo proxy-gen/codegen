@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -24,9 +24,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_TaskStackBuilder
 #define _android_app_TaskStackBuilder
+//
+// Scroll Down 
+//
 
 
 
@@ -37,14 +41,23 @@
 
 
 
+
+
+#include <android_content_Context.hpp>
+
+
+#include <android_os_Bundle.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_app_Activity.hpp>
+
+#include <java_lang_Class.hpp>
 
 #include <android_content_ComponentName.hpp>
-#include <java_lang_Class.hpp>
-#include <android_content_Context.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_content_Intent.hpp>
+
 #include <android_app_PendingIntent.hpp>
-#include <android_app_Activity.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,6 +69,23 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Context;
+
+
+class android_os_Bundle;
+
+class android_content_Intent;
+
+class android_app_Activity;
+
+class java_lang_Class;
+
+class android_content_ComponentName;
+
+class android_app_PendingIntent;
 
 class android_app_TaskStackBuilder
 {

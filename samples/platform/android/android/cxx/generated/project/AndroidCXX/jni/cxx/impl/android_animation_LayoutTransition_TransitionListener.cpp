@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,28 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_animation_LayoutTransition_TransitionListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_animation_LayoutTransition_TransitionListener_startTransition(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2,jint& arg3);
-JNIEXPORT void Java_AndroidCXX_android_animation_LayoutTransition_TransitionListener_endTransition(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2,jint& arg3);
-    
+void android_animation_LayoutTransition_TransitionListener::startTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3)
+{
+	// TODO: Implementation
+
+}
+void android_animation_LayoutTransition_TransitionListener::endTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3)
+{
+	// TODO: Implementation
+
 }

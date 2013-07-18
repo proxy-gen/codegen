@@ -21,9 +21,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_util_ArrayList
 #define _java_util_ArrayList
+//
+// Scroll Down 
+//
 
 
 
@@ -40,9 +44,12 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
 
 #include <java_util_Collection.hpp>
-#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +61,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_util_Collection;
 
 class java_util_ArrayList
 {

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_webkit_GeolocationPermissions_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_GeolocationPermissions_Callback_invoke(JNIEnv *jni_env, jobject java_object,jobject& arg0,jboolean& arg1);
-    
+void android_webkit_GeolocationPermissions_Callback::invoke(java_lang_String& arg0,bool& arg1)
+{
+	// TODO: Implementation
+
 }

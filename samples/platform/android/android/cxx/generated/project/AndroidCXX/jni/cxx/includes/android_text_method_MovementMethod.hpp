@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -32,9 +32,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_text_method_MovementMethod
 #define _android_text_method_MovementMethod
+//
+// Scroll Down 
+//
 
 
 
@@ -45,11 +49,16 @@
 
 
 
+
+
+#include <android_widget_TextView.hpp>
 
 #include <android_text_Spannable.hpp>
-#include <android_widget_TextView.hpp>
-#include <android_view_MotionEvent.hpp>
+
 #include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,18 +71,28 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_TextView;
+
+class android_text_Spannable;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
 class android_text_method_MovementMethod
 {
 public:
-	void initialize(android_widget_TextView& arg0,android_text_Spannable& arg1);
-	bool onKeyDown(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
-	bool onKeyUp(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
-	bool onTouchEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
-	bool onTrackballEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
-	bool onGenericMotionEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
-	bool onKeyOther(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_KeyEvent& arg2);
-	void onTakeFocus(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2);
-	bool canSelectArbitrarily();
+ void initialize(android_widget_TextView& arg0,android_text_Spannable& arg1);
+ bool onKeyDown(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
+ bool onKeyUp(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
+ bool onTouchEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+ bool onTrackballEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+ bool onGenericMotionEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+ bool onKeyOther(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_KeyEvent& arg2);
+ void onTakeFocus(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2);
+ bool canSelectArbitrarily();
 
 
 };

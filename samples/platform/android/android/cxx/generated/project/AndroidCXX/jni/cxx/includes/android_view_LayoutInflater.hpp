@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -27,9 +27,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_view_LayoutInflater
 #define _android_view_LayoutInflater
+//
+// Scroll Down 
+//
 
 
 
@@ -42,16 +46,27 @@
 
 
 
+
+
+#include <android_content_Context.hpp>
+
+
+#include <android_view_LayoutInflater_Factory.hpp>
 
 #include <org_xmlpull_v1_XmlPullParser.hpp>
-#include <android_view_LayoutInflater_Filter.hpp>
-#include <android_content_Context.hpp>
-#include <android_util_AttributeSet.hpp>
+
 #include <android_view_ViewGroup.hpp>
+
 #include <android_view_View.hpp>
-#include <android_view_LayoutInflater_Factory.hpp>
+
 #include <android_view_LayoutInflater_Factory2.hpp>
+
+#include <android_view_LayoutInflater_Filter.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,6 +78,27 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Context;
+
+
+class android_view_LayoutInflater_Factory;
+
+class org_xmlpull_v1_XmlPullParser;
+
+class android_view_ViewGroup;
+
+class android_view_View;
+
+class android_view_LayoutInflater_Factory2;
+
+class android_view_LayoutInflater_Filter;
+
+class java_lang_String;
+
+class android_util_AttributeSet;
 
 class android_view_LayoutInflater
 {

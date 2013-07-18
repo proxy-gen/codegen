@@ -11,9 +11,14 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_os_CancellationSignal
 #define _android_os_CancellationSignal
+//
+// Scroll Down 
+//
+
 
 
 
@@ -21,6 +26,7 @@
 
 
 #include <android_os_CancellationSignal_OnCancelListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,6 +38,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_CancellationSignal_OnCancelListener;
 
 class android_os_CancellationSignal
 {

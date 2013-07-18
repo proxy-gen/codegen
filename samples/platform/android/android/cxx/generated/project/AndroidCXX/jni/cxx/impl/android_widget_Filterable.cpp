@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <android_widget_Filterable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_widget_Filterable_getFilter(JNIEnv *jni_env, jobject java_object);
-    
+android_widget_Filter android_widget_Filterable::getFilter()
+{
+	// TODO: Implementation
+	android_widget_Filter result;
+
+	return result;
 }

@@ -15,9 +15,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Picture
 #define _android_graphics_Picture
+//
+// Scroll Down 
+//
 
 
 
@@ -25,11 +29,16 @@
 
 
 
+
+
+
+#include <android_graphics_Canvas.hpp>
+
+#include <java_io_InputStream.hpp>
 
 
 #include <java_io_OutputStream.hpp>
-#include <java_io_InputStream.hpp>
-#include <android_graphics_Canvas.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,6 +50,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_Canvas;
+
+class java_io_InputStream;
+
+
+class java_io_OutputStream;
 
 class android_graphics_Picture
 {

@@ -28,9 +28,14 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Region
 #define _android_graphics_Region
+//
+// Scroll Down 
+//
+
 
 
 
@@ -52,11 +57,18 @@
 
 
 #include <java_lang_Object.hpp>
-#include <android_graphics_Path.hpp>
-#include <android_graphics_Region_Op.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_os_Parcel.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+
+#include <android_os_Parcel.hpp>
+
+#include <android_graphics_Region_Op.hpp>
+
+#include <android_graphics_Path.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,6 +81,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class android_graphics_Rect;
+
+
+class android_os_Parcel;
+
+
+class android_graphics_Path;
+
 class android_graphics_Region
 {
 public:
@@ -77,7 +103,7 @@ public:
  bool isEmpty();
  bool contains(int& arg0);
  bool set(int& arg0,android_graphics_Rect& arg1,android_graphics_Region& arg2);
- bool union(android_graphics_Rect& arg0);
+ bool _union(android_graphics_Rect& arg0);
  bool getBounds(android_graphics_Rect& arg0);
  int describeContents();
  void writeToParcel(android_os_Parcel& arg0,int& arg1);

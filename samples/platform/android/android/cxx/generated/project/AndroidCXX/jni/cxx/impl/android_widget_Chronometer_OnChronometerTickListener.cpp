@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_widget_Chronometer_OnChronometerTickListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_Chronometer_OnChronometerTickListener_onChronometerTick(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_widget_Chronometer_OnChronometerTickListener::onChronometerTick(android_widget_Chronometer& arg0)
+{
+	// TODO: Implementation
+
 }

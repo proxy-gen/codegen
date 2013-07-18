@@ -101,9 +101,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_os_Bundle
 #define _android_os_Bundle
+//
+// Scroll Down 
+//
 
 
 
@@ -179,18 +183,31 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_Byte.hpp>
+
+#include <java_lang_ClassLoader.hpp>
+
+
+#include <java_util_Set.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_os_Parcelable.hpp>
 
 #include <java_util_ArrayList.hpp>
+
 #include <android_util_SparseArray.hpp>
-#include <java_lang_Object.hpp>
-#include <android_os_Parcelable.hpp>
-#include <java_lang_ClassLoader.hpp>
-#include <java_util_Set.hpp>
+
 #include <java_io_Serializable.hpp>
-#include <android_os_Parcel.hpp>
-#include <java_lang_Byte.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -202,6 +219,31 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Object;
+
+class java_lang_Byte;
+
+class java_lang_ClassLoader;
+
+
+class java_util_Set;
+
+class android_os_Parcel;
+
+class java_lang_CharSequence;
+
+class android_os_Parcelable;
+
+class java_util_ArrayList;
+
+class android_util_SparseArray;
+
+class java_io_Serializable;
 
 class android_os_Bundle
 {

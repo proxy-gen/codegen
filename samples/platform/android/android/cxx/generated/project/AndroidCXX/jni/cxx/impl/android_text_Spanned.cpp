@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,15 +8,52 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_text_Spanned.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobjectArray Java_AndroidCXX_android_text_Spanned_getSpans(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jint Java_AndroidCXX_android_text_Spanned_getSpanStart(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_text_Spanned_getSpanEnd(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_text_Spanned_getSpanFlags(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_text_Spanned_nextSpanTransition(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-    
+std::vector<long> android_text_Spanned::getSpans(int& arg0,java_lang_Class& arg1)
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+int android_text_Spanned::getSpanStart(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_text_Spanned::getSpanEnd(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_text_Spanned::getSpanFlags(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_text_Spanned::nextSpanTransition(int& arg0,java_lang_Class& arg1)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

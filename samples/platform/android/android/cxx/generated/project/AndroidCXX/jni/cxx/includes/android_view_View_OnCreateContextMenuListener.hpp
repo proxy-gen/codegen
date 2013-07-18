@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,15 +13,23 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_View_OnCreateContextMenuListener
 #define _android_view_View_OnCreateContextMenuListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_ContextMenu.hpp>
-#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
 #include <android_view_View.hpp>
+
+#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,10 +42,18 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_ContextMenu;
+
+class android_view_View;
+
+class android_view_ContextMenu_ContextMenuInfo;
+
 class android_view_View_OnCreateContextMenuListener
 {
 public:
-	void onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2);
+ void onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2);
 
 
 };

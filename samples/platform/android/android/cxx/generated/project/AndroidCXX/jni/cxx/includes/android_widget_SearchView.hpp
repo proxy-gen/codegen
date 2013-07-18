@@ -25,9 +25,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_SearchView
 #define _android_widget_SearchView
+//
+// Scroll Down 
+//
 
 
 
@@ -62,18 +66,30 @@
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_app_SearchableInfo.hpp>
+
 #include <android_widget_SearchView_OnQueryTextListener.hpp>
-#include <android_widget_CursorAdapter.hpp>
-#include <android_widget_SearchView_OnSuggestionListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_View_OnFocusChangeListener.hpp>
+
 #include <android_widget_SearchView_OnCloseListener.hpp>
+
+#include <android_view_View_OnFocusChangeListener.hpp>
+
+#include <android_widget_SearchView_OnSuggestionListener.hpp>
+
 #include <android_view_View_OnClickListener.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_KeyEvent.hpp>
+
+#include <android_widget_CursorAdapter.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,6 +101,30 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_view_KeyEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_app_SearchableInfo;
+
+class android_widget_SearchView_OnQueryTextListener;
+
+class android_widget_SearchView_OnCloseListener;
+
+class android_view_View_OnFocusChangeListener;
+
+class android_widget_SearchView_OnSuggestionListener;
+
+class android_view_View_OnClickListener;
+
+class android_widget_CursorAdapter;
 
 class android_widget_SearchView
 {

@@ -21,9 +21,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Matrix
 #define _android_graphics_Matrix
+//
+// Scroll Down 
+//
 
 
 
@@ -57,11 +61,17 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <android_graphics_RectF.hpp>
 
 #include <android_graphics_Matrix_ScaleToFit.hpp>
-#include <android_graphics_RectF.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -73,6 +83,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class android_graphics_RectF;
+
 
 class android_graphics_Matrix
 {

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_webkit_WebView_FindListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_webkit_WebView_FindListener_onFindResultReceived(JNIEnv *jni_env, jobject java_object,jint& arg0,jboolean& arg1);
-    
+void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,bool& arg1)
+{
+	// TODO: Implementation
+
 }

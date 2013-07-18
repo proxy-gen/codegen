@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,48 +8,308 @@
 //
 
 
+
+		
+ 			
+		
+		
+ 			
+		
+		
+		
+ 			
+		
+		
+ 			
+		
+		
+		
+		
+		
+		
+		
+		
+ 			
+		
+		
+		
+ 			
+		
+		
+ 			
+		
+		
+ 			
+		
+
+// Generated Code 
+
 #include <android_view_MenuItem.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_isVisible(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_isEnabled(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getIntent(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setIntent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setVisible(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setTitle(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getTitle(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setEnabled(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_view_MenuItem_getItemId(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_view_MenuItem_getGroupId(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_view_MenuItem_getOrder(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setTitleCondensed(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getTitleCondensed(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setIcon(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getIcon(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setShortcut(JNIEnv *jni_env, jobject java_object,jchar& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setNumericShortcut(JNIEnv *jni_env, jobject java_object,jchar& arg0);
-JNIEXPORT jchar Java_AndroidCXX_android_view_MenuItem_getNumericShortcut(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setAlphabeticShortcut(JNIEnv *jni_env, jobject java_object,jchar& arg0);
-JNIEXPORT jchar Java_AndroidCXX_android_view_MenuItem_getAlphabeticShortcut(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setCheckable(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_isCheckable(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setChecked(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_isChecked(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_hasSubMenu(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getSubMenu(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setOnMenuItemClickListener(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getMenuInfo(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_view_MenuItem_setShowAsAction(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setShowAsActionFlags(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setActionView(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getActionView(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setActionProvider(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_getActionProvider(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_expandActionView(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_collapseActionView(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_MenuItem_isActionViewExpanded(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_MenuItem_setOnActionExpandListener(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_view_MenuItem::isVisible()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_MenuItem::isEnabled()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_content_Intent android_view_MenuItem::getIntent()
+{
+	// TODO: Implementation
+	android_content_Intent result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setIntent(android_content_Intent& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setVisible(bool& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setTitle(int& arg0,java_lang_CharSequence& arg1)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+java_lang_CharSequence android_view_MenuItem::getTitle()
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setEnabled(bool& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+int android_view_MenuItem::getItemId()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_view_MenuItem::getGroupId()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_view_MenuItem::getOrder()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setTitleCondensed(java_lang_CharSequence& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+java_lang_CharSequence android_view_MenuItem::getTitleCondensed()
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setIcon(android_graphics_drawable_Drawable& arg0,int& arg1)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_graphics_drawable_Drawable android_view_MenuItem::getIcon()
+{
+	// TODO: Implementation
+	android_graphics_drawable_Drawable result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setShortcut(char& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setNumericShortcut(char& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+char android_view_MenuItem::getNumericShortcut()
+{
+	// TODO: Implementation
+	char result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setAlphabeticShortcut(char& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+char android_view_MenuItem::getAlphabeticShortcut()
+{
+	// TODO: Implementation
+	char result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setCheckable(bool& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+bool android_view_MenuItem::isCheckable()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setChecked(bool& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+bool android_view_MenuItem::isChecked()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_MenuItem::hasSubMenu()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_SubMenu android_view_MenuItem::getSubMenu()
+{
+	// TODO: Implementation
+	android_view_SubMenu result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setOnMenuItemClickListener(android_view_MenuItem_OnMenuItemClickListener& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_ContextMenu_ContextMenuInfo android_view_MenuItem::getMenuInfo()
+{
+	// TODO: Implementation
+	android_view_ContextMenu_ContextMenuInfo result;
+
+	return result;
+}
+void android_view_MenuItem::setShowAsAction(int& arg0)
+{
+	// TODO: Implementation
+
+}
+android_view_MenuItem android_view_MenuItem::setShowAsActionFlags(int& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setActionView(android_view_View& arg0,int& arg1)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_View android_view_MenuItem::getActionView()
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setActionProvider(android_view_ActionProvider& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_ActionProvider android_view_MenuItem::getActionProvider()
+{
+	// TODO: Implementation
+	android_view_ActionProvider result;
+
+	return result;
+}
+bool android_view_MenuItem::expandActionView()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_MenuItem::collapseActionView()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_MenuItem::isActionViewExpanded()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_MenuItem android_view_MenuItem::setOnActionExpandListener(android_view_MenuItem_OnActionExpandListener& arg0)
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
 }

@@ -46,9 +46,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_ContentValues
 #define _android_content_ContentValues
+//
+// Scroll Down 
+//
 
 
 
@@ -74,18 +78,31 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_Byte.hpp>
+
+#include <java_lang_Short.hpp>
+
+#include <java_lang_Integer.hpp>
 
 #include <java_lang_Long.hpp>
-#include <java_lang_Short.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_Integer.hpp>
+
 #include <java_lang_Float.hpp>
-#include <java_lang_Boolean.hpp>
-#include <java_util_Set.hpp>
-#include <android_os_Parcel.hpp>
+
 #include <java_lang_Double.hpp>
-#include <java_lang_Byte.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_lang_Boolean.hpp>
+
+
+#include <java_util_Set.hpp>
+
+#include <android_os_Parcel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -97,6 +114,31 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Object;
+
+class java_lang_Byte;
+
+class java_lang_Short;
+
+class java_lang_Integer;
+
+class java_lang_Long;
+
+class java_lang_Float;
+
+class java_lang_Double;
+
+class java_lang_Boolean;
+
+
+class java_util_Set;
+
+class android_os_Parcel;
 
 class android_content_ContentValues
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_view_animation_Interpolator
 #define _android_view_animation_Interpolator
+//
+// Scroll Down 
+//
+
 
 
 #include <vector>
@@ -26,6 +31,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_view_animation_Interpolator
 {

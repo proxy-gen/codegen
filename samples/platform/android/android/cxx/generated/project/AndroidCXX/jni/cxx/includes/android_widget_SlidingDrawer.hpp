@@ -19,9 +19,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SlidingDrawer
 #define _android_widget_SlidingDrawer
+//
+// Scroll Down 
+//
 
 
 
@@ -42,14 +46,22 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_SlidingDrawer_OnDrawerOpenListener.hpp>
+
+#include <android_widget_SlidingDrawer_OnDrawerCloseListener.hpp>
 
 #include <android_widget_SlidingDrawer_OnDrawerScrollListener.hpp>
-#include <android_widget_SlidingDrawer_OnDrawerOpenListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_widget_SlidingDrawer_OnDrawerCloseListener.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,6 +73,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_SlidingDrawer_OnDrawerOpenListener;
+
+class android_widget_SlidingDrawer_OnDrawerCloseListener;
+
+class android_widget_SlidingDrawer_OnDrawerScrollListener;
 
 class android_widget_SlidingDrawer
 {

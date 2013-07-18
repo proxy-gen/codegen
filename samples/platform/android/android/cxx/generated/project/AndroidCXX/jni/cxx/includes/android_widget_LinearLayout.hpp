@@ -16,9 +16,14 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_widget_LinearLayout
 #define _android_widget_LinearLayout
+//
+// Scroll Down 
+//
+
 
 
 
@@ -46,10 +51,15 @@
 
 
 #include <android_util_AttributeSet.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_widget_LinearLayout_LayoutParams.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,6 +71,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_AttributeSet;
+
+class android_widget_LinearLayout_LayoutParams;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_graphics_drawable_Drawable;
 
 class android_widget_LinearLayout
 {

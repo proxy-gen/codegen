@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_MediaController_MediaPlayerControl
 #define _android_widget_MediaController_MediaPlayerControl
+//
+// Scroll Down 
+//
+
 
 
 
@@ -37,19 +42,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_MediaController_MediaPlayerControl
 {
 public:
-	void start();
-	int getDuration();
-	void pause();
-	int getCurrentPosition();
-	void seekTo(int& arg0);
-	bool isPlaying();
-	int getBufferPercentage();
-	bool canPause();
-	bool canSeekBackward();
-	bool canSeekForward();
+ void start();
+ int getDuration();
+ void pause();
+ int getCurrentPosition();
+ void seekTo(int& arg0);
+ bool isPlaying();
+ int getBufferPercentage();
+ bool canPause();
+ bool canSeekBackward();
+ bool canSeekForward();
 
 
 };

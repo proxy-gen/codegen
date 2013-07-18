@@ -13,18 +13,26 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_inputmethod_EditorInfo
 #define _android_view_inputmethod_EditorInfo
+//
+// Scroll Down 
+//
 
 
 
 
 
+
+
+#include <android_util_Printer.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
-#include <java_lang_String.hpp>
-#include <android_util_Printer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -36,6 +44,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_Printer;
+
+class java_lang_String;
+
+class android_os_Parcel;
 
 class android_view_inputmethod_EditorInfo
 {

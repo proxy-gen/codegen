@@ -11,9 +11,14 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_SurfaceTexture
 #define _android_graphics_SurfaceTexture
+//
+// Scroll Down 
+//
+
 
 
 
@@ -25,6 +30,7 @@
 
 
 #include <android_graphics_SurfaceTexture_OnFrameAvailableListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -36,6 +42,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_SurfaceTexture_OnFrameAvailableListener;
 
 class android_graphics_SurfaceTexture
 {

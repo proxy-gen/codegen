@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -17,9 +17,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_Animator
 #define _android_animation_Animator
+//
+// Scroll Down 
+//
 
 
 
@@ -39,11 +43,17 @@
 
 
 
+
+
+
+#include <android_animation_TimeInterpolator.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_animation_Animator_AnimatorListener.hpp>
 
 #include <java_util_ArrayList.hpp>
-#include <android_animation_TimeInterpolator.hpp>
-#include <android_animation_Animator_AnimatorListener.hpp>
-#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,6 +65,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class android_animation_TimeInterpolator;
+
+class java_lang_Object;
+
+class android_animation_Animator_AnimatorListener;
+
+class java_util_ArrayList;
 
 class android_animation_Animator
 {

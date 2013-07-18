@@ -19,9 +19,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_Spinner
 #define _android_widget_Spinner
+//
+// Scroll Down 
+//
 
 
 
@@ -45,14 +49,22 @@
 
 
 
+
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_content_DialogInterface.hpp>
 
 #include <android_widget_SpinnerAdapter.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_content_DialogInterface.hpp>
+
 #include <android_widget_AdapterView_OnItemClickListener.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,6 +76,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_content_DialogInterface;
+
+class android_widget_SpinnerAdapter;
+
+class android_widget_AdapterView_OnItemClickListener;
+
+class android_graphics_drawable_Drawable;
+
+class java_lang_CharSequence;
 
 class android_widget_Spinner
 {

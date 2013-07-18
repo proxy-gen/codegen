@@ -30,9 +30,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_io_File
 #define _java_io_File
+//
+// Scroll Down 
+//
 
 
 
@@ -76,13 +80,21 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <java_io_FilenameFilter.hpp>
+
+#include <java_net_URL.hpp>
 
 #include <java_net_URI.hpp>
+
 #include <java_io_FileFilter.hpp>
-#include <java_lang_Object.hpp>
-#include <java_io_FilenameFilter.hpp>
-#include <java_net_URL.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -94,6 +106,21 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class java_io_FilenameFilter;
+
+class java_net_URL;
+
+class java_net_URI;
+
+class java_io_FileFilter;
 
 class java_io_File
 {
@@ -109,7 +136,7 @@ public:
  java_lang_String getCanonicalPath();
  bool setReadOnly();
  std::vector<long> list(java_io_FilenameFilter& arg0);
- bool delete();
+ bool _delete();
  bool exists();
  java_io_File getParentFile();
  java_lang_String getPath();

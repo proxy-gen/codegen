@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ExpandableListView_OnChildClickListener
 #define _android_widget_ExpandableListView_OnChildClickListener
+//
+// Scroll Down 
+//
 
 
+
+
+#include <android_widget_ExpandableListView.hpp>
 
 #include <android_view_View.hpp>
-#include <android_widget_ExpandableListView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_ExpandableListView;
+
+class android_view_View;
+
 class android_widget_ExpandableListView_OnChildClickListener
 {
 public:
-	bool onChildClick(android_widget_ExpandableListView& arg0,android_view_View& arg1,int& arg2,long& arg3);
+ bool onChildClick(android_widget_ExpandableListView& arg0,android_view_View& arg1,int& arg2,long& arg3);
 
 
 };

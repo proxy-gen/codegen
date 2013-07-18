@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,9 +13,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_KeyCharacterMap
 #define _android_view_KeyCharacterMap
+//
+// Scroll Down 
+//
 
 
 
@@ -32,9 +36,13 @@
 
 
 
+
+
+
+#include <android_os_Parcel.hpp>
 
 #include <android_view_KeyCharacterMap_KeyData.hpp>
-#include <android_os_Parcel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,6 +54,13 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class android_os_Parcel;
+
+class android_view_KeyCharacterMap_KeyData;
 
 class android_view_KeyCharacterMap
 {

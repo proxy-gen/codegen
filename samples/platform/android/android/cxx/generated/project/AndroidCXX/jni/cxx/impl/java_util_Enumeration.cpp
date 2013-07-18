@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,27 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <java_util_Enumeration.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Enumeration_hasMoreElements(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Enumeration_nextElement(JNIEnv *jni_env, jobject java_object);
-    
+bool java_util_Enumeration::hasMoreElements()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_Object java_util_Enumeration::nextElement()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
 }

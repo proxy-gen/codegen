@@ -33,9 +33,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_ListView
 #define _android_widget_ListView
+//
+// Scroll Down 
+//
 
 
 
@@ -74,16 +78,26 @@
 
 
 
+
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_ListAdapter.hpp>
-#include <java_lang_Object.hpp>
+
 #include <android_content_Intent.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_KeyEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -95,6 +109,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_KeyEvent;
+
+class android_view_View;
+
+class android_graphics_Rect;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_ListAdapter;
+
+class android_content_Intent;
+
+class java_lang_Object;
+
+class android_graphics_drawable_Drawable;
 
 class android_widget_ListView
 {

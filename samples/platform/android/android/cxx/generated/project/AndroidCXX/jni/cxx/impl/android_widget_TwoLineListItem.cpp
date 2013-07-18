@@ -8,9 +8,40 @@
 //
 
 
+
+ 			
+ 			
+		
+		
+
+// Generated Code 
+
 #include <android_widget_TwoLineListItem.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
+void android_widget_TwoLineListItem::onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_TwoLineListItem::onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0)
+{
+	// TODO: Implementation
+
+}
+android_widget_TextView android_widget_TwoLineListItem::getText1()
+{
+	// TODO: Implementation
+	android_widget_TextView result;
+
+	return result;
+}
+android_widget_TextView android_widget_TwoLineListItem::getText2()
+{
+	// TODO: Implementation
+	android_widget_TextView result;
+
+	return result;
 }

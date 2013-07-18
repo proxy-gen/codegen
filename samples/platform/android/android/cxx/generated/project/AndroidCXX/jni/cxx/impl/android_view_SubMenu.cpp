@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,16 +8,61 @@
 //
 
 
+
+		
+ 			
+		
+ 			
+		
+ 			
+		
+ 			
+		
+
+// Generated Code 
+
 #include <android_view_SubMenu.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_view_SubMenu_getItem(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SubMenu_setIcon(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SubMenu_setHeaderTitle(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SubMenu_setHeaderIcon(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SubMenu_setHeaderView(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SubMenu_clearHeader(JNIEnv *jni_env, jobject java_object);
-    
+android_view_MenuItem android_view_SubMenu::getItem()
+{
+	// TODO: Implementation
+	android_view_MenuItem result;
+
+	return result;
+}
+android_view_SubMenu android_view_SubMenu::setIcon(android_graphics_drawable_Drawable& arg0,int& arg1)
+{
+	// TODO: Implementation
+	android_view_SubMenu result;
+
+	return result;
+}
+android_view_SubMenu android_view_SubMenu::setHeaderTitle(int& arg0,java_lang_CharSequence& arg1)
+{
+	// TODO: Implementation
+	android_view_SubMenu result;
+
+	return result;
+}
+android_view_SubMenu android_view_SubMenu::setHeaderIcon(android_graphics_drawable_Drawable& arg0,int& arg1)
+{
+	// TODO: Implementation
+	android_view_SubMenu result;
+
+	return result;
+}
+android_view_SubMenu android_view_SubMenu::setHeaderView(android_view_View& arg0)
+{
+	// TODO: Implementation
+	android_view_SubMenu result;
+
+	return result;
+}
+void android_view_SubMenu::clearHeader()
+{
+	// TODO: Implementation
+
 }

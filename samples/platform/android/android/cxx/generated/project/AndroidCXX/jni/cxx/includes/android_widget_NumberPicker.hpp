@@ -20,9 +20,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_NumberPicker
 #define _android_widget_NumberPicker
+//
+// Scroll Down 
+//
 
 
 
@@ -49,14 +53,22 @@
 
 
 
+
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeProvider.hpp>
+
+#include <android_widget_NumberPicker_OnScrollListener.hpp>
 
 #include <android_widget_NumberPicker_OnValueChangeListener.hpp>
-#include <android_view_MotionEvent.hpp>
+
 #include <android_widget_NumberPicker_Formatter.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_accessibility_AccessibilityNodeProvider.hpp>
-#include <android_widget_NumberPicker_OnScrollListener.hpp>
-#include <android_view_KeyEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -68,6 +80,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_MotionEvent;
+
+class android_view_KeyEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeProvider;
+
+class android_widget_NumberPicker_OnScrollListener;
+
+class android_widget_NumberPicker_OnValueChangeListener;
+
+class android_widget_NumberPicker_Formatter;
 
 class android_widget_NumberPicker
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -17,18 +17,26 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_util_Currency
 #define _java_util_Currency
+//
+// Scroll Down 
+//
 
 
 
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <java_util_Locale.hpp>
-#include <java_lang_String.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,6 +48,13 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_util_Locale;
+
 
 class java_util_Currency
 {

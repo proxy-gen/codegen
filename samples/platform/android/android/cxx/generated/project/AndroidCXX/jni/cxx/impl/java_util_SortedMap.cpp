@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,19 +8,87 @@
 //
 
 
+
+		
+		
+		
+		
+ 			
+		
+ 			
+		
+ 			
+		
+		
+		
+
+// Generated Code 
+
 #include <java_util_SortedMap.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_values(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_entrySet(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_keySet(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_comparator(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_subMap(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_headMap(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_tailMap(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_firstKey(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_SortedMap_lastKey(JNIEnv *jni_env, jobject java_object);
-    
+java_util_Collection java_util_SortedMap::values()
+{
+	// TODO: Implementation
+	java_util_Collection result;
+
+	return result;
+}
+java_util_Set java_util_SortedMap::entrySet()
+{
+	// TODO: Implementation
+	java_util_Set result;
+
+	return result;
+}
+java_util_Set java_util_SortedMap::keySet()
+{
+	// TODO: Implementation
+	java_util_Set result;
+
+	return result;
+}
+java_util_Comparator java_util_SortedMap::comparator()
+{
+	// TODO: Implementation
+	java_util_Comparator result;
+
+	return result;
+}
+java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_util_SortedMap result;
+
+	return result;
+}
+java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_util_SortedMap result;
+
+	return result;
+}
+java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_util_SortedMap result;
+
+	return result;
+}
+java_lang_Object java_util_SortedMap::firstKey()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_Object java_util_SortedMap::lastKey()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
 }

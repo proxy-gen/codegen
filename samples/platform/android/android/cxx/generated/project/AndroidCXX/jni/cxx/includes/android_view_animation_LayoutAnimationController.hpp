@@ -18,9 +18,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_view_animation_LayoutAnimationController
 #define _android_view_animation_LayoutAnimationController
+//
+// Scroll Down 
+//
+
 
 
 
@@ -36,9 +41,13 @@
 
 
 #include <android_view_animation_Interpolator.hpp>
-#include <android_view_View.hpp>
-#include <android_view_animation_Animation.hpp>
+
 #include <android_content_Context.hpp>
+
+#include <android_view_animation_Animation.hpp>
+
+#include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,6 +59,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_animation_Interpolator;
+
+class android_content_Context;
+
+class android_view_animation_Animation;
+
+class android_view_View;
 
 class android_view_animation_LayoutAnimationController
 {

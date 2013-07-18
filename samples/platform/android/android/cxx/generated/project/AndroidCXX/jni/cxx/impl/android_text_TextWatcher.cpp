@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,30 @@
 //
 
 
+
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_text_TextWatcher.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_text_TextWatcher_beforeTextChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT void Java_AndroidCXX_android_text_TextWatcher_onTextChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT void Java_AndroidCXX_android_text_TextWatcher_afterTextChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_text_TextWatcher::beforeTextChanged(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_text_TextWatcher::onTextChanged(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_text_TextWatcher::afterTextChanged(android_text_Editable& arg0)
+{
+	// TODO: Implementation
+
 }

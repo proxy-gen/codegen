@@ -69,9 +69,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Canvas
 #define _android_graphics_Canvas
+//
+// Scroll Down 
+//
 
 
 
@@ -123,22 +127,38 @@
 
 
 
+
+
+#include <android_graphics_Matrix.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_graphics_Paint.hpp>
+
+#include <android_graphics_RectF.hpp>
+
+#include <android_graphics_Region_Op.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_graphics_Path.hpp>
+
+#include <android_graphics_Region.hpp>
+
+#include <android_graphics_DrawFilter.hpp>
+
+#include <android_graphics_Canvas_EdgeType.hpp>
+
+#include <android_graphics_PorterDuff_Mode.hpp>
 
 #include <android_graphics_Canvas_VertexMode.hpp>
-#include <android_graphics_Path.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_graphics_DrawFilter.hpp>
-#include <android_graphics_Region_Op.hpp>
-#include <android_graphics_PorterDuff_Mode.hpp>
-#include <android_graphics_Picture.hpp>
-#include <android_graphics_RectF.hpp>
-#include <android_graphics_Matrix.hpp>
-#include <android_graphics_Paint.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_graphics_Canvas_EdgeType.hpp>
+
 #include <java_lang_String.hpp>
+
 #include <java_lang_CharSequence.hpp>
-#include <android_graphics_Region.hpp>
+
+#include <android_graphics_Picture.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -150,6 +170,34 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_Matrix;
+
+class android_graphics_Bitmap;
+
+class android_graphics_Paint;
+
+class android_graphics_RectF;
+
+
+class android_graphics_Rect;
+
+class android_graphics_Path;
+
+class android_graphics_Region;
+
+class android_graphics_DrawFilter;
+
+
+
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class android_graphics_Picture;
 
 class android_graphics_Canvas
 {

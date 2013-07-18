@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_ExpandableListView_OnGroupClickListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ExpandableListView_OnGroupClickListener_onGroupClick(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jint& arg2,jlong& arg3);
-    
+bool android_widget_ExpandableListView_OnGroupClickListener::onGroupClick(android_widget_ExpandableListView& arg0,android_view_View& arg1,int& arg2,long& arg3)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

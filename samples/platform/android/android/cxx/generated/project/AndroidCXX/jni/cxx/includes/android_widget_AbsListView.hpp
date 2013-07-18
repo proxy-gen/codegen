@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -47,9 +47,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AbsListView
 #define _android_widget_AbsListView
+//
+// Scroll Down 
+//
 
 
 
@@ -140,32 +144,58 @@
 
 
 
+
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_View.hpp>
+
+#include <java_util_ArrayList.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_widget_AbsListView_LayoutParams.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_view_inputmethod_EditorInfo.hpp>
+
+#include <android_view_inputmethod_InputConnection.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_graphics_Canvas.hpp>
+
+#include <android_widget_ListAdapter.hpp>
+
+#include <android_util_SparseBooleanArray.hpp>
+
+#include <android_widget_AbsListView_MultiChoiceModeListener.hpp>
+
+#include <android_widget_AbsListView_OnScrollListener.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_text_Editable.hpp>
 
 #include <java_util_List.hpp>
-#include <android_view_inputmethod_EditorInfo.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_graphics_Rect.hpp>
+
 #include <android_content_Intent.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <android_util_SparseBooleanArray.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_widget_AbsListView_MultiChoiceModeListener.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_inputmethod_InputConnection.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_widget_ListAdapter.hpp>
-#include <android_text_Editable.hpp>
-#include <android_widget_AbsListView_OnScrollListener.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_util_ArrayList.hpp>
-#include <android_os_Parcelable.hpp>
+
 #include <android_widget_AbsListView_RecyclerListener.hpp>
-#include <android_widget_AbsListView_LayoutParams.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -177,6 +207,58 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcelable;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class android_graphics_drawable_Drawable;
+
+class android_view_View;
+
+class java_util_ArrayList;
+
+class android_util_AttributeSet;
+
+class android_widget_AbsListView_LayoutParams;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_os_Bundle;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
+
+class android_graphics_Rect;
+
+class android_graphics_Canvas;
+
+class android_widget_ListAdapter;
+
+class android_util_SparseBooleanArray;
+
+class android_widget_AbsListView_MultiChoiceModeListener;
+
+class android_widget_AbsListView_OnScrollListener;
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class android_text_Editable;
+
+class java_util_List;
+
+class android_content_Intent;
+
+class android_widget_AbsListView_RecyclerListener;
 
 class android_widget_AbsListView
 {

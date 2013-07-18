@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_net_URLStreamHandlerFactory
 #define _java_net_URLStreamHandlerFactory
+//
+// Scroll Down 
+//
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <java_net_URLStreamHandler.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_net_URLStreamHandler;
+
 class java_net_URLStreamHandlerFactory
 {
 public:
-	java_net_URLStreamHandler createURLStreamHandler(java_lang_String& arg0);
+ java_net_URLStreamHandler createURLStreamHandler(java_lang_String& arg0);
 
 
 };

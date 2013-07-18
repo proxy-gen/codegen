@@ -31,9 +31,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_AutoCompleteTextView
 #define _android_widget_AutoCompleteTextView
+//
+// Scroll Down 
+//
 
 
 
@@ -81,17 +85,28 @@
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_View_OnClickListener.hpp>
+
+#include <android_widget_AutoCompleteTextView_OnDismissListener.hpp>
 
 #include <android_widget_ListAdapter.hpp>
-#include <android_widget_AdapterView_OnItemSelectedListener.hpp>
-#include <android_widget_AutoCompleteTextView_Validator.hpp>
-#include <android_widget_AutoCompleteTextView_OnDismissListener.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_View_OnClickListener.hpp>
+
 #include <android_widget_AdapterView_OnItemClickListener.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_KeyEvent.hpp>
+
+#include <android_widget_AdapterView_OnItemSelectedListener.hpp>
+
 #include <android_view_inputmethod_CompletionInfo.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_widget_AutoCompleteTextView_Validator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -103,6 +118,28 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_view_KeyEvent;
+
+class android_view_View_OnClickListener;
+
+class android_widget_AutoCompleteTextView_OnDismissListener;
+
+class android_widget_ListAdapter;
+
+class android_widget_AdapterView_OnItemClickListener;
+
+class android_widget_AdapterView_OnItemSelectedListener;
+
+class android_view_inputmethod_CompletionInfo;
+
+class android_graphics_drawable_Drawable;
+
+class android_widget_AutoCompleteTextView_Validator;
 
 class android_widget_AutoCompleteTextView
 {

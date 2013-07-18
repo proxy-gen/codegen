@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Shader
 #define _android_graphics_Shader
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_graphics_Matrix.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,6 +37,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_Matrix;
 
 class android_graphics_Shader
 {

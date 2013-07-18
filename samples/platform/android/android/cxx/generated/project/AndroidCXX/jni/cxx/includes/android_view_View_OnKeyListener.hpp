@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_View_OnKeyListener
 #define _android_view_View_OnKeyListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_View.hpp>
+
 #include <android_view_KeyEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_KeyEvent;
+
 class android_view_View_OnKeyListener
 {
 public:
-	bool onKey(android_view_View& arg0,int& arg1,android_view_KeyEvent& arg2);
+ bool onKey(android_view_View& arg0,int& arg1,android_view_KeyEvent& arg2);
 
 
 };

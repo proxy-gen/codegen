@@ -57,9 +57,15 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_math_BigInteger
 #define _java_math_BigInteger
+//
+// Scroll Down 
+//
+
+
 
 
 
@@ -106,8 +112,11 @@
 
 
 #include <java_lang_Object.hpp>
-#include <java_util_Random.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <java_util_Random.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -119,6 +128,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_util_Random;
 
 class java_math_BigInteger
 {
@@ -140,9 +158,9 @@ public:
 static java_math_BigInteger valueOf(long& arg0);
  int signum();
  std::vector<char> toByteArray();
- java_math_BigInteger and(java_math_BigInteger& arg0);
- java_math_BigInteger or(java_math_BigInteger& arg0);
- java_math_BigInteger xor(java_math_BigInteger& arg0);
+ java_math_BigInteger _and(java_math_BigInteger& arg0);
+ java_math_BigInteger _or(java_math_BigInteger& arg0);
+ java_math_BigInteger _xor(java_math_BigInteger& arg0);
  java_math_BigInteger andNot(java_math_BigInteger& arg0);
  int bitLength();
 static java_math_BigInteger probablePrime(int& arg0,java_util_Random& arg1);
@@ -159,7 +177,7 @@ static java_math_BigInteger probablePrime(int& arg0,java_util_Random& arg1);
  java_math_BigInteger modInverse(java_math_BigInteger& arg0);
  java_math_BigInteger shiftLeft(int& arg0);
  java_math_BigInteger shiftRight(int& arg0);
- java_math_BigInteger not();
+ java_math_BigInteger _not();
  bool testBit(int& arg0);
  java_math_BigInteger setBit(int& arg0);
  java_math_BigInteger clearBit(int& arg0);

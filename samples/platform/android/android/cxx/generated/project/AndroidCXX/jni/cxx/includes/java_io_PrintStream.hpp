@@ -22,9 +22,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_io_PrintStream
 #define _java_io_PrintStream
+//
+// Scroll Down 
+//
 
 
 
@@ -34,12 +38,18 @@
 
 
 
+
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
 
 
 #include <java_util_Locale.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,6 +61,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+
+class java_util_Locale;
 
 class java_io_PrintStream
 {

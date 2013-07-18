@@ -14,9 +14,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_net_Proxy
 #define _java_net_Proxy
+//
+// Scroll Down 
+//
 
 
 
@@ -24,10 +28,13 @@
 
 
 
-#include <java_net_Proxy_Type.hpp>
-#include <java_net_SocketAddress.hpp>
+
 #include <java_lang_Object.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <java_net_SocketAddress.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -39,6 +46,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+enum java_net_Proxy_Type
+{
+
+};
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_net_SocketAddress;
 
 class java_net_Proxy
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_CalendarView_OnDateChangeListener
 #define _android_widget_CalendarView_OnDateChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_CalendarView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_CalendarView;
+
 class android_widget_CalendarView_OnDateChangeListener
 {
 public:
-	void onSelectedDayChange(android_widget_CalendarView& arg0,int& arg1);
+ void onSelectedDayChange(android_widget_CalendarView& arg0,int& arg1);
 
 
 };

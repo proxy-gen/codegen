@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,30 @@
 //
 
 
+
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_SeekBar_OnSeekBarChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_SeekBar_OnSeekBarChangeListener_onProgressChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1,jboolean& arg2);
-JNIEXPORT void Java_AndroidCXX_android_widget_SeekBar_OnSeekBarChangeListener_onStartTrackingTouch(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_SeekBar_OnSeekBarChangeListener_onStopTrackingTouch(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_widget_SeekBar_OnSeekBarChangeListener::onProgressChanged(android_widget_SeekBar& arg0,int& arg1,bool& arg2)
+{
+	// TODO: Implementation
+
+}
+void android_widget_SeekBar_OnSeekBarChangeListener::onStartTrackingTouch(android_widget_SeekBar& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_SeekBar_OnSeekBarChangeListener::onStopTrackingTouch(android_widget_SeekBar& arg0)
+{
+	// TODO: Implementation
+
 }

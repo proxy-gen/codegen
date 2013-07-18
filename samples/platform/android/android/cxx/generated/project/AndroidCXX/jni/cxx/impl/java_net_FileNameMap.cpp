@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+		
+
+// Generated Code 
+
 #include <java_net_FileNameMap.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_java_net_FileNameMap_getContentTypeFor(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
 }

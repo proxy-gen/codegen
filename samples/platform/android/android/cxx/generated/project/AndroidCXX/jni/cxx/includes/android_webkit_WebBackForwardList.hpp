@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,9 +12,14 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_webkit_WebBackForwardList
 #define _android_webkit_WebBackForwardList
+//
+// Scroll Down 
+//
+
 
 
 
@@ -22,6 +27,7 @@
 
 
 #include <android_webkit_WebHistoryItem.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,6 +39,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_webkit_WebHistoryItem;
 
 class android_webkit_WebBackForwardList
 {

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,28 +8,140 @@
 //
 
 
+
+ 			
+ 			
+		
+		
+ 			
+ 			
+		
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_widget_ExpandableListAdapter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ExpandableListAdapter_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_ExpandableListAdapter_getGroupId(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_ExpandableListAdapter_registerDataSetObserver(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_ExpandableListAdapter_unregisterDataSetObserver(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_ExpandableListAdapter_getChild(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ExpandableListAdapter_hasStableIds(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ExpandableListAdapter_areAllItemsEnabled(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_ExpandableListAdapter_getGroupCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_ExpandableListAdapter_getChildrenCount(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_ExpandableListAdapter_getGroup(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_ExpandableListAdapter_getChildId(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_ExpandableListAdapter_getGroupView(JNIEnv *jni_env, jobject java_object,jint& arg0,jboolean& arg1,jobject& arg2,jobject& arg3);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_ExpandableListAdapter_getChildView(JNIEnv *jni_env, jobject java_object,jint& arg0,jboolean& arg1,jobject& arg2,jobject& arg3);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ExpandableListAdapter_isChildSelectable(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_ExpandableListAdapter_onGroupExpanded(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_ExpandableListAdapter_onGroupCollapsed(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_ExpandableListAdapter_getCombinedChildId(JNIEnv *jni_env, jobject java_object,jlong& arg0);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_ExpandableListAdapter_getCombinedGroupId(JNIEnv *jni_env, jobject java_object,jlong& arg0);
-    
+bool android_widget_ExpandableListAdapter::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+long android_widget_ExpandableListAdapter::getGroupId(int& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
+}
+void android_widget_ExpandableListAdapter::registerDataSetObserver(android_database_DataSetObserver& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_ExpandableListAdapter::unregisterDataSetObserver(android_database_DataSetObserver& arg0)
+{
+	// TODO: Implementation
+
+}
+java_lang_Object android_widget_ExpandableListAdapter::getChild(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+bool android_widget_ExpandableListAdapter::hasStableIds()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_widget_ExpandableListAdapter::areAllItemsEnabled()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int android_widget_ExpandableListAdapter::getGroupCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_ExpandableListAdapter::getChildrenCount(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_Object android_widget_ExpandableListAdapter::getGroup(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+long android_widget_ExpandableListAdapter::getChildId(int& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
+}
+android_view_View android_widget_ExpandableListAdapter::getGroupView(int& arg0,bool& arg1,android_view_View& arg2,android_view_ViewGroup& arg3)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
+}
+android_view_View android_widget_ExpandableListAdapter::getChildView(int& arg0,bool& arg1,android_view_View& arg2,android_view_ViewGroup& arg3)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
+}
+bool android_widget_ExpandableListAdapter::isChildSelectable(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_widget_ExpandableListAdapter::onGroupExpanded(int& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_ExpandableListAdapter::onGroupCollapsed(int& arg0)
+{
+	// TODO: Implementation
+
+}
+long android_widget_ExpandableListAdapter::getCombinedChildId(long& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
+}
+long android_widget_ExpandableListAdapter::getCombinedGroupId(long& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
 }

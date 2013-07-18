@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ShareActionProvider_OnShareTargetSelectedListener
 #define _android_widget_ShareActionProvider_OnShareTargetSelectedListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_ShareActionProvider.hpp>
+
 #include <android_content_Intent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_ShareActionProvider;
+
+class android_content_Intent;
+
 class android_widget_ShareActionProvider_OnShareTargetSelectedListener
 {
 public:
-	bool onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1);
+ bool onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1);
 
 
 };

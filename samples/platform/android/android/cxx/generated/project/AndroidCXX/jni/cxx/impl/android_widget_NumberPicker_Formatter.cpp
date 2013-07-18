@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <android_widget_NumberPicker_Formatter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_widget_NumberPicker_Formatter_format(JNIEnv *jni_env, jobject java_object,jint& arg0);
-    
+java_lang_String android_widget_NumberPicker_Formatter::format(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
 }

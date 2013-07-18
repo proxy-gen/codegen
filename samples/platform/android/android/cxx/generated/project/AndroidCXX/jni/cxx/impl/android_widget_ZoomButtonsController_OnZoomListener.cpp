@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_ZoomButtonsController_OnZoomListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_ZoomButtonsController_OnZoomListener_onVisibilityChanged(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_ZoomButtonsController_OnZoomListener_onZoom(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-    
+void android_widget_ZoomButtonsController_OnZoomListener::onVisibilityChanged(bool& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_ZoomButtonsController_OnZoomListener::onZoom(bool& arg0)
+{
+	// TODO: Implementation
+
 }

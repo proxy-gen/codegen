@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -30,9 +30,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_PropertyValuesHolder
 #define _android_animation_PropertyValuesHolder
+//
+// Scroll Down 
+//
 
 
 
@@ -47,11 +51,16 @@
 
 
 
+
+
+
+#include <android_util_Property.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <android_animation_TypeEvaluator.hpp>
-#include <java_lang_String.hpp>
-#include <android_util_Property.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,6 +72,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_Property;
+
+class java_lang_String;
+
+
+class android_animation_TypeEvaluator;
 
 class android_animation_PropertyValuesHolder
 {

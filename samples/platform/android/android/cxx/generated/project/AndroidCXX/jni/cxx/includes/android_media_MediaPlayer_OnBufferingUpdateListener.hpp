@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_media_MediaPlayer_OnBufferingUpdateListener
 #define _android_media_MediaPlayer_OnBufferingUpdateListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_media_MediaPlayer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_media_MediaPlayer;
+
 class android_media_MediaPlayer_OnBufferingUpdateListener
 {
 public:
-	void onBufferingUpdate(android_media_MediaPlayer& arg0,int& arg1);
+ void onBufferingUpdate(android_media_MediaPlayer& arg0,int& arg1);
 
 
 };

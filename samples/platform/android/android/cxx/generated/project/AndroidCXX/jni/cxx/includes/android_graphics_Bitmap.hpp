@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -32,9 +32,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Bitmap
 #define _android_graphics_Bitmap
+//
+// Scroll Down 
+//
 
 
 
@@ -71,16 +75,27 @@
 
 
 
+
+
+#include <android_graphics_Bitmap_Config.hpp>
+
+
+#include <android_os_Parcel.hpp>
 
 #include <java_nio_Buffer.hpp>
-#include <java_io_OutputStream.hpp>
-#include <android_graphics_Bitmap_CompressFormat.hpp>
-#include <android_graphics_Matrix.hpp>
-#include <android_graphics_Paint.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <android_graphics_Bitmap_Config.hpp>
-#include <android_os_Parcel.hpp>
+
 #include <android_util_DisplayMetrics.hpp>
+
+#include <android_graphics_Matrix.hpp>
+
+#include <android_graphics_Bitmap_CompressFormat.hpp>
+
+#include <java_io_OutputStream.hpp>
+
+#include <android_graphics_Canvas.hpp>
+
+#include <android_graphics_Paint.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -92,6 +107,25 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+
+class android_os_Parcel;
+
+class java_nio_Buffer;
+
+class android_util_DisplayMetrics;
+
+class android_graphics_Matrix;
+
+
+class java_io_OutputStream;
+
+class android_graphics_Canvas;
+
+class android_graphics_Paint;
 
 class android_graphics_Bitmap
 {

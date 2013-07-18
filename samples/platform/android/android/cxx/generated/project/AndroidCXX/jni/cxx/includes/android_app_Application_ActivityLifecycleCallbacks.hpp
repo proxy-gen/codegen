@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -19,9 +19,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_app_Application_ActivityLifecycleCallbacks
 #define _android_app_Application_ActivityLifecycleCallbacks
+//
+// Scroll Down 
+//
+
 
 
 
@@ -32,7 +37,9 @@
 
 
 #include <android_app_Activity.hpp>
+
 #include <android_os_Bundle.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,16 +52,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_app_Activity;
+
+class android_os_Bundle;
+
 class android_app_Application_ActivityLifecycleCallbacks
 {
 public:
-	void onActivityCreated(android_app_Activity& arg0,android_os_Bundle& arg1);
-	void onActivityStarted(android_app_Activity& arg0);
-	void onActivityResumed(android_app_Activity& arg0);
-	void onActivityPaused(android_app_Activity& arg0);
-	void onActivityStopped(android_app_Activity& arg0);
-	void onActivitySaveInstanceState(android_app_Activity& arg0,android_os_Bundle& arg1);
-	void onActivityDestroyed(android_app_Activity& arg0);
+ void onActivityCreated(android_app_Activity& arg0,android_os_Bundle& arg1);
+ void onActivityStarted(android_app_Activity& arg0);
+ void onActivityResumed(android_app_Activity& arg0);
+ void onActivityPaused(android_app_Activity& arg0);
+ void onActivityStopped(android_app_Activity& arg0);
+ void onActivitySaveInstanceState(android_app_Activity& arg0,android_os_Bundle& arg1);
+ void onActivityDestroyed(android_app_Activity& arg0);
 
 
 };

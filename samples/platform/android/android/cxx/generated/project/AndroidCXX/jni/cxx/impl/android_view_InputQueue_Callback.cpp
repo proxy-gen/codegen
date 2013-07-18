@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,24 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_InputQueue_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_InputQueue_Callback_onInputQueueCreated(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_InputQueue_Callback_onInputQueueDestroyed(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_view_InputQueue_Callback::onInputQueueCreated(android_view_InputQueue& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_InputQueue_Callback::onInputQueueDestroyed(android_view_InputQueue& arg0)
+{
+	// TODO: Implementation
+
 }

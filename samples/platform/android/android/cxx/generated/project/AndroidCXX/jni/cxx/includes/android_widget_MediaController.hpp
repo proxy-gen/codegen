@@ -18,9 +18,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_MediaController
 #define _android_widget_MediaController
+//
+// Scroll Down 
+//
 
 
 
@@ -35,14 +39,22 @@
 
 
 
+
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_View.hpp>
 
 #include <android_widget_MediaController_MediaPlayerControl.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <android_view_View_OnClickListener.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
-#include <android_view_KeyEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +66,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_MotionEvent;
+
+class android_view_KeyEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_View;
+
+class android_widget_MediaController_MediaPlayerControl;
+
+class android_view_View_OnClickListener;
 
 class android_widget_MediaController
 {

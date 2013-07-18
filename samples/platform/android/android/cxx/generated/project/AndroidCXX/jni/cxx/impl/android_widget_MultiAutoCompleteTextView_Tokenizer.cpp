@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,37 @@
 //
 
 
+
+ 			
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_widget_MultiAutoCompleteTextView_Tokenizer.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jint Java_AndroidCXX_android_widget_MultiAutoCompleteTextView_Tokenizer_findTokenStart(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jint Java_AndroidCXX_android_widget_MultiAutoCompleteTextView_Tokenizer_findTokenEnd(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_MultiAutoCompleteTextView_Tokenizer_terminateToken(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+int android_widget_MultiAutoCompleteTextView_Tokenizer::findTokenStart(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_MultiAutoCompleteTextView_Tokenizer::findTokenEnd(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_CharSequence android_widget_MultiAutoCompleteTextView_Tokenizer::terminateToken(java_lang_CharSequence& arg0)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
 }

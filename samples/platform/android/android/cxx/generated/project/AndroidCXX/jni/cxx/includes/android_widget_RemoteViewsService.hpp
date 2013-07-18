@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,16 +14,24 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_RemoteViewsService
 #define _android_widget_RemoteViewsService
+//
+// Scroll Down 
+//
 
 
 
+
+
+#include <android_content_Intent.hpp>
+
+#include <android_os_IBinder.hpp>
 
 #include <android_widget_RemoteViewsService_RemoteViewsFactory.hpp>
-#include <android_os_IBinder.hpp>
-#include <android_content_Intent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -35,6 +43,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Intent;
+
+class android_os_IBinder;
+
+class android_widget_RemoteViewsService_RemoteViewsFactory;
 
 class android_widget_RemoteViewsService
 {

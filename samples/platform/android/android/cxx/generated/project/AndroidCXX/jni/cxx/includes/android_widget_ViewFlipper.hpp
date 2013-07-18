@@ -12,9 +12,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ViewFlipper
 #define _android_widget_ViewFlipper
+//
+// Scroll Down 
+//
 
 
 
@@ -24,9 +28,12 @@
 
 
 
+
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -38,6 +45,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_ViewFlipper
 {

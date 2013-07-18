@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -46,9 +46,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_graphics_drawable_Drawable
 #define _android_graphics_drawable_Drawable
+//
+// Scroll Down 
+//
 
 
 
@@ -91,22 +95,39 @@
 
 
 
+
+
+#include <android_content_res_Resources.hpp>
+
+#include <org_xmlpull_v1_XmlPullParser.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_graphics_Canvas.hpp>
+
+#include <android_graphics_drawable_Drawable_Callback.hpp>
+
+#include <java_lang_Runnable.hpp>
+
+#include <android_graphics_ColorFilter.hpp>
+
+#include <android_graphics_PorterDuff_Mode.hpp>
+
+
+#include <android_graphics_Region.hpp>
+
+#include <java_io_InputStream.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_util_TypedValue.hpp>
 
 #include <android_graphics_BitmapFactory_Options.hpp>
-#include <org_xmlpull_v1_XmlPullParser.hpp>
-#include <android_util_AttributeSet.hpp>
+
 #include <android_graphics_drawable_Drawable_ConstantState.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_graphics_ColorFilter.hpp>
-#include <android_content_res_Resources.hpp>
-#include <java_io_InputStream.hpp>
-#include <android_graphics_PorterDuff_Mode.hpp>
-#include <java_lang_Runnable.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <android_graphics_drawable_Drawable_Callback.hpp>
-#include <android_util_TypedValue.hpp>
-#include <java_lang_String.hpp>
-#include <android_graphics_Region.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -118,6 +139,38 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_res_Resources;
+
+class org_xmlpull_v1_XmlPullParser;
+
+class android_util_AttributeSet;
+
+class android_graphics_Rect;
+
+class android_graphics_Canvas;
+
+class android_graphics_drawable_Drawable_Callback;
+
+class java_lang_Runnable;
+
+class android_graphics_ColorFilter;
+
+
+
+class android_graphics_Region;
+
+class java_io_InputStream;
+
+class java_lang_String;
+
+class android_util_TypedValue;
+
+class android_graphics_BitmapFactory_Options;
+
+class android_graphics_drawable_Drawable_ConstantState;
 
 class android_graphics_drawable_Drawable
 {

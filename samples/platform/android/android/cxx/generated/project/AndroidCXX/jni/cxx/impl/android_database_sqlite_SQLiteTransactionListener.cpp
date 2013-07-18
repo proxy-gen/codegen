@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,27 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_database_sqlite_SQLiteTransactionListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteTransactionListener_onBegin(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteTransactionListener_onCommit(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_database_sqlite_SQLiteTransactionListener_onRollback(JNIEnv *jni_env, jobject java_object);
-    
+void android_database_sqlite_SQLiteTransactionListener::onBegin()
+{
+	// TODO: Implementation
+
+}
+void android_database_sqlite_SQLiteTransactionListener::onCommit()
+{
+	// TODO: Implementation
+
+}
+void android_database_sqlite_SQLiteTransactionListener::onRollback()
+{
+	// TODO: Implementation
+
 }

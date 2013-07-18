@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_support_v4_app_FragmentManager_OnBackStackChangedListener
 #define _android_support_v4_app_FragmentManager_OnBackStackChangedListener
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,10 +33,12 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_support_v4_app_FragmentManager_OnBackStackChangedListener
 {
 public:
-	void onBackStackChanged();
+ void onBackStackChanged();
 
 
 };

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -17,9 +17,15 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_nio_Buffer
 #define _java_nio_Buffer
+//
+// Scroll Down 
+//
+
+
 
 
 
@@ -38,6 +44,7 @@
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,6 +56,11 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_Object;
 
 class java_nio_Buffer
 {

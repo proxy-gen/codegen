@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <java_nio_channels_ReadableByteChannel.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jint Java_AndroidCXX_java_nio_channels_ReadableByteChannel_read(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+int java_nio_channels_ReadableByteChannel::read(java_nio_ByteBuffer& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

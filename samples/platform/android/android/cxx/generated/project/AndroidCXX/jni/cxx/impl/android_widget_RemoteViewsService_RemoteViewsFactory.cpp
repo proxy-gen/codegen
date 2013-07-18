@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,19 +8,71 @@
 //
 
 
+
+		
+		
+
+// Generated Code 
+
 #include <android_widget_RemoteViewsService_RemoteViewsFactory.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_onCreate(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_onDestroy(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_getItemId(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_getCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_hasStableIds(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_getViewTypeCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_onDataSetChanged(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_getViewAt(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_RemoteViewsService_RemoteViewsFactory_getLoadingView(JNIEnv *jni_env, jobject java_object);
-    
+void android_widget_RemoteViewsService_RemoteViewsFactory::onCreate()
+{
+	// TODO: Implementation
+
+}
+void android_widget_RemoteViewsService_RemoteViewsFactory::onDestroy()
+{
+	// TODO: Implementation
+
+}
+long android_widget_RemoteViewsService_RemoteViewsFactory::getItemId(int& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
+}
+int android_widget_RemoteViewsService_RemoteViewsFactory::getCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+bool android_widget_RemoteViewsService_RemoteViewsFactory::hasStableIds()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int android_widget_RemoteViewsService_RemoteViewsFactory::getViewTypeCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void android_widget_RemoteViewsService_RemoteViewsFactory::onDataSetChanged()
+{
+	// TODO: Implementation
+
+}
+android_widget_RemoteViews android_widget_RemoteViewsService_RemoteViewsFactory::getViewAt(int& arg0)
+{
+	// TODO: Implementation
+	android_widget_RemoteViews result;
+
+	return result;
+}
+android_widget_RemoteViews android_widget_RemoteViewsService_RemoteViewsFactory::getLoadingView()
+{
+	// TODO: Implementation
+	android_widget_RemoteViews result;
+
+	return result;
 }

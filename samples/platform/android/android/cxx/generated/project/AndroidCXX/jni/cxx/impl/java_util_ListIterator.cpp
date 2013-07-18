@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,19 +8,73 @@
 //
 
 
+
+ 			
+		
+ 			
+		
+
+// Generated Code 
+
 #include <java_util_ListIterator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_java_util_ListIterator_add(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_ListIterator_hasNext(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_ListIterator_next(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_ListIterator_remove(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_ListIterator_set(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_ListIterator_nextIndex(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_ListIterator_previous(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_util_ListIterator_previousIndex(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_ListIterator_hasPrevious(JNIEnv *jni_env, jobject java_object);
-    
+void java_util_ListIterator::add(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+
+}
+bool java_util_ListIterator::hasNext()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_Object java_util_ListIterator::next()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+void java_util_ListIterator::remove()
+{
+	// TODO: Implementation
+
+}
+void java_util_ListIterator::set(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+
+}
+int java_util_ListIterator::nextIndex()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_Object java_util_ListIterator::previous()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+int java_util_ListIterator::previousIndex()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+bool java_util_ListIterator::hasPrevious()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

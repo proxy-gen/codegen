@@ -15,9 +15,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_security_ProtectionDomain
 #define _java_security_ProtectionDomain
+//
+// Scroll Down 
+//
 
 
 
@@ -25,12 +29,18 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_ClassLoader.hpp>
+
+#include <java_security_CodeSource.hpp>
 
 #include <java_security_PermissionCollection.hpp>
-#include <java_security_CodeSource.hpp>
+
 #include <java_security_Permission.hpp>
-#include <java_lang_ClassLoader.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,6 +52,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_ClassLoader;
+
+class java_security_CodeSource;
+
+class java_security_PermissionCollection;
+
+class java_security_Permission;
 
 class java_security_ProtectionDomain
 {

@@ -13,15 +13,22 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_util_Pair
 #define _android_util_Pair
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <java_lang_Object.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,6 +40,11 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
 
 class android_util_Pair
 {

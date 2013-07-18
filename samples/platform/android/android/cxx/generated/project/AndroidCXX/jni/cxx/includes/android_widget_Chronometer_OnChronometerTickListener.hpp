@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_Chronometer_OnChronometerTickListener
 #define _android_widget_Chronometer_OnChronometerTickListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_Chronometer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_Chronometer;
+
 class android_widget_Chronometer_OnChronometerTickListener
 {
 public:
-	void onChronometerTick(android_widget_Chronometer& arg0);
+ void onChronometerTick(android_widget_Chronometer& arg0);
 
 
 };

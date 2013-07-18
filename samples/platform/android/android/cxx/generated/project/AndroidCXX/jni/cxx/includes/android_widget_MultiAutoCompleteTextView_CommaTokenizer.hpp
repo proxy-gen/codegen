@@ -14,15 +14,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_MultiAutoCompleteTextView_CommaTokenizer
 #define _android_widget_MultiAutoCompleteTextView_CommaTokenizer
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +40,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
 
 class android_widget_MultiAutoCompleteTextView_CommaTokenizer
 {

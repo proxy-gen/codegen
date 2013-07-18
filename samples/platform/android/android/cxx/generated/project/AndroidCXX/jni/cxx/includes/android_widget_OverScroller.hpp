@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_OverScroller
 #define _android_widget_OverScroller
+//
+// Scroll Down 
+//
+
 
 
 
@@ -44,6 +49,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_widget_OverScroller
 {

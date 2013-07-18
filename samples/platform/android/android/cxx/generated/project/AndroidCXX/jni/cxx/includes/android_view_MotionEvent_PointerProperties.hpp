@@ -12,9 +12,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_MotionEvent_PointerProperties
 #define _android_view_MotionEvent_PointerProperties
+//
+// Scroll Down 
+//
+
 
 
 
@@ -22,6 +27,8 @@
 
 
 #include <java_lang_Object.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,6 +40,11 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
 
 class android_view_MotionEvent_PointerProperties
 {

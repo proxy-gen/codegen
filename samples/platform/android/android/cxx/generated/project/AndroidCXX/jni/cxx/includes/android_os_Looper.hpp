@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -18,9 +18,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_os_Looper
 #define _android_os_Looper
+//
+// Scroll Down 
+//
 
 
 
@@ -33,11 +37,17 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_util_Printer.hpp>
+
+
+#include <android_os_MessageQueue.hpp>
 
 #include <java_lang_Thread.hpp>
-#include <android_util_Printer.hpp>
-#include <android_os_MessageQueue.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,6 +59,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_util_Printer;
+
+
+class android_os_MessageQueue;
+
+class java_lang_Thread;
 
 class android_os_Looper
 {

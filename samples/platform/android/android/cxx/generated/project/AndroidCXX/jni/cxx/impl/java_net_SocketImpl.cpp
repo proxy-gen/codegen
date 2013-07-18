@@ -1,5 +1,5 @@
 /*
- * Implementation (Abstract CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <java_net_SocketImpl.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
+java_lang_String java_net_SocketImpl::toString()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
 }

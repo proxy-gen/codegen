@@ -13,15 +13,23 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_text_Spannable_Factory
 #define _android_text_Spannable_Factory
+//
+// Scroll Down 
+//
 
 
 
+
+
+
+#include <java_lang_CharSequence.hpp>
 
 #include <android_text_Spannable.hpp>
-#include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,6 +41,13 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_CharSequence;
+
+class android_text_Spannable;
 
 class android_text_Spannable_Factory
 {

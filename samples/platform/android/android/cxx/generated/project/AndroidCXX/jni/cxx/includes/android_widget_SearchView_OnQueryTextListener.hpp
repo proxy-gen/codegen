@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SearchView_OnQueryTextListener
 #define _android_widget_SearchView_OnQueryTextListener
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,11 +38,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
 class android_widget_SearchView_OnQueryTextListener
 {
 public:
-	bool onQueryTextSubmit(java_lang_String& arg0);
-	bool onQueryTextChange(java_lang_String& arg0);
+ bool onQueryTextSubmit(java_lang_String& arg0);
+ bool onQueryTextChange(java_lang_String& arg0);
 
 
 };

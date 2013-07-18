@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,20 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_text_Spannable
 #define _android_text_Spannable
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,11 +38,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class android_text_Spannable
 {
 public:
-	void setSpan(java_lang_Object& arg0,int& arg1);
-	void removeSpan(java_lang_Object& arg0);
+ void setSpan(java_lang_Object& arg0,int& arg1);
+ void removeSpan(java_lang_Object& arg0);
 
 
 };

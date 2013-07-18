@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,9 +14,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_animation_Animator_AnimatorListener
 #define _android_animation_Animator_AnimatorListener
+//
+// Scroll Down 
+//
+
 
 
 
@@ -24,6 +29,7 @@
 
 
 #include <android_animation_Animator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -36,13 +42,17 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_animation_Animator;
+
 class android_animation_Animator_AnimatorListener
 {
 public:
-	void onAnimationStart(android_animation_Animator& arg0);
-	void onAnimationEnd(android_animation_Animator& arg0);
-	void onAnimationRepeat(android_animation_Animator& arg0);
-	void onAnimationCancel(android_animation_Animator& arg0);
+ void onAnimationStart(android_animation_Animator& arg0);
+ void onAnimationEnd(android_animation_Animator& arg0);
+ void onAnimationRepeat(android_animation_Animator& arg0);
+ void onAnimationCancel(android_animation_Animator& arg0);
 
 
 };

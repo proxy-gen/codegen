@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -15,20 +15,30 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_content_res_Resources_Theme
 #define _android_content_res_Resources_Theme
+//
+// Scroll Down 
+//
 
 
 
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 #include <android_content_res_TypedArray.hpp>
+
+
 #include <android_util_TypedValue.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,6 +50,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_util_AttributeSet;
+
+class android_content_res_TypedArray;
+
+
+class android_util_TypedValue;
 
 class android_content_res_Resources_Theme
 {

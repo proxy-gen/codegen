@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_webkit_WebView_FindListener
 #define _android_webkit_WebView_FindListener
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,10 +33,12 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_webkit_WebView_FindListener
 {
 public:
-	void onFindResultReceived(int& arg0,bool& arg1);
+ void onFindResultReceived(int& arg0,bool& arg1);
 
 
 };

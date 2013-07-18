@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_View_OnKeyListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_View_OnKeyListener_onKey(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1,jobject& arg2);
-    
+bool android_view_View_OnKeyListener::onKey(android_view_View& arg0,int& arg1,android_view_KeyEvent& arg2)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

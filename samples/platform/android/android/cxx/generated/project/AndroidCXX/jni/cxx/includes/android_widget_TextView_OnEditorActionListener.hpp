@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_TextView_OnEditorActionListener
 #define _android_widget_TextView_OnEditorActionListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_TextView.hpp>
+
 #include <android_view_KeyEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_TextView;
+
+class android_view_KeyEvent;
+
 class android_widget_TextView_OnEditorActionListener
 {
 public:
-	bool onEditorAction(android_widget_TextView& arg0,int& arg1,android_view_KeyEvent& arg2);
+ bool onEditorAction(android_widget_TextView& arg0,int& arg1,android_view_KeyEvent& arg2);
 
 
 };

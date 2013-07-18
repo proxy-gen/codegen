@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_PopupMenu_OnDismissListener
 #define _android_widget_PopupMenu_OnDismissListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_PopupMenu.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_PopupMenu;
+
 class android_widget_PopupMenu_OnDismissListener
 {
 public:
-	void onDismiss(android_widget_PopupMenu& arg0);
+ void onDismiss(android_widget_PopupMenu& arg0);
 
 
 };

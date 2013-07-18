@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
 		
 
+// Generated Code 
 
 #ifndef _java_net_SocketImplFactory
 #define _java_net_SocketImplFactory
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_net_SocketImpl.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_net_SocketImpl;
+
 class java_net_SocketImplFactory
 {
 public:
-	java_net_SocketImpl createSocketImpl();
+ java_net_SocketImpl createSocketImpl();
 
 
 };

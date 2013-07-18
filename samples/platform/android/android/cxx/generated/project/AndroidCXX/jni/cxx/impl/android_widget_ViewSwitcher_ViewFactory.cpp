@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <android_widget_ViewSwitcher_ViewFactory.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_widget_ViewSwitcher_ViewFactory_makeView(JNIEnv *jni_env, jobject java_object);
-    
+android_view_View android_widget_ViewSwitcher_ViewFactory::makeView()
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
 }

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_SlidingDrawer_OnDrawerScrollListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_SlidingDrawer_OnDrawerScrollListener_onScrollStarted(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_SlidingDrawer_OnDrawerScrollListener_onScrollEnded(JNIEnv *jni_env, jobject java_object);
-    
+void android_widget_SlidingDrawer_OnDrawerScrollListener::onScrollStarted()
+{
+	// TODO: Implementation
+
+}
+void android_widget_SlidingDrawer_OnDrawerScrollListener::onScrollEnded()
+{
+	// TODO: Implementation
+
 }

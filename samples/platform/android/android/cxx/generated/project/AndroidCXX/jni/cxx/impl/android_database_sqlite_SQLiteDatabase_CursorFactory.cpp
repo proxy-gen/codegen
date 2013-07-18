@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,24 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_database_sqlite_SQLiteDatabase_CursorFactory_newCursor(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1,jobject& arg2,jobject& arg3);
-    
+android_database_Cursor android_database_sqlite_SQLiteDatabase_CursorFactory::newCursor(android_database_sqlite_SQLiteDatabase& arg0,android_database_sqlite_SQLiteCursorDriver& arg1,java_lang_String& arg2,android_database_sqlite_SQLiteQuery& arg3)
+{
+	// TODO: Implementation
+	android_database_Cursor result;
+
+	return result;
 }

@@ -8,9 +8,20 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_view_TouchDelegate.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
+bool android_view_TouchDelegate::onTouchEvent(android_view_MotionEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,15 +12,22 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_view_WindowManager
 #define _android_view_WindowManager
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_view_Display.hpp>
+
 #include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,11 +40,17 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_Display;
+
+class android_view_View;
+
 class android_view_WindowManager
 {
 public:
-	android_view_Display getDefaultDisplay();
-	void removeViewImmediate(android_view_View& arg0);
+ android_view_Display getDefaultDisplay();
+ void removeViewImmediate(android_view_View& arg0);
 
 
 };

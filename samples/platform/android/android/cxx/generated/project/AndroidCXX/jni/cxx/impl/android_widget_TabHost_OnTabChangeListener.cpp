@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_widget_TabHost_OnTabChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_TabHost_OnTabChangeListener_onTabChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_widget_TabHost_OnTabChangeListener::onTabChanged(java_lang_String& arg0)
+{
+	// TODO: Implementation
+
 }

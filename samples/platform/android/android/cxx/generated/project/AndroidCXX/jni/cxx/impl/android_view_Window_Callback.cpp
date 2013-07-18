@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,31 +8,161 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+		
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_Window_Callback.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_onCreatePanelMenu(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_onMenuItemSelected(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onPanelClosed(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_onPreparePanel(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1,jobject& arg2);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onWindowAttributesChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onContentChanged(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onWindowFocusChanged(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onAttachedToWindow(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onDetachedFromWindow(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchKeyEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchKeyShortcutEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchTouchEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchTrackballEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchGenericMotionEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_dispatchPopulateAccessibilityEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_Window_Callback_onCreatePanelView(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_onMenuOpened(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_Window_Callback_onSearchRequested(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_Window_Callback_onWindowStartingActionMode(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onActionModeStarted(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_Window_Callback_onActionModeFinished(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_view_Window_Callback::onCreatePanelMenu(int& arg0,android_view_Menu& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::onMenuItemSelected(int& arg0,android_view_MenuItem& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_view_Window_Callback::onPanelClosed(int& arg0,android_view_Menu& arg1)
+{
+	// TODO: Implementation
+
+}
+bool android_view_Window_Callback::onPreparePanel(int& arg0,android_view_View& arg1,android_view_Menu& arg2)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_view_Window_Callback::onWindowAttributesChanged(android_view_WindowManager_LayoutParams& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_Window_Callback::onContentChanged()
+{
+	// TODO: Implementation
+
+}
+void android_view_Window_Callback::onWindowFocusChanged(bool& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_Window_Callback::onAttachedToWindow()
+{
+	// TODO: Implementation
+
+}
+void android_view_Window_Callback::onDetachedFromWindow()
+{
+	// TODO: Implementation
+
+}
+bool android_view_Window_Callback::dispatchKeyEvent(android_view_KeyEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::dispatchKeyShortcutEvent(android_view_KeyEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::dispatchTouchEvent(android_view_MotionEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::dispatchTrackballEvent(android_view_MotionEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::dispatchGenericMotionEvent(android_view_MotionEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_View android_view_Window_Callback::onCreatePanelView(int& arg0)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
+}
+bool android_view_Window_Callback::onMenuOpened(int& arg0,android_view_Menu& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_Window_Callback::onSearchRequested()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_ActionMode android_view_Window_Callback::onWindowStartingActionMode(android_view_ActionMode_Callback& arg0)
+{
+	// TODO: Implementation
+	android_view_ActionMode result;
+
+	return result;
+}
+void android_view_Window_Callback::onActionModeStarted(android_view_ActionMode& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_Window_Callback::onActionModeFinished(android_view_ActionMode& arg0)
+{
+	// TODO: Implementation
+
 }

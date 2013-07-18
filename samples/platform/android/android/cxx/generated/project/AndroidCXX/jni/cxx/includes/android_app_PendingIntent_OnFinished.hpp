@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,16 +14,25 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_app_PendingIntent_OnFinished
 #define _android_app_PendingIntent_OnFinished
+//
+// Scroll Down 
+//
 
 
+
+
+#include <android_app_PendingIntent.hpp>
 
 #include <android_content_Intent.hpp>
-#include <android_app_PendingIntent.hpp>
-#include <android_os_Bundle.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -36,10 +45,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_app_PendingIntent;
+
+class android_content_Intent;
+
+class java_lang_String;
+
+class android_os_Bundle;
+
 class android_app_PendingIntent_OnFinished
 {
 public:
-	void onSendFinished(android_app_PendingIntent& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4);
+ void onSendFinished(android_app_PendingIntent& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4);
 
 
 };

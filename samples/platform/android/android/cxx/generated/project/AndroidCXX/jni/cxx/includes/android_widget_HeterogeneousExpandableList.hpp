@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_HeterogeneousExpandableList
 #define _android_widget_HeterogeneousExpandableList
+//
+// Scroll Down 
+//
+
 
 
 
@@ -31,13 +36,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_HeterogeneousExpandableList
 {
 public:
-	int getGroupType(int& arg0);
-	int getChildType(int& arg0);
-	int getGroupTypeCount();
-	int getChildTypeCount();
+ int getGroupType(int& arg0);
+ int getChildType(int& arg0);
+ int getGroupTypeCount();
+ int getChildTypeCount();
 
 
 };

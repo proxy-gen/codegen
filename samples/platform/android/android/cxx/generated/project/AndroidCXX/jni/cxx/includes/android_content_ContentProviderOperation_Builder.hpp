@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -25,9 +25,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_content_ContentProviderOperation_Builder
 #define _android_content_ContentProviderOperation_Builder
+//
+// Scroll Down 
+//
 
 
 
@@ -38,11 +42,17 @@
 
 
 
+
+
+#include <android_content_ContentProviderOperation.hpp>
 
 #include <android_content_ContentValues.hpp>
-#include <android_content_ContentProviderOperation.hpp>
-#include <java_lang_Object.hpp>
+
+
 #include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +64,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_ContentProviderOperation;
+
+class android_content_ContentValues;
+
+
+class java_lang_String;
+
+class java_lang_Object;
 
 class android_content_ContentProviderOperation_Builder
 {

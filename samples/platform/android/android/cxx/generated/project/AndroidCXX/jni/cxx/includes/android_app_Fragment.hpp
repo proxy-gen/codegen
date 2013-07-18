@@ -66,9 +66,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_Fragment
 #define _android_app_Fragment
+//
+// Scroll Down 
+//
 
 
 
@@ -137,31 +141,57 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_content_res_Resources.hpp>
+
+#include <java_io_FileDescriptor.hpp>
+
+#include <java_io_PrintWriter.hpp>
+
+#include <android_content_Context.hpp>
 
 #include <android_os_Bundle.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_content_Intent.hpp>
-#include <android_content_res_Resources.hpp>
-#include <android_app_FragmentManager.hpp>
-#include <java_io_PrintWriter.hpp>
-#include <java_lang_Object.hpp>
-#include <android_view_MenuItem.hpp>
-#include <android_view_MenuInflater.hpp>
+
+
 #include <android_app_Fragment_SavedState.hpp>
-#include <android_view_Menu.hpp>
-#include <android_animation_Animator.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_ContextMenu.hpp>
-#include <android_content_Context.hpp>
-#include <android_view_LayoutInflater.hpp>
-#include <android_app_LoaderManager.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
 #include <android_app_Activity.hpp>
-#include <android_content_res_Configuration.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_app_FragmentManager.hpp>
+
+#include <android_app_LoaderManager.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_view_LayoutInflater.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
 #include <android_view_View.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_view_Menu.hpp>
+
+#include <android_view_MenuInflater.hpp>
+
+#include <android_view_MenuItem.hpp>
+
+#include <android_view_ContextMenu.hpp>
+
+#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
+#include <android_animation_Animator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -173,6 +203,57 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class android_content_res_Resources;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_content_Context;
+
+class android_os_Bundle;
+
+
+class android_app_Fragment_SavedState;
+
+class android_app_Activity;
+
+class java_lang_CharSequence;
+
+class android_app_FragmentManager;
+
+class android_app_LoaderManager;
+
+class android_content_Intent;
+
+class android_util_AttributeSet;
+
+class android_view_LayoutInflater;
+
+class android_view_ViewGroup;
+
+class android_view_View;
+
+class android_content_res_Configuration;
+
+class android_view_Menu;
+
+class android_view_MenuInflater;
+
+class android_view_MenuItem;
+
+class android_view_ContextMenu;
+
+class android_view_ContextMenu_ContextMenuInfo;
+
+class android_animation_Animator;
 
 class android_app_Fragment
 {

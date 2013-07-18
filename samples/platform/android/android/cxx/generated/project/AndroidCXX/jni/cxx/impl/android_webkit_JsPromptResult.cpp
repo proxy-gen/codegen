@@ -1,5 +1,5 @@
 /*
- * Implementation (Abstract CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,9 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_webkit_JsPromptResult.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
+
+void android_webkit_JsPromptResult::confirm(java_lang_String& arg0)
+{
+	// TODO: Implementation
 
 }

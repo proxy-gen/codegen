@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _java_io_FileDescriptor
 #define _java_io_FileDescriptor
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,6 +33,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class java_io_FileDescriptor
 {

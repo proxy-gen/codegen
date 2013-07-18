@@ -27,9 +27,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ExpandableListView
 #define _android_widget_ExpandableListView
+//
+// Scroll Down 
+//
 
 
 
@@ -63,19 +67,32 @@
 
 
 
+
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_ExpandableListAdapter.hpp>
 
 #include <android_widget_ListAdapter.hpp>
-#include <android_widget_ExpandableListView_OnGroupClickListener.hpp>
-#include <android_os_Parcelable.hpp>
-#include <android_widget_ExpandableListAdapter.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_widget_ExpandableListView_OnGroupExpandListener.hpp>
-#include <android_widget_ExpandableListView_OnChildClickListener.hpp>
-#include <android_widget_ExpandableListView_OnGroupCollapseListener.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_view_View.hpp>
+
 #include <android_widget_AdapterView_OnItemClickListener.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_widget_ExpandableListView_OnGroupCollapseListener.hpp>
+
+#include <android_widget_ExpandableListView_OnGroupExpandListener.hpp>
+
+#include <android_widget_ExpandableListView_OnGroupClickListener.hpp>
+
+#include <android_widget_ExpandableListView_OnChildClickListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,6 +104,32 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcelable;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_ExpandableListAdapter;
+
+class android_widget_ListAdapter;
+
+class android_view_View;
+
+class android_widget_AdapterView_OnItemClickListener;
+
+class android_graphics_drawable_Drawable;
+
+class android_widget_ExpandableListView_OnGroupCollapseListener;
+
+class android_widget_ExpandableListView_OnGroupExpandListener;
+
+class android_widget_ExpandableListView_OnGroupClickListener;
+
+class android_widget_ExpandableListView_OnChildClickListener;
 
 class android_widget_ExpandableListView
 {

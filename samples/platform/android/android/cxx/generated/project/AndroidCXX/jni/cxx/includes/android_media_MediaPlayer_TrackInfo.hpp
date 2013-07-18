@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,17 +12,24 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_media_MediaPlayer_TrackInfo
 #define _android_media_MediaPlayer_TrackInfo
+//
+// Scroll Down 
+//
 
 
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +41,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_os_Parcel;
 
 class android_media_MediaPlayer_TrackInfo
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -34,9 +34,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_widget_AdapterView
 #define _android_widget_AdapterView
+//
+// Scroll Down 
+//
 
 
 
@@ -71,17 +75,28 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_View_OnClickListener.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_Adapter.hpp>
+
+#include <android_widget_AdapterView_OnItemClickListener.hpp>
+
+#include <android_widget_AdapterView_OnItemLongClickListener.hpp>
 
 #include <android_widget_AdapterView_OnItemSelectedListener.hpp>
+
 #include <java_lang_Object.hpp>
-#include <android_view_ViewGroup_LayoutParams.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_widget_AdapterView_OnItemLongClickListener.hpp>
-#include <android_view_View_OnClickListener.hpp>
-#include <android_widget_Adapter.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
-#include <android_widget_AdapterView_OnItemClickListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -93,6 +108,28 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_View_OnClickListener;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_Adapter;
+
+class android_widget_AdapterView_OnItemClickListener;
+
+class android_widget_AdapterView_OnItemLongClickListener;
+
+class android_widget_AdapterView_OnItemSelectedListener;
+
+class java_lang_Object;
 
 class android_widget_AdapterView
 {

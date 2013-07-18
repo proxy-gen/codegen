@@ -48,9 +48,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_res_Resources
 #define _android_content_res_Resources
+//
+// Scroll Down 
+//
 
 
 
@@ -94,23 +98,41 @@
 
 
 
+
+
+#include <android_util_TypedValue.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+
+#include <android_content_res_TypedArray.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_graphics_Movie.hpp>
+
+#include <android_content_res_ColorStateList.hpp>
+
+#include <android_content_res_XmlResourceParser.hpp>
+
+#include <java_io_InputStream.hpp>
+
+#include <android_content_res_AssetFileDescriptor.hpp>
+
+#include <android_content_res_Resources_Theme.hpp>
+
+#include <android_util_AttributeSet.hpp>
 
 #include <android_content_res_Configuration.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_content_res_Resources_Theme.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_content_res_AssetFileDescriptor.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_content_res_TypedArray.hpp>
-#include <android_content_res_AssetManager.hpp>
-#include <android_graphics_Movie.hpp>
-#include <android_content_res_ColorStateList.hpp>
-#include <android_util_TypedValue.hpp>
-#include <java_io_InputStream.hpp>
+
 #include <android_util_DisplayMetrics.hpp>
-#include <android_content_res_XmlResourceParser.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_content_res_AssetManager.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -122,6 +144,41 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_util_TypedValue;
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+
+class android_content_res_TypedArray;
+
+class android_graphics_drawable_Drawable;
+
+class android_graphics_Movie;
+
+class android_content_res_ColorStateList;
+
+class android_content_res_XmlResourceParser;
+
+class java_io_InputStream;
+
+class android_content_res_AssetFileDescriptor;
+
+class android_content_res_Resources_Theme;
+
+class android_util_AttributeSet;
+
+class android_content_res_Configuration;
+
+class android_util_DisplayMetrics;
+
+class android_os_Bundle;
+
+class android_content_res_AssetManager;
 
 class android_content_res_Resources
 {

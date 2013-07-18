@@ -21,9 +21,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_app_LocalActivityManager
 #define _android_app_LocalActivityManager
+//
+// Scroll Down 
+//
 
 
 
@@ -37,12 +41,18 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_app_Activity.hpp>
+
+#include <android_content_Intent.hpp>
 
 #include <android_view_Window.hpp>
-#include <android_content_Intent.hpp>
-#include <android_app_Activity.hpp>
+
 #include <android_os_Bundle.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +64,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_app_Activity;
+
+class android_content_Intent;
+
+class android_view_Window;
+
+class android_os_Bundle;
 
 class android_app_LocalActivityManager
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -39,9 +39,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_app_PendingIntent
 #define _android_app_PendingIntent
+//
+// Scroll Down 
+//
+
 
 
 
@@ -63,15 +68,26 @@
 
 
 #include <java_lang_Object.hpp>
-#include <android_content_Context.hpp>
-#include <android_content_IntentSender.hpp>
-#include <android_content_Intent.hpp>
-#include <android_os_UserHandle.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_app_PendingIntent_OnFinished.hpp>
-#include <android_os_Parcel.hpp>
-#include <android_os_Handler.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_app_PendingIntent_OnFinished.hpp>
+
+#include <android_os_Handler.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_content_Intent.hpp>
+
+
+#include <android_os_Parcel.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_os_UserHandle.hpp>
+
+#include <android_content_IntentSender.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,6 +99,29 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class android_app_PendingIntent_OnFinished;
+
+class android_os_Handler;
+
+class android_content_Context;
+
+class android_content_Intent;
+
+
+class android_os_Parcel;
+
+class android_os_Bundle;
+
+class android_os_UserHandle;
+
+class android_content_IntentSender;
 
 class android_app_PendingIntent
 {

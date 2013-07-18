@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,32 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <java_util_Iterator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Iterator_hasNext(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Iterator_next(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_Iterator_remove(JNIEnv *jni_env, jobject java_object);
-    
+bool java_util_Iterator::hasNext()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_Object java_util_Iterator::next()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+void java_util_Iterator::remove()
+{
+	// TODO: Implementation
+
 }

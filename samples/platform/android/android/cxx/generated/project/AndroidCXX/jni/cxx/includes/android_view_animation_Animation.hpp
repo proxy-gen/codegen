@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -15,9 +15,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_view_animation_Animation
 #define _android_view_animation_Animation
+//
+// Scroll Down 
+//
 
 
 
@@ -58,11 +62,16 @@
 
 
 
+
+
+#include <android_content_Context.hpp>
+
+#include <android_view_animation_Interpolator.hpp>
 
 #include <android_view_animation_Animation_AnimationListener.hpp>
-#include <android_view_animation_Interpolator.hpp>
+
 #include <android_view_animation_Transformation.hpp>
-#include <android_content_Context.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -74,6 +83,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Context;
+
+class android_view_animation_Interpolator;
+
+class android_view_animation_Animation_AnimationListener;
+
+class android_view_animation_Transformation;
 
 class android_view_animation_Animation
 {

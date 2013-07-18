@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_CompoundButton_OnCheckedChangeListener
 #define _android_widget_CompoundButton_OnCheckedChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_widget_CompoundButton.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_CompoundButton;
+
 class android_widget_CompoundButton_OnCheckedChangeListener
 {
 public:
-	void onCheckedChanged(android_widget_CompoundButton& arg0,bool& arg1);
+ void onCheckedChanged(android_widget_CompoundButton& arg0,bool& arg1);
 
 
 };

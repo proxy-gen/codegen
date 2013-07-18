@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,26 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_SearchView_OnSuggestionListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_SearchView_OnSuggestionListener_onSuggestionSelect(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_SearchView_OnSuggestionListener_onSuggestionClick(JNIEnv *jni_env, jobject java_object,jint& arg0);
-    
+bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_widget_SearchView_OnSuggestionListener::onSuggestionClick(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

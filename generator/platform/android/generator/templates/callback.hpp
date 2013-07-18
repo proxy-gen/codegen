@@ -25,16 +25,17 @@
 #set $params = $function['params']
 #set $param_idx = 0
 #set $todo_list = list()
-#set $include_file_list = list()
+#set $proxied_class_list = list()
+#set $modifier_str = None
+#if '_static' in $function['tags']
+#set $modifier_str = 'static' 
+#end if
 #for $param in $params
 	#set $param_type = None
 	#if $param['converter'] == 'convert_proxy'
 		#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$param['type'])
 		#for $clazz in $classes
-			#set $param_type = $clazz['name']
-			#set $param_type = $config_module.to_class_name($param_type)
- 			#set $file_name = $config_module.to_file_name($param_type,"hpp")
- 			$include_file_list.append(file_name)
+ 			$proxied_class_list.append(clazz)
 			#break
 		#end for
 	#else	
@@ -61,10 +62,7 @@
 #if $retrn['converter'] == 'convert_proxy'
 	#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$retrn['type'])
 	#for $clazz in $classes
-		#set $retrn_type = $clazz['name']
-		#set $retrn_type = $config_module.to_class_name($retrn_type)
-		#set $file_name = $config_module.to_file_name($retrn_type,"hpp")
-		$include_file_list.append(file_name)
+		$proxied_class_list.append(clazz)
 		#break
 	#end for
 #else
@@ -79,24 +77,36 @@
 #end if
 #set $function['retrn_type'] = $retrn_type
 #set $function['todo_list'] = $todo_list
-#set $function['include_file_list'] = $include_file_list
+#set $function['proxied_class_list'] = $proxied_class_list
+#set $function['modifier_str'] = $modifier_str
 #end for
 
-## Generated Class ##
+// Generated Code 
 
 #ifndef _$callback_class_name
 #define _$callback_class_name
+//
+// Scroll Down 
+//
 
-#set $include_files = list()
+#set $proxied_classes = list()
 #for $function in $functions
-$include_files.extend(function['include_file_list'])
+$proxied_classes.extend(function['proxied_class_list'])
 #end for
 
-#for $include_file in $set(include_files)
-#if $callback_head_file_name != $include_file
-\#include <$include_file>
+#set $included_types = list()
+#for $proxied_class in $proxied_classes
+#set $proxied_type = $proxied_class['name']
+#set $proxied_type = $config_module.to_class_name($proxied_type)
+#if $proxied_type not in $included_types
+$included_types.append($proxied_type)
+#set $proxied_file_name = $config_module.to_file_name($proxied_type,"hpp")
+#if $callback_head_file_name != $proxied_file_name
+\#include <$proxied_file_name>
+#end if
 #end if
 #end for
+
 \#include <vector>
 \#include <map>
 \#include <string>
@@ -109,15 +119,28 @@ extern "C" {
 
 namespace ${namespace} {
 
+// Forward Declarations
+#set $forwarded_types = list()
+#for $proxied_class in $proxied_classes
+#set $proxied_type = $proxied_class['name']
+#set $proxied_type = $config_module.to_class_name($proxied_type)
+#if $proxied_type not in $forwarded_types
+$forwarded_types.append($proxied_type)
+#if $callback_class_name != $proxied_type
+class $proxied_type;
+#end if
+#end if
+#end for
+
 class $callback_class_name
 {
 public:
 #for $function in $functions
 #if $len(function['todo_list']) == 0
-	$function['retrn_type'] ${function['name']}($function['param_str']);
+$function['modifier_str'] $function['retrn_type'] ${function['name']}($function['param_str']);
 #else
 #for $todo in $function['todo_list']
-    "//TODO: add CONVERTER for $todo['type']"
+    //TODO: add CONVERTER for $todo['type']
 #end for
 #end if
 #end for

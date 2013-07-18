@@ -14,9 +14,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_net_DatagramPacket
 #define _java_net_DatagramPacket
+//
+// Scroll Down 
+//
+
 
 
 
@@ -31,7 +36,9 @@
 
 
 #include <java_net_InetAddress.hpp>
+
 #include <java_net_SocketAddress.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,6 +50,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_net_InetAddress;
+
+class java_net_SocketAddress;
 
 class java_net_DatagramPacket
 {

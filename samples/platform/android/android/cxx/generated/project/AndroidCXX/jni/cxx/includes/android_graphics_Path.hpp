@@ -29,9 +29,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Path
 #define _android_graphics_Path
+//
+// Scroll Down 
+//
 
 
 
@@ -63,11 +67,17 @@
 
 
 
+
+
+
+#include <android_graphics_Matrix.hpp>
+
+#include <android_graphics_RectF.hpp>
+
+#include <android_graphics_Path_FillType.hpp>
 
 #include <android_graphics_Path_Direction.hpp>
-#include <android_graphics_RectF.hpp>
-#include <android_graphics_Matrix.hpp>
-#include <android_graphics_Path_FillType.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,6 +89,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class android_graphics_Matrix;
+
+class android_graphics_RectF;
+
+
 
 class android_graphics_Path
 {

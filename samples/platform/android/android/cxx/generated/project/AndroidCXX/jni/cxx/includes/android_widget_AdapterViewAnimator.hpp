@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -26,9 +26,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AdapterViewAnimator
 #define _android_widget_AdapterViewAnimator
+//
+// Scroll Down 
+//
 
 
 
@@ -56,16 +60,26 @@
 
 
 
+
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_Adapter.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_animation_ObjectAnimator.hpp>
 
 #include <android_content_Context.hpp>
-#include <android_os_Parcelable.hpp>
-#include <android_content_Intent.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_widget_Adapter.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
-#include <android_animation_ObjectAnimator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -77,6 +91,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcelable;
+
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_Adapter;
+
+class android_view_View;
+
+class android_content_Intent;
+
+class android_animation_ObjectAnimator;
+
+class android_content_Context;
 
 class android_widget_AdapterViewAnimator
 {

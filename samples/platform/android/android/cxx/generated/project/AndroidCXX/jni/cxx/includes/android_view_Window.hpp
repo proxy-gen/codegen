@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -50,9 +50,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_view_Window
 #define _android_view_Window
+//
+// Scroll Down 
+//
 
 
 
@@ -121,26 +125,47 @@
 
 
 
+
+
+#include <android_content_Context.hpp>
+
+#include <android_view_WindowManager_LayoutParams.hpp>
+
+#include <android_view_LayoutInflater.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_view_WindowManager.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_net_Uri.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_Window_Callback.hpp>
 
 #include <android_content_res_TypedArray.hpp>
-#include <android_net_Uri.hpp>
-#include <android_content_Context.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_view_LayoutInflater.hpp>
-#include <android_view_SurfaceHolder_Callback2.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_view_ViewGroup_LayoutParams.hpp>
+
+
 #include <android_os_IBinder.hpp>
-#include <android_view_Window_Callback.hpp>
-#include <android_view_WindowManager.hpp>
-#include <android_view_InputQueue_Callback.hpp>
-#include <android_view_View.hpp>
-#include <android_view_WindowManager_LayoutParams.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_view_KeyEvent.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_view_SurfaceHolder_Callback2.hpp>
+
+#include <android_view_InputQueue_Callback.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -152,6 +177,47 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_Context;
+
+class android_view_WindowManager_LayoutParams;
+
+class android_view_LayoutInflater;
+
+class android_content_res_Configuration;
+
+class android_os_Bundle;
+
+class android_view_View;
+
+class android_view_WindowManager;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_net_Uri;
+
+class android_graphics_drawable_Drawable;
+
+class java_lang_CharSequence;
+
+class android_view_KeyEvent;
+
+class android_view_Window_Callback;
+
+class android_content_res_TypedArray;
+
+
+class android_os_IBinder;
+
+class java_lang_String;
+
+class android_view_SurfaceHolder_Callback2;
+
+class android_view_InputQueue_Callback;
+
+class android_view_MotionEvent;
 
 class android_view_Window
 {

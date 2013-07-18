@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,15 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_database_ContentObserver
 #define _android_database_ContentObserver
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <android_net_Uri.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,6 +38,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_net_Uri;
 
 class android_database_ContentObserver
 {

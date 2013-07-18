@@ -28,9 +28,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_lang_StringBuilder
 #define _java_lang_StringBuilder
+//
+// Scroll Down 
+//
 
 
 
@@ -42,11 +46,17 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
 
 #include <java_lang_Object.hpp>
+
 #include <java_lang_StringBuffer.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,6 +69,17 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class java_lang_Object;
+
+class java_lang_StringBuffer;
+
+
 class java_lang_StringBuilder
 {
 public:
@@ -68,7 +89,7 @@ public:
  int lastIndexOf(java_lang_String& arg0,int& arg1);
  java_lang_StringBuilder replace(int& arg0,java_lang_String& arg1);
  java_lang_StringBuilder appendCodePoint(int& arg0);
- java_lang_StringBuilder delete(int& arg0);
+ java_lang_StringBuilder _delete(int& arg0);
  java_lang_StringBuilder deleteCharAt(int& arg0);
  java_lang_StringBuilder insert(int& arg0,float& arg1,double& arg2,std::vector<char>& arg3,java_lang_Object& arg4,java_lang_String& arg5,java_lang_CharSequence& arg6,bool& arg7,char& arg8,long& arg9);
  java_lang_StringBuilder reverse();

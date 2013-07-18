@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_os_MessageQueue_IdleHandler.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_os_MessageQueue_IdleHandler_queueIdle(JNIEnv *jni_env, jobject java_object);
-    
+bool android_os_MessageQueue_IdleHandler::queueIdle()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

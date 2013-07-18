@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_view_ViewTreeObserver_OnPreDrawListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_view_ViewTreeObserver_OnPreDrawListener_onPreDraw(JNIEnv *jni_env, jobject java_object);
-    
+bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

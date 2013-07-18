@@ -26,9 +26,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SimpleCursorAdapter
 #define _android_widget_SimpleCursorAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -42,16 +46,26 @@
 
 
 
+
+
+#include <android_database_Cursor.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_widget_SimpleCursorAdapter_ViewBinder.hpp>
+
+#include <android_widget_ImageView.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_widget_TextView.hpp>
-#include <android_database_Cursor.hpp>
-#include <android_content_Context.hpp>
-#include <android_widget_SimpleCursorAdapter_ViewBinder.hpp>
+
 #include <android_widget_SimpleCursorAdapter_CursorToStringConverter.hpp>
-#include <android_widget_ImageView.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,6 +77,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_database_Cursor;
+
+class java_lang_CharSequence;
+
+class android_view_View;
+
+class android_content_Context;
+
+class android_widget_SimpleCursorAdapter_ViewBinder;
+
+class android_widget_ImageView;
+
+class java_lang_String;
+
+class android_widget_TextView;
+
+class android_widget_SimpleCursorAdapter_CursorToStringConverter;
 
 class android_widget_SimpleCursorAdapter
 {

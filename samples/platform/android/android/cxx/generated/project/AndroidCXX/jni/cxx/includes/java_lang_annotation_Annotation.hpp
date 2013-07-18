@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,18 +13,26 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_lang_annotation_Annotation
 #define _java_lang_annotation_Annotation
+//
+// Scroll Down 
+//
 
 
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_lang_Class.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -37,13 +45,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_lang_Class;
+
 class java_lang_annotation_Annotation
 {
 public:
-	bool equals(java_lang_Object& arg0);
-	java_lang_String toString();
-	int hashCode();
-	java_lang_Class annotationType();
+ bool equals(java_lang_Object& arg0);
+ java_lang_String toString();
+ int hashCode();
+ java_lang_Class annotationType();
 
 
 };

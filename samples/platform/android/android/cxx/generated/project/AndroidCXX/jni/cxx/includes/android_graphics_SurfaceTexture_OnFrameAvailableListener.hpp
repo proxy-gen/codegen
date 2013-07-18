@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_SurfaceTexture_OnFrameAvailableListener
 #define _android_graphics_SurfaceTexture_OnFrameAvailableListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_graphics_SurfaceTexture.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_graphics_SurfaceTexture;
+
 class android_graphics_SurfaceTexture_OnFrameAvailableListener
 {
 public:
-	void onFrameAvailable(android_graphics_SurfaceTexture& arg0);
+ void onFrameAvailable(android_graphics_SurfaceTexture& arg0);
 
 
 };

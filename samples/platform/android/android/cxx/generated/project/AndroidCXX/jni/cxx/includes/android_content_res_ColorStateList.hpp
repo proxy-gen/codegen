@@ -17,9 +17,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_content_res_ColorStateList
 #define _android_content_res_ColorStateList
+//
+// Scroll Down 
+//
 
 
 
@@ -29,12 +33,18 @@
 
 
 
+
+
+
+#include <java_lang_String.hpp>
 
 
 #include <android_os_Parcel.hpp>
+
 #include <android_content_res_Resources.hpp>
+
 #include <org_xmlpull_v1_XmlPullParser.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,6 +56,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+
+class android_os_Parcel;
+
+class android_content_res_Resources;
+
+class org_xmlpull_v1_XmlPullParser;
 
 class android_content_res_ColorStateList
 {

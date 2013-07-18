@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -28,9 +28,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_lang_ClassLoader
 #define _java_lang_ClassLoader
+//
+// Scroll Down 
+//
 
 
 
@@ -45,12 +49,19 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <java_lang_Class.hpp>
-#include <java_util_Enumeration.hpp>
-#include <java_net_URL.hpp>
+
+
 #include <java_io_InputStream.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_net_URL.hpp>
+
+#include <java_util_Enumeration.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,6 +73,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Class;
+
+
+class java_io_InputStream;
+
+class java_net_URL;
+
+class java_util_Enumeration;
 
 class java_lang_ClassLoader
 {

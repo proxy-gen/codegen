@@ -20,9 +20,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_DialerFilter
 #define _android_widget_DialerFilter
+//
+// Scroll Down 
+//
 
 
 
@@ -38,11 +42,16 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <java_lang_CharSequence.hpp>
 
 #include <android_text_TextWatcher.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +63,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_view_KeyEvent;
+
+class java_lang_CharSequence;
+
+class android_text_TextWatcher;
 
 class android_widget_DialerFilter
 {

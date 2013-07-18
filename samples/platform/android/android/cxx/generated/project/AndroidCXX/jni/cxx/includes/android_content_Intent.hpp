@@ -160,9 +160,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_Intent
 #define _android_content_Intent
+//
+// Scroll Down 
+//
 
 
 
@@ -259,29 +263,53 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_net_Uri.hpp>
+
+#include <android_content_ComponentName.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_os_Parcel.hpp>
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <android_content_ContentResolver.hpp>
+
+#include <java_util_Set.hpp>
 
 #include <android_content_ClipData.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <java_io_Serializable.hpp>
-#include <android_content_res_Resources.hpp>
-#include <android_content_pm_ActivityInfo.hpp>
-#include <org_xmlpull_v1_XmlPullParser.hpp>
-#include <android_content_ContentResolver.hpp>
-#include <android_graphics_Rect.hpp>
-#include <java_lang_Object.hpp>
-#include <android_os_Bundle.hpp>
-#include <java_util_Set.hpp>
-#include <android_os_Parcel.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_content_ComponentName.hpp>
-#include <java_lang_Class.hpp>
-#include <android_content_Context.hpp>
-#include <android_content_pm_PackageManager.hpp>
-#include <java_util_ArrayList.hpp>
-#include <android_os_Parcelable.hpp>
+
 #include <java_lang_ClassLoader.hpp>
-#include <android_net_Uri.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_os_Parcelable.hpp>
+
+#include <java_util_ArrayList.hpp>
+
+#include <java_io_Serializable.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_content_pm_PackageManager.hpp>
+
+#include <android_content_pm_ActivityInfo.hpp>
+
+#include <java_lang_Class.hpp>
+
+#include <android_content_res_Resources.hpp>
+
+#include <org_xmlpull_v1_XmlPullParser.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -293,6 +321,53 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Object;
+
+class android_net_Uri;
+
+class android_content_ComponentName;
+
+class android_os_Bundle;
+
+class android_os_Parcel;
+
+
+class java_lang_CharSequence;
+
+class android_content_Context;
+
+class android_content_ContentResolver;
+
+class java_util_Set;
+
+class android_content_ClipData;
+
+class java_lang_ClassLoader;
+
+class android_os_Parcelable;
+
+class java_util_ArrayList;
+
+class java_io_Serializable;
+
+class android_graphics_Rect;
+
+class android_content_pm_PackageManager;
+
+class android_content_pm_ActivityInfo;
+
+class java_lang_Class;
+
+class android_content_res_Resources;
+
+class org_xmlpull_v1_XmlPullParser;
+
+class android_util_AttributeSet;
 
 class android_content_Intent
 {

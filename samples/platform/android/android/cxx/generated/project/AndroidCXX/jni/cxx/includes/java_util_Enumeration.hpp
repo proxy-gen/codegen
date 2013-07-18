@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,14 +11,20 @@
 
 		
 
+// Generated Code 
 
 #ifndef _java_util_Enumeration
 #define _java_util_Enumeration
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,11 +37,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class java_util_Enumeration
 {
 public:
-	bool hasMoreElements();
-	java_lang_Object nextElement();
+ bool hasMoreElements();
+ java_lang_Object nextElement();
 
 
 };

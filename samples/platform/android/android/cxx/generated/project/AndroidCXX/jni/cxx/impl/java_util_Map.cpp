@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,24 +8,119 @@
 //
 
 
+
+ 			
+		
+ 			
+		
+ 			
+		
+		
+ 			
+ 			
+		
+		
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_util_Map.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_get(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_put(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Map_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_values(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_util_Map_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_Map_clear(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Map_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_util_Map_size(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_entrySet(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_Map_putAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_remove(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_keySet(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Map_containsValue(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Map_containsKey(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+java_lang_Object java_util_Map::get(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_Object java_util_Map::put(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+bool java_util_Map::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_util_Collection java_util_Map::values()
+{
+	// TODO: Implementation
+	java_util_Collection result;
+
+	return result;
+}
+int java_util_Map::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void java_util_Map::clear()
+{
+	// TODO: Implementation
+
+}
+bool java_util_Map::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Map::size()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_util_Set java_util_Map::entrySet()
+{
+	// TODO: Implementation
+	java_util_Set result;
+
+	return result;
+}
+void java_util_Map::putAll(java_util_Map& arg0)
+{
+	// TODO: Implementation
+
+}
+java_lang_Object java_util_Map::remove(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_util_Set java_util_Map::keySet()
+{
+	// TODO: Implementation
+	java_util_Set result;
+
+	return result;
+}
+bool java_util_Map::containsValue(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Map::containsKey(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

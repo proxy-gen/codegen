@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_view_View_OnFocusChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_View_OnFocusChangeListener_onFocusChange(JNIEnv *jni_env, jobject java_object,jobject& arg0,jboolean& arg1);
-    
+void android_view_View_OnFocusChangeListener::onFocusChange(android_view_View& arg0,bool& arg1)
+{
+	// TODO: Implementation
+
 }

@@ -19,9 +19,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_util_TypedValue
 #define _android_util_TypedValue
+//
+// Scroll Down 
+//
 
 
 
@@ -36,10 +40,15 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <android_util_DisplayMetrics.hpp>
+
+
 #include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,6 +60,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_util_DisplayMetrics;
+
+
+class java_lang_CharSequence;
 
 class android_util_TypedValue
 {

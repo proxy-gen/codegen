@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_content_Loader_OnLoadCompleteListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_content_Loader_OnLoadCompleteListener_onLoadComplete(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+void android_content_Loader_OnLoadCompleteListener::onLoadComplete(android_content_Loader& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+
 }

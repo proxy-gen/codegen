@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,31 +8,171 @@
 //
 
 
+
+		
+		
+		
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_view_inputmethod_InputConnection.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_view_inputmethod_InputConnection_getTextBeforeCursor(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_inputmethod_InputConnection_getTextAfterCursor(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_inputmethod_InputConnection_getSelectedText(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_view_inputmethod_InputConnection_getCursorCapsMode(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_inputmethod_InputConnection_getExtractedText(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_deleteSurroundingText(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_setComposingText(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_setComposingRegion(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_finishComposingText(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_commitText(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_commitCompletion(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_commitCorrection(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_setSelection(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_performEditorAction(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_performContextMenuAction(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_beginBatchEdit(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_endBatchEdit(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_sendKeyEvent(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_clearMetaKeyStates(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_reportFullscreenMode(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_inputmethod_InputConnection_performPrivateCommand(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+java_lang_CharSequence android_view_inputmethod_InputConnection::getTextBeforeCursor(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+java_lang_CharSequence android_view_inputmethod_InputConnection::getTextAfterCursor(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+java_lang_CharSequence android_view_inputmethod_InputConnection::getSelectedText(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
+}
+int android_view_inputmethod_InputConnection::getCursorCapsMode(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+android_view_inputmethod_ExtractedText android_view_inputmethod_InputConnection::getExtractedText(android_view_inputmethod_ExtractedTextRequest& arg0,int& arg1)
+{
+	// TODO: Implementation
+	android_view_inputmethod_ExtractedText result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::deleteSurroundingText(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::setComposingText(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::setComposingRegion(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::finishComposingText()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::commitText(java_lang_CharSequence& arg0,int& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::commitCompletion(android_view_inputmethod_CompletionInfo& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::commitCorrection(android_view_inputmethod_CorrectionInfo& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::setSelection(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::performEditorAction(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::performContextMenuAction(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::beginBatchEdit()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::endBatchEdit()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::sendKeyEvent(android_view_KeyEvent& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool android_view_inputmethod_InputConnection::performPrivateCommand(java_lang_String& arg0,android_os_Bundle& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

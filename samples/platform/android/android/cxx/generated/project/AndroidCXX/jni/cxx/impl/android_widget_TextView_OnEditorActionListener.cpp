@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_TextView_OnEditorActionListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_TextView_OnEditorActionListener_onEditorAction(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1,jobject& arg2);
-    
+bool android_widget_TextView_OnEditorActionListener::onEditorAction(android_widget_TextView& arg0,int& arg1,android_view_KeyEvent& arg2)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

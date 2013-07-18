@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -109,9 +109,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_content_pm_PackageManager
 #define _android_content_pm_PackageManager
+//
+// Scroll Down 
+//
 
 
 
@@ -176,25 +180,44 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_content_pm_PackageInfo.hpp>
+
+#include <android_content_pm_ApplicationInfo.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_content_res_XmlResourceParser.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_content_pm_ResolveInfo.hpp>
+
+#include <android_content_pm_PermissionInfo.hpp>
+
+#include <java_util_List.hpp>
+
+#include <android_content_pm_PermissionGroupInfo.hpp>
+
+#include <android_content_ComponentName.hpp>
+
+#include <android_content_pm_ActivityInfo.hpp>
+
+#include <android_content_pm_ServiceInfo.hpp>
+
+#include <android_content_pm_ProviderInfo.hpp>
+
+#include <android_content_pm_InstrumentationInfo.hpp>
+
+#include <android_content_res_Resources.hpp>
 
 #include <android_content_IntentFilter.hpp>
-#include <android_content_ComponentName.hpp>
-#include <java_util_List.hpp>
-#include <android_content_pm_InstrumentationInfo.hpp>
-#include <android_content_res_Resources.hpp>
-#include <android_content_Intent.hpp>
-#include <android_content_pm_ResolveInfo.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_content_pm_ActivityInfo.hpp>
-#include <android_content_pm_ProviderInfo.hpp>
-#include <android_content_pm_PackageInfo.hpp>
-#include <android_content_pm_ApplicationInfo.hpp>
-#include <android_content_pm_PermissionInfo.hpp>
-#include <android_content_pm_PermissionGroupInfo.hpp>
-#include <android_content_pm_ServiceInfo.hpp>
-#include <android_content_res_XmlResourceParser.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -206,6 +229,44 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_content_pm_PackageInfo;
+
+class android_content_pm_ApplicationInfo;
+
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
+
+class android_content_res_XmlResourceParser;
+
+class android_content_Intent;
+
+class android_content_pm_ResolveInfo;
+
+class android_content_pm_PermissionInfo;
+
+class java_util_List;
+
+class android_content_pm_PermissionGroupInfo;
+
+class android_content_ComponentName;
+
+class android_content_pm_ActivityInfo;
+
+class android_content_pm_ServiceInfo;
+
+class android_content_pm_ProviderInfo;
+
+class android_content_pm_InstrumentationInfo;
+
+class android_content_res_Resources;
+
+class android_content_IntentFilter;
 
 class android_content_pm_PackageManager
 {

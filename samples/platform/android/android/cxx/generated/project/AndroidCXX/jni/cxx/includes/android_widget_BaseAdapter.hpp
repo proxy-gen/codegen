@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -15,9 +15,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_BaseAdapter
 #define _android_widget_BaseAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -30,10 +34,14 @@
 
 
 
+
+
+#include <android_database_DataSetObserver.hpp>
 
 #include <android_view_View.hpp>
+
 #include <android_view_ViewGroup.hpp>
-#include <android_database_DataSetObserver.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,6 +53,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_database_DataSetObserver;
+
+class android_view_View;
+
+class android_view_ViewGroup;
 
 class android_widget_BaseAdapter
 {

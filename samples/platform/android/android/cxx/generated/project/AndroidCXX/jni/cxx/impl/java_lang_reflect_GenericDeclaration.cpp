@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <java_lang_reflect_GenericDeclaration.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobjectArray Java_AndroidCXX_java_lang_reflect_GenericDeclaration_getTypeParameters(JNIEnv *jni_env, jobject java_object);
-    
+std::vector<long> java_lang_reflect_GenericDeclaration::getTypeParameters()
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
 }

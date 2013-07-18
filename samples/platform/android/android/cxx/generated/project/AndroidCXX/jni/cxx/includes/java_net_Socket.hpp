@@ -21,9 +21,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_net_Socket
 #define _java_net_Socket
+//
+// Scroll Down 
+//
 
 
 
@@ -66,14 +70,22 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_io_InputStream.hpp>
+
+#include <java_nio_channels_SocketChannel.hpp>
+
+#include <java_net_SocketAddress.hpp>
 
 #include <java_io_OutputStream.hpp>
-#include <java_net_SocketImplFactory.hpp>
-#include <java_nio_channels_SocketChannel.hpp>
-#include <java_net_SocketAddress.hpp>
-#include <java_io_InputStream.hpp>
+
 #include <java_net_InetAddress.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_net_SocketImplFactory.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,6 +97,22 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class java_io_InputStream;
+
+class java_nio_channels_SocketChannel;
+
+class java_net_SocketAddress;
+
+class java_io_OutputStream;
+
+class java_net_InetAddress;
+
+class java_net_SocketImplFactory;
 
 class java_net_Socket
 {

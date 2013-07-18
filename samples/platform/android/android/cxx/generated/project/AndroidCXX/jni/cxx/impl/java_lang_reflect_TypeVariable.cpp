@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,35 @@
 //
 
 
+
+		
+		
+
+// Generated Code 
+
 #include <java_lang_reflect_TypeVariable.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_java_lang_reflect_TypeVariable_getName(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobjectArray Java_AndroidCXX_java_lang_reflect_TypeVariable_getBounds(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_lang_reflect_TypeVariable_getGenericDeclaration(JNIEnv *jni_env, jobject java_object);
-    
+java_lang_String java_lang_reflect_TypeVariable::getName()
+{
+	// TODO: Implementation
+	java_lang_String result;
+
+	return result;
+}
+std::vector<long> java_lang_reflect_TypeVariable::getBounds()
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration()
+{
+	// TODO: Implementation
+	java_lang_reflect_GenericDeclaration result;
+
+	return result;
 }

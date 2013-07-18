@@ -11,9 +11,15 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_text_TextPaint
 #define _android_text_TextPaint
+//
+// Scroll Down 
+//
+
+
 
 
 
@@ -28,6 +34,9 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
 
 class android_text_TextPaint
 {

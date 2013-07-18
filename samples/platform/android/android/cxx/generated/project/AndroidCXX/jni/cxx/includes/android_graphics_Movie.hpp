@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -17,9 +17,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_graphics_Movie
 #define _android_graphics_Movie
+//
+// Scroll Down 
+//
 
 
 
@@ -29,12 +33,18 @@
 
 
 
+
+
+
+#include <android_graphics_Canvas.hpp>
+
+#include <android_graphics_Paint.hpp>
+
+#include <java_io_InputStream.hpp>
 
 
 #include <java_lang_String.hpp>
-#include <java_io_InputStream.hpp>
-#include <android_graphics_Paint.hpp>
-#include <android_graphics_Canvas.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,6 +56,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_Canvas;
+
+class android_graphics_Paint;
+
+class java_io_InputStream;
+
+
+class java_lang_String;
 
 class android_graphics_Movie
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_webkit_SslErrorHandler
 #define _android_webkit_SslErrorHandler
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,6 +33,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_webkit_SslErrorHandler
 {

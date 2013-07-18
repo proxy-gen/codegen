@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_widget_CalendarView_OnDateChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_CalendarView_OnDateChangeListener_onSelectedDayChange(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-    
+void android_widget_CalendarView_OnDateChangeListener::onSelectedDayChange(android_widget_CalendarView& arg0,int& arg1)
+{
+	// TODO: Implementation
+
 }

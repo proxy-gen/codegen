@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,22 +8,87 @@
 //
 
 
+
+ 			
+ 			
+ 			
+		
+ 			
+		
+		
+
+// Generated Code 
+
 #include <android_view_SurfaceHolder.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_setFormat(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_setType(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_setKeepScreenOn(JNIEnv *jni_env, jobject java_object,jboolean& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_addCallback(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_removeCallback(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_view_SurfaceHolder_isCreating(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_setFixedSize(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_setSizeFromLayout(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SurfaceHolder_lockCanvas(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_SurfaceHolder_unlockCanvasAndPost(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SurfaceHolder_getSurfaceFrame(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_view_SurfaceHolder_getSurface(JNIEnv *jni_env, jobject java_object);
-    
+void android_view_SurfaceHolder::setFormat(int& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder::setType(int& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder::setKeepScreenOn(bool& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder::addCallback(android_view_SurfaceHolder_Callback& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder::removeCallback(android_view_SurfaceHolder_Callback& arg0)
+{
+	// TODO: Implementation
+
+}
+bool android_view_SurfaceHolder::isCreating()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+void android_view_SurfaceHolder::setFixedSize(int& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_view_SurfaceHolder::setSizeFromLayout()
+{
+	// TODO: Implementation
+
+}
+android_graphics_Canvas android_view_SurfaceHolder::lockCanvas(android_graphics_Rect& arg0)
+{
+	// TODO: Implementation
+	android_graphics_Canvas result;
+
+	return result;
+}
+void android_view_SurfaceHolder::unlockCanvasAndPost(android_graphics_Canvas& arg0)
+{
+	// TODO: Implementation
+
+}
+android_graphics_Rect android_view_SurfaceHolder::getSurfaceFrame()
+{
+	// TODO: Implementation
+	android_graphics_Rect result;
+
+	return result;
+}
+android_view_Surface android_view_SurfaceHolder::getSurface()
+{
+	// TODO: Implementation
+	android_view_Surface result;
+
+	return result;
 }

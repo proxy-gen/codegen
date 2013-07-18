@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_view_LayoutInflater_Filter
 #define _android_view_LayoutInflater_Filter
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_Class.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Class;
+
 class android_view_LayoutInflater_Filter
 {
 public:
-	bool onLoadClass(java_lang_Class& arg0);
+ bool onLoadClass(java_lang_Class& arg0);
 
 
 };

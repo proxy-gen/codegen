@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,17 +8,56 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_app_Application_ActivityLifecycleCallbacks.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityCreated(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityStarted(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityResumed(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityPaused(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityStopped(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivitySaveInstanceState(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-JNIEXPORT void Java_AndroidCXX_android_app_Application_ActivityLifecycleCallbacks_onActivityDestroyed(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_app_Application_ActivityLifecycleCallbacks::onActivityCreated(android_app_Activity& arg0,android_os_Bundle& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivityStarted(android_app_Activity& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivityResumed(android_app_Activity& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivityPaused(android_app_Activity& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivityStopped(android_app_Activity& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivitySaveInstanceState(android_app_Activity& arg0,android_os_Bundle& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_app_Application_ActivityLifecycleCallbacks::onActivityDestroyed(android_app_Activity& arg0)
+{
+	// TODO: Implementation
+
 }

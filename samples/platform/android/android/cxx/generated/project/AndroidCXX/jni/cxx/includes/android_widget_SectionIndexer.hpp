@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_SectionIndexer
 #define _android_widget_SectionIndexer
+//
+// Scroll Down 
+//
+
 
 
 
@@ -30,12 +35,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_SectionIndexer
 {
 public:
-	std::vector<long> getSections();
-	int getPositionForSection(int& arg0);
-	int getSectionForPosition(int& arg0);
+ std::vector<long> getSections();
+ int getPositionForSection(int& arg0);
+ int getSectionForPosition(int& arg0);
 
 
 };

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,24 +8,117 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_util_Set.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_add(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Set_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_Set_clear(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_contains(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_addAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Set_size(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobjectArray Java_AndroidCXX_java_util_Set_toArray(JNIEnv *jni_env, jobject java_object,jobjectArray& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Set_iterator(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_remove(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_removeAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_containsAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Set_retainAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool java_util_Set::add(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Set::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void java_util_Set::clear()
+{
+	// TODO: Implementation
+
+}
+bool java_util_Set::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::contains(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::addAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Set::size()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+std::vector<long> java_util_Set::toArray(std::vector<long>& arg0)
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+java_util_Iterator java_util_Set::iterator()
+{
+	// TODO: Implementation
+	java_util_Iterator result;
+
+	return result;
+}
+bool java_util_Set::remove(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::removeAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::containsAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Set::retainAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

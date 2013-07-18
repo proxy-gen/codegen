@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -24,9 +24,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_content_SharedPreferences
 #define _android_content_SharedPreferences
+//
+// Scroll Down 
+//
 
 
 
@@ -39,12 +43,18 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <java_util_Map.hpp>
+
+#include <java_util_Set.hpp>
+
+#include <android_content_SharedPreferences_Editor.hpp>
 
 #include <android_content_SharedPreferences_OnSharedPreferenceChangeListener.hpp>
-#include <android_content_SharedPreferences_Editor.hpp>
-#include <java_util_Map.hpp>
-#include <java_util_Set.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,20 +67,32 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_util_Map;
+
+class java_util_Set;
+
+class android_content_SharedPreferences_Editor;
+
+class android_content_SharedPreferences_OnSharedPreferenceChangeListener;
+
 class android_content_SharedPreferences
 {
 public:
-	bool getBoolean(java_lang_String& arg0,bool& arg1);
-	int getInt(java_lang_String& arg0,int& arg1);
-	long getLong(java_lang_String& arg0,long& arg1);
-	float getFloat(java_lang_String& arg0,float& arg1);
-	bool contains(java_lang_String& arg0);
-	java_lang_String getString(java_lang_String& arg0);
-	java_util_Map getAll();
-	java_util_Set getStringSet(java_lang_String& arg0,java_util_Set& arg1);
-	android_content_SharedPreferences_Editor edit();
-	void registerOnSharedPreferenceChangeListener(android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
-	void unregisterOnSharedPreferenceChangeListener(android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
+ bool getBoolean(java_lang_String& arg0,bool& arg1);
+ int getInt(java_lang_String& arg0,int& arg1);
+ long getLong(java_lang_String& arg0,long& arg1);
+ float getFloat(java_lang_String& arg0,float& arg1);
+ bool contains(java_lang_String& arg0);
+ java_lang_String getString(java_lang_String& arg0);
+ java_util_Map getAll();
+ java_util_Set getStringSet(java_lang_String& arg0,java_util_Set& arg1);
+ android_content_SharedPreferences_Editor edit();
+ void registerOnSharedPreferenceChangeListener(android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
+ void unregisterOnSharedPreferenceChangeListener(android_content_SharedPreferences_OnSharedPreferenceChangeListener& arg0);
 
 
 };

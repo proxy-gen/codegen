@@ -26,9 +26,14 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_view_KeyEvent
 #define _android_view_KeyEvent
+//
+// Scroll Down 
+//
+
 
 
 
@@ -84,12 +89,20 @@
 
 
 #include <android_view_KeyEvent_Callback.hpp>
+
 #include <android_view_KeyEvent_DispatcherState.hpp>
+
 #include <java_lang_Object.hpp>
-#include <android_view_KeyCharacterMap.hpp>
-#include <android_view_KeyCharacterMap_KeyData.hpp>
-#include <android_os_Parcel.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_os_Parcel.hpp>
+
+
+#include <android_view_KeyCharacterMap.hpp>
+
+#include <android_view_KeyCharacterMap_KeyData.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -101,6 +114,23 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_KeyEvent_Callback;
+
+class android_view_KeyEvent_DispatcherState;
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class android_os_Parcel;
+
+
+class android_view_KeyCharacterMap;
+
+class android_view_KeyCharacterMap_KeyData;
 
 class android_view_KeyEvent
 {

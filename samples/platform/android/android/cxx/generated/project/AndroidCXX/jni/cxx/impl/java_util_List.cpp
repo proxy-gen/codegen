@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,30 +8,165 @@
 //
 
 
+
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+		
+ 			
+		
+		
+		
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_util_List.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_java_util_List_add(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_get(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_List_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_util_List_indexOf(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_java_util_List_clear(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_java_util_List_lastIndexOf(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_contains(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_addAll(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jint Java_AndroidCXX_java_util_List_size(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobjectArray Java_AndroidCXX_java_util_List_toArray(JNIEnv *jni_env, jobject java_object,jobjectArray& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_iterator(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_remove(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_set(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_listIterator(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_List_subList(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_removeAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_containsAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_List_retainAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void java_util_List::add(int& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+
+}
+java_lang_Object java_util_List::get(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+bool java_util_List::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_List::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int java_util_List::indexOf(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void java_util_List::clear()
+{
+	// TODO: Implementation
+
+}
+bool java_util_List::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_List::lastIndexOf(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+bool java_util_List::contains(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_List::addAll(int& arg0,java_util_Collection& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_List::size()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+std::vector<long> java_util_List::toArray(std::vector<long>& arg0)
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+java_util_Iterator java_util_List::iterator()
+{
+	// TODO: Implementation
+	java_util_Iterator result;
+
+	return result;
+}
+java_lang_Object java_util_List::remove(int& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_Object java_util_List::set(int& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_util_ListIterator java_util_List::listIterator(int& arg0)
+{
+	// TODO: Implementation
+	java_util_ListIterator result;
+
+	return result;
+}
+java_util_List java_util_List::subList(int& arg0)
+{
+	// TODO: Implementation
+	java_util_List result;
+
+	return result;
+}
+bool java_util_List::removeAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_List::containsAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_List::retainAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

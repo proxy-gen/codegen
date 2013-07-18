@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_view_ViewGroup_MarginLayoutParams
 #define _android_view_ViewGroup_MarginLayoutParams
+//
+// Scroll Down 
+//
+
 
 
 
@@ -35,6 +40,8 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
 
 class android_view_ViewGroup_MarginLayoutParams
 {

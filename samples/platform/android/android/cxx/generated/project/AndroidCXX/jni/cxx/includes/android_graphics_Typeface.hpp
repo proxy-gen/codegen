@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -21,9 +21,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_graphics_Typeface
 #define _android_graphics_Typeface
+//
+// Scroll Down 
+//
 
 
 
@@ -33,12 +37,18 @@
 
 
 
+
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <android_content_res_AssetManager.hpp>
+
 #include <java_io_File.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,6 +60,17 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+
+class android_content_res_AssetManager;
+
+class java_io_File;
 
 class android_graphics_Typeface
 {

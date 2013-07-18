@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,19 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_animation_TimeInterpolator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jfloat Java_AndroidCXX_android_animation_TimeInterpolator_getInterpolation(JNIEnv *jni_env, jobject java_object,jfloat& arg0);
-    
+float android_animation_TimeInterpolator::getInterpolation(float& arg0)
+{
+	// TODO: Implementation
+	float result;
+
+	return result;
 }

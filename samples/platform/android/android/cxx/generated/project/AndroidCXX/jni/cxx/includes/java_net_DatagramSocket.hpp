@@ -21,9 +21,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_net_DatagramSocket
 #define _java_net_DatagramSocket
+//
+// Scroll Down 
+//
 
 
 
@@ -54,12 +58,18 @@
 
 
 
+
+
+#include <java_net_DatagramPacket.hpp>
+
+#include <java_nio_channels_DatagramChannel.hpp>
+
+#include <java_net_SocketAddress.hpp>
 
 #include <java_net_InetAddress.hpp>
-#include <java_net_DatagramPacket.hpp>
-#include <java_net_SocketAddress.hpp>
+
 #include <java_net_DatagramSocketImplFactory.hpp>
-#include <java_nio_channels_DatagramChannel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,6 +81,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_net_DatagramPacket;
+
+class java_nio_channels_DatagramChannel;
+
+class java_net_SocketAddress;
+
+class java_net_InetAddress;
+
+class java_net_DatagramSocketImplFactory;
 
 class java_net_DatagramSocket
 {

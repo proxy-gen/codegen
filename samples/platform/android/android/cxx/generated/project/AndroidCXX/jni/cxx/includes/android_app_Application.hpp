@@ -15,9 +15,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_app_Application
 #define _android_app_Application
+//
+// Scroll Down 
+//
+
 
 
 
@@ -30,8 +35,11 @@
 
 
 #include <android_content_res_Configuration.hpp>
-#include <android_app_Application_ActivityLifecycleCallbacks.hpp>
+
 #include <android_content_ComponentCallbacks.hpp>
+
+#include <android_app_Application_ActivityLifecycleCallbacks.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,6 +51,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_content_res_Configuration;
+
+class android_content_ComponentCallbacks;
+
+class android_app_Application_ActivityLifecycleCallbacks;
 
 class android_app_Application
 {

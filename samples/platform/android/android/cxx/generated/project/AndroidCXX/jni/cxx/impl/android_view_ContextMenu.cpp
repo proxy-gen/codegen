@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,14 +8,44 @@
 //
 
 
+
+ 			
+		
+ 			
+		
+ 			
+		
+
+// Generated Code 
+
 #include <android_view_ContextMenu.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_view_ContextMenu_setHeaderTitle(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_ContextMenu_setHeaderIcon(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1);
-JNIEXPORT jobject Java_AndroidCXX_android_view_ContextMenu_setHeaderView(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_view_ContextMenu_clearHeader(JNIEnv *jni_env, jobject java_object);
-    
+android_view_ContextMenu android_view_ContextMenu::setHeaderTitle(int& arg0,java_lang_CharSequence& arg1)
+{
+	// TODO: Implementation
+	android_view_ContextMenu result;
+
+	return result;
+}
+android_view_ContextMenu android_view_ContextMenu::setHeaderIcon(int& arg0,android_graphics_drawable_Drawable& arg1)
+{
+	// TODO: Implementation
+	android_view_ContextMenu result;
+
+	return result;
+}
+android_view_ContextMenu android_view_ContextMenu::setHeaderView(android_view_View& arg0)
+{
+	// TODO: Implementation
+	android_view_ContextMenu result;
+
+	return result;
+}
+void android_view_ContextMenu::clearHeader()
+{
+	// TODO: Implementation
+
 }

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
 		
 
+// Generated Code 
 
 #ifndef _android_widget_NumberPicker_Formatter
 #define _android_widget_NumberPicker_Formatter
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
 class android_widget_NumberPicker_Formatter
 {
 public:
-	java_lang_String format(int& arg0);
+ java_lang_String format(int& arg0);
 
 
 };

@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,15 +8,52 @@
 //
 
 
+
+ 			
+		
+		
+ 			
+		
+
+// Generated Code 
+
 #include <java_util_Map_Entry.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Map_Entry_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Map_Entry_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_Entry_getValue(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_Entry_getKey(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Map_Entry_setValue(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool java_util_Map_Entry::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Map_Entry::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+java_lang_Object java_util_Map_Entry::getValue()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_Object java_util_Map_Entry::getKey()
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+java_lang_Object java_util_Map_Entry::setValue(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
 }

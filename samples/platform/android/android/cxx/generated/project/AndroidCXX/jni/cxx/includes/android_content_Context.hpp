@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -137,9 +137,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_content_Context
 #define _android_content_Context
+//
+// Scroll Down 
+//
 
 
 
@@ -220,43 +224,81 @@
 
 
 
+
+
+#include <java_lang_ClassLoader.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_content_res_Resources.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_content_res_AssetManager.hpp>
+
+#include <android_content_pm_PackageManager.hpp>
+
+#include <android_content_ContentResolver.hpp>
+
+#include <android_os_Looper.hpp>
+
+
+#include <android_content_ComponentCallbacks.hpp>
+
+#include <android_content_res_Resources_Theme.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
+#include <android_content_res_TypedArray.hpp>
+
+#include <android_content_pm_ApplicationInfo.hpp>
+
+#include <android_content_SharedPreferences.hpp>
 
 #include <java_io_FileInputStream.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_util_AttributeSet.hpp>
-#include <android_content_Intent.hpp>
-#include <android_content_res_Resources.hpp>
-#include <android_os_UserHandle.hpp>
-#include <android_content_pm_ApplicationInfo.hpp>
-#include <android_database_DatabaseErrorHandler.hpp>
-#include <android_content_ContentResolver.hpp>
-#include <android_content_res_Configuration.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
-#include <android_database_sqlite_SQLiteDatabase.hpp>
-#include <android_content_res_AssetManager.hpp>
-#include <java_lang_Object.hpp>
-#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
-#include <android_os_Looper.hpp>
-#include <android_content_ServiceConnection.hpp>
-#include <android_os_Handler.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_content_ComponentName.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_content_IntentFilter.hpp>
-#include <java_lang_ClassLoader.hpp>
-#include <java_io_InputStream.hpp>
-#include <android_content_SharedPreferences.hpp>
+
 #include <java_io_FileOutputStream.hpp>
-#include <android_view_Display.hpp>
-#include <android_content_BroadcastReceiver.hpp>
+
 #include <java_io_File.hpp>
+
+#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
+
+#include <android_database_DatabaseErrorHandler.hpp>
+
+#include <android_database_sqlite_SQLiteDatabase.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <java_io_InputStream.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
 #include <android_content_IntentSender.hpp>
-#include <android_content_res_Resources_Theme.hpp>
-#include <android_content_res_TypedArray.hpp>
-#include <android_content_ComponentCallbacks.hpp>
-#include <android_content_pm_PackageManager.hpp>
+
+#include <android_content_BroadcastReceiver.hpp>
+
+#include <android_os_Handler.hpp>
+
+#include <android_os_UserHandle.hpp>
+
+#include <android_content_IntentFilter.hpp>
+
+#include <android_content_ComponentName.hpp>
+
+#include <android_content_ServiceConnection.hpp>
+
+#include <java_lang_Object.hpp>
+
 #include <android_net_Uri.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_content_res_Configuration.hpp>
+
+#include <android_view_Display.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -268,6 +310,81 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_ClassLoader;
+
+class java_lang_String;
+
+class android_content_res_Resources;
+
+class java_lang_CharSequence;
+
+class android_content_Intent;
+
+class android_os_Bundle;
+
+class android_content_res_AssetManager;
+
+class android_content_pm_PackageManager;
+
+class android_content_ContentResolver;
+
+class android_os_Looper;
+
+
+class android_content_ComponentCallbacks;
+
+class android_content_res_Resources_Theme;
+
+class android_util_AttributeSet;
+
+class android_content_res_TypedArray;
+
+class android_content_pm_ApplicationInfo;
+
+class android_content_SharedPreferences;
+
+class java_io_FileInputStream;
+
+class java_io_FileOutputStream;
+
+class java_io_File;
+
+class android_database_sqlite_SQLiteDatabase_CursorFactory;
+
+class android_database_DatabaseErrorHandler;
+
+class android_database_sqlite_SQLiteDatabase;
+
+class android_graphics_drawable_Drawable;
+
+class java_io_InputStream;
+
+class android_graphics_Bitmap;
+
+class android_content_IntentSender;
+
+class android_content_BroadcastReceiver;
+
+class android_os_Handler;
+
+class android_os_UserHandle;
+
+class android_content_IntentFilter;
+
+class android_content_ComponentName;
+
+class android_content_ServiceConnection;
+
+class java_lang_Object;
+
+class android_net_Uri;
+
+class android_content_res_Configuration;
+
+class android_view_Display;
 
 class android_content_Context
 {

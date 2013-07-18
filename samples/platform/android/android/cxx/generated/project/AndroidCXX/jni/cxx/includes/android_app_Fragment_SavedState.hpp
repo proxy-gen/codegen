@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,14 +11,20 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_app_Fragment_SavedState
 #define _android_app_Fragment_SavedState
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_os_Parcel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,6 +36,10 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcel;
 
 class android_app_Fragment_SavedState
 {

@@ -28,9 +28,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_net_URL
 #define _java_net_URL
+//
+// Scroll Down 
+//
 
 
 
@@ -52,14 +56,23 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_io_InputStream.hpp>
 
 #include <java_net_URI.hpp>
-#include <java_lang_Object.hpp>
+
+
 #include <java_net_Proxy.hpp>
+
 #include <java_net_URLConnection.hpp>
-#include <java_io_InputStream.hpp>
+
 #include <java_net_URLStreamHandlerFactory.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,6 +84,23 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_io_InputStream;
+
+class java_net_URI;
+
+
+class java_net_Proxy;
+
+class java_net_URLConnection;
+
+class java_net_URLStreamHandlerFactory;
 
 class java_net_URL
 {

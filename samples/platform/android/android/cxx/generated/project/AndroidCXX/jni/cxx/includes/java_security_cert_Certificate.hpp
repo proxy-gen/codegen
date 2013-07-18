@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -16,9 +16,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_security_cert_Certificate
 #define _java_security_cert_Certificate
+//
+// Scroll Down 
+//
 
 
 
@@ -27,10 +31,14 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_security_PublicKey.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,6 +50,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_security_PublicKey;
 
 class java_security_cert_Certificate
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -18,9 +18,14 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_app_SearchableInfo
 #define _android_app_SearchableInfo
+//
+// Scroll Down 
+//
+
 
 
 
@@ -50,8 +55,11 @@
 
 
 #include <android_os_Parcel.hpp>
-#include <android_content_ComponentName.hpp>
+
 #include <java_lang_String.hpp>
+
+#include <android_content_ComponentName.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,6 +71,14 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_os_Parcel;
+
+class java_lang_String;
+
+class android_content_ComponentName;
 
 class android_app_SearchableInfo
 {

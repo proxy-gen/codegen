@@ -17,9 +17,14 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _java_lang_Double
 #define _java_lang_Double
+//
+// Scroll Down 
+//
+
 
 
 
@@ -42,7 +47,10 @@
 
 
 #include <java_lang_Object.hpp>
+
 #include <java_lang_String.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,6 +62,13 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
 
 class java_lang_Double
 {

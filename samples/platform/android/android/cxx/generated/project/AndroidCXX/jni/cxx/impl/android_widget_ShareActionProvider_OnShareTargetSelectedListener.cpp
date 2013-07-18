@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_ShareActionProvider_OnShareTargetSelectedListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_ShareActionProvider_OnShareTargetSelectedListener_onShareTargetSelected(JNIEnv *jni_env, jobject java_object,jobject& arg0,jobject& arg1);
-    
+bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

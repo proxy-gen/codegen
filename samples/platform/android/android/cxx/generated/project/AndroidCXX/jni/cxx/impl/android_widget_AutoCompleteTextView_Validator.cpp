@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,29 @@
 //
 
 
+
+ 			
+ 			
+		
+
+// Generated Code 
+
 #include <android_widget_AutoCompleteTextView_Validator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_AutoCompleteTextView_Validator_isValid(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_AutoCompleteTextView_Validator_fixText(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool android_widget_AutoCompleteTextView_Validator::isValid(java_lang_CharSequence& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+java_lang_CharSequence android_widget_AutoCompleteTextView_Validator::fixText(java_lang_CharSequence& arg0)
+{
+	// TODO: Implementation
+	java_lang_CharSequence result;
+
+	return result;
 }

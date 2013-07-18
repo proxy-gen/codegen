@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_view_View_OnFocusChangeListener
 #define _android_view_View_OnFocusChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
 class android_view_View_OnFocusChangeListener
 {
 public:
-	void onFocusChange(android_view_View& arg0,bool& arg1);
+ void onFocusChange(android_view_View& arg0,bool& arg1);
 
 
 };

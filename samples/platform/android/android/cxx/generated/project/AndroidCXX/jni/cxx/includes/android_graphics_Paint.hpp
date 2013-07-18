@@ -57,9 +57,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_graphics_Paint
 #define _android_graphics_Paint
+//
+// Scroll Down 
+//
 
 
 
@@ -135,25 +139,45 @@
 
 
 
+
+
+
+#include <android_graphics_ColorFilter.hpp>
+
+#include <android_graphics_Paint_Style.hpp>
+
+#include <android_graphics_Paint_Cap.hpp>
+
+#include <android_graphics_Paint_Join.hpp>
+
+#include <android_graphics_Path.hpp>
 
 #include <android_graphics_Shader.hpp>
-#include <android_graphics_Typeface.hpp>
-#include <java_lang_CharSequence.hpp>
-#include <android_graphics_Rasterizer.hpp>
-#include <android_graphics_MaskFilter.hpp>
-#include <android_graphics_Path.hpp>
-#include <android_graphics_Paint_Style.hpp>
+
 #include <android_graphics_Xfermode.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_graphics_Paint_FontMetricsInt.hpp>
-#include <android_graphics_Paint_Join.hpp>
-#include <android_graphics_Paint_FontMetrics.hpp>
-#include <android_graphics_ColorFilter.hpp>
+
 #include <android_graphics_PathEffect.hpp>
-#include <java_lang_String.hpp>
-#include <java_util_Locale.hpp>
+
+#include <android_graphics_MaskFilter.hpp>
+
+#include <android_graphics_Typeface.hpp>
+
+#include <android_graphics_Rasterizer.hpp>
+
 #include <android_graphics_Paint_Align.hpp>
-#include <android_graphics_Paint_Cap.hpp>
+
+#include <java_util_Locale.hpp>
+
+#include <android_graphics_Paint_FontMetrics.hpp>
+
+#include <android_graphics_Paint_FontMetricsInt.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_Rect.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -165,6 +189,41 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class android_graphics_ColorFilter;
+
+
+
+
+class android_graphics_Path;
+
+class android_graphics_Shader;
+
+class android_graphics_Xfermode;
+
+class android_graphics_PathEffect;
+
+class android_graphics_MaskFilter;
+
+class android_graphics_Typeface;
+
+class android_graphics_Rasterizer;
+
+
+class java_util_Locale;
+
+class android_graphics_Paint_FontMetrics;
+
+class android_graphics_Paint_FontMetricsInt;
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
+class android_graphics_Rect;
 
 class android_graphics_Paint
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,9 +14,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_view_ActionProvider
 #define _android_view_ActionProvider
+//
+// Scroll Down 
+//
+
 
 
 
@@ -28,9 +33,13 @@
 
 
 #include <android_view_MenuItem.hpp>
+
 #include <android_view_View.hpp>
+
 #include <android_view_SubMenu.hpp>
+
 #include <android_view_ActionProvider_VisibilityListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,6 +51,16 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_MenuItem;
+
+class android_view_View;
+
+class android_view_SubMenu;
+
+class android_view_ActionProvider_VisibilityListener;
 
 class android_view_ActionProvider
 {

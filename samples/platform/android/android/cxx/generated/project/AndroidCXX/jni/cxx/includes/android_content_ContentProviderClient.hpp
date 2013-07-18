@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -42,9 +42,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_content_ContentProviderClient
 #define _android_content_ContentProviderClient
+//
+// Scroll Down 
+//
 
 
 
@@ -60,17 +64,28 @@
 
 
 
+
+
+#include <android_net_Uri.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_content_ContentValues.hpp>
+
+#include <android_os_CancellationSignal.hpp>
+
+#include <android_database_Cursor.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_content_res_AssetFileDescriptor.hpp>
 
 #include <java_util_ArrayList.hpp>
-#include <android_content_ContentProvider.hpp>
-#include <android_database_Cursor.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_content_ContentValues.hpp>
-#include <android_content_res_AssetFileDescriptor.hpp>
-#include <android_os_CancellationSignal.hpp>
+
 #include <android_os_ParcelFileDescriptor.hpp>
-#include <android_net_Uri.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_content_ContentProvider.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,11 +98,33 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_net_Uri;
+
+class java_lang_String;
+
+class android_content_ContentValues;
+
+class android_os_CancellationSignal;
+
+class android_database_Cursor;
+
+class android_os_Bundle;
+
+class android_content_res_AssetFileDescriptor;
+
+class java_util_ArrayList;
+
+class android_os_ParcelFileDescriptor;
+
+class android_content_ContentProvider;
+
 class android_content_ContentProviderClient
 {
 public:
  java_lang_String getType(android_net_Uri& arg0);
- int delete(android_net_Uri& arg0,java_lang_String& arg1,std::vector<long>& arg2);
+ int _delete(android_net_Uri& arg0,java_lang_String& arg1,std::vector<long>& arg2);
  android_net_Uri insert(android_net_Uri& arg0,android_content_ContentValues& arg1);
  bool release();
  android_database_Cursor query(android_net_Uri& arg0,std::vector<long>& arg1,java_lang_String& arg2,android_os_CancellationSignal& arg3);

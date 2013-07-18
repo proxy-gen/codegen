@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,20 @@
 //
 
 
+
+		
+
+// Generated Code 
+
 #include <java_net_SocketImplFactory.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_java_net_SocketImplFactory_createSocketImpl(JNIEnv *jni_env, jobject java_object);
-    
+java_net_SocketImpl java_net_SocketImplFactory::createSocketImpl()
+{
+	// TODO: Implementation
+	java_net_SocketImpl result;
+
+	return result;
 }

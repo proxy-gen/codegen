@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,24 +8,117 @@
 //
 
 
+
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+
+// Generated Code 
+
 #include <java_util_Collection.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_add(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_equals(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Collection_hashCode(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_java_util_Collection_clear(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_contains(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_addAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jint Java_AndroidCXX_java_util_Collection_size(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobjectArray Java_AndroidCXX_java_util_Collection_toArray(JNIEnv *jni_env, jobject java_object,jobjectArray& arg0);
-JNIEXPORT jobject Java_AndroidCXX_java_util_Collection_iterator(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_remove(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_removeAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_containsAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_java_util_Collection_retainAll(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+bool java_util_Collection::add(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::equals(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Collection::hashCode()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void java_util_Collection::clear()
+{
+	// TODO: Implementation
+
+}
+bool java_util_Collection::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::contains(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::addAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int java_util_Collection::size()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+std::vector<long> java_util_Collection::toArray(std::vector<long>& arg0)
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+java_util_Iterator java_util_Collection::iterator()
+{
+	// TODO: Implementation
+	java_util_Iterator result;
+
+	return result;
+}
+bool java_util_Collection::remove(java_lang_Object& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::removeAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::containsAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+bool java_util_Collection::retainAll(java_util_Collection& arg0)
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
 }

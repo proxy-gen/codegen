@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_Checkable
 #define _android_widget_Checkable
+//
+// Scroll Down 
+//
+
 
 
 
@@ -30,12 +35,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_Checkable
 {
 public:
-	void setChecked(bool& arg0);
-	bool isChecked();
-	void toggle();
+ void setChecked(bool& arg0);
+ bool isChecked();
+ void toggle();
 
 
 };

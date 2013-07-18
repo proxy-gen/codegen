@@ -24,9 +24,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_os_Message
 #define _android_os_Message
+//
+// Scroll Down 
+//
 
 
 
@@ -42,13 +46,21 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
+
+#include <android_os_Parcel.hpp>
+
+#include <android_os_Handler.hpp>
 
 #include <java_lang_Object.hpp>
-#include <android_os_Bundle.hpp>
+
 #include <java_lang_Runnable.hpp>
-#include <android_os_Parcel.hpp>
-#include <android_os_Handler.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,6 +72,21 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+class android_os_Bundle;
+
+
+class android_os_Parcel;
+
+class android_os_Handler;
+
+class java_lang_Object;
+
+class java_lang_Runnable;
 
 class android_os_Message
 {

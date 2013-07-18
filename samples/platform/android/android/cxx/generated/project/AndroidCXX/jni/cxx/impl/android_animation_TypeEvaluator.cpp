@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,21 @@
 //
 
 
+
+ 			
+		
+
+// Generated Code 
+
 #include <android_animation_TypeEvaluator.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_animation_TypeEvaluator_evaluate(JNIEnv *jni_env, jobject java_object,jfloat& arg0,jobject& arg1);
-    
+java_lang_Object android_animation_TypeEvaluator::evaluate(float& arg0,java_lang_Object& arg1)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
 }

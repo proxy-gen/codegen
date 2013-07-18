@@ -24,9 +24,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SimpleAdapter
 #define _android_widget_SimpleAdapter
+//
+// Scroll Down 
+//
 
 
 
@@ -39,15 +43,24 @@
 
 
 
+
+
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
+#include <android_widget_Filter.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_widget_SimpleAdapter_ViewBinder.hpp>
+
+#include <android_widget_ImageView.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_widget_TextView.hpp>
-#include <java_lang_Object.hpp>
-#include <android_widget_SimpleAdapter_ViewBinder.hpp>
-#include <android_view_ViewGroup.hpp>
-#include <android_widget_ImageView.hpp>
-#include <android_view_View.hpp>
-#include <android_widget_Filter.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,6 +72,24 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
+class android_widget_Filter;
+
+class java_lang_Object;
+
+class android_widget_SimpleAdapter_ViewBinder;
+
+class android_widget_ImageView;
+
+class java_lang_String;
+
+class android_widget_TextView;
 
 class android_widget_SimpleAdapter
 {

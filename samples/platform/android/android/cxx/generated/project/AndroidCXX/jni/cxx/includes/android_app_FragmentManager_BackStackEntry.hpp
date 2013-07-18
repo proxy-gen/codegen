@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,9 +13,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_app_FragmentManager_BackStackEntry
 #define _android_app_FragmentManager_BackStackEntry
+//
+// Scroll Down 
+//
 
 
 
@@ -23,9 +27,12 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
 
 #include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -38,15 +45,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
 class android_app_FragmentManager_BackStackEntry
 {
 public:
-	java_lang_String getName();
-	int getId();
-	int getBreadCrumbTitleRes();
-	int getBreadCrumbShortTitleRes();
-	java_lang_CharSequence getBreadCrumbTitle();
-	java_lang_CharSequence getBreadCrumbShortTitle();
+ java_lang_String getName();
+ int getId();
+ int getBreadCrumbTitleRes();
+ int getBreadCrumbShortTitleRes();
+ java_lang_CharSequence getBreadCrumbTitle();
+ java_lang_CharSequence getBreadCrumbShortTitle();
 
 
 };

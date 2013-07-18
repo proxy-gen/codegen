@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,20 +8,84 @@
 //
 
 
+
+ 			
+ 			
+		
+		
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_Adapter.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_Adapter_isEmpty(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_Adapter_getView(JNIEnv *jni_env, jobject java_object,jint& arg0,jobject& arg1,jobject& arg2);
-JNIEXPORT jobject Java_AndroidCXX_android_widget_Adapter_getItem(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jlong Java_AndroidCXX_android_widget_Adapter_getItemId(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_Adapter_getCount(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_widget_Adapter_registerDataSetObserver(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT void Java_AndroidCXX_android_widget_Adapter_unregisterDataSetObserver(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-JNIEXPORT jboolean Java_AndroidCXX_android_widget_Adapter_hasStableIds(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_Adapter_getItemViewType(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_Adapter_getViewTypeCount(JNIEnv *jni_env, jobject java_object);
-    
+bool android_widget_Adapter::isEmpty()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+android_view_View android_widget_Adapter::getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2)
+{
+	// TODO: Implementation
+	android_view_View result;
+
+	return result;
+}
+java_lang_Object android_widget_Adapter::getItem(int& arg0)
+{
+	// TODO: Implementation
+	java_lang_Object result;
+
+	return result;
+}
+long android_widget_Adapter::getItemId(int& arg0)
+{
+	// TODO: Implementation
+	long result;
+
+	return result;
+}
+int android_widget_Adapter::getCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+void android_widget_Adapter::registerDataSetObserver(android_database_DataSetObserver& arg0)
+{
+	// TODO: Implementation
+
+}
+void android_widget_Adapter::unregisterDataSetObserver(android_database_DataSetObserver& arg0)
+{
+	// TODO: Implementation
+
+}
+bool android_widget_Adapter::hasStableIds()
+{
+	// TODO: Implementation
+	bool result;
+
+	return result;
+}
+int android_widget_Adapter::getItemViewType(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_Adapter::getViewTypeCount()
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

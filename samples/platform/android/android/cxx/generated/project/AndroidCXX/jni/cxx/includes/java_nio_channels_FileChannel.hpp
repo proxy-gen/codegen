@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -19,9 +19,14 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _java_nio_channels_FileChannel
 #define _java_nio_channels_FileChannel
+//
+// Scroll Down 
+//
+
 
 
 
@@ -36,11 +41,18 @@
 
 
 #include <java_nio_channels_FileLock.hpp>
-#include <java_nio_channels_ReadableByteChannel.hpp>
-#include <java_nio_channels_WritableByteChannel.hpp>
-#include <java_nio_MappedByteBuffer.hpp>
+
 #include <java_nio_ByteBuffer.hpp>
+
+
 #include <java_nio_channels_FileChannel_MapMode.hpp>
+
+#include <java_nio_MappedByteBuffer.hpp>
+
+#include <java_nio_channels_WritableByteChannel.hpp>
+
+#include <java_nio_channels_ReadableByteChannel.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,6 +64,21 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_nio_channels_FileLock;
+
+class java_nio_ByteBuffer;
+
+
+class java_nio_channels_FileChannel_MapMode;
+
+class java_nio_MappedByteBuffer;
+
+class java_nio_channels_WritableByteChannel;
+
+class java_nio_channels_ReadableByteChannel;
 
 class java_nio_channels_FileChannel
 {

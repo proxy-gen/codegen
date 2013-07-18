@@ -43,9 +43,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_webkit_WebViewClient
 #define _android_webkit_WebViewClient
+//
+// Scroll Down 
+//
 
 
 
@@ -62,16 +66,26 @@
 
 
 
+
+
+#include <android_webkit_WebView.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_webkit_WebResourceResponse.hpp>
+
+#include <android_os_Message.hpp>
+
+#include <android_webkit_SslErrorHandler.hpp>
 
 #include <android_net_http_SslError.hpp>
-#include <android_webkit_WebView.hpp>
-#include <android_os_Message.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_webkit_SslErrorHandler.hpp>
-#include <android_webkit_WebResourceResponse.hpp>
+
 #include <android_webkit_HttpAuthHandler.hpp>
+
 #include <android_view_KeyEvent.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,6 +97,26 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_webkit_WebView;
+
+class java_lang_String;
+
+class android_graphics_Bitmap;
+
+class android_webkit_WebResourceResponse;
+
+class android_os_Message;
+
+class android_webkit_SslErrorHandler;
+
+class android_net_http_SslError;
+
+class android_webkit_HttpAuthHandler;
+
+class android_view_KeyEvent;
 
 class android_webkit_WebViewClient
 {

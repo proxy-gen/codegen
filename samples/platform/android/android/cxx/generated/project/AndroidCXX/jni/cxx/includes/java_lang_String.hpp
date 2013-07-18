@@ -49,9 +49,14 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _java_lang_String
 #define _java_lang_String
+//
+// Scroll Down 
+//
+
 
 
 
@@ -93,10 +98,16 @@
 
 
 #include <java_lang_Object.hpp>
-#include <java_util_Locale.hpp>
-#include <java_lang_StringBuffer.hpp>
+
+
 #include <java_nio_charset_Charset.hpp>
+
+#include <java_lang_StringBuffer.hpp>
+
 #include <java_lang_CharSequence.hpp>
+
+#include <java_util_Locale.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -108,6 +119,19 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+
+class java_nio_charset_Charset;
+
+class java_lang_StringBuffer;
+
+class java_lang_CharSequence;
+
+class java_util_Locale;
 
 class java_lang_String
 {

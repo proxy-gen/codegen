@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,26 @@
 //
 
 
+
+		
+ 			
+
+// Generated Code 
+
 #include <android_view_WindowManager.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobject Java_AndroidCXX_android_view_WindowManager_getDefaultDisplay(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT void Java_AndroidCXX_android_view_WindowManager_removeViewImmediate(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+android_view_Display android_view_WindowManager::getDefaultDisplay()
+{
+	// TODO: Implementation
+	android_view_Display result;
+
+	return result;
+}
+void android_view_WindowManager::removeViewImmediate(android_view_View& arg0)
+{
+	// TODO: Implementation
+
 }

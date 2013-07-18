@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -14,15 +14,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_MultiAutoCompleteTextView_Tokenizer
 #define _android_widget_MultiAutoCompleteTextView_Tokenizer
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -35,12 +41,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_CharSequence;
+
 class android_widget_MultiAutoCompleteTextView_Tokenizer
 {
 public:
-	int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
-	int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
-	java_lang_CharSequence terminateToken(java_lang_CharSequence& arg0);
+ int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
+ int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
+ java_lang_CharSequence terminateToken(java_lang_CharSequence& arg0);
 
 
 };

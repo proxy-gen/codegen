@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_view_View_OnSystemUiVisibilityChangeListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_view_View_OnSystemUiVisibilityChangeListener_onSystemUiVisibilityChange(JNIEnv *jni_env, jobject java_object,jint& arg0);
-    
+void android_view_View_OnSystemUiVisibilityChangeListener::onSystemUiVisibilityChange(int& arg0)
+{
+	// TODO: Implementation
+
 }

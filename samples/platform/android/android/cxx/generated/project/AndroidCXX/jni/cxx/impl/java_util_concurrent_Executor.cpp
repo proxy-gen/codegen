@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <java_util_concurrent_Executor.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_java_util_concurrent_Executor_execute(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void java_util_concurrent_Executor::execute(java_lang_Runnable& arg0)
+{
+	// TODO: Implementation
+
 }

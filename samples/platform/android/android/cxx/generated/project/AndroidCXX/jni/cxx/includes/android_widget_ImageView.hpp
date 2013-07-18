@@ -25,9 +25,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_widget_ImageView
 #define _android_widget_ImageView
+//
+// Scroll Down 
+//
 
 
 
@@ -67,16 +71,26 @@
 
 
 
+
+
+#include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_graphics_PorterDuff_Mode.hpp>
+
+#include <android_graphics_ColorFilter.hpp>
+
+#include <android_net_Uri.hpp>
 
 #include <android_graphics_Bitmap.hpp>
-#include <android_graphics_PorterDuff_Mode.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <android_widget_ImageView_ScaleType.hpp>
+
 #include <android_graphics_Matrix.hpp>
-#include <android_graphics_ColorFilter.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_net_Uri.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -88,6 +102,24 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_graphics_drawable_Drawable;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+
+class android_graphics_ColorFilter;
+
+class android_net_Uri;
+
+class android_graphics_Bitmap;
+
+
+class android_graphics_Matrix;
 
 class android_widget_ImageView
 {

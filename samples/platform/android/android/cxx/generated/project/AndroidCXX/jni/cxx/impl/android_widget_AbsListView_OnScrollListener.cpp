@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,12 +8,24 @@
 //
 
 
+
+ 			
+ 			
+
+// Generated Code 
+
 #include <android_widget_AbsListView_OnScrollListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_widget_AbsListView_OnScrollListener_onScrollStateChanged(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-JNIEXPORT void Java_AndroidCXX_android_widget_AbsListView_OnScrollListener_onScroll(JNIEnv *jni_env, jobject java_object,jobject& arg0,jint& arg1);
-    
+void android_widget_AbsListView_OnScrollListener::onScrollStateChanged(android_widget_AbsListView& arg0,int& arg1)
+{
+	// TODO: Implementation
+
+}
+void android_widget_AbsListView_OnScrollListener::onScroll(android_widget_AbsListView& arg0,int& arg1)
+{
+	// TODO: Implementation
+
 }

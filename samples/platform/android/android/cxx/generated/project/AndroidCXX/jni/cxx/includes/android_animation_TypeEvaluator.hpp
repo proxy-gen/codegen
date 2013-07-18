@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,13 +12,19 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_TypeEvaluator
 #define _android_animation_TypeEvaluator
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,10 +37,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class android_animation_TypeEvaluator
 {
 public:
-	java_lang_Object evaluate(float& arg0,java_lang_Object& arg1);
+ java_lang_Object evaluate(float& arg0,java_lang_Object& arg1);
 
 
 };

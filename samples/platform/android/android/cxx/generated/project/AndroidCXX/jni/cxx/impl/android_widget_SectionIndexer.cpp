@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,13 +8,33 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_widget_SectionIndexer.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT jobjectArray Java_AndroidCXX_android_widget_SectionIndexer_getSections(JNIEnv *jni_env, jobject java_object);
-JNIEXPORT jint Java_AndroidCXX_android_widget_SectionIndexer_getPositionForSection(JNIEnv *jni_env, jobject java_object,jint& arg0);
-JNIEXPORT jint Java_AndroidCXX_android_widget_SectionIndexer_getSectionForPosition(JNIEnv *jni_env, jobject java_object,jint& arg0);
-    
+std::vector<long> android_widget_SectionIndexer::getSections()
+{
+	// TODO: Implementation
+	std::vector<long> result;
+
+	return result;
+}
+int android_widget_SectionIndexer::getPositionForSection(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
+}
+int android_widget_SectionIndexer::getSectionForPosition(int& arg0)
+{
+	// TODO: Implementation
+	int result;
+
+	return result;
 }

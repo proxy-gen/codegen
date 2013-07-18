@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _java_nio_channels_WritableByteChannel
 #define _java_nio_channels_WritableByteChannel
+//
+// Scroll Down 
+//
+
 
 
 
 #include <java_nio_ByteBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_nio_ByteBuffer;
+
 class java_nio_channels_WritableByteChannel
 {
 public:
-	int write(java_nio_ByteBuffer& arg0);
+ int write(java_nio_ByteBuffer& arg0);
 
 
 };

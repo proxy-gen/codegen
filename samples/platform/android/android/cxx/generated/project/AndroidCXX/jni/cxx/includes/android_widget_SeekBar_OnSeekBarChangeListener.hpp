@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,15 +13,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SeekBar_OnSeekBarChangeListener
 #define _android_widget_SeekBar_OnSeekBarChangeListener
+//
+// Scroll Down 
+//
+
 
 
 
 
 
 #include <android_widget_SeekBar.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -34,12 +40,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_SeekBar;
+
 class android_widget_SeekBar_OnSeekBarChangeListener
 {
 public:
-	void onProgressChanged(android_widget_SeekBar& arg0,int& arg1,bool& arg2);
-	void onStartTrackingTouch(android_widget_SeekBar& arg0);
-	void onStopTrackingTouch(android_widget_SeekBar& arg0);
+ void onProgressChanged(android_widget_SeekBar& arg0,int& arg1,bool& arg2);
+ void onStartTrackingTouch(android_widget_SeekBar& arg0);
+ void onStopTrackingTouch(android_widget_SeekBar& arg0);
 
 
 };

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -10,9 +10,14 @@
 
 
 
+// Generated Code 
 
 #ifndef _android_widget_ZoomButtonsController_OnZoomListener
 #define _android_widget_ZoomButtonsController_OnZoomListener
+//
+// Scroll Down 
+//
+
 
 
 
@@ -29,11 +34,13 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_ZoomButtonsController_OnZoomListener
 {
 public:
-	void onVisibilityChanged(bool& arg0);
-	void onZoom(bool& arg0);
+ void onVisibilityChanged(bool& arg0);
+ void onZoom(bool& arg0);
 
 
 };

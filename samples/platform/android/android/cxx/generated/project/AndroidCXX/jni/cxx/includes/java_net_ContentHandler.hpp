@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _java_net_ContentHandler
 #define _java_net_ContentHandler
+//
+// Scroll Down 
+//
 
 
+
+
+#include <java_net_URLConnection.hpp>
 
 #include <java_lang_Object.hpp>
-#include <java_net_URLConnection.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,6 +38,12 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_net_URLConnection;
+
+class java_lang_Object;
 
 class java_net_ContentHandler
 {

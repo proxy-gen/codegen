@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_database_DatabaseErrorHandler
 #define _android_database_DatabaseErrorHandler
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_database_sqlite_SQLiteDatabase.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_database_sqlite_SQLiteDatabase;
+
 class android_database_DatabaseErrorHandler
 {
 public:
-	void onCorruption(android_database_sqlite_SQLiteDatabase& arg0);
+ void onCorruption(android_database_sqlite_SQLiteDatabase& arg0);
 
 
 };

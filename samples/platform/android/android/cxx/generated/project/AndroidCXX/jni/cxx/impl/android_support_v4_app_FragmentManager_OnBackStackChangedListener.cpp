@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,17 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <android_support_v4_app_FragmentManager_OnBackStackChangedListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_support_v4_app_FragmentManager_OnBackStackChangedListener_onBackStackChanged(JNIEnv *jni_env, jobject java_object);
-    
+void android_support_v4_app_FragmentManager_OnBackStackChangedListener::onBackStackChanged()
+{
+	// TODO: Implementation
+
 }

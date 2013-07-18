@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -20,9 +20,13 @@
 		
 		
 
+// Generated Code 
 
 #ifndef _android_view_ActionMode
 #define _android_view_ActionMode
+//
+// Scroll Down 
+//
 
 
 
@@ -39,12 +43,18 @@
 
 
 
+
+
+#include <java_lang_Object.hpp>
 
 #include <android_view_MenuInflater.hpp>
-#include <android_view_View.hpp>
-#include <android_view_Menu.hpp>
-#include <java_lang_Object.hpp>
+
 #include <java_lang_CharSequence.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_view_Menu.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,6 +66,18 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class android_view_MenuInflater;
+
+class java_lang_CharSequence;
+
+class android_view_View;
+
+class android_view_Menu;
 
 class android_view_ActionMode
 {

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -20,9 +20,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_animation_Keyframe
 #define _android_animation_Keyframe
+//
+// Scroll Down 
+//
 
 
 
@@ -36,10 +40,15 @@
 
 
 
+
+
+
+#include <java_lang_Object.hpp>
 
 #include <java_lang_Class.hpp>
-#include <java_lang_Object.hpp>
+
 #include <android_animation_TimeInterpolator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,6 +60,15 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+
+class java_lang_Object;
+
+class java_lang_Class;
+
+class android_animation_TimeInterpolator;
 
 class android_animation_Keyframe
 {

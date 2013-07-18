@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -13,14 +13,20 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_AutoCompleteTextView_Validator
 #define _android_widget_AutoCompleteTextView_Validator
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -33,11 +39,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_CharSequence;
+
 class android_widget_AutoCompleteTextView_Validator
 {
 public:
-	bool isValid(java_lang_CharSequence& arg0);
-	java_lang_CharSequence fixText(java_lang_CharSequence& arg0);
+ bool isValid(java_lang_CharSequence& arg0);
+ java_lang_CharSequence fixText(java_lang_CharSequence& arg0);
 
 
 };

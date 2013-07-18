@@ -27,9 +27,14 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_widget_ArrayAdapter
 #define _android_widget_ArrayAdapter
+//
+// Scroll Down 
+//
+
 
 
 
@@ -51,12 +56,20 @@
 
 
 #include <java_lang_Object.hpp>
-#include <android_content_Context.hpp>
+
 #include <java_util_Collection.hpp>
+
+#include <android_content_Context.hpp>
+
 #include <java_util_Comparator.hpp>
-#include <android_view_ViewGroup.hpp>
+
 #include <android_view_View.hpp>
+
+#include <android_view_ViewGroup.hpp>
+
 #include <android_widget_Filter.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
@@ -68,6 +81,23 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_util_Collection;
+
+class android_content_Context;
+
+class java_util_Comparator;
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
+class android_widget_Filter;
+
 
 class android_widget_ArrayAdapter
 {

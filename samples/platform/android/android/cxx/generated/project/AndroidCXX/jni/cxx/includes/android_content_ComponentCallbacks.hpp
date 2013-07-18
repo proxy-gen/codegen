@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,14 +11,20 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_content_ComponentCallbacks
 #define _android_content_ComponentCallbacks
+//
+// Scroll Down 
+//
+
 
 
 
 
 #include <android_content_res_Configuration.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -31,11 +37,15 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_content_res_Configuration;
+
 class android_content_ComponentCallbacks
 {
 public:
-	void onConfigurationChanged(android_content_res_Configuration& arg0);
-	void onLowMemory();
+ void onConfigurationChanged(android_content_res_Configuration& arg0);
+ void onLowMemory();
 
 
 };

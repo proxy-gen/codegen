@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -24,9 +24,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_text_Layout
 #define _android_text_Layout
+//
+// Scroll Down 
+//
 
 
 
@@ -73,15 +77,24 @@
 
 
 
+
+
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_Canvas.hpp>
 
 #include <android_graphics_Path.hpp>
-#include <android_graphics_Canvas.hpp>
-#include <android_text_Layout_Alignment.hpp>
-#include <android_text_Layout_Directions.hpp>
+
 #include <android_graphics_Paint.hpp>
-#include <android_graphics_Rect.hpp>
+
 #include <android_text_TextPaint.hpp>
-#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_text_Layout_Alignment.hpp>
+
+#include <android_text_Layout_Directions.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -93,6 +106,23 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_CharSequence;
+
+class android_graphics_Canvas;
+
+class android_graphics_Path;
+
+class android_graphics_Paint;
+
+class android_text_TextPaint;
+
+class android_graphics_Rect;
+
+
+class android_text_Layout_Directions;
 
 class android_text_Layout
 {

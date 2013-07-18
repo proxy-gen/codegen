@@ -24,9 +24,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_widget_TabHost
 #define _android_widget_TabHost
+//
+// Scroll Down 
+//
 
 
 
@@ -47,17 +51,28 @@
 
 
 
+
+
+#include <android_app_LocalActivityManager.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_widget_TabHost_TabSpec.hpp>
+
+#include <android_view_View.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_widget_TabWidget.hpp>
-#include <android_widget_TabHost_OnTabChangeListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+
 #include <android_widget_FrameLayout.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_String.hpp>
-#include <android_app_LocalActivityManager.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <android_widget_TabHost_TabSpec.hpp>
+
+#include <android_widget_TabHost_OnTabChangeListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,6 +84,28 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_app_LocalActivityManager;
+
+class android_view_KeyEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_widget_TabHost_TabSpec;
+
+class android_view_View;
+
+class java_lang_String;
+
+class android_widget_TabWidget;
+
+class android_widget_FrameLayout;
+
+class android_widget_TabHost_OnTabChangeListener;
 
 class android_widget_TabHost
 {

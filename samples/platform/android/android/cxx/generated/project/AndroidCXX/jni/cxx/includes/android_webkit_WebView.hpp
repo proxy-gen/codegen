@@ -71,9 +71,13 @@
  			
 		
 
+// Generated Code 
 
 #ifndef _android_webkit_WebView
 #define _android_webkit_WebView
+//
+// Scroll Down 
+//
 
 
 
@@ -175,34 +179,62 @@
 
 
 
+
+
+#include <android_net_http_SslCertificate.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Bundle.hpp>
+
+#include <android_webkit_WebBackForwardList.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_view_inputmethod_EditorInfo.hpp>
-#include <java_util_Map.hpp>
-#include <android_view_MotionEvent.hpp>
-#include <android_graphics_Rect.hpp>
-#include <android_webkit_WebView_FindListener.hpp>
-#include <android_webkit_WebSettings.hpp>
-#include <android_webkit_WebView_PictureListener.hpp>
-#include <android_os_Bundle.hpp>
-#include <android_webkit_DownloadListener.hpp>
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-#include <android_net_http_SslCertificate.hpp>
+
 #include <android_view_inputmethod_InputConnection.hpp>
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-#include <android_webkit_WebBackForwardList.hpp>
-#include <android_os_Message.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_webkit_ValueCallback.hpp>
-#include <android_webkit_WebView_HitTestResult.hpp>
-#include <android_webkit_WebViewClient.hpp>
-#include <android_view_KeyEvent.hpp>
-#include <java_lang_Object.hpp>
-#include <android_webkit_WebChromeClient.hpp>
+
 #include <android_view_ViewGroup_LayoutParams.hpp>
-#include <android_graphics_Picture.hpp>
+
 #include <android_graphics_Paint.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_util_Map.hpp>
+
+#include <android_webkit_ValueCallback.hpp>
+
+#include <android_graphics_Picture.hpp>
+
+#include <android_webkit_WebView_HitTestResult.hpp>
+
+#include <android_os_Message.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_webkit_WebView_FindListener.hpp>
+
+#include <android_webkit_WebViewClient.hpp>
+
+#include <android_webkit_DownloadListener.hpp>
+
+#include <android_webkit_WebChromeClient.hpp>
+
+#include <android_webkit_WebView_PictureListener.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <android_webkit_WebSettings.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -214,6 +246,62 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_net_http_SslCertificate;
+
+class java_lang_String;
+
+class android_os_Bundle;
+
+class android_webkit_WebBackForwardList;
+
+class android_view_KeyEvent;
+
+class android_view_MotionEvent;
+
+class android_view_View;
+
+class android_graphics_Rect;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_graphics_Paint;
+
+class java_util_Map;
+
+class android_webkit_ValueCallback;
+
+class android_graphics_Picture;
+
+class android_webkit_WebView_HitTestResult;
+
+class android_os_Message;
+
+class android_graphics_Bitmap;
+
+class android_webkit_WebView_FindListener;
+
+class android_webkit_WebViewClient;
+
+class android_webkit_DownloadListener;
+
+class android_webkit_WebChromeClient;
+
+class android_webkit_WebView_PictureListener;
+
+class java_lang_Object;
+
+class android_webkit_WebSettings;
 
 class android_webkit_WebView
 {

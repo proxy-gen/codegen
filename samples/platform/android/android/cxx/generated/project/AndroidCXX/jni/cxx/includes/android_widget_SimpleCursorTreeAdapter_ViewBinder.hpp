@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -12,14 +12,21 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_widget_SimpleCursorTreeAdapter_ViewBinder
 #define _android_widget_SimpleCursorTreeAdapter_ViewBinder
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_View.hpp>
+
 #include <android_database_Cursor.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -32,10 +39,16 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_database_Cursor;
+
 class android_widget_SimpleCursorTreeAdapter_ViewBinder
 {
 public:
-	bool setViewValue(android_view_View& arg0,android_database_Cursor& arg1,int& arg2);
+ bool setViewValue(android_view_View& arg0,android_database_Cursor& arg1,int& arg2);
 
 
 };

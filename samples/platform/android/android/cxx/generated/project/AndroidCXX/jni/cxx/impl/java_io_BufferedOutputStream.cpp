@@ -8,9 +8,22 @@
 //
 
 
+
+
+// Generated Code 
+
 #include <java_io_BufferedOutputStream.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
+
+void java_io_BufferedOutputStream::write(int& arg0,std::vector<char>& arg1)
+{
+	// TODO: Implementation
+
+}
+void java_io_BufferedOutputStream::flush()
+{
+	// TODO: Implementation
 
 }

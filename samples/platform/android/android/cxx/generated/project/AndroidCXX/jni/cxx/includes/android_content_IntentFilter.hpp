@@ -52,9 +52,13 @@
  			
  			
 
+// Generated Code 
 
 #ifndef _android_content_IntentFilter
 #define _android_content_IntentFilter
+//
+// Scroll Down 
+//
 
 
 
@@ -99,19 +103,33 @@
 
 
 
+
+
+#include <java_lang_String.hpp>
+
+
+#include <android_net_Uri.hpp>
+
+#include <java_util_Set.hpp>
+
+#include <android_content_ContentResolver.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_util_Printer.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <java_util_Iterator.hpp>
+
+#include <android_content_IntentFilter_AuthorityEntry.hpp>
+
+#include <android_os_PatternMatcher.hpp>
+
+#include <org_xmlpull_v1_XmlSerializer.hpp>
 
 #include <org_xmlpull_v1_XmlPullParser.hpp>
-#include <java_util_Iterator.hpp>
-#include <android_os_PatternMatcher.hpp>
-#include <org_xmlpull_v1_XmlSerializer.hpp>
-#include <android_content_IntentFilter_AuthorityEntry.hpp>
-#include <android_content_Intent.hpp>
-#include <java_util_Set.hpp>
-#include <android_content_ContentResolver.hpp>
-#include <android_util_Printer.hpp>
-#include <android_os_Parcel.hpp>
-#include <android_net_Uri.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -123,6 +141,33 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class java_lang_String;
+
+
+class android_net_Uri;
+
+class java_util_Set;
+
+class android_content_ContentResolver;
+
+class android_content_Intent;
+
+class android_util_Printer;
+
+class android_os_Parcel;
+
+class java_util_Iterator;
+
+class android_content_IntentFilter_AuthorityEntry;
+
+class android_os_PatternMatcher;
+
+class org_xmlpull_v1_XmlSerializer;
+
+class org_xmlpull_v1_XmlPullParser;
 
 class android_content_IntentFilter
 {

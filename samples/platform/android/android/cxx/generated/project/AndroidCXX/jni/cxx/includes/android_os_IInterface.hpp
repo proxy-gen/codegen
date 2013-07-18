@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
 		
 
+// Generated Code 
 
 #ifndef _android_os_IInterface
 #define _android_os_IInterface
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_os_IBinder.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_os_IBinder;
+
 class android_os_IInterface
 {
 public:
-	android_os_IBinder asBinder();
+ android_os_IBinder asBinder();
 
 
 };

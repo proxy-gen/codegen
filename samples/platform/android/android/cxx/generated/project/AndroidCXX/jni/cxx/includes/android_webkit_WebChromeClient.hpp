@@ -45,9 +45,13 @@
 		
  			
 
+// Generated Code 
 
 #ifndef _android_webkit_WebChromeClient
 #define _android_webkit_WebChromeClient
+//
+// Scroll Down 
+//
 
 
 
@@ -71,19 +75,32 @@
 
 
 
+
+
+#include <android_webkit_WebView.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_graphics_Bitmap.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_webkit_WebChromeClient_CustomViewCallback.hpp>
+
+#include <android_os_Message.hpp>
+
+#include <android_webkit_JsResult.hpp>
+
+#include <android_webkit_JsPromptResult.hpp>
+
+#include <android_webkit_WebStorage_QuotaUpdater.hpp>
+
+#include <android_webkit_GeolocationPermissions_Callback.hpp>
+
+#include <android_webkit_ConsoleMessage.hpp>
 
 #include <android_webkit_ValueCallback.hpp>
-#include <android_webkit_JsPromptResult.hpp>
-#include <android_webkit_WebView.hpp>
-#include <android_os_Message.hpp>
-#include <android_graphics_Bitmap.hpp>
-#include <android_webkit_GeolocationPermissions_Callback.hpp>
-#include <android_webkit_ConsoleMessage.hpp>
-#include <android_webkit_JsResult.hpp>
-#include <android_view_View.hpp>
-#include <android_webkit_WebStorage_QuotaUpdater.hpp>
-#include <android_webkit_WebChromeClient_CustomViewCallback.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -95,6 +112,32 @@ extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
+
+// Forward Declarations
+
+class android_webkit_WebView;
+
+class java_lang_String;
+
+class android_graphics_Bitmap;
+
+class android_view_View;
+
+class android_webkit_WebChromeClient_CustomViewCallback;
+
+class android_os_Message;
+
+class android_webkit_JsResult;
+
+class android_webkit_JsPromptResult;
+
+class android_webkit_WebStorage_QuotaUpdater;
+
+class android_webkit_GeolocationPermissions_Callback;
+
+class android_webkit_ConsoleMessage;
+
+class android_webkit_ValueCallback;
 
 class android_webkit_WebChromeClient
 {

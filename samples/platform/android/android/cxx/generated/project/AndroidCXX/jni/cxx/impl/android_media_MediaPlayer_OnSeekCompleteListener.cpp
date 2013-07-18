@@ -1,5 +1,5 @@
 /*
- * Implementation (Callback CXX)
+ * Implementation (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -8,11 +8,18 @@
 //
 
 
+
+ 			
+
+// Generated Code 
+
 #include <android_media_MediaPlayer_OnSeekCompleteListener.hpp>
 #include <jni.h>
 
-namespace AndroidCXX {
+using namespace AndroidCXX;
 
-JNIEXPORT void Java_AndroidCXX_android_media_MediaPlayer_OnSeekCompleteListener_onSeekComplete(JNIEnv *jni_env, jobject java_object,jobject& arg0);
-    
+void android_media_MediaPlayer_OnSeekCompleteListener::onSeekComplete(android_media_MediaPlayer& arg0)
+{
+	// TODO: Implementation
+
 }

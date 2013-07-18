@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,13 +11,19 @@
 
  			
 
+// Generated Code 
 
 #ifndef _android_widget_AbsListView_MultiChoiceModeListener
 #define _android_widget_AbsListView_MultiChoiceModeListener
+//
+// Scroll Down 
+//
+
 
 
 
 #include <android_view_ActionMode.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -30,10 +36,14 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_ActionMode;
+
 class android_widget_AbsListView_MultiChoiceModeListener
 {
 public:
-	void onItemCheckedStateChanged(android_view_ActionMode& arg0,int& arg1,long& arg2,bool& arg3);
+ void onItemCheckedStateChanged(android_view_ActionMode& arg0,int& arg1,long& arg2,bool& arg3);
 
 
 };
