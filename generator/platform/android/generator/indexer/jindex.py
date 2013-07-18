@@ -790,7 +790,7 @@ class TranslationUnit(JavaObject):
 		return the_clazz
 
 #   Special Class Tags
-#		_enumerate 											Tag to indicate class should be enumerated
+#		_enum 											Tag to indicate class should be enumerated
 #		_interface											Tag to indicate class is an interface
 #		_abstract											Tag to indicate class is abstract
 #		_instance											Tag to indicate class instance should be created
@@ -813,7 +813,7 @@ class TranslationUnit(JavaObject):
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
-				tags.append("_enumerate")
+				tags.append("_enum")
 			elif type_kind == TypeKind.JAVA_INTERFACE:
 				tags[:] = list()
 				tags.append("_interface")
@@ -821,20 +821,31 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_ABSTRACT:
 				if "callback" in tags:
 					tags[:] = list()
-					tags.append("callback")
+					tags.append("_callback")
 				else:
 					tags[:] = list()
 				tags.append("_abstract")
 			elif type_kind == TypeKind.JAVA_INSTANCE:
 				if "callback" in tags:
 					tags[:] = list()
-					tags.append("callback")
+					tags.append("_callback")
 				else:
 					tags[:] = list()
 				tags.append("_instance")
 			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
 				tags[:] = list()
 				tags.append("_static")
+			elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
+				tags[:] = list()
+				tags.append("_instance")
+				tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
+				tags[:] = list()
+				tags.append("_instance")
+				tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
+				tags[:] = list()
+				tags.append("_abstract")
 			if "_no_proxy" in tags:
 				tags.remove("_no_proxy")
 			tags.append("_proxy")

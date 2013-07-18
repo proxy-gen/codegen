@@ -10,10 +10,11 @@
 #		_char_array_type									char array type
 #
 #   Special Class Tags
-#		_enumerate 											Tag to indicate class should be enumerated
+#		_enum 												Tag to indicate class should be enumerated
 #		_interface											Tag to indicate class is an interface
 #		_abstract											Tag to indicate class is abstract
-#		_instance											Tag to indicate class instance should be created
+#		_instance											Tag to indicate class is an instance
+#		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
 #		_callback 											Tag to indicate class is a callback
 #		_proxy 												Tag to indicate class will be proxied

@@ -2836,6 +2836,24 @@ jboolean JNIContext::isDoubleObject(jobject obj)
 	return isInstanceOf(obj, "java/lang/Double");
 }
 
+jboolean JNIContext::isSameInstance(jobject obj1, jobject obj2)
+{
+	if (obj1 != 0)
+	{
+		if (obj2 != 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);
+			jboolean result = env->IsSameObject(obj1, obj2);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return false;
+}
+
 jboolean JNIContext::isInstanceOf(jobject obj, jclass claz)
 {
 	if (obj != 0)

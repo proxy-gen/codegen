@@ -1,0 +1,81 @@
+/*
+ * Header (Callback CXX)
+ * Author: cxx-bindings-generator
+ */
+
+//
+// Scroll Down 
+//
+
+
+
+ 			
+		
+ 			
+		
+ 			
+		
+ 			
+		
+		
+ 			
+		
+ 			
+		
+ 			
+ 			
+		
+
+
+#ifndef _android_content_SharedPreferences_Editor
+#define _android_content_SharedPreferences_Editor
+
+
+
+
+
+
+
+
+
+
+
+
+#include <java_util_Set.hpp>
+#include <java_lang_String.hpp>
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+
+#ifdef __cplusplus
+extern "C" {
+#endif //__cplusplus
+
+namespace AndroidCXX {
+
+class android_content_SharedPreferences_Editor
+{
+public:
+	android_content_SharedPreferences_Editor putBoolean(java_lang_String& arg0,bool& arg1);
+	android_content_SharedPreferences_Editor putInt(java_lang_String& arg0,int& arg1);
+	android_content_SharedPreferences_Editor putLong(java_lang_String& arg0,long& arg1);
+	android_content_SharedPreferences_Editor putFloat(java_lang_String& arg0,float& arg1);
+	android_content_SharedPreferences_Editor clear();
+	android_content_SharedPreferences_Editor remove(java_lang_String& arg0);
+	android_content_SharedPreferences_Editor putString(java_lang_String& arg0);
+	void apply();
+	android_content_SharedPreferences_Editor putStringSet(java_lang_String& arg0,java_util_Set& arg1);
+	bool commit();
+
+
+};
+
+} // namespace
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
+
+#endif // _android_content_SharedPreferences_Editor

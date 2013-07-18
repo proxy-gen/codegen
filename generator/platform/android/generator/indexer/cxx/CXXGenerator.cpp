@@ -600,8 +600,8 @@ int find_class_type(jclass clazz)
 				jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getParameterTypes", "()[Ljava/lang/Class;");
 				jsize parameterCount = jni->getArrayLength(jparameterTypes);
 				if (parameterCount > 0) continue;
-				jobject jreturnType = (jobject) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
-				isSingletonInstance = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+				jclass jreturnClazz = (jclass) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+				isSingletonInstance = (bool) jni->isSameInstance(clazz,jreturnClazz);
 			}
 			// search for a public static field that returns this type
 			bool isSingletonField = false;
@@ -616,8 +616,8 @@ int find_class_type(jclass clazz)
 				bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
 				if (!isFieldPublic) continue;
 				if (!isFieldStatic) continue;
-				jobject jreturnType = (jobject) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getType", "()Ljava/lang/Class;");
-				isSingletonField = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+				jclass jtypeClazz = (jclass) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getType", "()Ljava/lang/Class;");
+				isSingletonField = (bool) jni->isSameInstance(clazz,jtypeClazz);
 			}
 			if (isSingletonInstance)
 			{

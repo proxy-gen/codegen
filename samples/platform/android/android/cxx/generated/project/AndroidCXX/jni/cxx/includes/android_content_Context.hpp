@@ -1,0 +1,364 @@
+/*
+ * Header (Abstract CXX)
+ * Author: cxx-bindings-generator
+ */
+
+//
+// Scroll Down 
+//
+
+
+
+		
+ 			
+		
+		
+		
+		
+ 			
+ 			
+		
+		
+		
+		
+		
+ 			
+ 			
+		
+ 			
+		
+		
+		
+		
+ 			
+		
+ 			
+		
+ 			
+		
+ 			
+ 			
+		
+		
+ 			
+		
+		
+		
+		
+ 			
+		
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+		
+		
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+		
+ 			
+		
+ 			
+		
+
+
+#ifndef _android_content_Context
+#define _android_content_Context
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <java_io_FileInputStream.hpp>
+#include <android_os_Bundle.hpp>
+#include <android_util_AttributeSet.hpp>
+#include <android_content_Intent.hpp>
+#include <android_content_res_Resources.hpp>
+#include <android_os_UserHandle.hpp>
+#include <android_content_pm_ApplicationInfo.hpp>
+#include <android_database_DatabaseErrorHandler.hpp>
+#include <android_content_ContentResolver.hpp>
+#include <android_content_res_Configuration.hpp>
+#include <android_graphics_drawable_Drawable.hpp>
+#include <android_database_sqlite_SQLiteDatabase.hpp>
+#include <android_content_res_AssetManager.hpp>
+#include <java_lang_Object.hpp>
+#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
+#include <android_os_Looper.hpp>
+#include <android_content_ServiceConnection.hpp>
+#include <android_os_Handler.hpp>
+#include <java_lang_CharSequence.hpp>
+#include <android_content_ComponentName.hpp>
+#include <android_graphics_Bitmap.hpp>
+#include <android_content_IntentFilter.hpp>
+#include <java_lang_ClassLoader.hpp>
+#include <java_io_InputStream.hpp>
+#include <android_content_SharedPreferences.hpp>
+#include <java_io_FileOutputStream.hpp>
+#include <android_view_Display.hpp>
+#include <android_content_BroadcastReceiver.hpp>
+#include <java_io_File.hpp>
+#include <android_content_IntentSender.hpp>
+#include <android_content_res_Resources_Theme.hpp>
+#include <android_content_res_TypedArray.hpp>
+#include <android_content_ComponentCallbacks.hpp>
+#include <android_content_pm_PackageManager.hpp>
+#include <android_net_Uri.hpp>
+#include <java_lang_String.hpp>
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+
+#ifdef __cplusplus
+extern "C" {
+#endif //__cplusplus
+
+namespace AndroidCXX {
+
+class android_content_Context
+{
+public:
+ java_lang_ClassLoader getClassLoader();
+ int checkPermission(java_lang_String& arg0,int& arg1);
+ android_content_res_Resources getResources();
+ java_lang_String getPackageName();
+ java_lang_String getString(int& arg0,std::vector<long>& arg1);
+ java_lang_CharSequence getText(int& arg0);
+ void startActivity(android_content_Intent& arg0,android_os_Bundle& arg1);
+ android_content_res_AssetManager getAssets();
+ android_content_pm_PackageManager getPackageManager();
+ android_content_ContentResolver getContentResolver();
+ android_os_Looper getMainLooper();
+ android_content_Context getApplicationContext();
+ void registerComponentCallbacks(android_content_ComponentCallbacks& arg0);
+ void unregisterComponentCallbacks(android_content_ComponentCallbacks& arg0);
+ void setTheme(int& arg0);
+ android_content_res_Resources_Theme getTheme();
+ android_content_res_TypedArray obtainStyledAttributes(std::vector<int>& arg0,int& arg1,android_util_AttributeSet& arg2);
+ android_content_pm_ApplicationInfo getApplicationInfo();
+ java_lang_String getPackageResourcePath();
+ java_lang_String getPackageCodePath();
+ android_content_SharedPreferences getSharedPreferences(java_lang_String& arg0,int& arg1);
+ java_io_FileInputStream openFileInput(java_lang_String& arg0);
+ java_io_FileOutputStream openFileOutput(java_lang_String& arg0,int& arg1);
+ bool deleteFile(java_lang_String& arg0);
+ java_io_File getFileStreamPath(java_lang_String& arg0);
+ java_io_File getFilesDir();
+ java_io_File getExternalFilesDir(java_lang_String& arg0);
+ java_io_File getObbDir();
+ java_io_File getCacheDir();
+ java_io_File getExternalCacheDir();
+ std::vector<long> fileList();
+ java_io_File getDir(java_lang_String& arg0,int& arg1);
+ android_database_sqlite_SQLiteDatabase openOrCreateDatabase(java_lang_String& arg0,int& arg1,android_database_sqlite_SQLiteDatabase_CursorFactory& arg2,android_database_DatabaseErrorHandler& arg3);
+ bool deleteDatabase(java_lang_String& arg0);
+ java_io_File getDatabasePath(java_lang_String& arg0);
+ std::vector<long> databaseList();
+ android_graphics_drawable_Drawable getWallpaper();
+ android_graphics_drawable_Drawable peekWallpaper();
+ int getWallpaperDesiredMinimumWidth();
+ int getWallpaperDesiredMinimumHeight();
+ void setWallpaper(java_io_InputStream& arg0,android_graphics_Bitmap& arg1);
+ void clearWallpaper();
+ void startActivities(std::vector<long>& arg0,android_os_Bundle& arg1);
+ void startIntentSender(android_content_IntentSender& arg0,android_content_Intent& arg1,int& arg2,android_os_Bundle& arg3);
+ void sendBroadcast(android_content_Intent& arg0,java_lang_String& arg1);
+ void sendOrderedBroadcast(android_content_Intent& arg0,java_lang_String& arg1,android_content_BroadcastReceiver& arg2,android_os_Handler& arg3,int& arg4,android_os_Bundle& arg5);
+ void sendBroadcastAsUser(android_content_Intent& arg0,android_os_UserHandle& arg1,java_lang_String& arg2);
+ void sendOrderedBroadcastAsUser(android_content_Intent& arg0,android_os_UserHandle& arg1,java_lang_String& arg2,android_content_BroadcastReceiver& arg3,android_os_Handler& arg4,int& arg5,android_os_Bundle& arg6);
+ void sendStickyBroadcast(android_content_Intent& arg0);
+ void sendStickyOrderedBroadcast(android_content_Intent& arg0,android_content_BroadcastReceiver& arg1,android_os_Handler& arg2,int& arg3,java_lang_String& arg4,android_os_Bundle& arg5);
+ void removeStickyBroadcast(android_content_Intent& arg0);
+ void sendStickyBroadcastAsUser(android_content_Intent& arg0,android_os_UserHandle& arg1);
+ void sendStickyOrderedBroadcastAsUser(android_content_Intent& arg0,android_os_UserHandle& arg1,android_content_BroadcastReceiver& arg2,android_os_Handler& arg3,int& arg4,java_lang_String& arg5,android_os_Bundle& arg6);
+ void removeStickyBroadcastAsUser(android_content_Intent& arg0,android_os_UserHandle& arg1);
+ android_content_Intent registerReceiver(android_content_BroadcastReceiver& arg0,android_content_IntentFilter& arg1,java_lang_String& arg2,android_os_Handler& arg3);
+ void unregisterReceiver(android_content_BroadcastReceiver& arg0);
+ android_content_ComponentName startService(android_content_Intent& arg0);
+ bool stopService(android_content_Intent& arg0);
+ bool bindService(android_content_Intent& arg0,android_content_ServiceConnection& arg1,int& arg2);
+ void unbindService(android_content_ServiceConnection& arg0);
+ bool startInstrumentation(android_content_ComponentName& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
+ java_lang_Object getSystemService(java_lang_String& arg0);
+ int checkCallingPermission(java_lang_String& arg0);
+ int checkCallingOrSelfPermission(java_lang_String& arg0);
+ void enforcePermission(java_lang_String& arg0,int& arg1);
+ void enforceCallingPermission(java_lang_String& arg0);
+ void enforceCallingOrSelfPermission(java_lang_String& arg0);
+ void grantUriPermission(java_lang_String& arg0,android_net_Uri& arg1,int& arg2);
+ void revokeUriPermission(android_net_Uri& arg0,int& arg1);
+ int checkUriPermission(android_net_Uri& arg0,int& arg1,java_lang_String& arg2);
+ int checkCallingUriPermission(android_net_Uri& arg0,int& arg1);
+ int checkCallingOrSelfUriPermission(android_net_Uri& arg0,int& arg1);
+ void enforceUriPermission(android_net_Uri& arg0,java_lang_String& arg1,int& arg2);
+ void enforceCallingUriPermission(android_net_Uri& arg0,int& arg1,java_lang_String& arg2);
+ void enforceCallingOrSelfUriPermission(android_net_Uri& arg0,int& arg1,java_lang_String& arg2);
+ android_content_Context createPackageContext(java_lang_String& arg0,int& arg1);
+ android_content_Context createConfigurationContext(android_content_res_Configuration& arg0);
+ android_content_Context createDisplayContext(android_view_Display& arg0);
+ bool isRestricted();
+
+
+};
+
+} // namespace
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
+
+#endif // _android_content_Context

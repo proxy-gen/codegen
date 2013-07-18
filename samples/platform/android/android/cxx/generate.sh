@@ -22,7 +22,10 @@ ulimit -s 65532 #kB
 
 export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/android-17/android.jar:$sdk_dir/extras/android/support/v13/android-support-v13.jar
 
-LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
+# Generate Code
+#LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/config/config.py --platform android --generate-config --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
+# Generate Project
+LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $my_dir/generated/config/AndroidCXX/config.py --platform android --generate-code --generate-projects --namespace AndroidCXX --output-dir $my_dir/generated --package AndroidCXX --file AndroidCXX --wrapper-file AndroidWrapperCXX --log info
 
 echo "Generated CXX Bindings"
 

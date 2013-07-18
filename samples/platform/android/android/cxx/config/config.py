@@ -573,19 +573,22 @@ config = {
 			"name" : "java.util.Currency",
 		},
 		{
-			"name" : "android.webkit.WebView",
-		},
-		{
-			"name" : "android.webkit.SslErrorHandler",
+			"name" : "android.location.Location",
 		},
 		{
 			"name" : "android.net.http.SslError",
 		},
 		{
+			"name" : "android.os.Parcel",
+		},
+		{
 			"name" : "android.support.v4.app.Fragment",
 		},
 		{
-			"name" : "android.location.Location",
+			"name" : "android.webkit.WebView",
+		},
+		{
+			"name" : "android.webkit.SslErrorHandler",
 		},
 		{
 			"name" : "android.widget.AbsListView",
