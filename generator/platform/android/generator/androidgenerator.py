@@ -25,15 +25,10 @@ class Generator(BaseGenerator):
 	def setup(self):
 		self._setup_index()
 		self._setup_namespace()
-		self._setup_working_dir()
-		self._setup_output_dir()
-		self._setup_default_runtime()
-		self._setup_default_converters()
-		self._setup_included_packages()
-		self._setup_included_wrapper_packages()
-		self._setup_config_file_name()
-		self._setup_included_config_file_path()
-		self._setup_included_converters()
+		self._setup_dirs()
+		self._setup_defaults()
+		self._setup_includes()
+		self._setup_config()
 
 	def generate(self):
 		if self.config['generate_config']:
@@ -64,14 +59,16 @@ class Generator(BaseGenerator):
 
 	def generate_projects(self):
 		self._generate_internal_project()
-		self._generate_external_project()
+		# TODO: add export support
+		# self._generate_exported_project()
 
 	def generate_wrapper_code(self):
 		self._generate_wrapper_cxx_code()
 
 	def generate_wrapper_projects(self):
 		self._generate_wrapper_internal_project()
-		self._generate_wrapper_external_project()
+		# TODO: add wrapper export support
+		# self._generate_wrapper_exported_project()
 
 	def _setup_index(self):
 		logging.debug("_setup_index enter")
@@ -85,6 +82,10 @@ class Generator(BaseGenerator):
 		logging.debug("_setup_namespace enter")
 		self.namespace_name = self.config['namespace_name']
 		logging.debug("_setup_namespace exit")
+
+	def _setup_dirs(self):
+		self._setup_working_dir()
+		self._setup_output_dir()
 
 	def _setup_working_dir(self):
 		logging.debug("_setup_working_dir enter")
@@ -113,6 +114,10 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_makefile_outdir_name " + str(self.wrapper_makefile_outdir_name))		
 		logging.debug("_setup_output_dir exit")
 
+	def _setup_defaults(self):
+		self._setup_default_runtime()
+		self._setup_default_converters()
+
 	def _setup_default_runtime(self):
 		logging.debug("_setup_default_runtime enter")
 		self.include_default_runtime = True
@@ -123,13 +128,20 @@ class Generator(BaseGenerator):
 		self.include_default_converters = True
 		self.default_converters_file_name = os.path.join(self.target, "converters", "jconverter.py")
 		logging.debug("self.default_converters_file_name " + str(self.default_converters_file_name))
-		config_module = ConfigModule(self.default_converters_file_name,None)
-		assert config_module.is_valid
-		config_data = config_module.config_data
-		assert config_data is not None
-		assert "converters" in config_data
+		self.config_module = ConfigModule(self.default_converters_file_name,None)
+		assert self.config_module.is_valid, "config_module is not valid"
+		config_data = self.config_module.config_data
+		assert config_data is not None, "config does not exist"
+		assert "converters" in config_data, "converters not in config"
 		self.default_converters = config_data["converters"]
+		self.config_module = None
 		logging.debug("_setup_default_converters exit")
+
+	def _setup_includes(self):
+		self._setup_included_packages()
+		self._setup_included_wrapper_packages()
+		self._setup_included_config_file_path()
+		self._setup_included_converters()		
 
 	def _setup_included_packages(self):
 		logging.debug("_setup_included_packages enter")
@@ -143,10 +155,10 @@ class Generator(BaseGenerator):
 		self.include_wrapper_package_rel_paths = self.config['include_wrapper_package_rel_paths']
 		logging.debug("_setup_included_wrapper_packages exit")
 
-	def _setup_config_file_name(self):
-		logging.debug("_setup_config_file_name enter")
+	def _setup_config(self):
+		logging.debug("_setup_config enter")
 		self.config_file_name = self.config['config_file_name']
-		logging.debug("_setup_config_file_name exit")
+		logging.debug("_setup_config exit")
 
 	def _setup_included_config_file_path(self):
 		logging.debug("_setup_included_config_file_path enter")
@@ -168,22 +180,24 @@ class Generator(BaseGenerator):
 		logging.debug("self.config_report_file_name " + str(self.config_report_file_name))
 		config_report_file_path = os.path.join(self.report_outdir_name, self.config_report_file_name)
 		logging.debug("config_report_file_path " + str(config_report_file_path))
-		config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert config_module.is_valid
-		config_report = config_module.analyze_config()
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
+		config_report = self.config_module.analyze_config()
 		config_report_file = open(config_report_file_path, "w+")
-		config_report_md = Template(file=os.path.join(self.target, "templates", "config_report.md"), searchList=[self])
+		config_report_md = Template(file=os.path.join(self.target, "templates", "config_report.md"), searchList=[{'CONFIG': self}])
 		logging.debug("config_report_md " + str(config_report_md))
 		self.config_report_file.write(str(config_report_md))
 		self.config_report_file.close()
+		self.config_module = None
 		logging.debug("Generator _generate_converters_report exit")
 
 	def _generate_config(self):
 		logging.debug("_generate_config enter")
-		config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert config_module.is_valid
-		self.index.build_config_closure(config_module.config_data)
-		self._update_config(config_module)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self.index.build_config_closure(self.config_module.config_data)
+		self._update_config(self.config_module)
 		self.config_py_outdir_name = os.path.join(self.output_dir_name, "config", self.package_name)
 		if not os.path.exists(self.config_py_outdir_name):
 			os.makedirs(self.config_py_outdir_name)
@@ -193,71 +207,380 @@ class Generator(BaseGenerator):
 		config_py_file_path = os.path.join(self.config_py_outdir_name, self.config_py_file_name)
 		logging.debug("config_py_file_path " + str(config_py_file_path))
 		self.config_py_file = open(config_py_file_path, "w+")
-		config_py = Template(file=os.path.join(self.target, "templates", "config.py"), searchList=[self])
+		config_py = Template(file=os.path.join(self.target, "templates", "config.py"), searchList=[{'CONFIG': self}])
 		logging.debug("config.py " + str(config_py))
 		self.config_py_file.write(str(config_py))
 		self.config_py_file.close()
+		self.config_module = None
 		logging.debug("_generate_config exit")
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
-		self.header_outdir_name = os.path.join(self.output_dir_name, "includes", self.package_name)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
+		# jniconvertors attached temporary 
+		self._attach_jni_converters(self.config_module.config_data, self.config_module)
+		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes")
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
 		logging.debug("self.header_outdir_name " + str(self.header_outdir_name))
-		self.head_file_name = self.file_name + ".hpp"
-		logging.debug("self.head_file_name " + str(self.head_file_name))		
-		head_file_path = os.path.join(self.header_outdir_name, self.head_file_name)
-		logging.debug("head_file_path " + str(head_file_path))	
-		self.head_file = open(head_file_path, "w+")
-		head_hpp = Template(file=os.path.join(self.target, "templates", "head.hpp"), searchList=[self])
-		logging.debug("head_hpp " + str(head_hpp))
-		self.head_file.write(str(head_hpp))
-		self.head_file.close()
-		self.impl_outdir_name = os.path.join(self.output_dir_name, "src", "cxx", self.package_name)
+		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
-		self.impl_file_name = self.file_name + ".cpp"
-		logging.debug("self.impl_file_name " + str(self.impl_file_name))
-		impl_file_path = os.path.join(self.impl_outdir_name, self.impl_file_name)
-		logging.debug("impl_file_path " + str(impl_file_path))		
-		self.impl_file = open(impl_file_path, "w+")
-		impl_cpp = Template(file=os.path.join(self.target, "templates", "impl.cpp"), searchList=[self])
-		logging.debug("impl_cpp " + str(impl_cpp))
-		self.impl_file.write(str(impl_cpp))
-		self.impl_file.close()
+		self._generate_cxx_instance_code()
+		self._generate_cxx_abstract_code()
+		self._generate_cxx_static_code()
+		self._generate_cxx_singleton_code()
+		self._generate_cxx_enum_code()
+		self._generate_cxx_callbacks_code()
+		self._detach_jni_converters(self.config_module.config_data, self.config_module)			
+		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
 
+	def _generate_cxx_instance_code(self):
+		logging.debug("_generate_cxx_instance_code enter")
+		instance_classes = self.config_module.list_classes(tags=['_instance','_proxy'],xtags=['_singleton'],name=None)
+		for instance_class in instance_classes:
+			self.instance_class = instance_class
+			self.class_name = instance_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.instance_class_name = cxx_class_name
+			self.instance_head_file_name = self.instance_class_name + ".hpp"
+			logging.debug("instance_head_file_name " + str(self.instance_head_file_name))	
+			instance_file_path = os.path.join(self.header_outdir_name, self.instance_head_file_name)
+			if not os.path.exists(os.path.dirname(instance_file_path)):
+				os.makedirs(os.path.dirname(instance_file_path))
+			logging.debug("instance_file_path " + str(instance_file_path))	
+			self.instance_file = open(instance_file_path, "w+")
+			instance_head_cxx = Template(file=os.path.join(self.target, "templates", "instance.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("instance_head_cxx " + str(instance_head_cxx))
+			self.instance_file.write(str(instance_head_cxx))
+			self.instance_file.close()
+			self.instance_file = None
+			self.instance_head_file_name = None
+			self.instance_class_name = None
+			self.class_name = None
+			self.instance_class = None	
+		for instance_class in instance_classes:
+			self.instance_class = instance_class
+			self.class_name = instance_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.instance_class_name = cxx_class_name
+			self.instance_head_file_name = self.instance_class_name + ".hpp"
+			self.instance_impl_file_name = self.instance_class_name + ".cpp"
+			logging.debug("instance_impl_file_name " + str(self.instance_impl_file_name))		
+			instance_file_path = os.path.join(self.impl_outdir_name, self.instance_impl_file_name)
+			if not os.path.exists(os.path.dirname(instance_file_path)):
+				os.makedirs(os.path.dirname(instance_file_path))
+			logging.debug("instance_file_path " + str(instance_file_path))	
+			self.instance_file = open(instance_file_path, "w+")
+			instance_impl_cxx = Template(file=os.path.join(self.target, "templates", "instance.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("instance_impl_cxx " + str(instance_impl_cxx))
+			self.instance_file.write(str(instance_impl_cxx))
+			self.instance_file.close()
+			self.instance_file = None
+			self.instance_head_file_name = None
+			self.instance_impl_file_name = None
+			self.instance_class_name = None
+			self.class_name = None
+			self.instance_class = None					
+		logging.debug("_generate_cxx_instance_code exit")
+
+	def _generate_cxx_abstract_code(self):
+		logging.debug("_generate_cxx_abstract_code enter")
+		abstract_classes = self.config_module.list_classes(tags=['_abstract','_proxy'],xtags=None,name=None)
+		for abstract_class in abstract_classes:
+			self.abstract_class = abstract_class
+			self.class_name = abstract_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.abstract_class_name = cxx_class_name
+			self.abstract_head_file_name = self.abstract_class_name + ".hpp"
+			logging.debug("abstract_head_file_name " + str(self.abstract_head_file_name))	
+			abstract_file_path = os.path.join(self.header_outdir_name, self.abstract_head_file_name)
+			if not os.path.exists(os.path.dirname(abstract_file_path)):
+				os.makedirs(os.path.dirname(abstract_file_path))
+			logging.debug("abstract_file_path " + str(abstract_file_path))	
+			self.abstract_file = open(abstract_file_path, "w+")
+			abstract_head_cxx = Template(file=os.path.join(self.target, "templates", "abstract.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("abstract_head_cxx " + str(abstract_head_cxx))
+			self.abstract_file.write(str(abstract_head_cxx))
+			self.abstract_file.close()
+			self.abstract_file = None
+			self.abstract_head_file_name = None
+			self.abstract_class_name = None
+			self.class_name = None
+			self.abstract_class = None	
+		for abstract_class in abstract_classes:
+			self.abstract_class = abstract_class
+			self.class_name = abstract_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.abstract_class_name = cxx_class_name
+			self.abstract_head_file_name = self.abstract_class_name + ".hpp"
+			self.abstract_impl_file_name = self.abstract_class_name + ".cpp"
+			logging.debug("abstract_impl_file_name " + str(self.abstract_impl_file_name))		
+			abstract_file_path = os.path.join(self.impl_outdir_name, self.abstract_impl_file_name)
+			if not os.path.exists(os.path.dirname(abstract_file_path)):
+				os.makedirs(os.path.dirname(abstract_file_path))
+			logging.debug("abstract_file_path " + str(abstract_file_path))	
+			self.abstract_file = open(abstract_file_path, "w+")
+			abstract_impl_cxx = Template(file=os.path.join(self.target, "templates", "abstract.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("abstract_impl_cxx " + str(abstract_impl_cxx))
+			self.abstract_file.write(str(abstract_impl_cxx))
+			self.abstract_file.close()
+			self.abstract_file = None
+			self.abstract_head_file_name = None
+			self.abstract_impl_file_name = None
+			self.abstract_class_name = None
+			self.class_name = None
+			self.abstract_class = None					
+		logging.debug("_generate_cxx_abstract_code exit")
+
+	def _generate_cxx_static_code(self):
+		logging.debug("_generate_cxx_static_code enter")
+		static_classes = self.config_module.list_classes(tags=['_static','_proxy'],xtags=None,name=None)
+		for static_class in static_classes:
+			self.static_class = static_class
+			self.class_name = static_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.static_class_name = cxx_class_name
+			self.static_head_file_name = self.static_class_name + ".hpp"
+			logging.debug("static_head_file_name " + str(self.static_head_file_name))	
+			static_file_path = os.path.join(self.header_outdir_name, self.static_head_file_name)
+			if not os.path.exists(os.path.dirname(static_file_path)):
+				os.makedirs(os.path.dirname(static_file_path))
+			logging.debug("static_file_path " + str(static_file_path))	
+			self.static_file = open(static_file_path, "w+")
+			static_head_cxx = Template(file=os.path.join(self.target, "templates", "static.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("static_head_cxx " + str(static_head_cxx))
+			self.static_file.write(str(static_head_cxx))
+			self.static_file.close()
+			self.static_file = None
+			self.static_head_file_name = None
+			self.static_class_name = None
+			self.class_name = None
+			self.static_class = None	
+		for static_class in static_classes:
+			self.static_class = static_class
+			self.class_name = static_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.static_class_name = cxx_class_name
+			self.static_head_file_name = self.static_class_name + ".hpp"
+			self.static_impl_file_name = self.static_class_name + ".cpp"
+			logging.debug("static_impl_file_name " + str(self.static_impl_file_name))		
+			static_file_path = os.path.join(self.impl_outdir_name, self.static_impl_file_name)
+			if not os.path.exists(os.path.dirname(static_file_path)):
+				os.makedirs(os.path.dirname(static_file_path))
+			logging.debug("static_file_path " + str(static_file_path))	
+			self.static_file = open(static_file_path, "w+")
+			static_impl_cxx = Template(file=os.path.join(self.target, "templates", "static.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("static_impl_cxx " + str(static_impl_cxx))
+			self.static_file.write(str(static_impl_cxx))
+			self.static_file.close()
+			self.static_file = None
+			self.static_head_file_name = None
+			self.static_impl_file_name = None
+			self.static_class_name = None
+			self.class_name = None
+			self.static_class = None					
+		logging.debug("_generate_cxx_static_code exit")				
+
+	def _generate_cxx_singleton_code(self):
+		logging.debug("_generate_cxx_singleton_code enter")
+		singleton_classes = self.config_module.list_classes(tags=['_singleton','_proxy'],xtags=None,name=None)
+		for singleton_class in singleton_classes:
+			self.singleton_class = singleton_class
+			self.class_name = singleton_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.singleton_class_name = cxx_class_name
+			self.singleton_head_file_name = self.singleton_class_name + ".hpp"
+			logging.debug("singleton_head_file_name " + str(self.singleton_head_file_name))	
+			singleton_file_path = os.path.join(self.header_outdir_name, self.singleton_head_file_name)
+			if not os.path.exists(os.path.dirname(singleton_file_path)):
+				os.makedirs(os.path.dirname(singleton_file_path))
+			logging.debug("singleton_file_path " + str(singleton_file_path))	
+			self.singleton_file = open(singleton_file_path, "w+")
+			singleton_head_cxx = Template(file=os.path.join(self.target, "templates", "singleton.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("singleton_head_cxx " + str(singleton_head_cxx))
+			self.singleton_file.write(str(singleton_head_cxx))
+			self.singleton_file.close()
+			self.singleton_file = None
+			self.singleton_head_file_name = None
+			self.singleton_class_name = None
+			self.class_name = None
+			self.singleton_class = None	
+		for singleton_class in singleton_classes:
+			self.singleton_class = singleton_class
+			self.class_name = singleton_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.singleton_class_name = cxx_class_name
+			self.singleton_head_file_name = self.singleton_class_name + ".hpp"
+			self.singleton_impl_file_name = self.singleton_class_name + ".cpp"
+			logging.debug("singleton_impl_file_name " + str(self.singleton_impl_file_name))		
+			singleton_file_path = os.path.join(self.impl_outdir_name, self.singleton_impl_file_name)
+			if not os.path.exists(os.path.dirname(singleton_file_path)):
+				os.makedirs(os.path.dirname(singleton_file_path))
+			logging.debug("singleton_file_path " + str(singleton_file_path))	
+			self.singleton_file = open(singleton_file_path, "w+")
+			singleton_impl_cxx = Template(file=os.path.join(self.target, "templates", "singleton.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("singleton_impl_cxx " + str(singleton_impl_cxx))
+			self.singleton_file.write(str(singleton_impl_cxx))
+			self.singleton_file.close()
+			self.singleton_file = None
+			self.singleton_head_file_name = None
+			self.singleton_impl_file_name = None
+			self.singleton_class_name = None
+			self.class_name = None
+			self.singleton_class = None					
+		logging.debug("_generate_cxx_singleton_code exit")		
+
+	def _generate_cxx_enum_code(self):
+		logging.debug("_generate_cxx_enum_code enter")
+		enum_classes = self.config_module.list_classes(tags=['_enum','_proxy'],xtags=['_singleton'],name=None)
+		for enum_class in enum_classes:
+			self.enum_class = enum_class
+			self.class_name = enum_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.enum_class_name = cxx_class_name
+			self.enum_head_file_name = self.enum_class_name + ".hpp"
+			logging.debug("enum_head_file_name " + str(self.enum_head_file_name))	
+			enum_file_path = os.path.join(self.header_outdir_name, self.enum_head_file_name)
+			if not os.path.exists(os.path.dirname(enum_file_path)):
+				os.makedirs(os.path.dirname(enum_file_path))
+			logging.debug("enum_file_path " + str(enum_file_path))	
+			self.enum_file = open(enum_file_path, "w+")
+			enum_head_cxx = Template(file=os.path.join(self.target, "templates", "enum.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("enum_head_cxx " + str(enum_head_cxx))
+			self.enum_file.write(str(enum_head_cxx))
+			self.enum_file.close()
+			self.enum_file = None
+			self.enum_head_file_name = None
+			self.enum_class_name = None
+			self.class_name = None
+			self.enum_class = None	
+		for enum_class in enum_classes:
+			self.enum_class = enum_class
+			self.class_name = enum_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.enum_class_name = cxx_class_name
+			self.enum_head_file_name = self.enum_class_name + ".hpp"
+			self.enum_impl_file_name = self.enum_class_name + ".cpp"
+			logging.debug("enum_impl_file_name " + str(self.enum_impl_file_name))		
+			enum_file_path = os.path.join(self.impl_outdir_name, self.enum_impl_file_name)
+			if not os.path.exists(os.path.dirname(enum_file_path)):
+				os.makedirs(os.path.dirname(enum_file_path))
+			logging.debug("enum_file_path " + str(enum_file_path))	
+			self.enum_file = open(enum_file_path, "w+")
+			enum_impl_cxx = Template(file=os.path.join(self.target, "templates", "enum.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("enum_impl_cxx " + str(enum_impl_cxx))
+			self.enum_file.write(str(enum_impl_cxx))
+			self.enum_file.close()
+			self.enum_file = None
+			self.enum_head_file_name = None
+			self.enum_impl_file_name = None
+			self.enum_class_name = None
+			self.class_name = None
+			self.enum_class = None					
+		logging.debug("_generate_cxx_enum_code exit")
+
+	def _generate_cxx_callbacks_code(self):
+		logging.debug("_generate_cxx_callbacks_code enter")
+		callback_classes = self.config_module.list_classes(tags=['_callback','_proxy'],xtags=None,name=None)
+		for callback_class in callback_classes:
+			self.callback_class = callback_class
+			self.class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.callback_class_name = cxx_class_name
+			self.callback_head_file_name = self.callback_class_name + ".hpp"
+			logging.debug("callback_head_file_name " + str(self.callback_head_file_name))		
+			callback_file_path = os.path.join(self.header_outdir_name, self.callback_head_file_name)
+			if not os.path.exists(os.path.dirname(callback_file_path)):
+				os.makedirs(os.path.dirname(callback_file_path))
+			logging.debug("callback_file_path " + str(callback_file_path))	
+			self.callback_file = open(callback_file_path, "w+")
+			callback_head_cxx = Template(file=os.path.join(self.target, "templates", "callback.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("callback_head_cxx " + str(callback_head_cxx))
+			self.callback_file.write(str(callback_head_cxx))
+			self.callback_file.close()
+			self.callback_file = None
+			self.callback_head_file_name = None
+			self.callback_class_name = None
+			self.class_name = None
+			self.callback_class = None			
+		for callback_class in callback_classes:
+			self.callback_class = callback_class
+			self.class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(self.class_name)
+			self.callback_class_name = cxx_class_name
+			self.callback_head_file_name = self.callback_class_name + ".hpp"
+			self.callback_impl_file_name = self.callback_class_name + ".cpp"
+			logging.debug("callback_impl_file_name " + str(self.callback_impl_file_name))		
+			callback_file_path = os.path.join(self.impl_outdir_name, self.callback_impl_file_name)
+			if not os.path.exists(os.path.dirname(callback_file_path)):
+				os.makedirs(os.path.dirname(callback_file_path))
+			logging.debug("callback_file_path " + str(callback_file_path))	
+			self.callback_file = open(callback_file_path, "w+")
+			callback_impl_cxx = Template(file=os.path.join(self.target, "templates", "callback.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("callback_impl_cxx " + str(callback_impl_cxx))
+			self.callback_file.write(str(callback_impl_cxx))
+			self.callback_file.close()
+			self.callback_file = None
+			self.callback_head_file_name = None
+			self.callback_impl_file_name = None
+			self.callback_class_name = None
+			self.class_name = None
+			self.callback_class = None
+		logging.debug("_generate_cxx_callbacks_code exit")
+ 
 	def _generate_java_code(self):
 		logging.debug("_generate_java_code enter")
-		self.java_outdir_name = os.path.join(self.output_dir_name, "src", "java", self.package_name)
+		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src", self.package_name)
 		if not os.path.exists(self.java_outdir_name):
 			os.makedirs(self.java_outdir_name)
 		logging.debug("self.java_outdir_name " + str(self.java_outdir_name))
-		config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
-		assert config_module.is_valid
-		callback_classes = config_module.list_classes(tags=['_callback'])
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
+		callback_classes = self.config_module.list_classes(tags=['_callback'],xtags=None,name=None)
 		for callback_class in callback_classes:
-			self.java_class_name = callback_class['name']
-			self.java_base_class_name = Utils.to_base_class_name(self.java_class_name)
-			self.java_callback_class_name = self.java_base_class_name + "Callback"
-			self.java_callback_file_name = self.java_callback_class_name + ".java"
-			logging.debug("self.java_callback_file_name " + str(self.java_callback_file_name))		
-			java_file_path = os.path.join(self.java_outdir_name, self.package_name, self.java_callback_file_name)
-			if not os.path.exists(os.path.dirname(java_file_path)):
-				os.makedirs(os.path.dirname(java_file_path))
-			logging.debug("java_file_path " + str(java_file_path))	
-			self.java_file = open(java_file_path, "w+")
-			impl_java = Template(file=os.path.join(self.target, "templates", "impl.java"), searchList=[self])			
-			logging.debug("impl_java " + str(impl_java))
-			self.java_file.write(str(impl_java))
-			self.java_file.close()
+			self.callback_class = callback_class
+			class_name = callback_class['name']
+			cxx_class_name = Utils.to_class_name(class_name)
+			self.callback_class_name = cxx_class_name
+			callback_file_name = self.callback_class_name + ".java"
+			logging.debug("callback_file_name " + str(callback_file_name))		
+			callback_file_path = os.path.join(self.java_outdir_name, callback_file_name)
+			if not os.path.exists(os.path.dirname(callback_file_path)):
+				os.makedirs(os.path.dirname(callback_file_path))
+			logging.debug("callback_file_path " + str(callback_file_path))	
+			self.callback_file = open(callback_file_path, "w+")
+			callback_impl_java = Template(file=os.path.join(self.target, "templates", "callback.java"), searchList=[{'CONFIG': self}])			
+			logging.debug("callback_impl_java " + str(callback_impl_java))
+			self.callback_file.write(str(callback_impl_java))
+			self.callback_file.close()
+		self.config_module = None
 		logging.debug("_generate_java_code exit")
 
 	def _generate_internal_project(self):
 		logging.debug("_generate_internal_project enter")
-		self.internal_makefile_outdir_name = os.path.join(self.makefile_outdir_name, 'internal', self.package_name, 'jni')
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)
+		self.internal_build_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name)
+		if not os.path.exists(self.internal_build_outdir_name):
+			os.makedirs(self.internal_build_outdir_name)					
+		logging.debug("self.internal_build_outdir_name " + str(self.internal_build_outdir_name))
+		self.internal_build_file_name = "build.xml"
+		logging.debug("self.internal_build_file_name " + str(self.internal_build_file_name))
+		internal_build_file_path = os.path.join(self.internal_build_outdir_name, self.internal_build_file_name)
+		logging.debug("internal_build_file_path " + str(internal_build_file_path))
+		self.internal_build_file = open(internal_build_file_path, "w+")
+		internal_build_xml = Template(file=os.path.join(self.target, "templates", "android.build.xml"), searchList=[{'CONFIG': self}])
+		logging.debug("internal_build_xml " + str(internal_build_xml))	
+		self.internal_build_file.write(str(internal_build_xml))
+		self.internal_build_file.close()		
+		self.internal_makefile_outdir_name = os.path.join(self.makefile_outdir_name, self.package_name, 'jni')
 		if not os.path.exists(self.internal_makefile_outdir_name):
 			os.makedirs(self.internal_makefile_outdir_name)					
 		logging.debug("self.internal_makefile_outdir_name " + str(self.internal_makefile_outdir_name))
@@ -266,7 +589,7 @@ class Generator(BaseGenerator):
 		internal_androidmk_file_path = os.path.join(self.internal_makefile_outdir_name, self.internal_androidmk_file_name)
 		logging.debug("internal_androidmk_file_path " + str(internal_androidmk_file_path))
 		self.internal_androidmk_file = open(internal_androidmk_file_path, "w+")
-		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[self])
+		internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.internal"), searchList=[{'CONFIG': self}])
 		logging.debug("internal_android_mk " + str(internal_android_mk))	
 		self.internal_androidmk_file.write(str(internal_android_mk))
 		self.internal_androidmk_file.close()		
@@ -275,15 +598,19 @@ class Generator(BaseGenerator):
 		internal_applicationmk_file_path = os.path.join(self.internal_makefile_outdir_name, self.internal_applicationmk_file_name)
 		logging.debug("internal_applicationmk_file_path " + str(internal_applicationmk_file_path))
 		self.internal_applicationmk_file = open(internal_applicationmk_file_path, "w+")
-		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[self])
+		internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.internal"), searchList=[{'CONFIG': self}])
 		logging.debug("internal_application_mk " + str(internal_application_mk))	
 		self.internal_applicationmk_file.write(str(internal_application_mk))
 		self.internal_applicationmk_file.close()
+		self.config_module = None
 		logging.debug("_generate_internal_project exit")
 
-	def _generate_external_project(self):
-		logging.debug("_generate_external_project enter")				
-		self.exported_makefile_outdir_name = os.path.join(self.makefile_outdir_name, 'exported', self.package_name)
+	def _generate_exported_project(self):
+		logging.debug("_generate_exported_project enter")				
+		self.exported_java_outdir_name = os.path.join(self.makefile_outdir_name, 'exported', 'java', self.package_name)
+		if not os.path.exists(self.exported_java_outdir_name):
+			os.makedirs(self.exported_java_outdir_name)								
+		self.exported_makefile_outdir_name = os.path.join(self.makefile_outdir_name, 'exported', 'cxx', self.package_name)
 		if not os.path.exists(self.exported_makefile_outdir_name):
 			os.makedirs(self.exported_makefile_outdir_name)								
 		logging.debug("self.exported_makefile_outdir_name " + str(self.exported_makefile_outdir_name))
@@ -291,16 +618,20 @@ class Generator(BaseGenerator):
 		logging.debug("self.exported_androidmk_file_name " + str(self.exported_androidmk_file_name))
 		exported_androidmk_file_path = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_file_name)
 		logging.debug("exported_androidmk_file_path " + str(exported_androidmk_file_path))
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.external_androidmk_file = open(exported_androidmk_file_path, "w+")
-		external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[self])
+		external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.exported"), searchList=[{'CONFIG': self}])
 		logging.debug("external_android_mk " + str(external_android_mk))	
 		self.external_androidmk_file.write(str(external_android_mk))
-		self.external_androidmk_file.close()		
-		logging.debug("_generate_external_project exit")				
+		self.external_androidmk_file.close()	
+		self.config_module = None	
+		logging.debug("_generate_exported_project exit")				
 
 	def _generate_wrapper_cxx_code(self):
 		logging.debug("_generate_wrapper_cxx_code enter")
-		self.wrapper_header_outdir_name = os.path.join(self.output_dir_name, "wrapper-includes", self.package_name)
+		self.wrapper_header_outdir_name = os.path.join(self.output_dir_name, "wrapper-project", self.package_name, "jni", "cxx", "includes")
 		if not os.path.exists(self.wrapper_header_outdir_name):
 			os.makedirs(self.wrapper_header_outdir_name)		
 		logging.debug("self.wrapper_header_outdir_name " + str(self.wrapper_header_outdir_name))
@@ -308,12 +639,15 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_head_file_name " + str(self.wrapper_head_file_name))		
 		wrapper_head_file_path = os.path.join(self.wrapper_header_outdir_name, self.wrapper_head_file_name)
 		logging.debug("wrapper_head_file_path " + str(wrapper_head_file_path))	
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_head_file = open(wrapper_head_file_path, "w+")
-		wrapper_head_hpp = Template(file=os.path.join(self.target, "templates", "wrapper-head.hpp"), searchList=[self])
+		wrapper_head_hpp = Template(file=os.path.join(self.target, "templates", "wrapper-head.hpp"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_head_hpp " + str(wrapper_head_hpp))
 		self.wrapper_head_file.write(str(wrapper_head_hpp))
 		self.wrapper_head_file.close()
-		self.wrapper_impl_outdir_name = os.path.join(self.output_dir_name, "wrapper-src", "cxx", self.package_name)
+		self.wrapper_impl_outdir_name = os.path.join(self.output_dir_name, "wrapper-project", self.package_name, "jni", "cxx", "impl")
 		if not os.path.exists(self.wrapper_impl_outdir_name):
 			os.makedirs(self.wrapper_impl_outdir_name)		
 		logging.debug("self.wrapper_impl_outdir_name " + str(self.wrapper_impl_outdir_name))
@@ -322,15 +656,16 @@ class Generator(BaseGenerator):
 		wrapper_impl_file_path = os.path.join(self.wrapper_impl_outdir_name, self.wrapper_impl_file_name)
 		logging.debug("wrapper_impl_file_path " + str(wrapper_impl_file_path))		
 		self.wrapper_impl_file = open(wrapper_impl_file_path, "w+")
-		wrapper_impl_cpp = Template(file=os.path.join(self.target, "templates", "wrapper-impl.cpp"), searchList=[self])
+		wrapper_impl_cpp = Template(file=os.path.join(self.target, "templates", "wrapper-impl.cpp"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_impl_cpp " + str(wrapper_impl_cpp))
 		self.wrapper_impl_file.write(str(wrapper_impl_cpp))
 		self.wrapper_impl_file.close()
+		self.config_module = None
 		logging.debug("_generate_wrapper_cxx_code exit")
 
 	def _generate_wrapper_internal_project(self):
 		logging.debug("_generate_wrapper_internal_project enter")
-		self.wrapper_internal_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'internal', self.package_name, 'jni')
+		self.wrapper_internal_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, self.package_name, 'jni')
 		if not os.path.exists(self.wrapper_internal_makefile_outdir_name):
 			os.makedirs(self.wrapper_internal_makefile_outdir_name)					
 		logging.debug("self.wrapper_internal_makefile_outdir_name " + str(self.wrapper_internal_makefile_outdir_name))
@@ -338,8 +673,11 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_internal_androidmk_file_name " + str(self.wrapper_internal_androidmk_file_name))
 		wrapper_internal_androidmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_androidmk_file_name)
 		logging.debug("wrapper_internal_androidmk_file_path " + str(wrapper_internal_androidmk_file_path))
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_internal_androidmk_file = open(wrapper_internal_androidmk_file_path, "w+")
-		wrapper_internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.internal"), searchList=[self])
+		wrapper_internal_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.internal"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_internal_android_mk " + str(wrapper_internal_android_mk))	
 		self.wrapper_internal_androidmk_file.write(str(wrapper_internal_android_mk))
 		self.wrapper_internal_androidmk_file.close()		
@@ -348,15 +686,19 @@ class Generator(BaseGenerator):
 		wrapper_internal_applicationmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_applicationmk_file_name)
 		logging.debug("wrapper_internal_applicationmk_file_path " + str(wrapper_internal_applicationmk_file_path))
 		self.wrapper_internal_applicationmk_file = open(wrapper_internal_applicationmk_file_path, "w+")
-		wrapper_internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.wrapper.internal"), searchList=[self])
+		wrapper_internal_application_mk = Template(file=os.path.join(self.target, "templates", "Application.mk.wrapper.internal"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_internal_application_mk " + str(wrapper_internal_application_mk))	
 		self.wrapper_internal_applicationmk_file.write(str(wrapper_internal_application_mk))
 		self.wrapper_internal_applicationmk_file.close()
+		self.config_module = None
 		logging.debug("_generate_wrapper_internal_project exit")
 
-	def _generate_wrapper_external_project(self):
-		logging.debug("_generate_wrapper_external_project enter")
-		self.wrapper_exported_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'exported', self.package_name)
+	def _generate_wrapper_exported_project(self):
+		logging.debug("_generate_wrapper_exported_project enter")
+		self.wrapper_exported_java_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'exported', 'java', self.package_name)
+		if not os.path.exists(self.wrapper_exported_java_outdir_name):
+			os.makedirs(self.wrapper_exported_java_outdir_name)								
+		self.wrapper_exported_makefile_outdir_name = os.path.join(self.wrapper_makefile_outdir_name, 'exported', 'cxx', self.package_name)
 		if not os.path.exists(self.wrapper_exported_makefile_outdir_name):
 			os.makedirs(self.wrapper_exported_makefile_outdir_name)								
 		logging.debug("self.wrapper_exported_makefile_outdir_name " + str(self.wrapper_exported_makefile_outdir_name))
@@ -364,44 +706,60 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_exported_androidmk_file_name " + str(self.wrapper_exported_androidmk_file_name))
 		wrapper_exported_androidmk_file_path = os.path.join(self.wrapper_makefile_outdir_name, self.wrapper_exported_androidmk_file_name)
 		logging.debug("wrapper_exported_androidmk_file_path " + str(wrapper_exported_androidmk_file_path))
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		assert self.config_module.is_valid, "config_module is not valid"
+		self._update_config(self.config_module)		
 		self.wrapper_external_androidmk_file = open(wrapper_exported_androidmk_file_path, "w+")
-		wrapper_external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.exported"), searchList=[self])
+		wrapper_external_android_mk = Template(file=os.path.join(self.target, "templates", "Android.mk.wrapper.exported"), searchList=[{'CONFIG': self}])
 		logging.debug("wrapper_external_android_mk " + str(wrapper_external_android_mk))	
 		self.wrapper_external_androidmk_file.write(str(wrapper_external_android_mk))
-		self.wrapper_external_androidmk_file.close()		
-		logging.debug("_generate_wrapper_external_project exit")
+		self.wrapper_external_androidmk_file.close()	
+		self.config_module = None	
+		logging.debug("_generate_wrapper_exported_project exit")
 
 	def _update_config(self, config_module):
 		logging.debug("Generator _update_config_data enter")
+		self._add_namespace_to_config_data(config_module.config_data)
+		self._add_package_to_config_data(config_module.config_data)
 		self._tag_config_data(config_module.config_data)
 		self._attach_include_converters(config_module.config_data)
 		self._attach_default_converters(config_module.config_data)
 		self._attach_config_converters(config_module.config_data, config_module)
 		logging.debug("Generator _update_config_data exit")
 
-	def _tag_config_data(self, data):
-		logging.debug("Generator _tag_config_data enter")
-		if "params" in data or "returns" in data:
-			if "params" in data:
-				for param in data["params"]:
+	def _add_namespace_to_config_data(self, config_data):
+		logging.debug("_add_namespace_to_config_data enter")
+		config_data['namespace'] = self.namespace_name
+		logging.debug("_add_namespace_to_config_data enter")
+
+	def _add_package_to_config_data(self, config_data):
+		logging.debug("_add_package_to_config_data enter")
+		config_data['package'] = self.package_name
+		logging.debug("_add_package_to_config_data enter")
+
+	def _tag_config_data(self, config_data):
+		logging.debug("_tag_config_data enter")
+		if "params" in config_data or "returns" in config_data:
+			if "params" in config_data:
+				for param in config_data["params"]:
 					self._tag_param(param)
-			if "returns" in data:
-				for retrn in data["returns"]:
+			if "returns" in config_data:
+				for retrn in config_data["returns"]:
 					self._tag_return(retrn)
 		else:
-			if "classes" in data:
-				for clazz in data["classes"]:
+			if "classes" in config_data:
+				for clazz in config_data["classes"]:
 					self._tag_class(clazz)
 					self._tag_config_data(clazz)
-			if "functions" in data:
-				for function in data["functions"]:
+			if "functions" in config_data:
+				for function in config_data["functions"]:
 					self._tag_function(function)
 					self._tag_config_data(function)
-			if "constructors" in data:
-				for constructor in data["constructors"]:
+			if "constructors" in config_data:
+				for constructor in config_data["constructors"]:
 					self._tag_constructor(constructor)
 					self._tag_config_data(constructor)
-		logging.debug("Generator _tag_config_data exit")
+		logging.debug("_tag_config_data exit")
 
 	def _tag_param(self, param):
 		if 'children' in param:
@@ -420,66 +778,60 @@ class Generator(BaseGenerator):
 	def _tag_constructor(self, constructor):
 		pass
 
-	def _attach_include_converters(self, data):
+	def _attach_include_converters(self, config_data):
 		logging.debug("_attach_include_converters enter")
-		if "converters" not in data:
-			data["converters"] = []
+		if "converters" not in config_data:
+			config_data["converters"] = []
 		for include_converter in self.include_converters:
 			found = False
-			for converter in data["converters"]:
+			for converter in config_data["converters"]:
 				if converter["name"] == include_converter["name"]:
 					found = True
 					break
 			if found == False:
-				data["converters"].append(include_converter)
+				config_data["converters"].append(include_converter)
 		logging.debug("_attach_include_converters exit")
 
-	def _attach_default_converters(self, data):
+	def _attach_default_converters(self, config_data):
 		logging.debug("_attach_default_converters enter")
-		if "converters" not in data:
-			data["converters"] = []
+		if "converters" not in config_data:
+			config_data["converters"] = []
 		for default_converter in self.default_converters:
 			found = False
-			for converter in data["converters"]:
+			for converter in config_data["converters"]:
 				if converter["name"] == default_converter["name"]:
 					found = True
 					break
 			if found == False:
-				data["converters"].append(default_converter)
+				config_data["converters"].append(default_converter)
 		logging.debug("_attach_default_converters exit")
 
-	def _attach_config_converters(self, data, module):
+	def _attach_config_converters(self, config_data, config_module):
 		logging.debug("_attach_config_converters enter")
-		if "params" in data or "returns" in data:
-			if "params" in data:
-				for param in data["params"]:
-					self._attach_config_converter(param, module)
-			if "returns" in data:
-				for retrn in data["returns"]:
-					self._attach_config_converter(retrn, module)
+		if "params" in config_data or "returns" in config_data:
+			if "params" in config_data:
+				for param in config_data["params"]:
+					self._attach_config_converter(param, config_module)
+			if "returns" in config_data:
+				for retrn in config_data["returns"]:
+					self._attach_config_converter(retrn, config_module)
 		else:
-			if "classes" in data:
-				for clazz in data["classes"]:
-					self._attach_config_converters(clazz, module)
-			if "functions" in data:
-				for function in data["functions"]:
-					self._attach_config_converters(function, module)
-			if "constructors" in data:
-				for constructor in data["constructors"]:
-					self._attach_config_converters(constructor, module)
-			if "fields" in data:
-				for field in data["fields"]:
-					self._attach_config_converter(field["type"], module)
+			if "classes" in config_data:
+				for clazz in config_data["classes"]:
+					self._attach_config_converters(clazz, config_module)
+			if "functions" in config_data:
+				for function in config_data["functions"]:
+					self._attach_config_converters(function, config_module)
+			if "constructors" in config_data:
+				for constructor in config_data["constructors"]:
+					self._attach_config_converters(constructor, config_module)
+			if "fields" in config_data:
+				for field in config_data["fields"]:
+					self._attach_config_converter(field["type"], config_module)
 		logging.debug("_attach_config_converters enter")
 
-	def _attach_config_converter(self, convertible, module):
+	def _attach_config_converter(self, convertible, config_module):
 		logging.debug("_attach_config_converter enter")
-		if "converter" not in convertible:
-			converters = config_module.config_data["converters"]
-			for converter in converters:
-				if "java" in converter:
-						if converter["java"]["type"] == convertible["type"]:
-							convertible["converter"] = converter["name"]
 		if "converter" not in convertible:
 			for clazz in config_module.config_data["classes"]:
 				if clazz["name"] == convertible["type"]:
@@ -490,7 +842,7 @@ class Generator(BaseGenerator):
 					if not no_proxy:
 						convertible["converter"] = 'convert_proxy'
 		if "converter" not in convertible:
-			for include_config_data in module.include_config_data_list:
+			for include_config_data in config_module.include_config_data_list:
 				for clazz in include_config_data["classes"]:
 					if clazz["name"] == convertible["type"]:
 						no_proxy = False
@@ -500,12 +852,109 @@ class Generator(BaseGenerator):
 						if not no_proxy:
 							convertible["converter"] = 'convert_proxy'					
 		if "converter" not in convertible:
+			converters = config_module.config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if "cxx" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
+								jindex.VoidType.is_void_id(convertible["type"]) or\
+								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if convertible["type"] == converter["java"]["type"]:
+									convertible["converter"] = converter["name"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+									convertible["converter"] = converter["name"]
+		if "converter" not in convertible:
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
 			for child_convertible in convertible["children"]:
-				self._attach_config_converter(child_convertible, module)
+				self._attach_config_converter(child_convertible, config_module)
 		logging.debug("_attach_config_converter exit")
 
+	def _attach_jni_converters(self, config_data, config_module):
+		logging.debug("_attach_jni_converters enter")
+		if "params" in config_data or "returns" in config_data:
+			if "params" in config_data:
+				for param in config_data["params"]:
+					self._attach_jni_converter(param, config_module)
+			if "returns" in config_data:
+				for retrn in config_data["returns"]:
+					self._attach_jni_converter(retrn, config_module)
+		else:
+			if "classes" in config_data:
+				for clazz in config_data["classes"]:
+					self._attach_jni_converters(clazz, config_module)
+			if "functions" in config_data:
+				for function in config_data["functions"]:
+					self._attach_jni_converters(function, config_module)
+			if "constructors" in config_data:
+				for constructor in config_data["constructors"]:
+					self._attach_jni_converters(constructor, config_module)
+			if "fields" in config_data:
+				for field in config_data["fields"]:
+					self._attach_jni_converter(field["type"], config_module)
+		logging.debug("_attach_jni_converters enter")
+
+	def _attach_jni_converter(self, convertible, config_module):
+		logging.debug("_attach_jni_converter enter")
+		if "jniconverter" not in convertible:
+			converters = config_module.config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if "jni" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
+								jindex.VoidType.is_void_id(convertible["type"]) or\
+								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if convertible["type"] == converter["java"]["type"]:
+									convertible["jniconverter"] = converter["name"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+									convertible["jniconverter"] = converter["name"]
+		assert "jniconverter" in convertible, "jniconverter not attached to " + str(convertible)
+		if "children" in convertible:
+			for child_convertible in convertible["children"]:
+				self._attach_jni_converter(child_convertible, config_module)
+		logging.debug("_attach_jni_converter exit")
+
+	def _detach_jni_converters(self, config_data, config_module):
+		logging.debug("_detach_jni_converters enter")
+		if "params" in config_data or "returns" in config_data:
+			if "params" in config_data:
+				for param in config_data["params"]:
+					self._detach_jni_converter(param, config_module)
+			if "returns" in config_data:
+				for retrn in config_data["returns"]:
+					self._detach_jni_converter(retrn, config_module)
+		else:
+			if "classes" in config_data:
+				for clazz in config_data["classes"]:
+					self._detach_jni_converters(clazz, config_module)
+			if "functions" in config_data:
+				for function in config_data["functions"]:
+					self._detach_jni_converters(function, config_module)
+			if "constructors" in config_data:
+				for constructor in config_data["constructors"]:
+					self._detach_jni_converters(constructor, config_module)
+			if "fields" in config_data:
+				for field in config_data["fields"]:
+					self._detach_jni_converter(field["type"], config_module)
+		logging.debug("_detach_jni_converters enter")
+
+	def _detach_jni_converter(self, convertible, config_module):
+		logging.debug("_detach_jni_converter enter")
+		if "jniconverter" in convertible:
+			del convertible["jniconverter"]
+		assert "jniconverter" not in convertible, "jniconverter not detached from " + str(convertible)
+		if "children" in convertible:
+			for child_convertible in convertible["children"]:
+				self._detach_jni_converter(child_convertible, config_module)
+		logging.debug("_detach_jni_converter exit")	
 
 	def _teardown_index(self):
 		if jindex.Index.destroy() != jindex.INDEX_OK:
@@ -515,6 +964,7 @@ class Generator(BaseGenerator):
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_path):
 		self.config_data = ConfigModule.load_config(config_file_name)
+		self.include_config_data_list = list()
 		if include_config_file_path is not None:
 			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
 		self.is_valid = self.config_data is not None
@@ -523,18 +973,140 @@ class ConfigModule(object):
 		config_report = dict()
 		return config_report
 
-	def list_classes(self, tags):
-		class_list = list()
+	def list_converters(self, name, cxx_type, java_type):
+		self._init_info()
+		converters = list()
+		converters.extend(self._list_converters_in_config_data(name=name,cxx_type=cxx_type,java_type=java_type,config_data=self.config_data))
+		return converters
+
+	def list_all_converters(self, name, cxx_type, java_type):
+		self._init_info()
+		converters = list()
+		converters.extend(self._list_converters_in_config_data(name=name,cxx_type=cxx_type,java_type=java_type,config_data=self.config_data))
+		for include_config_data in self.include_config_data_list:
+			converters.extend(self._list_converters_in_config_data(name=name,cxx_type=cxx_type,java_type=java_type,config_data=include_config_data))
+		return converters
+
+	def list_classes(self, tags, xtags, name):
+		self._init_info()
+		classes = list()
+		classes.extend(self._list_classes_in_config_data(tags,xtags,name,self.config_data))
+		return classes
+
+	def list_all_classes(self, tags, xtags, name):
+		self._init_info()
+		classes = list()
+		classes.extend(self._list_classes_in_config_data(tags,xtags,name,self.config_data))
+		for include_config_data in self.include_config_data_list:
+			classes.extend(self._list_classes_in_config_data(tags,xtags,name,include_config_data))
+		return classes
+
+	def list_functions(self,class_tags,class_xtags,class_name,function_tags,function_xtags,function_name):
+		functions = list()
+		classes = self.list_classes(class_tags,class_xtags,class_name)
+		for clazz in classes:
+			functions.extend(self._list_functions_for_class_in_config_data(clazz,function_tags,function_xtags,function_name,self.config_data))
+		return functions
+
+	def _list_converters_in_config_data(self,name,cxx_type,java_type,config_data):
+		converters_list = list()
+		if 'converters' in config_data:
+			converters = config_data['converters']
+			for converter in converters:
+				append = True
+				if name is not None:
+					if converter['name'] != name:
+						append = False
+				if cxx_type is not None:
+					if converter['cxx']['type'] != cxx_type:
+						append = False
+				if java_type is not None:
+					if converter['java']['type'] != java_type:
+						append = False
+				if append:
+					converters_list.append(converter)
+		return converters_list
+
+	def _list_classes_in_config_data(self,tags,xtags,name,config_data):
 		if tags:
 			tags = set(tags)
-			if 'classes' in self.config_data:
-				classes = self.config_data['classes']
-				for clazz in classes:
+		if xtags:
+			xtags = set(xtags)
+		class_list = list()
+		if 'classes' in config_data:
+			classes = config_data['classes']
+			for clazz in classes:
+				append = True
+				if tags is not None:
 					if 'tags' in clazz:
 						c_tags = clazz['tags']
-						if tags.issubset(c_tags):
-							class_list.append(clazz)
+						if not tags.issubset(c_tags):
+							append = False
+				if xtags is not None:
+					if 'tags' in clazz:
+						c_tags = clazz['tags']
+						if xtags.issubset(c_tags):
+							append = False
+				if name is not None:
+					if clazz['name'] != name:
+						append = False
+				if append:
+					class_list.append(clazz)									
 		return class_list
+
+	def _list_functions_for_class_in_config_data(self,clazz,tags,xtags,name,config_data):
+		if tags:
+			tags = set(tags)
+		if xtags:
+			xtags = set(xtags)
+		function_list = list()
+		if 'functions' in clazz:
+			functions = clazz['functions']
+			for function in functions:
+				append = True
+				if tags is not None:
+					c_tags = function['tags']
+					if not tags.issubset(c_tags):
+						append = False
+				if xtags is not None:
+					c_tags = function['tags']
+					if xtags.issubset(c_tags):
+						append = False
+				if name is not None:
+					if function['name'] != name:
+						append = False
+				if append:
+					function_list.append(function)
+		return function_list
+
+	def to_class_name(cls, class_name):
+		return Utils.to_class_name(class_name)
+
+	def to_file_name(cls, base_name, extension):
+		file_name = ".".join([base_name, extension])
+		return file_name
+
+	def _init_info(self):
+		if not hasattr(self, 'class_info'):
+			self.class_info = dict()
+			config_data = self.config_data
+			classes = self._list_classes_in_config_data(tags=None,xtags=None,name=None,config_data=config_data)
+			for clazz in classes:
+				self.class_info[clazz['name']] = { 'class' : clazz, 'namespace' : config_data['namespace'], 'package' : config_data['package']}
+			for config_data in self.include_config_data_list:
+				classes = self._list_classes_in_config_data(tags=None,xtags=None,name=None,config_data=config_data)
+				for clazz in classes:
+					self.class_info[clazz['name']] = { 'class' : clazz, 'namespace' : config_data['namespace'], 'package' : config_data['package']}
+		if not hasattr(self, 'converter_info'):
+			self.converter_info = dict()
+			config_data = self.config_data
+			converters = self._list_converters_in_config_data(name=None,cxx_type=None,java_type=None,config_data=config_data)
+			for converter in converters:
+				self.converter_info[converter['name']] = { 'converter' : converter, 'namespace' : config_data['namespace'], 'package' : config_data['package']}
+			for config_data in self.include_config_data_list:
+				converters = self._list_converters_in_config_data(name=None,cxx_type=None,java_type=None,config_data=config_data)
+				for converter in converters:
+					self.converter_info[converter['name']] = { 'converter' : converter, 'namespace' : config_data['namespace'], 'package' : config_data['package']}
 
 	@classmethod
 	def load_config(cls, config_file_name):
@@ -570,9 +1142,9 @@ class Utils(object):
 		return class_name.replace('.', '/')
 
 	@classmethod
-	def to_base_class_name(cls, class_name):
-		class_name = class_name.replace('$','')
-		start_idx = class_name.rfind('.') + 1
-		class_name = class_name[start_idx:]
+	def to_class_name(cls, class_name):
+		class_name = class_name.replace('.','_')
+		class_name = class_name.replace('$','_')
 		return class_name
+
 

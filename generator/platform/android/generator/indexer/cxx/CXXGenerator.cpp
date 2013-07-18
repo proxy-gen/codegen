@@ -214,6 +214,15 @@ int visitTypeHierarchyChildren(CXXTypeHierarchy parentTypeHierarchy, TypeHierarc
 	return 1;
 }
 
+bool canCastClass1ToClass2(char clazz1_name[STR_ATTR_SIZE], char clazz2_name[STR_ATTR_SIZE])
+{
+	std::string clazz1_str = std::string(clazz1_name);
+	std::string clazz1_jni_str = jni->getJNIName(clazz1_str);
+	std::string clazz2_str = std::string(clazz2_name);
+	std::string clazz2_jni_str = jni->getJNIName(clazz2_str);
+	return (bool) jni->canCastClass1ToClass2(clazz1_jni_str.c_str(), clazz2_jni_str.c_str());
+}
+
 void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 {
 	log("process_class enter\n");
@@ -233,13 +242,6 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, ctx.host_object);
 
 	}
-	{
-		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
-		int int_attrs[ATTR_COUNT];
-		char name[STR_ATTR_SIZE];
-		strcpy(name, class_name.c_str());
-		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, 0 /*type class */, ctx.host_object);	
-	}	
 	jobjectArray jconstructors = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
 	int constructorCount = (int) jni->getArrayLength(jconstructors);
 	for (int idx = 0; idx < constructorCount; idx++)
@@ -288,6 +290,13 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 		jni->popLocalFrame();
 	}
 	{
+		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
+		int int_attrs[ATTR_COUNT];
+		char name[STR_ATTR_SIZE];
+		strcpy(name, class_name.c_str());
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, 0 /*type class */, ctx.host_object);	
+	}	
+	{
 		char name[STR_ATTR_SIZE];
 		strcpy(name, class_name.c_str());
 		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, ctx.host_object);
@@ -313,11 +322,6 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
 		}
 		{
-			char name[STR_ATTR_SIZE];
-			strcpy(name, field_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
-		}
-		{
 			jobject type = (jobject) jni->invokeObjectMethod(field, "java/lang/reflect/Field", "getGenericType", "()Ljava/lang/reflect/Type;");
 			if (type != 0)
 			{
@@ -333,6 +337,11 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 				process_type_hierarchy(cxx_type, ctx);
 				jni->popLocalFrame();
 			}				
+		}
+		{
+			char name[STR_ATTR_SIZE];
+			strcpy(name, field_name.c_str());
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
 		}
 		{
 			char name[STR_ATTR_SIZE];
@@ -357,11 +366,6 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 			char name[STR_ATTR_SIZE];
 			strcpy(name, method_name.c_str());
 			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
-		}
-		{
-			char name[STR_ATTR_SIZE];
-			strcpy(name, method_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
 		}
 		jobjectArray params = (jobjectArray) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (params != 0)
@@ -402,6 +406,11 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, method_name.c_str());
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+		}
+		{
+			char name[STR_ATTR_SIZE];
+			strcpy(name, method_name.c_str());
 			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
 
 		}
@@ -423,11 +432,6 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 			strcpy(name, constructor_name.c_str());
 			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
 		}
-		{
-			char name[STR_ATTR_SIZE];
-			strcpy(name, constructor_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);		
-		}
 		jobjectArray params = (jobjectArray) jni->invokeObjectMethod(constructor, "java/lang/reflect/Constructor", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (params != 0)
 		{
@@ -448,6 +452,11 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 				process_type_hierarchy(cxx_param, ctx);
 				jni->popLocalFrame();
 			}		
+		}
+		{
+			char name[STR_ATTR_SIZE];
+			strcpy(name, constructor_name.c_str());
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);		
 		}
 		{
 			char name[STR_ATTR_SIZE];
@@ -591,8 +600,8 @@ int find_class_type(jclass clazz)
 				jobjectArray jparameterTypes = (jobjectArray) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getParameterTypes", "()[Ljava/lang/Class;");
 				jsize parameterCount = jni->getArrayLength(jparameterTypes);
 				if (parameterCount > 0) continue;
-				jobject jreturnType = (jobject) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
-				isSingletonInstance = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+				jclass jreturnClazz = (jclass) jni->invokeObjectMethod(jmethodObj, "java/lang/reflect/Method", "getReturnType", "()Ljava/lang/Class;");
+				isSingletonInstance = (bool) jni->isSameInstance(clazz,jreturnClazz);
 			}
 			// search for a public static field that returns this type
 			bool isSingletonField = false;
@@ -607,8 +616,8 @@ int find_class_type(jclass clazz)
 				bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
 				if (!isFieldPublic) continue;
 				if (!isFieldStatic) continue;
-				jobject jreturnType = (jobject) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getType", "()Ljava/lang/Class;");
-				isSingletonField = (bool) jni->isInstanceOf(jreturnType, (jclass) clazz);
+				jclass jtypeClazz = (jclass) jni->invokeObjectMethod(jfieldObj, "java/lang/reflect/Field", "getType", "()Ljava/lang/Class;");
+				isSingletonField = (bool) jni->isSameInstance(clazz,jtypeClazz);
 			}
 			if (isSingletonInstance)
 			{

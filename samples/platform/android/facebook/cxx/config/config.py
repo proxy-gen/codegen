@@ -191,9 +191,6 @@ config = {
 			"name" : "com.facebook.Request$KeyValueSerializer",
 		},
 		{
-			"name" : "com.facebook.Request$Serializer",
-		},
-		{
 			"name" : "com.facebook.Request",
 		},
 		{
@@ -381,72 +378,6 @@ config = {
 		},
 		{
 			"name" : "com.facebook.android.Util",
-		},
-		{
-			"name" : "com.facebook.internal.CacheableRequestBatch",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$1",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$2",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$BufferFile$1",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$BufferFile$2",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$BufferFile",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$CloseCallbackOutputStream",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$CopyingInputStream",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$Limits",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$ModifiedFile",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$StreamCloseCallback",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache$StreamHeader",
-		},
-		{
-			"name" : "com.facebook.internal.FileLruCache",
-		},
-		{
-			"name" : "com.facebook.internal.Logger",
-		},
-		{
-			"name" : "com.facebook.internal.ServerProtocol",
-		},
-		{
-			"name" : "com.facebook.internal.SessionAuthorizationType",
-		},
-		{
-			"name" : "com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver",
-		},
-		{
-			"name" : "com.facebook.internal.SessionTracker$CallbackWrapper",
-		},
-		{
-			"name" : "com.facebook.internal.SessionTracker",
-		},
-		{
-			"name" : "com.facebook.internal.Utility",
-		},
-		{
-			"name" : "com.facebook.internal.Validate",
-		},
-		{
-			"name" : "com.facebook.internal.package-info",
 		},
 		{
 			"name" : "com.facebook.model.GraphLocation",

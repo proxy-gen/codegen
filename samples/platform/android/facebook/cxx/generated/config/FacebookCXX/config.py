@@ -9,10 +9,11 @@
 #		_boolean_array_type									boolean array type
 #		_char_array_type									char array type
 #   Special Class Tags
-#		_enumerate 											Tag to indicate class should be enumerated
+#		_enum 												Tag to indicate class should be enumerated
 #		_interface											Tag to indicate class is an interface
 #		_abstract											Tag to indicate class is abstract
-#		_instance											Tag to indicate class instance should be created
+#		_instance											Tag to indicate class is an instance
+#		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
 #		_callback 											Tag to indicate class is a callback
 #		_proxy 												Tag to indicate class will be proxied
@@ -30,14 +31,115 @@
 #		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
 
-
 config = {
+	'namespace' : 'FacebookCXX',
+	'package'	: 'FacebookCXX',
 	'includes' : [
 		{
 			'name'  : 'android/cxx/generated/config/AndroidCXX/config.py',
 		},
 	],
 	'converters' : [
+		{
+			'jni' : {'type': 'jboolean'},
+			'java' : {'type': 'boolean'},
+			'name' : 'convert_jni_boolean',
+		},
+		{
+			'jni' : {'type': 'jbyte'},
+			'java' : {'type': 'byte'},
+			'name' : 'convert_jni_byte',
+		},
+		{
+			'jni' : {'type': 'jchar'},
+			'java' : {'type': 'char'},
+			'name' : 'convert_jni_char',
+		},
+		{
+			'jni' : {'type': 'jshort'},
+			'java' : {'type': 'short'},
+			'name' : 'convert_jni_short',
+		},
+		{
+			'jni' : {'type': 'jint'},
+			'java' : {'type': 'int'},
+			'name' : 'convert_jni_int',
+		},
+		{
+			'jni' : {'type': 'jlong'},
+			'java' : {'type': 'long'},
+			'name' : 'convert_jni_long',
+		},
+		{
+			'jni' : {'type': 'jfloat'},
+			'java' : {'type': 'float'},
+			'name' : 'convert_jni_float',
+		},
+		{
+			'jni' : {'type': 'jdouble'},
+			'java' : {'type': 'double'},
+			'name' : 'convert_jni_double',
+		},
+		{
+			'jni' : {'type': 'void'},
+			'java' : {'type': 'void'},
+			'name' : 'convert_jni_void',
+		},
+		{
+			'jni' : {'type': 'jstring'},
+			'java' : {'type': 'java.lang.String'},
+			'name' : 'convert_jni_string',
+		},
+		{
+			'jni' : {'type': 'jobjectArray'},
+			'java' : {'type': '_object_array_type'},
+			'name' : 'convert_jni___object_array_type',
+		},
+		{
+			'jni' : {'type': 'jbyteArray'},
+			'java' : {'type': '_byte_array_type'},
+			'name' : 'convert_jni__byte_array_type',
+		},
+		{
+			'jni' : {'type': 'jshortArray'},
+			'java' : {'type': '_short_array_type'},
+			'name' : 'convert_jni__short_array_type',
+		},
+		{
+			'jni' : {'type': 'jintArray'},
+			'java' : {'type': '_int_array_type'},
+			'name' : 'convert_jni__int_array_type',
+		},
+		{
+			'jni' : {'type': 'jlongArray'},
+			'java' : {'type': '_long_array_type'},
+			'name' : 'convert_jni__long_array_type',
+		},
+		{
+			'jni' : {'type': 'jfloatArray'},
+			'java' : {'type': '_float_array_type'},
+			'name' : 'convert_jni__float_array_type',
+		},
+		{
+			'jni' : {'type': 'jdoubleArray'},
+			'java' : {'type': '_double_array_type'},
+			'name' : 'convert_jni__double_array_type',
+		},
+		{
+			'jni' : {'type': 'jbooleanArray'},
+			'java' : {'type': '_boolean_array_type'},
+			'name' : 'convert_jni__boolean_array_type',
+		},
+		{
+			'jni' : {'type': 'jcharArray'},
+			'java' : {'type': '_char_array_type'},
+			'name' : 'convert_jni__char_array_type',
+		},
+		{
+			'jni' : {'type': 'jobject'},
+			'java' : {'type': 'java.lang.Object'},
+			'name' : 'convert_jni_java_lang_Object',
+		},
 		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
@@ -149,52 +251,52 @@ config = {
 			'name' : 'convert_java_util_Map',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<long>'},
 			'java' : {'type': 'java.util.List'},
 			'name' : 'convert_java_util_List',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<long>'},
 			'java' : {'type': '_object_array_type'},
 			'name' : 'convert__object_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<char>'},
 			'java' : {'type': '_byte_array_type'},
 			'name' : 'convert__byte_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<short>'},
 			'java' : {'type': '_short_array_type'},
 			'name' : 'convert__short_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<int>'},
 			'java' : {'type': '_int_array_type'},
 			'name' : 'convert__int_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<long>'},
 			'java' : {'type': '_long_array_type'},
 			'name' : 'convert__long_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<float>'},
 			'java' : {'type': '_float_array_type'},
 			'name' : 'convert__float_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<double>'},
 			'java' : {'type': '_double_array_type'},
 			'name' : 'convert__double_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<bool>'},
 			'java' : {'type': '_boolean_array_type'},
 			'name' : 'convert__boolean_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector'},
+			'cxx' : {'type': 'std::vector<char>'},
 			'java' : {'type': '_char_array_type'},
 			'name' : 'convert__char_array_type',
 		},
@@ -216,7 +318,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.AccessToken$SerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -226,7 +328,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AccessToken',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -238,7 +340,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -250,8 +352,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -263,7 +365,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -275,7 +377,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -299,21 +401,21 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'createFromExistingAccessToken',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.AccessTokenSource',
@@ -321,8 +423,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -334,7 +436,7 @@ config = {
 				},
 				{
 					'name' : 'createFromNativeLinkingIntent',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
@@ -354,11 +456,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AccessTokenSource',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -367,7 +469,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_WEB',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -376,7 +478,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_NATIVE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -385,7 +487,7 @@ config = {
 				},
 				{
 					'name' : 'FACEBOOK_APPLICATION_SERVICE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -394,7 +496,7 @@ config = {
 				},
 				{
 					'name' : 'WEB_VIEW',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -403,7 +505,7 @@ config = {
 				},
 				{
 					'name' : 'TEST_USER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -412,7 +514,7 @@ config = {
 				},
 				{
 					'name' : 'CLIENT_TOKEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AccessTokenSource',
@@ -423,7 +525,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -436,11 +538,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -456,7 +558,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -498,7 +600,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -540,7 +642,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -566,7 +668,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$4',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -592,7 +694,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$5',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -618,7 +720,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -645,7 +747,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -657,7 +759,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -667,7 +769,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthorizationRequest',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -677,7 +779,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$BackgroundProcessingListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -711,7 +813,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$GetTokenAuthHandler$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -737,7 +839,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$GetTokenAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -747,7 +849,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaAuthHandler',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -757,7 +859,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaLoginDialogAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -767,7 +869,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaProxyAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -777,7 +879,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$OnCompletedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -803,11 +905,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$Result$Code',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SUCCESS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -816,7 +918,7 @@ config = {
 				},
 				{
 					'name' : 'CANCEL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -825,7 +927,7 @@ config = {
 				},
 				{
 					'name' : 'ERROR',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.AuthorizationClient$Result$Code',
@@ -836,7 +938,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -849,11 +951,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -869,7 +971,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$Result',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -879,7 +981,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$StartActivityDelegate',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -921,7 +1023,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$WebViewAuthHandler$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -951,7 +1053,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$WebViewAuthHandler',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -961,7 +1063,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -971,7 +1073,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookAuthorizationException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -982,7 +1084,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -994,7 +1096,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookDialogException',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1018,7 +1120,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1029,7 +1131,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -1041,7 +1143,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1052,7 +1154,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -1064,7 +1166,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookGraphObjectException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1075,7 +1177,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -1087,7 +1189,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookOperationCanceledException',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1098,7 +1200,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
@@ -1110,11 +1212,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Category',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'AUTHENTICATION_RETRY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1123,7 +1225,7 @@ config = {
 				},
 				{
 					'name' : 'AUTHENTICATION_REOPEN_SESSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1132,7 +1234,7 @@ config = {
 				},
 				{
 					'name' : 'PERMISSION',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1141,7 +1243,7 @@ config = {
 				},
 				{
 					'name' : 'SERVER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1150,7 +1252,7 @@ config = {
 				},
 				{
 					'name' : 'THROTTLING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1159,7 +1261,7 @@ config = {
 				},
 				{
 					'name' : 'OTHER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1168,7 +1270,7 @@ config = {
 				},
 				{
 					'name' : 'BAD_REQUEST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1177,7 +1279,7 @@ config = {
 				},
 				{
 					'name' : 'CLIENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.FacebookRequestError$Category',
@@ -1188,7 +1290,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -1201,11 +1303,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1221,7 +1323,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Range',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1231,11 +1333,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'INVALID_ERROR_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1244,7 +1346,7 @@ config = {
 				},
 				{
 					'name' : 'INVALID_HTTP_STATUS_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -1261,7 +1363,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1369,7 +1471,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1381,7 +1483,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1432,7 +1534,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1440,24 +1542,24 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookSdkVersion',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'BUILD',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'MIGRATION_BUNDLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -1468,7 +1570,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookServiceException',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1480,7 +1582,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1507,7 +1609,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1515,7 +1617,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.GetTokenClient$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1541,7 +1643,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.GetTokenClient$CompletedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1567,7 +1669,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.GetTokenClient',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1613,11 +1715,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.HttpMethod',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1626,7 +1728,7 @@ config = {
 				},
 				{
 					'name' : 'POST',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1635,7 +1737,7 @@ config = {
 				},
 				{
 					'name' : 'DELETE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.HttpMethod',
@@ -1646,7 +1748,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -1659,11 +1761,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1679,7 +1781,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.InsightsLogger$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1701,13 +1803,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.InsightsLogger',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'newLogger',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -1715,7 +1817,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session',
@@ -1759,7 +1861,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'double',
@@ -1779,13 +1881,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LegacyHelper',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'extendTokenCompleted',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -1814,11 +1916,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoggingBehavior',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'REQUESTS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1827,7 +1929,7 @@ config = {
 				},
 				{
 					'name' : 'INCLUDE_ACCESS_TOKENS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1836,7 +1938,7 @@ config = {
 				},
 				{
 					'name' : 'INCLUDE_RAW_RESPONSES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1845,7 +1947,7 @@ config = {
 				},
 				{
 					'name' : 'CACHE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1854,7 +1956,7 @@ config = {
 				},
 				{
 					'name' : 'DEVELOPER_ERRORS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.LoggingBehavior',
@@ -1865,7 +1967,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -1878,11 +1980,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1898,7 +2000,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoginActivity$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1924,7 +2026,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoginActivity$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1958,7 +2060,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LoginActivity',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2029,24 +2131,24 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.NativeProtocol',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'KATANA_PROXY_AUTH_PERMISSIONS_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'KATANA_PROXY_AUTH_APP_ID_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -2057,7 +2159,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.NonCachingTokenCachingStrategy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2112,7 +2214,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2138,7 +2240,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2164,7 +2266,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2190,7 +2292,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$4',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2212,7 +2314,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$5',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2222,7 +2324,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2238,7 +2340,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2264,7 +2366,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2275,7 +2377,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphPlace', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Response',
@@ -2295,7 +2397,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2325,7 +2427,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2336,7 +2438,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphUser', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Response',
@@ -2356,7 +2458,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$KeyValueSerializer',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2366,7 +2468,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2378,205 +2480,15 @@ config = {
 				},
 			],	
 			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.Request$Serializer',
-			'tags' : ['_instance'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'write',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeObject',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeBytes',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeBitmap',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'android.graphics.Bitmap',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeFile',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'android.os.ParcelFileDescriptor',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeContentDisposition',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeLine',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeRecordBoundary',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.Request$Serializer',
-					'params' : [
-						{
-								'type' : 'java.io.BufferedOutputStream',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'com.facebook.internal.Logger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
 			],
 		},
 		{
 			'name' : 'com.facebook.Request',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'MAXIMUM_BATCH_SIZE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -2593,7 +2505,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2679,7 +2591,7 @@ config = {
 				},
 				{
 					'name' : 'newPostRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2687,7 +2599,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
@@ -2723,7 +2635,7 @@ config = {
 				},
 				{
 					'name' : 'newRestRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2731,7 +2643,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -2755,7 +2667,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -2767,7 +2679,7 @@ config = {
 				},
 				{
 					'name' : 'newMeRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2787,7 +2699,7 @@ config = {
 				},
 				{
 					'name' : 'newMyFriendsRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2807,7 +2719,7 @@ config = {
 				},
 				{
 					'name' : 'newUploadPhotoRequest',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2835,7 +2747,7 @@ config = {
 				},
 				{
 					'name' : 'newUploadVideoRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2859,7 +2771,7 @@ config = {
 				},
 				{
 					'name' : 'newGraphPathRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2867,7 +2779,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -2883,7 +2795,7 @@ config = {
 				},
 				{
 					'name' : 'newPlacesSearchRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2899,7 +2811,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphPlaceListCallback',
@@ -2915,7 +2827,7 @@ config = {
 				},
 				{
 					'name' : 'newStatusUpdateRequest',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2923,7 +2835,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -2945,7 +2857,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2955,7 +2867,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3001,7 +2913,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3029,7 +2941,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3039,7 +2951,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3057,7 +2969,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3067,7 +2979,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3107,23 +3019,23 @@ config = {
 				},
 				{
 					'name' : 'getDefaultBatchApplicationId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setDefaultBatchApplicationId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3147,7 +3059,7 @@ config = {
 				},
 				{
 					'name' : 'executePostRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3155,7 +3067,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
@@ -3175,7 +3087,7 @@ config = {
 				},
 				{
 					'name' : 'executeRestRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3183,7 +3095,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -3203,7 +3115,7 @@ config = {
 				},
 				{
 					'name' : 'executeMeRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3223,7 +3135,7 @@ config = {
 				},
 				{
 					'name' : 'executeMyFriendsRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3243,7 +3155,7 @@ config = {
 				},
 				{
 					'name' : 'executeUploadPhotoRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3271,7 +3183,7 @@ config = {
 				},
 				{
 					'name' : 'executeGraphPathRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3279,7 +3191,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -3295,7 +3207,7 @@ config = {
 				},
 				{
 					'name' : 'executePlacesSearchRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3311,7 +3223,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphPlaceListCallback',
@@ -3327,7 +3239,7 @@ config = {
 				},
 				{
 					'name' : 'executeStatusUpdateRequestAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3335,7 +3247,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -3351,7 +3263,7 @@ config = {
 				},
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_instance', '_static', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request',
@@ -3367,7 +3279,7 @@ config = {
 				},
 				{
 					'name' : 'executeBatchAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
@@ -3393,7 +3305,7 @@ config = {
 				},
 				{
 					'name' : 'toHttpConnection',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
@@ -3419,7 +3331,7 @@ config = {
 				},
 				{
 					'name' : 'executeBatchAndWait',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -3440,13 +3352,13 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeConnectionAndWait',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
@@ -3466,13 +3378,13 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeConnectionAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
@@ -3505,7 +3417,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -3525,7 +3437,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestAsyncTask',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3537,7 +3449,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3570,7 +3482,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3596,7 +3508,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3753,7 +3665,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3810,7 +3722,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagedResults',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3845,11 +3757,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingDirection',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NEXT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.Response$PagingDirection',
@@ -3858,7 +3770,7 @@ config = {
 				},
 				{
 					'name' : 'PREVIOUS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.Response$PagingDirection',
@@ -3869,7 +3781,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -3882,11 +3794,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -3902,7 +3814,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingInfo',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3914,7 +3826,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3926,7 +3838,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3936,15 +3848,15 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NON_JSON_RESPONSE_PROPERTY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -3957,7 +3869,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4091,7 +4003,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4101,7 +4013,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4127,7 +4039,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$3$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4149,7 +4061,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4171,7 +4083,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4213,7 +4125,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4255,7 +4167,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4297,7 +4209,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$4',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4339,7 +4251,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4349,7 +4261,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4375,7 +4287,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AutoPublishAsyncTask',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4390,7 +4302,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
@@ -4402,7 +4314,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$Builder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4424,7 +4336,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -4465,7 +4377,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$NewPermissionsRequest',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4544,8 +4456,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.support.v4.app.Fragment',
@@ -4557,7 +4469,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$OpenRequest',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4615,8 +4527,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -4661,7 +4573,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$SerializationProxyV1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4671,7 +4583,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StartActivityDelegate',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4713,7 +4625,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4747,7 +4659,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$TokenRefreshRequest',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4805,7 +4717,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$TokenRefreshRequestHandler',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4831,20 +4743,20 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'DEFAULT_AUTHORIZE_ACTIVITY_CODE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -4853,65 +4765,65 @@ config = {
 				},
 				{
 					'name' : 'WEB_VIEW_ERROR_CODE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'WEB_VIEW_FAILING_URL_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_SET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_UNSET',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_OPENED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_CLOSED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'APPLICATION_ID_PROPERTY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -4940,7 +4852,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4964,8 +4876,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5057,7 +4969,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5109,7 +5021,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5149,7 +5061,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -5219,7 +5131,7 @@ config = {
 				},
 				{
 					'name' : 'saveSession',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -5239,7 +5151,7 @@ config = {
 				},
 				{
 					'name' : 'restoreSession',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5267,7 +5179,7 @@ config = {
 				},
 				{
 					'name' : 'getActiveSession',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5279,7 +5191,7 @@ config = {
 				},
 				{
 					'name' : 'setActiveSession',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -5295,7 +5207,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionFromCache',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5311,7 +5223,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSession',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5343,7 +5255,7 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionWithAccessToken',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5380,11 +5292,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionDefaultAudience',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5393,7 +5305,7 @@ config = {
 				},
 				{
 					'name' : 'ONLY_ME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5402,7 +5314,7 @@ config = {
 				},
 				{
 					'name' : 'FRIENDS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5411,7 +5323,7 @@ config = {
 				},
 				{
 					'name' : 'EVERYONE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionDefaultAudience',
@@ -5422,7 +5334,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5435,11 +5347,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5455,11 +5367,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionLoginBehavior',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SSO_WITH_FALLBACK',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5468,7 +5380,7 @@ config = {
 				},
 				{
 					'name' : 'SSO_ONLY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5477,7 +5389,7 @@ config = {
 				},
 				{
 					'name' : 'SUPPRESS_SSO',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionLoginBehavior',
@@ -5488,7 +5400,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5501,11 +5413,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5521,11 +5433,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState$Category',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATED_CATEGORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5534,7 +5446,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED_CATEGORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5543,7 +5455,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED_CATEGORY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState$Category',
@@ -5554,7 +5466,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5567,11 +5479,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5587,11 +5499,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState',
-			'tags' : ['_enumerate'],
+			'tags' : ['_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5600,7 +5512,7 @@ config = {
 				},
 				{
 					'name' : 'CREATED_TOKEN_LOADED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5609,7 +5521,7 @@ config = {
 				},
 				{
 					'name' : 'OPENING',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5618,7 +5530,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5627,7 +5539,7 @@ config = {
 				},
 				{
 					'name' : 'OPENED_TOKEN_UPDATED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5636,7 +5548,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED_LOGIN_FAILED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5645,7 +5557,7 @@ config = {
 				},
 				{
 					'name' : 'CLOSED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.SessionState',
@@ -5656,7 +5568,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5669,11 +5581,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5713,7 +5625,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5739,7 +5651,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings$2$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5761,7 +5673,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5783,13 +5695,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'isLoggingBehaviorEnabled',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -5805,7 +5717,7 @@ config = {
 				},
 				{
 					'name' : 'getExecutor',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5817,7 +5729,7 @@ config = {
 				},
 				{
 					'name' : 'getShouldAutoPublishInstall',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5829,7 +5741,7 @@ config = {
 				},
 				{
 					'name' : 'publishInstallAndWait',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5837,7 +5749,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5849,7 +5761,7 @@ config = {
 				},
 				{
 					'name' : 'getAttributionId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -5859,13 +5771,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'publishInstallAndWaitForResponse',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5873,7 +5785,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -5885,7 +5797,7 @@ config = {
 				},
 				{
 					'name' : 'publishInstallAsync',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5893,7 +5805,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
@@ -5909,7 +5821,7 @@ config = {
 				},
 				{
 					'name' : 'getLoggingBehaviors',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5922,7 +5834,7 @@ config = {
 				},
 				{
 					'name' : 'addLoggingBehavior',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -5938,7 +5850,7 @@ config = {
 				},
 				{
 					'name' : 'removeLoggingBehavior',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.LoggingBehavior',
@@ -5954,7 +5866,7 @@ config = {
 				},
 				{
 					'name' : 'clearLoggingBehaviors',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -5966,7 +5878,7 @@ config = {
 				},
 				{
 					'name' : 'setExecutor',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.util.concurrent.Executor',
@@ -5982,7 +5894,7 @@ config = {
 				},
 				{
 					'name' : 'setShouldAutoPublishInstall',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
@@ -5998,25 +5910,25 @@ config = {
 				},
 				{
 					'name' : 'getSdkVersion',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getMigrationBundle',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6031,7 +5943,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6086,7 +5998,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6094,7 +6006,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResponse',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6117,7 +6029,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResult',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6140,11 +6052,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$Mode',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PRIVATE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.TestSession$Mode',
@@ -6153,7 +6065,7 @@ config = {
 				},
 				{
 					'name' : 'SHARED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.TestSession$Mode',
@@ -6164,7 +6076,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -6177,11 +6089,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6197,7 +6109,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$TestAccount',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6209,7 +6121,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6219,7 +6131,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6237,7 +6149,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6249,7 +6161,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6259,7 +6171,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$TestTokenCachingStrategy',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6309,7 +6221,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$UserAccount',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6321,7 +6233,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6331,7 +6243,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6349,7 +6261,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6359,7 +6271,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6371,13 +6283,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'createSessionWithPrivateUser',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -6385,8 +6297,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6398,7 +6310,7 @@ config = {
 				},
 				{
 					'name' : 'createSessionWithSharedUser',
-					'tags' : ['_singleton', '_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -6406,12 +6318,12 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6423,23 +6335,23 @@ config = {
 				},
 				{
 					'name' : 'getTestApplicationId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setTestApplicationId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6451,23 +6363,23 @@ config = {
 				},
 				{
 					'name' : 'getTestApplicationSecret',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setTestApplicationSecret',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6485,7 +6397,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6495,60 +6407,60 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TokenCachingStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TOKEN_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'EXPIRATION_DATE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'LAST_REFRESH_DATE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'USER_FBID_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'TOKEN_SOURCE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'PERMISSIONS_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -6579,7 +6491,7 @@ config = {
 				},
 				{
 					'name' : 'getPermissions',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6589,8 +6501,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -6612,7 +6524,7 @@ config = {
 				},
 				{
 					'name' : 'getToken',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6622,13 +6534,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getSource',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6644,7 +6556,7 @@ config = {
 				},
 				{
 					'name' : 'hasTokenInformation',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6660,7 +6572,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationDate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6670,13 +6582,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'putToken',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6684,7 +6596,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6696,7 +6608,7 @@ config = {
 				},
 				{
 					'name' : 'putExpirationDate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6704,7 +6616,7 @@ config = {
 						},
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6716,7 +6628,7 @@ config = {
 				},
 				{
 					'name' : 'getExpirationMilliseconds',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6732,7 +6644,7 @@ config = {
 				},
 				{
 					'name' : 'putExpirationMilliseconds',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6752,7 +6664,7 @@ config = {
 				},
 				{
 					'name' : 'putPermissions',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6760,8 +6672,8 @@ config = {
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6773,7 +6685,7 @@ config = {
 				},
 				{
 					'name' : 'putSource',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6793,7 +6705,7 @@ config = {
 				},
 				{
 					'name' : 'getLastRefreshDate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6803,13 +6715,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'putLastRefreshDate',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6817,7 +6729,7 @@ config = {
 						},
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -6829,7 +6741,7 @@ config = {
 				},
 				{
 					'name' : 'getLastRefreshMilliseconds',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6845,7 +6757,7 @@ config = {
 				},
 				{
 					'name' : 'putLastRefreshMilliseconds',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -6874,7 +6786,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.UiLifecycleHelper$ActiveSessionBroadcastReceiver',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6904,7 +6816,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.UiLifecycleHelper',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7015,7 +6927,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7037,7 +6949,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7059,7 +6971,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7069,7 +6981,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -7169,7 +7081,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7179,7 +7091,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -7240,7 +7152,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.DialogError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7264,7 +7176,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7275,7 +7187,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -7287,7 +7199,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7321,7 +7233,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$DialogListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7391,7 +7303,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$ServiceListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7449,7 +7361,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$SetterTokenCachingStrategy',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7499,7 +7411,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$TokenRefreshConnectionHandler',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7525,7 +7437,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$TokenRefreshServiceConnection',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7588,56 +7500,56 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'REDIRECT_URI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'CANCEL_URI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'TOKEN',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'EXPIRES',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'SINGLE_SIGN_ON_DISABLED',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ATTRIBUTION_ID_CONTENT_URI',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'android.net.Uri',
@@ -7646,16 +7558,16 @@ config = {
 				},
 				{
 					'name' : 'ATTRIBUTION_ID_COLUMN_NAME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'FORCE_DIALOG_AUTH',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -7664,11 +7576,11 @@ config = {
 				},
 				{
 					'name' : 'FB_APP_SIGNATURE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -7683,7 +7595,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -7711,7 +7623,7 @@ config = {
 						},
 						{
 								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
@@ -7740,13 +7652,13 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7806,7 +7718,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7856,7 +7768,7 @@ config = {
 				},
 				{
 					'name' : 'getAttributionId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
@@ -7866,7 +7778,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7898,7 +7810,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7964,7 +7876,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -7984,7 +7896,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8016,7 +7928,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8034,7 +7946,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -8044,7 +7956,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8077,7 +7989,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -8085,7 +7997,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FacebookError',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8109,7 +8021,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -8120,7 +8032,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -8132,7 +8044,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FbDialog$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8162,7 +8074,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FbDialog',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8177,7 +8089,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.android.Facebook$DialogListener',
@@ -8197,17 +8109,17 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Util',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'parseUrl',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8219,11 +8131,11 @@ config = {
 				},
 				{
 					'name' : 'openUrl',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -8233,13 +8145,13 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'showAlert',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -8247,7 +8159,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8259,7 +8171,7 @@ config = {
 				},
 				{
 					'name' : 'encodePostBody',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -8267,19 +8179,19 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'encodeUrl',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -8289,17 +8201,17 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'decodeUrl',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8311,11 +8223,11 @@ config = {
 				},
 				{
 					'name' : 'parseJson',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -8335,1598 +8247,8 @@ config = {
 			],
 		},
 		{
-			'name' : 'com.facebook.internal.CacheableRequestBatch',
-			'tags' : ['_instance'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'getCacheKeyOverride',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-				{
-					'name' : 'getForceRoundTrip',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'setCacheKeyOverride',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'setForceRoundTrip',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.CacheableRequestBatch',
-					'params' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$1',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onClose',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$2',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'run',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$BufferFile$1',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'accept',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$BufferFile$2',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'accept',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$BufferFile',
-			'tags' : ['_static'],
-			'fields' : [
-			],	
-			'functions' : [
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$CloseCallbackOutputStream',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'write',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'flush',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'close',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$CopyingInputStream',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'close',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'mark',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'reset',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'read',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'skip',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-				},
-				{
-					'name' : 'available',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'markSupported',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$Limits',
-			'tags' : ['_static'],
-			'fields' : [
-			],	
-			'functions' : [
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.FileLruCache$Limits',
-					'params' : [
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$ModifiedFile',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'compareTo',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'com.facebook.internal.FileLruCache$ModifiedFile',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$StreamCloseCallback',
-			'tags' : ['_interface', '_callback'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onClose',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache$StreamHeader',
-			'tags' : ['_static'],
-			'fields' : [
-			],	
-			'functions' : [
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.FileLruCache',
-			'tags' : ['_instance'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'get',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.io.InputStream',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-				{
-					'name' : 'interceptAndPut',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.io.InputStream',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.io.InputStream',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'clearForTest',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'openPutStream',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.io.OutputStream',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.FileLruCache',
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'com.facebook.internal.FileLruCache$Limits',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.Logger',
-			'tags' : ['_instance'],
-			'fields' : [
-				{
-					'name' : 'LOG_TAG_BASE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-			],	
-			'functions' : [
-				{
-					'name' : 'append',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-						{
-								'type' : 'java.lang.StringBuilder',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'log',
-					'tags' : ['_instance', '_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'com.facebook.LoggingBehavior',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'setPriority',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'getPriority',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'registerAccessToken',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'appendKeyValue',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'registerStringToReplace',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'getContents',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-				{
-					'name' : 'logString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.Logger',
-					'params' : [
-						{
-								'type' : 'com.facebook.LoggingBehavior',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.ServerProtocol',
-			'tags' : ['_static'],
-			'fields' : [
-				{
-					'name' : 'DIALOG_AUTHORITY',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PATH',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_SCOPE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_CLIENT_ID',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_DISPLAY',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_REDIRECT_URI',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_TYPE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_ACCESS_TOKEN',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'DIALOG_PARAM_APP_ID',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'GRAPH_URL',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'GRAPH_URL_BASE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'REST_URL_BASE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'BATCHED_REST_METHOD_URL_BASE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
-					},
-				},
-				{
-					'name' : 'errorsProxyAuthDisabled',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.util.Collection',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'errorsUserCanceled',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'java.util.Collection',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
-			'functions' : [
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.ServerProtocol',
-					'params' : [
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.SessionAuthorizationType',
-			'tags' : ['_enumerate'],
-			'fields' : [
-				{
-					'name' : 'READ',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'com.facebook.internal.SessionAuthorizationType',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'PUBLISH',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'com.facebook.internal.SessionAuthorizationType',
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
-			'functions' : [
-				{
-					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'com.facebook.internal.SessionAuthorizationType', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'com.facebook.internal.SessionAuthorizationType',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.SessionTracker$ActiveSessionBroadcastReceiver',
-			'tags' : ['_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'onReceive',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'android.content.Intent',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.SessionTracker$CallbackWrapper',
-			'tags' : ['_instance'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'call',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'com.facebook.SessionState',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.Exception',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.SessionTracker$CallbackWrapper',
-					'params' : [
-						{
-								'type' : 'com.facebook.internal.SessionTracker',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.SessionTracker',
-			'tags' : ['_instance'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'getSession',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'setSession',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'isTracking',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'startTracking',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'getOpenSession',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'stopTracking',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'isTrackingActiveSession',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.SessionTracker',
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.Utility',
-			'tags' : ['_static'],
-			'fields' : [
-				{
-					'name' : 'DEFAULT_STREAM_BUFFER_SIZE',
-					'tags' : ['_static', '_proxy'],
-					'type' : 
-					{
-							'type' : 'int',
-							'converter' : 'convert_int',
-					},
-				},
-			],	
-			'functions' : [
-				{
-					'name' : 'unmodifiableCollection',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'isNullOrEmpty',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'closeQuietly',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.io.Closeable',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'readStreamToString',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.io.InputStream',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-				{
-					'name' : 'getStringPropertyAsJSON',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'org.json.JSONObject',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'disconnectQuietly',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.net.URLConnection',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'putObjectInBundle',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'getMetadataApplicationId',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-				},
-				{
-					'name' : 'clearFacebookCookies',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'isSubset',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'arrayList',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.util.ArrayList',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'logd',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'java.lang.Exception',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'buildUri',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'android.net.Uri',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'queryAppAttributionSupportAndWait',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'stringsEqualOrEmpty',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.Utility',
-					'params' : [
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.Validate',
-			'tags' : ['_static'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'notNull',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'notEmptyAndContainsNoNulls',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'notNullOrEmpty',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'oneOf',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'notEmpty',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'containsNoNulls',
-					'tags' : ['_static', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'com.facebook.internal.Validate',
-					'params' : [
-					],
-				},
-			],
-		},
-		{
-			'name' : 'com.facebook.internal.package-info',
-			'tags' : ['_interface', '_callback'],
-			'fields' : [
-			],	
-			'functions' : [
-			],	
-			'constructors' : [	
-			],
-		},
-		{
 			'name' : 'com.facebook.model.GraphLocation',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9938,7 +8260,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -9948,7 +8270,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -9966,7 +8288,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10034,7 +8356,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10044,7 +8366,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10062,7 +8384,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10072,7 +8394,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10088,7 +8410,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10106,7 +8428,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10116,7 +8438,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10132,7 +8454,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphMultiResult',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10155,7 +8477,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectListImpl',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10219,7 +8541,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10379,7 +8701,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectProxy',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10416,7 +8738,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10440,7 +8762,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory$ProxyBase',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10450,13 +8772,13 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'create',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
@@ -10477,7 +8799,7 @@ config = {
 				},
 				{
 					'name' : 'createList',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONArray',
@@ -10499,7 +8821,7 @@ config = {
 				},
 				{
 					'name' : 'hasSameId',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
@@ -10519,7 +8841,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10529,7 +8851,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -10549,7 +8871,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10584,8 +8906,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Map',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_Map',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10607,7 +8929,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10623,7 +8945,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObjectList',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10663,7 +8985,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphPlace',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10675,7 +8997,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10697,7 +9019,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10715,7 +9037,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10727,7 +9049,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10737,7 +9059,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10769,7 +9091,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10785,7 +9107,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphUser',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10797,7 +9119,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10819,7 +9141,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10837,7 +9159,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10847,7 +9169,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10865,7 +9187,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10875,7 +9197,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10893,7 +9215,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10903,7 +9225,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10921,7 +9243,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10931,7 +9253,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10949,7 +9271,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10959,7 +9281,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -10977,7 +9299,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -10987,7 +9309,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11005,7 +9327,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11015,7 +9337,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11047,7 +9369,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.JsonUtil$JSONObjectEntry',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11071,7 +9393,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11097,7 +9419,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.JsonUtil',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11107,7 +9429,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.OpenGraphAction',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11119,7 +9441,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11131,7 +9453,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11143,7 +9465,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11165,7 +9487,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11181,7 +9503,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11199,7 +9521,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11209,7 +9531,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11227,7 +9549,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11237,7 +9559,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11255,7 +9577,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11265,7 +9587,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11283,7 +9605,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11293,7 +9615,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11311,7 +9633,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11321,7 +9643,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_java_util_Date',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11337,7 +9659,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11384,7 +9706,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11395,7 +9717,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11414,7 +9736,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'org.json.JSONObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11425,7 +9747,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'org.json.JSONObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11541,7 +9863,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.PropertyName',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11553,7 +9875,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11563,7 +9885,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FacebookFragment$DefaultSessionStatusCallback',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11597,7 +9919,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FacebookFragment',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11671,7 +9993,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11681,7 +10003,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11691,24 +10013,24 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'USER_ID_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'MULTI_SELECT_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -11745,7 +10067,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11755,7 +10077,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -11802,7 +10124,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphUser', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11837,7 +10159,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11863,7 +10185,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11889,7 +10211,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$DataNeededListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11911,7 +10233,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$Filter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11937,7 +10259,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPicture',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11959,7 +10281,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPictureData',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11971,7 +10293,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -11981,7 +10303,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12012,11 +10334,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
-			'tags' : ['_enumerate'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GRAPH_OBJECT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -12025,7 +10347,7 @@ config = {
 				},
 				{
 					'name' : 'SECTION_HEADER',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -12034,7 +10356,7 @@ config = {
 				},
 				{
 					'name' : 'ACTIVITY_CIRCLE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
 							'type' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem$Type',
@@ -12045,7 +10367,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'values',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 					],
 					'returns' : [
@@ -12058,11 +10380,11 @@ config = {
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -12078,7 +10400,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'sectionKey',
@@ -12086,7 +10408,7 @@ config = {
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
@@ -12119,7 +10441,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
@@ -12131,7 +10453,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12195,8 +10517,8 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -12206,8 +10528,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -12225,7 +10547,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -12235,7 +10557,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -12562,7 +10884,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -12570,7 +10892,7 @@ config = {
 						{
 								'type' : 'java.util.List',
 								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_java_util_List',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -12589,7 +10911,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectCursor',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12811,7 +11133,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12837,7 +11159,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12863,7 +11185,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12885,7 +11207,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12916,7 +11238,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$PagedResults',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12939,7 +11261,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13093,7 +11415,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13115,7 +11437,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$CacheReadWorkItem',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13137,7 +11459,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$DownloadImageWorkItem',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13159,7 +11481,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$DownloaderContext',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13169,7 +11491,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$RequestKey',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13207,7 +11529,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13217,7 +11539,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Builder',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13227,7 +11549,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Callback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13253,7 +11575,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13263,7 +11585,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponse',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13273,7 +11595,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponseCache$BufferedHttpInputStream',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13295,7 +11617,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponseCache',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13305,7 +11627,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13335,7 +11657,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$LoginButtonCallback',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13369,7 +11691,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$LoginButtonProperties',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13463,8 +11785,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session',
@@ -13484,8 +11806,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session',
@@ -13545,7 +11867,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$LoginClickListener$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13575,7 +11897,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$LoginClickListener',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13601,7 +11923,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13627,7 +11949,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$UserInfoChangedCallback',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13653,7 +11975,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13711,7 +12033,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -13811,8 +12133,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -13828,8 +12150,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -13946,7 +12268,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13996,7 +12318,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14022,7 +12344,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14061,7 +12383,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$4',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14087,7 +12409,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$5',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14121,7 +12443,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$6',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14147,7 +12469,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$GraphObjectFilter',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14173,7 +12495,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$LoadingStrategy$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14243,7 +12565,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$LoadingStrategy$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14274,7 +12596,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$LoadingStrategy$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14305,7 +12627,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$LoadingStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14384,7 +12706,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$MultiSelectionStrategy',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14408,7 +12730,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -14419,7 +12741,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDataChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14446,7 +12768,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDoneButtonClickedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14473,7 +12795,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14504,7 +12826,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnSelectionChangedListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14531,7 +12853,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$PickerFragmentAdapter',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14554,7 +12876,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$SelectionStrategy',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14564,7 +12886,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$SingleSelectionStrategy',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14588,7 +12910,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -14599,51 +12921,51 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment',
-			'tags' : ['_abstract'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SHOW_PICTURES_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'EXTRA_FIELDS_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'SHOW_TITLE_BAR_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'TITLE_TEXT_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'DONE_BUTTON_TEXT_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 			],	
@@ -14924,7 +13246,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -15027,7 +13349,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.Set',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -15066,7 +13388,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -15084,7 +13406,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15094,7 +13416,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -15112,7 +13434,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15122,7 +13444,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$1',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15132,7 +13454,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15154,7 +13476,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15176,7 +13498,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15198,7 +13520,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$AsNeededLoadingStrategy',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15225,7 +13547,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$SearchTextWatcher',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15291,56 +13613,56 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'RADIUS_IN_METERS_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'RESULTS_LIMIT_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'SEARCH_TEXT_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'LOCATION_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'SHOW_SEARCH_BOX_BUNDLE_KEY',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'DEFAULT_RADIUS_IN_METERS',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15349,7 +13671,7 @@ config = {
 				},
 				{
 					'name' : 'DEFAULT_RESULTS_LIMIT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15546,7 +13868,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15556,7 +13878,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -15572,7 +13894,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
@@ -15601,7 +13923,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15627,7 +13949,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView$OnErrorListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15653,20 +13975,20 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'TAG',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_java_lang_String',
+							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'CUSTOM',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15675,7 +13997,7 @@ config = {
 				},
 				{
 					'name' : 'SMALL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15684,7 +14006,7 @@ config = {
 				},
 				{
 					'name' : 'NORMAL',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15693,7 +14015,7 @@ config = {
 				},
 				{
 					'name' : 'LARGE',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -15794,7 +14116,7 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15804,7 +14126,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -15837,7 +14159,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.SimpleGraphObjectCursor',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16112,7 +14434,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UrlRedirectCache',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16122,7 +14444,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UserSettingsFragment$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16152,7 +14474,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UserSettingsFragment$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16178,7 +14500,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UserSettingsFragment',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16340,8 +14662,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16357,8 +14679,8 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_java_lang_String'}],
-								'converter' : 'convert_java_util_List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16419,7 +14741,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16445,7 +14767,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$2',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16471,7 +14793,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$3',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16497,7 +14819,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$Builder',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16516,7 +14838,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -16528,7 +14850,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$BuilderBase',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16584,7 +14906,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$DialogWebViewClient',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16598,7 +14920,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16618,7 +14940,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -16642,7 +14964,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16666,7 +14988,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16706,7 +15028,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$FeedDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16716,7 +15038,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16732,7 +15054,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16748,7 +15070,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16764,7 +15086,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16780,7 +15102,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16796,7 +15118,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16812,7 +15134,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16828,7 +15150,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16861,7 +15183,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$OnCompleteListener',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16891,7 +15213,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$RequestsDialogBuilder',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16901,7 +15223,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16917,7 +15239,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16933,7 +15255,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16949,7 +15271,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -16982,11 +15304,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog',
-			'tags' : ['_instance'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_THEME',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',
@@ -17070,7 +15392,7 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_java_lang_String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
@@ -17090,7 +15412,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue$1',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17112,7 +15434,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue$WorkItem',
-			'tags' : ['_interface', '_callback'],
+			'tags' : ['_callback', '_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17158,7 +15480,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue$WorkNode',
-			'tags' : ['_proxy'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -17204,11 +15526,11 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue',
-			'tags' : ['_static'],
+			'tags' : ['_proxy', '_static'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_MAX_CONCURRENT',
-					'tags' : ['_static', '_proxy'],
+					'tags' : ['_proxy', '_static'],
 					'type' : 
 					{
 							'type' : 'int',

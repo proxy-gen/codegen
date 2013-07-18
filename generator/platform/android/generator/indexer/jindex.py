@@ -389,6 +389,14 @@ class TypeHierarchy(Structure):
 			self._package_name_str = "".join(chars)
 		return self._package_name_str
 
+	@classmethod
+	def canCastClass1ToClass2(cls, clazz1_name, clazz2_name):
+		c_types_clazz1_name = (c_char * STR_ATTR_SIZE)()
+		c_types_clazz1_name.value = clazz1_name
+		c_types_clazz2_name = (c_char * STR_ATTR_SIZE)()
+		c_types_clazz2_name.value = clazz2_name
+		return TypeHierarchy_canCastClass1ToClass2(c_types_clazz1_name, c_types_clazz2_name)
+
 class Modifier(object):
 	UNKNOWN = 0
 	JAVA_PUBLIC = 1
@@ -436,11 +444,19 @@ class PrimitiveType(object):
 		return None
 
 	@staticmethod
+	def is_primitive_id(id):
+		return PrimitiveType.from_id(id) is not None
+
+	@staticmethod
 	def from_name(name):
 		for key,value in PrimitiveType.__dict__.items():
 				if isinstance(value,PrimitiveType):
 					return value
 		return None
+
+	@staticmethod
+	def is_primitive_name(name):
+		return PrimitiveType.from_name(name) is not None
 
 	def __repr__(self):
 		return 'PrimitiveType.%s' % (self.name,)
@@ -453,6 +469,122 @@ PrimitiveType.FLOAT = PrimitiveType("float")
 PrimitiveType.DOUBLE = PrimitiveType("double")
 PrimitiveType.BOOLEAN = PrimitiveType("boolean")
 PrimitiveType.CHAR = PrimitiveType("char")
+
+class VoidType(object):
+
+	_types_map = {}
+	_name_map = None
+
+	def __init__(self, value):
+		if value in VoidType._types_map:
+			raise ValueError,'VoidType already loaded'
+		self.value = value
+		VoidType._types_map[value] = self
+		VoidType._name_map = None
+
+	def from_param(self):
+		return self.value
+
+	@property
+	def name(self):
+		if self._name_map is None:
+			self._name_map = {}
+			for key,value in VoidType.__dict__.items():
+				if isinstance(value,VoidType):
+					self._name_map[value] = key
+		return self._name_map[self]
+
+	@property
+	def id(self):
+		return self.value
+
+	@staticmethod
+	def from_id(id):
+		if id in VoidType._types_map:
+			return VoidType._types_map[id]
+		return None
+
+	@staticmethod
+	def is_void_id(id):
+		return VoidType.from_id(id) is not None
+
+	@staticmethod
+	def from_name(name):
+		for key,value in VoidType.__dict__.items():
+				if isinstance(value,VoidType):
+					return value
+		return None
+
+	@staticmethod
+	def is_void_name(name):
+		return VoidType.from_name(name) is not None
+
+	def __repr__(self):
+		return 'VoidType.%s' % (self.name,)
+
+VoidType.VOID = VoidType("void")
+
+class ArrayType(object):
+
+	_types_map = {}
+	_name_map = None
+
+	def __init__(self, value):
+		if value in ArrayType._types_map:
+			raise ValueError,'ArrayType already loaded'
+		self.value = value
+		ArrayType._types_map[value] = self
+		ArrayType._name_map = None
+
+	def from_param(self):
+		return self.value
+
+	@property
+	def name(self):
+		if self._name_map is None:
+			self._name_map = {}
+			for key,value in ArrayType.__dict__.items():
+				if isinstance(value,ArrayType):
+					self._name_map[value] = key
+		return self._name_map[self]
+
+	@property
+	def id(self):
+		return self.value
+
+	@staticmethod
+	def from_id(id):
+		if id in ArrayType._types_map:
+			return ArrayType._types_map[id]
+		return None
+
+	@staticmethod
+	def is_array_id(id):
+		return ArrayType.from_id(id) is not None
+
+	@staticmethod
+	def from_name(name):
+		for key,value in ArrayType.__dict__.items():
+				if isinstance(value,ArrayType):
+					return value
+		return None
+
+	@staticmethod
+	def is_array_name(name):
+		return ArrayType.from_name(name) is not None
+
+	def __repr__(self):
+		return 'ArrayType.%s' % (self.name,)
+
+ArrayType.OBJECT_ARRAY = ArrayType("_object_array_type")		
+ArrayType.BYTE_ARRAY = ArrayType("_byte_array_type")
+ArrayType.SHORT_ARRAY = ArrayType("_short_array_type")
+ArrayType.INT_ARRAY = ArrayType("_int_array_type")
+ArrayType.LONG_ARRAY = ArrayType("_long_array_type")
+ArrayType.FLOAT_ARRAY = ArrayType("_float_array_type")
+ArrayType.DOUBLE_ARRAY = ArrayType("_double_array_type")
+ArrayType.BOOLEAN_ARRAY = ArrayType("_boolean_array_type")
+ArrayType.CHAR_ARRAY = ArrayType("_char_array_type")
 
 class CallbackType(object):
 	UNKNOWN = 0
@@ -658,7 +790,7 @@ class TranslationUnit(JavaObject):
 		return the_clazz
 
 #   Special Class Tags
-#		_enumerate 											Tag to indicate class should be enumerated
+#		_enum 											Tag to indicate class should be enumerated
 #		_interface											Tag to indicate class is an interface
 #		_abstract											Tag to indicate class is abstract
 #		_instance											Tag to indicate class instance should be created
@@ -672,19 +804,16 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if "_no_proxy" in tags:
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
 				tags[:] = list()
-				tags.append("_enumerate")
+				tags.append("_enum")
 			elif type_kind == TypeKind.JAVA_INTERFACE:
 				tags[:] = list()
 				tags.append("_interface")
@@ -692,22 +821,36 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_ABSTRACT:
 				if "callback" in tags:
 					tags[:] = list()
-					tags.append("callback")
+					tags.append("_callback")
 				else:
 					tags[:] = list()
 				tags.append("_abstract")
 			elif type_kind == TypeKind.JAVA_INSTANCE:
 				if "callback" in tags:
 					tags[:] = list()
-					tags.append("callback")
+					tags.append("_callback")
 				else:
 					tags[:] = list()
 				tags.append("_instance")
 			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
 				tags[:] = list()
 				tags.append("_static")
+			elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
+				tags[:] = list()
+				tags.append("_instance")
+				tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
+				tags[:] = list()
+				tags.append("_instance")
+				tags.append("_singleton")
+			elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
+				tags[:] = list()
+				tags.append("_abstract")
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if len(tags) > 0:
 			clazz["tags"] = tags
@@ -722,15 +865,12 @@ class TranslationUnit(JavaObject):
 		else:
 			tags = list()
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 
 		if "_no_proxy" in tags:
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
 				tags.append("_static")
@@ -741,8 +881,11 @@ class TranslationUnit(JavaObject):
 								tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
 				tags.append("_instance")
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
 
-		tags = list(set(tags))
+		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			function["tags"] = tags
 		else:
@@ -760,9 +903,6 @@ class TranslationUnit(JavaObject):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_FIELD:
 				tags.append("_static")
@@ -773,7 +913,11 @@ class TranslationUnit(JavaObject):
 							tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_FIELD:
 				tags.append("_instance")
-		tags = list(set(tags))
+			if "_no_proxy" in tags:
+				tags.remove("_no_proxy")
+			tags.append("_proxy")
+
+		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			field["tags"] = tags
 		else:
@@ -823,9 +967,16 @@ class TranslationUnit(JavaObject):
 		return the_field
 
 	@classmethod
-	def _find_or_create_return_config_data(cls, returns, retrn_type_hierarchy):
-		the_retrn = TranslationUnit._find_or_create_param_config_data(returns, retrn_type_hierarchy)
-		return the_retrn
+	def _find_or_create_return_config_data(cls, returns, return_type_hierarchy):
+		the_return_type_hierarchy = None
+		for a_return_type_hierarchy in returns:
+			if type_hierarchy_matches(a_return_type_hierarchy, return_type_hierarchy):
+				the_return_type_hierarchy = a_return_type_hierarchy
+				break
+		if not the_return_type_hierarchy:
+			the_return_type_hierarchy = return_type_hierarchy
+			returns.append(the_return_type_hierarchy)
+		return the_return_type_hierarchy
 
 	@classmethod
 	def _find_or_create_param_config_data(cls, params, param_type_hierarchy):
@@ -933,6 +1084,15 @@ class DummyCursor(Cursor):
 
 def type_hierarchy_matches(type_hierarchy_1, type_hierarchy_2):
 	if type(type_hierarchy_1) is dict and type(type_hierarchy_2) is dict:
+		type_hierarchy_1 = dict(type_hierarchy_1)
+		type_hierarchy_keys = ['type','children']
+		for key in type_hierarchy_1:
+			if key not in type_hierarchy_keys:
+				del type_hierarchy_1[key]
+		type_hierarchy_2 = dict(type_hierarchy_2)
+		for key in type_hierarchy_2:
+			if key not in type_hierarchy_keys:
+				del type_hierarchy_2[key]
 		symm_set = set(type_hierarchy_1.keys()) ^ set(type_hierarchy_2.keys())
 		if len(symm_set) > 0:
 			return False
@@ -1038,6 +1198,10 @@ TypeHierarchy_visit_callback = CFUNCTYPE(c_int, TypeHierarchy, TypeHierarchy, py
 TypeHierarchy_visit = lib.visitTypeHierarchyChildren
 TypeHierarchy_visit.argtypes = [TypeHierarchy, TypeHierarchy_visit_callback, py_object]
 TypeHierarchy_visit.restype = c_uint
+
+TypeHierarchy_canCastClass1ToClass2 = lib.canCastClass1ToClass2
+TypeHierarchy_canCastClass1ToClass2.argtypes = [c_char * STR_ATTR_SIZE,c_char * STR_ATTR_SIZE]
+TypeHierarchy_canCastClass1ToClass2.restype = c_bool
 
 # Globals
 INDEX_OK = 0

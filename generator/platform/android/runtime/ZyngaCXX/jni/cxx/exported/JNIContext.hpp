@@ -41,6 +41,7 @@ public:
 	void pushLocalFrame(int frameSize=0);
 	jobject popLocalFrame(jobject localRef=0);
 
+	bool canCastClass1ToClass2(const char *clazz1_name, const char *clazz2_name);
 	jclass getClassRef(const char *clazName);
 	jobject getStaticObjectRef(bool isField, const char *clazName, const char *name, const char *signature, ...);
 	jobject createNewObjectRef(const char *clazName);
@@ -66,6 +67,7 @@ public:
 	jboolean isLongObject(jobject obj);
 	jboolean isFloatObject(jobject obj);
 	jboolean isDoubleObject(jobject obj);
+	jboolean isSameInstance(jobject obj1, jobject obj2);
 	jboolean isInstanceOf(jobject obj, jclass claz);
 	jboolean isInstanceOf(jobject obj, const char * className);
 

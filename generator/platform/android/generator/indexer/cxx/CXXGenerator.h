@@ -147,6 +147,8 @@ CXXTypeHierarchy createTypeHierarchy(long type_id);
 
 int visitTypeHierarchyChildren(CXXTypeHierarchy parent, TypeHierarchyVisitCallback callback, void * host_object);
 
+bool canCastClass1ToClass2(char clazz1_name[STR_ATTR_SIZE], char clazz2_name[STR_ATTR_SIZE]);
+
 void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx);
 
 void process_method(std::string class_name, jclass clazz, std::string method_name, jobject method, int idx, ProcessorContext& ctx);

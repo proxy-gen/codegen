@@ -6,12 +6,17 @@ LOCAL_PATH := \$(call my-dir)
 
 find_src_files = \$(addprefix \$(1)/,\$(notdir \$(wildcard \$(LOCAL_PATH)/\$(1)/*.cpp)))
 
-CXX_SRC_FILES := \$(call find_src_files,../../../../wrapper-src/cxx/${package_name}) \$(call find_src_files,../../../../src/cxx/${package_name})
+#set $config_data = $CONFIG.config_module.config_data
+#set $package = $config_data['package']
+#set $include_wrapper_packages = $CONFIG.include_wrapper_packages
+#set $include_default_runtime = $CONFIG.include_default_runtime
+#set $include_wrapper_package_rel_paths = $CONFIG.include_wrapper_package_rel_paths
+CXX_SRC_FILES := \$(call find_src_files,cxx/impl) \$(call find_src_files,../../../../project/${package}/jni/cxx/impl)
 
-CXX_INCLUDES := \$(LOCAL_PATH)/../../../../wrapper-includes \$(LOCAL_PATH)/../../../../includes 
+CXX_INCLUDES := \$(LOCAL_PATH)/cxx/includes \$(LOCAL_PATH)/../../../../project/${package}/jni/cxx/includes
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := ${package_name}_static
+LOCAL_MODULE := ${package}_static
 LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
@@ -21,13 +26,14 @@ LOCAL_EXPORT_LDLIBS := -llog
 #if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 #end if
+LOCAL_WHOLE_STATIC_LIBRARIES += ${package}_static
 #for $include_wrapper_package in $include_wrapper_packages
-LOCAL_WHOLE_STATIC_LIBRARIES += ${include_wrapper_package}_static
+LOCAL_WHOLE_STATIC_LIBRARIES += ${include_wrapper_package}
 #end for
 include \$(BUILD_STATIC_LIBRARY)
 
 include \$(CLEAR_VARS)
-LOCAL_MODULE := ${package_name}_shared
+LOCAL_MODULE := ${package}_shared
 LOCAL_SRC_FILES := \$(CXX_SRC_FILES)
 LOCAL_LDLIBS := -llog
 LOCAL_C_INCLUDES := \$(CXX_INCLUDES)
@@ -37,12 +43,13 @@ LOCAL_EXPORT_LDLIBS := -llog
 #if $include_default_runtime
 LOCAL_WHOLE_STATIC_LIBRARIES += ZyngaCXX_static
 #end if
+LOCAL_WHOLE_STATIC_LIBRARIES += ${package}_static
 #for $include_wrapper_package in $include_wrapper_packages
 LOCAL_WHOLE_STATIC_LIBRARIES += ${include_wrapper_package}
 #end for
 include \$(BUILD_SHARED_LIBRARY)
 
-\$(call import-module, project/exported/${package_name})
+\$(call import-module, project/${package}/jni)
 
 \$(call import-module, runtime/ZyngaCXX/jni)
 

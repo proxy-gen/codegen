@@ -176,6 +176,28 @@ jobject JNIContext::popLocalFrame(jobject localRef)
 	return newLocalRef;
 }
 
+bool JNIContext::canCastClass1ToClass2(const char *clazz1_name, const char *clazz2_name)
+{
+	JNIEnv *env = 0;
+	getEnv(&env);
+	jclass clazz1 = env->FindClass(clazz1_name);
+	if (checkException(env) == false)
+	{
+		jclass clazz2 = env->FindClass(clazz2_name);
+		if (checkException(env) == false)
+		{
+			//	Determines whether an object of class or interface clazz1 can
+			//	be safely cast to class or interface clazz2
+			bool isAssignableFrom = (bool) env->IsAssignableFrom(clazz1, clazz2);
+			if (checkException(env) == false)
+			{
+				return isAssignableFrom;	
+			}
+			return false;
+		}
+	}
+	return false;
+}
 
 jclass JNIContext::getClassRef(const char *clazzName)
 {
@@ -2812,6 +2834,24 @@ jboolean JNIContext::isFloatObject(jobject obj)
 jboolean JNIContext::isDoubleObject(jobject obj)
 {
 	return isInstanceOf(obj, "java/lang/Double");
+}
+
+jboolean JNIContext::isSameInstance(jobject obj1, jobject obj2)
+{
+	if (obj1 != 0)
+	{
+		if (obj2 != 0)
+		{
+			JNIEnv *env = 0;
+			getEnv(&env);
+			jboolean result = env->IsSameObject(obj1, obj2);
+			if (checkException(env) == false)
+			{
+				return result;
+			}
+		}
+	}
+	return false;
 }
 
 jboolean JNIContext::isInstanceOf(jobject obj, jclass claz)
