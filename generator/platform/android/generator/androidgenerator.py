@@ -233,8 +233,8 @@ class Generator(BaseGenerator):
 		self._generate_cxx_abstract_code()
 		self._generate_cxx_static_code()
 		self._generate_cxx_singleton_code()
-		self._generate_cxx_enum_code()
 		self._generate_cxx_callbacks_code()
+		self._generate_cxx_enum_code()
 		self._detach_jni_converters(self.config_module.config_data, self.config_module)			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
@@ -465,29 +465,6 @@ class Generator(BaseGenerator):
 			self.enum_class_name = None
 			self.class_name = None
 			self.enum_class = None	
-		for enum_class in enum_classes:
-			self.enum_class = enum_class
-			self.class_name = enum_class['name']
-			cxx_class_name = Utils.to_class_name(self.class_name)
-			self.enum_class_name = cxx_class_name
-			self.enum_head_file_name = self.enum_class_name + ".hpp"
-			self.enum_impl_file_name = self.enum_class_name + ".cpp"
-			logging.debug("enum_impl_file_name " + str(self.enum_impl_file_name))		
-			enum_file_path = os.path.join(self.impl_outdir_name, self.enum_impl_file_name)
-			if not os.path.exists(os.path.dirname(enum_file_path)):
-				os.makedirs(os.path.dirname(enum_file_path))
-			logging.debug("enum_file_path " + str(enum_file_path))	
-			self.enum_file = open(enum_file_path, "w+")
-			enum_impl_cxx = Template(file=os.path.join(self.target, "templates", "enum.cpp"), searchList=[{'CONFIG': self}])			
-			logging.debug("enum_impl_cxx " + str(enum_impl_cxx))
-			self.enum_file.write(str(enum_impl_cxx))
-			self.enum_file.close()
-			self.enum_file = None
-			self.enum_head_file_name = None
-			self.enum_impl_file_name = None
-			self.enum_class_name = None
-			self.class_name = None
-			self.enum_class = None					
 		logging.debug("_generate_cxx_enum_code exit")
 
 	def _generate_cxx_callbacks_code(self):

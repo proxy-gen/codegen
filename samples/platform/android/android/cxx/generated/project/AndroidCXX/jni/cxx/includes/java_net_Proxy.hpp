@@ -29,6 +29,8 @@
 
 
 
+#include <java_net_Proxy_Type.hpp>
+
 #include <java_lang_Object.hpp>
 
 #include <java_lang_String.hpp>
@@ -49,10 +51,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-enum java_net_Proxy_Type
-{
-
-};
 
 class java_lang_Object;
 
