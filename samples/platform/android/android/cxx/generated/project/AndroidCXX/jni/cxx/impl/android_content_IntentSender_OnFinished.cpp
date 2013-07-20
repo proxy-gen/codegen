@@ -14,6 +14,8 @@
  		 
  		 
 
+
+
 // Generated Code 
 
 #include <android_content_IntentSender_OnFinished.hpp>
@@ -30,6 +32,37 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
+
+// Proxy Converter Template
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
+	}
+}
+
+// Proxy Converter Types
+// Forward Declarations
+
+template void convert_proxy<android_content_IntentSender>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<android_content_Intent>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<android_os_Bundle>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
 
 void android_content_IntentSender_OnFinished::onSendFinished(android_content_IntentSender& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4)
 {

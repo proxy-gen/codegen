@@ -32,6 +32,16 @@
  		 
  		 
 
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #include <android_text_method_MovementMethod.hpp>
@@ -48,6 +58,37 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
+
+// Proxy Converter Template
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
+	}
+}
+
+// Proxy Converter Types
+// Forward Declarations
+
+template void convert_proxy<android_widget_TextView>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<android_text_Spannable>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<android_view_KeyEvent>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template void convert_proxy<android_view_MotionEvent>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
 
 void android_text_method_MovementMethod::initialize(android_widget_TextView& arg0,android_text_Spannable& arg1)
 {
