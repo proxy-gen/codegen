@@ -12,6 +12,7 @@
 #define _CXXTYPEHIERARCHY_H
 
 #include <string>
+#include <vector>
 
 #ifdef __cplusplus
 extern "C" {

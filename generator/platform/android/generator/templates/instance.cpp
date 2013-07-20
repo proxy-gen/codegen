@@ -56,6 +56,11 @@
 #set $function['modifier_str'] = $modifier_str
 #end for
 
+#set $proxied_typeinfos = list()
+#for $function in $functions
+$proxied_typeinfos.extend(function['proxied_typeinfo_list'])
+#end for
+
 // Generated Code 
 
 \#include <$entity_head_file_name>
@@ -72,6 +77,38 @@ using namespace ${namespace};
 
 static long static_obj;
 static long static_address = (long) &static_obj;
+
+// Proxy Converter Template
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+template <class T>
+void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
+	}
+}
+
+// Proxy Converter Types
+#set $forwarded_types = list()
+#for $proxied_typeinfo in $proxied_typeinfos
+#set $proxied_type = $proxied_typeinfo['typename']
+#if $proxied_type not in $forwarded_types
+$forwarded_types.append(proxied_type)
+#if $proxied_typeinfo['isenum'] == False
+template void convert_proxy<${proxied_type}>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end if
+#end if
+#end for
+
 
 #for $function in $functions
 $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(function['name'])($function['param_str'])
