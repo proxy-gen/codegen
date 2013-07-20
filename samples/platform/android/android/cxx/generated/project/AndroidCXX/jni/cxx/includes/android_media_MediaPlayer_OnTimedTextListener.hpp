@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_media_TimedText;
 class android_media_MediaPlayer_OnTimedTextListener
 {
 public:
- void onTimedText(android_media_MediaPlayer& arg0,android_media_TimedText& arg1);
-
-
-};
+	 void onTimedText(android_media_MediaPlayer& arg0,android_media_TimedText& arg1);
+};	
 
 } // namespace
 

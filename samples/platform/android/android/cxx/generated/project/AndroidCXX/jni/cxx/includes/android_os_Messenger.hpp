@@ -9,14 +9,14 @@
 
 
 
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -67,21 +67,20 @@ class android_os_Parcel;
 
 class android_os_IBinder;
 
+class android_os_Messenger;
 
 class android_os_Messenger
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
- void send(android_os_Message& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- android_os_IBinder getBinder();
-static void writeMessengerOrNullToParcel(android_os_Messenger& arg0,android_os_Parcel& arg1);
-static android_os_Messenger readMessengerOrNullFromParcel(android_os_Parcel& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	 void send(android_os_Message& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 android_os_IBinder *  getBinder();
+	static void writeMessengerOrNullToParcel(android_os_Messenger& arg0,android_os_Parcel& arg1);
+	static android_os_Messenger *  readMessengerOrNullFromParcel(android_os_Parcel& arg0);
+};	
 
 } // namespace
 

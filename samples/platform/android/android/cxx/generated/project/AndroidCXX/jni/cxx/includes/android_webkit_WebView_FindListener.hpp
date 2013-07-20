@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_webkit_WebView_FindListener
 {
 public:
- void onFindResultReceived(int& arg0,bool& arg1);
-
-
-};
+	 void onFindResultReceived(int& arg0,bool& arg1);
+};	
 
 } // namespace
 

@@ -9,22 +9,22 @@
 
 
 
- 			
-		
-		
- 			
-		
-		
- 			
- 			
- 			
-		
-		
-		
- 			
-		
-		
-		
+ 		 
+	
+	
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
+ 		 
+	
+	
+	
 
 // Generated Code 
 
@@ -76,30 +76,29 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class android_content_ComponentName;
 
 class android_os_Parcel;
 
 class android_content_ComponentName
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- android_content_ComponentName clone();
- int compareTo(android_content_ComponentName& arg0);
- java_lang_String getClassName();
- java_lang_String getPackageName();
- int describeContents();
-static void writeToParcel(android_os_Parcel& arg0,int& arg1,android_content_ComponentName& arg2);
-static android_content_ComponentName readFromParcel(android_os_Parcel& arg0);
- java_lang_String toShortString();
- java_lang_String flattenToString();
-static android_content_ComponentName unflattenFromString(java_lang_String& arg0);
- java_lang_String getShortClassName();
- java_lang_String flattenToShortString();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 android_content_ComponentName *  clone();
+	 int compareTo(android_content_ComponentName& arg0);
+	 java_lang_String *  getClassName();
+	 java_lang_String *  getPackageName();
+	 int describeContents();
+	static void writeToParcel(android_os_Parcel& arg0,int& arg1,android_content_ComponentName& arg2);
+	static android_content_ComponentName *  readFromParcel(android_os_Parcel& arg0);
+	 java_lang_String *  toShortString();
+	 java_lang_String *  flattenToString();
+	static android_content_ComponentName *  unflattenFromString(java_lang_String& arg0);
+	 java_lang_String *  getShortClassName();
+	 java_lang_String *  flattenToShortString();
+};	
 
 } // namespace
 

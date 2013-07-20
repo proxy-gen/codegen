@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -52,18 +52,16 @@ class android_widget_RemoteViews;
 class android_widget_RemoteViewsService_RemoteViewsFactory
 {
 public:
- void onCreate();
- void onDestroy();
- long getItemId(int& arg0);
- int getCount();
- bool hasStableIds();
- int getViewTypeCount();
- void onDataSetChanged();
- android_widget_RemoteViews getViewAt(int& arg0);
- android_widget_RemoteViews getLoadingView();
-
-
-};
+	 void onCreate();
+	 void onDestroy();
+	 long getItemId(int& arg0);
+	 int getCount();
+	 bool hasStableIds();
+	 int getViewTypeCount();
+	 void onDataSetChanged();
+	 android_widget_RemoteViews *  getViewAt(int& arg0);
+	 android_widget_RemoteViews *  getLoadingView();
+};	
 
 } // namespace
 

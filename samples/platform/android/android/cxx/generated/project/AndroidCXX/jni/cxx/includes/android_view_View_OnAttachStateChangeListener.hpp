@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_view_View;
 class android_view_View_OnAttachStateChangeListener
 {
 public:
- void onViewAttachedToWindow(android_view_View& arg0);
- void onViewDetachedFromWindow(android_view_View& arg0);
-
-
-};
+	 void onViewAttachedToWindow(android_view_View& arg0);
+	 void onViewDetachedFromWindow(android_view_View& arg0);
+};	
 
 } // namespace
 

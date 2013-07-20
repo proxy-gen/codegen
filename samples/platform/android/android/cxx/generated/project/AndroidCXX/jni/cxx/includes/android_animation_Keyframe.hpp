@@ -9,16 +9,16 @@
 
 
 
-		
-		
-		
- 			
- 			
-		
-		
-		
- 			
-		
+	
+	
+	
+ 		 
+ 		 
+	
+	
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -63,6 +63,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_animation_Keyframe;
 
 class java_lang_Object;
 
@@ -73,21 +74,19 @@ class android_animation_TimeInterpolator;
 class android_animation_Keyframe
 {
 public:
- android_animation_Keyframe clone();
- java_lang_Object getValue();
- java_lang_Class getType();
- void setValue(java_lang_Object& arg0);
- void setInterpolator(android_animation_TimeInterpolator& arg0);
- float getFraction();
- android_animation_TimeInterpolator getInterpolator();
- bool hasValue();
-static android_animation_Keyframe ofInt(float& arg0,int& arg1);
-static android_animation_Keyframe ofFloat(float& arg0);
-static android_animation_Keyframe ofObject(float& arg0,java_lang_Object& arg1);
- void setFraction(float& arg0);
-
-
-};
+	 android_animation_Keyframe *  clone();
+	 java_lang_Object *  getValue();
+	 java_lang_Class *  getType();
+	 void setValue(java_lang_Object& arg0);
+	 void setInterpolator(android_animation_TimeInterpolator& arg0);
+	 float getFraction();
+	 android_animation_TimeInterpolator *  getInterpolator();
+	 bool hasValue();
+	static android_animation_Keyframe *  ofInt(float& arg0,int& arg1);
+	static android_animation_Keyframe *  ofFloat(float& arg0);
+	static android_animation_Keyframe *  ofObject(float& arg0,java_lang_Object& arg1);
+	 void setFraction(float& arg0);
+};	
 
 } // namespace
 

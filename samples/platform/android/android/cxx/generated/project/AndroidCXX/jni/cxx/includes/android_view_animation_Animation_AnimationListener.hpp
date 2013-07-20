@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -47,12 +47,10 @@ class android_view_animation_Animation;
 class android_view_animation_Animation_AnimationListener
 {
 public:
- void onAnimationStart(android_view_animation_Animation& arg0);
- void onAnimationEnd(android_view_animation_Animation& arg0);
- void onAnimationRepeat(android_view_animation_Animation& arg0);
-
-
-};
+	 void onAnimationStart(android_view_animation_Animation& arg0);
+	 void onAnimationEnd(android_view_animation_Animation& arg0);
+	 void onAnimationRepeat(android_view_animation_Animation& arg0);
+};	
 
 } // namespace
 

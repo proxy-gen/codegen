@@ -47,19 +47,17 @@ namespace AndroidCXX {
 class android_widget_MediaController_MediaPlayerControl
 {
 public:
- void start();
- int getDuration();
- void pause();
- int getCurrentPosition();
- void seekTo(int& arg0);
- bool isPlaying();
- int getBufferPercentage();
- bool canPause();
- bool canSeekBackward();
- bool canSeekForward();
-
-
-};
+	 void start();
+	 int getDuration();
+	 void pause();
+	 int getCurrentPosition();
+	 void seekTo(int& arg0);
+	 bool isPlaying();
+	 int getBufferPercentage();
+	 bool canPause();
+	 bool canSeekBackward();
+	 bool canSeekForward();
+};	
 
 } // namespace
 

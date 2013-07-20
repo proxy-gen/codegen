@@ -9,16 +9,16 @@
 
 
 
- 			
- 			
-		
-		
-		
- 			
- 			
-		
- 			
- 			
+ 		 
+ 		 
+	
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -89,27 +89,25 @@ class android_widget_ListAdapter;
 class android_widget_HeaderViewListAdapter
 {
 public:
- bool isEmpty();
- android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- bool isEnabled(int& arg0);
- android_widget_Filter getFilter();
- java_lang_Object getItem(int& arg0);
- long getItemId(int& arg0);
- int getCount();
- void registerDataSetObserver(android_database_DataSetObserver& arg0);
- void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
- bool hasStableIds();
- int getItemViewType(int& arg0);
- int getViewTypeCount();
- bool areAllItemsEnabled();
- android_widget_ListAdapter getWrappedAdapter();
- int getHeadersCount();
- int getFootersCount();
- bool removeHeader(android_view_View& arg0);
- bool removeFooter(android_view_View& arg0);
-
-
-};
+	 bool isEmpty();
+	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 bool isEnabled(int& arg0);
+	 android_widget_Filter *  getFilter();
+	 java_lang_Object *  getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 void registerDataSetObserver(android_database_DataSetObserver& arg0);
+	 void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
+	 bool hasStableIds();
+	 int getItemViewType(int& arg0);
+	 int getViewTypeCount();
+	 bool areAllItemsEnabled();
+	 android_widget_ListAdapter *  getWrappedAdapter();
+	 int getHeadersCount();
+	 int getFootersCount();
+	 bool removeHeader(android_view_View& arg0);
+	 bool removeFooter(android_view_View& arg0);
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_database_Cursor;
 class android_widget_FilterQueryProvider
 {
 public:
- android_database_Cursor runQuery(java_lang_CharSequence& arg0);
-
-
-};
+	 android_database_Cursor *  runQuery(java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

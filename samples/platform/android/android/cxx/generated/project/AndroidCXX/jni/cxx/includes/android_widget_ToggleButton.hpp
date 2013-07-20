@@ -9,13 +9,13 @@
 
 
 
- 			
- 			
- 			
-		
- 			
-		
- 			
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -68,17 +68,15 @@ class java_lang_CharSequence;
 class android_widget_ToggleButton
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setBackgroundDrawable(android_graphics_drawable_Drawable& arg0);
- void setChecked(bool& arg0);
- java_lang_CharSequence getTextOn();
- void setTextOn(java_lang_CharSequence& arg0);
- java_lang_CharSequence getTextOff();
- void setTextOff(java_lang_CharSequence& arg0);
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setBackgroundDrawable(android_graphics_drawable_Drawable& arg0);
+	 void setChecked(bool& arg0);
+	 java_lang_CharSequence *  getTextOn();
+	 void setTextOn(java_lang_CharSequence& arg0);
+	 java_lang_CharSequence *  getTextOff();
+	 void setTextOff(java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

@@ -9,18 +9,22 @@
 
 
 
- 			
-		
- 			
-		
- 			
-		
-		
-		
-		
-		
-		
-		
+ 	
+ 		 
+ 	
+	
+ 		 
+	
+ 		 
+ 	
+ 	
+	
+	
+	
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -70,6 +74,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_nio_ShortBuffer;
 
 class java_lang_Object;
 
@@ -80,26 +85,24 @@ class java_nio_ByteOrder;
 class java_nio_ShortBuffer
 {
 public:
- short get(std::vector<short>& arg0,int& arg1);
- java_nio_ShortBuffer put(java_nio_ShortBuffer& arg0,short& arg1,int& arg2,std::vector<short>& arg3);
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- int compareTo(java_nio_ShortBuffer& arg0);
- bool isDirect();
- bool hasArray();
- std::vector<short> array();
- int arrayOffset();
-static java_nio_ShortBuffer wrap(std::vector<short>& arg0,int& arg1);
-static java_nio_ShortBuffer allocate(int& arg0);
- java_nio_ShortBuffer duplicate();
- java_nio_ShortBuffer slice();
- java_nio_ShortBuffer asReadOnlyBuffer();
- java_nio_ShortBuffer compact();
- java_nio_ByteOrder order();
-
-
-};
+	 short get(std::vector<short>& arg0,int& arg1);
+	 java_nio_ShortBuffer *  put(java_nio_ShortBuffer& arg0,short& arg1,int& arg2,std::vector<short>& arg3);
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 int compareTo(java_nio_ShortBuffer& arg0);
+	 bool isDirect();
+	 bool hasArray();
+	 std::vector<short> array();
+	 int arrayOffset();
+	static java_nio_ShortBuffer *  wrap(std::vector<short>& arg0,int& arg1);
+	static java_nio_ShortBuffer *  allocate(int& arg0);
+	 java_nio_ShortBuffer *  duplicate();
+	 java_nio_ShortBuffer *  slice();
+	 java_nio_ShortBuffer *  asReadOnlyBuffer();
+	 java_nio_ShortBuffer *  compact();
+	 java_nio_ByteOrder *  order();
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
-		
-		
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -51,12 +51,10 @@ class java_lang_String;
 class android_content_pm_PathPermission
 {
 public:
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_lang_String getReadPermission();
- java_lang_String getWritePermission();
-
-
-};
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_lang_String *  getReadPermission();
+	 java_lang_String *  getWritePermission();
+};	
 
 } // namespace
 

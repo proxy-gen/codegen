@@ -9,11 +9,12 @@
 
 
 
- 			
- 			
-		
- 			
- 			
+ 		 
+ 	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -59,20 +60,19 @@ class android_util_AttributeSet;
 
 class android_content_res_TypedArray;
 
+class android_content_res_Resources_Theme;
 
 class android_util_TypedValue;
 
 class android_content_res_Resources_Theme
 {
 public:
- void dump(int& arg0,java_lang_String& arg1);
- android_content_res_TypedArray obtainStyledAttributes(std::vector<int>& arg0,int& arg1,android_util_AttributeSet& arg2);
- void setTo(android_content_res_Resources_Theme& arg0);
- void applyStyle(int& arg0,bool& arg1);
- bool resolveAttribute(int& arg0,android_util_TypedValue& arg1,bool& arg2);
-
-
-};
+	 void dump(int& arg0,java_lang_String& arg1);
+	 android_content_res_TypedArray *  obtainStyledAttributes(std::vector<int>& arg0,int& arg1,android_util_AttributeSet& arg2);
+	 void setTo(android_content_res_Resources_Theme& arg0);
+	 void applyStyle(int& arg0,bool& arg1);
+	 bool resolveAttribute(int& arg0,android_util_TypedValue& arg1,bool& arg2);
+};	
 
 } // namespace
 

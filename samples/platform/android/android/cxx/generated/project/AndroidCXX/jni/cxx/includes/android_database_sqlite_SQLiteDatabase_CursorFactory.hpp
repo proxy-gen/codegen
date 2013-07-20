@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -63,10 +63,8 @@ class android_database_Cursor;
 class android_database_sqlite_SQLiteDatabase_CursorFactory
 {
 public:
- android_database_Cursor newCursor(android_database_sqlite_SQLiteDatabase& arg0,android_database_sqlite_SQLiteCursorDriver& arg1,java_lang_String& arg2,android_database_sqlite_SQLiteQuery& arg3);
-
-
-};
+	 android_database_Cursor *  newCursor(android_database_sqlite_SQLiteDatabase& arg0,android_database_sqlite_SQLiteCursorDriver& arg1,java_lang_String& arg2,android_database_sqlite_SQLiteQuery& arg3);
+};	
 
 } // namespace
 

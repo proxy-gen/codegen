@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_database_sqlite_SQLiteDatabase;
 class android_database_DatabaseErrorHandler
 {
 public:
- void onCorruption(android_database_sqlite_SQLiteDatabase& arg0);
-
-
-};
+	 void onCorruption(android_database_sqlite_SQLiteDatabase& arg0);
+};	
 
 } // namespace
 

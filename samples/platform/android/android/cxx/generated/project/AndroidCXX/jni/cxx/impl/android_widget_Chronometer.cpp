@@ -9,73 +9,429 @@
 
 
 
-		
- 			
- 			
- 			
- 			
-		
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
 #include <android_widget_Chronometer.hpp>
 #include <jni.h>
+#include <CXXContext.hpp>
+#include <JNIContext.hpp>
+// TODO: integrate with custom converters
+#include <CXXConverter.hpp>
+
+#define LOG_TAG "android_widget_Chronometer"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+static long static_obj;
+static long static_address = (long) &static_obj;
+
 void android_widget_Chronometer::start()
 {
-	// TODO: Implementation
+	const char *methodName = "start";
+	const char *methodSignature = "()V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_widget_Chronometer::stop()
 {
-	// TODO: Implementation
+	const char *methodName = "stop";
+	const char *methodSignature = "()V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
-java_lang_String android_widget_Chronometer::getFormat()
+java_lang_String *  android_widget_Chronometer::getFormat()
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "getFormat";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_widget_Chronometer::setFormat(java_lang_String& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setFormat";
+	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_widget_Chronometer::onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onInitializeAccessibilityEvent";
+	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.accessibility.AccessibilityEvent");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_accessibility_AccessibilityEvent>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_widget_Chronometer::onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onInitializeAccessibilityNodeInfo";
+	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.accessibility.AccessibilityNodeInfo");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_accessibility_AccessibilityNodeInfo>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_widget_Chronometer::setBase(long& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setBase";
+	const char *methodSignature = "(J)V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+	jlong jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_long_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 long android_widget_Chronometer::getBase()
 {
-	// TODO: Implementation
+	const char *methodName = "getBase";
+	const char *methodSignature = "()J";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+
 	long result;
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_long_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (long) (*((long *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_widget_Chronometer::setOnChronometerTickListener(android_widget_Chronometer_OnChronometerTickListener& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setOnChronometerTickListener";
+	const char *methodSignature = "(Landroid/widget/Chronometer$OnChronometerTickListener;)V";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.widget.Chronometer$OnChronometerTickListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_widget_Chronometer_OnChronometerTickListener>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
-android_widget_Chronometer_OnChronometerTickListener android_widget_Chronometer::getOnChronometerTickListener()
+android_widget_Chronometer_OnChronometerTickListener *  android_widget_Chronometer::getOnChronometerTickListener()
 {
-	// TODO: Implementation
-	android_widget_Chronometer_OnChronometerTickListener result;
+	const char *methodName = "getOnChronometerTickListener";
+	const char *methodSignature = "()Landroid/widget/Chronometer$OnChronometerTickListener;";
+	const char *className = "android_widget_Chronometer";
+
+	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_Chronometer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_Chronometer jni address %d", javaObject);
+
+
+	android_widget_Chronometer_OnChronometerTickListener *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.widget.Chronometer$OnChronometerTickListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_widget_Chronometer_OnChronometerTickListener>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_widget_Chronometer_OnChronometerTickListener * ) (*((android_widget_Chronometer_OnChronometerTickListener *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }

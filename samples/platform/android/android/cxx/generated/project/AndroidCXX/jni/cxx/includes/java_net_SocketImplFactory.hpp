@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_net_SocketImpl;
 class java_net_SocketImplFactory
 {
 public:
- java_net_SocketImpl createSocketImpl();
-
-
-};
+	 java_net_SocketImpl *  createSocketImpl();
+};	
 
 } // namespace
 

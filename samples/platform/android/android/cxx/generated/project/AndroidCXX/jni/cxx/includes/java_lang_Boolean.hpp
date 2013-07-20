@@ -9,13 +9,13 @@
 
 
 
- 			
-		
- 			
- 			
- 			
-		
- 			
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -58,21 +58,20 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class java_lang_Boolean;
 
 class java_lang_Boolean
 {
 public:
- bool equals(java_lang_Object& arg0);
-static java_lang_String toString(bool& arg0);
- int hashCode();
- int compareTo(java_lang_Boolean& arg0);
-static bool getBoolean(java_lang_String& arg0);
- bool booleanValue();
-static java_lang_Boolean valueOf(java_lang_String& arg0,bool& arg1);
-static bool parseBoolean(java_lang_String& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	static java_lang_String *  toString(bool& arg0);
+	 int hashCode();
+	 int compareTo(java_lang_Boolean& arg0);
+	static bool getBoolean(java_lang_String& arg0);
+	 bool booleanValue();
+	static java_lang_Boolean *  valueOf(java_lang_String& arg0,bool& arg1);
+	static bool parseBoolean(java_lang_String& arg0);
+};	
 
 } // namespace
 

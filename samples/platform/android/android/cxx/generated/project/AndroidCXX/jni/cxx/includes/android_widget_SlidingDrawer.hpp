@@ -9,15 +9,15 @@
 
 
 
-		
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -93,28 +93,26 @@ class android_widget_SlidingDrawer_OnDrawerScrollListener;
 class android_widget_SlidingDrawer
 {
 public:
- void lock();
- void close();
- android_view_View getContent();
- void open();
- android_view_View getHandle();
- void unlock();
- bool onTouchEvent(android_view_MotionEvent& arg0);
- bool onInterceptTouchEvent(android_view_MotionEvent& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void toggle();
- void animateToggle();
- void animateClose();
- void animateOpen();
- void setOnDrawerOpenListener(android_widget_SlidingDrawer_OnDrawerOpenListener& arg0);
- void setOnDrawerCloseListener(android_widget_SlidingDrawer_OnDrawerCloseListener& arg0);
- void setOnDrawerScrollListener(android_widget_SlidingDrawer_OnDrawerScrollListener& arg0);
- bool isOpened();
- bool isMoving();
-
-
-};
+	 void lock();
+	 void close();
+	 android_view_View *  getContent();
+	 void open();
+	 android_view_View *  getHandle();
+	 void unlock();
+	 bool onTouchEvent(android_view_MotionEvent& arg0);
+	 bool onInterceptTouchEvent(android_view_MotionEvent& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void toggle();
+	 void animateToggle();
+	 void animateClose();
+	 void animateOpen();
+	 void setOnDrawerOpenListener(android_widget_SlidingDrawer_OnDrawerOpenListener& arg0);
+	 void setOnDrawerCloseListener(android_widget_SlidingDrawer_OnDrawerCloseListener& arg0);
+	 void setOnDrawerScrollListener(android_widget_SlidingDrawer_OnDrawerScrollListener& arg0);
+	 bool isOpened();
+	 bool isMoving();
+};	
 
 } // namespace
 

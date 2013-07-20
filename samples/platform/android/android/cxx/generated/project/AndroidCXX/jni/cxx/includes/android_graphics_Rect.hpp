@@ -9,20 +9,20 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
-		
-		
- 			
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -86,42 +86,41 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class android_graphics_Rect;
 
 class android_os_Parcel;
 
 class android_graphics_Rect
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- void offset(int& arg0);
- bool isEmpty();
- bool contains(android_graphics_Rect& arg0,int& arg1);
- void set(int& arg0,android_graphics_Rect& arg1);
- void sort();
-static bool intersects(int& arg0,android_graphics_Rect& arg1);
- void _union(int& arg0,android_graphics_Rect& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void readFromParcel(android_os_Parcel& arg0);
- int width();
- int height();
- java_lang_String toShortString();
- java_lang_String flattenToString();
-static android_graphics_Rect unflattenFromString(java_lang_String& arg0);
- int centerX();
- int centerY();
- float exactCenterX();
- float exactCenterY();
- void setEmpty();
- void offsetTo(int& arg0);
- void inset(int& arg0);
- bool intersect(android_graphics_Rect& arg0,int& arg1);
- bool setIntersect(android_graphics_Rect& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 void offset(int& arg0);
+	 bool isEmpty();
+	 bool contains(android_graphics_Rect& arg0,int& arg1);
+	 void set(int& arg0,android_graphics_Rect& arg1);
+	 void sort();
+	static bool intersects(int& arg0,android_graphics_Rect& arg1);
+	 void _union(int& arg0,android_graphics_Rect& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void readFromParcel(android_os_Parcel& arg0);
+	 int width();
+	 int height();
+	 java_lang_String *  toShortString();
+	 java_lang_String *  flattenToString();
+	static android_graphics_Rect *  unflattenFromString(java_lang_String& arg0);
+	 int centerX();
+	 int centerY();
+	 float exactCenterX();
+	 float exactCenterY();
+	 void setEmpty();
+	 void offsetTo(int& arg0);
+	 void inset(int& arg0);
+	 bool intersect(android_graphics_Rect& arg0,int& arg1);
+	 bool setIntersect(android_graphics_Rect& arg0);
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_View;
 class android_widget_ExpandableListView_OnChildClickListener
 {
 public:
- bool onChildClick(android_widget_ExpandableListView& arg0,android_view_View& arg1,int& arg2,long& arg3);
-
-
-};
+	 bool onChildClick(android_widget_ExpandableListView& arg0,android_view_View& arg1,int& arg2,long& arg3);
+};	
 
 } // namespace
 

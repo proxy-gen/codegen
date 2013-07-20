@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -53,10 +53,8 @@ class java_lang_String;
 class android_widget_SimpleAdapter_ViewBinder
 {
 public:
- bool setViewValue(android_view_View& arg0,java_lang_Object& arg1,java_lang_String& arg2);
-
-
-};
+	 bool setViewValue(android_view_View& arg0,java_lang_Object& arg1,java_lang_String& arg2);
+};	
 
 } // namespace
 

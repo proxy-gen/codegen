@@ -9,12 +9,12 @@
 
 
 
-		
- 			
- 			
- 			
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -76,22 +76,20 @@ class android_graphics_drawable_Drawable;
 class android_widget_CompoundButton
 {
 public:
- android_os_Parcelable onSaveInstanceState();
- void onRestoreInstanceState(android_os_Parcelable& arg0);
- void jumpDrawablesToCurrentState();
- bool performClick();
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setChecked(bool& arg0);
- bool isChecked();
- void toggle();
- int getCompoundPaddingLeft();
- int getCompoundPaddingRight();
- void setOnCheckedChangeListener(android_widget_CompoundButton_OnCheckedChangeListener& arg0);
- void setButtonDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
-
-
-};
+	 android_os_Parcelable *  onSaveInstanceState();
+	 void onRestoreInstanceState(android_os_Parcelable& arg0);
+	 void jumpDrawablesToCurrentState();
+	 bool performClick();
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setChecked(bool& arg0);
+	 bool isChecked();
+	 void toggle();
+	 int getCompoundPaddingLeft();
+	 int getCompoundPaddingRight();
+	 void setOnCheckedChangeListener(android_widget_CompoundButton_OnCheckedChangeListener& arg0);
+	 void setButtonDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
+};	
 
 } // namespace
 

@@ -9,49 +9,67 @@
 
 
 
-		
- 			
-		
- 			
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
- 			
- 			
-		
-		
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
+	
+ 		 
+	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -102,11 +120,17 @@
 
 #include <java_util_ArrayList.hpp>
 
+#include <android_content_ContentProviderResult.hpp>
+
+#include <android_content_ContentProviderOperation.hpp>
+
 #include <android_os_Bundle.hpp>
 
 #include <android_os_ParcelFileDescriptor.hpp>
 
 #include <android_content_res_AssetFileDescriptor.hpp>
+
+#include <android_content_pm_PathPermission.hpp>
 
 #include <java_lang_Object.hpp>
 
@@ -144,11 +168,17 @@ class android_content_res_Configuration;
 
 class java_util_ArrayList;
 
+class android_content_ContentProviderResult;
+
+class android_content_ContentProviderOperation;
+
 class android_os_Bundle;
 
 class android_os_ParcelFileDescriptor;
 
 class android_content_res_AssetFileDescriptor;
+
+class android_content_pm_PathPermission;
 
 class java_lang_Object;
 
@@ -159,32 +189,30 @@ class android_content_pm_ProviderInfo;
 class android_content_ContentProvider
 {
 public:
- void shutdown();
- android_content_Context getContext();
- java_lang_String getType(android_net_Uri& arg0);
- int _delete(android_net_Uri& arg0,java_lang_String& arg1,std::vector<long>& arg2);
- android_net_Uri insert(android_net_Uri& arg0,android_content_ContentValues& arg1);
- android_database_Cursor query(android_net_Uri& arg0,std::vector<long>& arg1,java_lang_String& arg2,android_os_CancellationSignal& arg3);
- int update(android_net_Uri& arg0,android_content_ContentValues& arg1,java_lang_String& arg2,std::vector<long>& arg3);
- bool onCreate();
- void onConfigurationChanged(android_content_res_Configuration& arg0);
- void onLowMemory();
- void onTrimMemory(int& arg0);
- std::vector<long> getStreamTypes(android_net_Uri& arg0,java_lang_String& arg1);
- std::vector<long> applyBatch(java_util_ArrayList& arg0);
- int bulkInsert(android_net_Uri& arg0,std::vector<long>& arg1);
- android_os_Bundle call(java_lang_String& arg0,android_os_Bundle& arg1);
- android_os_ParcelFileDescriptor openFile(android_net_Uri& arg0,java_lang_String& arg1);
- android_content_res_AssetFileDescriptor openAssetFile(android_net_Uri& arg0,java_lang_String& arg1);
- java_lang_String getReadPermission();
- java_lang_String getWritePermission();
- std::vector<long> getPathPermissions();
- android_content_res_AssetFileDescriptor openTypedAssetFile(android_net_Uri& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
- android_os_ParcelFileDescriptor openPipeHelper(android_net_Uri& arg0,java_lang_String& arg1,android_os_Bundle& arg2,java_lang_Object& arg3,android_content_ContentProvider_PipeDataWriter& arg4);
- void attachInfo(android_content_Context& arg0,android_content_pm_ProviderInfo& arg1);
-
-
-};
+	 void shutdown();
+	 android_content_Context *  getContext();
+	 java_lang_String *  getType(android_net_Uri& arg0);
+	 int _delete(android_net_Uri& arg0,java_lang_String& arg1,std::vector<long>& arg2);
+	 android_net_Uri *  insert(android_net_Uri& arg0,android_content_ContentValues& arg1);
+	 android_database_Cursor *  query(android_net_Uri& arg0,std::vector<long>& arg1,java_lang_String& arg2,android_os_CancellationSignal& arg3);
+	 int update(android_net_Uri& arg0,android_content_ContentValues& arg1,java_lang_String& arg2,std::vector<long>& arg3);
+	 bool onCreate();
+	 void onConfigurationChanged(android_content_res_Configuration& arg0);
+	 void onLowMemory();
+	 void onTrimMemory(int& arg0);
+	 std::vector<long> getStreamTypes(android_net_Uri& arg0,java_lang_String& arg1);
+	 std::vector<long> applyBatch(java_util_ArrayList& arg0);
+	 int bulkInsert(android_net_Uri& arg0,std::vector<long>& arg1);
+	 android_os_Bundle *  call(java_lang_String& arg0,android_os_Bundle& arg1);
+	 android_os_ParcelFileDescriptor *  openFile(android_net_Uri& arg0,java_lang_String& arg1);
+	 android_content_res_AssetFileDescriptor *  openAssetFile(android_net_Uri& arg0,java_lang_String& arg1);
+	 java_lang_String *  getReadPermission();
+	 java_lang_String *  getWritePermission();
+	 std::vector<long> getPathPermissions();
+	 android_content_res_AssetFileDescriptor *  openTypedAssetFile(android_net_Uri& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
+	 android_os_ParcelFileDescriptor *  openPipeHelper(android_net_Uri& arg0,java_lang_String& arg1,android_os_Bundle& arg2,java_lang_Object& arg3,android_content_ContentProvider_PipeDataWriter& arg4);
+	 void attachInfo(android_content_Context& arg0,android_content_pm_ProviderInfo& arg1);
+};	
 
 } // namespace
 

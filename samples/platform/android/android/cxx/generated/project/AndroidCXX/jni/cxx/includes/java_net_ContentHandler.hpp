@@ -9,8 +9,10 @@
 
 
 
- 			
-		
+ 		 
+ 	
+	
+ 		 
 
 // Generated Code 
 
@@ -26,6 +28,8 @@
 #include <java_net_URLConnection.hpp>
 
 #include <java_lang_Object.hpp>
+
+#include <java_lang_Class.hpp>
 
 #include <vector>
 #include <map>
@@ -45,13 +49,13 @@ class java_net_URLConnection;
 
 class java_lang_Object;
 
+class java_lang_Class;
+
 class java_net_ContentHandler
 {
 public:
- java_lang_Object getContent(java_net_URLConnection& arg0,std::vector<long>& arg1);
-
-
-};
+	 java_lang_Object *  getContent(java_net_URLConnection& arg0,std::vector<long>& arg1);
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class java_io_Closeable
 {
 public:
- void close();
-
-
-};
+	 void close();
+};	
 
 } // namespace
 

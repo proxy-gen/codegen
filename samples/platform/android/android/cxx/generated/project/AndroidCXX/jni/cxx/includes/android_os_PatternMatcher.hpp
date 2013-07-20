@@ -9,10 +9,10 @@
 
 
 
-		
-		
- 			
- 			
+	
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -55,15 +55,13 @@ class android_os_Parcel;
 class android_os_PatternMatcher
 {
 public:
- java_lang_String toString();
- int getType();
- java_lang_String getPath();
- bool match(java_lang_String& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-
-
-};
+	 java_lang_String *  toString();
+	 int getType();
+	 java_lang_String *  getPath();
+	 bool match(java_lang_String& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+};	
 
 } // namespace
 

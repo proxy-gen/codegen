@@ -9,12 +9,14 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -72,18 +74,16 @@ class java_lang_String;
 class android_widget_QuickContactBadge
 {
 public:
- void setMode(int& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void onClick(android_view_View& arg0);
- void setImageToDefault();
- void assignContactUri(android_net_Uri& arg0);
- void assignContactFromEmail(java_lang_String& arg0,bool& arg1);
- void assignContactFromPhone(java_lang_String& arg0,bool& arg1);
- void setExcludeMimes(std::vector<long>& arg0);
-
-
-};
+	 void setMode(int& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onClick(android_view_View& arg0);
+	 void setImageToDefault();
+	 void assignContactUri(android_net_Uri& arg0);
+	 void assignContactFromEmail(java_lang_String& arg0,bool& arg1);
+	 void assignContactFromPhone(java_lang_String& arg0,bool& arg1);
+	 void setExcludeMimes(std::vector<long>& arg0);
+};	
 
 } // namespace
 

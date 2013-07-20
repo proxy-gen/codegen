@@ -9,19 +9,19 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
-		
-		
- 			
- 			
-		
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -95,30 +95,28 @@ class android_content_Context;
 class android_widget_ViewAnimator
 {
 public:
- void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
- void removeView(android_view_View& arg0);
- void removeViewInLayout(android_view_View& arg0);
- void removeViewsInLayout(int& arg0);
- void removeViewAt(int& arg0);
- void removeViews(int& arg0);
- void removeAllViews();
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- int getBaseline();
- void showNext();
- void showPrevious();
- void setDisplayedChild(int& arg0);
- int getDisplayedChild();
- android_view_View getCurrentView();
- android_view_animation_Animation getInAnimation();
- void setInAnimation(android_view_animation_Animation& arg0,android_content_Context& arg1,int& arg2);
- android_view_animation_Animation getOutAnimation();
- void setOutAnimation(android_content_Context& arg0,int& arg1,android_view_animation_Animation& arg2);
- void setAnimateFirstView(bool& arg0);
- bool getAnimateFirstView();
-
-
-};
+	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
+	 void removeView(android_view_View& arg0);
+	 void removeViewInLayout(android_view_View& arg0);
+	 void removeViewsInLayout(int& arg0);
+	 void removeViewAt(int& arg0);
+	 void removeViews(int& arg0);
+	 void removeAllViews();
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 int getBaseline();
+	 void showNext();
+	 void showPrevious();
+	 void setDisplayedChild(int& arg0);
+	 int getDisplayedChild();
+	 android_view_View *  getCurrentView();
+	 android_view_animation_Animation *  getInAnimation();
+	 void setInAnimation(android_view_animation_Animation& arg0,android_content_Context& arg1,int& arg2);
+	 android_view_animation_Animation *  getOutAnimation();
+	 void setOutAnimation(android_content_Context& arg0,int& arg1,android_view_animation_Animation& arg2);
+	 void setAnimateFirstView(bool& arg0);
+	 bool getAnimateFirstView();
+};	
 
 } // namespace
 

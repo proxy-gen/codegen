@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -65,20 +65,18 @@ class android_view_ViewGroup;
 class android_widget_BaseAdapter
 {
 public:
- bool isEmpty();
- bool isEnabled(int& arg0);
- void registerDataSetObserver(android_database_DataSetObserver& arg0);
- void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
- android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- bool hasStableIds();
- int getItemViewType(int& arg0);
- int getViewTypeCount();
- bool areAllItemsEnabled();
- void notifyDataSetChanged();
- void notifyDataSetInvalidated();
-
-
-};
+	 bool isEmpty();
+	 bool isEnabled(int& arg0);
+	 void registerDataSetObserver(android_database_DataSetObserver& arg0);
+	 void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
+	 android_view_View *  getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 bool hasStableIds();
+	 int getItemViewType(int& arg0);
+	 int getViewTypeCount();
+	 bool areAllItemsEnabled();
+	 void notifyDataSetChanged();
+	 void notifyDataSetInvalidated();
+};	
 
 } // namespace
 

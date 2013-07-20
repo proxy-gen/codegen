@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -47,12 +47,10 @@ class android_widget_SeekBar;
 class android_widget_SeekBar_OnSeekBarChangeListener
 {
 public:
- void onProgressChanged(android_widget_SeekBar& arg0,int& arg1,bool& arg2);
- void onStartTrackingTouch(android_widget_SeekBar& arg0);
- void onStopTrackingTouch(android_widget_SeekBar& arg0);
-
-
-};
+	 void onProgressChanged(android_widget_SeekBar& arg0,int& arg1,bool& arg2);
+	 void onStartTrackingTouch(android_widget_SeekBar& arg0);
+	 void onStopTrackingTouch(android_widget_SeekBar& arg0);
+};	
 
 } // namespace
 

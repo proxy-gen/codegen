@@ -9,20 +9,20 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
-		
- 			
-		
-		
-		
-		
- 			
-		
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+	
+	
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -110,28 +110,26 @@ class android_widget_TabHost_OnTabChangeListener;
 class android_widget_TabHost
 {
 public:
- void setup(android_app_LocalActivityManager& arg0);
- bool dispatchKeyEvent(android_view_KeyEvent& arg0);
- void dispatchWindowFocusChanged(bool& arg0);
- void sendAccessibilityEvent(int& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void onTouchModeChanged(bool& arg0);
- void addTab(android_widget_TabHost_TabSpec& arg0);
- android_view_View getCurrentView();
- android_widget_TabHost_TabSpec newTabSpec(java_lang_String& arg0);
- void clearAllTabs();
- android_widget_TabWidget getTabWidget();
- int getCurrentTab();
- java_lang_String getCurrentTabTag();
- android_view_View getCurrentTabView();
- void setCurrentTabByTag(java_lang_String& arg0);
- android_widget_FrameLayout getTabContentView();
- void setCurrentTab(int& arg0);
- void setOnTabChangedListener(android_widget_TabHost_OnTabChangeListener& arg0);
-
-
-};
+	 void setup(android_app_LocalActivityManager& arg0);
+	 bool dispatchKeyEvent(android_view_KeyEvent& arg0);
+	 void dispatchWindowFocusChanged(bool& arg0);
+	 void sendAccessibilityEvent(int& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onTouchModeChanged(bool& arg0);
+	 void addTab(android_widget_TabHost_TabSpec& arg0);
+	 android_view_View *  getCurrentView();
+	 android_widget_TabHost_TabSpec *  newTabSpec(java_lang_String& arg0);
+	 void clearAllTabs();
+	 android_widget_TabWidget *  getTabWidget();
+	 int getCurrentTab();
+	 java_lang_String *  getCurrentTabTag();
+	 android_view_View *  getCurrentTabView();
+	 void setCurrentTabByTag(java_lang_String& arg0);
+	 android_widget_FrameLayout *  getTabContentView();
+	 void setCurrentTab(int& arg0);
+	 void setOnTabChangedListener(android_widget_TabHost_OnTabChangeListener& arg0);
+};	
 
 } // namespace
 

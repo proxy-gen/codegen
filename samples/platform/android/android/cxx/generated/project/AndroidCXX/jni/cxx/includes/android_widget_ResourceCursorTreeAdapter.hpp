@@ -9,14 +9,14 @@
 
 
 
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -63,11 +63,9 @@ class android_view_View;
 class android_widget_ResourceCursorTreeAdapter
 {
 public:
- android_view_View newGroupView(android_content_Context& arg0,android_database_Cursor& arg1,bool& arg2,android_view_ViewGroup& arg3);
- android_view_View newChildView(android_content_Context& arg0,android_database_Cursor& arg1,bool& arg2,android_view_ViewGroup& arg3);
-
-
-};
+	 android_view_View *  newGroupView(android_content_Context& arg0,android_database_Cursor& arg1,bool& arg2,android_view_ViewGroup& arg3);
+	 android_view_View *  newChildView(android_content_Context& arg0,android_database_Cursor& arg1,bool& arg2,android_view_ViewGroup& arg3);
+};	
 
 } // namespace
 

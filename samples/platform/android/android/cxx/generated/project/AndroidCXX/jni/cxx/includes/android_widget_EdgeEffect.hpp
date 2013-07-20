@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -49,16 +49,14 @@ class android_graphics_Canvas;
 class android_widget_EdgeEffect
 {
 public:
- void setSize(int& arg0);
- void finish();
- bool draw(android_graphics_Canvas& arg0);
- bool isFinished();
- void onPull(float& arg0);
- void onRelease();
- void onAbsorb(int& arg0);
-
-
-};
+	 void setSize(int& arg0);
+	 void finish();
+	 bool draw(android_graphics_Canvas& arg0);
+	 bool isFinished();
+	 void onPull(float& arg0);
+	 void onRelease();
+	 void onAbsorb(int& arg0);
+};	
 
 } // namespace
 

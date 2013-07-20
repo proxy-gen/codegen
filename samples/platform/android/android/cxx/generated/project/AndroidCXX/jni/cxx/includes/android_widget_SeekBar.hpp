@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -55,12 +55,10 @@ class android_widget_SeekBar_OnSeekBarChangeListener;
 class android_widget_SeekBar
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setOnSeekBarChangeListener(android_widget_SeekBar_OnSeekBarChangeListener& arg0);
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setOnSeekBarChangeListener(android_widget_SeekBar_OnSeekBarChangeListener& arg0);
+};	
 
 } // namespace
 

@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -62,14 +62,12 @@ class android_graphics_drawable_Drawable;
 class android_widget_ImageSwitcher
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setImageResource(int& arg0);
- void setImageURI(android_net_Uri& arg0);
- void setImageDrawable(android_graphics_drawable_Drawable& arg0);
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setImageResource(int& arg0);
+	 void setImageURI(android_net_Uri& arg0);
+	 void setImageDrawable(android_graphics_drawable_Drawable& arg0);
+};	
 
 } // namespace
 

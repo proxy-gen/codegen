@@ -9,6 +9,7 @@
 
 
 
+ 	
 
 // Generated Code 
 
@@ -44,16 +45,14 @@ namespace AndroidCXX {
 class java_io_InputStream
 {
 public:
- void close();
- void mark(int& arg0);
- void reset();
- int read(std::vector<char>& arg0,int& arg1);
- long skip(long& arg0);
- int available();
- bool markSupported();
-
-
-};
+	 void close();
+	 void mark(int& arg0);
+	 void reset();
+	 int read(std::vector<char>& arg0,int& arg1);
+	 long skip(long& arg0);
+	 int available();
+	 bool markSupported();
+};	
 
 } // namespace
 

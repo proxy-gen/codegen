@@ -9,10 +9,10 @@
 
 
 
- 			
-		
-		
-		
+ 		 
+	
+	
+	
 
 // Generated Code 
 
@@ -59,15 +59,13 @@ class java_net_InetAddress;
 class java_net_InterfaceAddress
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_net_InetAddress getAddress();
- java_net_InetAddress getBroadcast();
- short getNetworkPrefixLength();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_net_InetAddress *  getAddress();
+	 java_net_InetAddress *  getBroadcast();
+	 short getNetworkPrefixLength();
+};	
 
 } // namespace
 

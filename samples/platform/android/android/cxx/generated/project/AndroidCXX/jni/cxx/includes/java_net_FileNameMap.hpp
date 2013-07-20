@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -44,10 +44,8 @@ class java_lang_String;
 class java_net_FileNameMap
 {
 public:
- java_lang_String getContentTypeFor(java_lang_String& arg0);
-
-
-};
+	 java_lang_String *  getContentTypeFor(java_lang_String& arg0);
+};	
 
 } // namespace
 

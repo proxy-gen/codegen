@@ -9,39 +9,39 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -121,24 +121,22 @@ class android_view_KeyEvent;
 class android_webkit_WebViewClient
 {
 public:
- bool shouldOverrideUrlLoading(android_webkit_WebView& arg0,java_lang_String& arg1);
- void onPageStarted(android_webkit_WebView& arg0,java_lang_String& arg1,android_graphics_Bitmap& arg2);
- void onPageFinished(android_webkit_WebView& arg0,java_lang_String& arg1);
- void onLoadResource(android_webkit_WebView& arg0,java_lang_String& arg1);
- android_webkit_WebResourceResponse shouldInterceptRequest(android_webkit_WebView& arg0,java_lang_String& arg1);
- void onTooManyRedirects(android_webkit_WebView& arg0,android_os_Message& arg1);
- void onReceivedError(android_webkit_WebView& arg0,int& arg1,java_lang_String& arg2);
- void onFormResubmission(android_webkit_WebView& arg0,android_os_Message& arg1);
- void doUpdateVisitedHistory(android_webkit_WebView& arg0,java_lang_String& arg1,bool& arg2);
- void onReceivedSslError(android_webkit_WebView& arg0,android_webkit_SslErrorHandler& arg1,android_net_http_SslError& arg2);
- void onReceivedHttpAuthRequest(android_webkit_WebView& arg0,android_webkit_HttpAuthHandler& arg1,java_lang_String& arg2);
- bool shouldOverrideKeyEvent(android_webkit_WebView& arg0,android_view_KeyEvent& arg1);
- void onUnhandledKeyEvent(android_webkit_WebView& arg0,android_view_KeyEvent& arg1);
- void onScaleChanged(android_webkit_WebView& arg0,float& arg1);
- void onReceivedLoginRequest(android_webkit_WebView& arg0,java_lang_String& arg1);
-
-
-};
+	 bool shouldOverrideUrlLoading(android_webkit_WebView& arg0,java_lang_String& arg1);
+	 void onPageStarted(android_webkit_WebView& arg0,java_lang_String& arg1,android_graphics_Bitmap& arg2);
+	 void onPageFinished(android_webkit_WebView& arg0,java_lang_String& arg1);
+	 void onLoadResource(android_webkit_WebView& arg0,java_lang_String& arg1);
+	 android_webkit_WebResourceResponse *  shouldInterceptRequest(android_webkit_WebView& arg0,java_lang_String& arg1);
+	 void onTooManyRedirects(android_webkit_WebView& arg0,android_os_Message& arg1);
+	 void onReceivedError(android_webkit_WebView& arg0,int& arg1,java_lang_String& arg2);
+	 void onFormResubmission(android_webkit_WebView& arg0,android_os_Message& arg1);
+	 void doUpdateVisitedHistory(android_webkit_WebView& arg0,java_lang_String& arg1,bool& arg2);
+	 void onReceivedSslError(android_webkit_WebView& arg0,android_webkit_SslErrorHandler& arg1,android_net_http_SslError& arg2);
+	 void onReceivedHttpAuthRequest(android_webkit_WebView& arg0,android_webkit_HttpAuthHandler& arg1,java_lang_String& arg2);
+	 bool shouldOverrideKeyEvent(android_webkit_WebView& arg0,android_view_KeyEvent& arg1);
+	 void onUnhandledKeyEvent(android_webkit_WebView& arg0,android_view_KeyEvent& arg1);
+	 void onScaleChanged(android_webkit_WebView& arg0,float& arg1);
+	 void onReceivedLoginRequest(android_webkit_WebView& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

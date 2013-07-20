@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_RadioGroup;
 class android_widget_RadioGroup_OnCheckedChangeListener
 {
 public:
- void onCheckedChanged(android_widget_RadioGroup& arg0,int& arg1);
-
-
-};
+	 void onCheckedChanged(android_widget_RadioGroup& arg0,int& arg1);
+};	
 
 } // namespace
 

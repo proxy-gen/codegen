@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_widget_SearchView_OnSuggestionListener
 {
 public:
- bool onSuggestionSelect(int& arg0);
- bool onSuggestionClick(int& arg0);
-
-
-};
+	 bool onSuggestionSelect(int& arg0);
+	 bool onSuggestionClick(int& arg0);
+};	
 
 } // namespace
 

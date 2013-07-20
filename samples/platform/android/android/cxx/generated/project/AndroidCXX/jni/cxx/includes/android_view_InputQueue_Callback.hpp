@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_view_InputQueue;
 class android_view_InputQueue_Callback
 {
 public:
- void onInputQueueCreated(android_view_InputQueue& arg0);
- void onInputQueueDestroyed(android_view_InputQueue& arg0);
-
-
-};
+	 void onInputQueueCreated(android_view_InputQueue& arg0);
+	 void onInputQueueDestroyed(android_view_InputQueue& arg0);
+};	
 
 } // namespace
 

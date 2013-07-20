@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -37,14 +37,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_text_TextPaint;
 
 class android_text_TextPaint
 {
 public:
- void set(android_text_TextPaint& arg0);
-
-
-};
+	 void set(android_text_TextPaint& arg0);
+};	
 
 } // namespace
 

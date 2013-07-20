@@ -9,12 +9,12 @@
 
 
 
-		
- 			
-		
- 			
-		
- 			
+	
+ 		 
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -58,16 +58,14 @@ class java_lang_CharSequence;
 class android_widget_TextClock
 {
 public:
- java_lang_String getTimeZone();
- void setTimeZone(java_lang_String& arg0);
- java_lang_CharSequence getFormat12Hour();
- void setFormat12Hour(java_lang_CharSequence& arg0);
- java_lang_CharSequence getFormat24Hour();
- void setFormat24Hour(java_lang_CharSequence& arg0);
- bool is24HourModeEnabled();
-
-
-};
+	 java_lang_String *  getTimeZone();
+	 void setTimeZone(java_lang_String& arg0);
+	 java_lang_CharSequence *  getFormat12Hour();
+	 void setFormat12Hour(java_lang_CharSequence& arg0);
+	 java_lang_CharSequence *  getFormat24Hour();
+	 void setFormat24Hour(java_lang_CharSequence& arg0);
+	 bool is24HourModeEnabled();
+};	
 
 } // namespace
 

@@ -9,14 +9,14 @@
 
 
 
-		
- 			
- 			
-		
-		
- 			
-		
-		
+	
+ 		 
+ 		 
+	
+	
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -66,6 +66,7 @@ class java_lang_String;
 
 class android_util_Printer;
 
+class android_os_Looper;
 
 class android_os_MessageQueue;
 
@@ -74,20 +75,18 @@ class java_lang_Thread;
 class android_os_Looper
 {
 public:
- java_lang_String toString();
-static void loop();
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
-static android_os_Looper myLooper();
-static android_os_Looper getMainLooper();
-static void prepare();
-static void prepareMainLooper();
- void setMessageLogging(android_util_Printer& arg0);
-static android_os_MessageQueue myQueue();
- void quit();
- java_lang_Thread getThread();
-
-
-};
+	 java_lang_String *  toString();
+	static void loop();
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	static android_os_Looper *  myLooper();
+	static android_os_Looper *  getMainLooper();
+	static void prepare();
+	static void prepareMainLooper();
+	 void setMessageLogging(android_util_Printer& arg0);
+	static android_os_MessageQueue *  myQueue();
+	 void quit();
+	 java_lang_Thread *  getThread();
+};	
 
 } // namespace
 

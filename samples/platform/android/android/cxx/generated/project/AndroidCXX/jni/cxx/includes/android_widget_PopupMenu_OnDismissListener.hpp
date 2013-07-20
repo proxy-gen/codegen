@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_PopupMenu;
 class android_widget_PopupMenu_OnDismissListener
 {
 public:
- void onDismiss(android_widget_PopupMenu& arg0);
-
-
-};
+	 void onDismiss(android_widget_PopupMenu& arg0);
+};	
 
 } // namespace
 

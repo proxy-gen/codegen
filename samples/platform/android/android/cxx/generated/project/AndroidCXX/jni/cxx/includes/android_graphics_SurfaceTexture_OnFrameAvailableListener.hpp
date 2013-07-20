@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_graphics_SurfaceTexture;
 class android_graphics_SurfaceTexture_OnFrameAvailableListener
 {
 public:
- void onFrameAvailable(android_graphics_SurfaceTexture& arg0);
-
-
-};
+	 void onFrameAvailable(android_graphics_SurfaceTexture& arg0);
+};	
 
 } // namespace
 

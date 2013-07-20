@@ -9,22 +9,22 @@
 
 
 
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
- 			
- 			
-		
- 			
-		
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -134,54 +134,52 @@ class android_widget_ListView;
 class android_widget_ListPopupWindow
 {
 public:
- void show();
- bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyPreIme(int& arg0,android_view_KeyEvent& arg1);
- int getWidth();
- int getHeight();
- void setBackgroundDrawable(android_graphics_drawable_Drawable& arg0);
- android_graphics_drawable_Drawable getBackground();
- void setSelection(int& arg0);
- void setSoftInputMode(int& arg0);
- bool isShowing();
- void dismiss();
- void setOnDismissListener(android_widget_PopupWindow_OnDismissListener& arg0);
- void setAdapter(android_widget_ListAdapter& arg0);
- bool performItemClick(int& arg0);
- android_view_View getSelectedView();
- void setOnItemClickListener(android_widget_AdapterView_OnItemClickListener& arg0);
- void setOnItemSelectedListener(android_widget_AdapterView_OnItemSelectedListener& arg0);
- int getSelectedItemPosition();
- long getSelectedItemId();
- java_lang_Object getSelectedItem();
- void setHeight(int& arg0);
- void setWidth(int& arg0);
- void clearListSelection();
- void setPromptPosition(int& arg0);
- int getPromptPosition();
- void setModal(bool& arg0);
- bool isModal();
- int getSoftInputMode();
- void setListSelector(android_graphics_drawable_Drawable& arg0);
- void setAnimationStyle(int& arg0);
- int getAnimationStyle();
- android_view_View getAnchorView();
- void setAnchorView(android_view_View& arg0);
- int getHorizontalOffset();
- void setHorizontalOffset(int& arg0);
- int getVerticalOffset();
- void setVerticalOffset(int& arg0);
- void setContentWidth(int& arg0);
- void setPromptView(android_view_View& arg0);
- void postShow();
- void setInputMethodMode(int& arg0);
- int getInputMethodMode();
- bool isInputMethodNotNeeded();
- android_widget_ListView getListView();
-
-
-};
+	 void show();
+	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyPreIme(int& arg0,android_view_KeyEvent& arg1);
+	 int getWidth();
+	 int getHeight();
+	 void setBackgroundDrawable(android_graphics_drawable_Drawable& arg0);
+	 android_graphics_drawable_Drawable *  getBackground();
+	 void setSelection(int& arg0);
+	 void setSoftInputMode(int& arg0);
+	 bool isShowing();
+	 void dismiss();
+	 void setOnDismissListener(android_widget_PopupWindow_OnDismissListener& arg0);
+	 void setAdapter(android_widget_ListAdapter& arg0);
+	 bool performItemClick(int& arg0);
+	 android_view_View *  getSelectedView();
+	 void setOnItemClickListener(android_widget_AdapterView_OnItemClickListener& arg0);
+	 void setOnItemSelectedListener(android_widget_AdapterView_OnItemSelectedListener& arg0);
+	 int getSelectedItemPosition();
+	 long getSelectedItemId();
+	 java_lang_Object *  getSelectedItem();
+	 void setHeight(int& arg0);
+	 void setWidth(int& arg0);
+	 void clearListSelection();
+	 void setPromptPosition(int& arg0);
+	 int getPromptPosition();
+	 void setModal(bool& arg0);
+	 bool isModal();
+	 int getSoftInputMode();
+	 void setListSelector(android_graphics_drawable_Drawable& arg0);
+	 void setAnimationStyle(int& arg0);
+	 int getAnimationStyle();
+	 android_view_View *  getAnchorView();
+	 void setAnchorView(android_view_View& arg0);
+	 int getHorizontalOffset();
+	 void setHorizontalOffset(int& arg0);
+	 int getVerticalOffset();
+	 void setVerticalOffset(int& arg0);
+	 void setContentWidth(int& arg0);
+	 void setPromptView(android_view_View& arg0);
+	 void postShow();
+	 void setInputMethodMode(int& arg0);
+	 int getInputMethodMode();
+	 bool isInputMethodNotNeeded();
+	 android_widget_ListView *  getListView();
+};	
 
 } // namespace
 

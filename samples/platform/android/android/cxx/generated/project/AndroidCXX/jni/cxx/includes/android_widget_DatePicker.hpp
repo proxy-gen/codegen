@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -79,29 +79,27 @@ class android_widget_CalendarView;
 class android_widget_DatePicker
 {
 public:
- void init(int& arg0,android_widget_DatePicker_OnDateChangedListener& arg1);
- int getYear();
- int getMonth();
- int getDayOfMonth();
- bool isEnabled();
- bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setEnabled(bool& arg0);
- long getMinDate();
- void setMinDate(long& arg0);
- long getMaxDate();
- void setMaxDate(long& arg0);
- bool getCalendarViewShown();
- android_widget_CalendarView getCalendarView();
- void setCalendarViewShown(bool& arg0);
- bool getSpinnersShown();
- void setSpinnersShown(bool& arg0);
- void updateDate(int& arg0);
-
-
-};
+	 void init(int& arg0,android_widget_DatePicker_OnDateChangedListener& arg1);
+	 int getYear();
+	 int getMonth();
+	 int getDayOfMonth();
+	 bool isEnabled();
+	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setEnabled(bool& arg0);
+	 long getMinDate();
+	 void setMinDate(long& arg0);
+	 long getMaxDate();
+	 void setMaxDate(long& arg0);
+	 bool getCalendarViewShown();
+	 android_widget_CalendarView *  getCalendarView();
+	 void setCalendarViewShown(bool& arg0);
+	 bool getSpinnersShown();
+	 void setSpinnersShown(bool& arg0);
+	 void updateDate(int& arg0);
+};	
 
 } // namespace
 

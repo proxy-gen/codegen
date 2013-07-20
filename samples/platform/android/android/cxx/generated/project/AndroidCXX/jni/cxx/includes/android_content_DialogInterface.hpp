@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_content_DialogInterface
 {
 public:
- void cancel();
- void dismiss();
-
-
-};
+	 void cancel();
+	 void dismiss();
+};	
 
 } // namespace
 

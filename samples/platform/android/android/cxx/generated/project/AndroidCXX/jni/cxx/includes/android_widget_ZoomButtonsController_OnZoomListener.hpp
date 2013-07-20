@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_widget_ZoomButtonsController_OnZoomListener
 {
 public:
- void onVisibilityChanged(bool& arg0);
- void onZoom(bool& arg0);
-
-
-};
+	 void onVisibilityChanged(bool& arg0);
+	 void onZoom(bool& arg0);
+};	
 
 } // namespace
 

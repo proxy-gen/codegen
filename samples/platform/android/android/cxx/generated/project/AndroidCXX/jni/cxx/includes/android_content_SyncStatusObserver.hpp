@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_content_SyncStatusObserver
 {
 public:
- void onStatusChanged(int& arg0);
-
-
-};
+	 void onStatusChanged(int& arg0);
+};	
 
 } // namespace
 

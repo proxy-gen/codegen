@@ -9,9 +9,10 @@
 
 
 
- 			
-		
- 			
+ 		 
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -48,19 +49,18 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
+class java_io_Writer;
 
 class java_lang_String;
 
 class java_io_Writer
 {
 public:
- java_io_Writer append(java_lang_CharSequence& arg0,int& arg1,char& arg2);
- void write(std::vector<char>& arg0,int& arg1,java_lang_String& arg2);
- void flush();
- void close();
-
-
-};
+	 java_io_Writer *  append(java_lang_CharSequence& arg0,int& arg1,char& arg2);
+	 void write(std::vector<char>& arg0,int& arg1,java_lang_String& arg2);
+	 void flush();
+	 void close();
+};	
 
 } // namespace
 

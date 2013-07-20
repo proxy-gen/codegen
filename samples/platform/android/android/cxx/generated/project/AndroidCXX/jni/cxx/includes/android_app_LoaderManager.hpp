@@ -9,16 +9,28 @@
 
 
 
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -37,6 +49,8 @@
 
 
 #include <android_content_Loader.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <java_lang_String.hpp>
 
@@ -64,6 +78,8 @@ namespace AndroidCXX {
 
 class android_content_Loader;
 
+class java_lang_Object;
+
 class java_lang_String;
 
 class java_io_FileDescriptor;
@@ -77,15 +93,13 @@ class android_app_LoaderManager_LoaderCallbacks;
 class android_app_LoaderManager
 {
 public:
- android_content_Loader getLoader(int& arg0);
- void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
- android_content_Loader initLoader(int& arg0,android_os_Bundle& arg1,android_app_LoaderManager_LoaderCallbacks& arg2);
- android_content_Loader restartLoader(int& arg0,android_os_Bundle& arg1,android_app_LoaderManager_LoaderCallbacks& arg2);
- void destroyLoader(int& arg0);
-static void enableDebugLogging(bool& arg0);
-
-
-};
+	 android_content_Loader *  getLoader(int& arg0);
+	 void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
+	 android_content_Loader *  initLoader(int& arg0,android_os_Bundle& arg1,android_app_LoaderManager_LoaderCallbacks& arg2);
+	 android_content_Loader *  restartLoader(int& arg0,android_os_Bundle& arg1,android_app_LoaderManager_LoaderCallbacks& arg2);
+	 void destroyLoader(int& arg0);
+	static void enableDebugLogging(bool& arg0);
+};	
 
 } // namespace
 

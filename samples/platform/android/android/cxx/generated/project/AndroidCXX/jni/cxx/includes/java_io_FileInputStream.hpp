@@ -9,8 +9,9 @@
 
 
 
-		
-		
+ 	
+	
+	
 
 // Generated Code 
 
@@ -53,15 +54,13 @@ class java_nio_channels_FileChannel;
 class java_io_FileInputStream
 {
 public:
- void close();
- int read(std::vector<char>& arg0,int& arg1);
- long skip(long& arg0);
- int available();
- java_io_FileDescriptor getFD();
- java_nio_channels_FileChannel getChannel();
-
-
-};
+	 void close();
+	 int read(std::vector<char>& arg0,int& arg1);
+	 long skip(long& arg0);
+	 int available();
+	 java_io_FileDescriptor *  getFD();
+	 java_nio_channels_FileChannel *  getChannel();
+};	
 
 } // namespace
 

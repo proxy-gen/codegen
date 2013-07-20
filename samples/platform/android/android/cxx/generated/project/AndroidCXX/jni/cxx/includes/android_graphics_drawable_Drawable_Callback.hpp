@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -53,12 +53,10 @@ class java_lang_Runnable;
 class android_graphics_drawable_Drawable_Callback
 {
 public:
- void invalidateDrawable(android_graphics_drawable_Drawable& arg0);
- void scheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1,long& arg2);
- void unscheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1);
-
-
-};
+	 void invalidateDrawable(android_graphics_drawable_Drawable& arg0);
+	 void scheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1,long& arg2);
+	 void unscheduleDrawable(android_graphics_drawable_Drawable& arg0,java_lang_Runnable& arg1);
+};	
 
 } // namespace
 

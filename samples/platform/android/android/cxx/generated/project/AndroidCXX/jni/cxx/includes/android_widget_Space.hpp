@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_graphics_Canvas;
 class android_widget_Space
 {
 public:
- void draw(android_graphics_Canvas& arg0);
-
-
-};
+	 void draw(android_graphics_Canvas& arg0);
+};	
 
 } // namespace
 

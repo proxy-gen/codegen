@@ -9,35 +9,35 @@
 
 
 
- 			
- 			
-		
-		
-		
- 			
- 			
-		
- 			
-		
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
-		
-		
- 			
+ 		 
+ 		 
+	
+	
+	
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 		 
 
 // Generated Code 
 
@@ -115,26 +115,24 @@ class android_widget_FilterQueryProvider;
 class android_widget_CursorAdapter
 {
 public:
- android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- android_widget_Filter getFilter();
- java_lang_Object getItem(int& arg0);
- long getItemId(int& arg0);
- int getCount();
- android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- bool hasStableIds();
- java_lang_CharSequence convertToString(android_database_Cursor& arg0);
- android_database_Cursor getCursor();
- android_view_View newView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
- android_view_View newDropDownView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
- void bindView(android_view_View& arg0,android_content_Context& arg1,android_database_Cursor& arg2);
- void changeCursor(android_database_Cursor& arg0);
- android_database_Cursor swapCursor(android_database_Cursor& arg0);
- android_database_Cursor runQueryOnBackgroundThread(java_lang_CharSequence& arg0);
- android_widget_FilterQueryProvider getFilterQueryProvider();
- void setFilterQueryProvider(android_widget_FilterQueryProvider& arg0);
-
-
-};
+	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 android_widget_Filter *  getFilter();
+	 java_lang_Object *  getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 android_view_View *  getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 bool hasStableIds();
+	 java_lang_CharSequence *  convertToString(android_database_Cursor& arg0);
+	 android_database_Cursor *  getCursor();
+	 android_view_View *  newView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
+	 android_view_View *  newDropDownView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
+	 void bindView(android_view_View& arg0,android_content_Context& arg1,android_database_Cursor& arg2);
+	 void changeCursor(android_database_Cursor& arg0);
+	 android_database_Cursor *  swapCursor(android_database_Cursor& arg0);
+	 android_database_Cursor *  runQueryOnBackgroundThread(java_lang_CharSequence& arg0);
+	 android_widget_FilterQueryProvider *  getFilterQueryProvider();
+	 void setFilterQueryProvider(android_widget_FilterQueryProvider& arg0);
+};	
 
 } // namespace
 

@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -48,12 +48,10 @@ class java_lang_CharSequence;
 class android_widget_MultiAutoCompleteTextView_CommaTokenizer
 {
 public:
- int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
- int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
- java_lang_CharSequence terminateToken(java_lang_CharSequence& arg0);
-
-
-};
+	 int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
+	 int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
+	 java_lang_CharSequence *  terminateToken(java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

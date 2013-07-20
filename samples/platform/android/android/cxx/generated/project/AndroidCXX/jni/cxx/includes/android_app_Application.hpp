@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -63,18 +63,16 @@ class android_app_Application_ActivityLifecycleCallbacks;
 class android_app_Application
 {
 public:
- void onCreate();
- void onConfigurationChanged(android_content_res_Configuration& arg0);
- void onLowMemory();
- void registerComponentCallbacks(android_content_ComponentCallbacks& arg0);
- void unregisterComponentCallbacks(android_content_ComponentCallbacks& arg0);
- void onTrimMemory(int& arg0);
- void onTerminate();
- void registerActivityLifecycleCallbacks(android_app_Application_ActivityLifecycleCallbacks& arg0);
- void unregisterActivityLifecycleCallbacks(android_app_Application_ActivityLifecycleCallbacks& arg0);
-
-
-};
+	 void onCreate();
+	 void onConfigurationChanged(android_content_res_Configuration& arg0);
+	 void onLowMemory();
+	 void registerComponentCallbacks(android_content_ComponentCallbacks& arg0);
+	 void unregisterComponentCallbacks(android_content_ComponentCallbacks& arg0);
+	 void onTrimMemory(int& arg0);
+	 void onTerminate();
+	 void registerActivityLifecycleCallbacks(android_app_Application_ActivityLifecycleCallbacks& arg0);
+	 void unregisterActivityLifecycleCallbacks(android_app_Application_ActivityLifecycleCallbacks& arg0);
+};	
 
 } // namespace
 

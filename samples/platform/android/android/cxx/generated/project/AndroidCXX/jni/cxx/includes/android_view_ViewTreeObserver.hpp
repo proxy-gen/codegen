@@ -9,19 +9,19 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -91,26 +91,24 @@ class android_view_ViewTreeObserver_OnTouchModeChangeListener;
 class android_view_ViewTreeObserver
 {
 public:
- bool isAlive();
- void addOnGlobalFocusChangeListener(android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0);
- void removeOnGlobalFocusChangeListener(android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0);
- void addOnGlobalLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
- void removeGlobalOnLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
- void removeOnGlobalLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
- void addOnPreDrawListener(android_view_ViewTreeObserver_OnPreDrawListener& arg0);
- void removeOnPreDrawListener(android_view_ViewTreeObserver_OnPreDrawListener& arg0);
- void addOnDrawListener(android_view_ViewTreeObserver_OnDrawListener& arg0);
- void removeOnDrawListener(android_view_ViewTreeObserver_OnDrawListener& arg0);
- void addOnScrollChangedListener(android_view_ViewTreeObserver_OnScrollChangedListener& arg0);
- void removeOnScrollChangedListener(android_view_ViewTreeObserver_OnScrollChangedListener& arg0);
- void addOnTouchModeChangeListener(android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0);
- void removeOnTouchModeChangeListener(android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0);
- void dispatchOnGlobalLayout();
- bool dispatchOnPreDraw();
- void dispatchOnDraw();
-
-
-};
+	 bool isAlive();
+	 void addOnGlobalFocusChangeListener(android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0);
+	 void removeOnGlobalFocusChangeListener(android_view_ViewTreeObserver_OnGlobalFocusChangeListener& arg0);
+	 void addOnGlobalLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
+	 void removeGlobalOnLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
+	 void removeOnGlobalLayoutListener(android_view_ViewTreeObserver_OnGlobalLayoutListener& arg0);
+	 void addOnPreDrawListener(android_view_ViewTreeObserver_OnPreDrawListener& arg0);
+	 void removeOnPreDrawListener(android_view_ViewTreeObserver_OnPreDrawListener& arg0);
+	 void addOnDrawListener(android_view_ViewTreeObserver_OnDrawListener& arg0);
+	 void removeOnDrawListener(android_view_ViewTreeObserver_OnDrawListener& arg0);
+	 void addOnScrollChangedListener(android_view_ViewTreeObserver_OnScrollChangedListener& arg0);
+	 void removeOnScrollChangedListener(android_view_ViewTreeObserver_OnScrollChangedListener& arg0);
+	 void addOnTouchModeChangeListener(android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0);
+	 void removeOnTouchModeChangeListener(android_view_ViewTreeObserver_OnTouchModeChangeListener& arg0);
+	 void dispatchOnGlobalLayout();
+	 bool dispatchOnPreDraw();
+	 void dispatchOnDraw();
+};	
 
 } // namespace
 

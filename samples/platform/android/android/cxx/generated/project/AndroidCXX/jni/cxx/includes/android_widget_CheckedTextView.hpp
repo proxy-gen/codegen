@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -61,17 +61,15 @@ class android_graphics_drawable_Drawable;
 class android_widget_CheckedTextView
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void onRtlPropertiesChanged(int& arg0);
- void setChecked(bool& arg0);
- bool isChecked();
- void toggle();
- void setCheckMarkDrawable(int& arg0,android_graphics_drawable_Drawable& arg1);
- android_graphics_drawable_Drawable getCheckMarkDrawable();
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void onRtlPropertiesChanged(int& arg0);
+	 void setChecked(bool& arg0);
+	 bool isChecked();
+	 void toggle();
+	 void setCheckMarkDrawable(int& arg0,android_graphics_drawable_Drawable& arg1);
+	 android_graphics_drawable_Drawable *  getCheckMarkDrawable();
+};	
 
 } // namespace
 

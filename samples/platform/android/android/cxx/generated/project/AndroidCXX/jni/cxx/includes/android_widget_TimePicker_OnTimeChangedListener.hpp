@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_TimePicker;
 class android_widget_TimePicker_OnTimeChangedListener
 {
 public:
- void onTimeChanged(android_widget_TimePicker& arg0,int& arg1);
-
-
-};
+	 void onTimeChanged(android_widget_TimePicker& arg0,int& arg1);
+};	
 
 } // namespace
 

@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
-		
-		
- 			
+ 		 
+ 		 
+	
+	
+ 		 
 
 // Generated Code 
 
@@ -57,22 +57,21 @@ class android_graphics_Canvas;
 
 class java_io_InputStream;
 
+class android_graphics_Picture;
 
 class java_io_OutputStream;
 
 class android_graphics_Picture
 {
 public:
- int getWidth();
- int getHeight();
- void draw(android_graphics_Canvas& arg0);
-static android_graphics_Picture createFromStream(java_io_InputStream& arg0);
- android_graphics_Canvas beginRecording(int& arg0);
- void endRecording();
- void writeToStream(java_io_OutputStream& arg0);
-
-
-};
+	 int getWidth();
+	 int getHeight();
+	 void draw(android_graphics_Canvas& arg0);
+	static android_graphics_Picture *  createFromStream(java_io_InputStream& arg0);
+	 android_graphics_Canvas *  beginRecording(int& arg0);
+	 void endRecording();
+	 void writeToStream(java_io_OutputStream& arg0);
+};	
 
 } // namespace
 

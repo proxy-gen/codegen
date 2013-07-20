@@ -9,10 +9,10 @@
 
 
 
-		
- 			
-		
-		
+	
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -59,15 +59,13 @@ class java_lang_CharSequence;
 class android_view_inputmethod_CorrectionInfo
 {
 public:
- java_lang_String toString();
- int getOffset();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_lang_CharSequence getOldText();
- java_lang_CharSequence getNewText();
-
-
-};
+	 java_lang_String *  toString();
+	 int getOffset();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_lang_CharSequence *  getOldText();
+	 java_lang_CharSequence *  getNewText();
+};	
 
 } // namespace
 

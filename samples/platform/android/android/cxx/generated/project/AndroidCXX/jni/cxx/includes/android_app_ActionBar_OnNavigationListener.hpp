@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_app_ActionBar_OnNavigationListener
 {
 public:
- bool onNavigationItemSelected(int& arg0,long& arg1);
-
-
-};
+	 bool onNavigationItemSelected(int& arg0,long& arg1);
+};	
 
 } // namespace
 

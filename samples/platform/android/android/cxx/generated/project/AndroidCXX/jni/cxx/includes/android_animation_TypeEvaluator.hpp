@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -44,10 +44,8 @@ class java_lang_Object;
 class android_animation_TypeEvaluator
 {
 public:
- java_lang_Object evaluate(float& arg0,java_lang_Object& arg1);
-
-
-};
+	 java_lang_Object *  evaluate(float& arg0,java_lang_Object& arg1);
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_ExpandableListView_OnGroupExpandListener
 {
 public:
- void onGroupExpand(int& arg0);
-
-
-};
+	 void onGroupExpand(int& arg0);
+};	
 
 } // namespace
 

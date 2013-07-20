@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_view_View_OnLongClickListener
 {
 public:
- bool onLongClick(android_view_View& arg0);
-
-
-};
+	 bool onLongClick(android_view_View& arg0);
+};	
 
 } // namespace
 

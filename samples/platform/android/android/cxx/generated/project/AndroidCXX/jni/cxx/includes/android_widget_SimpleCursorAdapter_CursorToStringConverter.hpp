@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_lang_CharSequence;
 class android_widget_SimpleCursorAdapter_CursorToStringConverter
 {
 public:
- java_lang_CharSequence convertToString(android_database_Cursor& arg0);
-
-
-};
+	 java_lang_CharSequence *  convertToString(android_database_Cursor& arg0);
+};	
 
 } // namespace
 

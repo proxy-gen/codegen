@@ -9,9 +9,9 @@
 
 
 
-		
- 			
- 			
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -55,12 +55,10 @@ class android_graphics_Canvas;
 class android_view_View_DragShadowBuilder
 {
 public:
- android_view_View getView();
- void onProvideShadowMetrics(android_graphics_Point& arg0);
- void onDrawShadow(android_graphics_Canvas& arg0);
-
-
-};
+	 android_view_View *  getView();
+	 void onProvideShadowMetrics(android_graphics_Point& arg0);
+	 void onDrawShadow(android_graphics_Canvas& arg0);
+};	
 
 } // namespace
 

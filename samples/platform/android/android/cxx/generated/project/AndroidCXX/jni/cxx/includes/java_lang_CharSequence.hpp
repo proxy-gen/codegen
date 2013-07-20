@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -45,17 +45,16 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class java_lang_CharSequence;
 
 class java_lang_CharSequence
 {
 public:
- java_lang_String toString();
- int length();
- char charAt(int& arg0);
- java_lang_CharSequence subSequence(int& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 int length();
+	 char charAt(int& arg0);
+	 java_lang_CharSequence *  subSequence(int& arg0);
+};	
 
 } // namespace
 

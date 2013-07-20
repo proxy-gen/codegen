@@ -43,15 +43,13 @@ namespace AndroidCXX {
 class java_lang_Number
 {
 public:
- unsigned char byteValue();
- short shortValue();
- int intValue();
- long longValue();
- float floatValue();
- double doubleValue();
-
-
-};
+	 unsigned char byteValue();
+	 short shortValue();
+	 int intValue();
+	 long longValue();
+	 float floatValue();
+	 double doubleValue();
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_widget_AbsListView_RecyclerListener
 {
 public:
- void onMovedToScrapHeap(android_view_View& arg0);
-
-
-};
+	 void onMovedToScrapHeap(android_view_View& arg0);
+};	
 
 } // namespace
 

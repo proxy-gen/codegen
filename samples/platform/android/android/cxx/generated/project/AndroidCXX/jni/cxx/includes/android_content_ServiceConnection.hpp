@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -50,11 +50,9 @@ class android_os_IBinder;
 class android_content_ServiceConnection
 {
 public:
- void onServiceConnected(android_content_ComponentName& arg0,android_os_IBinder& arg1);
- void onServiceDisconnected(android_content_ComponentName& arg0);
-
-
-};
+	 void onServiceConnected(android_content_ComponentName& arg0,android_os_IBinder& arg1);
+	 void onServiceDisconnected(android_content_ComponentName& arg0);
+};	
 
 } // namespace
 

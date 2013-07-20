@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_view_MenuItem;
 class android_view_MenuItem_OnActionExpandListener
 {
 public:
- bool onMenuItemActionExpand(android_view_MenuItem& arg0);
- bool onMenuItemActionCollapse(android_view_MenuItem& arg0);
-
-
-};
+	 bool onMenuItemActionExpand(android_view_MenuItem& arg0);
+	 bool onMenuItemActionCollapse(android_view_MenuItem& arg0);
+};	
 
 } // namespace
 

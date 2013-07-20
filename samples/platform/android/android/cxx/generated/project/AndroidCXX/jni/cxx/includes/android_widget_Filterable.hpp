@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_Filter;
 class android_widget_Filterable
 {
 public:
- android_widget_Filter getFilter();
-
-
-};
+	 android_widget_Filter *  getFilter();
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_AutoCompleteTextView_OnDismissListener
 {
 public:
- void onDismiss();
-
-
-};
+	 void onDismiss();
+};	
 
 } // namespace
 

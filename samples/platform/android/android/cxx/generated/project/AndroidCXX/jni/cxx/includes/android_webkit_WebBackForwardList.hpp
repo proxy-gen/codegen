@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -47,13 +47,11 @@ class android_webkit_WebHistoryItem;
 class android_webkit_WebBackForwardList
 {
 public:
- int getSize();
- android_webkit_WebHistoryItem getCurrentItem();
- int getCurrentIndex();
- android_webkit_WebHistoryItem getItemAtIndex(int& arg0);
-
-
-};
+	 int getSize();
+	 android_webkit_WebHistoryItem *  getCurrentItem();
+	 int getCurrentIndex();
+	 android_webkit_WebHistoryItem *  getItemAtIndex(int& arg0);
+};	
 
 } // namespace
 

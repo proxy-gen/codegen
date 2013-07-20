@@ -9,14 +9,14 @@
 
 
 
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -65,13 +65,11 @@ class android_view_View;
 class android_widget_ResourceCursorAdapter
 {
 public:
- void setDropDownViewResource(int& arg0);
- android_view_View newView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
- android_view_View newDropDownView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
- void setViewResource(int& arg0);
-
-
-};
+	 void setDropDownViewResource(int& arg0);
+	 android_view_View *  newView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
+	 android_view_View *  newDropDownView(android_content_Context& arg0,android_database_Cursor& arg1,android_view_ViewGroup& arg2);
+	 void setViewResource(int& arg0);
+};	
 
 } // namespace
 

@@ -9,23 +9,41 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
-		
- 			
-		
-		
-		
- 			
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 	
+ 	
+ 		 
+ 		 
+	
+ 	
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -88,33 +106,32 @@ class java_util_Iterator;
 
 class java_util_ListIterator;
 
+class java_util_List;
 
 class java_util_List
 {
 public:
- void add(int& arg0,java_lang_Object& arg1);
- java_lang_Object get(int& arg0);
- bool equals(java_lang_Object& arg0);
- int hashCode();
- int indexOf(java_lang_Object& arg0);
- void clear();
- bool isEmpty();
- int lastIndexOf(java_lang_Object& arg0);
- bool contains(java_lang_Object& arg0);
- bool addAll(int& arg0,java_util_Collection& arg1);
- int size();
- std::vector<long> toArray(std::vector<long>& arg0);
- java_util_Iterator iterator();
- java_lang_Object remove(int& arg0,java_lang_Object& arg1);
- java_lang_Object set(int& arg0,java_lang_Object& arg1);
- java_util_ListIterator listIterator(int& arg0);
- java_util_List subList(int& arg0);
- bool removeAll(java_util_Collection& arg0);
- bool containsAll(java_util_Collection& arg0);
- bool retainAll(java_util_Collection& arg0);
-
-
-};
+	 void add(int& arg0,java_lang_Object& arg1);
+	 java_lang_Object *  get(int& arg0);
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	 int indexOf(java_lang_Object& arg0);
+	 void clear();
+	 bool isEmpty();
+	 int lastIndexOf(java_lang_Object& arg0);
+	 bool contains(java_lang_Object& arg0);
+	 bool addAll(int& arg0,java_util_Collection& arg1);
+	 int size();
+	 std::vector<long> toArray(std::vector<long>& arg0);
+	 java_util_Iterator *  iterator();
+	 java_lang_Object *  remove(int& arg0,java_lang_Object& arg1);
+	 java_lang_Object *  set(int& arg0,java_lang_Object& arg1);
+	 java_util_ListIterator *  listIterator(int& arg0);
+	 java_util_List *  subList(int& arg0);
+	 bool removeAll(java_util_Collection& arg0);
+	 bool containsAll(java_util_Collection& arg0);
+	 bool retainAll(java_util_Collection& arg0);
+};	
 
 } // namespace
 

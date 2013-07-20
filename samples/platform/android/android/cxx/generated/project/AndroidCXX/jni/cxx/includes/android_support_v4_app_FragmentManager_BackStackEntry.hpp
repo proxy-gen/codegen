@@ -9,9 +9,9 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
 // Generated Code 
 
@@ -54,15 +54,13 @@ class java_lang_CharSequence;
 class android_support_v4_app_FragmentManager_BackStackEntry
 {
 public:
- java_lang_String getName();
- int getId();
- int getBreadCrumbTitleRes();
- int getBreadCrumbShortTitleRes();
- java_lang_CharSequence getBreadCrumbTitle();
- java_lang_CharSequence getBreadCrumbShortTitle();
-
-
-};
+	 java_lang_String *  getName();
+	 int getId();
+	 int getBreadCrumbTitleRes();
+	 int getBreadCrumbShortTitleRes();
+	 java_lang_CharSequence *  getBreadCrumbTitle();
+	 java_lang_CharSequence *  getBreadCrumbShortTitle();
+};	
 
 } // namespace
 

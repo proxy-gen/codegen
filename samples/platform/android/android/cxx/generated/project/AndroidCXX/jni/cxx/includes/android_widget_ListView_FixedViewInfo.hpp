@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_widget_ListView_FixedViewInfo
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

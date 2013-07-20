@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class java_io_FileDescriptor
 {
 public:
- bool valid();
- void sync();
-
-
-};
+	 bool valid();
+	 void sync();
+};	
 
 } // namespace
 

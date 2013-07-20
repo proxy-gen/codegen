@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class java_net_DatagramSocketImpl
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

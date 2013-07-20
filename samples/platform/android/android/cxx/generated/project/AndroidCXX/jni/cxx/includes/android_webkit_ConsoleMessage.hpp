@@ -9,9 +9,9 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
 // Generated Code 
 
@@ -51,13 +51,11 @@ class java_lang_String;
 class android_webkit_ConsoleMessage
 {
 public:
- int lineNumber();
- java_lang_String message();
- java_lang_String sourceId();
- android_webkit_ConsoleMessage_MessageLevel messageLevel();
-
-
-};
+	 int lineNumber();
+	 java_lang_String *  message();
+	 java_lang_String *  sourceId();
+	 android_webkit_ConsoleMessage_MessageLevel *  messageLevel();
+};	
 
 } // namespace
 

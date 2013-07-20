@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -54,12 +54,10 @@ class android_app_FragmentTransaction;
 class android_app_ActionBar_TabListener
 {
 public:
- void onTabSelected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
- void onTabUnselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
- void onTabReselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
-
-
-};
+	 void onTabSelected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+	 void onTabUnselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+	 void onTabReselected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1);
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ViewTreeObserver_OnGlobalLayoutListener
 {
 public:
- void onGlobalLayout();
-
-
-};
+	 void onGlobalLayout();
+};	
 
 } // namespace
 

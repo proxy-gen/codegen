@@ -9,10 +9,14 @@
 
 
 
- 			
-		
-		
- 			
+ 		 
+	
+	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -37,6 +41,10 @@
 
 #include <java_net_URL.hpp>
 
+#include <java_security_cert_Certificate.hpp>
+
+
+#include <java_security_CodeSigner.hpp>
 
 #include <vector>
 #include <map>
@@ -58,20 +66,23 @@ class java_lang_String;
 
 class java_net_URL;
 
+class java_security_cert_Certificate;
+
+class java_security_CodeSource;
+
+class java_security_CodeSigner;
 
 class java_security_CodeSource
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_net_URL getLocation();
- std::vector<long> getCertificates();
- bool implies(java_security_CodeSource& arg0);
- std::vector<long> getCodeSigners();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_net_URL *  getLocation();
+	 std::vector<long> getCertificates();
+	 bool implies(java_security_CodeSource& arg0);
+	 std::vector<long> getCodeSigners();
+};	
 
 } // namespace
 

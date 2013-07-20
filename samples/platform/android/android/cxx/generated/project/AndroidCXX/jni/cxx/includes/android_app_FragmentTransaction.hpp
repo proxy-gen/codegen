@@ -9,32 +9,32 @@
 
 
 
- 			
- 			
-		
- 			
- 			
-		
- 			
-		
- 			
-		
- 			
-		
- 			
-		
- 			
-		
-		
-		
-		
- 			
-		
-		
- 			
-		
- 			
-		
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+	
+	
+	
+ 		 
+	
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -89,33 +89,32 @@ class android_app_Fragment;
 
 class java_lang_String;
 
+class android_app_FragmentTransaction;
 
 class java_lang_CharSequence;
 
 class android_app_FragmentTransaction
 {
 public:
- android_app_FragmentTransaction add(int& arg0,android_app_Fragment& arg1,java_lang_String& arg2);
- bool isEmpty();
- android_app_FragmentTransaction replace(int& arg0,android_app_Fragment& arg1,java_lang_String& arg2);
- android_app_FragmentTransaction remove(android_app_Fragment& arg0);
- android_app_FragmentTransaction attach(android_app_Fragment& arg0);
- android_app_FragmentTransaction show(android_app_Fragment& arg0);
- int commit();
- android_app_FragmentTransaction hide(android_app_Fragment& arg0);
- android_app_FragmentTransaction detach(android_app_Fragment& arg0);
- android_app_FragmentTransaction setCustomAnimations(int& arg0);
- android_app_FragmentTransaction setTransition(int& arg0);
- android_app_FragmentTransaction setTransitionStyle(int& arg0);
- android_app_FragmentTransaction addToBackStack(java_lang_String& arg0);
- bool isAddToBackStackAllowed();
- android_app_FragmentTransaction disallowAddToBackStack();
- android_app_FragmentTransaction setBreadCrumbTitle(java_lang_CharSequence& arg0,int& arg1);
- android_app_FragmentTransaction setBreadCrumbShortTitle(java_lang_CharSequence& arg0,int& arg1);
- int commitAllowingStateLoss();
-
-
-};
+	 android_app_FragmentTransaction *  add(int& arg0,android_app_Fragment& arg1,java_lang_String& arg2);
+	 bool isEmpty();
+	 android_app_FragmentTransaction *  replace(int& arg0,android_app_Fragment& arg1,java_lang_String& arg2);
+	 android_app_FragmentTransaction *  remove(android_app_Fragment& arg0);
+	 android_app_FragmentTransaction *  attach(android_app_Fragment& arg0);
+	 android_app_FragmentTransaction *  show(android_app_Fragment& arg0);
+	 int commit();
+	 android_app_FragmentTransaction *  hide(android_app_Fragment& arg0);
+	 android_app_FragmentTransaction *  detach(android_app_Fragment& arg0);
+	 android_app_FragmentTransaction *  setCustomAnimations(int& arg0);
+	 android_app_FragmentTransaction *  setTransition(int& arg0);
+	 android_app_FragmentTransaction *  setTransitionStyle(int& arg0);
+	 android_app_FragmentTransaction *  addToBackStack(java_lang_String& arg0);
+	 bool isAddToBackStackAllowed();
+	 android_app_FragmentTransaction *  disallowAddToBackStack();
+	 android_app_FragmentTransaction *  setBreadCrumbTitle(java_lang_CharSequence& arg0,int& arg1);
+	 android_app_FragmentTransaction *  setBreadCrumbShortTitle(java_lang_CharSequence& arg0,int& arg1);
+	 int commitAllowingStateLoss();
+};	
 
 } // namespace
 

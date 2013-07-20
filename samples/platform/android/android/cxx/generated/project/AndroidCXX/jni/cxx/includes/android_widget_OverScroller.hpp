@@ -55,27 +55,25 @@ namespace AndroidCXX {
 class android_widget_OverScroller
 {
 public:
- void setFriction(float& arg0);
- bool isFinished();
- void forceFinished(bool& arg0);
- int getCurrX();
- int getCurrY();
- float getCurrVelocity();
- int getStartX();
- int getStartY();
- int getFinalX();
- int getFinalY();
- bool computeScrollOffset();
- void startScroll(int& arg0);
- void fling(int& arg0);
- void abortAnimation();
- bool springBack(int& arg0);
- void notifyHorizontalEdgeReached(int& arg0);
- void notifyVerticalEdgeReached(int& arg0);
- bool isOverScrolled();
-
-
-};
+	 void setFriction(float& arg0);
+	 bool isFinished();
+	 void forceFinished(bool& arg0);
+	 int getCurrX();
+	 int getCurrY();
+	 float getCurrVelocity();
+	 int getStartX();
+	 int getStartY();
+	 int getFinalX();
+	 int getFinalY();
+	 bool computeScrollOffset();
+	 void startScroll(int& arg0);
+	 void fling(int& arg0);
+	 void abortAnimation();
+	 bool springBack(int& arg0);
+	 void notifyHorizontalEdgeReached(int& arg0);
+	 void notifyVerticalEdgeReached(int& arg0);
+	 bool isOverScrolled();
+};	
 
 } // namespace
 

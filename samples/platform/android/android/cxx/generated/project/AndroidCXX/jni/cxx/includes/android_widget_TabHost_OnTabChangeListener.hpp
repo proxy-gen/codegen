@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_widget_TabHost_OnTabChangeListener
 {
 public:
- void onTabChanged(java_lang_String& arg0);
-
-
-};
+	 void onTabChanged(java_lang_String& arg0);
+};	
 
 } // namespace
 

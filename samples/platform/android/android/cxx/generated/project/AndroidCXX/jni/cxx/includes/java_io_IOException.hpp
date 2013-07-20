@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class java_io_IOException
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

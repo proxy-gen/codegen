@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -44,10 +44,8 @@ class java_lang_String;
 class android_widget_LinearLayout_LayoutParams
 {
 public:
- java_lang_String debug(java_lang_String& arg0);
-
-
-};
+	 java_lang_String *  debug(java_lang_String& arg0);
+};	
 
 } // namespace
 

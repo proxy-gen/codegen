@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_CompoundButton;
 class android_widget_CompoundButton_OnCheckedChangeListener
 {
 public:
- void onCheckedChanged(android_widget_CompoundButton& arg0,bool& arg1);
-
-
-};
+	 void onCheckedChanged(android_widget_CompoundButton& arg0,bool& arg1);
+};	
 
 } // namespace
 

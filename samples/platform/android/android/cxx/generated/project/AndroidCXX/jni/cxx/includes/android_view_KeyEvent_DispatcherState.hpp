@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -56,14 +56,12 @@ class android_view_KeyEvent;
 class android_view_KeyEvent_DispatcherState
 {
 public:
- void reset(java_lang_Object& arg0);
- void startTracking(android_view_KeyEvent& arg0,java_lang_Object& arg1);
- bool isTracking(android_view_KeyEvent& arg0);
- void performedLongPress(android_view_KeyEvent& arg0);
- void handleUpEvent(android_view_KeyEvent& arg0);
-
-
-};
+	 void reset(java_lang_Object& arg0);
+	 void startTracking(android_view_KeyEvent& arg0,java_lang_Object& arg1);
+	 bool isTracking(android_view_KeyEvent& arg0);
+	 void performedLongPress(android_view_KeyEvent& arg0);
+	 void handleUpEvent(android_view_KeyEvent& arg0);
+};	
 
 } // namespace
 

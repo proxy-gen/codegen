@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_graphics_Picture;
 class android_webkit_WebView_PictureListener
 {
 public:
- void onNewPicture(android_webkit_WebView& arg0,android_graphics_Picture& arg1);
-
-
-};
+	 void onNewPicture(android_webkit_WebView& arg0,android_graphics_Picture& arg1);
+};	
 
 } // namespace
 

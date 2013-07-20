@@ -9,14 +9,14 @@
 
 
 
-		
- 			
- 			
- 			
- 			
-		
- 			
-		
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -76,16 +76,14 @@ class android_graphics_drawable_Drawable;
 class android_content_pm_ResolveInfo
 {
 public:
- java_lang_String toString();
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_lang_CharSequence loadLabel(android_content_pm_PackageManager& arg0);
- android_graphics_drawable_Drawable loadIcon(android_content_pm_PackageManager& arg0);
- int getIconResource();
-
-
-};
+	 java_lang_String *  toString();
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_lang_CharSequence *  loadLabel(android_content_pm_PackageManager& arg0);
+	 android_graphics_drawable_Drawable *  loadIcon(android_content_pm_PackageManager& arg0);
+	 int getIconResource();
+};	
 
 } // namespace
 

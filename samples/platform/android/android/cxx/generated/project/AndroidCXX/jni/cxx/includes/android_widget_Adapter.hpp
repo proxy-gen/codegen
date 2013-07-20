@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
-		
-		
- 			
- 			
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -69,19 +69,17 @@ class android_database_DataSetObserver;
 class android_widget_Adapter
 {
 public:
- bool isEmpty();
- android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- java_lang_Object getItem(int& arg0);
- long getItemId(int& arg0);
- int getCount();
- void registerDataSetObserver(android_database_DataSetObserver& arg0);
- void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
- bool hasStableIds();
- int getItemViewType(int& arg0);
- int getViewTypeCount();
-
-
-};
+	 bool isEmpty();
+	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 java_lang_Object *  getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 void registerDataSetObserver(android_database_DataSetObserver& arg0);
+	 void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
+	 bool hasStableIds();
+	 int getItemViewType(int& arg0);
+	 int getViewTypeCount();
+};	
 
 } // namespace
 

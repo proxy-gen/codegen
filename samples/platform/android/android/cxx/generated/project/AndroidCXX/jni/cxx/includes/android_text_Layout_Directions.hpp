@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_text_Layout_Directions
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

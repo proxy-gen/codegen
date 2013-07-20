@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -45,12 +45,10 @@ class java_lang_Object;
 class android_widget_GridLayout_LayoutParams
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
- void setGravity(int& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	 void setGravity(int& arg0);
+};	
 
 } // namespace
 

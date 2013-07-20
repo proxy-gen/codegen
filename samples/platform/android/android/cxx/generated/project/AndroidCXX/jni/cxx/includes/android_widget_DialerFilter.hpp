@@ -9,16 +9,16 @@
 
 
 
- 			
- 			
- 			
-		
-		
-		
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+	
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -77,23 +77,21 @@ class android_text_TextWatcher;
 class android_widget_DialerFilter
 {
 public:
- void append(java_lang_String& arg0);
- void setMode(int& arg0);
- int getMode();
- bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
- bool isQwertyKeyboard();
- java_lang_CharSequence getLetters();
- java_lang_CharSequence getDigits();
- java_lang_CharSequence getFilterText();
- void clearText();
- void setLettersWatcher(android_text_TextWatcher& arg0);
- void setDigitsWatcher(android_text_TextWatcher& arg0);
- void setFilterWatcher(android_text_TextWatcher& arg0);
- void removeFilterWatcher(android_text_TextWatcher& arg0);
-
-
-};
+	 void append(java_lang_String& arg0);
+	 void setMode(int& arg0);
+	 int getMode();
+	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
+	 bool isQwertyKeyboard();
+	 java_lang_CharSequence *  getLetters();
+	 java_lang_CharSequence *  getDigits();
+	 java_lang_CharSequence *  getFilterText();
+	 void clearText();
+	 void setLettersWatcher(android_text_TextWatcher& arg0);
+	 void setDigitsWatcher(android_text_TextWatcher& arg0);
+	 void setFilterWatcher(android_text_TextWatcher& arg0);
+	 void removeFilterWatcher(android_text_TextWatcher& arg0);
+};	
 
 } // namespace
 

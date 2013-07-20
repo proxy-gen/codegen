@@ -9,17 +9,17 @@
 
 
 
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -70,6 +70,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_content_res_Configuration;
 
 class java_lang_Object;
 
@@ -82,25 +83,23 @@ class android_os_Parcel;
 class android_content_res_Configuration
 {
 public:
- bool equals(android_content_res_Configuration& arg0,java_lang_Object& arg1);
- java_lang_String toString();
- int hashCode();
- int compareTo(android_content_res_Configuration& arg0);
- void setLocale(java_util_Locale& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void readFromParcel(android_os_Parcel& arg0);
- void setLayoutDirection(java_util_Locale& arg0);
- int getLayoutDirection();
- bool isLayoutSizeAtLeast(int& arg0);
- void setTo(android_content_res_Configuration& arg0);
- void setToDefaults();
- int updateFrom(android_content_res_Configuration& arg0);
- int diff(android_content_res_Configuration& arg0);
-static bool needNewResources(int& arg0);
-
-
-};
+	 bool equals(android_content_res_Configuration& arg0,java_lang_Object& arg1);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 int compareTo(android_content_res_Configuration& arg0);
+	 void setLocale(java_util_Locale& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void readFromParcel(android_os_Parcel& arg0);
+	 void setLayoutDirection(java_util_Locale& arg0);
+	 int getLayoutDirection();
+	 bool isLayoutSizeAtLeast(int& arg0);
+	 void setTo(android_content_res_Configuration& arg0);
+	 void setToDefaults();
+	 int updateFrom(android_content_res_Configuration& arg0);
+	 int diff(android_content_res_Configuration& arg0);
+	static bool needNewResources(int& arg0);
+};	
 
 } // namespace
 

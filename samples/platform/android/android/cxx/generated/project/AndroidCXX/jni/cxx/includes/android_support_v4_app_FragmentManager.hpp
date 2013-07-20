@@ -9,27 +9,29 @@
 
 
 
- 			
- 			
-		
- 			
- 			
- 			
-		
-		
-		
- 			
-		
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+	
+	
+	
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -110,25 +112,23 @@ class android_support_v4_app_Fragment_SavedState;
 class android_support_v4_app_FragmentManager
 {
 public:
- android_support_v4_app_Fragment getFragment(android_os_Bundle& arg0,java_lang_String& arg1);
- void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
-static void enableDebugLogging(bool& arg0);
- android_support_v4_app_FragmentTransaction beginTransaction();
- android_support_v4_app_FragmentTransaction openTransaction();
- bool executePendingTransactions();
- android_support_v4_app_Fragment findFragmentById(int& arg0);
- android_support_v4_app_Fragment findFragmentByTag(java_lang_String& arg0);
- void popBackStack(int& arg0,java_lang_String& arg1);
- bool popBackStackImmediate(int& arg0,java_lang_String& arg1);
- int getBackStackEntryCount();
- android_support_v4_app_FragmentManager_BackStackEntry getBackStackEntryAt(int& arg0);
- void addOnBackStackChangedListener(android_support_v4_app_FragmentManager_OnBackStackChangedListener& arg0);
- void removeOnBackStackChangedListener(android_support_v4_app_FragmentManager_OnBackStackChangedListener& arg0);
- void putFragment(android_os_Bundle& arg0,java_lang_String& arg1,android_support_v4_app_Fragment& arg2);
- android_support_v4_app_Fragment_SavedState saveFragmentInstanceState(android_support_v4_app_Fragment& arg0);
-
-
-};
+	 android_support_v4_app_Fragment *  getFragment(android_os_Bundle& arg0,java_lang_String& arg1);
+	 void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
+	static void enableDebugLogging(bool& arg0);
+	 android_support_v4_app_FragmentTransaction *  beginTransaction();
+	 android_support_v4_app_FragmentTransaction *  openTransaction();
+	 bool executePendingTransactions();
+	 android_support_v4_app_Fragment *  findFragmentById(int& arg0);
+	 android_support_v4_app_Fragment *  findFragmentByTag(java_lang_String& arg0);
+	 void popBackStack(int& arg0,java_lang_String& arg1);
+	 bool popBackStackImmediate(int& arg0,java_lang_String& arg1);
+	 int getBackStackEntryCount();
+	 android_support_v4_app_FragmentManager_BackStackEntry *  getBackStackEntryAt(int& arg0);
+	 void addOnBackStackChangedListener(android_support_v4_app_FragmentManager_OnBackStackChangedListener& arg0);
+	 void removeOnBackStackChangedListener(android_support_v4_app_FragmentManager_OnBackStackChangedListener& arg0);
+	 void putFragment(android_os_Bundle& arg0,java_lang_String& arg1,android_support_v4_app_Fragment& arg2);
+	 android_support_v4_app_Fragment_SavedState *  saveFragmentInstanceState(android_support_v4_app_Fragment& arg0);
+};	
 
 } // namespace
 

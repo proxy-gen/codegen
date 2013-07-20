@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_database_Cursor;
 class android_widget_SimpleCursorAdapter_ViewBinder
 {
 public:
- bool setViewValue(android_view_View& arg0,android_database_Cursor& arg1,int& arg2);
-
-
-};
+	 bool setViewValue(android_view_View& arg0,android_database_Cursor& arg1,int& arg2);
+};	
 
 } // namespace
 

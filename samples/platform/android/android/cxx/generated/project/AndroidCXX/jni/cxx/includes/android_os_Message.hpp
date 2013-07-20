@@ -9,20 +9,20 @@
 
 
 
-		
-		
- 			
- 			
- 			
- 			
- 			
- 			
-		
-		
- 			
-		
- 			
-		
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -79,6 +79,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
+class android_os_Message;
 
 class android_os_Parcel;
 
@@ -91,23 +92,21 @@ class java_lang_Runnable;
 class android_os_Message
 {
 public:
- java_lang_String toString();
- android_os_Bundle getData();
- void copyFrom(android_os_Message& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-static android_os_Message obtain(android_os_Handler& arg0,int& arg1,java_lang_Object& arg2,android_os_Message& arg3,java_lang_Runnable& arg4);
- void recycle();
- android_os_Bundle peekData();
- void setData(android_os_Bundle& arg0);
- java_lang_Runnable getCallback();
- long getWhen();
- void setTarget(android_os_Handler& arg0);
- android_os_Handler getTarget();
- void sendToTarget();
-
-
-};
+	 java_lang_String *  toString();
+	 android_os_Bundle *  getData();
+	 void copyFrom(android_os_Message& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	static android_os_Message *  obtain(android_os_Handler& arg0,int& arg1,java_lang_Object& arg2,android_os_Message& arg3,java_lang_Runnable& arg4);
+	 void recycle();
+	 android_os_Bundle *  peekData();
+	 void setData(android_os_Bundle& arg0);
+	 java_lang_Runnable *  getCallback();
+	 long getWhen();
+	 void setTarget(android_os_Handler& arg0);
+	 android_os_Handler *  getTarget();
+	 void sendToTarget();
+};	
 
 } // namespace
 

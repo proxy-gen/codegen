@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
- 			
-		
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -62,20 +62,18 @@ class android_os_Bundle;
 class android_content_BroadcastReceiver_PendingResult
 {
 public:
- void finish();
- void setResult(int& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
- void setResultCode(int& arg0);
- int getResultCode();
- void setResultData(java_lang_String& arg0);
- java_lang_String getResultData();
- void setResultExtras(android_os_Bundle& arg0);
- android_os_Bundle getResultExtras(bool& arg0);
- bool getAbortBroadcast();
- void abortBroadcast();
- void clearAbortBroadcast();
-
-
-};
+	 void finish();
+	 void setResult(int& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
+	 void setResultCode(int& arg0);
+	 int getResultCode();
+	 void setResultData(java_lang_String& arg0);
+	 java_lang_String *  getResultData();
+	 void setResultExtras(android_os_Bundle& arg0);
+	 android_os_Bundle *  getResultExtras(bool& arg0);
+	 bool getAbortBroadcast();
+	 void abortBroadcast();
+	 void clearAbortBroadcast();
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ViewGroup_LayoutParams
 {
 public:
- void resolveLayoutDirection(int& arg0);
-
-
-};
+	 void resolveLayoutDirection(int& arg0);
+};	
 
 } // namespace
 

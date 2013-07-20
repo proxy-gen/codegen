@@ -9,14 +9,14 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -90,34 +90,32 @@ class android_content_Intent;
 class android_widget_GridView
 {
 public:
- bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyMultiple(int& arg0,android_view_KeyEvent& arg1);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setSelection(int& arg0);
- void setGravity(int& arg0);
- void setAdapter(android_widget_ListAdapter& arg0);
- void smoothScrollToPosition(int& arg0);
- void setRemoteViewsAdapter(android_content_Intent& arg0);
- android_widget_ListAdapter getAdapter();
- int getGravity();
- void smoothScrollByOffset(int& arg0);
- void setHorizontalSpacing(int& arg0);
- int getHorizontalSpacing();
- int getRequestedHorizontalSpacing();
- void setVerticalSpacing(int& arg0);
- int getVerticalSpacing();
- void setStretchMode(int& arg0);
- int getStretchMode();
- void setColumnWidth(int& arg0);
- int getColumnWidth();
- int getRequestedColumnWidth();
- void setNumColumns(int& arg0);
- int getNumColumns();
-
-
-};
+	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyMultiple(int& arg0,android_view_KeyEvent& arg1);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setSelection(int& arg0);
+	 void setGravity(int& arg0);
+	 void setAdapter(android_widget_ListAdapter& arg0);
+	 void smoothScrollToPosition(int& arg0);
+	 void setRemoteViewsAdapter(android_content_Intent& arg0);
+	 android_widget_ListAdapter *  getAdapter();
+	 int getGravity();
+	 void smoothScrollByOffset(int& arg0);
+	 void setHorizontalSpacing(int& arg0);
+	 int getHorizontalSpacing();
+	 int getRequestedHorizontalSpacing();
+	 void setVerticalSpacing(int& arg0);
+	 int getVerticalSpacing();
+	 void setStretchMode(int& arg0);
+	 int getStretchMode();
+	 void setColumnWidth(int& arg0);
+	 int getColumnWidth();
+	 int getRequestedColumnWidth();
+	 void setNumColumns(int& arg0);
+	 int getNumColumns();
+};	
 
 } // namespace
 

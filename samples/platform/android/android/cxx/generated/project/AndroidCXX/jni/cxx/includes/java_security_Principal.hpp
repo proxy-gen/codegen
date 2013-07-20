@@ -9,9 +9,9 @@
 
 
 
- 			
-		
-		
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -52,13 +52,11 @@ class java_lang_String;
 class java_security_Principal
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_String getName();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_String *  getName();
+};	
 
 } // namespace
 

@@ -9,12 +9,12 @@
 
 
 
- 			
-		
- 			
-		
- 			
-		
+ 		 
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -53,6 +53,7 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
+class android_view_ContextMenu;
 
 class android_graphics_drawable_Drawable;
 
@@ -61,13 +62,11 @@ class android_view_View;
 class android_view_ContextMenu
 {
 public:
- android_view_ContextMenu setHeaderTitle(int& arg0,java_lang_CharSequence& arg1);
- android_view_ContextMenu setHeaderIcon(int& arg0,android_graphics_drawable_Drawable& arg1);
- android_view_ContextMenu setHeaderView(android_view_View& arg0);
- void clearHeader();
-
-
-};
+	 android_view_ContextMenu *  setHeaderTitle(int& arg0,java_lang_CharSequence& arg1);
+	 android_view_ContextMenu *  setHeaderIcon(int& arg0,android_graphics_drawable_Drawable& arg1);
+	 android_view_ContextMenu *  setHeaderView(android_view_View& arg0);
+	 void clearHeader();
+};	
 
 } // namespace
 

@@ -9,11 +9,11 @@
 
 
 
-		
- 			
- 			
-		
-		
+	
+ 		 
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -56,25 +56,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_view_animation_Transformation;
 
 class android_graphics_Matrix;
 
 class android_view_animation_Transformation
 {
 public:
- java_lang_String toString();
- void clear();
- void set(android_view_animation_Transformation& arg0);
- void compose(android_view_animation_Transformation& arg0);
- android_graphics_Matrix getMatrix();
- float getAlpha();
- void setAlpha(float& arg0);
- java_lang_String toShortString();
- int getTransformationType();
- void setTransformationType(int& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 void clear();
+	 void set(android_view_animation_Transformation& arg0);
+	 void compose(android_view_animation_Transformation& arg0);
+	 android_graphics_Matrix *  getMatrix();
+	 float getAlpha();
+	 void setAlpha(float& arg0);
+	 java_lang_String *  toShortString();
+	 int getTransformationType();
+	 void setTransformationType(int& arg0);
+};	
 
 } // namespace
 

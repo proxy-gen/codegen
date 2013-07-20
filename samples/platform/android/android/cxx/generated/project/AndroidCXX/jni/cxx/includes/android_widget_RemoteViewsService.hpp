@@ -9,10 +9,10 @@
 
 
 
- 			
-		
- 			
-		
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -55,11 +55,9 @@ class android_widget_RemoteViewsService_RemoteViewsFactory;
 class android_widget_RemoteViewsService
 {
 public:
- android_os_IBinder onBind(android_content_Intent& arg0);
- android_widget_RemoteViewsService_RemoteViewsFactory onGetViewFactory(android_content_Intent& arg0);
-
-
-};
+	 android_os_IBinder *  onBind(android_content_Intent& arg0);
+	 android_widget_RemoteViewsService_RemoteViewsFactory *  onGetViewFactory(android_content_Intent& arg0);
+};	
 
 } // namespace
 

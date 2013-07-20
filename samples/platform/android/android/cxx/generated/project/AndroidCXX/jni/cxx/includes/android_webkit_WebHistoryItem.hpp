@@ -9,10 +9,10 @@
 
 
 
-		
-		
-		
-		
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -53,13 +53,11 @@ class android_graphics_Bitmap;
 class android_webkit_WebHistoryItem
 {
 public:
- java_lang_String getUrl();
- java_lang_String getTitle();
- java_lang_String getOriginalUrl();
- android_graphics_Bitmap getFavicon();
-
-
-};
+	 java_lang_String *  getUrl();
+	 java_lang_String *  getTitle();
+	 java_lang_String *  getOriginalUrl();
+	 android_graphics_Bitmap *  getFavicon();
+};	
 
 } // namespace
 

@@ -9,15 +9,19 @@
 
 
 
-		
- 			
-		
- 			
-		
- 			
-		
- 			
- 			
+	
+ 		 
+ 	
+ 		 
+	
+ 		 
+	
+ 		 
+ 	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -71,6 +75,7 @@ class java_nio_channels_FileLock;
 
 class java_nio_ByteBuffer;
 
+class java_nio_channels_FileChannel;
 
 class java_nio_channels_FileChannel_MapMode;
 
@@ -83,20 +88,18 @@ class java_nio_channels_ReadableByteChannel;
 class java_nio_channels_FileChannel
 {
 public:
- java_nio_channels_FileLock lock(long& arg0,bool& arg1);
- long size();
- long position(long& arg0);
- int write(java_nio_ByteBuffer& arg0,std::vector<long>& arg1,int& arg2,long& arg3);
- java_nio_channels_FileChannel truncate(long& arg0);
- java_nio_MappedByteBuffer map(java_nio_channels_FileChannel_MapMode& arg0,long& arg1);
- int read(java_nio_ByteBuffer& arg0,std::vector<long>& arg1,int& arg2,long& arg3);
- java_nio_channels_FileLock tryLock(long& arg0,bool& arg1);
- void force(bool& arg0);
- long transferTo(long& arg0,java_nio_channels_WritableByteChannel& arg1);
- long transferFrom(java_nio_channels_ReadableByteChannel& arg0,long& arg1);
-
-
-};
+	 java_nio_channels_FileLock *  lock(long& arg0,bool& arg1);
+	 long size();
+	 long position(long& arg0);
+	 int write(java_nio_ByteBuffer& arg0,std::vector<long>& arg1,int& arg2,long& arg3);
+	 java_nio_channels_FileChannel *  truncate(long& arg0);
+	 java_nio_MappedByteBuffer *  map(java_nio_channels_FileChannel_MapMode& arg0,long& arg1);
+	 int read(java_nio_ByteBuffer& arg0,std::vector<long>& arg1,int& arg2,long& arg3);
+	 java_nio_channels_FileLock *  tryLock(long& arg0,bool& arg1);
+	 void force(bool& arg0);
+	 long transferTo(long& arg0,java_nio_channels_WritableByteChannel& arg1);
+	 long transferFrom(java_nio_channels_ReadableByteChannel& arg0,long& arg1);
+};	
 
 } // namespace
 

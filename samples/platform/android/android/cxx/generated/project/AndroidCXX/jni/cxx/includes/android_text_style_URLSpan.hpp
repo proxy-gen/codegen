@@ -9,9 +9,9 @@
 
 
 
-		
- 			
- 			
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -57,14 +57,12 @@ class android_view_View;
 class android_text_style_URLSpan
 {
 public:
- java_lang_String getURL();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void onClick(android_view_View& arg0);
- int getSpanTypeId();
-
-
-};
+	 java_lang_String *  getURL();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void onClick(android_view_View& arg0);
+	 int getSpanTypeId();
+};	
 
 } // namespace
 

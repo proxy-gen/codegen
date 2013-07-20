@@ -9,196 +9,1700 @@
 
 
 
-		
- 			
-		
- 			
-		
- 			
-		
-		
-		
- 			
-		
-		
-		
-		
-		
- 			
-		
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+	
+	
+ 		 
+	
+	
+	
+	
+	
+ 		 
+	
 
 // Generated Code 
 
 #include <org_json_JSONArray.hpp>
 #include <jni.h>
+#include <CXXContext.hpp>
+#include <JNIContext.hpp>
+// TODO: integrate with custom converters
+#include <CXXConverter.hpp>
+
+#define LOG_TAG "org_json_JSONArray"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
-java_lang_Object org_json_JSONArray::get(int& arg0)
+static long static_obj;
+static long static_address = (long) &static_obj;
+
+java_lang_Object *  org_json_JSONArray::get(int& arg0)
 {
-	// TODO: Implementation
-	java_lang_Object result;
+	const char *methodName = "get";
+	const char *methodSignature = "(I)Ljava/lang/Object;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_lang_Object *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONArray org_json_JSONArray::put(java_lang_Object& arg0,int& arg1,bool& arg2,long& arg3,double& arg4)
+org_json_JSONArray *  org_json_JSONArray::put(java_lang_Object& arg0,int& arg1,bool& arg2,long& arg3,double& arg4)
 {
-	// TODO: Implementation
-	org_json_JSONArray result;
+	const char *methodName = "put";
+	const char *methodSignature = "(Ljava/lang/Object;IZJD)Lorg/json/JSONArray;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jboolean jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_boolean_to_jni(java_value);
+	}
+	jlong jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni_long_to_jni(java_value);
+	}
+	jdouble jarg4;
+	{
+		long cxx_value = (long) & arg4;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg4 = convert_jni_double_to_jni(java_value);
+	}
+
+	org_json_JSONArray *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONArray");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONArray>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONArray * ) (*((org_json_JSONArray *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool org_json_JSONArray::equals(java_lang_Object& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "equals";
+	const char *methodSignature = "(Ljava/lang/Object;)Z";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String org_json_JSONArray::toString(int& arg0)
+java_lang_String *  org_json_JSONArray::toString(int& arg0)
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "toString";
+	const char *methodSignature = "(I)Ljava/lang/String;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int org_json_JSONArray::hashCode()
 {
-	// TODO: Implementation
+	const char *methodName = "hashCode";
+	const char *methodSignature = "()I";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool org_json_JSONArray::getBoolean(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "getBoolean";
+	const char *methodSignature = "(I)Z";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int org_json_JSONArray::getInt(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "getInt";
+	const char *methodSignature = "(I)I";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 long org_json_JSONArray::getLong(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "getLong";
+	const char *methodSignature = "(I)J";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	long result;
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_long_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (long) (*((long *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 double org_json_JSONArray::getDouble(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "getDouble";
+	const char *methodSignature = "(I)D";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	double result;
+	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_double_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (double) (*((double *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int org_json_JSONArray::length()
 {
-	// TODO: Implementation
+	const char *methodName = "length";
+	const char *methodSignature = "()I";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String org_json_JSONArray::join(java_lang_String& arg0)
+java_lang_String *  org_json_JSONArray::join(java_lang_String& arg0)
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "join";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String org_json_JSONArray::getString(int& arg0)
+java_lang_String *  org_json_JSONArray::getString(int& arg0)
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "getString";
+	const char *methodSignature = "(I)Ljava/lang/String;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool org_json_JSONArray::isNull(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "isNull";
+	const char *methodSignature = "(I)Z";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_Object org_json_JSONArray::opt(int& arg0)
+java_lang_Object *  org_json_JSONArray::opt(int& arg0)
 {
-	// TODO: Implementation
-	java_lang_Object result;
+	const char *methodName = "opt";
+	const char *methodSignature = "(I)Ljava/lang/Object;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_lang_Object *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool org_json_JSONArray::optBoolean(int& arg0,bool& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "optBoolean";
+	const char *methodSignature = "(IZ)Z";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jboolean jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_boolean_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 double org_json_JSONArray::optDouble(int& arg0,double& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "optDouble";
+	const char *methodSignature = "(ID)D";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jdouble jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_double_to_jni(java_value);
+	}
+
 	double result;
+	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_double_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (double) (*((double *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int org_json_JSONArray::optInt(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "optInt";
+	const char *methodSignature = "(I)I";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 long org_json_JSONArray::optLong(int& arg0,long& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "optLong";
+	const char *methodSignature = "(IJ)J";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jlong jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_long_to_jni(java_value);
+	}
+
 	long result;
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_long_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (long) (*((long *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String org_json_JSONArray::optString(int& arg0,java_lang_String& arg1)
+java_lang_String *  org_json_JSONArray::optString(int& arg0,java_lang_String& arg1)
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "optString";
+	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/String;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONArray org_json_JSONArray::getJSONArray(int& arg0)
+org_json_JSONArray *  org_json_JSONArray::getJSONArray(int& arg0)
 {
-	// TODO: Implementation
-	org_json_JSONArray result;
+	const char *methodName = "getJSONArray";
+	const char *methodSignature = "(I)Lorg/json/JSONArray;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	org_json_JSONArray *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONArray");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONArray>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONArray * ) (*((org_json_JSONArray *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONArray org_json_JSONArray::optJSONArray(int& arg0)
+org_json_JSONArray *  org_json_JSONArray::optJSONArray(int& arg0)
 {
-	// TODO: Implementation
-	org_json_JSONArray result;
+	const char *methodName = "optJSONArray";
+	const char *methodSignature = "(I)Lorg/json/JSONArray;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	org_json_JSONArray *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONArray");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONArray>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONArray * ) (*((org_json_JSONArray *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONObject org_json_JSONArray::getJSONObject(int& arg0)
+org_json_JSONObject *  org_json_JSONArray::getJSONObject(int& arg0)
 {
-	// TODO: Implementation
-	org_json_JSONObject result;
+	const char *methodName = "getJSONObject";
+	const char *methodSignature = "(I)Lorg/json/JSONObject;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	org_json_JSONObject *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONObject");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONObject>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONObject * ) (*((org_json_JSONObject *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONObject org_json_JSONArray::optJSONObject(int& arg0)
+org_json_JSONObject *  org_json_JSONArray::optJSONObject(int& arg0)
 {
-	// TODO: Implementation
-	org_json_JSONObject result;
+	const char *methodName = "optJSONObject";
+	const char *methodSignature = "(I)Lorg/json/JSONObject;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	org_json_JSONObject *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONObject");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONObject>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONObject * ) (*((org_json_JSONObject *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-org_json_JSONObject org_json_JSONArray::toJSONObject(org_json_JSONArray& arg0)
+org_json_JSONObject *  org_json_JSONArray::toJSONObject(org_json_JSONArray& arg0)
 {
-	// TODO: Implementation
-	org_json_JSONObject result;
+	const char *methodName = "toJSONObject";
+	const char *methodSignature = "(Lorg/json/JSONArray;)Lorg/json/JSONObject;";
+	const char *className = "org_json_JSONArray";
+
+	LOGV("org_json_JSONArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("org_json_JSONArray cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("org_json_JSONArray jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONArray");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<org_json_JSONArray>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	org_json_JSONObject *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("org.json.JSONObject");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<org_json_JSONObject>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (org_json_JSONObject * ) (*((org_json_JSONObject *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }

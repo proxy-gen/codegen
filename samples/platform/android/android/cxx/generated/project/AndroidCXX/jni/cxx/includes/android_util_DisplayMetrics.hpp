@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
-		
- 			
+ 		 
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -50,20 +50,19 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class android_util_DisplayMetrics;
 
 class java_lang_String;
 
 class android_util_DisplayMetrics
 {
 public:
- bool equals(java_lang_Object& arg0,android_util_DisplayMetrics& arg1);
- java_lang_String toString();
- int hashCode();
- void setTo(android_util_DisplayMetrics& arg0);
- void setToDefaults();
-
-
-};
+	 bool equals(java_lang_Object& arg0,android_util_DisplayMetrics& arg1);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 void setTo(android_util_DisplayMetrics& arg0);
+	 void setToDefaults();
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_os_Message;
 class android_os_Handler_Callback
 {
 public:
- bool handleMessage(android_os_Message& arg0);
-
-
-};
+	 bool handleMessage(android_os_Message& arg0);
+};	
 
 } // namespace
 

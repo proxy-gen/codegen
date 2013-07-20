@@ -9,9 +9,9 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
 // Generated Code 
 
@@ -55,16 +55,14 @@ class android_os_ParcelFileDescriptor;
 class android_database_sqlite_SQLiteStatement
 {
 public:
- java_lang_String toString();
- void execute();
- int executeUpdateDelete();
- long executeInsert();
- long simpleQueryForLong();
- java_lang_String simpleQueryForString();
- android_os_ParcelFileDescriptor simpleQueryForBlobFileDescriptor();
-
-
-};
+	 java_lang_String *  toString();
+	 void execute();
+	 int executeUpdateDelete();
+	 long executeInsert();
+	 long simpleQueryForLong();
+	 java_lang_String *  simpleQueryForString();
+	 android_os_ParcelFileDescriptor *  simpleQueryForBlobFileDescriptor();
+};	
 
 } // namespace
 

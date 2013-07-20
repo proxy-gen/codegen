@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_view_ViewTreeObserver_OnGlobalFocusChangeListener
 {
 public:
- void onGlobalFocusChanged(android_view_View& arg0);
-
-
-};
+	 void onGlobalFocusChanged(android_view_View& arg0);
+};	
 
 } // namespace
 

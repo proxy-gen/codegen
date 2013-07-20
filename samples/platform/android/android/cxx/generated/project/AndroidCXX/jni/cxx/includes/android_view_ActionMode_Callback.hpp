@@ -9,13 +9,13 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -60,13 +60,11 @@ class android_view_MenuItem;
 class android_view_ActionMode_Callback
 {
 public:
- bool onCreateActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
- bool onPrepareActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
- bool onActionItemClicked(android_view_ActionMode& arg0,android_view_MenuItem& arg1);
- void onDestroyActionMode(android_view_ActionMode& arg0);
-
-
-};
+	 bool onCreateActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
+	 bool onPrepareActionMode(android_view_ActionMode& arg0,android_view_Menu& arg1);
+	 bool onActionItemClicked(android_view_ActionMode& arg0,android_view_MenuItem& arg1);
+	 void onDestroyActionMode(android_view_ActionMode& arg0);
+};	
 
 } // namespace
 

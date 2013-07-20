@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -63,10 +63,8 @@ class java_lang_Object;
 class android_content_ContentProvider_PipeDataWriter
 {
 public:
- void writeDataToPipe(android_os_ParcelFileDescriptor& arg0,android_net_Uri& arg1,java_lang_String& arg2,android_os_Bundle& arg3,java_lang_Object& arg4);
-
-
-};
+	 void writeDataToPipe(android_os_ParcelFileDescriptor& arg0,android_net_Uri& arg1,java_lang_String& arg2,android_os_Bundle& arg3,java_lang_Object& arg4);
+};	
 
 } // namespace
 

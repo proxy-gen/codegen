@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_Chronometer;
 class android_widget_Chronometer_OnChronometerTickListener
 {
 public:
- void onChronometerTick(android_widget_Chronometer& arg0);
-
-
-};
+	 void onChronometerTick(android_widget_Chronometer& arg0);
+};	
 
 } // namespace
 

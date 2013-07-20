@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_widget_ListAdapter
 {
 public:
- bool isEnabled(int& arg0);
- bool areAllItemsEnabled();
-
-
-};
+	 bool isEnabled(int& arg0);
+	 bool areAllItemsEnabled();
+};	
 
 } // namespace
 

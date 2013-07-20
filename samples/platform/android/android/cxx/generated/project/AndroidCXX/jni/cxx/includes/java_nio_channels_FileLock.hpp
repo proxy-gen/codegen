@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -55,17 +55,15 @@ class java_nio_channels_FileChannel;
 class java_nio_channels_FileLock
 {
 public:
- java_lang_String toString();
- long size();
- long position();
- void release();
- java_nio_channels_FileChannel channel();
- bool isShared();
- bool isValid();
- bool overlaps(long& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 long size();
+	 long position();
+	 void release();
+	 java_nio_channels_FileChannel *  channel();
+	 bool isShared();
+	 bool isValid();
+	 bool overlaps(long& arg0);
+};	
 
 } // namespace
 

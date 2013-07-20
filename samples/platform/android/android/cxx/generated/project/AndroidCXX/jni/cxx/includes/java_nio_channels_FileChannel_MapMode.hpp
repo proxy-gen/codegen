@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class java_nio_channels_FileChannel_MapMode
 {
 public:
- java_lang_String toString();
-
-
-};
+	 java_lang_String *  toString();
+};	
 
 } // namespace
 

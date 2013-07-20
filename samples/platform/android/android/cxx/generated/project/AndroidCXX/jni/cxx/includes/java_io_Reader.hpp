@@ -9,7 +9,8 @@
 
 
 
- 			
+ 	
+ 		 
 
 // Generated Code 
 
@@ -49,16 +50,14 @@ class java_nio_CharBuffer;
 class java_io_Reader
 {
 public:
- void close();
- void mark(int& arg0);
- void reset();
- int read(std::vector<char>& arg0,int& arg1,java_nio_CharBuffer& arg2);
- long skip(long& arg0);
- bool markSupported();
- bool ready();
-
-
-};
+	 void close();
+	 void mark(int& arg0);
+	 void reset();
+	 int read(std::vector<char>& arg0,int& arg1,java_nio_CharBuffer& arg2);
+	 long skip(long& arg0);
+	 bool markSupported();
+	 bool ready();
+};	
 
 } // namespace
 

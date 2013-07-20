@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_widget_SlidingDrawer_OnDrawerScrollListener
 {
 public:
- void onScrollStarted();
- void onScrollEnded();
-
-
-};
+	 void onScrollStarted();
+	 void onScrollEnded();
+};	
 
 } // namespace
 

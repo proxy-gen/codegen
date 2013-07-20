@@ -9,12 +9,12 @@
 
 
 
-		
-		
- 			
-		
- 			
- 			
+	
+	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -57,15 +57,13 @@ class java_io_InputStream;
 class android_webkit_WebResourceResponse
 {
 public:
- java_lang_String getEncoding();
- java_io_InputStream getData();
- void setData(java_io_InputStream& arg0);
- java_lang_String getMimeType();
- void setMimeType(java_lang_String& arg0);
- void setEncoding(java_lang_String& arg0);
-
-
-};
+	 java_lang_String *  getEncoding();
+	 java_io_InputStream *  getData();
+	 void setData(java_io_InputStream& arg0);
+	 java_lang_String *  getMimeType();
+	 void setMimeType(java_lang_String& arg0);
+	 void setEncoding(java_lang_String& arg0);
+};	
 
 } // namespace
 

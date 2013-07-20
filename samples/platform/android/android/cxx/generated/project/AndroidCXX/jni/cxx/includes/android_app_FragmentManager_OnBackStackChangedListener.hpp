@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_app_FragmentManager_OnBackStackChangedListener
 {
 public:
- void onBackStackChanged();
-
-
-};
+	 void onBackStackChanged();
+};	
 
 } // namespace
 

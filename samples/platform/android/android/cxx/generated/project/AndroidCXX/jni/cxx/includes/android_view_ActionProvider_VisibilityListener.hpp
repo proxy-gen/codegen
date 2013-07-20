@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ActionProvider_VisibilityListener
 {
 public:
- void onActionProviderVisibilityChanged(bool& arg0);
-
-
-};
+	 void onActionProviderVisibilityChanged(bool& arg0);
+};	
 
 } // namespace
 

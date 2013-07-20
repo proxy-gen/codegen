@@ -9,7 +9,9 @@
 
 
 
- 			
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -23,6 +25,8 @@
 
 
 #include <android_content_Loader.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -40,13 +44,13 @@ namespace AndroidCXX {
 
 class android_content_Loader;
 
+class java_lang_Object;
+
 class android_content_Loader_OnLoadCanceledListener
 {
 public:
- void onLoadCanceled(android_content_Loader& arg0);
-
-
-};
+	 void onLoadCanceled(android_content_Loader& arg0);
+};	
 
 } // namespace
 

@@ -9,12 +9,12 @@
 
 
 
-		
- 			
- 			
- 			
- 			
-		
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -68,14 +68,12 @@ class java_lang_CharSequence;
 class android_content_pm_ApplicationInfo
 {
 public:
- java_lang_String toString();
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_lang_CharSequence loadDescription(android_content_pm_PackageManager& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_lang_CharSequence *  loadDescription(android_content_pm_PackageManager& arg0);
+};	
 
 } // namespace
 

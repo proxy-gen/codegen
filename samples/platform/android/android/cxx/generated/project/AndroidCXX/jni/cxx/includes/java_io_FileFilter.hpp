@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_io_File;
 class java_io_FileFilter
 {
 public:
- bool accept(java_io_File& arg0);
-
-
-};
+	 bool accept(java_io_File& arg0);
+};	
 
 } // namespace
 

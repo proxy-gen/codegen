@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -66,22 +66,20 @@ class android_widget_RatingBar_OnRatingBarChangeListener;
 class android_widget_RatingBar
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setOnRatingBarChangeListener(android_widget_RatingBar_OnRatingBarChangeListener& arg0);
- android_widget_RatingBar_OnRatingBarChangeListener getOnRatingBarChangeListener();
- void setIsIndicator(bool& arg0);
- bool isIndicator();
- void setNumStars(int& arg0);
- int getNumStars();
- void setRating(float& arg0);
- float getRating();
- void setStepSize(float& arg0);
- float getStepSize();
- void setMax(int& arg0);
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setOnRatingBarChangeListener(android_widget_RatingBar_OnRatingBarChangeListener& arg0);
+	 android_widget_RatingBar_OnRatingBarChangeListener *  getOnRatingBarChangeListener();
+	 void setIsIndicator(bool& arg0);
+	 bool isIndicator();
+	 void setNumStars(int& arg0);
+	 int getNumStars();
+	 void setRating(float& arg0);
+	 float getRating();
+	 void setStepSize(float& arg0);
+	 float getStepSize();
+	 void setMax(int& arg0);
+};	
 
 } // namespace
 

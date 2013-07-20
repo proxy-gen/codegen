@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_DatePicker;
 class android_widget_DatePicker_OnDateChangedListener
 {
 public:
- void onDateChanged(android_widget_DatePicker& arg0,int& arg1);
-
-
-};
+	 void onDateChanged(android_widget_DatePicker& arg0,int& arg1);
+};	
 
 } // namespace
 

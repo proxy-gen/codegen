@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -49,11 +49,9 @@ class android_view_ViewGroup_LayoutParams;
 class android_widget_AbsoluteLayout
 {
 public:
- android_view_ViewGroup_LayoutParams generateLayoutParams(android_util_AttributeSet& arg0);
- bool shouldDelayChildPressedState();
-
-
-};
+	 android_view_ViewGroup_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
+	 bool shouldDelayChildPressedState();
+};	
 
 } // namespace
 

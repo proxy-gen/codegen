@@ -9,22 +9,25 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
-		
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -101,21 +104,19 @@ class android_widget_SimpleCursorAdapter_CursorToStringConverter;
 class android_widget_SimpleCursorAdapter
 {
 public:
- java_lang_CharSequence convertToString(android_database_Cursor& arg0);
- void bindView(android_view_View& arg0,android_content_Context& arg1,android_database_Cursor& arg2);
- android_database_Cursor swapCursor(android_database_Cursor& arg0);
- android_widget_SimpleCursorAdapter_ViewBinder getViewBinder();
- void setViewBinder(android_widget_SimpleCursorAdapter_ViewBinder& arg0);
- void setViewImage(android_widget_ImageView& arg0,java_lang_String& arg1);
- void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
- int getStringConversionColumn();
- void setStringConversionColumn(int& arg0);
- android_widget_SimpleCursorAdapter_CursorToStringConverter getCursorToStringConverter();
- void setCursorToStringConverter(android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0);
- void changeCursorAndColumns(android_database_Cursor& arg0,std::vector<long>& arg1,std::vector<int>& arg2);
-
-
-};
+	 java_lang_CharSequence *  convertToString(android_database_Cursor& arg0);
+	 void bindView(android_view_View& arg0,android_content_Context& arg1,android_database_Cursor& arg2);
+	 android_database_Cursor *  swapCursor(android_database_Cursor& arg0);
+	 android_widget_SimpleCursorAdapter_ViewBinder *  getViewBinder();
+	 void setViewBinder(android_widget_SimpleCursorAdapter_ViewBinder& arg0);
+	 void setViewImage(android_widget_ImageView& arg0,java_lang_String& arg1);
+	 void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
+	 int getStringConversionColumn();
+	 void setStringConversionColumn(int& arg0);
+	 android_widget_SimpleCursorAdapter_CursorToStringConverter *  getCursorToStringConverter();
+	 void setCursorToStringConverter(android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0);
+	 void changeCursorAndColumns(android_database_Cursor& arg0,std::vector<long>& arg1,std::vector<int>& arg2);
+};	
 
 } // namespace
 

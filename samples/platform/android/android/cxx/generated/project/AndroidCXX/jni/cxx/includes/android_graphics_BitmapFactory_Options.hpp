@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_graphics_BitmapFactory_Options
 {
 public:
- void requestCancelDecode();
-
-
-};
+	 void requestCancelDecode();
+};	
 
 } // namespace
 

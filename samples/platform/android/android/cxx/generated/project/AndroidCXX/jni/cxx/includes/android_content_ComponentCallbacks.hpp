@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -44,11 +44,9 @@ class android_content_res_Configuration;
 class android_content_ComponentCallbacks
 {
 public:
- void onConfigurationChanged(android_content_res_Configuration& arg0);
- void onLowMemory();
-
-
-};
+	 void onConfigurationChanged(android_content_res_Configuration& arg0);
+	 void onLowMemory();
+};	
 
 } // namespace
 

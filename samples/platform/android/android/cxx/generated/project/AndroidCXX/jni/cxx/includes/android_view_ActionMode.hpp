@@ -9,16 +9,16 @@
 
 
 
-		
-		
- 			
- 			
-		
- 			
- 			
-		
-		
-		
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+	
 
 // Generated Code 
 
@@ -82,24 +82,22 @@ class android_view_Menu;
 class android_view_ActionMode
 {
 public:
- java_lang_Object getTag();
- void invalidate();
- void finish();
- android_view_MenuInflater getMenuInflater();
- void setTag(java_lang_Object& arg0);
- void setTitle(int& arg0,java_lang_CharSequence& arg1);
- java_lang_CharSequence getTitle();
- void setSubtitle(int& arg0,java_lang_CharSequence& arg1);
- void setTitleOptionalHint(bool& arg0);
- bool getTitleOptionalHint();
- bool isTitleOptional();
- void setCustomView(android_view_View& arg0);
- android_view_Menu getMenu();
- java_lang_CharSequence getSubtitle();
- android_view_View getCustomView();
-
-
-};
+	 java_lang_Object *  getTag();
+	 void invalidate();
+	 void finish();
+	 android_view_MenuInflater *  getMenuInflater();
+	 void setTag(java_lang_Object& arg0);
+	 void setTitle(int& arg0,java_lang_CharSequence& arg1);
+	 java_lang_CharSequence *  getTitle();
+	 void setSubtitle(int& arg0,java_lang_CharSequence& arg1);
+	 void setTitleOptionalHint(bool& arg0);
+	 bool getTitleOptionalHint();
+	 bool isTitleOptional();
+	 void setCustomView(android_view_View& arg0);
+	 android_view_Menu *  getMenu();
+	 java_lang_CharSequence *  getSubtitle();
+	 android_view_View *  getCustomView();
+};	
 
 } // namespace
 

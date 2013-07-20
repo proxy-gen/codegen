@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_media_MediaPlayer;
 class android_media_MediaPlayer_OnCompletionListener
 {
 public:
- void onCompletion(android_media_MediaPlayer& arg0);
-
-
-};
+	 void onCompletion(android_media_MediaPlayer& arg0);
+};	
 
 } // namespace
 

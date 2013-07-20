@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_app_ActionBar_LayoutParams
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

@@ -9,8 +9,9 @@
 
 
 
- 			
-		
+ 		 
+	
+ 	
 
 // Generated Code 
 
@@ -48,14 +49,12 @@ class java_lang_String;
 class android_widget_RelativeLayout_LayoutParams
 {
 public:
- java_lang_String debug(java_lang_String& arg0);
- void resolveLayoutDirection(int& arg0);
- void addRule(int& arg0);
- void removeRule(int& arg0);
- std::vector<int> getRules();
-
-
-};
+	 java_lang_String *  debug(java_lang_String& arg0);
+	 void resolveLayoutDirection(int& arg0);
+	 void addRule(int& arg0);
+	 void removeRule(int& arg0);
+	 std::vector<int> getRules();
+};	
 
 } // namespace
 

@@ -9,17 +9,17 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -65,14 +65,12 @@ class android_view_KeyEvent;
 class android_text_method_KeyListener
 {
 public:
- bool onKeyDown(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3);
- bool onKeyUp(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3);
- int getInputType();
- bool onKeyOther(android_view_View& arg0,android_text_Editable& arg1,android_view_KeyEvent& arg2);
- void clearMetaKeyState(android_view_View& arg0,android_text_Editable& arg1,int& arg2);
-
-
-};
+	 bool onKeyDown(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3);
+	 bool onKeyUp(android_view_View& arg0,android_text_Editable& arg1,int& arg2,android_view_KeyEvent& arg3);
+	 int getInputType();
+	 bool onKeyOther(android_view_View& arg0,android_text_Editable& arg1,android_view_KeyEvent& arg2);
+	 void clearMetaKeyState(android_view_View& arg0,android_text_Editable& arg1,int& arg2);
+};	
 
 } // namespace
 

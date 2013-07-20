@@ -9,13 +9,13 @@
 
 
 
-		
- 			
-		
- 			
- 			
- 			
-		
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -58,6 +58,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_view_WindowManager_LayoutParams;
 
 class android_os_Parcel;
 
@@ -66,17 +67,15 @@ class java_lang_CharSequence;
 class android_view_WindowManager_LayoutParams
 {
 public:
- java_lang_String toString();
- java_lang_String debug(java_lang_String& arg0);
- int copyFrom(android_view_WindowManager_LayoutParams& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void setTitle(java_lang_CharSequence& arg0);
- java_lang_CharSequence getTitle();
-static bool mayUseInputMethod(int& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 java_lang_String *  debug(java_lang_String& arg0);
+	 int copyFrom(android_view_WindowManager_LayoutParams& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void setTitle(java_lang_CharSequence& arg0);
+	 java_lang_CharSequence *  getTitle();
+	static bool mayUseInputMethod(int& arg0);
+};	
 
 } // namespace
 

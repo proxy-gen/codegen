@@ -9,14 +9,14 @@
 
 
 
-		
-		
-		
- 			
-		
- 			
-		
- 			
+	
+	
+	
+ 		 
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -69,21 +69,19 @@ class org_json_JSONException;
 class org_json_JSONTokener
 {
 public:
- java_lang_String toString();
- char next(char& arg0,int& arg1);
- java_lang_Object nextValue();
- java_lang_String nextString(char& arg0);
- org_json_JSONException syntaxError(java_lang_String& arg0);
- bool more();
- char nextClean();
- java_lang_String nextTo(java_lang_String& arg0,char& arg1);
- void skipPast(java_lang_String& arg0);
- char skipTo(char& arg0);
- void back();
-static int dehexchar(char& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 char next(char& arg0,int& arg1);
+	 java_lang_Object *  nextValue();
+	 java_lang_String *  nextString(char& arg0);
+	 org_json_JSONException *  syntaxError(java_lang_String& arg0);
+	 bool more();
+	 char nextClean();
+	 java_lang_String *  nextTo(java_lang_String& arg0,char& arg1);
+	 void skipPast(java_lang_String& arg0);
+	 char skipTo(char& arg0);
+	 void back();
+	static int dehexchar(char& arg0);
+};	
 
 } // namespace
 

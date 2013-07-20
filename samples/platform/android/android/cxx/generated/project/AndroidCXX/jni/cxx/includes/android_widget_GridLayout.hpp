@@ -9,12 +9,12 @@
 
 
 
- 			
-		
- 			
-		
- 			
- 			
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -86,28 +86,26 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_GridLayout
 {
 public:
- android_widget_GridLayout_LayoutParams generateLayoutParams(android_util_AttributeSet& arg0);
-static android_widget_GridLayout_Spec spec(int& arg0,android_widget_GridLayout_Alignment& arg1);
- void requestLayout();
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- int getOrientation();
- int getColumnCount();
- void setOrientation(int& arg0);
- int getRowCount();
- void setRowCount(int& arg0);
- void setColumnCount(int& arg0);
- bool getUseDefaultMargins();
- void setUseDefaultMargins(bool& arg0);
- int getAlignmentMode();
- void setAlignmentMode(int& arg0);
- bool isRowOrderPreserved();
- void setRowOrderPreserved(bool& arg0);
- bool isColumnOrderPreserved();
- void setColumnOrderPreserved(bool& arg0);
-
-
-};
+	 android_widget_GridLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
+	static android_widget_GridLayout_Spec *  spec(int& arg0,android_widget_GridLayout_Alignment& arg1);
+	 void requestLayout();
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 int getOrientation();
+	 int getColumnCount();
+	 void setOrientation(int& arg0);
+	 int getRowCount();
+	 void setRowCount(int& arg0);
+	 void setColumnCount(int& arg0);
+	 bool getUseDefaultMargins();
+	 void setUseDefaultMargins(bool& arg0);
+	 int getAlignmentMode();
+	 void setAlignmentMode(int& arg0);
+	 bool isRowOrderPreserved();
+	 void setRowOrderPreserved(bool& arg0);
+	 bool isColumnOrderPreserved();
+	 void setColumnOrderPreserved(bool& arg0);
+};	
 
 } // namespace
 

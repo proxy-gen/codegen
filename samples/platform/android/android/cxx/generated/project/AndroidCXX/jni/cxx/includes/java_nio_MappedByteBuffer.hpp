@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -40,16 +40,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_nio_MappedByteBuffer;
 
 class java_nio_MappedByteBuffer
 {
 public:
- java_nio_MappedByteBuffer load();
- bool isLoaded();
- java_nio_MappedByteBuffer force();
-
-
-};
+	 java_nio_MappedByteBuffer *  load();
+	 bool isLoaded();
+	 java_nio_MappedByteBuffer *  force();
+};	
 
 } // namespace
 

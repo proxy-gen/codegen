@@ -9,10 +9,10 @@
 
 
 
-		
- 			
-		
- 			
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -64,16 +64,14 @@ class android_widget_PopupMenu_OnDismissListener;
 class android_widget_PopupMenu
 {
 public:
- void inflate(int& arg0);
- void show();
- android_view_MenuInflater getMenuInflater();
- void setOnMenuItemClickListener(android_widget_PopupMenu_OnMenuItemClickListener& arg0);
- android_view_Menu getMenu();
- void dismiss();
- void setOnDismissListener(android_widget_PopupMenu_OnDismissListener& arg0);
-
-
-};
+	 void inflate(int& arg0);
+	 void show();
+	 android_view_MenuInflater *  getMenuInflater();
+	 void setOnMenuItemClickListener(android_widget_PopupMenu_OnMenuItemClickListener& arg0);
+	 android_view_Menu *  getMenu();
+	 void dismiss();
+	 void setOnDismissListener(android_widget_PopupMenu_OnDismissListener& arg0);
+};	
 
 } // namespace
 

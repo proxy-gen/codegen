@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_os_IBinder_DeathRecipient
 {
 public:
- void binderDied();
-
-
-};
+	 void binderDied();
+};	
 
 } // namespace
 

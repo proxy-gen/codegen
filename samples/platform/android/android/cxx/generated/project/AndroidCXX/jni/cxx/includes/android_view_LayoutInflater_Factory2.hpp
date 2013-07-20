@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -59,10 +59,8 @@ class android_util_AttributeSet;
 class android_view_LayoutInflater_Factory2
 {
 public:
- android_view_View onCreateView(android_view_View& arg0,java_lang_String& arg1,android_content_Context& arg2,android_util_AttributeSet& arg3);
-
-
-};
+	 android_view_View *  onCreateView(android_view_View& arg0,java_lang_String& arg1,android_content_Context& arg2,android_util_AttributeSet& arg3);
+};	
 
 } // namespace
 

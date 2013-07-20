@@ -9,13 +9,13 @@
 
 
 
-		
- 			
- 			
- 			
-		
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -69,18 +69,16 @@ class android_graphics_Canvas;
 class android_view_Surface
 {
 public:
- java_lang_String toString();
- void release();
- bool isValid();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void readFromParcel(android_os_Parcel& arg0);
- android_graphics_Canvas lockCanvas(android_graphics_Rect& arg0);
- void unlockCanvasAndPost(android_graphics_Canvas& arg0);
- void unlockCanvas(android_graphics_Canvas& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 void release();
+	 bool isValid();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void readFromParcel(android_os_Parcel& arg0);
+	 android_graphics_Canvas *  lockCanvas(android_graphics_Rect& arg0);
+	 void unlockCanvasAndPost(android_graphics_Canvas& arg0);
+	 void unlockCanvas(android_graphics_Canvas& arg0);
+};	
 
 } // namespace
 

@@ -9,10 +9,10 @@
 
 
 
- 			
-		
-		
-		
+ 		 
+	
+	
+	
 
 // Generated Code 
 
@@ -62,14 +62,12 @@ class java_util_Date;
 class java_security_Timestamp
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_security_cert_CertPath getSignerCertPath();
- java_util_Date getTimestamp();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_security_cert_CertPath *  getSignerCertPath();
+	 java_util_Date *  getTimestamp();
+};	
 
 } // namespace
 

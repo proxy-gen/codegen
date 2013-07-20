@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_graphics_Matrix;
 class android_graphics_Shader
 {
 public:
- bool getLocalMatrix(android_graphics_Matrix& arg0);
- void setLocalMatrix(android_graphics_Matrix& arg0);
-
-
-};
+	 bool getLocalMatrix(android_graphics_Matrix& arg0);
+	 void setLocalMatrix(android_graphics_Matrix& arg0);
+};	
 
 } // namespace
 

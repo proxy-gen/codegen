@@ -9,8 +9,8 @@
 
 
 
-		
- 			
+	
+ 		 
 
 // Generated Code 
 
@@ -49,11 +49,9 @@ class android_view_View;
 class android_view_WindowManager
 {
 public:
- android_view_Display getDefaultDisplay();
- void removeViewImmediate(android_view_View& arg0);
-
-
-};
+	 android_view_Display *  getDefaultDisplay();
+	 void removeViewImmediate(android_view_View& arg0);
+};	
 
 } // namespace
 

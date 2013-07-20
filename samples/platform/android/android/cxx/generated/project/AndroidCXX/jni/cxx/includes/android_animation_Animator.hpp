@@ -9,13 +9,15 @@
 
 
 
-		
- 			
-		
- 			
- 			
- 			
-		
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -68,6 +70,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_animation_Animator;
 
 class android_animation_TimeInterpolator;
 
@@ -80,27 +83,25 @@ class java_util_ArrayList;
 class android_animation_Animator
 {
 public:
- android_animation_Animator clone();
- void start();
- void end();
- void cancel();
- void setInterpolator(android_animation_TimeInterpolator& arg0);
- android_animation_Animator setDuration(long& arg0);
- long getDuration();
- void setTarget(java_lang_Object& arg0);
- long getStartDelay();
- void setStartDelay(long& arg0);
- bool isRunning();
- bool isStarted();
- void addListener(android_animation_Animator_AnimatorListener& arg0);
- void removeListener(android_animation_Animator_AnimatorListener& arg0);
- java_util_ArrayList getListeners();
- void removeAllListeners();
- void setupStartValues();
- void setupEndValues();
-
-
-};
+	 android_animation_Animator *  clone();
+	 void start();
+	 void end();
+	 void cancel();
+	 void setInterpolator(android_animation_TimeInterpolator& arg0);
+	 android_animation_Animator *  setDuration(long& arg0);
+	 long getDuration();
+	 void setTarget(java_lang_Object& arg0);
+	 long getStartDelay();
+	 void setStartDelay(long& arg0);
+	 bool isRunning();
+	 bool isStarted();
+	 void addListener(android_animation_Animator_AnimatorListener& arg0);
+	 void removeListener(android_animation_Animator_AnimatorListener& arg0);
+	 java_util_ArrayList *  getListeners();
+	 void removeAllListeners();
+	 void setupStartValues();
+	 void setupEndValues();
+};	
 
 } // namespace
 

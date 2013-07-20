@@ -9,11 +9,11 @@
 
 
 
-		
- 			
- 			
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -68,15 +68,13 @@ class android_content_Intent;
 class android_widget_ShareActionProvider
 {
 public:
- bool hasSubMenu();
- android_view_View onCreateActionView();
- void onPrepareSubMenu(android_view_SubMenu& arg0);
- void setOnShareTargetSelectedListener(android_widget_ShareActionProvider_OnShareTargetSelectedListener& arg0);
- void setShareHistoryFileName(java_lang_String& arg0);
- void setShareIntent(android_content_Intent& arg0);
-
-
-};
+	 bool hasSubMenu();
+	 android_view_View *  onCreateActionView();
+	 void onPrepareSubMenu(android_view_SubMenu& arg0);
+	 void setOnShareTargetSelectedListener(android_widget_ShareActionProvider_OnShareTargetSelectedListener& arg0);
+	 void setShareHistoryFileName(java_lang_String& arg0);
+	 void setShareIntent(android_content_Intent& arg0);
+};	
 
 } // namespace
 

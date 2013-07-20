@@ -9,14 +9,14 @@
 
 
 
-		
- 			
- 			
- 			
-		
- 			
- 			
-		
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -66,6 +66,7 @@ class android_graphics_drawable_Drawable;
 
 class android_view_View;
 
+class android_widget_TabHost_TabSpec;
 
 class android_widget_TabHost_TabContentFactory;
 
@@ -74,12 +75,10 @@ class android_content_Intent;
 class android_widget_TabHost_TabSpec
 {
 public:
- java_lang_String getTag();
- android_widget_TabHost_TabSpec setIndicator(java_lang_CharSequence& arg0,android_graphics_drawable_Drawable& arg1,android_view_View& arg2);
- android_widget_TabHost_TabSpec setContent(int& arg0,android_widget_TabHost_TabContentFactory& arg1,android_content_Intent& arg2);
-
-
-};
+	 java_lang_String *  getTag();
+	 android_widget_TabHost_TabSpec *  setIndicator(java_lang_CharSequence& arg0,android_graphics_drawable_Drawable& arg1,android_view_View& arg2);
+	 android_widget_TabHost_TabSpec *  setContent(int& arg0,android_widget_TabHost_TabContentFactory& arg1,android_content_Intent& arg2);
+};	
 
 } // namespace
 

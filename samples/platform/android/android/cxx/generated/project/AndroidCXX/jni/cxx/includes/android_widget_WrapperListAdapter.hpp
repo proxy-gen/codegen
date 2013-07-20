@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_ListAdapter;
 class android_widget_WrapperListAdapter
 {
 public:
- android_widget_ListAdapter getWrappedAdapter();
-
-
-};
+	 android_widget_ListAdapter *  getWrappedAdapter();
+};	
 
 } // namespace
 

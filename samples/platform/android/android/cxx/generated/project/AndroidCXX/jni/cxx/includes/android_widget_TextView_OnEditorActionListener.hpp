@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_KeyEvent;
 class android_widget_TextView_OnEditorActionListener
 {
 public:
- bool onEditorAction(android_widget_TextView& arg0,int& arg1,android_view_KeyEvent& arg2);
-
-
-};
+	 bool onEditorAction(android_widget_TextView& arg0,int& arg1,android_view_KeyEvent& arg2);
+};	
 
 } // namespace
 

@@ -9,464 +9,3465 @@
 
 
 
- 			
-		
-		
-		
-		
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
-		
- 			
- 			
-		
-		
-		
-		
-		
-		
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
+ 		 
+	
+	
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+	
+	
+	
+	
+	
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
 #include <android_app_Fragment.hpp>
 #include <jni.h>
+#include <CXXContext.hpp>
+#include <JNIContext.hpp>
+// TODO: integrate with custom converters
+#include <CXXConverter.hpp>
+
+#define LOG_TAG "android_app_Fragment"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+static long static_obj;
+static long static_address = (long) &static_obj;
+
 bool android_app_Fragment::equals(java_lang_Object& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "equals";
+	const char *methodSignature = "(Ljava/lang/Object;)Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String android_app_Fragment::toString()
+java_lang_String *  android_app_Fragment::toString()
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "toString";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int android_app_Fragment::hashCode()
 {
-	// TODO: Implementation
+	const char *methodName = "hashCode";
+	const char *methodSignature = "()I";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_content_res_Resources android_app_Fragment::getResources()
+android_content_res_Resources *  android_app_Fragment::getResources()
 {
-	// TODO: Implementation
-	android_content_res_Resources result;
+	const char *methodName = "getResources";
+	const char *methodSignature = "()Landroid/content/res/Resources;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_content_res_Resources *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.res.Resources");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_content_res_Resources>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_content_res_Resources * ) (*((android_content_res_Resources *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int android_app_Fragment::getId()
 {
-	// TODO: Implementation
+	const char *methodName = "getId";
+	const char *methodSignature = "()I";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isHidden()
 {
-	// TODO: Implementation
+	const char *methodName = "isHidden";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String android_app_Fragment::getString(int& arg0,std::vector<long>& arg1)
+java_lang_String *  android_app_Fragment::getString(int& arg0,std::vector<long>& arg1)
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "getString";
+	const char *methodSignature = "(I[java/lang/Object)Ljava/lang/String;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jobjectArray jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_object_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.Object");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_proxy<java_lang_Object>);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni__object_array_type_to_jni(java_value);
+	}
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_String android_app_Fragment::getTag()
+java_lang_String *  android_app_Fragment::getTag()
 {
-	// TODO: Implementation
-	java_lang_String result;
+	const char *methodName = "getTag";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	java_lang_String *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3)
 {
-	// TODO: Implementation
+	const char *methodName = "dump";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[java/lang/String)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.io.FileDescriptor");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_io_FileDescriptor>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.io.PrintWriter");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_io_PrintWriter>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobjectArray jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_object_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_proxy<java_lang_String>);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni__object_array_type_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+		
+	jni->popLocalFrame();
 
 }
-android_app_Fragment android_app_Fragment::instantiate(android_content_Context& arg0,java_lang_String& arg1,android_os_Bundle& arg2)
+android_app_Fragment *  android_app_Fragment::instantiate(android_content_Context& arg0,java_lang_String& arg1,android_os_Bundle& arg2)
 {
-	// TODO: Implementation
-	android_app_Fragment result;
+	const char *methodName = "instantiate";
+	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_content_Context>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	android_app_Fragment *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Fragment");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_Fragment>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_Fragment * ) (*((android_app_Fragment *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::setArguments(android_os_Bundle& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setArguments";
+	const char *methodSignature = "(Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
-android_os_Bundle android_app_Fragment::getArguments()
+android_os_Bundle *  android_app_Fragment::getArguments()
 {
-	// TODO: Implementation
-	android_os_Bundle result;
+	const char *methodName = "getArguments";
+	const char *methodSignature = "()Landroid/os/Bundle;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_os_Bundle *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_os_Bundle * ) (*((android_os_Bundle *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::setInitialSavedState(android_app_Fragment_SavedState& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setInitialSavedState";
+	const char *methodSignature = "(Landroid/app/Fragment$SavedState;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Fragment$SavedState");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_app_Fragment_SavedState>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::setTargetFragment(android_app_Fragment& arg0,int& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "setTargetFragment";
+	const char *methodSignature = "(Landroid/app/Fragment;I)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Fragment");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_app_Fragment>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
 
 }
-android_app_Fragment android_app_Fragment::getTargetFragment()
+android_app_Fragment *  android_app_Fragment::getTargetFragment()
 {
-	// TODO: Implementation
-	android_app_Fragment result;
+	const char *methodName = "getTargetFragment";
+	const char *methodSignature = "()Landroid/app/Fragment;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_Fragment *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Fragment");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_Fragment>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_Fragment * ) (*((android_app_Fragment *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int android_app_Fragment::getTargetRequestCode()
 {
-	// TODO: Implementation
+	const char *methodName = "getTargetRequestCode";
+	const char *methodSignature = "()I";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_app_Activity android_app_Fragment::getActivity()
+android_app_Activity *  android_app_Fragment::getActivity()
 {
-	// TODO: Implementation
-	android_app_Activity result;
+	const char *methodName = "getActivity";
+	const char *methodSignature = "()Landroid/app/Activity;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_Activity *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Activity");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_Activity>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_Activity * ) (*((android_app_Activity *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_lang_CharSequence android_app_Fragment::getText(int& arg0)
+java_lang_CharSequence *  android_app_Fragment::getText(int& arg0)
 {
-	// TODO: Implementation
-	java_lang_CharSequence result;
+	const char *methodName = "getText";
+	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_lang_CharSequence *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_lang_CharSequence>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_lang_CharSequence * ) (*((java_lang_CharSequence *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_app_FragmentManager android_app_Fragment::getFragmentManager()
+android_app_FragmentManager *  android_app_Fragment::getFragmentManager()
 {
-	// TODO: Implementation
-	android_app_FragmentManager result;
+	const char *methodName = "getFragmentManager";
+	const char *methodSignature = "()Landroid/app/FragmentManager;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_FragmentManager *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.FragmentManager");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_FragmentManager>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_FragmentManager * ) (*((android_app_FragmentManager *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_app_FragmentManager android_app_Fragment::getChildFragmentManager()
+android_app_FragmentManager *  android_app_Fragment::getChildFragmentManager()
 {
-	// TODO: Implementation
-	android_app_FragmentManager result;
+	const char *methodName = "getChildFragmentManager";
+	const char *methodSignature = "()Landroid/app/FragmentManager;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_FragmentManager *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.FragmentManager");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_FragmentManager>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_FragmentManager * ) (*((android_app_FragmentManager *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_app_Fragment android_app_Fragment::getParentFragment()
+android_app_Fragment *  android_app_Fragment::getParentFragment()
 {
-	// TODO: Implementation
-	android_app_Fragment result;
+	const char *methodName = "getParentFragment";
+	const char *methodSignature = "()Landroid/app/Fragment;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_Fragment *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Fragment");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_Fragment>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_Fragment * ) (*((android_app_Fragment *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isAdded()
 {
-	// TODO: Implementation
+	const char *methodName = "isAdded";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isDetached()
 {
-	// TODO: Implementation
+	const char *methodName = "isDetached";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isRemoving()
 {
-	// TODO: Implementation
+	const char *methodName = "isRemoving";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isInLayout()
 {
-	// TODO: Implementation
+	const char *methodName = "isInLayout";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isResumed()
 {
-	// TODO: Implementation
+	const char *methodName = "isResumed";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool android_app_Fragment::isVisible()
 {
-	// TODO: Implementation
+	const char *methodName = "isVisible";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::onHiddenChanged(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onHiddenChanged";
+	const char *methodSignature = "(Z)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::setRetainInstance(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setRetainInstance";
+	const char *methodSignature = "(Z)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 bool android_app_Fragment::getRetainInstance()
 {
-	// TODO: Implementation
+	const char *methodName = "getRetainInstance";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::setHasOptionsMenu(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setHasOptionsMenu";
+	const char *methodSignature = "(Z)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::setMenuVisibility(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setMenuVisibility";
+	const char *methodSignature = "(Z)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::setUserVisibleHint(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setUserVisibleHint";
+	const char *methodSignature = "(Z)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 bool android_app_Fragment::getUserVisibleHint()
 {
-	// TODO: Implementation
+	const char *methodName = "getUserVisibleHint";
+	const char *methodSignature = "()Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-android_app_LoaderManager android_app_Fragment::getLoaderManager()
+android_app_LoaderManager *  android_app_Fragment::getLoaderManager()
 {
-	// TODO: Implementation
-	android_app_LoaderManager result;
+	const char *methodName = "getLoaderManager";
+	const char *methodSignature = "()Landroid/app/LoaderManager;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_app_LoaderManager *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.LoaderManager");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_app_LoaderManager>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_app_LoaderManager * ) (*((android_app_LoaderManager *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::startActivity(android_content_Intent& arg0,android_os_Bundle& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "startActivity";
+	const char *methodSignature = "(Landroid/content/Intent;Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Intent");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_content_Intent>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::startActivityForResult(android_content_Intent& arg0,int& arg1,android_os_Bundle& arg2)
 {
-	// TODO: Implementation
+	const char *methodName = "startActivityForResult";
+	const char *methodSignature = "(Landroid/content/Intent;ILandroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Intent");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_content_Intent>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onActivityResult(int& arg0,android_content_Intent& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "onActivityResult";
+	const char *methodSignature = "(ILandroid/content/Intent;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Intent");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_content_Intent>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onInflate(android_app_Activity& arg0,android_util_AttributeSet& arg1,android_os_Bundle& arg2)
 {
-	// TODO: Implementation
+	const char *methodName = "onInflate";
+	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Activity");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_app_Activity>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.util.AttributeSet");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_util_AttributeSet>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onAttach(android_app_Activity& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onAttach";
+	const char *methodSignature = "(Landroid/app/Activity;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.app.Activity");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_app_Activity>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onCreate(android_os_Bundle& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onCreate";
+	const char *methodSignature = "(Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
-android_view_View android_app_Fragment::onCreateView(android_view_LayoutInflater& arg0,android_view_ViewGroup& arg1,android_os_Bundle& arg2)
+android_view_View *  android_app_Fragment::onCreateView(android_view_LayoutInflater& arg0,android_view_ViewGroup& arg1,android_os_Bundle& arg2)
 {
-	// TODO: Implementation
-	android_view_View result;
+	const char *methodName = "onCreateView";
+	const char *methodSignature = "(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.LayoutInflater");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_LayoutInflater>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ViewGroup");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_ViewGroup>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	android_view_View *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_view_View * ) (*((android_view_View *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::onViewCreated(android_view_View& arg0,android_os_Bundle& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "onViewCreated";
+	const char *methodSignature = "(Landroid/view/View;Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
 
 }
-android_view_View android_app_Fragment::getView()
+android_view_View *  android_app_Fragment::getView()
 {
-	// TODO: Implementation
-	android_view_View result;
+	const char *methodName = "getView";
+	const char *methodSignature = "()Landroid/view/View;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	android_view_View *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_view_View * ) (*((android_view_View *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::onActivityCreated(android_os_Bundle& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onActivityCreated";
+	const char *methodSignature = "(Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onViewStateRestored(android_os_Bundle& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onViewStateRestored";
+	const char *methodSignature = "(Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onStart()
 {
-	// TODO: Implementation
+	const char *methodName = "onStart";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onResume()
 {
-	// TODO: Implementation
+	const char *methodName = "onResume";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onSaveInstanceState(android_os_Bundle& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onSaveInstanceState";
+	const char *methodSignature = "(Landroid/os/Bundle;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.Bundle");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_os_Bundle>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onConfigurationChanged(android_content_res_Configuration& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onConfigurationChanged";
+	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.res.Configuration");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_content_res_Configuration>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onPause()
 {
-	// TODO: Implementation
+	const char *methodName = "onPause";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onStop()
 {
-	// TODO: Implementation
+	const char *methodName = "onStop";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onLowMemory()
 {
-	// TODO: Implementation
+	const char *methodName = "onLowMemory";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onDestroyView()
 {
-	// TODO: Implementation
+	const char *methodName = "onDestroyView";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onDestroy()
 {
-	// TODO: Implementation
+	const char *methodName = "onDestroy";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onDetach()
 {
-	// TODO: Implementation
+	const char *methodName = "onDetach";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onCreateOptionsMenu(android_view_Menu& arg0,android_view_MenuInflater& arg1)
 {
-	// TODO: Implementation
+	const char *methodName = "onCreateOptionsMenu";
+	const char *methodSignature = "(Landroid/view/Menu;Landroid/view/MenuInflater;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.Menu");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_Menu>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.MenuInflater");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_MenuInflater>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onPrepareOptionsMenu(android_view_Menu& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onPrepareOptionsMenu";
+	const char *methodSignature = "(Landroid/view/Menu;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.Menu");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_Menu>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onDestroyOptionsMenu()
 {
-	// TODO: Implementation
+	const char *methodName = "onDestroyOptionsMenu";
+	const char *methodSignature = "()V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 bool android_app_Fragment::onOptionsItemSelected(android_view_MenuItem& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onOptionsItemSelected";
+	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.MenuItem");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_MenuItem>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::onOptionsMenuClosed(android_view_Menu& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onOptionsMenuClosed";
+	const char *methodSignature = "(Landroid/view/Menu;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.Menu");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_Menu>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2)
 {
-	// TODO: Implementation
+	const char *methodName = "onCreateContextMenu";
+	const char *methodSignature = "(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ContextMenu");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_ContextMenu>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ContextMenu$ContextMenuInfo");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_ContextMenu_ContextMenuInfo>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::registerForContextMenu(android_view_View& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "registerForContextMenu";
+	const char *methodSignature = "(Landroid/view/View;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void android_app_Fragment::unregisterForContextMenu(android_view_View& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "unregisterForContextMenu";
+	const char *methodSignature = "(Landroid/view/View;)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.View");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_View>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 bool android_app_Fragment::onContextItemSelected(android_view_MenuItem& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onContextItemSelected";
+	const char *methodSignature = "(Landroid/view/MenuItem;)Z";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.MenuItem");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<android_view_MenuItem>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void android_app_Fragment::onTrimMemory(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "onTrimMemory";
+	const char *methodSignature = "(I)V";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
-android_animation_Animator android_app_Fragment::onCreateAnimator(int& arg0,bool& arg1)
+android_animation_Animator *  android_app_Fragment::onCreateAnimator(int& arg0,bool& arg1)
 {
-	// TODO: Implementation
-	android_animation_Animator result;
+	const char *methodName = "onCreateAnimator";
+	const char *methodSignature = "(IZ)Landroid/animation/Animator;";
+	const char *className = "android_app_Fragment";
+
+	LOGV("android_app_Fragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_app_Fragment cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_app_Fragment jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jboolean jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	android_animation_Animator *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.animation.Animator");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<android_animation_Animator>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (android_animation_Animator * ) (*((android_animation_Animator *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }

@@ -9,8 +9,10 @@
 
 
 
- 			
- 			
+ 		 
+ 	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +50,8 @@ class java_lang_Object;
 class android_support_v4_content_Loader_OnLoadCompleteListener
 {
 public:
- void onLoadComplete(android_support_v4_content_Loader& arg0,java_lang_Object& arg1);
-
-
-};
+	 void onLoadComplete(android_support_v4_content_Loader& arg0,java_lang_Object& arg1);
+};	
 
 } // namespace
 

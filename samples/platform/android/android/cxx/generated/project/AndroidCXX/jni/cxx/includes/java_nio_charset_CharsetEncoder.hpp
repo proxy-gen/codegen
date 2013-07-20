@@ -9,21 +9,24 @@
 
 
 
-		
- 			
- 			
-		
- 			
-		
-		
- 			
- 			
-		
- 			
-		
-		
-		
-		
+	
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 	
+ 	
+	
+	
+ 	
+	
 
 // Generated Code 
 
@@ -84,6 +87,7 @@ class java_nio_ByteBuffer;
 
 class java_nio_charset_CoderResult;
 
+class java_nio_charset_CharsetEncoder;
 
 class java_lang_CharSequence;
 
@@ -92,23 +96,21 @@ class java_nio_charset_CodingErrorAction;
 class java_nio_charset_CharsetEncoder
 {
 public:
- java_nio_charset_Charset charset();
- java_nio_charset_CoderResult encode(java_nio_CharBuffer& arg0,java_nio_ByteBuffer& arg1,bool& arg2);
- java_nio_charset_CoderResult flush(java_nio_ByteBuffer& arg0);
- java_nio_charset_CharsetEncoder reset();
- bool canEncode(char& arg0,java_lang_CharSequence& arg1);
- java_nio_charset_CharsetEncoder onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
- java_nio_charset_CharsetEncoder onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
- float maxBytesPerChar();
- bool isLegalReplacement(std::vector<char>& arg0);
- float averageBytesPerChar();
- std::vector<char> replacement();
- java_nio_charset_CodingErrorAction malformedInputAction();
- java_nio_charset_CodingErrorAction unmappableCharacterAction();
- java_nio_charset_CharsetEncoder replaceWith(std::vector<char>& arg0);
-
-
-};
+	 java_nio_charset_Charset *  charset();
+	 java_nio_charset_CoderResult *  encode(java_nio_CharBuffer& arg0,java_nio_ByteBuffer& arg1,bool& arg2);
+	 java_nio_charset_CoderResult *  flush(java_nio_ByteBuffer& arg0);
+	 java_nio_charset_CharsetEncoder *  reset();
+	 bool canEncode(char& arg0,java_lang_CharSequence& arg1);
+	 java_nio_charset_CharsetEncoder *  onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
+	 java_nio_charset_CharsetEncoder *  onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
+	 float maxBytesPerChar();
+	 bool isLegalReplacement(std::vector<char>& arg0);
+	 float averageBytesPerChar();
+	 std::vector<char> replacement();
+	 java_nio_charset_CodingErrorAction *  malformedInputAction();
+	 java_nio_charset_CodingErrorAction *  unmappableCharacterAction();
+	 java_nio_charset_CharsetEncoder *  replaceWith(std::vector<char>& arg0);
+};	
 
 } // namespace
 

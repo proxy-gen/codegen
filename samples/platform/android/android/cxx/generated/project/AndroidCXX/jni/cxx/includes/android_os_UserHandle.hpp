@@ -9,12 +9,12 @@
 
 
 
- 			
-		
- 			
- 			
- 			
-		
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -59,19 +59,18 @@ class java_lang_String;
 
 class android_os_Parcel;
 
+class android_os_UserHandle;
 
 class android_os_UserHandle
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- int describeContents();
-static void writeToParcel(android_os_Parcel& arg0,int& arg1,android_os_UserHandle& arg2);
-static android_os_UserHandle readFromParcel(android_os_Parcel& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 int describeContents();
+	static void writeToParcel(android_os_Parcel& arg0,int& arg1,android_os_UserHandle& arg2);
+	static android_os_UserHandle *  readFromParcel(android_os_Parcel& arg0);
+};	
 
 } // namespace
 

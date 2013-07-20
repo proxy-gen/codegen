@@ -9,9 +9,9 @@
 
 
 
-		
- 			
-		
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -44,6 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_text_Spannable_Factory;
 
 class java_lang_CharSequence;
 
@@ -52,11 +53,9 @@ class android_text_Spannable;
 class android_text_Spannable_Factory
 {
 public:
-static android_text_Spannable_Factory getInstance();
- android_text_Spannable newSpannable(java_lang_CharSequence& arg0);
-
-
-};
+	static android_text_Spannable_Factory *  getInstance();
+	 android_text_Spannable *  newSpannable(java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

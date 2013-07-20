@@ -9,7 +9,9 @@
 
 
 
- 			
+ 	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -27,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <android_database_Cursor.hpp>
 
 #include <vector>
@@ -43,20 +47,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
+
 class android_database_Cursor;
 
 class android_widget_AlphabetIndexer
 {
 public:
- void onChanged();
- void onInvalidated();
- std::vector<long> getSections();
- int getPositionForSection(int& arg0);
- int getSectionForPosition(int& arg0);
- void setCursor(android_database_Cursor& arg0);
-
-
-};
+	 void onChanged();
+	 void onInvalidated();
+	 std::vector<long> getSections();
+	 int getPositionForSection(int& arg0);
+	 int getSectionForPosition(int& arg0);
+	 void setCursor(android_database_Cursor& arg0);
+};	
 
 } // namespace
 

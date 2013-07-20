@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_webkit_JsResult
 {
 public:
- void cancel();
- void confirm();
-
-
-};
+	 void cancel();
+	 void confirm();
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_Runnable;
 class java_util_concurrent_Executor
 {
 public:
- void execute(java_lang_Runnable& arg0);
-
-
-};
+	 void execute(java_lang_Runnable& arg0);
+};	
 
 } // namespace
 

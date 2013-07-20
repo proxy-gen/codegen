@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_webkit_JsPromptResult
 {
 public:
- void confirm(java_lang_String& arg0);
-
-
-};
+	 void confirm(java_lang_String& arg0);
+};	
 
 } // namespace
 

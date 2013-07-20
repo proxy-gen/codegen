@@ -9,18 +9,18 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -88,28 +88,26 @@ class android_graphics_drawable_Drawable;
 class android_widget_TabWidget
 {
 public:
- void addView(android_view_View& arg0);
- bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void dispatchDraw(android_graphics_Canvas& arg0);
- void removeAllViews();
- void childDrawableStateChanged(android_view_View& arg0);
- void sendAccessibilityEventUnchecked(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setEnabled(bool& arg0);
- void onFocusChange(android_view_View& arg0,bool& arg1);
- int getTabCount();
- void setDividerDrawable(int& arg0,android_graphics_drawable_Drawable& arg1);
- void setCurrentTab(int& arg0);
- android_view_View getChildTabViewAt(int& arg0);
- void setLeftStripDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
- void setRightStripDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
- void setStripEnabled(bool& arg0);
- bool isStripEnabled();
- void focusCurrentTab(int& arg0);
-
-
-};
+	 void addView(android_view_View& arg0);
+	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void dispatchDraw(android_graphics_Canvas& arg0);
+	 void removeAllViews();
+	 void childDrawableStateChanged(android_view_View& arg0);
+	 void sendAccessibilityEventUnchecked(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setEnabled(bool& arg0);
+	 void onFocusChange(android_view_View& arg0,bool& arg1);
+	 int getTabCount();
+	 void setDividerDrawable(int& arg0,android_graphics_drawable_Drawable& arg1);
+	 void setCurrentTab(int& arg0);
+	 android_view_View *  getChildTabViewAt(int& arg0);
+	 void setLeftStripDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
+	 void setRightStripDrawable(android_graphics_drawable_Drawable& arg0,int& arg1);
+	 void setStripEnabled(bool& arg0);
+	 bool isStripEnabled();
+	 void focusCurrentTab(int& arg0);
+};	
 
 } // namespace
 

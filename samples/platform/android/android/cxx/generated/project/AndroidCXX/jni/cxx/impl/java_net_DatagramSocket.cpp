@@ -9,199 +9,1305 @@
 
 
 
- 			
-		
- 			
- 			
- 			
-		
-		
-		
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
+	
+ 		 
+ 		 
 
 // Generated Code 
 
 #include <java_net_DatagramSocket.hpp>
 #include <jni.h>
+#include <CXXContext.hpp>
+#include <JNIContext.hpp>
+// TODO: integrate with custom converters
+#include <CXXConverter.hpp>
+
+#define LOG_TAG "java_net_DatagramSocket"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+static long static_obj;
+static long static_address = (long) &static_obj;
+
 void java_net_DatagramSocket::close()
 {
-	// TODO: Implementation
+	const char *methodName = "close";
+	const char *methodSignature = "()V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void java_net_DatagramSocket::send(java_net_DatagramPacket& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "send";
+	const char *methodSignature = "(Ljava/net/DatagramPacket;)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.DatagramPacket");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_DatagramPacket>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 int java_net_DatagramSocket::getPort()
 {
-	// TODO: Implementation
+	const char *methodName = "getPort";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_nio_channels_DatagramChannel java_net_DatagramSocket::getChannel()
+java_nio_channels_DatagramChannel *  java_net_DatagramSocket::getChannel()
 {
-	// TODO: Implementation
-	java_nio_channels_DatagramChannel result;
+	const char *methodName = "getChannel";
+	const char *methodSignature = "()Ljava/nio/channels/DatagramChannel;";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	java_nio_channels_DatagramChannel *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.channels.DatagramChannel");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_nio_channels_DatagramChannel>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_channels_DatagramChannel * ) (*((java_nio_channels_DatagramChannel *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::connect(java_net_SocketAddress& arg0,java_net_InetAddress& arg1,int& arg2)
 {
-	// TODO: Implementation
+	const char *methodName = "connect";
+	const char *methodSignature = "(Ljava/net/SocketAddress;Ljava/net/InetAddress;I)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_SocketAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.InetAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_InetAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+		
+	jni->popLocalFrame();
 
 }
 bool java_net_DatagramSocket::isClosed()
 {
-	// TODO: Implementation
+	const char *methodName = "isClosed";
+	const char *methodSignature = "()Z";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::disconnect()
 {
-	// TODO: Implementation
+	const char *methodName = "disconnect";
+	const char *methodSignature = "()V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
 
 }
 void java_net_DatagramSocket::bind(java_net_SocketAddress& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "bind";
+	const char *methodSignature = "(Ljava/net/SocketAddress;)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_SocketAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
-java_net_InetAddress java_net_DatagramSocket::getInetAddress()
+java_net_InetAddress *  java_net_DatagramSocket::getInetAddress()
 {
-	// TODO: Implementation
-	java_net_InetAddress result;
+	const char *methodName = "getInetAddress";
+	const char *methodSignature = "()Ljava/net/InetAddress;";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	java_net_InetAddress *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.InetAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_net_InetAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_net_InetAddress * ) (*((java_net_InetAddress *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_net_InetAddress java_net_DatagramSocket::getLocalAddress()
+java_net_InetAddress *  java_net_DatagramSocket::getLocalAddress()
 {
-	// TODO: Implementation
-	java_net_InetAddress result;
+	const char *methodName = "getLocalAddress";
+	const char *methodSignature = "()Ljava/net/InetAddress;";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	java_net_InetAddress *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.InetAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_net_InetAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_net_InetAddress * ) (*((java_net_InetAddress *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 int java_net_DatagramSocket::getLocalPort()
 {
-	// TODO: Implementation
+	const char *methodName = "getLocalPort";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_net_SocketAddress java_net_DatagramSocket::getRemoteSocketAddress()
+java_net_SocketAddress *  java_net_DatagramSocket::getRemoteSocketAddress()
 {
-	// TODO: Implementation
-	java_net_SocketAddress result;
+	const char *methodName = "getRemoteSocketAddress";
+	const char *methodSignature = "()Ljava/net/SocketAddress;";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	java_net_SocketAddress *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_net_SocketAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_net_SocketAddress * ) (*((java_net_SocketAddress *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
-java_net_SocketAddress java_net_DatagramSocket::getLocalSocketAddress()
+java_net_SocketAddress *  java_net_DatagramSocket::getLocalSocketAddress()
 {
-	// TODO: Implementation
-	java_net_SocketAddress result;
+	const char *methodName = "getLocalSocketAddress";
+	const char *methodSignature = "()Ljava/net/SocketAddress;";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
+	java_net_SocketAddress *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_proxy<java_net_SocketAddress>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_net_SocketAddress * ) (*((java_net_SocketAddress *  *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setSoTimeout(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setSoTimeout";
+	const char *methodSignature = "(I)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 int java_net_DatagramSocket::getSoTimeout()
 {
-	// TODO: Implementation
+	const char *methodName = "getSoTimeout";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setSendBufferSize(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setSendBufferSize";
+	const char *methodSignature = "(I)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 int java_net_DatagramSocket::getSendBufferSize()
 {
-	// TODO: Implementation
+	const char *methodName = "getSendBufferSize";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setReceiveBufferSize(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setReceiveBufferSize";
+	const char *methodSignature = "(I)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 int java_net_DatagramSocket::getReceiveBufferSize()
 {
-	// TODO: Implementation
+	const char *methodName = "getReceiveBufferSize";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setTrafficClass(int& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setTrafficClass";
+	const char *methodSignature = "(I)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 int java_net_DatagramSocket::getTrafficClass()
 {
-	// TODO: Implementation
+	const char *methodName = "getTrafficClass";
+	const char *methodSignature = "()I";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setReuseAddress(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setReuseAddress";
+	const char *methodSignature = "(Z)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 bool java_net_DatagramSocket::getReuseAddress()
 {
-	// TODO: Implementation
+	const char *methodName = "getReuseAddress";
+	const char *methodSignature = "()Z";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool java_net_DatagramSocket::isConnected()
 {
-	// TODO: Implementation
+	const char *methodName = "isConnected";
+	const char *methodSignature = "()Z";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 bool java_net_DatagramSocket::isBound()
 {
-	// TODO: Implementation
+	const char *methodName = "isBound";
+	const char *methodSignature = "()Z";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::receive(java_net_DatagramPacket& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "receive";
+	const char *methodSignature = "(Ljava/net/DatagramPacket;)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.DatagramPacket");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_DatagramPacket>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 void java_net_DatagramSocket::setBroadcast(bool& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setBroadcast";
+	const char *methodSignature = "(Z)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }
 bool java_net_DatagramSocket::getBroadcast()
 {
-	// TODO: Implementation
+	const char *methodName = "getBroadcast";
+	const char *methodSignature = "()Z";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+
 	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (*((bool *) cxx_value));
+		
+	jni->popLocalFrame();
 
 	return result;
 }
 void java_net_DatagramSocket::setDatagramSocketImplFactory(java_net_DatagramSocketImplFactory& arg0)
 {
-	// TODO: Implementation
+	const char *methodName = "setDatagramSocketImplFactory";
+	const char *methodSignature = "(Ljava/net/DatagramSocketImplFactory;)V";
+	const char *className = "java_net_DatagramSocket";
+
+	LOGV("java_net_DatagramSocket className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("java_net_DatagramSocket cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_DatagramSocket jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.net.DatagramSocketImplFactory");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_proxy<java_net_DatagramSocketImplFactory>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
 
 }

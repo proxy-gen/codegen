@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -58,10 +58,8 @@ class android_os_Bundle;
 class android_content_IntentSender_OnFinished
 {
 public:
- void onSendFinished(android_content_IntentSender& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4);
-
-
-};
+	 void onSendFinished(android_content_IntentSender& arg0,android_content_Intent& arg1,int& arg2,java_lang_String& arg3,android_os_Bundle& arg4);
+};	
 
 } // namespace
 

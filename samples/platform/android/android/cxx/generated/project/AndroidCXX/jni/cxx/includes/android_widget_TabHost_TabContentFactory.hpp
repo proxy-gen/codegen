@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_View;
 class android_widget_TabHost_TabContentFactory
 {
 public:
- android_view_View createTabContent(java_lang_String& arg0);
-
-
-};
+	 android_view_View *  createTabContent(java_lang_String& arg0);
+};	
 
 } // namespace
 

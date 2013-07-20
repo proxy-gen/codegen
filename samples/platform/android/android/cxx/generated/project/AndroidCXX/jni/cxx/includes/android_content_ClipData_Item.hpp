@@ -9,17 +9,17 @@
 
 
 
-		
-		
-		
-		
-		
- 			
-		
- 			
-		
- 			
-		
+	
+	
+	
+	
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -76,17 +76,15 @@ class android_content_Context;
 class android_content_ClipData_Item
 {
 public:
- java_lang_String toString();
- java_lang_CharSequence getText();
- android_content_Intent getIntent();
- android_net_Uri getUri();
- java_lang_String getHtmlText();
- java_lang_CharSequence coerceToText(android_content_Context& arg0);
- java_lang_CharSequence coerceToStyledText(android_content_Context& arg0);
- java_lang_String coerceToHtmlText(android_content_Context& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 java_lang_CharSequence *  getText();
+	 android_content_Intent *  getIntent();
+	 android_net_Uri *  getUri();
+	 java_lang_String *  getHtmlText();
+	 java_lang_CharSequence *  coerceToText(android_content_Context& arg0);
+	 java_lang_CharSequence *  coerceToStyledText(android_content_Context& arg0);
+	 java_lang_String *  coerceToHtmlText(android_content_Context& arg0);
+};	
 
 } // namespace
 

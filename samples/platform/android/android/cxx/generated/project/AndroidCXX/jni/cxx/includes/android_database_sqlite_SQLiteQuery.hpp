@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_database_sqlite_SQLiteQuery
 {
 public:
- java_lang_String toString();
-
-
-};
+	 java_lang_String *  toString();
+};	
 
 } // namespace
 

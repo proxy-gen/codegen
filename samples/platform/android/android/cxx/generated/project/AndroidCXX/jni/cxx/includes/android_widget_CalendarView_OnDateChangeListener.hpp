@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_CalendarView;
 class android_widget_CalendarView_OnDateChangeListener
 {
 public:
- void onSelectedDayChange(android_widget_CalendarView& arg0,int& arg1);
-
-
-};
+	 void onSelectedDayChange(android_widget_CalendarView& arg0,int& arg1);
+};	
 
 } // namespace
 

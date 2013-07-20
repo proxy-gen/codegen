@@ -9,10 +9,10 @@
 
 
 
-		
- 			
-		
-		
+	
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -60,16 +60,14 @@ class java_lang_CharSequence;
 class android_view_inputmethod_CompletionInfo
 {
 public:
- java_lang_String toString();
- long getId();
- int getPosition();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_lang_CharSequence getText();
- java_lang_CharSequence getLabel();
-
-
-};
+	 java_lang_String *  toString();
+	 long getId();
+	 int getPosition();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_lang_CharSequence *  getText();
+	 java_lang_CharSequence *  getLabel();
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -57,14 +57,12 @@ class android_widget_MultiAutoCompleteTextView_Tokenizer;
 class android_widget_MultiAutoCompleteTextView
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- bool enoughToFilter();
- void performValidation();
- void setTokenizer(android_widget_MultiAutoCompleteTextView_Tokenizer& arg0);
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 bool enoughToFilter();
+	 void performValidation();
+	 void setTokenizer(android_widget_MultiAutoCompleteTextView_Tokenizer& arg0);
+};	
 
 } // namespace
 

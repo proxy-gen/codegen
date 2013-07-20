@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_PopupWindow_OnDismissListener
 {
 public:
- void onDismiss();
-
-
-};
+	 void onDismiss();
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -53,10 +53,8 @@ class android_view_ContextMenu_ContextMenuInfo;
 class android_view_View_OnCreateContextMenuListener
 {
 public:
- void onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2);
-
-
-};
+	 void onCreateContextMenu(android_view_ContextMenu& arg0,android_view_View& arg1,android_view_ContextMenu_ContextMenuInfo& arg2);
+};	
 
 } // namespace
 

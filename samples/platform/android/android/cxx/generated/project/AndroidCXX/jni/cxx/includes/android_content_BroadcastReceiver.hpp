@@ -9,18 +9,18 @@
 
 
 
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
- 			
-		
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -91,27 +91,25 @@ class android_os_IBinder;
 class android_content_BroadcastReceiver
 {
 public:
- void setResult(int& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
- void onReceive(android_content_Context& arg0,android_content_Intent& arg1);
- android_content_BroadcastReceiver_PendingResult goAsync();
- android_os_IBinder peekService(android_content_Context& arg0,android_content_Intent& arg1);
- void setResultCode(int& arg0);
- int getResultCode();
- void setResultData(java_lang_String& arg0);
- java_lang_String getResultData();
- void setResultExtras(android_os_Bundle& arg0);
- android_os_Bundle getResultExtras(bool& arg0);
- bool getAbortBroadcast();
- void abortBroadcast();
- void clearAbortBroadcast();
- bool isOrderedBroadcast();
- bool isInitialStickyBroadcast();
- void setOrderedHint(bool& arg0);
- void setDebugUnregister(bool& arg0);
- bool getDebugUnregister();
-
-
-};
+	 void setResult(int& arg0,java_lang_String& arg1,android_os_Bundle& arg2);
+	 void onReceive(android_content_Context& arg0,android_content_Intent& arg1);
+	 android_content_BroadcastReceiver_PendingResult *  goAsync();
+	 android_os_IBinder *  peekService(android_content_Context& arg0,android_content_Intent& arg1);
+	 void setResultCode(int& arg0);
+	 int getResultCode();
+	 void setResultData(java_lang_String& arg0);
+	 java_lang_String *  getResultData();
+	 void setResultExtras(android_os_Bundle& arg0);
+	 android_os_Bundle *  getResultExtras(bool& arg0);
+	 bool getAbortBroadcast();
+	 void abortBroadcast();
+	 void clearAbortBroadcast();
+	 bool isOrderedBroadcast();
+	 bool isInitialStickyBroadcast();
+	 void setOrderedHint(bool& arg0);
+	 void setDebugUnregister(bool& arg0);
+	 bool getDebugUnregister();
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -56,13 +56,11 @@ class android_os_Parcel;
 class android_view_inputmethod_EditorInfo
 {
 public:
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void makeCompatible(int& arg0);
-
-
-};
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void makeCompatible(int& arg0);
+};	
 
 } // namespace
 

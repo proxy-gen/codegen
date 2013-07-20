@@ -9,9 +9,9 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
 // Generated Code 
 
@@ -52,23 +52,22 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class java_nio_charset_CoderResult;
 
 class java_nio_charset_CoderResult
 {
 public:
- java_lang_String toString();
- int length();
- void throwException();
- bool isUnderflow();
- bool isError();
- bool isOverflow();
-static java_nio_charset_CoderResult malformedForLength(int& arg0);
- bool isMalformed();
- bool isUnmappable();
-static java_nio_charset_CoderResult unmappableForLength(int& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 int length();
+	 void throwException();
+	 bool isUnderflow();
+	 bool isError();
+	 bool isOverflow();
+	static java_nio_charset_CoderResult *  malformedForLength(int& arg0);
+	 bool isMalformed();
+	 bool isUnmappable();
+	static java_nio_charset_CoderResult *  unmappableForLength(int& arg0);
+};	
 
 } // namespace
 

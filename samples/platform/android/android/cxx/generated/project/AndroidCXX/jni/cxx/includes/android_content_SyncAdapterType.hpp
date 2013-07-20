@@ -9,12 +9,12 @@
 
 
 
- 			
-		
- 			
-		
- 			
-		
+ 		 
+	
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -64,24 +64,23 @@ class java_lang_String;
 
 class android_os_Parcel;
 
+class android_content_SyncAdapterType;
 
 class android_content_SyncAdapterType
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- bool supportsUploading();
- bool isUserVisible();
- bool allowParallelSyncs();
- bool isAlwaysSyncable();
- java_lang_String getSettingsActivity();
-static android_content_SyncAdapterType newKey(java_lang_String& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 bool supportsUploading();
+	 bool isUserVisible();
+	 bool allowParallelSyncs();
+	 bool isAlwaysSyncable();
+	 java_lang_String *  getSettingsActivity();
+	static android_content_SyncAdapterType *  newKey(java_lang_String& arg0);
+};	
 
 } // namespace
 

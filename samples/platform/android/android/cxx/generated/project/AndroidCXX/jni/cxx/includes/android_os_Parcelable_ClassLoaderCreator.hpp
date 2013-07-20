@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -53,10 +53,8 @@ class java_lang_Object;
 class android_os_Parcelable_ClassLoaderCreator
 {
 public:
- java_lang_Object createFromParcel(android_os_Parcel& arg0,java_lang_ClassLoader& arg1);
-
-
-};
+	 java_lang_Object *  createFromParcel(android_os_Parcel& arg0,java_lang_ClassLoader& arg1);
+};	
 
 } // namespace
 

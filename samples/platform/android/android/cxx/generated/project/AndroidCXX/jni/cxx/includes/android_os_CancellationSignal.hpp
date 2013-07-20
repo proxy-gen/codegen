@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -46,13 +46,11 @@ class android_os_CancellationSignal_OnCancelListener;
 class android_os_CancellationSignal
 {
 public:
- void cancel();
- bool isCanceled();
- void throwIfCanceled();
- void setOnCancelListener(android_os_CancellationSignal_OnCancelListener& arg0);
-
-
-};
+	 void cancel();
+	 bool isCanceled();
+	 void throwIfCanceled();
+	 void setOnCancelListener(android_os_CancellationSignal_OnCancelListener& arg0);
+};	
 
 } // namespace
 

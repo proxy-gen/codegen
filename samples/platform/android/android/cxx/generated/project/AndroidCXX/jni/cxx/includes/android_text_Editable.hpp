@@ -9,13 +9,17 @@
 
 
 
- 			
-		
- 			
-		
-		
- 			
-		
+ 		 
+	
+ 		 
+	
+	
+ 		 
+	
+ 	
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -38,6 +42,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <android_text_InputFilter.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,21 +60,22 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
+class android_text_Editable;
+
+class android_text_InputFilter;
 
 class android_text_Editable
 {
 public:
- android_text_Editable append(java_lang_CharSequence& arg0,int& arg1,char& arg2);
- void clear();
- android_text_Editable replace(int& arg0,java_lang_CharSequence& arg1);
- android_text_Editable _delete(int& arg0);
- android_text_Editable insert(int& arg0,java_lang_CharSequence& arg1);
- void clearSpans();
- void setFilters(std::vector<long>& arg0);
- std::vector<long> getFilters();
-
-
-};
+	 android_text_Editable *  append(java_lang_CharSequence& arg0,int& arg1,char& arg2);
+	 void clear();
+	 android_text_Editable *  replace(int& arg0,java_lang_CharSequence& arg1);
+	 android_text_Editable *  _delete(int& arg0);
+	 android_text_Editable *  insert(int& arg0,java_lang_CharSequence& arg1);
+	 void clearSpans();
+	 void setFilters(std::vector<long>& arg0);
+	 std::vector<long> getFilters();
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -65,22 +65,20 @@ class android_widget_Adapter;
 class android_widget_AdapterViewFlipper
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setAdapter(android_widget_Adapter& arg0);
- void fyiWillBeAdvancedByHostKThx();
- void showNext();
- void showPrevious();
- int getFlipInterval();
- void setFlipInterval(int& arg0);
- void startFlipping();
- void stopFlipping();
- bool isFlipping();
- void setAutoStart(bool& arg0);
- bool isAutoStart();
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setAdapter(android_widget_Adapter& arg0);
+	 void fyiWillBeAdvancedByHostKThx();
+	 void showNext();
+	 void showPrevious();
+	 int getFlipInterval();
+	 void setFlipInterval(int& arg0);
+	 void startFlipping();
+	 void stopFlipping();
+	 bool isFlipping();
+	 void setAutoStart(bool& arg0);
+	 bool isAutoStart();
+};	
 
 } // namespace
 

@@ -9,28 +9,28 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -84,18 +84,16 @@ class android_view_MotionEvent;
 class android_text_method_MovementMethod
 {
 public:
- void initialize(android_widget_TextView& arg0,android_text_Spannable& arg1);
- bool onKeyDown(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
- bool onKeyUp(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
- bool onTouchEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
- bool onTrackballEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
- bool onGenericMotionEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
- bool onKeyOther(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_KeyEvent& arg2);
- void onTakeFocus(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2);
- bool canSelectArbitrarily();
-
-
-};
+	 void initialize(android_widget_TextView& arg0,android_text_Spannable& arg1);
+	 bool onKeyDown(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
+	 bool onKeyUp(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2,android_view_KeyEvent& arg3);
+	 bool onTouchEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+	 bool onTrackballEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+	 bool onGenericMotionEvent(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_MotionEvent& arg2);
+	 bool onKeyOther(android_widget_TextView& arg0,android_text_Spannable& arg1,android_view_KeyEvent& arg2);
+	 void onTakeFocus(android_widget_TextView& arg0,android_text_Spannable& arg1,int& arg2);
+	 bool canSelectArbitrarily();
+};	
 
 } // namespace
 

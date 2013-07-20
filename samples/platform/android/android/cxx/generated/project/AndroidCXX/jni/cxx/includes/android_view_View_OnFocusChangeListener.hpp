@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_view_View_OnFocusChangeListener
 {
 public:
- void onFocusChange(android_view_View& arg0,bool& arg1);
-
-
-};
+	 void onFocusChange(android_view_View& arg0,bool& arg1);
+};	
 
 } // namespace
 

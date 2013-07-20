@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_os_MessageQueue_IdleHandler
 {
 public:
- bool queueIdle();
-
-
-};
+	 bool queueIdle();
+};	
 
 } // namespace
 

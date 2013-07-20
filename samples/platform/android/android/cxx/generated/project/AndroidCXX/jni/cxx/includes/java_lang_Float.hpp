@@ -9,13 +9,13 @@
 
 
 
- 			
-		
- 			
- 			
-		
-		
- 			
+ 		 
+	
+ 		 
+ 		 
+	
+	
+ 		 
 
 // Generated Code 
 
@@ -69,32 +69,31 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class java_lang_Float;
 
 class java_lang_Float
 {
 public:
- bool equals(java_lang_Object& arg0);
-static java_lang_String toString(float& arg0);
- int hashCode();
-static int floatToRawIntBits(float& arg0);
-static int floatToIntBits(float& arg0);
-static float intBitsToFloat(int& arg0);
- int compareTo(java_lang_Float& arg0);
- unsigned char byteValue();
- short shortValue();
- int intValue();
- long longValue();
- float floatValue();
- double doubleValue();
-static java_lang_Float valueOf(java_lang_String& arg0,float& arg1);
-static java_lang_String toHexString(float& arg0);
-static int compare(float& arg0);
-static bool isNaN(float& arg0);
-static float parseFloat(java_lang_String& arg0);
-static bool isInfinite(float& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	static java_lang_String *  toString(float& arg0);
+	 int hashCode();
+	static int floatToRawIntBits(float& arg0);
+	static int floatToIntBits(float& arg0);
+	static float intBitsToFloat(int& arg0);
+	 int compareTo(java_lang_Float& arg0);
+	 unsigned char byteValue();
+	 short shortValue();
+	 int intValue();
+	 long longValue();
+	 float floatValue();
+	 double doubleValue();
+	static java_lang_Float *  valueOf(java_lang_String& arg0,float& arg1);
+	static java_lang_String *  toHexString(float& arg0);
+	static int compare(float& arg0);
+	static bool isNaN(float& arg0);
+	static float parseFloat(java_lang_String& arg0);
+	static bool isInfinite(float& arg0);
+};	
 
 } // namespace
 

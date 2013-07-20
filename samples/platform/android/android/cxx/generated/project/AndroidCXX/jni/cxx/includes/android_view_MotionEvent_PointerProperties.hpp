@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,17 +45,16 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class android_view_MotionEvent_PointerProperties;
 
 class android_view_MotionEvent_PointerProperties
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
- void clear();
- void copyFrom(android_view_MotionEvent_PointerProperties& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	 void clear();
+	 void copyFrom(android_view_MotionEvent_PointerProperties& arg0);
+};	
 
 } // namespace
 

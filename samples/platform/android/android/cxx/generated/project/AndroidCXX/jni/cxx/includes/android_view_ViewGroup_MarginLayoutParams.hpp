@@ -46,18 +46,16 @@ namespace AndroidCXX {
 class android_view_ViewGroup_MarginLayoutParams
 {
 public:
- void setLayoutDirection(int& arg0);
- int getLayoutDirection();
- void resolveLayoutDirection(int& arg0);
- void setMargins(int& arg0);
- void setMarginStart(int& arg0);
- int getMarginStart();
- void setMarginEnd(int& arg0);
- int getMarginEnd();
- bool isMarginRelative();
-
-
-};
+	 void setLayoutDirection(int& arg0);
+	 int getLayoutDirection();
+	 void resolveLayoutDirection(int& arg0);
+	 void setMargins(int& arg0);
+	 void setMarginStart(int& arg0);
+	 int getMarginStart();
+	 void setMarginEnd(int& arg0);
+	 int getMarginEnd();
+	 bool isMarginRelative();
+};	
 
 } // namespace
 

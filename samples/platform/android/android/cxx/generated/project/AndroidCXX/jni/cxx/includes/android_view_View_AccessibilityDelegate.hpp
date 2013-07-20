@@ -9,24 +9,24 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -88,18 +88,16 @@ class android_os_Bundle;
 class android_view_View_AccessibilityDelegate
 {
 public:
- bool dispatchPopulateAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
- bool onRequestSendAccessibilityEvent(android_view_ViewGroup& arg0,android_view_View& arg1,android_view_accessibility_AccessibilityEvent& arg2);
- void sendAccessibilityEvent(android_view_View& arg0,int& arg1);
- void sendAccessibilityEventUnchecked(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
- void onPopulateAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
- void onInitializeAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
- void onInitializeAccessibilityNodeInfo(android_view_View& arg0,android_view_accessibility_AccessibilityNodeInfo& arg1);
- android_view_accessibility_AccessibilityNodeProvider getAccessibilityNodeProvider(android_view_View& arg0);
- bool performAccessibilityAction(android_view_View& arg0,int& arg1,android_os_Bundle& arg2);
-
-
-};
+	 bool dispatchPopulateAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
+	 bool onRequestSendAccessibilityEvent(android_view_ViewGroup& arg0,android_view_View& arg1,android_view_accessibility_AccessibilityEvent& arg2);
+	 void sendAccessibilityEvent(android_view_View& arg0,int& arg1);
+	 void sendAccessibilityEventUnchecked(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
+	 void onPopulateAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
+	 void onInitializeAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
+	 void onInitializeAccessibilityNodeInfo(android_view_View& arg0,android_view_accessibility_AccessibilityNodeInfo& arg1);
+	 android_view_accessibility_AccessibilityNodeProvider *  getAccessibilityNodeProvider(android_view_View& arg0);
+	 bool performAccessibilityAction(android_view_View& arg0,int& arg1,android_os_Bundle& arg2);
+};	
 
 } // namespace
 

@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_widget_Advanceable
 {
 public:
- void advance();
- void fyiWillBeAdvancedByHostKThx();
-
-
-};
+	 void advance();
+	 void fyiWillBeAdvancedByHostKThx();
+};	
 
 } // namespace
 

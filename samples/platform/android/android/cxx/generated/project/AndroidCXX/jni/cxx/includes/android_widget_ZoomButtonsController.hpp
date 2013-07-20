@@ -9,11 +9,11 @@
 
 
 
- 			
- 			
-		
- 			
-		
+ 		 
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -70,21 +70,19 @@ class android_widget_ZoomButtonsController_OnZoomListener;
 class android_widget_ZoomButtonsController
 {
 public:
- bool isVisible();
- void setVisible(bool& arg0);
- void setFocusable(bool& arg0);
- bool onTouch(android_view_View& arg0,android_view_MotionEvent& arg1);
- android_view_ViewGroup getContainer();
- void setZoomSpeed(long& arg0);
- void setZoomInEnabled(bool& arg0);
- void setZoomOutEnabled(bool& arg0);
- void setOnZoomListener(android_widget_ZoomButtonsController_OnZoomListener& arg0);
- bool isAutoDismissed();
- void setAutoDismissed(bool& arg0);
- android_view_View getZoomControls();
-
-
-};
+	 bool isVisible();
+	 void setVisible(bool& arg0);
+	 void setFocusable(bool& arg0);
+	 bool onTouch(android_view_View& arg0,android_view_MotionEvent& arg1);
+	 android_view_ViewGroup *  getContainer();
+	 void setZoomSpeed(long& arg0);
+	 void setZoomInEnabled(bool& arg0);
+	 void setZoomOutEnabled(bool& arg0);
+	 void setOnZoomListener(android_widget_ZoomButtonsController_OnZoomListener& arg0);
+	 bool isAutoDismissed();
+	 void setAutoDismissed(bool& arg0);
+	 android_view_View *  getZoomControls();
+};	
 
 } // namespace
 

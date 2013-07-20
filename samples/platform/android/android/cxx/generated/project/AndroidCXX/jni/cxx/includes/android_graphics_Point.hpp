@@ -9,10 +9,10 @@
 
 
 
- 			
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -62,18 +62,16 @@ class android_os_Parcel;
 class android_graphics_Point
 {
 public:
- bool equals(int& arg0,java_lang_Object& arg1);
- java_lang_String toString();
- int hashCode();
- void offset(int& arg0);
- void set(int& arg0);
- void negate();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void readFromParcel(android_os_Parcel& arg0);
-
-
-};
+	 bool equals(int& arg0,java_lang_Object& arg1);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 void offset(int& arg0);
+	 void set(int& arg0);
+	 void negate();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 void readFromParcel(android_os_Parcel& arg0);
+};	
 
 } // namespace
 

@@ -9,8 +9,10 @@
 
 
 
- 			
- 			
+ 		 
+ 	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -26,6 +28,8 @@
 #include <android_widget_AdapterView.hpp>
 
 #include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -45,13 +49,13 @@ class android_widget_AdapterView;
 
 class android_view_View;
 
+class java_lang_Object;
+
 class android_widget_AdapterView_OnItemLongClickListener
 {
 public:
- bool onItemLongClick(android_widget_AdapterView& arg0,android_view_View& arg1,int& arg2,long& arg3);
-
-
-};
+	 bool onItemLongClick(android_widget_AdapterView& arg0,android_view_View& arg1,int& arg2,long& arg3);
+};	
 
 } // namespace
 

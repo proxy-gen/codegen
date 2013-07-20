@@ -7,9 +7,7 @@ CXX_SRC_FILES := 	cxx/com_zynga_sdk_cxx_CXXContext.cpp \
 					cxx/CXXContext.cpp \
 					cxx/CXXUtil.cpp \
 					cxx/JNIContext.cpp \
-				   	cxx/ProxyComponent.cpp \
-				   	cxx/CXXConverter.cpp \
-
+				   	cxx/ProxyComponent.cpp
 
 CXX_INCLUDES := $(LOCAL_PATH)/cxx $(LOCAL_PATH)/cxx/exported
 

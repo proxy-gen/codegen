@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class java_lang_Runnable
 {
 public:
- void run();
-
-
-};
+	 void run();
+};	
 
 } // namespace
 

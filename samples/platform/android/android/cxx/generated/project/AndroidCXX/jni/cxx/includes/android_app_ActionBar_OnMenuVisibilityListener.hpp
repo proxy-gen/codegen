@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_app_ActionBar_OnMenuVisibilityListener
 {
 public:
- void onMenuVisibilityChanged(bool& arg0);
-
-
-};
+	 void onMenuVisibilityChanged(bool& arg0);
+};	
 
 } // namespace
 

@@ -9,10 +9,10 @@
 
 
 
-		
- 			
-		
-		
+	
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -61,14 +61,12 @@ class java_net_SocketAddress;
 class java_net_Proxy
 {
 public:
- java_net_Proxy_Type type();
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_net_SocketAddress address();
-
-
-};
+	 java_net_Proxy_Type *  type();
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_net_SocketAddress *  address();
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_webkit_GeolocationPermissions_Callback
 {
 public:
- void invoke(java_lang_String& arg0,bool& arg1);
-
-
-};
+	 void invoke(java_lang_String& arg0,bool& arg1);
+};	
 
 } // namespace
 

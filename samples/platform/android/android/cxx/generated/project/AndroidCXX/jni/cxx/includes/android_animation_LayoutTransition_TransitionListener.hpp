@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -57,11 +57,9 @@ class android_view_View;
 class android_animation_LayoutTransition_TransitionListener
 {
 public:
- void startTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3);
- void endTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3);
-
-
-};
+	 void startTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3);
+	 void endTransition(android_animation_LayoutTransition& arg0,android_view_ViewGroup& arg1,android_view_View& arg2,int& arg3);
+};	
 
 } // namespace
 

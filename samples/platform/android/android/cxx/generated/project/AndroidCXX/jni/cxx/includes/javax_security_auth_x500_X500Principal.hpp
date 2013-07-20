@@ -9,11 +9,15 @@
 
 
 
- 			
-		
- 			
- 			
-		
+ 		 
+	
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 	
 
 // Generated Code 
 
@@ -59,14 +63,12 @@ class java_util_Map;
 class javax_security_auth_x500_X500Principal
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_String getName(java_lang_String& arg0,java_util_Map& arg1);
- std::vector<char> getEncoded();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_String *  getName(java_lang_String& arg0,java_util_Map& arg1);
+	 std::vector<char> getEncoded();
+};	
 
 } // namespace
 

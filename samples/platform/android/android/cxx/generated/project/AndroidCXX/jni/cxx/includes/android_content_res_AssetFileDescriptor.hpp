@@ -9,12 +9,12 @@
 
 
 
-		
- 			
-		
-		
-		
-		
+	
+ 		 
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -78,20 +78,18 @@ class java_io_FileOutputStream;
 class android_content_res_AssetFileDescriptor
 {
 public:
- java_lang_String toString();
- long getLength();
- void close();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- java_io_FileDescriptor getFileDescriptor();
- long getStartOffset();
- android_os_ParcelFileDescriptor getParcelFileDescriptor();
- long getDeclaredLength();
- java_io_FileInputStream createInputStream();
- java_io_FileOutputStream createOutputStream();
-
-
-};
+	 java_lang_String *  toString();
+	 long getLength();
+	 void close();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 java_io_FileDescriptor *  getFileDescriptor();
+	 long getStartOffset();
+	 android_os_ParcelFileDescriptor *  getParcelFileDescriptor();
+	 long getDeclaredLength();
+	 java_io_FileInputStream *  createInputStream();
+	 java_io_FileOutputStream *  createOutputStream();
+};	
 
 } // namespace
 

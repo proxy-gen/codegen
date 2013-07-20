@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class java_lang_Object;
 class java_util_Comparator
 {
 public:
- bool equals(java_lang_Object& arg0);
- int compare(java_lang_Object& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int compare(java_lang_Object& arg0);
+};	
 
 } // namespace
 

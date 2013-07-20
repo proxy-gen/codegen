@@ -9,14 +9,14 @@
 
 
 
- 			
- 			
-		
-		
- 			
- 			
- 			
-		
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -73,21 +73,19 @@ class android_view_View;
 class android_view_animation_LayoutAnimationController
 {
 public:
- void start();
- void setInterpolator(android_view_animation_Interpolator& arg0,android_content_Context& arg1,int& arg2);
- android_view_animation_Animation getAnimation();
- android_view_animation_Interpolator getInterpolator();
- void setAnimation(android_view_animation_Animation& arg0,android_content_Context& arg1,int& arg2);
- int getOrder();
- void setOrder(int& arg0);
- float getDelay();
- void setDelay(float& arg0);
- bool willOverlap();
- android_view_animation_Animation getAnimationForView(android_view_View& arg0);
- bool isDone();
-
-
-};
+	 void start();
+	 void setInterpolator(android_view_animation_Interpolator& arg0,android_content_Context& arg1,int& arg2);
+	 android_view_animation_Animation *  getAnimation();
+	 android_view_animation_Interpolator *  getInterpolator();
+	 void setAnimation(android_view_animation_Animation& arg0,android_content_Context& arg1,int& arg2);
+	 int getOrder();
+	 void setOrder(int& arg0);
+	 float getDelay();
+	 void setDelay(float& arg0);
+	 bool willOverlap();
+	 android_view_animation_Animation *  getAnimationForView(android_view_View& arg0);
+	 bool isDone();
+};	
 
 } // namespace
 

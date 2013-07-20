@@ -9,10 +9,10 @@
 
 
 
-		
- 			
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -58,14 +58,12 @@ class android_os_Parcel;
 class android_content_pm_ActivityInfo
 {
 public:
- java_lang_String toString();
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- int getThemeResource();
-
-
-};
+	 java_lang_String *  toString();
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 int getThemeResource();
+};	
 
 } // namespace
 

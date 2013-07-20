@@ -9,8 +9,8 @@
 
 
 
-		
- 			
+	
+ 		 
 
 // Generated Code 
 
@@ -51,13 +51,11 @@ class android_os_Parcel;
 class android_media_MediaPlayer_TrackInfo
 {
 public:
- java_lang_String getLanguage();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- int getTrackType();
-
-
-};
+	 java_lang_String *  getLanguage();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 int getTrackType();
+};	
 
 } // namespace
 

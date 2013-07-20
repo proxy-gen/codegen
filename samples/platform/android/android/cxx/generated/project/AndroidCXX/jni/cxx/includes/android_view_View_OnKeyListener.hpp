@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_KeyEvent;
 class android_view_View_OnKeyListener
 {
 public:
- bool onKey(android_view_View& arg0,int& arg1,android_view_KeyEvent& arg2);
-
-
-};
+	 bool onKey(android_view_View& arg0,int& arg1,android_view_KeyEvent& arg2);
+};	
 
 } // namespace
 

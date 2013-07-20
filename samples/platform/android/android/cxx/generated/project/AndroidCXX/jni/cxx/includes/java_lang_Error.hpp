@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class java_lang_Error
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

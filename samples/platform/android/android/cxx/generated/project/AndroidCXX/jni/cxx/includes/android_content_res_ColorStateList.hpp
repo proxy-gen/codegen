@@ -9,13 +9,14 @@
 
 
 
-		
-		
- 			
- 			
- 			
-		
-		
+	
+	
+ 		 
+ 		 
+ 		 
+	
+	
+ 	
 
 // Generated Code 
 
@@ -61,6 +62,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_content_res_ColorStateList;
 
 class android_os_Parcel;
 
@@ -71,18 +73,16 @@ class org_xmlpull_v1_XmlPullParser;
 class android_content_res_ColorStateList
 {
 public:
- java_lang_String toString();
-static android_content_res_ColorStateList valueOf(int& arg0);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- bool isStateful();
-static android_content_res_ColorStateList createFromXml(android_content_res_Resources& arg0,org_xmlpull_v1_XmlPullParser& arg1);
- android_content_res_ColorStateList withAlpha(int& arg0);
- int getColorForState(std::vector<int>& arg0,int& arg1);
- int getDefaultColor();
-
-
-};
+	 java_lang_String *  toString();
+	static android_content_res_ColorStateList *  valueOf(int& arg0);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 bool isStateful();
+	static android_content_res_ColorStateList *  createFromXml(android_content_res_Resources& arg0,org_xmlpull_v1_XmlPullParser& arg1);
+	 android_content_res_ColorStateList *  withAlpha(int& arg0);
+	 int getColorForState(std::vector<int>& arg0,int& arg1);
+	 int getDefaultColor();
+};	
 
 } // namespace
 

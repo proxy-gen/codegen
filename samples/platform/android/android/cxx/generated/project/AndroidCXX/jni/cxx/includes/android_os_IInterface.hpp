@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_os_IBinder;
 class android_os_IInterface
 {
 public:
- android_os_IBinder asBinder();
-
-
-};
+	 android_os_IBinder *  asBinder();
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -49,11 +49,9 @@ class android_graphics_drawable_Drawable;
 class android_graphics_drawable_Drawable_ConstantState
 {
 public:
- int getChangingConfigurations();
- android_graphics_drawable_Drawable newDrawable(android_content_res_Resources& arg0);
-
-
-};
+	 int getChangingConfigurations();
+	 android_graphics_drawable_Drawable *  newDrawable(android_content_res_Resources& arg0);
+};	
 
 } // namespace
 

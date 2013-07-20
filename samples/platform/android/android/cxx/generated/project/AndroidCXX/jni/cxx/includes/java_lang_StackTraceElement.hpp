@@ -9,11 +9,11 @@
 
 
 
- 			
-		
-		
-		
-		
+ 		 
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -58,17 +58,15 @@ class java_lang_String;
 class java_lang_StackTraceElement
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_String getFileName();
- int getLineNumber();
- java_lang_String getClassName();
- java_lang_String getMethodName();
- bool isNativeMethod();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_String *  getFileName();
+	 int getLineNumber();
+	 java_lang_String *  getClassName();
+	 java_lang_String *  getMethodName();
+	 bool isNativeMethod();
+};	
 
 } // namespace
 

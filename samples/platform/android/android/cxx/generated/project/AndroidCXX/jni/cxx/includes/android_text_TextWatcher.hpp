@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -51,12 +51,10 @@ class android_text_Editable;
 class android_text_TextWatcher
 {
 public:
- void beforeTextChanged(java_lang_CharSequence& arg0,int& arg1);
- void onTextChanged(java_lang_CharSequence& arg0,int& arg1);
- void afterTextChanged(android_text_Editable& arg0);
-
-
-};
+	 void beforeTextChanged(java_lang_CharSequence& arg0,int& arg1);
+	 void onTextChanged(java_lang_CharSequence& arg0,int& arg1);
+	 void afterTextChanged(android_text_Editable& arg0);
+};	
 
 } // namespace
 

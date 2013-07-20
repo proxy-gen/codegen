@@ -40,12 +40,10 @@ namespace AndroidCXX {
 class android_database_sqlite_SQLiteTransactionListener
 {
 public:
- void onBegin();
- void onCommit();
- void onRollback();
-
-
-};
+	 void onBegin();
+	 void onCommit();
+	 void onRollback();
+};	
 
 } // namespace
 

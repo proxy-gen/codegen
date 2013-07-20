@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -49,10 +49,8 @@ class android_view_ViewGroup;
 class android_widget_SpinnerAdapter
 {
 public:
- android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
-
-
-};
+	 android_view_View *  getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+};	
 
 } // namespace
 

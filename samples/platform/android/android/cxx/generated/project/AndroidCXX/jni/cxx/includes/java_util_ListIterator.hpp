@@ -9,10 +9,10 @@
 
 
 
- 			
-		
- 			
-		
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -54,18 +54,16 @@ class java_lang_Object;
 class java_util_ListIterator
 {
 public:
- void add(java_lang_Object& arg0);
- bool hasNext();
- java_lang_Object next();
- void remove();
- void set(java_lang_Object& arg0);
- int nextIndex();
- java_lang_Object previous();
- int previousIndex();
- bool hasPrevious();
-
-
-};
+	 void add(java_lang_Object& arg0);
+	 bool hasNext();
+	 java_lang_Object *  next();
+	 void remove();
+	 void set(java_lang_Object& arg0);
+	 int nextIndex();
+	 java_lang_Object *  previous();
+	 int previousIndex();
+	 bool hasPrevious();
+};	
 
 } // namespace
 

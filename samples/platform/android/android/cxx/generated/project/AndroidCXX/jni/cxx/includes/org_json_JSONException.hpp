@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class org_json_JSONException
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

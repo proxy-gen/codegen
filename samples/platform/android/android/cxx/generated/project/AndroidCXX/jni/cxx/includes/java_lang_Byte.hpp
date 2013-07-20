@@ -9,14 +9,14 @@
 
 
 
- 			
-		
- 			
- 			
-		
- 			
-		
- 			
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -64,26 +64,25 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class java_lang_Byte;
 
 class java_lang_Byte
 {
 public:
- bool equals(java_lang_Object& arg0);
-static java_lang_String toString(unsigned char& arg0);
- int hashCode();
- int compareTo(java_lang_Byte& arg0);
- unsigned char byteValue();
- short shortValue();
- int intValue();
- long longValue();
- float floatValue();
- double doubleValue();
-static java_lang_Byte valueOf(java_lang_String& arg0,int& arg1,unsigned char& arg2);
-static java_lang_Byte decode(java_lang_String& arg0);
-static unsigned char parseByte(java_lang_String& arg0,int& arg1);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	static java_lang_String *  toString(unsigned char& arg0);
+	 int hashCode();
+	 int compareTo(java_lang_Byte& arg0);
+	 unsigned char byteValue();
+	 short shortValue();
+	 int intValue();
+	 long longValue();
+	 float floatValue();
+	 double doubleValue();
+	static java_lang_Byte *  valueOf(java_lang_String& arg0,int& arg1,unsigned char& arg2);
+	static java_lang_Byte *  decode(java_lang_String& arg0);
+	static unsigned char parseByte(java_lang_String& arg0,int& arg1);
+};	
 
 } // namespace
 

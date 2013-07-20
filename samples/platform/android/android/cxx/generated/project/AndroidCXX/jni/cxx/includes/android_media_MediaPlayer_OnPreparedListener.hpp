@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_media_MediaPlayer;
 class android_media_MediaPlayer_OnPreparedListener
 {
 public:
- void onPrepared(android_media_MediaPlayer& arg0);
-
-
-};
+	 void onPrepared(android_media_MediaPlayer& arg0);
+};	
 
 } // namespace
 

@@ -9,8 +9,9 @@
 
 
 
-		
-		
+ 	
+	
+	
 
 // Generated Code 
 
@@ -51,13 +52,11 @@ class java_nio_channels_FileChannel;
 class java_io_FileOutputStream
 {
 public:
- void write(std::vector<char>& arg0,int& arg1);
- void close();
- java_io_FileDescriptor getFD();
- java_nio_channels_FileChannel getChannel();
-
-
-};
+	 void write(std::vector<char>& arg0,int& arg1);
+	 void close();
+	 java_io_FileDescriptor *  getFD();
+	 java_nio_channels_FileChannel *  getChannel();
+};	
 
 } // namespace
 

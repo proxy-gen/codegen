@@ -9,17 +9,17 @@
 
 
 
- 			
- 			
- 			
-		
-		
- 			
- 			
-		
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -67,6 +67,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class android_graphics_Typeface;
 
 class android_content_res_AssetManager;
 
@@ -75,18 +76,16 @@ class java_io_File;
 class android_graphics_Typeface
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
-static android_graphics_Typeface create(java_lang_String& arg0,int& arg1,android_graphics_Typeface& arg2);
- int getStyle();
- bool isBold();
- bool isItalic();
-static android_graphics_Typeface defaultFromStyle(int& arg0);
-static android_graphics_Typeface createFromAsset(android_content_res_AssetManager& arg0,java_lang_String& arg1);
-static android_graphics_Typeface createFromFile(java_lang_String& arg0,java_io_File& arg1);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	static android_graphics_Typeface *  create(java_lang_String& arg0,int& arg1,android_graphics_Typeface& arg2);
+	 int getStyle();
+	 bool isBold();
+	 bool isItalic();
+	static android_graphics_Typeface *  defaultFromStyle(int& arg0);
+	static android_graphics_Typeface *  createFromAsset(android_content_res_AssetManager& arg0,java_lang_String& arg1);
+	static android_graphics_Typeface *  createFromFile(java_lang_String& arg0,java_io_File& arg1);
+};	
 
 } // namespace
 

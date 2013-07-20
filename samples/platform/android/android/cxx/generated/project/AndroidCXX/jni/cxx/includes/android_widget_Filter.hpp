@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -55,11 +55,9 @@ class java_lang_Object;
 class android_widget_Filter
 {
 public:
- void filter(java_lang_CharSequence& arg0,android_widget_Filter_FilterListener& arg1);
- java_lang_CharSequence convertResultToString(java_lang_Object& arg0);
-
-
-};
+	 void filter(java_lang_CharSequence& arg0,android_widget_Filter_FilterListener& arg1);
+	 java_lang_CharSequence *  convertResultToString(java_lang_Object& arg0);
+};	
 
 } // namespace
 

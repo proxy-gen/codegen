@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_SlidingDrawer_OnDrawerCloseListener
 {
 public:
- void onDrawerClosed();
-
-
-};
+	 void onDrawerClosed();
+};	
 
 } // namespace
 

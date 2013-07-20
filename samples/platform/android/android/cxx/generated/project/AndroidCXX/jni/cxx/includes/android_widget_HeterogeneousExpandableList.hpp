@@ -41,13 +41,11 @@ namespace AndroidCXX {
 class android_widget_HeterogeneousExpandableList
 {
 public:
- int getGroupType(int& arg0);
- int getChildType(int& arg0);
- int getGroupTypeCount();
- int getChildTypeCount();
-
-
-};
+	 int getGroupType(int& arg0);
+	 int getChildType(int& arg0);
+	 int getGroupTypeCount();
+	 int getChildTypeCount();
+};	
 
 } // namespace
 

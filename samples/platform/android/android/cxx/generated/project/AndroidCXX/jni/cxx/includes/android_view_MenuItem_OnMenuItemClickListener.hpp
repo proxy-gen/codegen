@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_MenuItem;
 class android_view_MenuItem_OnMenuItemClickListener
 {
 public:
- bool onMenuItemClick(android_view_MenuItem& arg0);
-
-
-};
+	 bool onMenuItemClick(android_view_MenuItem& arg0);
+};	
 
 } // namespace
 

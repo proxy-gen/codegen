@@ -9,8 +9,8 @@
 
 
 
-		
- 			
+	
+ 		 
 
 // Generated Code 
 
@@ -50,12 +50,10 @@ class android_os_Parcel;
 class android_content_ContentProviderResult
 {
 public:
- java_lang_String toString();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-
-
-};
+	 java_lang_String *  toString();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+};	
 
 } // namespace
 

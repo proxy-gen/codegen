@@ -9,12 +9,13 @@
 
 
 
- 			
-		
-		
- 			
- 			
-		
+ 		 
+	
+	
+ 	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -62,16 +63,14 @@ class java_security_PublicKey;
 class java_security_cert_Certificate
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_String getType();
- std::vector<char> getEncoded();
- void verify(java_security_PublicKey& arg0,java_lang_String& arg1);
- java_security_PublicKey getPublicKey();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_String *  getType();
+	 std::vector<char> getEncoded();
+	 void verify(java_security_PublicKey& arg0,java_lang_String& arg1);
+	 java_security_PublicKey *  getPublicKey();
+};	
 
 } // namespace
 

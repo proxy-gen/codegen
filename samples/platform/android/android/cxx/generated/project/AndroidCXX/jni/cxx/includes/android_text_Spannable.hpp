@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class java_lang_Object;
 class android_text_Spannable
 {
 public:
- void setSpan(java_lang_Object& arg0,int& arg1);
- void removeSpan(java_lang_Object& arg0);
-
-
-};
+	 void setSpan(java_lang_Object& arg0,int& arg1);
+	 void removeSpan(java_lang_Object& arg0);
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_Filter_FilterListener
 {
 public:
- void onFilterComplete(int& arg0);
-
-
-};
+	 void onFilterComplete(int& arg0);
+};	
 
 } // namespace
 

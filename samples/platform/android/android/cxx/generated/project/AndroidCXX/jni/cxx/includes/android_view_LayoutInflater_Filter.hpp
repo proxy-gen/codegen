@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_Class;
 class android_view_LayoutInflater_Filter
 {
 public:
- bool onLoadClass(java_lang_Class& arg0);
-
-
-};
+	 bool onLoadClass(java_lang_Class& arg0);
+};	
 
 } // namespace
 

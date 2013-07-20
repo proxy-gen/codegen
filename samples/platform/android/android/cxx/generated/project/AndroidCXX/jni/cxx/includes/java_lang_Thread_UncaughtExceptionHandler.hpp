@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_lang_Throwable;
 class java_lang_Thread_UncaughtExceptionHandler
 {
 public:
- void uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1);
-
-
-};
+	 void uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1);
+};	
 
 } // namespace
 

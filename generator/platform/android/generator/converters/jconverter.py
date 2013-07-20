@@ -85,12 +85,12 @@ config = {
 							},
 		},
 		{
-			"name"		:	"convert_jni_void",
+			"name"		:	"convert_jni_java_lang_Object",
 			"java"		:	{
-								"type" : "void",
+								"type" : "java.lang.Object",
 							},
 			"jni"		:	{
-								"type" : "void",
+								"type" : "jobject",
 							},
 		},
 		{
@@ -103,7 +103,7 @@ config = {
 							},
 		},
 		{
-			"name"					:	"convert_jni___object_array_type",
+			"name"					:	"convert_jni__object_array_type",
 			"java"					:	{
 											"type"	:	"_object_array_type",
 										},
@@ -182,24 +182,6 @@ config = {
 			"jni"					:	{
 											"type"	: "jcharArray",
 										},
-		},
-		{
-			"name"		:	"convert_jni_java_lang_Object",
-			"java"		:	{
-								"type" : "java.lang.Object",
-							},
-			"jni"		:	{
-								"type" : "jobject",
-							},
-		},
-		{
-			"name"		:	"convert_void",
-			"java"		:	{ 
-								"type" : "void",
-							},
-			"cxx"		: 	{ 
-								"type" : "void",
-							},
 		},
 		{
 			"name"		:	"convert_boolean",

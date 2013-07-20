@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ViewTreeObserver_OnTouchModeChangeListener
 {
 public:
- void onTouchModeChanged(bool& arg0);
-
-
-};
+	 void onTouchModeChanged(bool& arg0);
+};	
 
 } // namespace
 

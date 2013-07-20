@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_widget_GridLayout_Alignment
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

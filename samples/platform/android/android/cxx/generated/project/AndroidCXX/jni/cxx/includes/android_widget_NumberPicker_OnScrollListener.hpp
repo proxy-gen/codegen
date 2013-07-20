@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_NumberPicker;
 class android_widget_NumberPicker_OnScrollListener
 {
 public:
- void onScrollStateChange(android_widget_NumberPicker& arg0,int& arg1);
-
-
-};
+	 void onScrollStateChange(android_widget_NumberPicker& arg0,int& arg1);
+};	
 
 } // namespace
 

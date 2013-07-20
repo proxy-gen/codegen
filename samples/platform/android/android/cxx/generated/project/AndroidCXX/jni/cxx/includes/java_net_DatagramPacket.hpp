@@ -9,10 +9,12 @@
 
 
 
-		
- 			
- 			
-		
+	
+ 	
+ 		 
+ 	
+ 		 
+	
 
 // Generated Code 
 
@@ -60,20 +62,18 @@ class java_net_SocketAddress;
 class java_net_DatagramPacket
 {
 public:
- int getLength();
- java_net_InetAddress getAddress();
- void setLength(int& arg0);
- int getOffset();
- int getPort();
- std::vector<char> getData();
- void setAddress(java_net_InetAddress& arg0);
- void setPort(int& arg0);
- void setData(std::vector<char>& arg0,int& arg1);
- void setSocketAddress(java_net_SocketAddress& arg0);
- java_net_SocketAddress getSocketAddress();
-
-
-};
+	 int getLength();
+	 java_net_InetAddress *  getAddress();
+	 void setLength(int& arg0);
+	 int getOffset();
+	 int getPort();
+	 std::vector<char> getData();
+	 void setAddress(java_net_InetAddress& arg0);
+	 void setPort(int& arg0);
+	 void setData(std::vector<char>& arg0,int& arg1);
+	 void setSocketAddress(java_net_SocketAddress& arg0);
+	 java_net_SocketAddress *  getSocketAddress();
+};	
 
 } // namespace
 

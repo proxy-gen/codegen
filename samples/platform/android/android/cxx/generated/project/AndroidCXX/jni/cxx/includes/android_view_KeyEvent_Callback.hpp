@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -49,13 +49,11 @@ class android_view_KeyEvent;
 class android_view_KeyEvent_Callback
 {
 public:
- bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyLongPress(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
- bool onKeyMultiple(int& arg0,android_view_KeyEvent& arg1);
-
-
-};
+	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyLongPress(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
+	 bool onKeyMultiple(int& arg0,android_view_KeyEvent& arg1);
+};	
 
 } // namespace
 

@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class java_net_MalformedURLException
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

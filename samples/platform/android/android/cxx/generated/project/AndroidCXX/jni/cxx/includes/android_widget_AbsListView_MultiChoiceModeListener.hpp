@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_ActionMode;
 class android_widget_AbsListView_MultiChoiceModeListener
 {
 public:
- void onItemCheckedStateChanged(android_view_ActionMode& arg0,int& arg1,long& arg2,bool& arg3);
-
-
-};
+	 void onItemCheckedStateChanged(android_view_ActionMode& arg0,int& arg1,long& arg2,bool& arg3);
+};	
 
 } // namespace
 

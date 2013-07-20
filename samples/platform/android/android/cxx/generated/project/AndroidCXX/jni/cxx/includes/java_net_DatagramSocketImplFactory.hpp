@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_net_DatagramSocketImpl;
 class java_net_DatagramSocketImplFactory
 {
 public:
- java_net_DatagramSocketImpl createDatagramSocketImpl();
-
-
-};
+	 java_net_DatagramSocketImpl *  createDatagramSocketImpl();
+};	
 
 } // namespace
 

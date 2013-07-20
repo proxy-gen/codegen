@@ -9,14 +9,16 @@
 
 
 
- 			
-		
- 			
- 			
-		
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
+	
+ 	
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -61,27 +63,26 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class android_util_SparseArray;
 
 class android_util_SparseArray
 {
 public:
- java_lang_Object get(int& arg0,java_lang_Object& arg1);
- void put(int& arg0,java_lang_Object& arg1);
- void append(int& arg0,java_lang_Object& arg1);
- android_util_SparseArray clone();
- void clear();
- int size();
- void remove(int& arg0);
- void _delete(int& arg0);
- void removeAt(int& arg0);
- int keyAt(int& arg0);
- java_lang_Object valueAt(int& arg0);
- void setValueAt(int& arg0,java_lang_Object& arg1);
- int indexOfKey(int& arg0);
- int indexOfValue(java_lang_Object& arg0);
-
-
-};
+	 java_lang_Object *  get(int& arg0,java_lang_Object& arg1);
+	 void put(int& arg0,java_lang_Object& arg1);
+	 void append(int& arg0,java_lang_Object& arg1);
+	 android_util_SparseArray *  clone();
+	 void clear();
+	 int size();
+	 void remove(int& arg0);
+	 void _delete(int& arg0);
+	 void removeAt(int& arg0);
+	 int keyAt(int& arg0);
+	 java_lang_Object *  valueAt(int& arg0);
+	 void setValueAt(int& arg0,java_lang_Object& arg1);
+	 int indexOfKey(int& arg0);
+	 int indexOfValue(java_lang_Object& arg0);
+};	
 
 } // namespace
 

@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_webkit_SslErrorHandler
 {
 public:
- void cancel();
- void proceed();
-
-
-};
+	 void cancel();
+	 void proceed();
+};	
 
 } // namespace
 

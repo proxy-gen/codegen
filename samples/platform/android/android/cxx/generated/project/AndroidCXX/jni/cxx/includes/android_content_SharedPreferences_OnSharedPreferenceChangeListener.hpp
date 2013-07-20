@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_lang_String;
 class android_content_SharedPreferences_OnSharedPreferenceChangeListener
 {
 public:
- void onSharedPreferenceChanged(android_content_SharedPreferences& arg0,java_lang_String& arg1);
-
-
-};
+	 void onSharedPreferenceChanged(android_content_SharedPreferences& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

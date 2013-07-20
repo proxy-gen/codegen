@@ -9,13 +9,13 @@
 
 
 
- 			
- 			
- 			
-		
- 			
-		
-		
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -72,21 +72,19 @@ class android_view_Surface;
 class android_view_SurfaceHolder
 {
 public:
- void setFormat(int& arg0);
- void setType(int& arg0);
- void setKeepScreenOn(bool& arg0);
- void addCallback(android_view_SurfaceHolder_Callback& arg0);
- void removeCallback(android_view_SurfaceHolder_Callback& arg0);
- bool isCreating();
- void setFixedSize(int& arg0);
- void setSizeFromLayout();
- android_graphics_Canvas lockCanvas(android_graphics_Rect& arg0);
- void unlockCanvasAndPost(android_graphics_Canvas& arg0);
- android_graphics_Rect getSurfaceFrame();
- android_view_Surface getSurface();
-
-
-};
+	 void setFormat(int& arg0);
+	 void setType(int& arg0);
+	 void setKeepScreenOn(bool& arg0);
+	 void addCallback(android_view_SurfaceHolder_Callback& arg0);
+	 void removeCallback(android_view_SurfaceHolder_Callback& arg0);
+	 bool isCreating();
+	 void setFixedSize(int& arg0);
+	 void setSizeFromLayout();
+	 android_graphics_Canvas *  lockCanvas(android_graphics_Rect& arg0);
+	 void unlockCanvasAndPost(android_graphics_Canvas& arg0);
+	 android_graphics_Rect *  getSurfaceFrame();
+	 android_view_Surface *  getSurface();
+};	
 
 } // namespace
 

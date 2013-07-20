@@ -219,8 +219,8 @@ class Generator(BaseGenerator):
 		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
-		# jniconvertors attached temporary 
-		self._attach_jni_converters(self.config_module.config_data, self.config_module)
+		# derived data attached temporary 
+		self._attach_derived_data(self.config_module.config_data, self.config_module)
 		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes")
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
@@ -235,7 +235,7 @@ class Generator(BaseGenerator):
 		self._generate_cxx_singleton_code()
 		self._generate_cxx_callbacks_code()
 		self._generate_cxx_enum_code()
-		self._detach_jni_converters(self.config_module.config_data, self.config_module)			
+		# self._detach_derived_data(self.config_module.config_data, self.config_module)			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
 
@@ -859,87 +859,219 @@ class Generator(BaseGenerator):
 				self._attach_config_converter(child_convertible, config_module)
 		logging.debug("_attach_config_converter exit")
 
-	def _attach_jni_converters(self, config_data, config_module):
-		logging.debug("_attach_jni_converters enter")
+	def _attach_derived_data(self, config_data, config_module):
+		logging.debug("_attach_derived_data enter")
 		if "params" in config_data or "returns" in config_data:
 			if "params" in config_data:
 				for param in config_data["params"]:
-					self._attach_jni_converter(param, config_module)
+					self._attach_derived_type_data(param, config_module)
 			if "returns" in config_data:
 				for retrn in config_data["returns"]:
-					self._attach_jni_converter(retrn, config_module)
+					self._attach_derived_type_data(retrn, config_module)
 		else:
 			if "classes" in config_data:
 				for clazz in config_data["classes"]:
-					self._attach_jni_converters(clazz, config_module)
+					self._attach_derived_data(clazz, config_module)
 			if "functions" in config_data:
 				for function in config_data["functions"]:
-					self._attach_jni_converters(function, config_module)
+					self._attach_derived_data(function, config_module)
+					self._attach_derived_function_data(function, config_module)
 			if "constructors" in config_data:
 				for constructor in config_data["constructors"]:
-					self._attach_jni_converters(constructor, config_module)
+					self._attach_derived_data(constructor, config_module)
 			if "fields" in config_data:
 				for field in config_data["fields"]:
-					self._attach_jni_converter(field["type"], config_module)
-		logging.debug("_attach_jni_converters enter")
+					self._attach_derived_type_data(field["type"], config_module)
+		logging.debug("_attach_derived_data enter")
 
-	def _attach_jni_converter(self, convertible, config_module):
-		logging.debug("_attach_jni_converter enter")
-		if "jniconverter" not in convertible:
+	def _attach_derived_function_data(self, function_config, config_module):
+		logging.debug("_attach_derived_function_data enter")
+		if "deriveddata" not in function_config:
+			function_config['deriveddata'] = dict()
+		self._attach_derived_jni_function_data(function_config, config_module)
+		logging.debug("_attach_derived_function_data enter")
+
+	def _attach_derived_jni_function_data(self, function_config, config_module):
+		logging.debug("_attach_derived_function_data enter")
+		deriveddata = function_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_function_signature(function_config, config_module)
+		self._attach_derived_jni_function_invoke_id(function_config, config_module)
+		logging.debug("_attach_derived_function_data enter")	
+
+	def _attach_derived_jni_function_signature(self, function_config, config_module):
+		logging.debug("_attach_derived_jni_function_signature enter")
+		deriveddata = function_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			function_sig = "("
+			for param in function_config['params']:
+				function_sig += param['deriveddata']['jnidata']['jnisignature']
+			function_sig += ")"
+			returns = function_config['returns']
+			function_sig += returns[0]['deriveddata']['jnidata']['jnisignature']
+			jnidata['jnisignature'] = function_sig
+		assert 'jnisignature' in jnidata
+		logging.debug("_attach_derived_jni_function_signature exit")
+
+	def _attach_derived_jni_function_invoke_id(self, function_config, config_module):
+		logging.debug("_attach_derived_jni_function_invoke_id enter")
+		deriveddata = function_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jniinvokeid' not in jnidata:
+			returns = function_config['returns']
+			if jindex.PrimitiveType.is_primitive_id(returns[0]['type']):
+				jniinvokeid = returns[0]['type'].capitalize()
+			elif jindex.VoidType.is_void_id(returns[0]['type']):
+				jniinvokeid = 'Void'
+			else:
+				jniinvokeid = 'Object'
+			jnidata['jniinvokeid'] = jniinvokeid
+		assert 'jniinvokeid' in jnidata
+		logging.debug("_attach_derived_jni_function_invoke_id exit")
+
+	def _attach_derived_type_data(self, type_config, config_module):
+		logging.debug("_attach_derived_type_data enter")
+		if "deriveddata" not in type_config:
+			type_config['deriveddata'] = dict()
+		self._attach_derived_target_type_data(type_config, config_module)
+		self._attach_derived_jni_type_data(type_config, config_module)
+		logging.debug("_attach_derived_type_data exit")
+
+	def _attach_derived_target_type_data(self, type_config, config_module):
+		logging.debug("_attach_derived_target_type_data enter")
+		deriveddata = type_config['deriveddata']
+		if "targetdata" not in deriveddata:
+			deriveddata['targetdata'] = dict()
+		self._attach_derived_target_namespace(type_config, config_module)
+		self._attach_derived_target_type_info(type_config, config_module)
+		logging.debug("_attach_derived_target_type_data exit")
+
+	def _attach_derived_target_namespace(self, type_config, config_module):
+		logging.debug("_attach_derived_target_namespace enter")
+		deriveddata = type_config['deriveddata']
+		targetdata = deriveddata['targetdata']
+		if 'namespace' not in targetdata:
+			targetdata['namespace'] = config_module.config_data['namespace']
+		assert "namespace" in targetdata, "namespace not attached to " + str(type_config)
+		logging.debug("_attach_derived_target_namespace exit")
+
+	def _attach_derived_target_type_info(self, type_config, config_module):
+		logging.debug("_attach_derived_target_type_name enter")
+		deriveddata = type_config['deriveddata']
+		targetdata = deriveddata['targetdata']
+		if 'typeinfo' not in targetdata:
+			typeinfo = targetdata['typeinfo'] = dict()
+			if type_config['converter'] == 'convert_proxy':
+				classes = config_module.list_all_classes(tags=None,xtags=None,name=type_config['type'])
+				for clazz in classes:
+					type_name = clazz['name']
+					type_name = Utils.to_class_name(type_name)					
+					typeinfo['typename'] = type_name
+					file_name = Utils.to_file_name(type_name,"hpp")
+					typeinfo['filename'] = file_name
+					is_enum = True if '_enum' in clazz['tags'] else False
+					typeinfo['isenum'] = is_enum
+					typeinfo['isproxied'] = True
+					break
+			else:
+				converters = config_module.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)
+				for converter in converters:
+					type_name = converter['cxx']['type']
+					typeinfo['typename'] = type_name
+					break
+			assert 'typename' in typeinfo, 'TODO: add valid converter to ' + str(type_config)
+		assert "typeinfo" in targetdata, "typeinfo not attached to " + str(type_config)
+		logging.debug("_attach_derived_target_type_info exit")
+
+	def _attach_derived_jni_type_data(self, type_config, config_module):
+		logging.debug("_attach_derived_jni_type_data enter")
+		deriveddata = type_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_type_converter(type_config, config_module)
+		self._attach_derived_jni_type_signature(type_config, config_module)
+		if "children" in type_config:
+			for child_type_config in type_config["children"]:
+				self._attach_derived_type_data(child_type_config, config_module)
+		logging.debug("_attach_derived_jni_type_data exit")
+
+	def _attach_derived_jni_type_converter(self, type_config, config_module):
+		logging.debug("_attach_derived_jni_type_converter enter")
+		deriveddata = type_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jniconverter' not in jnidata:
 			converters = config_module.config_data["converters"]
 			for converter in converters:
 				if "java" in converter:
 						if "jni" in converter:
-							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
-								jindex.VoidType.is_void_id(convertible["type"]) or\
-								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							if 	jindex.PrimitiveType.is_primitive_id(type_config["type"]) or\
+								jindex.VoidType.is_void_id(type_config["type"]) or\
+								jindex.ArrayType.is_array_id(type_config["type"]) or\
 							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
 							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
 							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
-								if convertible["type"] == converter["java"]["type"]:
-									convertible["jniconverter"] = converter["name"]
+								if type_config["type"] == converter["java"]["type"]:
+									jnidata["jniconverter"] = converter["name"]
+									jnidata["jnitype"] = converter["jni"]["type"]
 							else:
-								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
-									convertible["jniconverter"] = converter["name"]
-		assert "jniconverter" in convertible, "jniconverter not attached to " + str(convertible)
-		if "children" in convertible:
-			for child_convertible in convertible["children"]:
-				self._attach_jni_converter(child_convertible, config_module)
-		logging.debug("_attach_jni_converter exit")
+								if jindex.TypeHierarchy.canCastClass1ToClass2(type_config["type"],converter["java"]["type"]):
+									jnidata["jniconverter"] = converter["name"]
+									jnidata["jnitype"] = converter["jni"]["type"]
+		assert "jniconverter" in jnidata, "derived jniconverter not attached to " + str(type_config)
+		assert "jnitype" in jnidata, "derived jnitype not attached to " + str(type_config)
+		logging.debug("_attach_derived_jni_type_converter exit")
 
-	def _detach_jni_converters(self, config_data, config_module):
-		logging.debug("_detach_jni_converters enter")
+	def _attach_derived_jni_type_signature(self, type_config, config_module):
+		logging.debug("_attach_derived_jni_type_signature enter")
+		deriveddata = type_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
+		logging.debug("_attach_derived_jni_type_signature exit")
+
+	def _detach_derived_data(self, config_data, config_module):
+		logging.debug("_detach_derived_data enter")
 		if "params" in config_data or "returns" in config_data:
 			if "params" in config_data:
 				for param in config_data["params"]:
-					self._detach_jni_converter(param, config_module)
+					self._detach_derived_type_data(param, config_module)
 			if "returns" in config_data:
 				for retrn in config_data["returns"]:
-					self._detach_jni_converter(retrn, config_module)
+					self._detach_derived_type_data(retrn, config_module)
 		else:
 			if "classes" in config_data:
 				for clazz in config_data["classes"]:
-					self._detach_jni_converters(clazz, config_module)
+					self._detach_derived_data(clazz, config_module)
 			if "functions" in config_data:
 				for function in config_data["functions"]:
-					self._detach_jni_converters(function, config_module)
+					self._detach_derived_data(function, config_module)
+					self._detach_derived_function_data(function, config_module)
 			if "constructors" in config_data:
 				for constructor in config_data["constructors"]:
-					self._detach_jni_converters(constructor, config_module)
+					self._detach_derived_data(constructor, config_module)
 			if "fields" in config_data:
 				for field in config_data["fields"]:
-					self._detach_jni_converter(field["type"], config_module)
-		logging.debug("_detach_jni_converters enter")
+					self._detach_derived_type_data(field["type"], config_module)
+		logging.debug("_detach_derived_data enter")
 
-	def _detach_jni_converter(self, convertible, config_module):
-		logging.debug("_detach_jni_converter enter")
-		if "jniconverter" in convertible:
-			del convertible["jniconverter"]
-		assert "jniconverter" not in convertible, "jniconverter not detached from " + str(convertible)
-		if "children" in convertible:
-			for child_convertible in convertible["children"]:
-				self._detach_jni_converter(child_convertible, config_module)
-		logging.debug("_detach_jni_converter exit")	
+	def _detach_derived_function_data(self, function_config, config_module):
+		logging.debug("_detach_derived_function_data enter")
+		if "deriveddata" in function_config:
+			del function_config["deriveddata"]
+		assert "deriveddata" not in function_config, "deriveddata not detached from " + str(function_config)
+		logging.debug("_detach_derived_function_data exit")	
+
+	def _detach_derived_type_data(self, type_config, config_module):
+		logging.debug("_detach_derived_type_data enter")
+		if "deriveddata" in type_config:
+			del type_config["deriveddata"]
+		assert "deriveddata" not in type_config, "deriveddata not detached from " + str(type_config)
+		if "children" in type_config:
+			for child_type_config in type_config["children"]:
+				self._detach_derived_type_data(child_type_config, config_module)
+		logging.debug("_detach_derived_type_data exit")	
 
 	def _teardown_index(self):
 		if jindex.Index.destroy() != jindex.INDEX_OK:
@@ -953,6 +1085,23 @@ class ConfigModule(object):
 		if include_config_file_path is not None:
 			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
 		self.is_valid = self.config_data is not None
+
+	# TODO: remove me
+	def to_class_name(self, class_name):
+		class_name = class_name.replace('.','_')
+		class_name = class_name.replace('$','_')
+		return class_name
+
+	# TODO: remove me
+	def to_safe_cxx_name(self, cxx_name):
+		if cxx_name in Utils.cxx_reserved_names:
+			return '_' + cxx_name
+		return cxx_name
+
+	# TODO: remove me
+	def to_file_name(self, base_name, extension):
+		file_name = ".".join([base_name, extension])
+		return file_name
 
 	def analyze_config(self, config_module):
 		config_report = dict()
@@ -1063,16 +1212,6 @@ class ConfigModule(object):
 				if append:
 					function_list.append(function)
 		return function_list
-
-	def to_class_name(cls, class_name):
-		return Utils.to_class_name(class_name)
-
-	def to_safe_cxx_name(cls, cxx_name):
-		return Utils.to_safe_cxx_name(cxx_name)
-
-	def to_file_name(cls, base_name, extension):
-		file_name = ".".join([base_name, extension])
-		return file_name
 
 	def _init_info(self):
 		if not hasattr(self, 'class_info'):
@@ -1212,6 +1351,18 @@ class Utils(object):
 							'xor_eq',
 						)
 
+	jni_type_signature_map = 	{
+									'boolean'	:	'Z',
+									'byte'		:	'B',
+									'char'		:	'C',
+									'short'		:	'S',
+									'int'		:	'I',
+									'long'		:	'J',
+									'float'		:	'F',
+									'double'	:	'D',
+									'void'		:	'V',
+								}
+
 	@classmethod
 	def to_resource_name(cls, class_name):
 		return class_name.replace('.', '/')
@@ -1227,6 +1378,28 @@ class Utils(object):
 		if cxx_name in Utils.cxx_reserved_names:
 			return '_' + cxx_name
 		return cxx_name
+
+	@classmethod
+	def to_file_name(cls, base_name, extension):
+		file_name = ".".join([base_name, extension])
+		return file_name
+
+	@classmethod
+	def to_jni_type_signature(cls, type_config):
+		type_ = type_config['type']
+		if type_ in Utils.jni_type_signature_map:
+			return Utils.jni_type_signature_map[type_]
+		if jindex.ArrayType.is_array_id(type_):
+			array_type = type_.split('_')[1]
+			if array_type in Utils.jni_type_signature_map:
+				array_type = '[' + Utils.jni_type_signature_map[array_type]
+			else:
+				array_type = 'java.lang.Object'
+				if 'children' in type_config:
+					array_type = type_config['children'][0]['type']
+			return '[' + Utils.to_resource_name(array_type)
+		return 'L' + Utils.to_resource_name(type_) + ';'
+
 
 
 

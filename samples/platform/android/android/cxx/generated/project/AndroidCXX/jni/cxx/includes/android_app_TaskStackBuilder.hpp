@@ -9,20 +9,24 @@
 
 
 
- 			
-		
- 			
- 			
-		
- 			
-		
- 			
- 			
- 			
-		
-		
- 			
-		
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -56,6 +60,8 @@
 
 #include <android_content_ComponentName.hpp>
 
+#include <java_lang_Object.hpp>
+
 #include <android_app_PendingIntent.hpp>
 
 #include <vector>
@@ -74,6 +80,7 @@ namespace AndroidCXX {
 
 class android_content_Context;
 
+class android_app_TaskStackBuilder;
 
 class android_os_Bundle;
 
@@ -85,23 +92,23 @@ class java_lang_Class;
 
 class android_content_ComponentName;
 
+class java_lang_Object;
+
 class android_app_PendingIntent;
 
 class android_app_TaskStackBuilder
 {
 public:
-static android_app_TaskStackBuilder create(android_content_Context& arg0);
- void startActivities(android_os_Bundle& arg0);
- android_app_TaskStackBuilder addNextIntent(android_content_Intent& arg0);
- android_app_TaskStackBuilder addNextIntentWithParentStack(android_content_Intent& arg0);
- android_app_TaskStackBuilder addParentStack(android_app_Activity& arg0,java_lang_Class& arg1,android_content_ComponentName& arg2);
- int getIntentCount();
- android_content_Intent editIntentAt(int& arg0);
- android_app_PendingIntent getPendingIntent(int& arg0,android_os_Bundle& arg1);
- std::vector<long> getIntents();
-
-
-};
+	static android_app_TaskStackBuilder *  create(android_content_Context& arg0);
+	 void startActivities(android_os_Bundle& arg0);
+	 android_app_TaskStackBuilder *  addNextIntent(android_content_Intent& arg0);
+	 android_app_TaskStackBuilder *  addNextIntentWithParentStack(android_content_Intent& arg0);
+	 android_app_TaskStackBuilder *  addParentStack(android_app_Activity& arg0,java_lang_Class& arg1,android_content_ComponentName& arg2);
+	 int getIntentCount();
+	 android_content_Intent *  editIntentAt(int& arg0);
+	 android_app_PendingIntent *  getPendingIntent(int& arg0,android_os_Bundle& arg1);
+	 std::vector<long> getIntents();
+};	
 
 } // namespace
 

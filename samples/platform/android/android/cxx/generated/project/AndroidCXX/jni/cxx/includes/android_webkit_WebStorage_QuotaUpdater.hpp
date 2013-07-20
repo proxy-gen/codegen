@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_webkit_WebStorage_QuotaUpdater
 {
 public:
- void updateQuota(long& arg0);
-
-
-};
+	 void updateQuota(long& arg0);
+};	
 
 } // namespace
 

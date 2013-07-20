@@ -9,15 +9,15 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -61,16 +61,14 @@ class android_os_Bundle;
 class android_app_Application_ActivityLifecycleCallbacks
 {
 public:
- void onActivityCreated(android_app_Activity& arg0,android_os_Bundle& arg1);
- void onActivityStarted(android_app_Activity& arg0);
- void onActivityResumed(android_app_Activity& arg0);
- void onActivityPaused(android_app_Activity& arg0);
- void onActivityStopped(android_app_Activity& arg0);
- void onActivitySaveInstanceState(android_app_Activity& arg0,android_os_Bundle& arg1);
- void onActivityDestroyed(android_app_Activity& arg0);
-
-
-};
+	 void onActivityCreated(android_app_Activity& arg0,android_os_Bundle& arg1);
+	 void onActivityStarted(android_app_Activity& arg0);
+	 void onActivityResumed(android_app_Activity& arg0);
+	 void onActivityPaused(android_app_Activity& arg0);
+	 void onActivityStopped(android_app_Activity& arg0);
+	 void onActivitySaveInstanceState(android_app_Activity& arg0,android_os_Bundle& arg1);
+	 void onActivityDestroyed(android_app_Activity& arg0);
+};	
 
 } // namespace
 

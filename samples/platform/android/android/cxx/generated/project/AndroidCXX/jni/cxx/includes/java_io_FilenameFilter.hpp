@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_lang_String;
 class java_io_FilenameFilter
 {
 public:
- bool accept(java_io_File& arg0,java_lang_String& arg1);
-
-
-};
+	 bool accept(java_io_File& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

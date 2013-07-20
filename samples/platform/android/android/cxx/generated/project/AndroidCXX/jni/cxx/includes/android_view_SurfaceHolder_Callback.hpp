@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
- 			
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -47,12 +47,10 @@ class android_view_SurfaceHolder;
 class android_view_SurfaceHolder_Callback
 {
 public:
- void surfaceCreated(android_view_SurfaceHolder& arg0);
- void surfaceChanged(android_view_SurfaceHolder& arg0,int& arg1);
- void surfaceDestroyed(android_view_SurfaceHolder& arg0);
-
-
-};
+	 void surfaceCreated(android_view_SurfaceHolder& arg0);
+	 void surfaceChanged(android_view_SurfaceHolder& arg0,int& arg1);
+	 void surfaceDestroyed(android_view_SurfaceHolder& arg0);
+};	
 
 } // namespace
 

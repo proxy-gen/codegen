@@ -9,10 +9,10 @@
 
 
 
-		
- 			
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -56,12 +56,10 @@ class java_lang_String;
 class android_widget_SimpleCursorTreeAdapter
 {
 public:
- android_widget_SimpleCursorTreeAdapter_ViewBinder getViewBinder();
- void setViewBinder(android_widget_SimpleCursorTreeAdapter_ViewBinder& arg0);
- void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
-
-
-};
+	 android_widget_SimpleCursorTreeAdapter_ViewBinder *  getViewBinder();
+	 void setViewBinder(android_widget_SimpleCursorTreeAdapter_ViewBinder& arg0);
+	 void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

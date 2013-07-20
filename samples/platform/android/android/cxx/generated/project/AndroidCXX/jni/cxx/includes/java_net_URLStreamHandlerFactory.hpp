@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_net_URLStreamHandler;
 class java_net_URLStreamHandlerFactory
 {
 public:
- java_net_URLStreamHandler createURLStreamHandler(java_lang_String& arg0);
-
-
-};
+	 java_net_URLStreamHandler *  createURLStreamHandler(java_lang_String& arg0);
+};	
 
 } // namespace
 

@@ -9,6 +9,8 @@
 
 
 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -22,6 +24,8 @@
 
 
 
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -37,15 +41,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
+
 class android_widget_SectionIndexer
 {
 public:
- std::vector<long> getSections();
- int getPositionForSection(int& arg0);
- int getSectionForPosition(int& arg0);
-
-
-};
+	 std::vector<long> getSections();
+	 int getPositionForSection(int& arg0);
+	 int getSectionForPosition(int& arg0);
+};	
 
 } // namespace
 

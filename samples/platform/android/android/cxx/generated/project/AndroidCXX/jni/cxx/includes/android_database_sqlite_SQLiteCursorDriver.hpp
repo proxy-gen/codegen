@@ -9,9 +9,13 @@
 
 
 
- 			
-		
- 			
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -32,6 +36,8 @@
 
 #include <android_database_Cursor.hpp>
 
+#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,17 +56,17 @@ class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
 class android_database_Cursor;
 
+class java_lang_String;
+
 class android_database_sqlite_SQLiteCursorDriver
 {
 public:
- android_database_Cursor query(android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<long>& arg1);
- void cursorDeactivated();
- void cursorRequeried(android_database_Cursor& arg0);
- void cursorClosed();
- void setBindArguments(std::vector<long>& arg0);
-
-
-};
+	 android_database_Cursor *  query(android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<long>& arg1);
+	 void cursorDeactivated();
+	 void cursorRequeried(android_database_Cursor& arg0);
+	 void cursorClosed();
+	 void setBindArguments(std::vector<long>& arg0);
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_widget_ViewSwitcher_ViewFactory
 {
 public:
- android_view_View makeView();
-
-
-};
+	 android_view_View *  makeView();
+};	
 
 } // namespace
 

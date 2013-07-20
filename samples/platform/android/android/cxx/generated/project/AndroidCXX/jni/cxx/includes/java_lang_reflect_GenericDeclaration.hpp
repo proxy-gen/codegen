@@ -9,6 +9,10 @@
 
 
 
+ 	
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -20,6 +24,10 @@
 
 
 
+
+#include <java_lang_reflect_TypeVariable.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -35,13 +43,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_reflect_TypeVariable;
+
+class java_lang_Object;
+
 class java_lang_reflect_GenericDeclaration
 {
 public:
- std::vector<long> getTypeParameters();
-
-
-};
+	 std::vector<long> getTypeParameters();
+};	
 
 } // namespace
 

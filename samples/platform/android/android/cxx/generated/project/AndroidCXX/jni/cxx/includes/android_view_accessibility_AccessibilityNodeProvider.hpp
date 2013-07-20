@@ -9,10 +9,12 @@
 
 
 
-		
- 			
- 			
-		
+	
+ 		 
+ 		 
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -60,12 +62,10 @@ class java_util_List;
 class android_view_accessibility_AccessibilityNodeProvider
 {
 public:
- android_view_accessibility_AccessibilityNodeInfo createAccessibilityNodeInfo(int& arg0);
- bool performAction(int& arg0,android_os_Bundle& arg1);
- java_util_List findAccessibilityNodeInfosByText(java_lang_String& arg0,int& arg1);
-
-
-};
+	 android_view_accessibility_AccessibilityNodeInfo *  createAccessibilityNodeInfo(int& arg0);
+	 bool performAction(int& arg0,android_os_Bundle& arg1);
+	 java_util_List *  findAccessibilityNodeInfosByText(java_lang_String& arg0,int& arg1);
+};	
 
 } // namespace
 

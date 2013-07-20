@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ViewTreeObserver_OnScrollChangedListener
 {
 public:
- void onScrollChanged();
-
-
-};
+	 void onScrollChanged();
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_os_CancellationSignal_OnCancelListener
 {
 public:
- void onCancel();
-
-
-};
+	 void onCancel();
+};	
 
 } // namespace
 

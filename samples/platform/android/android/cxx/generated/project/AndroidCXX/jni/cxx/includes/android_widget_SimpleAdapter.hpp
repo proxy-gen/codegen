@@ -9,20 +9,20 @@
 
 
 
- 			
- 			
-		
-		
-		
- 			
- 			
-		
-		
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 		 
+	
+	
+	
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -94,20 +94,18 @@ class android_widget_TextView;
 class android_widget_SimpleAdapter
 {
 public:
- android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- android_widget_Filter getFilter();
- java_lang_Object getItem(int& arg0);
- long getItemId(int& arg0);
- int getCount();
- android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- void setDropDownViewResource(int& arg0);
- android_widget_SimpleAdapter_ViewBinder getViewBinder();
- void setViewBinder(android_widget_SimpleAdapter_ViewBinder& arg0);
- void setViewImage(android_widget_ImageView& arg0,int& arg1,java_lang_String& arg2);
- void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
-
-
-};
+	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 android_widget_Filter *  getFilter();
+	 java_lang_Object *  getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 android_view_View *  getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 void setDropDownViewResource(int& arg0);
+	 android_widget_SimpleAdapter_ViewBinder *  getViewBinder();
+	 void setViewBinder(android_widget_SimpleAdapter_ViewBinder& arg0);
+	 void setViewImage(android_widget_ImageView& arg0,int& arg1,java_lang_String& arg2);
+	 void setViewText(android_widget_TextView& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

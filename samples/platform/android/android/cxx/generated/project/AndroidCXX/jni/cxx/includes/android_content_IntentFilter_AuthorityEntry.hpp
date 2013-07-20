@@ -9,8 +9,8 @@
 
 
 
-		
- 			
+	
+ 		 
 
 // Generated Code 
 
@@ -50,12 +50,10 @@ class android_net_Uri;
 class android_content_IntentFilter_AuthorityEntry
 {
 public:
- int getPort();
- java_lang_String getHost();
- int match(android_net_Uri& arg0);
-
-
-};
+	 int getPort();
+	 java_lang_String *  getHost();
+	 int match(android_net_Uri& arg0);
+};	
 
 } // namespace
 

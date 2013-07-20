@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_widget_AbsListView;
 class android_widget_AbsListView_OnScrollListener
 {
 public:
- void onScrollStateChanged(android_widget_AbsListView& arg0,int& arg1);
- void onScroll(android_widget_AbsListView& arg0,int& arg1);
-
-
-};
+	 void onScrollStateChanged(android_widget_AbsListView& arg0,int& arg1);
+	 void onScroll(android_widget_AbsListView& arg0,int& arg1);
+};	
 
 } // namespace
 

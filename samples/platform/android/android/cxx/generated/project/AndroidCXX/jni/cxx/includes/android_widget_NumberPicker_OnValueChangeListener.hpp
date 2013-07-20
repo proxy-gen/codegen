@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_NumberPicker;
 class android_widget_NumberPicker_OnValueChangeListener
 {
 public:
- void onValueChange(android_widget_NumberPicker& arg0,int& arg1);
-
-
-};
+	 void onValueChange(android_widget_NumberPicker& arg0,int& arg1);
+};	
 
 } // namespace
 

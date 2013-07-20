@@ -9,35 +9,37 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
-		
-		
-		
-		
- 			
- 			
-		
-		
- 			
- 			
- 			
-		
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
+	
+ 		 
+ 	
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -114,6 +116,7 @@ class android_content_Context;
 
 class android_content_Intent;
 
+class android_app_PendingIntent;
 
 class android_os_Parcel;
 
@@ -126,27 +129,25 @@ class android_content_IntentSender;
 class android_app_PendingIntent
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- void send(int& arg0,android_app_PendingIntent_OnFinished& arg1,android_os_Handler& arg2,android_content_Context& arg3,android_content_Intent& arg4,java_lang_String& arg5);
-static android_app_PendingIntent getService(android_content_Context& arg0,int& arg1,android_content_Intent& arg2);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-static android_app_PendingIntent getBroadcast(android_content_Context& arg0,int& arg1,android_content_Intent& arg2);
- void cancel();
-static android_app_PendingIntent getActivity(android_content_Context& arg0,int& arg1,android_content_Intent& arg2,android_os_Bundle& arg3);
- java_lang_String getTargetPackage();
- java_lang_String getCreatorPackage();
- int getCreatorUid();
- android_os_UserHandle getCreatorUserHandle();
-static android_app_PendingIntent getActivities(android_content_Context& arg0,int& arg1,std::vector<long>& arg2,android_os_Bundle& arg3);
- android_content_IntentSender getIntentSender();
-static void writePendingIntentOrNullToParcel(android_app_PendingIntent& arg0,android_os_Parcel& arg1);
-static android_app_PendingIntent readPendingIntentOrNullFromParcel(android_os_Parcel& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 void send(int& arg0,android_app_PendingIntent_OnFinished& arg1,android_os_Handler& arg2,android_content_Context& arg3,android_content_Intent& arg4,java_lang_String& arg5);
+	static android_app_PendingIntent *  getService(android_content_Context& arg0,int& arg1,android_content_Intent& arg2);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	static android_app_PendingIntent *  getBroadcast(android_content_Context& arg0,int& arg1,android_content_Intent& arg2);
+	 void cancel();
+	static android_app_PendingIntent *  getActivity(android_content_Context& arg0,int& arg1,android_content_Intent& arg2,android_os_Bundle& arg3);
+	 java_lang_String *  getTargetPackage();
+	 java_lang_String *  getCreatorPackage();
+	 int getCreatorUid();
+	 android_os_UserHandle *  getCreatorUserHandle();
+	static android_app_PendingIntent *  getActivities(android_content_Context& arg0,int& arg1,std::vector<long>& arg2,android_os_Bundle& arg3);
+	 android_content_IntentSender *  getIntentSender();
+	static void writePendingIntentOrNullToParcel(android_app_PendingIntent& arg0,android_os_Parcel& arg1);
+	static android_app_PendingIntent *  readPendingIntentOrNullFromParcel(android_os_Parcel& arg0);
+};	
 
 } // namespace
 

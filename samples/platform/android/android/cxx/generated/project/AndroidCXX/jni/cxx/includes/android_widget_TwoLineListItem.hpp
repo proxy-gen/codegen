@@ -9,10 +9,10 @@
 
 
 
- 			
- 			
-		
-		
+ 		 
+ 		 
+	
+	
 
 // Generated Code 
 
@@ -57,13 +57,11 @@ class android_widget_TextView;
 class android_widget_TwoLineListItem
 {
 public:
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- android_widget_TextView getText1();
- android_widget_TextView getText2();
-
-
-};
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 android_widget_TextView *  getText1();
+	 android_widget_TextView *  getText2();
+};	
 
 } // namespace
 

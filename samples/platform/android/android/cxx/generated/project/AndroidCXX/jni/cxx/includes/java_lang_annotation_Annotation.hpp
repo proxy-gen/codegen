@@ -9,9 +9,11 @@
 
 
 
- 			
-		
-		
+ 		 
+	
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -33,6 +35,7 @@
 
 #include <java_lang_Class.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,16 +56,16 @@ class java_lang_String;
 
 class java_lang_Class;
 
+class java_lang_annotation_Annotation;
+
 class java_lang_annotation_Annotation
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_Class annotationType();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_Class *  annotationType();
+};	
 
 } // namespace
 

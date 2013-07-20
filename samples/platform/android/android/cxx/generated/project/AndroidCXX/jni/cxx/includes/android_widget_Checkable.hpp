@@ -40,12 +40,10 @@ namespace AndroidCXX {
 class android_widget_Checkable
 {
 public:
- void setChecked(bool& arg0);
- bool isChecked();
- void toggle();
-
-
-};
+	 void setChecked(bool& arg0);
+	 bool isChecked();
+	 void toggle();
+};	
 
 } // namespace
 

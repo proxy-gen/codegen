@@ -9,13 +9,13 @@
 
 
 
- 			
- 			
- 			
- 			
-		
- 			
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -88,25 +88,23 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_TableLayout
 {
 public:
- void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
- void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);
- android_widget_TableLayout_LayoutParams generateLayoutParams(android_util_AttributeSet& arg0);
- void requestLayout();
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- bool isShrinkAllColumns();
- void setShrinkAllColumns(bool& arg0);
- bool isStretchAllColumns();
- void setStretchAllColumns(bool& arg0);
- void setColumnCollapsed(int& arg0,bool& arg1);
- bool isColumnCollapsed(int& arg0);
- void setColumnStretchable(int& arg0,bool& arg1);
- bool isColumnStretchable(int& arg0);
- void setColumnShrinkable(int& arg0,bool& arg1);
- bool isColumnShrinkable(int& arg0);
-
-
-};
+	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
+	 void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);
+	 android_widget_TableLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
+	 void requestLayout();
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 bool isShrinkAllColumns();
+	 void setShrinkAllColumns(bool& arg0);
+	 bool isStretchAllColumns();
+	 void setStretchAllColumns(bool& arg0);
+	 void setColumnCollapsed(int& arg0,bool& arg1);
+	 bool isColumnCollapsed(int& arg0);
+	 void setColumnStretchable(int& arg0,bool& arg1);
+	 bool isColumnStretchable(int& arg0);
+	 void setColumnShrinkable(int& arg0,bool& arg1);
+	 bool isColumnShrinkable(int& arg0);
+};	
 
 } // namespace
 

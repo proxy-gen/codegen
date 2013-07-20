@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -45,12 +45,10 @@ class java_lang_Object;
 class java_util_Iterator
 {
 public:
- bool hasNext();
- java_lang_Object next();
- void remove();
-
-
-};
+	 bool hasNext();
+	 java_lang_Object *  next();
+	 void remove();
+};	
 
 } // namespace
 

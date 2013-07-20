@@ -9,8 +9,8 @@
 
 
 
- 			
-		
+ 		 
+	
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class java_net_ContentHandler;
 class java_net_ContentHandlerFactory
 {
 public:
- java_net_ContentHandler createContentHandler(java_lang_String& arg0);
-
-
-};
+	 java_net_ContentHandler *  createContentHandler(java_lang_String& arg0);
+};	
 
 } // namespace
 

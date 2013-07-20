@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_view_animation_LayoutAnimationController_AnimationParameters
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

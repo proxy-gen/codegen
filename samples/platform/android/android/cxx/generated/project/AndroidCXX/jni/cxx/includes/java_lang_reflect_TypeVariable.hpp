@@ -9,8 +9,10 @@
 
 
 
-		
-		
+	
+ 	
+ 		 
+	
 
 // Generated Code 
 
@@ -26,6 +28,8 @@
 
 
 #include <java_lang_String.hpp>
+
+#include <java_lang_reflect_Type.hpp>
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
 
@@ -45,17 +49,17 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class java_lang_reflect_Type;
+
 class java_lang_reflect_GenericDeclaration;
 
 class java_lang_reflect_TypeVariable
 {
 public:
- java_lang_String getName();
- std::vector<long> getBounds();
- java_lang_reflect_GenericDeclaration getGenericDeclaration();
-
-
-};
+	 java_lang_String *  getName();
+	 std::vector<long> getBounds();
+	 java_lang_reflect_GenericDeclaration *  getGenericDeclaration();
+};	
 
 } // namespace
 

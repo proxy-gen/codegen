@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_nio_ByteBuffer;
 class java_nio_channels_ReadableByteChannel
 {
 public:
- int read(java_nio_ByteBuffer& arg0);
-
-
-};
+	 int read(java_nio_ByteBuffer& arg0);
+};	
 
 } // namespace
 

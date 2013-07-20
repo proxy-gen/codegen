@@ -9,11 +9,15 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
+ 		 
+ 	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -55,14 +59,12 @@ class java_lang_Object;
 class android_text_Spanned
 {
 public:
- std::vector<long> getSpans(int& arg0,java_lang_Class& arg1);
- int getSpanStart(java_lang_Object& arg0);
- int getSpanEnd(java_lang_Object& arg0);
- int getSpanFlags(java_lang_Object& arg0);
- int nextSpanTransition(int& arg0,java_lang_Class& arg1);
-
-
-};
+	 std::vector<long> getSpans(int& arg0,java_lang_Class& arg1);
+	 int getSpanStart(java_lang_Object& arg0);
+	 int getSpanEnd(java_lang_Object& arg0);
+	 int getSpanFlags(java_lang_Object& arg0);
+	 int nextSpanTransition(int& arg0,java_lang_Class& arg1);
+};	
 
 } // namespace
 

@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
-		
- 			
- 			
- 			
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -57,11 +57,9 @@ class android_graphics_Rect;
 class android_text_method_TransformationMethod
 {
 public:
- java_lang_CharSequence getTransformation(java_lang_CharSequence& arg0,android_view_View& arg1);
- void onFocusChanged(android_view_View& arg0,java_lang_CharSequence& arg1,bool& arg2,int& arg3,android_graphics_Rect& arg4);
-
-
-};
+	 java_lang_CharSequence *  getTransformation(java_lang_CharSequence& arg0,android_view_View& arg1);
+	 void onFocusChanged(android_view_View& arg0,java_lang_CharSequence& arg1,bool& arg2,int& arg3,android_graphics_Rect& arg4);
+};	
 
 } // namespace
 

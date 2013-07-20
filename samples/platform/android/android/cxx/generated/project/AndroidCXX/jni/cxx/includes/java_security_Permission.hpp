@@ -9,13 +9,13 @@
 
 
 
- 			
-		
-		
- 			
-		
-		
- 			
+ 		 
+	
+	
+ 		 
+	
+	
+ 		 
 
 // Generated Code 
 
@@ -60,23 +60,22 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class java_security_Permission;
 
 class java_security_PermissionCollection;
 
 class java_security_Permission
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_String getName();
- bool implies(java_security_Permission& arg0);
- java_lang_String getActions();
- java_security_PermissionCollection newPermissionCollection();
- void checkGuard(java_lang_Object& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_String *  getName();
+	 bool implies(java_security_Permission& arg0);
+	 java_lang_String *  getActions();
+	 java_security_PermissionCollection *  newPermissionCollection();
+	 void checkGuard(java_lang_Object& arg0);
+};	
 
 } // namespace
 

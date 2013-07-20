@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_Menu;
 class android_view_MenuInflater
 {
 public:
- void inflate(int& arg0,android_view_Menu& arg1);
-
-
-};
+	 void inflate(int& arg0,android_view_Menu& arg1);
+};	
 
 } // namespace
 

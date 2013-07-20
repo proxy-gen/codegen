@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_MotionEvent;
 class android_view_TouchDelegate
 {
 public:
- bool onTouchEvent(android_view_MotionEvent& arg0);
-
-
-};
+	 bool onTouchEvent(android_view_MotionEvent& arg0);
+};	
 
 } // namespace
 

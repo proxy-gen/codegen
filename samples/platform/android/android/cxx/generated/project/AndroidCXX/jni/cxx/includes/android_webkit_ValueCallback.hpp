@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_Object;
 class android_webkit_ValueCallback
 {
 public:
- void onReceiveValue(java_lang_Object& arg0);
-
-
-};
+	 void onReceiveValue(java_lang_Object& arg0);
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -45,12 +45,10 @@ class java_lang_String;
 class android_webkit_HttpAuthHandler
 {
 public:
- void cancel();
- void proceed(java_lang_String& arg0);
- bool useHttpAuthUsernamePassword();
-
-
-};
+	 void cancel();
+	 void proceed(java_lang_String& arg0);
+	 bool useHttpAuthUsernamePassword();
+};	
 
 } // namespace
 

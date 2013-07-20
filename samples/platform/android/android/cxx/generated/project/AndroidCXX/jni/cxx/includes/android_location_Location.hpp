@@ -9,19 +9,20 @@
 
 
 
-		
- 			
-		
- 			
-		
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
+	
+ 		 
+	
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -96,6 +97,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_location_Location;
 
 class android_os_Bundle;
 
@@ -106,47 +108,45 @@ class android_os_Parcel;
 class android_location_Location
 {
 public:
- java_lang_String toString();
- void set(android_location_Location& arg0);
- void reset();
- void setTime(long& arg0);
- long getTime();
- java_lang_String getProvider();
-static java_lang_String convert(double& arg0,int& arg1,java_lang_String& arg2);
-static void distanceBetween(double& arg0,std::vector<float>& arg1);
- float distanceTo(android_location_Location& arg0);
- float bearingTo(android_location_Location& arg0);
- void setProvider(java_lang_String& arg0);
- long getElapsedRealtimeNanos();
- void setElapsedRealtimeNanos(long& arg0);
- double getLatitude();
- void setLatitude(double& arg0);
- double getLongitude();
- void setLongitude(double& arg0);
- bool hasAltitude();
- double getAltitude();
- void setAltitude(double& arg0);
- void removeAltitude();
- bool hasSpeed();
- float getSpeed();
- void setSpeed(float& arg0);
- void removeSpeed();
- bool hasBearing();
- float getBearing();
- void setBearing(float& arg0);
- void removeBearing();
- bool hasAccuracy();
- float getAccuracy();
- void setAccuracy(float& arg0);
- void removeAccuracy();
- android_os_Bundle getExtras();
- void setExtras(android_os_Bundle& arg0);
- void dump(android_util_Printer& arg0,java_lang_String& arg1);
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-
-
-};
+	 java_lang_String *  toString();
+	 void set(android_location_Location& arg0);
+	 void reset();
+	 void setTime(long& arg0);
+	 long getTime();
+	 java_lang_String *  getProvider();
+	static java_lang_String *  convert(double& arg0,int& arg1,java_lang_String& arg2);
+	static void distanceBetween(double& arg0,std::vector<float>& arg1);
+	 float distanceTo(android_location_Location& arg0);
+	 float bearingTo(android_location_Location& arg0);
+	 void setProvider(java_lang_String& arg0);
+	 long getElapsedRealtimeNanos();
+	 void setElapsedRealtimeNanos(long& arg0);
+	 double getLatitude();
+	 void setLatitude(double& arg0);
+	 double getLongitude();
+	 void setLongitude(double& arg0);
+	 bool hasAltitude();
+	 double getAltitude();
+	 void setAltitude(double& arg0);
+	 void removeAltitude();
+	 bool hasSpeed();
+	 float getSpeed();
+	 void setSpeed(float& arg0);
+	 void removeSpeed();
+	 bool hasBearing();
+	 float getBearing();
+	 void setBearing(float& arg0);
+	 void removeBearing();
+	 bool hasAccuracy();
+	 float getAccuracy();
+	 void setAccuracy(float& arg0);
+	 void removeAccuracy();
+	 android_os_Bundle *  getExtras();
+	 void setExtras(android_os_Bundle& arg0);
+	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+};	
 
 } // namespace
 

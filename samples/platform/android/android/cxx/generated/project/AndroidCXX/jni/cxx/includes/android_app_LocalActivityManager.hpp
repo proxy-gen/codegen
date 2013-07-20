@@ -9,17 +9,17 @@
 
 
 
- 			
-		
- 			
- 			
-		
- 			
- 			
-		
-		
-		
-		
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -80,21 +80,19 @@ class android_os_Bundle;
 class android_app_LocalActivityManager
 {
 public:
- android_app_Activity getActivity(java_lang_String& arg0);
- android_view_Window startActivity(java_lang_String& arg0,android_content_Intent& arg1);
- void dispatchResume();
- void dispatchCreate(android_os_Bundle& arg0);
- void dispatchPause(bool& arg0);
- void dispatchStop();
- void dispatchDestroy(bool& arg0);
- android_view_Window destroyActivity(java_lang_String& arg0,bool& arg1);
- android_app_Activity getCurrentActivity();
- java_lang_String getCurrentId();
- android_os_Bundle saveInstanceState();
- void removeAllActivities();
-
-
-};
+	 android_app_Activity *  getActivity(java_lang_String& arg0);
+	 android_view_Window *  startActivity(java_lang_String& arg0,android_content_Intent& arg1);
+	 void dispatchResume();
+	 void dispatchCreate(android_os_Bundle& arg0);
+	 void dispatchPause(bool& arg0);
+	 void dispatchStop();
+	 void dispatchDestroy(bool& arg0);
+	 android_view_Window *  destroyActivity(java_lang_String& arg0,bool& arg1);
+	 android_app_Activity *  getCurrentActivity();
+	 java_lang_String *  getCurrentId();
+	 android_os_Bundle *  saveInstanceState();
+	 void removeAllActivities();
+};	
 
 } // namespace
 

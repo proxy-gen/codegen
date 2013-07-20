@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_animation_TimeInterpolator
 {
 public:
- float getInterpolation(float& arg0);
-
-
-};
+	 float getInterpolation(float& arg0);
+};	
 
 } // namespace
 

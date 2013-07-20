@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class java_security_PublicKey
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

@@ -9,19 +9,35 @@
 
 
 
-		
-		
- 			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+ 	
+	
+	
+ 	
+ 		 
+	
+	
+	
+	
+	
+	
+	
+ 	
+ 	
+ 	
+ 	
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+ 	
+ 		 
+	
+ 	
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -68,6 +84,8 @@
 
 #include <java_util_Collection.hpp>
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -96,33 +114,33 @@ class java_util_List;
 
 class java_util_Collection;
 
+class java_lang_Object;
+
 class java_security_cert_X509Certificate
 {
 public:
- std::vector<char> getSignature();
- int getBasicConstraints();
- int getVersion();
- java_math_BigInteger getSerialNumber();
- java_security_Principal getIssuerDN();
- std::vector<char> getTBSCertificate();
- void checkValidity(java_util_Date& arg0);
- javax_security_auth_x500_X500Principal getIssuerX500Principal();
- java_security_Principal getSubjectDN();
- javax_security_auth_x500_X500Principal getSubjectX500Principal();
- java_util_Date getNotBefore();
- java_util_Date getNotAfter();
- java_lang_String getSigAlgName();
- java_lang_String getSigAlgOID();
- std::vector<char> getSigAlgParams();
- std::vector<bool> getIssuerUniqueID();
- std::vector<bool> getSubjectUniqueID();
- std::vector<bool> getKeyUsage();
- java_util_List getExtendedKeyUsage();
- java_util_Collection getSubjectAlternativeNames();
- java_util_Collection getIssuerAlternativeNames();
-
-
-};
+	 std::vector<char> getSignature();
+	 int getBasicConstraints();
+	 int getVersion();
+	 java_math_BigInteger *  getSerialNumber();
+	 java_security_Principal *  getIssuerDN();
+	 std::vector<char> getTBSCertificate();
+	 void checkValidity(java_util_Date& arg0);
+	 javax_security_auth_x500_X500Principal *  getIssuerX500Principal();
+	 java_security_Principal *  getSubjectDN();
+	 javax_security_auth_x500_X500Principal *  getSubjectX500Principal();
+	 java_util_Date *  getNotBefore();
+	 java_util_Date *  getNotAfter();
+	 java_lang_String *  getSigAlgName();
+	 java_lang_String *  getSigAlgOID();
+	 std::vector<char> getSigAlgParams();
+	 std::vector<bool> getIssuerUniqueID();
+	 std::vector<bool> getSubjectUniqueID();
+	 std::vector<bool> getKeyUsage();
+	 java_util_List *  getExtendedKeyUsage();
+	 java_util_Collection *  getSubjectAlternativeNames();
+	 java_util_Collection *  getIssuerAlternativeNames();
+};	
 
 } // namespace
 

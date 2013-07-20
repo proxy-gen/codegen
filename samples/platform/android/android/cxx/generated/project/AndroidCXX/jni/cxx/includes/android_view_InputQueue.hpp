@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_view_InputQueue
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

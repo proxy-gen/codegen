@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_ExpandableListView_OnGroupCollapseListener
 {
 public:
- void onGroupCollapse(int& arg0);
-
-
-};
+	 void onGroupCollapse(int& arg0);
+};	
 
 } // namespace
 

@@ -9,9 +9,12 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
+ 	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,16 +48,15 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class android_util_Pair;
 
 class android_util_Pair
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
-static android_util_Pair create(java_lang_Object& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+	static android_util_Pair *  create(java_lang_Object& arg0);
+};	
 
 } // namespace
 

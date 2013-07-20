@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_database_CharArrayBuffer
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

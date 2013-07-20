@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -44,11 +44,9 @@ class java_lang_String;
 class android_webkit_WebView_HitTestResult
 {
 public:
- int getType();
- java_lang_String getExtra();
-
-
-};
+	 int getType();
+	 java_lang_String *  getExtra();
+};	
 
 } // namespace
 

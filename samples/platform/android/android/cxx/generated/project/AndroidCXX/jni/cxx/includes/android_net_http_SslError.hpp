@@ -9,9 +9,9 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
 // Generated Code 
 
@@ -54,15 +54,13 @@ class android_net_http_SslCertificate;
 class android_net_http_SslError
 {
 public:
- java_lang_String toString();
- android_net_http_SslCertificate getCertificate();
- java_lang_String getUrl();
- bool addError(int& arg0);
- bool hasError(int& arg0);
- int getPrimaryError();
-
-
-};
+	 java_lang_String *  toString();
+	 android_net_http_SslCertificate *  getCertificate();
+	 java_lang_String *  getUrl();
+	 bool addError(int& arg0);
+	 bool hasError(int& arg0);
+	 int getPrimaryError();
+};	
 
 } // namespace
 

@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_widget_Filter_FilterResults
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

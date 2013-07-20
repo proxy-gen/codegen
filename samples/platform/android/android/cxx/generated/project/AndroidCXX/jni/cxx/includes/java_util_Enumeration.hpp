@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -44,11 +44,9 @@ class java_lang_Object;
 class java_util_Enumeration
 {
 public:
- bool hasMoreElements();
- java_lang_Object nextElement();
-
-
-};
+	 bool hasMoreElements();
+	 java_lang_Object *  nextElement();
+};	
 
 } // namespace
 

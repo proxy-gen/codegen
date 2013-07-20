@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -40,17 +40,16 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_MotionEvent_PointerCoords;
 
 class android_view_MotionEvent_PointerCoords
 {
 public:
- void clear();
- void copyFrom(android_view_MotionEvent_PointerCoords& arg0);
- float getAxisValue(int& arg0);
- void setAxisValue(int& arg0,float& arg1);
-
-
-};
+	 void clear();
+	 void copyFrom(android_view_MotionEvent_PointerCoords& arg0);
+	 float getAxisValue(int& arg0);
+	 void setAxisValue(int& arg0,float& arg1);
+};	
 
 } // namespace
 

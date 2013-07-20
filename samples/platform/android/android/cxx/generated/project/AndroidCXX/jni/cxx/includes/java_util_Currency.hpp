@@ -9,13 +9,13 @@
 
 
 
-		
- 			
- 			
-		
-		
- 			
-		
+	
+ 		 
+ 		 
+	
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -55,18 +55,17 @@ class java_lang_String;
 
 class java_util_Locale;
 
+class java_util_Currency;
 
 class java_util_Currency
 {
 public:
- java_lang_String toString();
-static java_util_Currency getInstance(java_util_Locale& arg0,java_lang_String& arg1);
- java_lang_String getCurrencyCode();
- java_lang_String getSymbol(java_util_Locale& arg0);
- int getDefaultFractionDigits();
-
-
-};
+	 java_lang_String *  toString();
+	static java_util_Currency *  getInstance(java_util_Locale& arg0,java_lang_String& arg1);
+	 java_lang_String *  getCurrencyCode();
+	 java_lang_String *  getSymbol(java_util_Locale& arg0);
+	 int getDefaultFractionDigits();
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -49,11 +49,9 @@ class java_lang_String;
 class android_media_TimedText
 {
 public:
- android_graphics_Rect getBounds();
- java_lang_String getText();
-
-
-};
+	 android_graphics_Rect *  getBounds();
+	 java_lang_String *  getText();
+};	
 
 } // namespace
 

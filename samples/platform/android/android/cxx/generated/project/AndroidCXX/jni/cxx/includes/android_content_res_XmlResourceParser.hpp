@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_content_res_XmlResourceParser
 {
 public:
- void close();
-
-
-};
+	 void close();
+};	
 
 } // namespace
 

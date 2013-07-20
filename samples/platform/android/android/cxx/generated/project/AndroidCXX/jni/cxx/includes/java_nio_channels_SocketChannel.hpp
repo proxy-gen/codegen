@@ -9,12 +9,16 @@
 
 
 
- 			
- 			
- 			
-		
- 			
-		
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -60,24 +64,23 @@ class java_nio_ByteBuffer;
 
 class java_net_SocketAddress;
 
+class java_nio_channels_SocketChannel;
 
 class java_net_Socket;
 
 class java_nio_channels_SocketChannel
 {
 public:
- long write(std::vector<long>& arg0,java_nio_ByteBuffer& arg1,int& arg2);
- long read(std::vector<long>& arg0,int& arg1,java_nio_ByteBuffer& arg2);
-static java_nio_channels_SocketChannel open(java_net_SocketAddress& arg0);
- bool connect(java_net_SocketAddress& arg0);
- java_net_Socket socket();
- bool isConnected();
- int validOps();
- bool isConnectionPending();
- bool finishConnect();
-
-
-};
+	 long write(std::vector<long>& arg0,java_nio_ByteBuffer& arg1,int& arg2);
+	 long read(std::vector<long>& arg0,int& arg1,java_nio_ByteBuffer& arg2);
+	static java_nio_channels_SocketChannel *  open(java_net_SocketAddress& arg0);
+	 bool connect(java_net_SocketAddress& arg0);
+	 java_net_Socket *  socket();
+	 bool isConnected();
+	 int validOps();
+	 bool isConnectionPending();
+	 bool finishConnect();
+};	
 
 } // namespace
 

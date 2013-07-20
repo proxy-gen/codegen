@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -46,11 +46,9 @@ class java_lang_CharSequence;
 class android_widget_AutoCompleteTextView_Validator
 {
 public:
- bool isValid(java_lang_CharSequence& arg0);
- java_lang_CharSequence fixText(java_lang_CharSequence& arg0);
-
-
-};
+	 bool isValid(java_lang_CharSequence& arg0);
+	 java_lang_CharSequence *  fixText(java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

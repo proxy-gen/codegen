@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_View_OnSystemUiVisibilityChangeListener
 {
 public:
- void onSystemUiVisibilityChange(int& arg0);
-
-
-};
+	 void onSystemUiVisibilityChange(int& arg0);
+};	
 
 } // namespace
 

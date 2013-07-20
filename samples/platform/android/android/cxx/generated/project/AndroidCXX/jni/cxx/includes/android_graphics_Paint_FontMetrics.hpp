@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_graphics_Paint_FontMetrics
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

@@ -9,9 +9,9 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -49,10 +49,8 @@ class android_text_Spanned;
 class android_text_InputFilter
 {
 public:
- java_lang_CharSequence filter(java_lang_CharSequence& arg0,int& arg1,android_text_Spanned& arg2);
-
-
-};
+	 java_lang_CharSequence *  filter(java_lang_CharSequence& arg0,int& arg1,android_text_Spanned& arg2);
+};	
 
 } // namespace
 

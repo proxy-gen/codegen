@@ -9,23 +9,31 @@
 
 
 
- 			
- 			
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
-		
-		
- 			
- 			
-		
- 			
-		
+ 		 
+ 		 
+ 	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -70,6 +78,8 @@
 #include <android_widget_Filter.hpp>
 
 
+#include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -98,31 +108,32 @@ class android_view_ViewGroup;
 
 class android_widget_Filter;
 
+class android_widget_ArrayAdapter;
+
+class java_lang_CharSequence;
 
 class android_widget_ArrayAdapter
 {
 public:
- void add(java_lang_Object& arg0);
- void clear();
- void addAll(java_util_Collection& arg0,std::vector<long>& arg1);
- void remove(java_lang_Object& arg0);
- android_content_Context getContext();
- void insert(java_lang_Object& arg0,int& arg1);
- void sort(java_util_Comparator& arg0);
- int getPosition(java_lang_Object& arg0);
- android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- android_widget_Filter getFilter();
- java_lang_Object getItem(int& arg0);
- long getItemId(int& arg0);
- int getCount();
- android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
- void notifyDataSetChanged();
- void setNotifyOnChange(bool& arg0);
- void setDropDownViewResource(int& arg0);
-static android_widget_ArrayAdapter createFromResource(android_content_Context& arg0,int& arg1);
-
-
-};
+	 void add(java_lang_Object& arg0);
+	 void clear();
+	 void addAll(java_util_Collection& arg0,std::vector<long>& arg1);
+	 void remove(java_lang_Object& arg0);
+	 android_content_Context *  getContext();
+	 void insert(java_lang_Object& arg0,int& arg1);
+	 void sort(java_util_Comparator& arg0);
+	 int getPosition(java_lang_Object& arg0);
+	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 android_widget_Filter *  getFilter();
+	 java_lang_Object *  getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 android_view_View *  getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
+	 void notifyDataSetChanged();
+	 void setNotifyOnChange(bool& arg0);
+	 void setDropDownViewResource(int& arg0);
+	static android_widget_ArrayAdapter *  createFromResource(android_content_Context& arg0,int& arg1);
+};	
 
 } // namespace
 

@@ -9,15 +9,19 @@
 
 
 
- 			
- 			
-		
-		
- 			
-		
-		
-		
-		
+ 		 
+ 		 
+	
+	
+ 		 
+	
+	
+	
+	
+ 	
+ 		 
+ 	
+ 		 
 
 // Generated Code 
 
@@ -45,6 +49,8 @@
 
 #include <java_lang_String.hpp>
 
+#include <java_lang_StackTraceElement.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,24 +69,25 @@ class java_io_PrintStream;
 
 class java_io_PrintWriter;
 
+class java_lang_Throwable;
 
 class java_lang_String;
+
+class java_lang_StackTraceElement;
 
 class java_lang_Throwable
 {
 public:
- void printStackTrace(java_io_PrintStream& arg0,java_io_PrintWriter& arg1);
- java_lang_Throwable fillInStackTrace();
- java_lang_Throwable getCause();
- java_lang_Throwable initCause(java_lang_Throwable& arg0);
- java_lang_String toString();
- java_lang_String getMessage();
- java_lang_String getLocalizedMessage();
- std::vector<long> getStackTrace();
- void setStackTrace(std::vector<long>& arg0);
-
-
-};
+	 void printStackTrace(java_io_PrintStream& arg0,java_io_PrintWriter& arg1);
+	 java_lang_Throwable *  fillInStackTrace();
+	 java_lang_Throwable *  getCause();
+	 java_lang_Throwable *  initCause(java_lang_Throwable& arg0);
+	 java_lang_String *  toString();
+	 java_lang_String *  getMessage();
+	 java_lang_String *  getLocalizedMessage();
+	 std::vector<long> getStackTrace();
+	 void setStackTrace(std::vector<long>& arg0);
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_View;
 class android_view_View_OnLayoutChangeListener
 {
 public:
- void onLayoutChange(android_view_View& arg0,int& arg1);
-
-
-};
+	 void onLayoutChange(android_view_View& arg0,int& arg1);
+};	
 
 } // namespace
 

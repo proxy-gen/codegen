@@ -9,14 +9,14 @@
 
 
 
-		
-		
- 			
- 			
- 			
- 			
- 			
- 			
+	
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -78,26 +78,24 @@ class android_util_DisplayMetrics;
 class android_view_Display
 {
 public:
- java_lang_String toString();
- java_lang_String getName();
- void getSize(android_graphics_Point& arg0);
- bool isValid();
- int getFlags();
- int getWidth();
- int getHeight();
- int getRotation();
- int getDisplayId();
- void getRectSize(android_graphics_Rect& arg0);
- void getCurrentSizeRange(android_graphics_Point& arg0);
- int getOrientation();
- int getPixelFormat();
- float getRefreshRate();
- void getMetrics(android_util_DisplayMetrics& arg0);
- void getRealSize(android_graphics_Point& arg0);
- void getRealMetrics(android_util_DisplayMetrics& arg0);
-
-
-};
+	 java_lang_String *  toString();
+	 java_lang_String *  getName();
+	 void getSize(android_graphics_Point& arg0);
+	 bool isValid();
+	 int getFlags();
+	 int getWidth();
+	 int getHeight();
+	 int getRotation();
+	 int getDisplayId();
+	 void getRectSize(android_graphics_Rect& arg0);
+	 void getCurrentSizeRange(android_graphics_Point& arg0);
+	 int getOrientation();
+	 int getPixelFormat();
+	 float getRefreshRate();
+	 void getMetrics(android_util_DisplayMetrics& arg0);
+	 void getRealSize(android_graphics_Point& arg0);
+	 void getRealMetrics(android_util_DisplayMetrics& arg0);
+};	
 
 } // namespace
 

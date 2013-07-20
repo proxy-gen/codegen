@@ -9,13 +9,13 @@
 
 
 
- 			
-		
- 			
- 			
-		
-		
- 			
+ 		 
+	
+ 		 
+ 		 
+	
+	
+ 		 
 
 // Generated Code 
 
@@ -69,32 +69,31 @@ class java_lang_Object;
 
 class java_lang_String;
 
+class java_lang_Double;
 
 class java_lang_Double
 {
 public:
- bool equals(java_lang_Object& arg0);
-static java_lang_String toString(double& arg0);
- int hashCode();
-static long doubleToRawLongBits(double& arg0);
-static long doubleToLongBits(double& arg0);
-static double longBitsToDouble(long& arg0);
- int compareTo(java_lang_Double& arg0);
- unsigned char byteValue();
- short shortValue();
- int intValue();
- long longValue();
- float floatValue();
- double doubleValue();
-static java_lang_Double valueOf(java_lang_String& arg0,double& arg1);
-static java_lang_String toHexString(double& arg0);
-static int compare(double& arg0);
-static bool isNaN(double& arg0);
-static bool isInfinite(double& arg0);
-static double parseDouble(java_lang_String& arg0);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	static java_lang_String *  toString(double& arg0);
+	 int hashCode();
+	static long doubleToRawLongBits(double& arg0);
+	static long doubleToLongBits(double& arg0);
+	static double longBitsToDouble(long& arg0);
+	 int compareTo(java_lang_Double& arg0);
+	 unsigned char byteValue();
+	 short shortValue();
+	 int intValue();
+	 long longValue();
+	 float floatValue();
+	 double doubleValue();
+	static java_lang_Double *  valueOf(java_lang_String& arg0,double& arg1);
+	static java_lang_String *  toHexString(double& arg0);
+	static int compare(double& arg0);
+	static bool isNaN(double& arg0);
+	static bool isInfinite(double& arg0);
+	static double parseDouble(java_lang_String& arg0);
+};	
 
 } // namespace
 

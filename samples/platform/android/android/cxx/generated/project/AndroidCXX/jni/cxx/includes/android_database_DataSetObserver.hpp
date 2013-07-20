@@ -39,11 +39,9 @@ namespace AndroidCXX {
 class android_database_DataSetObserver
 {
 public:
- void onChanged();
- void onInvalidated();
-
-
-};
+	 void onChanged();
+	 void onInvalidated();
+};	
 
 } // namespace
 

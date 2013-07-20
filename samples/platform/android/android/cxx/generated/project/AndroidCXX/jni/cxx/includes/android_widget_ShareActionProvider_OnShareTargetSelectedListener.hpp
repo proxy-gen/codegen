@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_content_Intent;
 class android_widget_ShareActionProvider_OnShareTargetSelectedListener
 {
 public:
- bool onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1);
-
-
-};
+	 bool onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1);
+};	
 
 } // namespace
 

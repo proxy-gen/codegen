@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_view_animation_Interpolator
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

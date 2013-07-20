@@ -24,65 +24,52 @@
 #set $param_str = ""
 #set $params = $function['params']
 #set $param_idx = 0
-#set $todo_list = list()
-#set $proxied_class_list = list()
+#set $proxied_typeinfo_list = list()
 #set $modifier_str = None
 #if '_static' in $function['tags']
 #set $modifier_str = 'static' 
 #end if
+#set $child_type_stack = list()
 #for $param in $params
-	#set $param_type = None
-	#if $param['converter'] == 'convert_proxy'
-		#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$param['type'])
-		#for $clazz in $classes
-			#set $param_type = $clazz['name']
-			#set $param_type = $config_module.to_class_name($param_type)
- 			$proxied_class_list.append(clazz)
-			#break
-		#end for
-	#else	
-		#set $converters = $config_module.list_all_converters(name=$param['converter'],cxx_type=None,java_type=None)
-		#for $converter in $converters
-			#set $param_type = $converter['cxx']['type']
-			#break
-		#end for
+ 	#set $typeinfo = $param['deriveddata']['targetdata']['typeinfo']
+ 	#if 'isproxied' in $typeinfo
+ 		$proxied_typeinfo_list.append(typeinfo) 
+ 	#end if
+	#if $param_idx > 0
+		#set $param_str = $param_str + $COMMA 
 	#end if
-	#if $param_type is None
-		$todo_list.append($param)
-	#else 
-		#if $param_idx > 0
-			#set $param_str = $param_str + $COMMA 
-		#end if
-		#set $param_str = $param_str + $param_type + $REF
-		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
-		#set $param_idx = $param_idx + 1
-	#end if
+	#set $param_str = $param_str + $typeinfo['typename'] + $REF
+	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+	#set $param_idx = $param_idx + 1
+ 	#if 'children' in $param
+ 	$child_type_stack.extend($param['children'])
+ 	#end if
 #end for
+#set $returns = $function['returns'] 
 #set $function['param_str'] = $param_str
-#set $retrn = $function['returns'][0]
-#set $retrn_type = None
-#if $retrn['converter'] == 'convert_proxy'
-	#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$retrn['type'])
-	#for $clazz in $classes
-		#set $retrn_type = $clazz['name']
-		#set $retrn_type = $config_module.to_class_name($retrn_type)
-		$proxied_class_list.append(clazz)
-		#break
-	#end for
-#else
-	#set $converters = $config_module.list_all_converters(name=$retrn['converter'],cxx_type=None,java_type=None)
-	#for $converter in $converters
-		#set $retrn_type = $converter['cxx']['type']
-		#break
-	#end for
-#end if		
-#if $retrn_type is None
-	// append return to TODO!
-	$todo_list.append($retrn)
-#end if
-#set $function['retrn_type'] = $retrn_type
-#set $function['todo_list'] = $todo_list
-#set $function['proxied_class_list'] = $proxied_class_list
+#for $retrn in $returns
+	#set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
+ 	#set $function['retrn_type'] = $typeinfo['typename']
+ 	#if 'isproxied' in $typeinfo
+ 	#set $function['retrn_type'] = $typeinfo['typename'] + " * "
+	$proxied_typeinfo_list.append(typeinfo)
+	#end if
+	#if 'children' in $retrn
+ 	$child_type_stack.extend($retrn['children'])
+ 	#end if	
+ 	#break
+#end for
+#while $len(child_type_stack) > 0
+ 	#set $current_child_type = $child_type_stack.pop()
+ 	#set $typeinfo = $current_child_type['deriveddata']['targetdata']['typeinfo']
+ 	#if 'isproxied' in $typeinfo
+ 		$proxied_typeinfo_list.append(typeinfo) 
+ 	#end if
+ 	#if 'children' in $current_child_type
+ 	$child_type_stack.extend($current_child_type['children'])
+ 	#end if
+#end while
+#set $function['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #set $function['modifier_str'] = $modifier_str
 #end for
 
@@ -94,20 +81,18 @@
 // Scroll Down 
 //
 
-#set $proxied_classes = list()
+#set $proxied_typeinfos = list()
 #for $function in $functions
-$proxied_classes.extend(function['proxied_class_list'])
+$proxied_typeinfos.extend(function['proxied_typeinfo_list'])
 #end for
 
 #set $included_types = list()
-#for $proxied_class in $proxied_classes
-#set $proxied_type = $proxied_class['name']
-#set $proxied_type = $config_module.to_class_name($proxied_type)
-#if $proxied_type not in $included_types
-$included_types.append($proxied_type)
-#set $proxied_file_name = $config_module.to_file_name($proxied_type,"hpp")
-#if $entity_head_file_name != $proxied_file_name
-\#include <$proxied_file_name>
+#for $proxied_typeinfo in $proxied_typeinfos
+#set $proxied_type = $proxied_typeinfo['typename']
+#if $proxied_typeinfo['filename'] not in $included_types
+$included_types.append($proxied_typeinfo['filename'])
+#if $entity_head_file_name != $proxied_typeinfo['filename']
+\#include <$proxied_typeinfo['filename']>
 #end if
 #end if
 #end for
@@ -126,15 +111,12 @@ namespace ${namespace} {
 
 // Forward Declarations
 #set $forwarded_types = list()
-#for $proxied_class in $proxied_classes
-#set $proxied_type = $proxied_class['name']
-#set $proxied_type = $config_module.to_class_name($proxied_type)
+#for $proxied_typeinfo in $proxied_typeinfos
+#set $proxied_type = $proxied_typeinfo['typename']
 #if $proxied_type not in $forwarded_types
-$forwarded_types.append($proxied_type)
-#if $entity_class_name != $proxied_type
-#if '_enum' not in $proxied_class['tags']
+$forwarded_types.append(proxied_type)
+#if $proxied_typeinfo['isenum'] == False
 class $proxied_type;
-#end if
 #end if
 #end if
 #end for
@@ -142,18 +124,10 @@ class $proxied_type;
 class $entity_class_name
 {
 public:
-#for $function in $functions
-#if $len(function['todo_list']) == 0
-$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
-#else
-#for $todo in $function['todo_list']
-    //TODO: add CONVERTER for $todo['type']
-#end for
-#end if
-#end for
-
-
-};
+	#for $function in $functions
+	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
+	#end for
+};	
 
 } // namespace
 

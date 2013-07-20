@@ -9,9 +9,9 @@
 
 
 
- 			
-		
- 			
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -57,14 +57,12 @@ class android_os_Parcel;
 class android_accounts_Account
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+};	
 
 } // namespace
 

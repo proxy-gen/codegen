@@ -9,14 +9,21 @@
 
 
 
- 			
-		
-		
-		
- 			
- 			
- 			
-		
+ 		 
+	
+	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -61,19 +68,18 @@ class java_lang_String;
 
 class java_lang_Class;
 
+class android_util_Property;
 
 class android_util_Property
 {
 public:
- java_lang_Object get(java_lang_Object& arg0);
- java_lang_String getName();
- java_lang_Class getType();
- void set(java_lang_Object& arg0);
- bool isReadOnly();
-static android_util_Property of(java_lang_Class& arg0,java_lang_String& arg1);
-
-
-};
+	 java_lang_Object *  get(java_lang_Object& arg0);
+	 java_lang_String *  getName();
+	 java_lang_Class *  getType();
+	 void set(java_lang_Object& arg0);
+	 bool isReadOnly();
+	static android_util_Property *  of(java_lang_Class& arg0,java_lang_String& arg1);
+};	
 
 } // namespace
 

@@ -9,12 +9,17 @@
 
 
 
- 			
-		
-		
-		
- 			
-		
+ 		 
+	
+	
+ 	
+ 		 
+	
+ 		 
+ 	
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -39,6 +44,8 @@
 
 #include <java_util_List.hpp>
 
+#include <java_security_cert_Certificate.hpp>
+
 #include <java_util_Iterator.hpp>
 
 #include <vector>
@@ -61,21 +68,21 @@ class java_lang_String;
 
 class java_util_List;
 
+class java_security_cert_Certificate;
+
 class java_util_Iterator;
 
 class java_security_cert_CertPath
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_util_List getCertificates();
- java_lang_String getType();
- std::vector<char> getEncoded(java_lang_String& arg0);
- java_util_Iterator getEncodings();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_util_List *  getCertificates();
+	 java_lang_String *  getType();
+	 std::vector<char> getEncoded(java_lang_String& arg0);
+	 java_util_Iterator *  getEncodings();
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_MotionEvent;
 class android_view_View_OnHoverListener
 {
 public:
- bool onHover(android_view_View& arg0,android_view_MotionEvent& arg1);
-
-
-};
+	 bool onHover(android_view_View& arg0,android_view_MotionEvent& arg1);
+};	
 
 } // namespace
 

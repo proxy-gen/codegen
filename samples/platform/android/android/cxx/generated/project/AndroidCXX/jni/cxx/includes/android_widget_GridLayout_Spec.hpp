@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -44,11 +44,9 @@ class java_lang_Object;
 class android_widget_GridLayout_Spec
 {
 public:
- bool equals(java_lang_Object& arg0);
- int hashCode();
-
-
-};
+	 bool equals(java_lang_Object& arg0);
+	 int hashCode();
+};	
 
 } // namespace
 

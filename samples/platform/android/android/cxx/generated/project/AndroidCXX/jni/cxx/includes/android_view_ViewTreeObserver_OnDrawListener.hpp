@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_view_ViewTreeObserver_OnDrawListener
 {
 public:
- void onDraw();
-
-
-};
+	 void onDraw();
+};	
 
 } // namespace
 

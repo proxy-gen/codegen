@@ -9,13 +9,14 @@
 
 
 
- 			
- 			
- 			
-		
-		
- 			
-		
+ 		 
+ 		 
+ 		 
+	
+ 	
+	
+ 		 
+	
 
 // Generated Code 
 
@@ -65,24 +66,23 @@ class android_graphics_Paint;
 
 class java_io_InputStream;
 
+class android_graphics_Movie;
 
 class java_lang_String;
 
 class android_graphics_Movie
 {
 public:
- bool isOpaque();
- bool setTime(int& arg0);
- int width();
- int height();
- void draw(android_graphics_Canvas& arg0,float& arg1,android_graphics_Paint& arg2);
- int duration();
-static android_graphics_Movie decodeStream(java_io_InputStream& arg0);
-static android_graphics_Movie decodeByteArray(std::vector<char>& arg0,int& arg1);
-static android_graphics_Movie decodeFile(java_lang_String& arg0);
-
-
-};
+	 bool isOpaque();
+	 bool setTime(int& arg0);
+	 int width();
+	 int height();
+	 void draw(android_graphics_Canvas& arg0,float& arg1,android_graphics_Paint& arg2);
+	 int duration();
+	static android_graphics_Movie *  decodeStream(java_io_InputStream& arg0);
+	static android_graphics_Movie *  decodeByteArray(std::vector<char>& arg0,int& arg1);
+	static android_graphics_Movie *  decodeFile(java_lang_String& arg0);
+};	
 
 } // namespace
 

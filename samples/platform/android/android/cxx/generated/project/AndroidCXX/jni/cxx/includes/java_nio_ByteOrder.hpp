@@ -9,8 +9,8 @@
 
 
 
-		
-		
+	
+	
 
 // Generated Code 
 
@@ -43,15 +43,14 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class java_nio_ByteOrder;
 
 class java_nio_ByteOrder
 {
 public:
- java_lang_String toString();
-static java_nio_ByteOrder nativeOrder();
-
-
-};
+	 java_lang_String *  toString();
+	static java_nio_ByteOrder *  nativeOrder();
+};	
 
 } // namespace
 

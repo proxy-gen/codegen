@@ -9,12 +9,12 @@
 
 
 
- 			
- 			
-		
- 			
- 			
-		
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -73,15 +73,13 @@ class android_view_View;
 class android_widget_TableRow
 {
 public:
- void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);
- android_widget_TableRow_LayoutParams generateLayoutParams(android_util_AttributeSet& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- android_view_View getVirtualChildAt(int& arg0);
- int getVirtualChildCount();
-
-
-};
+	 void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);
+	 android_widget_TableRow_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 android_view_View *  getVirtualChildAt(int& arg0);
+	 int getVirtualChildCount();
+};	
 
 } // namespace
 

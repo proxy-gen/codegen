@@ -9,14 +9,18 @@
 
 
 
- 			
-		
- 			
-		
- 			
- 			
- 			
- 			
+ 		 
+ 	
+ 		 
+	
+ 		 
+	
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -74,18 +78,16 @@ class android_os_IBinder_DeathRecipient;
 class android_os_IBinder
 {
 public:
- void dump(java_io_FileDescriptor& arg0,std::vector<long>& arg1);
- java_lang_String getInterfaceDescriptor();
- bool pingBinder();
- bool isBinderAlive();
- android_os_IInterface queryLocalInterface(java_lang_String& arg0);
- void dumpAsync(java_io_FileDescriptor& arg0,std::vector<long>& arg1);
- bool transact(int& arg0,android_os_Parcel& arg1);
- void linkToDeath(android_os_IBinder_DeathRecipient& arg0,int& arg1);
- bool unlinkToDeath(android_os_IBinder_DeathRecipient& arg0,int& arg1);
-
-
-};
+	 void dump(java_io_FileDescriptor& arg0,std::vector<long>& arg1);
+	 java_lang_String *  getInterfaceDescriptor();
+	 bool pingBinder();
+	 bool isBinderAlive();
+	 android_os_IInterface *  queryLocalInterface(java_lang_String& arg0);
+	 void dumpAsync(java_io_FileDescriptor& arg0,std::vector<long>& arg1);
+	 bool transact(int& arg0,android_os_Parcel& arg1);
+	 void linkToDeath(android_os_IBinder_DeathRecipient& arg0,int& arg1);
+	 bool unlinkToDeath(android_os_IBinder_DeathRecipient& arg0,int& arg1);
+};	
 
 } // namespace
 

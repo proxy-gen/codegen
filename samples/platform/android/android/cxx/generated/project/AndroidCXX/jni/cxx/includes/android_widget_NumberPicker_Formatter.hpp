@@ -9,7 +9,7 @@
 
 
 
-		
+	
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_widget_NumberPicker_Formatter
 {
 public:
- java_lang_String format(int& arg0);
-
-
-};
+	 java_lang_String *  format(int& arg0);
+};	
 
 } // namespace
 

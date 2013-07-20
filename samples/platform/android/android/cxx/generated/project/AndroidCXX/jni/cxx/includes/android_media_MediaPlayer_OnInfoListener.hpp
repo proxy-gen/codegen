@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_media_MediaPlayer;
 class android_media_MediaPlayer_OnInfoListener
 {
 public:
- bool onInfo(android_media_MediaPlayer& arg0,int& arg1);
-
-
-};
+	 bool onInfo(android_media_MediaPlayer& arg0,int& arg1);
+};	
 
 } // namespace
 

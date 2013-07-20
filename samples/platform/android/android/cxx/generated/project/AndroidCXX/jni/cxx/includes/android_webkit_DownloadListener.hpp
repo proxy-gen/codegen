@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class java_lang_String;
 class android_webkit_DownloadListener
 {
 public:
- void onDownloadStart(java_lang_String& arg0,long& arg1);
-
-
-};
+	 void onDownloadStart(java_lang_String& arg0,long& arg1);
+};	
 
 } // namespace
 

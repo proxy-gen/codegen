@@ -9,23 +9,23 @@
 
 
 
- 			
-		
-		
-		
- 			
- 			
-		
- 			
- 			
-		
-		
- 			
-		
- 			
- 			
- 			
-		
+ 		 
+	
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -83,6 +83,7 @@ namespace AndroidCXX {
 
 class android_content_Context;
 
+class android_view_LayoutInflater;
 
 class android_view_LayoutInflater_Factory;
 
@@ -103,20 +104,18 @@ class android_util_AttributeSet;
 class android_view_LayoutInflater
 {
 public:
-static android_view_LayoutInflater from(android_content_Context& arg0);
- android_view_LayoutInflater_Factory getFactory();
- android_content_Context getContext();
- android_view_View inflate(org_xmlpull_v1_XmlPullParser& arg0,android_view_ViewGroup& arg1,bool& arg2,int& arg3);
- void setFactory(android_view_LayoutInflater_Factory& arg0);
- android_view_LayoutInflater cloneInContext(android_content_Context& arg0);
- android_view_LayoutInflater_Factory2 getFactory2();
- void setFactory2(android_view_LayoutInflater_Factory2& arg0);
- android_view_LayoutInflater_Filter getFilter();
- void setFilter(android_view_LayoutInflater_Filter& arg0);
- android_view_View createView(java_lang_String& arg0,android_util_AttributeSet& arg1);
-
-
-};
+	static android_view_LayoutInflater *  from(android_content_Context& arg0);
+	 android_view_LayoutInflater_Factory *  getFactory();
+	 android_content_Context *  getContext();
+	 android_view_View *  inflate(org_xmlpull_v1_XmlPullParser& arg0,android_view_ViewGroup& arg1,bool& arg2,int& arg3);
+	 void setFactory(android_view_LayoutInflater_Factory& arg0);
+	 android_view_LayoutInflater *  cloneInContext(android_content_Context& arg0);
+	 android_view_LayoutInflater_Factory2 *  getFactory2();
+	 void setFactory2(android_view_LayoutInflater_Factory2& arg0);
+	 android_view_LayoutInflater_Filter *  getFilter();
+	 void setFilter(android_view_LayoutInflater_Filter& arg0);
+	 android_view_View *  createView(java_lang_String& arg0,android_util_AttributeSet& arg1);
+};	
 
 } // namespace
 

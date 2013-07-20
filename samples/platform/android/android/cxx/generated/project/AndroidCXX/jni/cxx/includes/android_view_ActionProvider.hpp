@@ -9,10 +9,10 @@
 
 
 
- 			
-		
- 			
- 			
+ 		 
+	
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -65,17 +65,15 @@ class android_view_ActionProvider_VisibilityListener;
 class android_view_ActionProvider
 {
 public:
- bool isVisible();
- bool hasSubMenu();
- android_view_View onCreateActionView(android_view_MenuItem& arg0);
- bool overridesItemVisibility();
- void refreshVisibility();
- bool onPerformDefaultAction();
- void onPrepareSubMenu(android_view_SubMenu& arg0);
- void setVisibilityListener(android_view_ActionProvider_VisibilityListener& arg0);
-
-
-};
+	 bool isVisible();
+	 bool hasSubMenu();
+	 android_view_View *  onCreateActionView(android_view_MenuItem& arg0);
+	 bool overridesItemVisibility();
+	 void refreshVisibility();
+	 bool onPerformDefaultAction();
+	 void onPrepareSubMenu(android_view_SubMenu& arg0);
+	 void setVisibilityListener(android_view_ActionProvider_VisibilityListener& arg0);
+};	
 
 } // namespace
 

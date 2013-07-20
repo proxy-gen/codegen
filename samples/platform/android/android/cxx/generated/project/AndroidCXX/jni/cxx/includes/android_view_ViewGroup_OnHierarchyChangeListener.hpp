@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_view_View;
 class android_view_ViewGroup_OnHierarchyChangeListener
 {
 public:
- void onChildViewAdded(android_view_View& arg0);
- void onChildViewRemoved(android_view_View& arg0);
-
-
-};
+	 void onChildViewAdded(android_view_View& arg0);
+	 void onChildViewRemoved(android_view_View& arg0);
+};	
 
 } // namespace
 

@@ -9,10 +9,10 @@
 
 
 
-		
-		
-		
-		
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -49,13 +49,11 @@ class java_lang_String;
 class android_net_http_SslCertificate_DName
 {
 public:
- java_lang_String getDName();
- java_lang_String getCName();
- java_lang_String getOName();
- java_lang_String getUName();
-
-
-};
+	 java_lang_String *  getDName();
+	 java_lang_String *  getCName();
+	 java_lang_String *  getOName();
+	 java_lang_String *  getUName();
+};	
 
 } // namespace
 

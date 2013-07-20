@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_SearchView_OnCloseListener
 {
 public:
- bool onClose();
-
-
-};
+	 bool onClose();
+};	
 
 } // namespace
 

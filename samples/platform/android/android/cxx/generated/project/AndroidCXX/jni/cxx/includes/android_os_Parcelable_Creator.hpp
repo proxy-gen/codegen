@@ -9,8 +9,10 @@
 
 
 
- 			
-		
+ 	
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -24,9 +26,9 @@
 
 
 
-#include <android_os_Parcel.hpp>
-
 #include <java_lang_Object.hpp>
+
+#include <android_os_Parcel.hpp>
 
 #include <vector>
 #include <map>
@@ -42,18 +44,16 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class java_lang_Object;
+
+class android_os_Parcel;
 
 class android_os_Parcelable_Creator
 {
 public:
- std::vector<long> newArray(int& arg0);
- java_lang_Object createFromParcel(android_os_Parcel& arg0);
-
-
-};
+	 std::vector<long> newArray(int& arg0);
+	 java_lang_Object *  createFromParcel(android_os_Parcel& arg0);
+};	
 
 } // namespace
 

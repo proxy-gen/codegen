@@ -9,6 +9,7 @@
 
 
 
+ 	
 
 // Generated Code 
 
@@ -45,17 +46,15 @@ namespace AndroidCXX {
 class java_util_Random
 {
 public:
- int nextInt(int& arg0);
- double nextDouble();
- long nextLong();
- void nextBytes(std::vector<char>& arg0);
- void setSeed(long& arg0);
- bool nextBoolean();
- float nextFloat();
- double nextGaussian();
-
-
-};
+	 int nextInt(int& arg0);
+	 double nextDouble();
+	 long nextLong();
+	 void nextBytes(std::vector<char>& arg0);
+	 void setSeed(long& arg0);
+	 bool nextBoolean();
+	 float nextFloat();
+	 double nextGaussian();
+};	
 
 } // namespace
 

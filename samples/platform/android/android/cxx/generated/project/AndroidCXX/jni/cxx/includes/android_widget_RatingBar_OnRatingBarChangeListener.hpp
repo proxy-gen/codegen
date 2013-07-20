@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_widget_RatingBar;
 class android_widget_RatingBar_OnRatingBarChangeListener
 {
 public:
- void onRatingChanged(android_widget_RatingBar& arg0,float& arg1,bool& arg2);
-
-
-};
+	 void onRatingChanged(android_widget_RatingBar& arg0,float& arg1,bool& arg2);
+};	
 
 } // namespace
 

@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_view_SurfaceHolder;
 class android_view_SurfaceHolder_Callback2
 {
 public:
- void surfaceRedrawNeeded(android_view_SurfaceHolder& arg0);
-
-
-};
+	 void surfaceRedrawNeeded(android_view_SurfaceHolder& arg0);
+};	
 
 } // namespace
 

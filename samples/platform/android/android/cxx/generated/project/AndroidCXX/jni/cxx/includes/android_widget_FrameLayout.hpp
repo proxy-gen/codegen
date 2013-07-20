@@ -9,14 +9,14 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -87,23 +87,21 @@ class android_graphics_drawable_Drawable;
 class android_widget_FrameLayout
 {
 public:
- android_widget_FrameLayout_LayoutParams generateLayoutParams(android_util_AttributeSet& arg0);
- bool gatherTransparentRegion(android_graphics_Region& arg0);
- void jumpDrawablesToCurrentState();
- bool shouldDelayChildPressedState();
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void draw(android_graphics_Canvas& arg0);
- int getForegroundGravity();
- void setForegroundGravity(int& arg0);
- void setForeground(android_graphics_drawable_Drawable& arg0);
- android_graphics_drawable_Drawable getForeground();
- void setMeasureAllChildren(bool& arg0);
- bool getConsiderGoneChildrenWhenMeasuring();
- bool getMeasureAllChildren();
-
-
-};
+	 android_widget_FrameLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
+	 bool gatherTransparentRegion(android_graphics_Region& arg0);
+	 void jumpDrawablesToCurrentState();
+	 bool shouldDelayChildPressedState();
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void draw(android_graphics_Canvas& arg0);
+	 int getForegroundGravity();
+	 void setForegroundGravity(int& arg0);
+	 void setForeground(android_graphics_drawable_Drawable& arg0);
+	 android_graphics_drawable_Drawable *  getForeground();
+	 void setMeasureAllChildren(bool& arg0);
+	 bool getConsiderGoneChildrenWhenMeasuring();
+	 bool getMeasureAllChildren();
+};	
 
 } // namespace
 

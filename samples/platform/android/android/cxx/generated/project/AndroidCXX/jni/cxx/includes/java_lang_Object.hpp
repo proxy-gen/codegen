@@ -9,9 +9,11 @@
 
 
 
- 			
-		
-		
+ 		 
+	
+	
+ 	
+ 		 
 
 // Generated Code 
 
@@ -49,6 +51,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
 
 class java_lang_String;
 
@@ -57,16 +60,14 @@ class java_lang_Class;
 class java_lang_Object
 {
 public:
- void wait(long& arg0,int& arg1);
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_lang_Class getClass();
- void notify();
- void notifyAll();
-
-
-};
+	 void wait(long& arg0,int& arg1);
+	 bool equals(java_lang_Object& arg0);
+	 java_lang_String *  toString();
+	 int hashCode();
+	 java_lang_Class *  getClass();
+	 void notify();
+	 void notifyAll();
+};	
 
 } // namespace
 

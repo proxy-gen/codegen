@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_widget_FrameLayout_LayoutParams
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

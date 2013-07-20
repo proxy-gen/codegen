@@ -9,7 +9,8 @@
 
 
 
- 			
+ 		 
+ 	
 
 // Generated Code 
 
@@ -50,17 +51,15 @@ class android_graphics_SurfaceTexture_OnFrameAvailableListener;
 class android_graphics_SurfaceTexture
 {
 public:
- void release();
- long getTimestamp();
- void setOnFrameAvailableListener(android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0);
- void setDefaultBufferSize(int& arg0);
- void updateTexImage();
- void detachFromGLContext();
- void attachToGLContext(int& arg0);
- void getTransformMatrix(std::vector<float>& arg0);
-
-
-};
+	 void release();
+	 long getTimestamp();
+	 void setOnFrameAvailableListener(android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0);
+	 void setDefaultBufferSize(int& arg0);
+	 void updateTexImage();
+	 void detachFromGLContext();
+	 void attachToGLContext(int& arg0);
+	 void getTransformMatrix(std::vector<float>& arg0);
+};	
 
 } // namespace
 

@@ -9,11 +9,11 @@
 
 
 
-		
- 			
-		
-		
-		
+	
+ 		 
+	
+	
+	
 
 // Generated Code 
 
@@ -72,19 +72,17 @@ class java_lang_Object;
 class android_view_DragEvent
 {
 public:
- java_lang_String toString();
- float getY();
- float getX();
- bool getResult();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- int getAction();
- android_content_ClipData getClipData();
- android_content_ClipDescription getClipDescription();
- java_lang_Object getLocalState();
-
-
-};
+	 java_lang_String *  toString();
+	 float getY();
+	 float getX();
+	 bool getResult();
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+	 int getAction();
+	 android_content_ClipData *  getClipData();
+	 android_content_ClipDescription *  getClipDescription();
+	 java_lang_Object *  getLocalState();
+};	
 
 } // namespace
 

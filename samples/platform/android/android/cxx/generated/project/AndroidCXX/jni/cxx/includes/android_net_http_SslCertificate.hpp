@@ -9,17 +9,17 @@
 
 
 
-		
- 			
-		
- 			
-		
-		
-		
-		
-		
-		
-		
+	
+ 		 
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
 
 // Generated Code 
 
@@ -65,6 +65,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_net_http_SslCertificate;
 
 class android_os_Bundle;
 
@@ -75,18 +76,16 @@ class android_net_http_SslCertificate_DName;
 class android_net_http_SslCertificate
 {
 public:
- java_lang_String toString();
-static android_os_Bundle saveState(android_net_http_SslCertificate& arg0);
-static android_net_http_SslCertificate restoreState(android_os_Bundle& arg0);
- java_util_Date getValidNotBeforeDate();
- java_lang_String getValidNotBefore();
- java_util_Date getValidNotAfterDate();
- java_lang_String getValidNotAfter();
- android_net_http_SslCertificate_DName getIssuedTo();
- android_net_http_SslCertificate_DName getIssuedBy();
-
-
-};
+	 java_lang_String *  toString();
+	static android_os_Bundle *  saveState(android_net_http_SslCertificate& arg0);
+	static android_net_http_SslCertificate *  restoreState(android_os_Bundle& arg0);
+	 java_util_Date *  getValidNotBeforeDate();
+	 java_lang_String *  getValidNotBefore();
+	 java_util_Date *  getValidNotAfterDate();
+	 java_lang_String *  getValidNotAfter();
+	 android_net_http_SslCertificate_DName *  getIssuedTo();
+	 android_net_http_SslCertificate_DName *  getIssuedBy();
+};	
 
 } // namespace
 

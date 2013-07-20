@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -46,12 +46,10 @@ class android_net_Uri;
 class android_database_ContentObserver
 {
 public:
- bool deliverSelfNotifications();
- void onChange(bool& arg0,android_net_Uri& arg1);
- void dispatchChange(bool& arg0,android_net_Uri& arg1);
-
-
-};
+	 bool deliverSelfNotifications();
+	 void onChange(bool& arg0,android_net_Uri& arg1);
+	 void dispatchChange(bool& arg0,android_net_Uri& arg1);
+};	
 
 } // namespace
 

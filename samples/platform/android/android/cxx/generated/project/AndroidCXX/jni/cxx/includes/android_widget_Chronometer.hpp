@@ -9,12 +9,12 @@
 
 
 
-		
- 			
- 			
- 			
- 			
-		
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 // Generated Code 
 
@@ -69,19 +69,17 @@ class android_widget_Chronometer_OnChronometerTickListener;
 class android_widget_Chronometer
 {
 public:
- void start();
- void stop();
- java_lang_String getFormat();
- void setFormat(java_lang_String& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setBase(long& arg0);
- long getBase();
- void setOnChronometerTickListener(android_widget_Chronometer_OnChronometerTickListener& arg0);
- android_widget_Chronometer_OnChronometerTickListener getOnChronometerTickListener();
-
-
-};
+	 void start();
+	 void stop();
+	 java_lang_String *  getFormat();
+	 void setFormat(java_lang_String& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setBase(long& arg0);
+	 long getBase();
+	 void setOnChronometerTickListener(android_widget_Chronometer_OnChronometerTickListener& arg0);
+	 android_widget_Chronometer_OnChronometerTickListener *  getOnChronometerTickListener();
+};	
 
 } // namespace
 

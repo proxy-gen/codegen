@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_widget_AbsListView_LayoutParams
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -48,10 +48,8 @@ class android_view_DragEvent;
 class android_view_View_OnDragListener
 {
 public:
- bool onDrag(android_view_View& arg0,android_view_DragEvent& arg1);
-
-
-};
+	 bool onDrag(android_view_View& arg0,android_view_DragEvent& arg1);
+};	
 
 } // namespace
 

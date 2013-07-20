@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -43,10 +43,8 @@ class android_graphics_Rect;
 class android_widget_AbsListView_SelectionBoundsAdjuster
 {
 public:
- void adjustListItemSelectionBounds(android_graphics_Rect& arg0);
-
-
-};
+	 void adjustListItemSelectionBounds(android_graphics_Rect& arg0);
+};	
 
 } // namespace
 

@@ -9,8 +9,8 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
 // Generated Code 
 
@@ -45,11 +45,9 @@ class android_os_MessageQueue_IdleHandler;
 class android_os_MessageQueue
 {
 public:
- void addIdleHandler(android_os_MessageQueue_IdleHandler& arg0);
- void removeIdleHandler(android_os_MessageQueue_IdleHandler& arg0);
-
-
-};
+	 void addIdleHandler(android_os_MessageQueue_IdleHandler& arg0);
+	 void removeIdleHandler(android_os_MessageQueue_IdleHandler& arg0);
+};	
 
 } // namespace
 

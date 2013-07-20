@@ -9,6 +9,7 @@
 
 
 
+ 	
 
 // Generated Code 
 
@@ -39,11 +40,9 @@ namespace AndroidCXX {
 class java_io_BufferedOutputStream
 {
 public:
- void write(int& arg0,std::vector<char>& arg1);
- void flush();
-
-
-};
+	 void write(int& arg0,std::vector<char>& arg1);
+	 void flush();
+};	
 
 } // namespace
 

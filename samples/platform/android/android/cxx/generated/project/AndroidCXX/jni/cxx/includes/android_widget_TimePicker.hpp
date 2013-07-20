@@ -9,16 +9,16 @@
 
 
 
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
- 			
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
 
 // Generated Code 
 
@@ -81,23 +81,21 @@ class java_lang_Boolean;
 class android_widget_TimePicker
 {
 public:
- bool isEnabled();
- bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
- void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
- void setEnabled(bool& arg0);
- int getBaseline();
- void setOnTimeChangedListener(android_widget_TimePicker_OnTimeChangedListener& arg0);
- java_lang_Integer getCurrentHour();
- void setCurrentHour(java_lang_Integer& arg0);
- void setIs24HourView(java_lang_Boolean& arg0);
- bool is24HourView();
- java_lang_Integer getCurrentMinute();
- void setCurrentMinute(java_lang_Integer& arg0);
-
-
-};
+	 bool isEnabled();
+	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
+	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
+	 void setEnabled(bool& arg0);
+	 int getBaseline();
+	 void setOnTimeChangedListener(android_widget_TimePicker_OnTimeChangedListener& arg0);
+	 java_lang_Integer *  getCurrentHour();
+	 void setCurrentHour(java_lang_Integer& arg0);
+	 void setIs24HourView(java_lang_Boolean& arg0);
+	 bool is24HourView();
+	 java_lang_Integer *  getCurrentMinute();
+	 void setCurrentMinute(java_lang_Integer& arg0);
+};	
 
 } // namespace
 

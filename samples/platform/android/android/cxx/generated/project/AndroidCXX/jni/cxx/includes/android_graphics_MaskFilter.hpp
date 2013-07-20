@@ -37,9 +37,7 @@ namespace AndroidCXX {
 class android_graphics_MaskFilter
 {
 public:
-
-
-};
+};	
 
 } // namespace
 

@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_webkit_WebChromeClient_CustomViewCallback
 {
 public:
- void onCustomViewHidden();
-
-
-};
+	 void onCustomViewHidden();
+};	
 
 } // namespace
 

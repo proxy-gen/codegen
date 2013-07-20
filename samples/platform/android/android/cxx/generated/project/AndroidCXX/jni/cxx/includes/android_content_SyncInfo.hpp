@@ -9,7 +9,7 @@
 
 
 
- 			
+ 		 
 
 // Generated Code 
 
@@ -44,11 +44,9 @@ class android_os_Parcel;
 class android_content_SyncInfo
 {
 public:
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
-
-
-};
+	 int describeContents();
+	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
+};	
 
 } // namespace
 

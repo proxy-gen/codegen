@@ -38,10 +38,8 @@ namespace AndroidCXX {
 class android_widget_SlidingDrawer_OnDrawerOpenListener
 {
 public:
- void onDrawerOpened();
-
-
-};
+	 void onDrawerOpened();
+};	
 
 } // namespace
 

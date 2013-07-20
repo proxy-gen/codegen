@@ -7,6 +7,7 @@ LOCAL_PATH := $(call my-dir)
 find_src_files = $(addprefix $(1)/,$(notdir $(wildcard $(LOCAL_PATH)/$(1)/*.cpp)))
 
 CXX_SRC_FILES := $(call find_src_files,cxx/impl)
+#CXX_SRC_FILES  := cxx/impl/org_xmlpull_v1_XmlSerializer.cpp
 
 CXX_INCLUDES := $(LOCAL_PATH)/cxx/includes
 
