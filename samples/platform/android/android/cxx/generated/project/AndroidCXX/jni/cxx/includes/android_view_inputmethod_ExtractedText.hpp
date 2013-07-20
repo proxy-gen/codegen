@@ -44,6 +44,9 @@ class android_os_Parcel;
 class android_view_inputmethod_ExtractedText
 {
 public:
+	android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc);
+	android_view_inputmethod_ExtractedText(void * proxy);
+	virtual ~android_view_inputmethod_ExtractedText();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
 };	

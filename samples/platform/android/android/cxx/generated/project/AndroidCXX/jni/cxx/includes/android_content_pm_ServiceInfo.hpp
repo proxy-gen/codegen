@@ -57,6 +57,9 @@ class android_os_Parcel;
 class android_content_pm_ServiceInfo
 {
 public:
+	android_content_pm_ServiceInfo(const android_content_pm_ServiceInfo& cc);
+	android_content_pm_ServiceInfo(void * proxy);
+	virtual ~android_content_pm_ServiceInfo();
 	 java_lang_String *  toString();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 int describeContents();

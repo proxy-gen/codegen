@@ -109,6 +109,9 @@ class android_content_Loader_OnLoadCanceledListener;
 class android_content_Loader
 {
 public:
+	android_content_Loader(const android_content_Loader& cc);
+	android_content_Loader(void * proxy);
+	virtual ~android_content_Loader();
 	 java_lang_String *  toString();
 	 android_content_Context *  getContext();
 	 int getId();

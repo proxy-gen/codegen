@@ -88,6 +88,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_TabWidget
 {
 public:
+	android_widget_TabWidget(const android_widget_TabWidget& cc);
+	android_widget_TabWidget(void * proxy);
+	virtual ~android_widget_TabWidget();
 	 void addView(android_view_View& arg0);
 	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void dispatchDraw(android_graphics_Canvas& arg0);

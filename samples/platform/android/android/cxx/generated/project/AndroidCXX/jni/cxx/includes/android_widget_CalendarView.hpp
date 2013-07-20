@@ -91,6 +91,9 @@ class android_widget_CalendarView_OnDateChangeListener;
 class android_widget_CalendarView
 {
 public:
+	android_widget_CalendarView(const android_widget_CalendarView& cc);
+	android_widget_CalendarView(void * proxy);
+	virtual ~android_widget_CalendarView();
 	 long getDate();
 	 void setDate(long& arg0,bool& arg1);
 	 bool isEnabled();

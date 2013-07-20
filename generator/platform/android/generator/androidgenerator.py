@@ -872,6 +872,7 @@ class Generator(BaseGenerator):
 			if "classes" in config_data:
 				for clazz in config_data["classes"]:
 					self._attach_derived_data(clazz, config_module)
+					self._attach_derived_class_data(clazz, config_module)
 			if "functions" in config_data:
 				for function in config_data["functions"]:
 					self._attach_derived_data(function, config_module)
@@ -883,6 +884,30 @@ class Generator(BaseGenerator):
 				for field in config_data["fields"]:
 					self._attach_derived_type_data(field["type"], config_module)
 		logging.debug("_attach_derived_data enter")
+
+	def _attach_derived_class_data(self, class_config, config_module):
+		logging.debug("_attach_derived_class_data enter")
+		if "deriveddata" not in class_config:
+			class_config['deriveddata'] = dict()
+		self._attach_derived_target_class_data(class_config, config_module)
+		logging.debug("_attach_derived_class_data exit")
+
+	def _attach_derived_target_class_data(self, class_config, config_module):
+		logging.debug("_attach_derived_target_class_data enter")
+		deriveddata = class_config['deriveddata']
+		if "targetdata" not in deriveddata:
+			deriveddata['targetdata'] = dict()
+		self._attach_derived_target_class_info(class_config, config_module)
+		logging.debug("_attach_derived_target_class_data exit")
+
+	def _attach_derived_target_class_info(self, class_config, config_module):
+		logging.debug("_attach_derived_target_class_name enter")
+		deriveddata = class_config['deriveddata']
+		targetdata = deriveddata['targetdata']
+		if 'classinfo' not in targetdata:
+			classinfo = targetdata['classinfo'] = dict()
+		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
+		logging.debug("_attach_derived_target_class_info exit")	
 
 	def _attach_derived_function_data(self, function_config, config_module):
 		logging.debug("_attach_derived_function_data enter")

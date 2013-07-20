@@ -189,6 +189,9 @@ class org_xmlpull_v1_XmlPullParser;
 class android_content_IntentFilter
 {
 public:
+	android_content_IntentFilter(const android_content_IntentFilter& cc);
+	android_content_IntentFilter(void * proxy);
+	virtual ~android_content_IntentFilter();
 	 void setPriority(int& arg0);
 	 int getPriority();
 	static android_content_IntentFilter *  create(java_lang_String& arg0);

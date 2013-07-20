@@ -116,6 +116,9 @@ class android_graphics_Canvas;
 class android_widget_HorizontalScrollView
 {
 public:
+	android_widget_HorizontalScrollView(const android_widget_HorizontalScrollView& cc);
+	android_widget_HorizontalScrollView(void * proxy);
+	virtual ~android_widget_HorizontalScrollView();
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool onGenericMotionEvent(android_view_MotionEvent& arg0);

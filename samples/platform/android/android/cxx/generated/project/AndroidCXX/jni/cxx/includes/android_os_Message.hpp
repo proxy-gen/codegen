@@ -92,6 +92,9 @@ class java_lang_Runnable;
 class android_os_Message
 {
 public:
+	android_os_Message(const android_os_Message& cc);
+	android_os_Message(void * proxy);
+	virtual ~android_os_Message();
 	 java_lang_String *  toString();
 	 android_os_Bundle *  getData();
 	 void copyFrom(android_os_Message& arg0);

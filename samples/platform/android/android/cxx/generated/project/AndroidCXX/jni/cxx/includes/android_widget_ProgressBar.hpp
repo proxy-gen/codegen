@@ -97,6 +97,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_ProgressBar
 {
 public:
+	android_widget_ProgressBar(const android_widget_ProgressBar& cc);
+	android_widget_ProgressBar(void * proxy);
+	virtual ~android_widget_ProgressBar();
 	 android_os_Parcelable *  onSaveInstanceState();
 	 void setInterpolator(android_view_animation_Interpolator& arg0,android_content_Context& arg1,int& arg2);
 	 void setVisibility(int& arg0);

@@ -50,6 +50,9 @@ class android_net_Uri;
 class android_content_IntentFilter_AuthorityEntry
 {
 public:
+	android_content_IntentFilter_AuthorityEntry(const android_content_IntentFilter_AuthorityEntry& cc);
+	android_content_IntentFilter_AuthorityEntry(void * proxy);
+	virtual ~android_content_IntentFilter_AuthorityEntry();
 	 int getPort();
 	 java_lang_String *  getHost();
 	 int match(android_net_Uri& arg0);

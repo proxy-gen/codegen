@@ -50,6 +50,9 @@ class android_view_MotionEvent_PointerProperties;
 class android_view_MotionEvent_PointerProperties
 {
 public:
+	android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc);
+	android_view_MotionEvent_PointerProperties(void * proxy);
+	virtual ~android_view_MotionEvent_PointerProperties();
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 void clear();

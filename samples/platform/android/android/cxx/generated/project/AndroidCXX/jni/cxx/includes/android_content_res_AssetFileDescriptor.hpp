@@ -78,6 +78,9 @@ class java_io_FileOutputStream;
 class android_content_res_AssetFileDescriptor
 {
 public:
+	android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc);
+	android_content_res_AssetFileDescriptor(void * proxy);
+	virtual ~android_content_res_AssetFileDescriptor();
 	 java_lang_String *  toString();
 	 long getLength();
 	 void close();

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -77,7 +76,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_nio_charset_Charset>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -93,7 +91,7 @@ template void convert_proxy<java_lang_CharSequence>(long& java_value, long& cxx_
 
 template void convert_proxy<java_nio_charset_CodingErrorAction>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_nio_charset_Charset *  java_nio_charset_CharsetEncoder::charset()
 {
 	const char *methodName = "charset";

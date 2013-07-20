@@ -112,6 +112,9 @@ class java_net_URLStreamHandlerFactory;
 class java_net_URL
 {
 public:
+	java_net_URL(const java_net_URL& cc);
+	java_net_URL(void * proxy);
+	virtual ~java_net_URL();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

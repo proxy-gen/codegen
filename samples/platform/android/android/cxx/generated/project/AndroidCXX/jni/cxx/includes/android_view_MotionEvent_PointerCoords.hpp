@@ -45,6 +45,9 @@ class android_view_MotionEvent_PointerCoords;
 class android_view_MotionEvent_PointerCoords
 {
 public:
+	android_view_MotionEvent_PointerCoords(const android_view_MotionEvent_PointerCoords& cc);
+	android_view_MotionEvent_PointerCoords(void * proxy);
+	virtual ~android_view_MotionEvent_PointerCoords();
 	 void clear();
 	 void copyFrom(android_view_MotionEvent_PointerCoords& arg0);
 	 float getAxisValue(int& arg0);

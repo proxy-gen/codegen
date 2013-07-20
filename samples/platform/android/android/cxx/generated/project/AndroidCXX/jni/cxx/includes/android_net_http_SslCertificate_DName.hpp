@@ -49,6 +49,9 @@ class java_lang_String;
 class android_net_http_SslCertificate_DName
 {
 public:
+	android_net_http_SslCertificate_DName(const android_net_http_SslCertificate_DName& cc);
+	android_net_http_SslCertificate_DName(void * proxy);
+	virtual ~android_net_http_SslCertificate_DName();
 	 java_lang_String *  getDName();
 	 java_lang_String *  getCName();
 	 java_lang_String *  getOName();

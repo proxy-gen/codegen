@@ -69,6 +69,9 @@ class android_graphics_Canvas;
 class android_view_Surface
 {
 public:
+	android_view_Surface(const android_view_Surface& cc);
+	android_view_Surface(void * proxy);
+	virtual ~android_view_Surface();
 	 java_lang_String *  toString();
 	 void release();
 	 bool isValid();

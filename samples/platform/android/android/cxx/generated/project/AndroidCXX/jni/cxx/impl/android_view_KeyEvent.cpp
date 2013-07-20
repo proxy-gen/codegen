@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -116,7 +115,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_KeyEvent_Callback>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -134,7 +132,58 @@ template void convert_proxy<android_view_KeyCharacterMap>(long& java_value, long
 
 template void convert_proxy<android_view_KeyCharacterMap_KeyData>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
+// Default Instance Constructors
+android_view_KeyEvent::android_view_KeyEvent(const android_view_KeyEvent& cc)
+{
+	LOGV("android_view_KeyEvent::android_view_KeyEvent(const android_view_KeyEvent& cc) invoked");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+android_view_KeyEvent::android_view_KeyEvent(void * proxy)
+{
+	LOGV("android_view_KeyEvent::android_view_KeyEvent(void * proxy) invoked");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+// Default Instance Destructor
+android_view_KeyEvent::~android_view_KeyEvent()
+{
+	LOGV("android_view_KeyEvent::~android_view_KeyEvent() invoked");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+}
+// Functions
 bool android_view_KeyEvent::dispatch(android_view_KeyEvent_Callback& arg0,android_view_KeyEvent_DispatcherState& arg1,java_lang_Object& arg2)
 {
 	const char *methodName = "dispatch";

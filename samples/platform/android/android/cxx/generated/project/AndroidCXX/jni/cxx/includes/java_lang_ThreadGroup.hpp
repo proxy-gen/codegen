@@ -83,6 +83,9 @@ class java_lang_ThreadGroup;
 class java_lang_ThreadGroup
 {
 public:
+	java_lang_ThreadGroup(const java_lang_ThreadGroup& cc);
+	java_lang_ThreadGroup(void * proxy);
+	virtual ~java_lang_ThreadGroup();
 	 void uncaughtException(java_lang_Thread& arg0,java_lang_Throwable& arg1);
 	 java_lang_String *  toString();
 	 java_lang_String *  getName();

@@ -50,6 +50,9 @@ class android_os_Parcel;
 class android_content_pm_PackageInfo
 {
 public:
+	android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc);
+	android_content_pm_PackageInfo(void * proxy);
+	virtual ~android_content_pm_PackageInfo();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

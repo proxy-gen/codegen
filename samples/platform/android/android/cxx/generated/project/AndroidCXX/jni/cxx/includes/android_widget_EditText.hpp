@@ -73,6 +73,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_EditText
 {
 public:
+	android_widget_EditText(const android_widget_EditText& cc);
+	android_widget_EditText(void * proxy);
+	virtual ~android_widget_EditText();
 	 void setText(java_lang_CharSequence& arg0,android_widget_TextView_BufferType& arg1);
 	 android_text_Editable *  getText();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);

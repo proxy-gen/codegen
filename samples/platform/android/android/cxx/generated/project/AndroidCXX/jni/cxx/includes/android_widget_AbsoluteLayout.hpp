@@ -49,6 +49,9 @@ class android_view_ViewGroup_LayoutParams;
 class android_widget_AbsoluteLayout
 {
 public:
+	android_widget_AbsoluteLayout(const android_widget_AbsoluteLayout& cc);
+	android_widget_AbsoluteLayout(void * proxy);
+	virtual ~android_widget_AbsoluteLayout();
 	 android_view_ViewGroup_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
 	 bool shouldDelayChildPressedState();
 };	

@@ -87,6 +87,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_LinearLayout
 {
 public:
+	android_widget_LinearLayout(const android_widget_LinearLayout& cc);
+	android_widget_LinearLayout(void * proxy);
+	virtual ~android_widget_LinearLayout();
 	 android_widget_LinearLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
 	 bool shouldDelayChildPressedState();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);

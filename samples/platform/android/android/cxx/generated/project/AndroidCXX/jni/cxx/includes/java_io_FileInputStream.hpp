@@ -54,6 +54,9 @@ class java_nio_channels_FileChannel;
 class java_io_FileInputStream
 {
 public:
+	java_io_FileInputStream(const java_io_FileInputStream& cc);
+	java_io_FileInputStream(void * proxy);
+	virtual ~java_io_FileInputStream();
 	 void close();
 	 int read(std::vector<char>& arg0,int& arg1);
 	 long skip(long& arg0);

@@ -53,6 +53,9 @@ class android_util_Pair;
 class android_util_Pair
 {
 public:
+	android_util_Pair(const android_util_Pair& cc);
+	android_util_Pair(void * proxy);
+	virtual ~android_util_Pair();
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	static android_util_Pair *  create(java_lang_Object& arg0);

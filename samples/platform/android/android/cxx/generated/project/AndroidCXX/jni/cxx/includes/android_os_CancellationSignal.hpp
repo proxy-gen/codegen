@@ -46,6 +46,9 @@ class android_os_CancellationSignal_OnCancelListener;
 class android_os_CancellationSignal
 {
 public:
+	android_os_CancellationSignal(const android_os_CancellationSignal& cc);
+	android_os_CancellationSignal(void * proxy);
+	virtual ~android_os_CancellationSignal();
 	 void cancel();
 	 bool isCanceled();
 	 void throwIfCanceled();

@@ -59,6 +59,9 @@ class java_lang_CharSequence;
 class android_view_inputmethod_CorrectionInfo
 {
 public:
+	android_view_inputmethod_CorrectionInfo(const android_view_inputmethod_CorrectionInfo& cc);
+	android_view_inputmethod_CorrectionInfo(void * proxy);
+	virtual ~android_view_inputmethod_CorrectionInfo();
 	 java_lang_String *  toString();
 	 int getOffset();
 	 int describeContents();

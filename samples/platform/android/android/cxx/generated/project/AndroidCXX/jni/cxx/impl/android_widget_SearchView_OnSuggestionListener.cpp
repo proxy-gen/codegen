@@ -12,7 +12,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_SearchView_OnSuggestionListener.hpp>
@@ -50,9 +49,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 bool android_widget_SearchView_OnSuggestionListener::onSuggestionSelect(int& arg0)
 {
 	const char *methodName = "onSuggestionSelect";

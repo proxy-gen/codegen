@@ -74,6 +74,9 @@ class java_lang_Float;
 class java_lang_Float
 {
 public:
+	java_lang_Float(const java_lang_Float& cc);
+	java_lang_Float(void * proxy);
+	virtual ~java_lang_Float();
 	 bool equals(java_lang_Object& arg0);
 	static java_lang_String *  toString(float& arg0);
 	 int hashCode();

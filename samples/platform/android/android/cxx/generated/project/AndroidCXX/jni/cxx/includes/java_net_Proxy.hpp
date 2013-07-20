@@ -61,6 +61,9 @@ class java_net_SocketAddress;
 class java_net_Proxy
 {
 public:
+	java_net_Proxy(const java_net_Proxy& cc);
+	java_net_Proxy(void * proxy);
+	virtual ~java_net_Proxy();
 	 java_net_Proxy_Type *  type();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();

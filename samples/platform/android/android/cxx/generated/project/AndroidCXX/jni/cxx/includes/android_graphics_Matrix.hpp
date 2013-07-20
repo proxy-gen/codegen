@@ -103,6 +103,9 @@ class android_graphics_RectF;
 class android_graphics_Matrix
 {
 public:
+	android_graphics_Matrix(const android_graphics_Matrix& cc);
+	android_graphics_Matrix(void * proxy);
+	virtual ~android_graphics_Matrix();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 void set(android_graphics_Matrix& arg0);

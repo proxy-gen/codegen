@@ -68,6 +68,9 @@ class java_lang_CharSequence;
 class android_content_pm_ApplicationInfo
 {
 public:
+	android_content_pm_ApplicationInfo(const android_content_pm_ApplicationInfo& cc);
+	android_content_pm_ApplicationInfo(void * proxy);
+	virtual ~android_content_pm_ApplicationInfo();
 	 java_lang_String *  toString();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 int describeContents();

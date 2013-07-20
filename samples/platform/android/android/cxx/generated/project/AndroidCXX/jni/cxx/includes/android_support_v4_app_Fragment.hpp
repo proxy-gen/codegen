@@ -267,6 +267,9 @@ class android_view_ContextMenu_ContextMenuInfo;
 class android_support_v4_app_Fragment
 {
 public:
+	android_support_v4_app_Fragment(const android_support_v4_app_Fragment& cc);
+	android_support_v4_app_Fragment(void * proxy);
+	virtual ~android_support_v4_app_Fragment();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

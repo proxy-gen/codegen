@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_app_ActionBar_OnNavigationListener.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 bool android_app_ActionBar_OnNavigationListener::onNavigationItemSelected(int& arg0,long& arg1)
 {
 	const char *methodName = "onNavigationItemSelected";

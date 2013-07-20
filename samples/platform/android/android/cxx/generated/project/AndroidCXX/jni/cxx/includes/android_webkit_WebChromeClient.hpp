@@ -145,6 +145,9 @@ class android_webkit_ValueCallback;
 class android_webkit_WebChromeClient
 {
 public:
+	android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc);
+	android_webkit_WebChromeClient(void * proxy);
+	virtual ~android_webkit_WebChromeClient();
 	 void onProgressChanged(android_webkit_WebView& arg0,int& arg1);
 	 void onReceivedTitle(android_webkit_WebView& arg0,java_lang_String& arg1);
 	 void onReceivedIcon(android_webkit_WebView& arg0,android_graphics_Bitmap& arg1);

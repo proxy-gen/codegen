@@ -50,6 +50,9 @@ class android_os_Parcel;
 class android_content_PeriodicSync
 {
 public:
+	android_content_PeriodicSync(const android_content_PeriodicSync& cc);
+	android_content_PeriodicSync(void * proxy);
+	virtual ~android_content_PeriodicSync();
 	 bool equals(java_lang_Object& arg0);
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

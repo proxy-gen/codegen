@@ -145,6 +145,9 @@ class java_util_Random;
 class java_math_BigInteger
 {
 public:
+	java_math_BigInteger(const java_math_BigInteger& cc);
+	java_math_BigInteger(void * proxy);
+	virtual ~java_math_BigInteger();
 	 java_math_BigInteger *  add(java_math_BigInteger& arg0);
 	 int bitCount();
 	 bool equals(java_lang_Object& arg0);

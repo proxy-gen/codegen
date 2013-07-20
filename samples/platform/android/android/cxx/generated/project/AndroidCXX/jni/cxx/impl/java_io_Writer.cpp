@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -55,7 +54,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_CharSequence>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -63,7 +61,7 @@ template void convert_proxy<java_io_Writer>(long& java_value, long& cxx_value, c
 
 template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_io_Writer *  java_io_Writer::append(java_lang_CharSequence& arg0,int& arg1,char& arg2)
 {
 	const char *methodName = "append";

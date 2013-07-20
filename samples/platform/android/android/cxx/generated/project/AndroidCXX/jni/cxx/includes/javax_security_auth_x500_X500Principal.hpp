@@ -63,6 +63,9 @@ class java_util_Map;
 class javax_security_auth_x500_X500Principal
 {
 public:
+	javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc);
+	javax_security_auth_x500_X500Principal(void * proxy);
+	virtual ~javax_security_auth_x500_X500Principal();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

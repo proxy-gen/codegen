@@ -93,6 +93,9 @@ class org_json_JSONObject;
 class org_json_JSONArray
 {
 public:
+	org_json_JSONArray(const org_json_JSONArray& cc);
+	org_json_JSONArray(void * proxy);
+	virtual ~org_json_JSONArray();
 	 java_lang_Object *  get(int& arg0);
 	 org_json_JSONArray *  put(java_lang_Object& arg0,int& arg1,bool& arg2,long& arg3,double& arg4);
 	 bool equals(java_lang_Object& arg0);

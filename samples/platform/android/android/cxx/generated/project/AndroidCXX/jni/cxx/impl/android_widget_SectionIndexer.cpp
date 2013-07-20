@@ -13,7 +13,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_SectionIndexer.hpp>
@@ -51,9 +50,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 std::vector<long> android_widget_SectionIndexer::getSections()
 {
 	const char *methodName = "getSections";

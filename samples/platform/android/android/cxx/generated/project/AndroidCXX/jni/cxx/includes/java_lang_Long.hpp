@@ -89,6 +89,9 @@ class java_lang_Long;
 class java_lang_Long
 {
 public:
+	java_lang_Long(const java_lang_Long& cc);
+	java_lang_Long(void * proxy);
+	virtual ~java_lang_Long();
 	static int numberOfLeadingZeros(long& arg0);
 	static int numberOfTrailingZeros(long& arg0);
 	static int bitCount(long& arg0);

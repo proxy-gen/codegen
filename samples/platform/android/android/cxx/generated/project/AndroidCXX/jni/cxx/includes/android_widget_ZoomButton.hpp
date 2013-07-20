@@ -71,6 +71,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_ZoomButton
 {
 public:
+	android_widget_ZoomButton(const android_widget_ZoomButton& cc);
+	android_widget_ZoomButton(void * proxy);
+	virtual ~android_widget_ZoomButton();
 	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool dispatchUnhandledMove(android_view_View& arg0,int& arg1);

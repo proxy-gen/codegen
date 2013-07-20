@@ -80,6 +80,9 @@ class android_os_Bundle;
 class android_app_LocalActivityManager
 {
 public:
+	android_app_LocalActivityManager(const android_app_LocalActivityManager& cc);
+	android_app_LocalActivityManager(void * proxy);
+	virtual ~android_app_LocalActivityManager();
 	 android_app_Activity *  getActivity(java_lang_String& arg0);
 	 android_view_Window *  startActivity(java_lang_String& arg0,android_content_Intent& arg1);
 	 void dispatchResume();

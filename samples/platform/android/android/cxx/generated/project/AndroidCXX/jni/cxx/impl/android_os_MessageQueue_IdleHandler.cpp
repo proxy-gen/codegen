@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_os_MessageQueue_IdleHandler.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 bool android_os_MessageQueue_IdleHandler::queueIdle()
 {
 	const char *methodName = "queueIdle";

@@ -61,6 +61,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_CheckedTextView
 {
 public:
+	android_widget_CheckedTextView(const android_widget_CheckedTextView& cc);
+	android_widget_CheckedTextView(void * proxy);
+	virtual ~android_widget_CheckedTextView();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void onRtlPropertiesChanged(int& arg0);

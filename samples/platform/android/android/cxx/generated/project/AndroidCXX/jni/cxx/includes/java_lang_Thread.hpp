@@ -136,6 +136,9 @@ class java_lang_Thread_UncaughtExceptionHandler;
 class java_lang_Thread
 {
 public:
+	java_lang_Thread(const java_lang_Thread& cc);
+	java_lang_Thread(void * proxy);
+	virtual ~java_lang_Thread();
 	 void run();
 	 java_lang_String *  toString();
 	 bool isInterrupted();

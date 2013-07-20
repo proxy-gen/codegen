@@ -46,6 +46,9 @@ namespace AndroidCXX {
 class java_util_Random
 {
 public:
+	java_util_Random(const java_util_Random& cc);
+	java_util_Random(void * proxy);
+	virtual ~java_util_Random();
 	 int nextInt(int& arg0);
 	 double nextDouble();
 	 long nextLong();

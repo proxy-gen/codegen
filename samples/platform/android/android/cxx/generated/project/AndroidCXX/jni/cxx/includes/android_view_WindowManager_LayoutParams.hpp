@@ -67,6 +67,9 @@ class java_lang_CharSequence;
 class android_view_WindowManager_LayoutParams
 {
 public:
+	android_view_WindowManager_LayoutParams(const android_view_WindowManager_LayoutParams& cc);
+	android_view_WindowManager_LayoutParams(void * proxy);
+	virtual ~android_view_WindowManager_LayoutParams();
 	 java_lang_String *  toString();
 	 java_lang_String *  debug(java_lang_String& arg0);
 	 int copyFrom(android_view_WindowManager_LayoutParams& arg0);

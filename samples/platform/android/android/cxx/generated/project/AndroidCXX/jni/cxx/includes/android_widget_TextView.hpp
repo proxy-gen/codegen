@@ -486,6 +486,9 @@ class android_view_ActionMode_Callback;
 class android_widget_TextView
 {
 public:
+	android_widget_TextView(const android_widget_TextView& cc);
+	android_widget_TextView(void * proxy);
+	virtual ~android_widget_TextView();
 	 void append(java_lang_CharSequence& arg0,int& arg1);
 	 int length();
 	 void debug(int& arg0);

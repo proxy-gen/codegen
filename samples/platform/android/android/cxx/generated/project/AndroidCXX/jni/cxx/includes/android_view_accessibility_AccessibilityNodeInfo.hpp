@@ -168,6 +168,9 @@ class android_graphics_Rect;
 class android_view_accessibility_AccessibilityNodeInfo
 {
 public:
+	android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc);
+	android_view_accessibility_AccessibilityNodeInfo(void * proxy);
+	virtual ~android_view_accessibility_AccessibilityNodeInfo();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -54,7 +53,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_View>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -64,7 +62,7 @@ template void convert_proxy<android_content_Context>(long& java_value, long& cxx
 
 template void convert_proxy<android_util_AttributeSet>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_view_View *  android_view_LayoutInflater_Factory2::onCreateView(android_view_View& arg0,java_lang_String& arg1,android_content_Context& arg2,android_util_AttributeSet& arg3)
 {
 	const char *methodName = "onCreateView";

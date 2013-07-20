@@ -137,6 +137,9 @@ class android_view_KeyCharacterMap_KeyData;
 class android_view_KeyEvent
 {
 public:
+	android_view_KeyEvent(const android_view_KeyEvent& cc);
+	android_view_KeyEvent(void * proxy);
+	virtual ~android_view_KeyEvent();
 	 bool dispatch(android_view_KeyEvent_Callback& arg0,android_view_KeyEvent_DispatcherState& arg1,java_lang_Object& arg2);
 	 java_lang_String *  toString();
 	 int getModifiers();

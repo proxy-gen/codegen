@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -89,7 +88,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -97,7 +95,58 @@ template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value,
 
 template void convert_proxy<java_lang_Long>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
+// Default Instance Constructors
+java_lang_Long::java_lang_Long(const java_lang_Long& cc)
+{
+	LOGV("java_lang_Long::java_lang_Long(const java_lang_Long& cc) invoked");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+java_lang_Long::java_lang_Long(void * proxy)
+{
+	LOGV("java_lang_Long::java_lang_Long(void * proxy) invoked");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+// Default Instance Destructor
+java_lang_Long::~java_lang_Long()
+{
+	LOGV("java_lang_Long::~java_lang_Long() invoked");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+}
+// Functions
 int java_lang_Long::numberOfLeadingZeros(long& arg0)
 {
 	const char *methodName = "numberOfLeadingZeros";

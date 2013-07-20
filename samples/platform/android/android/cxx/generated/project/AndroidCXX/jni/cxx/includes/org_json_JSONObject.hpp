@@ -135,6 +135,9 @@ class java_lang_Number;
 class org_json_JSONObject
 {
 public:
+	org_json_JSONObject(const org_json_JSONObject& cc);
+	org_json_JSONObject(void * proxy);
+	virtual ~org_json_JSONObject();
 	 java_lang_Object *  get(java_lang_String& arg0);
 	 org_json_JSONObject *  put(java_lang_String& arg0,double& arg1,bool& arg2,int& arg3,long& arg4,java_lang_Object& arg5);
 	 java_lang_String *  toString(int& arg0);

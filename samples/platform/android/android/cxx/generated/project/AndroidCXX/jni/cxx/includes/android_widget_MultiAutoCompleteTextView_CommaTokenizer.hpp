@@ -48,6 +48,9 @@ class java_lang_CharSequence;
 class android_widget_MultiAutoCompleteTextView_CommaTokenizer
 {
 public:
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc);
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy);
+	virtual ~android_widget_MultiAutoCompleteTextView_CommaTokenizer();
 	 int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
 	 int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
 	 java_lang_CharSequence *  terminateToken(java_lang_CharSequence& arg0);

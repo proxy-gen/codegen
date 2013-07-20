@@ -129,6 +129,9 @@ class android_widget_CursorAdapter;
 class android_widget_SearchView
 {
 public:
+	android_widget_SearchView(const android_widget_SearchView& cc);
+	android_widget_SearchView(void * proxy);
+	virtual ~android_widget_SearchView();
 	 java_lang_CharSequence *  getQuery();
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
 	 void onWindowFocusChanged(bool& arg0);

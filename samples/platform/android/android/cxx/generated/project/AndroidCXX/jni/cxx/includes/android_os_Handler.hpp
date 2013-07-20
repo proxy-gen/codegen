@@ -111,6 +111,9 @@ class android_os_Message;
 class android_os_Handler
 {
 public:
+	android_os_Handler(const android_os_Handler& cc);
+	android_os_Handler(void * proxy);
+	virtual ~android_os_Handler();
 	 java_lang_String *  toString();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 void removeCallbacks(java_lang_Runnable& arg0,java_lang_Object& arg1);

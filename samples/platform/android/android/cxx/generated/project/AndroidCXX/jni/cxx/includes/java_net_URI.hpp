@@ -108,6 +108,9 @@ class java_net_URL;
 class java_net_URI
 {
 public:
+	java_net_URI(const java_net_URI& cc);
+	java_net_URI(void * proxy);
+	virtual ~java_net_URI();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

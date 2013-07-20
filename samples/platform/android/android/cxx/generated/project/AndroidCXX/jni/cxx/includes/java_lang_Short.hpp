@@ -70,6 +70,9 @@ class java_lang_Short;
 class java_lang_Short
 {
 public:
+	java_lang_Short(const java_lang_Short& cc);
+	java_lang_Short(void * proxy);
+	virtual ~java_lang_Short();
 	 bool equals(java_lang_Object& arg0);
 	static java_lang_String *  toString(short& arg0);
 	 int hashCode();

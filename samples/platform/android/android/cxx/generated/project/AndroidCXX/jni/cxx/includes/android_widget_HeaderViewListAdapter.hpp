@@ -89,6 +89,9 @@ class android_widget_ListAdapter;
 class android_widget_HeaderViewListAdapter
 {
 public:
+	android_widget_HeaderViewListAdapter(const android_widget_HeaderViewListAdapter& cc);
+	android_widget_HeaderViewListAdapter(void * proxy);
+	virtual ~android_widget_HeaderViewListAdapter();
 	 bool isEmpty();
 	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
 	 bool isEnabled(int& arg0);

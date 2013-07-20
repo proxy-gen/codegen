@@ -144,6 +144,9 @@ class android_widget_AutoCompleteTextView_Validator;
 class android_widget_AutoCompleteTextView
 {
 public:
+	android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc);
+	android_widget_AutoCompleteTextView(void * proxy);
+	virtual ~android_widget_AutoCompleteTextView();
 	 void setThreshold(int& arg0);
 	 void setText(java_lang_CharSequence& arg0,bool& arg1);
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);

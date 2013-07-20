@@ -50,6 +50,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_RadioButton
 {
 public:
+	android_widget_RadioButton(const android_widget_RadioButton& cc);
+	android_widget_RadioButton(void * proxy);
+	virtual ~android_widget_RadioButton();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void toggle();

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -53,7 +52,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_text_Editable_Factory>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -61,7 +59,58 @@ template void convert_proxy<java_lang_CharSequence>(long& java_value, long& cxx_
 
 template void convert_proxy<android_text_Editable>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
+// Default Instance Constructors
+android_text_Editable_Factory::android_text_Editable_Factory(const android_text_Editable_Factory& cc)
+{
+	LOGV("android_text_Editable_Factory::android_text_Editable_Factory(const android_text_Editable_Factory& cc) invoked");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+android_text_Editable_Factory::android_text_Editable_Factory(void * proxy)
+{
+	LOGV("android_text_Editable_Factory::android_text_Editable_Factory(void * proxy) invoked");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+// Default Instance Destructor
+android_text_Editable_Factory::~android_text_Editable_Factory()
+{
+	LOGV("android_text_Editable_Factory::~android_text_Editable_Factory() invoked");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+}
+// Functions
 android_text_Editable_Factory *  android_text_Editable_Factory::getInstance()
 {
 	const char *methodName = "getInstance";

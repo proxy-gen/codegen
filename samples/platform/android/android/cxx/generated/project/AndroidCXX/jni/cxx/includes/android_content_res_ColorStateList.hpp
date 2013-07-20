@@ -73,6 +73,9 @@ class org_xmlpull_v1_XmlPullParser;
 class android_content_res_ColorStateList
 {
 public:
+	android_content_res_ColorStateList(const android_content_res_ColorStateList& cc);
+	android_content_res_ColorStateList(void * proxy);
+	virtual ~android_content_res_ColorStateList();
 	 java_lang_String *  toString();
 	static android_content_res_ColorStateList *  valueOf(int& arg0);
 	 int describeContents();

@@ -54,6 +54,9 @@ class android_database_Cursor;
 class android_widget_AlphabetIndexer
 {
 public:
+	android_widget_AlphabetIndexer(const android_widget_AlphabetIndexer& cc);
+	android_widget_AlphabetIndexer(void * proxy);
+	virtual ~android_widget_AlphabetIndexer();
 	 void onChanged();
 	 void onInvalidated();
 	 std::vector<long> getSections();

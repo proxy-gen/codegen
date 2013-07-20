@@ -425,6 +425,9 @@ class android_util_AttributeSet;
 class android_content_Intent
 {
 public:
+	android_content_Intent(const android_content_Intent& cc);
+	android_content_Intent(void * proxy);
+	virtual ~android_content_Intent();
 	 java_lang_String *  toString();
 	 java_lang_Object *  clone();
 	 java_lang_String *  getPackage();

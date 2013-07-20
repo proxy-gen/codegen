@@ -69,6 +69,9 @@ class android_view_View_OnClickListener;
 class android_widget_ZoomControls
 {
 public:
+	android_widget_ZoomControls(const android_widget_ZoomControls& cc);
+	android_widget_ZoomControls(void * proxy);
+	virtual ~android_widget_ZoomControls();
 	 void show();
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool hasFocus();

@@ -77,6 +77,9 @@ class java_util_Collection;
 class java_util_ArrayList
 {
 public:
+	java_util_ArrayList(const java_util_ArrayList& cc);
+	java_util_ArrayList(void * proxy);
+	virtual ~java_util_ArrayList();
 	 void add(int& arg0,java_lang_Object& arg1);
 	 java_lang_Object *  get(int& arg0);
 	 java_lang_Object *  clone();

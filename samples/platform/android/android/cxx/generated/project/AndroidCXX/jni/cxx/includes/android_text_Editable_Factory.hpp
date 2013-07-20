@@ -53,6 +53,9 @@ class android_text_Editable;
 class android_text_Editable_Factory
 {
 public:
+	android_text_Editable_Factory(const android_text_Editable_Factory& cc);
+	android_text_Editable_Factory(void * proxy);
+	virtual ~android_text_Editable_Factory();
 	static android_text_Editable_Factory *  getInstance();
 	 android_text_Editable *  newEditable(java_lang_CharSequence& arg0);
 };	

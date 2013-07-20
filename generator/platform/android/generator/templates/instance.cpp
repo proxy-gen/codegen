@@ -14,10 +14,10 @@
 #set $config_data = $config_module.config_data
 #set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
+#set $entity_class_config = $CONFIG.entity_class
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
-
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
 
 #for $function in $functions
@@ -109,7 +109,60 @@ template void convert_proxy<${proxied_type}>(long& java_value, long& cxx_value, 
 #end if
 #end for
 
+#if '_instance' in $entity_class_config['tags']
+// Default Instance Constructors
+${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc)
+{
+	LOGV("${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) invoked");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+${entity_class_name}::${entity_class_name}(void * proxy)
+{
+	LOGV("${entity_class_name}::${entity_class_name}(void * proxy) invoked");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+// Default Instance Destructor
+${entity_class_name}::~${entity_class_name}()
+{
+	LOGV("${entity_class_name}::~${entity_class_name}() invoked");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+}
+#end if
+// Functions
 #for $function in $functions
 $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(function['name'])($function['param_str'])
 {

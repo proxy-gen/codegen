@@ -94,6 +94,9 @@ class java_net_DatagramSocket;
 class android_os_ParcelFileDescriptor
 {
 public:
+	android_os_ParcelFileDescriptor(const android_os_ParcelFileDescriptor& cc);
+	android_os_ParcelFileDescriptor(void * proxy);
+	virtual ~android_os_ParcelFileDescriptor();
 	 java_lang_String *  toString();
 	 void close();
 	static android_os_ParcelFileDescriptor *  open(java_io_File& arg0,int& arg1);

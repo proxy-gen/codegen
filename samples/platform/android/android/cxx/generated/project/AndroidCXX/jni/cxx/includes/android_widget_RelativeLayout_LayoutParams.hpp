@@ -49,6 +49,9 @@ class java_lang_String;
 class android_widget_RelativeLayout_LayoutParams
 {
 public:
+	android_widget_RelativeLayout_LayoutParams(const android_widget_RelativeLayout_LayoutParams& cc);
+	android_widget_RelativeLayout_LayoutParams(void * proxy);
+	virtual ~android_widget_RelativeLayout_LayoutParams();
 	 java_lang_String *  debug(java_lang_String& arg0);
 	 void resolveLayoutDirection(int& arg0);
 	 void addRule(int& arg0);

@@ -62,6 +62,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_ImageSwitcher
 {
 public:
+	android_widget_ImageSwitcher(const android_widget_ImageSwitcher& cc);
+	android_widget_ImageSwitcher(void * proxy);
+	virtual ~android_widget_ImageSwitcher();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setImageResource(int& arg0);

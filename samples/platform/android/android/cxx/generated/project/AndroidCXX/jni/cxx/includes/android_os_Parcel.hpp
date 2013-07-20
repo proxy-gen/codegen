@@ -339,6 +339,9 @@ class android_os_Parcelable_Creator;
 class android_os_Parcel
 {
 public:
+	android_os_Parcel(const android_os_Parcel& cc);
+	android_os_Parcel(void * proxy);
+	virtual ~android_os_Parcel();
 	 void writeInt(int& arg0);
 	 int readInt();
 	 long readLong();

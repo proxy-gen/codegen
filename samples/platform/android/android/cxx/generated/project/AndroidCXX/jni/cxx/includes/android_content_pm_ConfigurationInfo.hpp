@@ -52,6 +52,9 @@ class android_os_Parcel;
 class android_content_pm_ConfigurationInfo
 {
 public:
+	android_content_pm_ConfigurationInfo(const android_content_pm_ConfigurationInfo& cc);
+	android_content_pm_ConfigurationInfo(void * proxy);
+	virtual ~android_content_pm_ConfigurationInfo();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

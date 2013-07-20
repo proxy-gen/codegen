@@ -55,6 +55,9 @@ class android_widget_SeekBar_OnSeekBarChangeListener;
 class android_widget_SeekBar
 {
 public:
+	android_widget_SeekBar(const android_widget_SeekBar& cc);
+	android_widget_SeekBar(void * proxy);
+	virtual ~android_widget_SeekBar();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setOnSeekBarChangeListener(android_widget_SeekBar_OnSeekBarChangeListener& arg0);

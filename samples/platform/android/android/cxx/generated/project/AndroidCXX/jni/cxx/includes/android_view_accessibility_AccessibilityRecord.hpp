@@ -125,6 +125,9 @@ class android_os_Parcelable;
 class android_view_accessibility_AccessibilityRecord
 {
 public:
+	android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc);
+	android_view_accessibility_AccessibilityRecord(void * proxy);
+	virtual ~android_view_accessibility_AccessibilityRecord();
 	 java_lang_String *  toString();
 	 java_lang_CharSequence *  getClassName();
 	static android_view_accessibility_AccessibilityRecord *  obtain(android_view_accessibility_AccessibilityRecord& arg0);

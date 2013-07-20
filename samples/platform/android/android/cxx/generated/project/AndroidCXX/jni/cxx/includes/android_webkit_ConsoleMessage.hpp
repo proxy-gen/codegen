@@ -51,6 +51,9 @@ class java_lang_String;
 class android_webkit_ConsoleMessage
 {
 public:
+	android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc);
+	android_webkit_ConsoleMessage(void * proxy);
+	virtual ~android_webkit_ConsoleMessage();
 	 int lineNumber();
 	 java_lang_String *  message();
 	 java_lang_String *  sourceId();

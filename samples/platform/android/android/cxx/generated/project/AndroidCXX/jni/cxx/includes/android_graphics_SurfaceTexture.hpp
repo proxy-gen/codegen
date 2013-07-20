@@ -51,6 +51,9 @@ class android_graphics_SurfaceTexture_OnFrameAvailableListener;
 class android_graphics_SurfaceTexture
 {
 public:
+	android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc);
+	android_graphics_SurfaceTexture(void * proxy);
+	virtual ~android_graphics_SurfaceTexture();
 	 void release();
 	 long getTimestamp();
 	 void setOnFrameAvailableListener(android_graphics_SurfaceTexture_OnFrameAvailableListener& arg0);

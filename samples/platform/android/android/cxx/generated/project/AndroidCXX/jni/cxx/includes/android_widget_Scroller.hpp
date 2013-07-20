@@ -56,6 +56,9 @@ namespace AndroidCXX {
 class android_widget_Scroller
 {
 public:
+	android_widget_Scroller(const android_widget_Scroller& cc);
+	android_widget_Scroller(void * proxy);
+	virtual ~android_widget_Scroller();
 	 int getDuration();
 	 void setFriction(float& arg0);
 	 bool isFinished();

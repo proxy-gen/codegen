@@ -86,6 +86,9 @@ class android_view_View_OnClickListener;
 class android_widget_MediaController
 {
 public:
+	android_widget_MediaController(const android_widget_MediaController& cc);
+	android_widget_MediaController(void * proxy);
+	virtual ~android_widget_MediaController();
 	 void show(int& arg0);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool onTrackballEvent(android_view_MotionEvent& arg0);

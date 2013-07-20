@@ -62,6 +62,9 @@ class java_security_Timestamp;
 class java_security_CodeSigner
 {
 public:
+	java_security_CodeSigner(const java_security_CodeSigner& cc);
+	java_security_CodeSigner(void * proxy);
+	virtual ~java_security_CodeSigner();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

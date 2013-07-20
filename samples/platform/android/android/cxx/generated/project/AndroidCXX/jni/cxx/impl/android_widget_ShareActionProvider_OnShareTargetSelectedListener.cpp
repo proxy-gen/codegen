@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -51,13 +50,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_widget_ShareActionProvider>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_content_Intent>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool android_widget_ShareActionProvider_OnShareTargetSelectedListener::onShareTargetSelected(android_widget_ShareActionProvider& arg0,android_content_Intent& arg1)
 {
 	const char *methodName = "onShareTargetSelected";

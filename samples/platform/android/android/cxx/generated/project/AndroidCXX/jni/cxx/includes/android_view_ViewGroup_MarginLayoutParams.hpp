@@ -46,6 +46,9 @@ namespace AndroidCXX {
 class android_view_ViewGroup_MarginLayoutParams
 {
 public:
+	android_view_ViewGroup_MarginLayoutParams(const android_view_ViewGroup_MarginLayoutParams& cc);
+	android_view_ViewGroup_MarginLayoutParams(void * proxy);
+	virtual ~android_view_ViewGroup_MarginLayoutParams();
 	 void setLayoutDirection(int& arg0);
 	 int getLayoutDirection();
 	 void resolveLayoutDirection(int& arg0);

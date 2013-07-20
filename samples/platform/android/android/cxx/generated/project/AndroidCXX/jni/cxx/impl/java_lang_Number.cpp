@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_Number.hpp>
@@ -54,9 +53,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 unsigned char java_lang_Number::byteValue()
 {
 	const char *methodName = "byteValue";

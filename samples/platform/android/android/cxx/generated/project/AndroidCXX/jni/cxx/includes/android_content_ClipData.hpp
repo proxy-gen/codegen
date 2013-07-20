@@ -104,6 +104,9 @@ class android_content_ClipData_Item;
 class android_content_ClipData
 {
 public:
+	android_content_ClipData(const android_content_ClipData& cc);
+	android_content_ClipData(void * proxy);
+	virtual ~android_content_ClipData();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

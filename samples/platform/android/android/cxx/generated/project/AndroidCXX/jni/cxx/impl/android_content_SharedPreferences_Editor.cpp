@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -74,7 +73,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -82,7 +80,7 @@ template void convert_proxy<android_content_SharedPreferences_Editor>(long& java
 
 template void convert_proxy<java_util_Set>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_content_SharedPreferences_Editor *  android_content_SharedPreferences_Editor::putBoolean(java_lang_String& arg0,bool& arg1)
 {
 	const char *methodName = "putBoolean";

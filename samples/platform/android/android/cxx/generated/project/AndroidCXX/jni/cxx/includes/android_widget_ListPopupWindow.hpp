@@ -134,6 +134,9 @@ class android_widget_ListView;
 class android_widget_ListPopupWindow
 {
 public:
+	android_widget_ListPopupWindow(const android_widget_ListPopupWindow& cc);
+	android_widget_ListPopupWindow(void * proxy);
+	virtual ~android_widget_ListPopupWindow();
 	 void show();
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
 	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);

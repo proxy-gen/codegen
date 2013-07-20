@@ -81,6 +81,9 @@ class java_lang_Boolean;
 class android_widget_TimePicker
 {
 public:
+	android_widget_TimePicker(const android_widget_TimePicker& cc);
+	android_widget_TimePicker(void * proxy);
+	virtual ~android_widget_TimePicker();
 	 bool isEnabled();
 	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);

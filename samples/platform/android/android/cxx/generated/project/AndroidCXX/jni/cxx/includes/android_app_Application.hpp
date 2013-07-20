@@ -63,6 +63,9 @@ class android_app_Application_ActivityLifecycleCallbacks;
 class android_app_Application
 {
 public:
+	android_app_Application(const android_app_Application& cc);
+	android_app_Application(void * proxy);
+	virtual ~android_app_Application();
 	 void onCreate();
 	 void onConfigurationChanged(android_content_res_Configuration& arg0);
 	 void onLowMemory();

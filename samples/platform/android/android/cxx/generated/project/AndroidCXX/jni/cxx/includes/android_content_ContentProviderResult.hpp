@@ -50,6 +50,9 @@ class android_os_Parcel;
 class android_content_ContentProviderResult
 {
 public:
+	android_content_ContentProviderResult(const android_content_ContentProviderResult& cc);
+	android_content_ContentProviderResult(void * proxy);
+	virtual ~android_content_ContentProviderResult();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

@@ -490,6 +490,9 @@ class android_view_ActionMode;
 class android_app_Activity
 {
 public:
+	android_app_Activity(const android_app_Activity& cc);
+	android_app_Activity(void * proxy);
+	virtual ~android_app_Activity();
 	 android_app_Activity *  getParent();
 	 bool isDestroyed();
 	 void finish();

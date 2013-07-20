@@ -77,6 +77,9 @@ class android_text_TextWatcher;
 class android_widget_DialerFilter
 {
 public:
+	android_widget_DialerFilter(const android_widget_DialerFilter& cc);
+	android_widget_DialerFilter(void * proxy);
+	virtual ~android_widget_DialerFilter();
 	 void append(java_lang_String& arg0);
 	 void setMode(int& arg0);
 	 int getMode();

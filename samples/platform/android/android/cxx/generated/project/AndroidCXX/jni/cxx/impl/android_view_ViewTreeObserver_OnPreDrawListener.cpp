@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_ViewTreeObserver_OnPreDrawListener.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
 {
 	const char *methodName = "onPreDraw";

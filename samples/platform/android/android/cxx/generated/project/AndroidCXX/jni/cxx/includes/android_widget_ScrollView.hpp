@@ -116,6 +116,9 @@ class android_graphics_Canvas;
 class android_widget_ScrollView
 {
 public:
+	android_widget_ScrollView(const android_widget_ScrollView& cc);
+	android_widget_ScrollView(void * proxy);
+	virtual ~android_widget_ScrollView();
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool onGenericMotionEvent(android_view_MotionEvent& arg0);

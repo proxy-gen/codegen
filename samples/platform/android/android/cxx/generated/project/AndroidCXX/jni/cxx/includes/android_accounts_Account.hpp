@@ -57,6 +57,9 @@ class android_os_Parcel;
 class android_accounts_Account
 {
 public:
+	android_accounts_Account(const android_accounts_Account& cc);
+	android_accounts_Account(void * proxy);
+	virtual ~android_accounts_Account();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

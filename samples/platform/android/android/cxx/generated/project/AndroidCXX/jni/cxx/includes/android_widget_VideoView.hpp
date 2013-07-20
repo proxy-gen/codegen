@@ -119,6 +119,9 @@ class android_media_MediaPlayer_OnInfoListener;
 class android_widget_VideoView
 {
 public:
+	android_widget_VideoView(const android_widget_VideoView& cc);
+	android_widget_VideoView(void * proxy);
+	virtual ~android_widget_VideoView();
 	 void start();
 	 void suspend();
 	 void resume();

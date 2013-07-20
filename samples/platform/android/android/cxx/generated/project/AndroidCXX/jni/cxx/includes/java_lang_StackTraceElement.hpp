@@ -58,6 +58,9 @@ class java_lang_String;
 class java_lang_StackTraceElement
 {
 public:
+	java_lang_StackTraceElement(const java_lang_StackTraceElement& cc);
+	java_lang_StackTraceElement(void * proxy);
+	virtual ~java_lang_StackTraceElement();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

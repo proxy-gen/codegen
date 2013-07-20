@@ -74,6 +74,9 @@ class java_security_Permission;
 class java_security_ProtectionDomain
 {
 public:
+	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
+	java_security_ProtectionDomain(void * proxy);
+	virtual ~java_security_ProtectionDomain();
 	 java_lang_String *  toString();
 	 java_lang_ClassLoader *  getClassLoader();
 	 java_security_CodeSource *  getCodeSource();

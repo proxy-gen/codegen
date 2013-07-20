@@ -94,6 +94,9 @@ class android_widget_TextView;
 class android_widget_SimpleAdapter
 {
 public:
+	android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc);
+	android_widget_SimpleAdapter(void * proxy);
+	virtual ~android_widget_SimpleAdapter();
 	 android_view_View *  getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
 	 android_widget_Filter *  getFilter();
 	 java_lang_Object *  getItem(int& arg0);

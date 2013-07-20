@@ -73,6 +73,9 @@ class android_view_View;
 class android_view_animation_LayoutAnimationController
 {
 public:
+	android_view_animation_LayoutAnimationController(const android_view_animation_LayoutAnimationController& cc);
+	android_view_animation_LayoutAnimationController(void * proxy);
+	virtual ~android_view_animation_LayoutAnimationController();
 	 void start();
 	 void setInterpolator(android_view_animation_Interpolator& arg0,android_content_Context& arg1,int& arg2);
 	 android_view_animation_Animation *  getAnimation();

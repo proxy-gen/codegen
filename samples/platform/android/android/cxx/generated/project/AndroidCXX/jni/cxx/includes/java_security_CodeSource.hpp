@@ -75,6 +75,9 @@ class java_security_CodeSigner;
 class java_security_CodeSource
 {
 public:
+	java_security_CodeSource(const java_security_CodeSource& cc);
+	java_security_CodeSource(void * proxy);
+	virtual ~java_security_CodeSource();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

@@ -98,6 +98,9 @@ class android_view_View_OnTouchListener;
 class android_widget_PopupWindow
 {
 public:
+	android_widget_PopupWindow(const android_widget_PopupWindow& cc);
+	android_widget_PopupWindow(void * proxy);
+	virtual ~android_widget_PopupWindow();
 	 void update(int& arg0,android_view_View& arg1,bool& arg2);
 	 bool isFocusable();
 	 void setContentView(android_view_View& arg0);

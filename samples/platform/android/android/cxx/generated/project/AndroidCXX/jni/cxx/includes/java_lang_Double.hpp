@@ -74,6 +74,9 @@ class java_lang_Double;
 class java_lang_Double
 {
 public:
+	java_lang_Double(const java_lang_Double& cc);
+	java_lang_Double(void * proxy);
+	virtual ~java_lang_Double();
 	 bool equals(java_lang_Object& arg0);
 	static java_lang_String *  toString(double& arg0);
 	 int hashCode();

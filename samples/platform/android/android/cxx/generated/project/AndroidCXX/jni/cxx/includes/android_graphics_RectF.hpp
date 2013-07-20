@@ -95,6 +95,9 @@ class android_os_Parcel;
 class android_graphics_RectF
 {
 public:
+	android_graphics_RectF(const android_graphics_RectF& cc);
+	android_graphics_RectF(void * proxy);
+	virtual ~android_graphics_RectF();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

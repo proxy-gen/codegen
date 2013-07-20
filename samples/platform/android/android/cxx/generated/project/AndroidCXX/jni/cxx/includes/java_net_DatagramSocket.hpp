@@ -97,6 +97,9 @@ class java_net_DatagramSocketImplFactory;
 class java_net_DatagramSocket
 {
 public:
+	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
+	java_net_DatagramSocket(void * proxy);
+	virtual ~java_net_DatagramSocket();
 	 void close();
 	 void send(java_net_DatagramPacket& arg0);
 	 int getPort();

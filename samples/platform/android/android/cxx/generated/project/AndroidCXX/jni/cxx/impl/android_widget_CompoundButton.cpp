@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -67,7 +66,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_os_Parcelable>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -79,7 +77,7 @@ template void convert_proxy<android_widget_CompoundButton_OnCheckedChangeListene
 
 template void convert_proxy<android_graphics_drawable_Drawable>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_os_Parcelable *  android_widget_CompoundButton::onSaveInstanceState()
 {
 	const char *methodName = "onSaveInstanceState";

@@ -84,6 +84,9 @@ class java_util_Date;
 class java_util_Date
 {
 public:
+	java_util_Date(const java_util_Date& cc);
+	java_util_Date(void * proxy);
+	virtual ~java_util_Date();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

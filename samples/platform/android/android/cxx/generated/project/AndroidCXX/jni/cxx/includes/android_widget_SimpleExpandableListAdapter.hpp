@@ -73,6 +73,9 @@ class android_view_ViewGroup;
 class android_widget_SimpleExpandableListAdapter
 {
 public:
+	android_widget_SimpleExpandableListAdapter(const android_widget_SimpleExpandableListAdapter& cc);
+	android_widget_SimpleExpandableListAdapter(void * proxy);
+	virtual ~android_widget_SimpleExpandableListAdapter();
 	 long getGroupId(int& arg0);
 	 java_lang_Object *  getChild(int& arg0);
 	 bool hasStableIds();

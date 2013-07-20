@@ -56,6 +56,9 @@ class android_view_KeyEvent;
 class android_view_KeyEvent_DispatcherState
 {
 public:
+	android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc);
+	android_view_KeyEvent_DispatcherState(void * proxy);
+	virtual ~android_view_KeyEvent_DispatcherState();
 	 void reset(java_lang_Object& arg0);
 	 void startTracking(android_view_KeyEvent& arg0,java_lang_Object& arg1);
 	 bool isTracking(android_view_KeyEvent& arg0);

@@ -748,6 +748,9 @@ class android_view_View_DragShadowBuilder;
 class android_view_View
 {
 public:
+	android_view_View(const android_view_View& cc);
+	android_view_View(void * proxy);
+	virtual ~android_view_View();
 	 java_lang_String *  toString();
 	 android_content_res_Resources *  getResources();
 	 android_view_ViewParent *  getParent();

@@ -117,6 +117,9 @@ class java_net_SocketImplFactory;
 class java_net_Socket
 {
 public:
+	java_net_Socket(const java_net_Socket& cc);
+	java_net_Socket(void * proxy);
+	virtual ~java_net_Socket();
 	 java_lang_String *  toString();
 	 void close();
 	 int getPort();

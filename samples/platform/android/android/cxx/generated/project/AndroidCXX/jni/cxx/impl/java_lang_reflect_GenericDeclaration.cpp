@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 std::vector<long> java_lang_reflect_GenericDeclaration::getTypeParameters()
 {
 	const char *methodName = "getTypeParameters";

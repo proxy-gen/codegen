@@ -89,6 +89,9 @@ class java_lang_Integer;
 class java_lang_Integer
 {
 public:
+	java_lang_Integer(const java_lang_Integer& cc);
+	java_lang_Integer(void * proxy);
+	virtual ~java_lang_Integer();
 	static int numberOfLeadingZeros(int& arg0);
 	static int numberOfTrailingZeros(int& arg0);
 	static int bitCount(int& arg0);

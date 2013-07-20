@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_animation_TimeInterpolator.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 float android_animation_TimeInterpolator::getInterpolation(float& arg0)
 {
 	const char *methodName = "getInterpolation";

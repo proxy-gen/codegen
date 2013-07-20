@@ -66,6 +66,9 @@ class android_widget_RatingBar_OnRatingBarChangeListener;
 class android_widget_RatingBar
 {
 public:
+	android_widget_RatingBar(const android_widget_RatingBar& cc);
+	android_widget_RatingBar(void * proxy);
+	virtual ~android_widget_RatingBar();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setOnRatingBarChangeListener(android_widget_RatingBar_OnRatingBarChangeListener& arg0);

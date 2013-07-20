@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -105,7 +104,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 
 template void convert_proxy<android_graphics_Bitmap>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -125,7 +123,7 @@ template void convert_proxy<android_graphics_Canvas>(long& java_value, long& cxx
 
 template void convert_proxy<android_graphics_Paint>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_graphics_Bitmap *  android_graphics_Bitmap::copy(android_graphics_Bitmap_Config& arg0,bool& arg1)
 {
 	const char *methodName = "copy";

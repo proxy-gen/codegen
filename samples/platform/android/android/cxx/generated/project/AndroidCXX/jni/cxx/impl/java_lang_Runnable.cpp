@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_Runnable.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void java_lang_Runnable::run()
 {
 	const char *methodName = "run";

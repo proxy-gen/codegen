@@ -147,6 +147,9 @@ class java_util_Locale;
 class java_lang_String
 {
 public:
+	java_lang_String(const java_lang_String& cc);
+	java_lang_String(void * proxy);
+	virtual ~java_lang_String();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

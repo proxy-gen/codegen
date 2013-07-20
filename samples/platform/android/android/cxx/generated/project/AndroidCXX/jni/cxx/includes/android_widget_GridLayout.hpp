@@ -86,6 +86,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_GridLayout
 {
 public:
+	android_widget_GridLayout(const android_widget_GridLayout& cc);
+	android_widget_GridLayout(void * proxy);
+	virtual ~android_widget_GridLayout();
 	 android_widget_GridLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
 	static android_widget_GridLayout_Spec *  spec(int& arg0,android_widget_GridLayout_Alignment& arg1);
 	 void requestLayout();

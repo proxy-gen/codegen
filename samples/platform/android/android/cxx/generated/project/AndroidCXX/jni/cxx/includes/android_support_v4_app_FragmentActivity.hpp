@@ -141,6 +141,9 @@ class android_support_v4_app_LoaderManager;
 class android_support_v4_app_FragmentActivity
 {
 public:
+	android_support_v4_app_FragmentActivity(const android_support_v4_app_FragmentActivity& cc);
+	android_support_v4_app_FragmentActivity(void * proxy);
+	virtual ~android_support_v4_app_FragmentActivity();
 	 void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
 	 void startActivityForResult(android_content_Intent& arg0,int& arg1);
 	 android_view_View *  onCreateView(java_lang_String& arg0,android_content_Context& arg1,android_util_AttributeSet& arg2);

@@ -90,6 +90,9 @@ class java_net_NetworkInterface;
 class java_net_InetAddress
 {
 public:
+	java_net_InetAddress(const java_net_InetAddress& cc);
+	java_net_InetAddress(void * proxy);
+	virtual ~java_net_InetAddress();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

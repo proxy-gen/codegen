@@ -20,7 +20,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_MediaController_MediaPlayerControl.hpp>
@@ -58,9 +57,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_widget_MediaController_MediaPlayerControl::start()
 {
 	const char *methodName = "start";

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -52,7 +51,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_os_Parcel>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -60,7 +58,7 @@ template void convert_proxy<java_lang_ClassLoader>(long& java_value, long& cxx_v
 
 template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_lang_Object *  android_os_Parcelable_ClassLoaderCreator::createFromParcel(android_os_Parcel& arg0,java_lang_ClassLoader& arg1)
 {
 	const char *methodName = "createFromParcel";

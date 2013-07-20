@@ -63,6 +63,9 @@ class android_graphics_Matrix;
 class android_view_animation_Transformation
 {
 public:
+	android_view_animation_Transformation(const android_view_animation_Transformation& cc);
+	android_view_animation_Transformation(void * proxy);
+	virtual ~android_view_animation_Transformation();
 	 java_lang_String *  toString();
 	 void clear();
 	 void set(android_view_animation_Transformation& arg0);

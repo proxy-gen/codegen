@@ -214,6 +214,9 @@ class android_graphics_Picture;
 class android_graphics_Canvas
 {
 public:
+	android_graphics_Canvas(const android_graphics_Canvas& cc);
+	android_graphics_Canvas(void * proxy);
+	virtual ~android_graphics_Canvas();
 	 void concat(android_graphics_Matrix& arg0);
 	 int save(int& arg0);
 	 void rotate(float& arg0);

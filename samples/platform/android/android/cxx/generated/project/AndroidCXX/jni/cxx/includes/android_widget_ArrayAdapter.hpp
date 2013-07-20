@@ -115,6 +115,9 @@ class java_lang_CharSequence;
 class android_widget_ArrayAdapter
 {
 public:
+	android_widget_ArrayAdapter(const android_widget_ArrayAdapter& cc);
+	android_widget_ArrayAdapter(void * proxy);
+	virtual ~android_widget_ArrayAdapter();
 	 void add(java_lang_Object& arg0);
 	 void clear();
 	 void addAll(java_util_Collection& arg0,std::vector<long>& arg1);

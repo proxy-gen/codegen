@@ -107,6 +107,9 @@ class android_os_Bundle;
 class android_widget_Gallery
 {
 public:
+	android_widget_Gallery(const android_widget_Gallery& cc);
+	android_widget_Gallery(void * proxy);
+	virtual ~android_widget_Gallery();
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
 	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);

@@ -157,6 +157,9 @@ class java_util_Map_Entry;
 class android_content_ContentValues
 {
 public:
+	android_content_ContentValues(const android_content_ContentValues& cc);
+	android_content_ContentValues(void * proxy);
+	virtual ~android_content_ContentValues();
 	 java_lang_Object *  get(java_lang_String& arg0);
 	 void put(java_lang_String& arg0,java_lang_Byte& arg1,java_lang_Short& arg2,java_lang_Integer& arg3,java_lang_Long& arg4,java_lang_Float& arg5,java_lang_Double& arg6,std::vector<char>& arg7,java_lang_Boolean& arg8);
 	 bool equals(java_lang_Object& arg0);

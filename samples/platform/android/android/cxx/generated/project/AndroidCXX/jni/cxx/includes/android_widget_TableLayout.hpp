@@ -88,6 +88,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_TableLayout
 {
 public:
+	android_widget_TableLayout(const android_widget_TableLayout& cc);
+	android_widget_TableLayout(void * proxy);
+	virtual ~android_widget_TableLayout();
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
 	 void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);
 	 android_widget_TableLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);

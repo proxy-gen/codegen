@@ -68,6 +68,9 @@ class android_content_Intent;
 class android_widget_ShareActionProvider
 {
 public:
+	android_widget_ShareActionProvider(const android_widget_ShareActionProvider& cc);
+	android_widget_ShareActionProvider(void * proxy);
+	virtual ~android_widget_ShareActionProvider();
 	 bool hasSubMenu();
 	 android_view_View *  onCreateActionView();
 	 void onPrepareSubMenu(android_view_SubMenu& arg0);

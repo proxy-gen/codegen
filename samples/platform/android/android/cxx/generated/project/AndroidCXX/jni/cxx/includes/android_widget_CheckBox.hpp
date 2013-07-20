@@ -49,6 +49,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_CheckBox
 {
 public:
+	android_widget_CheckBox(const android_widget_CheckBox& cc);
+	android_widget_CheckBox(void * proxy);
+	virtual ~android_widget_CheckBox();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 };	

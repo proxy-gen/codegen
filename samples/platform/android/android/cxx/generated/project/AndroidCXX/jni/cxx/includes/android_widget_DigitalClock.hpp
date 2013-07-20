@@ -49,6 +49,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_DigitalClock
 {
 public:
+	android_widget_DigitalClock(const android_widget_DigitalClock& cc);
+	android_widget_DigitalClock(void * proxy);
+	virtual ~android_widget_DigitalClock();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 };	

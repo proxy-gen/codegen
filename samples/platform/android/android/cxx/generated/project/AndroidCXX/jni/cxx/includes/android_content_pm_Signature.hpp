@@ -63,6 +63,9 @@ class java_lang_String;
 class android_content_pm_Signature
 {
 public:
+	android_content_pm_Signature(const android_content_pm_Signature& cc);
+	android_content_pm_Signature(void * proxy);
+	virtual ~android_content_pm_Signature();
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 std::vector<char> toChars(std::vector<char>& arg0,std::vector<int>& arg1);

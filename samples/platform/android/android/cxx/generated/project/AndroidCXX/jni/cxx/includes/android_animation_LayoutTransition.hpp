@@ -101,6 +101,9 @@ class java_util_List;
 class android_animation_LayoutTransition
 {
 public:
+	android_animation_LayoutTransition(const android_animation_LayoutTransition& cc);
+	android_animation_LayoutTransition(void * proxy);
+	virtual ~android_animation_LayoutTransition();
 	 void setInterpolator(int& arg0,android_animation_TimeInterpolator& arg1);
 	 void setDuration(int& arg0,long& arg1);
 	 android_animation_TimeInterpolator *  getInterpolator(int& arg0);

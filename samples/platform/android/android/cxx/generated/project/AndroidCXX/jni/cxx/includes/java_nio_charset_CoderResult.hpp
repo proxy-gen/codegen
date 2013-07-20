@@ -57,6 +57,9 @@ class java_nio_charset_CoderResult;
 class java_nio_charset_CoderResult
 {
 public:
+	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
+	java_nio_charset_CoderResult(void * proxy);
+	virtual ~java_nio_charset_CoderResult();
 	 java_lang_String *  toString();
 	 int length();
 	 void throwException();

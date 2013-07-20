@@ -69,6 +69,9 @@ class org_json_JSONException;
 class org_json_JSONTokener
 {
 public:
+	org_json_JSONTokener(const org_json_JSONTokener& cc);
+	org_json_JSONTokener(void * proxy);
+	virtual ~org_json_JSONTokener();
 	 java_lang_String *  toString();
 	 char next(char& arg0,int& arg1);
 	 java_lang_Object *  nextValue();

@@ -303,6 +303,9 @@ class java_io_Serializable;
 class android_os_Bundle
 {
 public:
+	android_os_Bundle(const android_os_Bundle& cc);
+	android_os_Bundle(void * proxy);
+	virtual ~android_os_Bundle();
 	 java_lang_Object *  get(java_lang_String& arg0);
 	 java_lang_String *  toString();
 	 java_lang_Object *  clone();

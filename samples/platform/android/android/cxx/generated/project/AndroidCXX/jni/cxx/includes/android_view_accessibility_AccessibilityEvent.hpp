@@ -86,6 +86,9 @@ class android_view_accessibility_AccessibilityRecord;
 class android_view_accessibility_AccessibilityEvent
 {
 public:
+	android_view_accessibility_AccessibilityEvent(const android_view_accessibility_AccessibilityEvent& cc);
+	android_view_accessibility_AccessibilityEvent(void * proxy);
+	virtual ~android_view_accessibility_AccessibilityEvent();
 	 java_lang_String *  toString();
 	 java_lang_CharSequence *  getPackageName();
 	 int describeContents();

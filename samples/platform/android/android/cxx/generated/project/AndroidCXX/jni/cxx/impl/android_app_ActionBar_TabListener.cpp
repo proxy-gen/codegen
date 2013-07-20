@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,13 +56,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_app_ActionBar_Tab>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_app_FragmentTransaction>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 void android_app_ActionBar_TabListener::onTabSelected(android_app_ActionBar_Tab& arg0,android_app_FragmentTransaction& arg1)
 {
 	const char *methodName = "onTabSelected";

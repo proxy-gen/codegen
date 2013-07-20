@@ -43,6 +43,9 @@ class android_graphics_Canvas;
 class android_widget_Space
 {
 public:
+	android_widget_Space(const android_widget_Space& cc);
+	android_widget_Space(void * proxy);
+	virtual ~android_widget_Space();
 	 void draw(android_graphics_Canvas& arg0);
 };	
 

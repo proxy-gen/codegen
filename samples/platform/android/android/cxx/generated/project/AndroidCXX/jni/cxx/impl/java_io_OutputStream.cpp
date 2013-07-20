@@ -13,7 +13,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_io_OutputStream.hpp>
@@ -51,9 +50,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void java_io_OutputStream::write(int& arg0,std::vector<char>& arg1)
 {
 	const char *methodName = "write";

@@ -42,6 +42,9 @@ class android_text_TextPaint;
 class android_text_TextPaint
 {
 public:
+	android_text_TextPaint(const android_text_TextPaint& cc);
+	android_text_TextPaint(void * proxy);
+	virtual ~android_text_TextPaint();
 	 void set(android_text_TextPaint& arg0);
 };	
 

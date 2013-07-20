@@ -73,6 +73,9 @@ class android_widget_Toast;
 class android_widget_Toast
 {
 public:
+	android_widget_Toast(const android_widget_Toast& cc);
+	android_widget_Toast(void * proxy);
+	virtual ~android_widget_Toast();
 	 void setText(java_lang_CharSequence& arg0,int& arg1);
 	 void cancel();
 	 android_view_View *  getView();

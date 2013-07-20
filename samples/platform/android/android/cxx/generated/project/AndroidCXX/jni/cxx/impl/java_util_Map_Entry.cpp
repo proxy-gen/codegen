@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -58,11 +57,10 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool java_util_Map_Entry::equals(java_lang_Object& arg0)
 {
 	const char *methodName = "equals";

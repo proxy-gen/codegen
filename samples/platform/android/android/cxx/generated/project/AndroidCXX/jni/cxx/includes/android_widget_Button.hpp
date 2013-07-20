@@ -49,6 +49,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_Button
 {
 public:
+	android_widget_Button(const android_widget_Button& cc);
+	android_widget_Button(void * proxy);
+	virtual ~android_widget_Button();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 };	

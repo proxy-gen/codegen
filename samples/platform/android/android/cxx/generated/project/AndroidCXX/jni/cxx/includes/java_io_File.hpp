@@ -132,6 +132,9 @@ class java_io_FileFilter;
 class java_io_File
 {
 public:
+	java_io_File(const java_io_File& cc);
+	java_io_File(void * proxy);
+	virtual ~java_io_File();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

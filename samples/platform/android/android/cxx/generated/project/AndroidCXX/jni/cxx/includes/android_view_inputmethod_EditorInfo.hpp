@@ -56,6 +56,9 @@ class android_os_Parcel;
 class android_view_inputmethod_EditorInfo
 {
 public:
+	android_view_inputmethod_EditorInfo(const android_view_inputmethod_EditorInfo& cc);
+	android_view_inputmethod_EditorInfo(void * proxy);
+	virtual ~android_view_inputmethod_EditorInfo();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

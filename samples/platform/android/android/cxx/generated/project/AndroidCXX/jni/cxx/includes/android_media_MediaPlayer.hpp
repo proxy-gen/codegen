@@ -175,6 +175,9 @@ class android_media_MediaPlayer_OnTimedTextListener;
 class android_media_MediaPlayer
 {
 public:
+	android_media_MediaPlayer(const android_media_MediaPlayer& cc);
+	android_media_MediaPlayer(void * proxy);
+	virtual ~android_media_MediaPlayer();
 	 void start();
 	 void stop();
 	 void reset();

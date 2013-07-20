@@ -95,6 +95,9 @@ class android_content_Context;
 class android_widget_ViewAnimator
 {
 public:
+	android_widget_ViewAnimator(const android_widget_ViewAnimator& cc);
+	android_widget_ViewAnimator(void * proxy);
+	virtual ~android_widget_ViewAnimator();
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
 	 void removeView(android_view_View& arg0);
 	 void removeViewInLayout(android_view_View& arg0);

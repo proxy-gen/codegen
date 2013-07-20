@@ -43,6 +43,9 @@ class java_lang_String;
 class java_nio_charset_CodingErrorAction
 {
 public:
+	java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc);
+	java_nio_charset_CodingErrorAction(void * proxy);
+	virtual ~java_nio_charset_CodingErrorAction();
 	 java_lang_String *  toString();
 };	
 

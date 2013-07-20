@@ -174,6 +174,9 @@ class android_os_Bundle;
 class android_widget_RemoteViews
 {
 public:
+	android_widget_RemoteViews(const android_widget_RemoteViews& cc);
+	android_widget_RemoteViews(void * proxy);
+	virtual ~android_widget_RemoteViews();
 	 android_widget_RemoteViews *  clone();
 	 java_lang_String *  getPackage();
 	 void setBoolean(int& arg0,java_lang_String& arg1,bool& arg2);

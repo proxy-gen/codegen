@@ -62,6 +62,9 @@ class android_os_Parcel;
 class android_graphics_Point
 {
 public:
+	android_graphics_Point(const android_graphics_Point& cc);
+	android_graphics_Point(void * proxy);
+	virtual ~android_graphics_Point();
 	 bool equals(int& arg0,java_lang_Object& arg1);
 	 java_lang_String *  toString();
 	 int hashCode();

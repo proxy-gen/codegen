@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -97,7 +96,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_graphics_Path>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -107,7 +105,58 @@ template void convert_proxy<android_graphics_RectF>(long& java_value, long& cxx_
 
 
 
+// Default Instance Constructors
+android_graphics_Path::android_graphics_Path(const android_graphics_Path& cc)
+{
+	LOGV("android_graphics_Path::android_graphics_Path(const android_graphics_Path& cc) invoked");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+android_graphics_Path::android_graphics_Path(void * proxy)
+{
+	LOGV("android_graphics_Path::android_graphics_Path(void * proxy) invoked");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+}
+// Default Instance Destructor
+android_graphics_Path::~android_graphics_Path()
+{
+	LOGV("android_graphics_Path::~android_graphics_Path() invoked");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+}
+// Functions
 void android_graphics_Path::offset(float& arg0,android_graphics_Path& arg1)
 {
 	const char *methodName = "offset";

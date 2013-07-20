@@ -69,6 +69,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_ViewSwitcher
 {
 public:
+	android_widget_ViewSwitcher(const android_widget_ViewSwitcher& cc);
+	android_widget_ViewSwitcher(void * proxy);
+	virtual ~android_widget_ViewSwitcher();
 	 void reset();
 	 void setFactory(android_widget_ViewSwitcher_ViewFactory& arg0);
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);

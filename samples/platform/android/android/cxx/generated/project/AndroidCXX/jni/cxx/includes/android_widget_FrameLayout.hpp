@@ -87,6 +87,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_FrameLayout
 {
 public:
+	android_widget_FrameLayout(const android_widget_FrameLayout& cc);
+	android_widget_FrameLayout(void * proxy);
+	virtual ~android_widget_FrameLayout();
 	 android_widget_FrameLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
 	 bool gatherTransparentRegion(android_graphics_Region& arg0);
 	 void jumpDrawablesToCurrentState();

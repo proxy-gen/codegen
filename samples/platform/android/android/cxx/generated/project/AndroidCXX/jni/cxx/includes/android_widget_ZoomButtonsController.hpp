@@ -70,6 +70,9 @@ class android_widget_ZoomButtonsController_OnZoomListener;
 class android_widget_ZoomButtonsController
 {
 public:
+	android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc);
+	android_widget_ZoomButtonsController(void * proxy);
+	virtual ~android_widget_ZoomButtonsController();
 	 bool isVisible();
 	 void setVisible(bool& arg0);
 	 void setFocusable(bool& arg0);

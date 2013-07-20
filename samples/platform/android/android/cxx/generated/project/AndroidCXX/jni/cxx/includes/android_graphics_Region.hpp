@@ -99,6 +99,9 @@ class android_graphics_Path;
 class android_graphics_Region
 {
 public:
+	android_graphics_Region(const android_graphics_Region& cc);
+	android_graphics_Region(void * proxy);
+	virtual ~android_graphics_Region();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 bool isEmpty();

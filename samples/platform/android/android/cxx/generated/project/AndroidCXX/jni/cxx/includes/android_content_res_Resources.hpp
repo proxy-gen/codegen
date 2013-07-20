@@ -198,6 +198,9 @@ class android_content_res_AssetManager;
 class android_content_res_Resources
 {
 public:
+	android_content_res_Resources(const android_content_res_Resources& cc);
+	android_content_res_Resources(void * proxy);
+	virtual ~android_content_res_Resources();
 	 bool getBoolean(int& arg0);
 	 void getValue(int& arg0,android_util_TypedValue& arg1,bool& arg2,java_lang_String& arg3);
 	 int getInteger(int& arg0);

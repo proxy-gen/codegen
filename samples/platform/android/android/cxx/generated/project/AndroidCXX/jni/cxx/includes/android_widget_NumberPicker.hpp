@@ -108,6 +108,9 @@ class java_lang_String;
 class android_widget_NumberPicker
 {
 public:
+	android_widget_NumberPicker(const android_widget_NumberPicker& cc);
+	android_widget_NumberPicker(void * proxy);
+	virtual ~android_widget_NumberPicker();
 	 int getValue();
 	 void setValue(int& arg0);
 	 bool onTouchEvent(android_view_MotionEvent& arg0);

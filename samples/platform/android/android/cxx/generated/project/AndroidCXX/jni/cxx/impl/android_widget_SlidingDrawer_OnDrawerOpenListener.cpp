@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_SlidingDrawer_OnDrawerOpenListener.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_widget_SlidingDrawer_OnDrawerOpenListener::onDrawerOpened()
 {
 	const char *methodName = "onDrawerOpened";

@@ -43,6 +43,9 @@ class java_lang_String;
 class android_graphics_Paint_FontMetricsInt
 {
 public:
+	android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc);
+	android_graphics_Paint_FontMetricsInt(void * proxy);
+	virtual ~android_graphics_Paint_FontMetricsInt();
 	 java_lang_String *  toString();
 };	
 

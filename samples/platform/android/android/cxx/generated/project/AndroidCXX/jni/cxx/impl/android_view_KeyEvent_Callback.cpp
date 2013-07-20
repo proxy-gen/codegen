@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -56,11 +55,10 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_KeyEvent>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool android_view_KeyEvent_Callback::onKeyDown(int& arg0,android_view_KeyEvent& arg1)
 {
 	const char *methodName = "onKeyDown";

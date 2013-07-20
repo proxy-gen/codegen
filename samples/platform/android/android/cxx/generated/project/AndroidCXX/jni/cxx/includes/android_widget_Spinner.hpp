@@ -96,6 +96,9 @@ class java_lang_CharSequence;
 class android_widget_Spinner
 {
 public:
+	android_widget_Spinner(const android_widget_Spinner& cc);
+	android_widget_Spinner(void * proxy);
+	virtual ~android_widget_Spinner();
 	 bool performClick();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);

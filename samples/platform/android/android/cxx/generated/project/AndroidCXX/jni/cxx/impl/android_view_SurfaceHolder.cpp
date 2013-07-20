@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -67,7 +66,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_SurfaceHolder_Callback>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -77,7 +75,7 @@ template void convert_proxy<android_graphics_Canvas>(long& java_value, long& cxx
 
 template void convert_proxy<android_view_Surface>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 void android_view_SurfaceHolder::setFormat(int& arg0)
 {
 	const char *methodName = "setFormat";

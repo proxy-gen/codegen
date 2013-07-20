@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_ActionProvider_VisibilityListener.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_view_ActionProvider_VisibilityListener::onActionProviderVisibilityChanged(bool& arg0)
 {
 	const char *methodName = "onActionProviderVisibilityChanged";

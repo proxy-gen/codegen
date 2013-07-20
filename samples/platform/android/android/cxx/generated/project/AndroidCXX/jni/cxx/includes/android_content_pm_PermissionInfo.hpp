@@ -61,6 +61,9 @@ class java_lang_CharSequence;
 class android_content_pm_PermissionInfo
 {
 public:
+	android_content_pm_PermissionInfo(const android_content_pm_PermissionInfo& cc);
+	android_content_pm_PermissionInfo(void * proxy);
+	virtual ~android_content_pm_PermissionInfo();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

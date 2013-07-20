@@ -57,6 +57,9 @@ class android_widget_MultiAutoCompleteTextView_Tokenizer;
 class android_widget_MultiAutoCompleteTextView
 {
 public:
+	android_widget_MultiAutoCompleteTextView(const android_widget_MultiAutoCompleteTextView& cc);
+	android_widget_MultiAutoCompleteTextView(void * proxy);
+	virtual ~android_widget_MultiAutoCompleteTextView();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 bool enoughToFilter();

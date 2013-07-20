@@ -58,6 +58,9 @@ class java_lang_CharSequence;
 class android_widget_TextClock
 {
 public:
+	android_widget_TextClock(const android_widget_TextClock& cc);
+	android_widget_TextClock(void * proxy);
+	virtual ~android_widget_TextClock();
 	 java_lang_String *  getTimeZone();
 	 void setTimeZone(java_lang_String& arg0);
 	 java_lang_CharSequence *  getFormat12Hour();

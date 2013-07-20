@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -55,7 +54,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_accessibility_AccessibilityNodeInfo>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -65,7 +63,7 @@ template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value,
 
 template void convert_proxy<java_util_List>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_view_accessibility_AccessibilityNodeInfo *  android_view_accessibility_AccessibilityNodeProvider::createAccessibilityNodeInfo(int& arg0)
 {
 	const char *methodName = "createAccessibilityNodeInfo";

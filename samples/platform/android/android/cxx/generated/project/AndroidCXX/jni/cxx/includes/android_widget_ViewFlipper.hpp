@@ -55,6 +55,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_ViewFlipper
 {
 public:
+	android_widget_ViewFlipper(const android_widget_ViewFlipper& cc);
+	android_widget_ViewFlipper(void * proxy);
+	virtual ~android_widget_ViewFlipper();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setFlipInterval(int& arg0);

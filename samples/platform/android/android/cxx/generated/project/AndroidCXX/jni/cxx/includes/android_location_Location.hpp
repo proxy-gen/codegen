@@ -108,6 +108,9 @@ class android_os_Parcel;
 class android_location_Location
 {
 public:
+	android_location_Location(const android_location_Location& cc);
+	android_location_Location(void * proxy);
+	virtual ~android_location_Location();
 	 java_lang_String *  toString();
 	 void set(android_location_Location& arg0);
 	 void reset();

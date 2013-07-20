@@ -67,6 +67,9 @@ class java_lang_CharSequence;
 class android_content_ClipDescription
 {
 public:
+	android_content_ClipDescription(const android_content_ClipDescription& cc);
+	android_content_ClipDescription(void * proxy);
+	virtual ~android_content_ClipDescription();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -82,7 +81,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_util_Property>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -92,7 +90,7 @@ template void convert_proxy<android_animation_PropertyValuesHolder>(long& java_v
 
 template void convert_proxy<android_animation_TypeEvaluator>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 void android_animation_PropertyValuesHolder::setProperty(android_util_Property& arg0)
 {
 	const char *methodName = "setProperty";

@@ -63,6 +63,9 @@ class java_lang_Boolean;
 class java_lang_Boolean
 {
 public:
+	java_lang_Boolean(const java_lang_Boolean& cc);
+	java_lang_Boolean(void * proxy);
+	virtual ~java_lang_Boolean();
 	 bool equals(java_lang_Object& arg0);
 	static java_lang_String *  toString(bool& arg0);
 	 int hashCode();

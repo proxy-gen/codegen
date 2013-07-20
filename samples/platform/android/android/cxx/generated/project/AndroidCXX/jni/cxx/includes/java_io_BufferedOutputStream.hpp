@@ -40,6 +40,9 @@ namespace AndroidCXX {
 class java_io_BufferedOutputStream
 {
 public:
+	java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc);
+	java_io_BufferedOutputStream(void * proxy);
+	virtual ~java_io_BufferedOutputStream();
 	 void write(int& arg0,std::vector<char>& arg1);
 	 void flush();
 };	

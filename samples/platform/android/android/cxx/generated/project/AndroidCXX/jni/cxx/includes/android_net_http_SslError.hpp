@@ -54,6 +54,9 @@ class android_net_http_SslCertificate;
 class android_net_http_SslError
 {
 public:
+	android_net_http_SslError(const android_net_http_SslError& cc);
+	android_net_http_SslError(void * proxy);
+	virtual ~android_net_http_SslError();
 	 java_lang_String *  toString();
 	 android_net_http_SslCertificate *  getCertificate();
 	 java_lang_String *  getUrl();

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -58,7 +57,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_CharSequence>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -68,7 +66,7 @@ template void convert_proxy<android_graphics_drawable_Drawable>(long& java_value
 
 template void convert_proxy<android_view_View>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_view_ContextMenu *  android_view_ContextMenu::setHeaderTitle(int& arg0,java_lang_CharSequence& arg1)
 {
 	const char *methodName = "setHeaderTitle";

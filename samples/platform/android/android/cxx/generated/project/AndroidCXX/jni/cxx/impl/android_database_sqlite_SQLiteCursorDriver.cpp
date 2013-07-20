@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -56,13 +55,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_database_sqlite_SQLiteDatabase_CursorFactory>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_database_Cursor>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_database_Cursor *  android_database_sqlite_SQLiteCursorDriver::query(android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<long>& arg1)
 {
 	const char *methodName = "query";

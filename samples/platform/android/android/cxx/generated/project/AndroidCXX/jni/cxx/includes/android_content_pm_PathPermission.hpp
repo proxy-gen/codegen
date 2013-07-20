@@ -51,6 +51,9 @@ class java_lang_String;
 class android_content_pm_PathPermission
 {
 public:
+	android_content_pm_PathPermission(const android_content_pm_PathPermission& cc);
+	android_content_pm_PathPermission(void * proxy);
+	virtual ~android_content_pm_PathPermission();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);
 	 java_lang_String *  getReadPermission();
 	 java_lang_String *  getWritePermission();

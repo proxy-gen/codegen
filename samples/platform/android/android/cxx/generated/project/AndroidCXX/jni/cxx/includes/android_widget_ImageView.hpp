@@ -126,6 +126,9 @@ class android_graphics_Matrix;
 class android_widget_ImageView
 {
 public:
+	android_widget_ImageView(const android_widget_ImageView& cc);
+	android_widget_ImageView(void * proxy);
+	virtual ~android_widget_ImageView();
 	 void setVisibility(int& arg0);
 	 android_graphics_drawable_Drawable *  getDrawable();
 	 void jumpDrawablesToCurrentState();

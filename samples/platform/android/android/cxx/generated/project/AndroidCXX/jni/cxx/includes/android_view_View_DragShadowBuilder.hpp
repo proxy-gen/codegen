@@ -55,6 +55,9 @@ class android_graphics_Canvas;
 class android_view_View_DragShadowBuilder
 {
 public:
+	android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc);
+	android_view_View_DragShadowBuilder(void * proxy);
+	virtual ~android_view_View_DragShadowBuilder();
 	 android_view_View *  getView();
 	 void onProvideShadowMetrics(android_graphics_Point& arg0);
 	 void onDrawShadow(android_graphics_Canvas& arg0);

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -64,7 +63,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -74,7 +72,7 @@ template void convert_proxy<android_content_res_AssetFileDescriptor>(long& java_
 
 template void convert_proxy<android_content_res_XmlResourceParser>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 std::vector<long> android_content_res_AssetManager::list(java_lang_String& arg0)
 {
 	const char *methodName = "list";

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -68,7 +67,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_nio_channels_FileLock>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -84,7 +82,7 @@ template void convert_proxy<java_nio_channels_WritableByteChannel>(long& java_va
 
 template void convert_proxy<java_nio_channels_ReadableByteChannel>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_nio_channels_FileLock *  java_nio_channels_FileChannel::lock(long& arg0,bool& arg1)
 {
 	const char *methodName = "lock";

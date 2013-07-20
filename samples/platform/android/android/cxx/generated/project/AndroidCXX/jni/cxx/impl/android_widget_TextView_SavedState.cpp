@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -52,13 +51,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_os_Parcel>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_lang_String *  android_widget_TextView_SavedState::toString()
 {
 	const char *methodName = "toString";

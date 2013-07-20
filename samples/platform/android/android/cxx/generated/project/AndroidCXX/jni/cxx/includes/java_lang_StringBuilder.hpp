@@ -86,6 +86,9 @@ class java_lang_StringBuilder;
 class java_lang_StringBuilder
 {
 public:
+	java_lang_StringBuilder(const java_lang_StringBuilder& cc);
+	java_lang_StringBuilder(void * proxy);
+	virtual ~java_lang_StringBuilder();
 	 java_lang_String *  toString();
 	 java_lang_StringBuilder *  append(java_lang_CharSequence& arg0,int& arg1,std::vector<char>& arg2,bool& arg3,char& arg4,long& arg5,float& arg6,double& arg7,java_lang_Object& arg8,java_lang_String& arg9,java_lang_StringBuffer& arg10);
 	 int indexOf(java_lang_String& arg0,int& arg1);

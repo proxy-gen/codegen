@@ -83,6 +83,9 @@ class android_os_Parcel;
 class android_content_res_Configuration
 {
 public:
+	android_content_res_Configuration(const android_content_res_Configuration& cc);
+	android_content_res_Configuration(void * proxy);
+	virtual ~android_content_res_Configuration();
 	 bool equals(android_content_res_Configuration& arg0,java_lang_Object& arg1);
 	 java_lang_String *  toString();
 	 int hashCode();

@@ -69,6 +69,9 @@ class android_content_SyncAdapterType;
 class android_content_SyncAdapterType
 {
 public:
+	android_content_SyncAdapterType(const android_content_SyncAdapterType& cc);
+	android_content_SyncAdapterType(void * proxy);
+	virtual ~android_content_SyncAdapterType();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

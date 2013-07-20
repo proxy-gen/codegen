@@ -131,6 +131,9 @@ class android_animation_PropertyValuesHolder;
 class android_animation_ObjectAnimator
 {
 public:
+	android_animation_ObjectAnimator(const android_animation_ObjectAnimator& cc);
+	android_animation_ObjectAnimator(void * proxy);
+	virtual ~android_animation_ObjectAnimator();
 	 void setProperty(android_util_Property& arg0);
 	 java_lang_String *  toString();
 	 android_animation_ObjectAnimator *  clone();

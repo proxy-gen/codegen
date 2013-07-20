@@ -93,6 +93,9 @@ class android_os_Parcel;
 class android_graphics_Rect
 {
 public:
+	android_graphics_Rect(const android_graphics_Rect& cc);
+	android_graphics_Rect(void * proxy);
+	virtual ~android_graphics_Rect();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

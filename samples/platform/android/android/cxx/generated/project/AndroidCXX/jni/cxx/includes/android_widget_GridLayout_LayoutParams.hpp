@@ -45,6 +45,9 @@ class java_lang_Object;
 class android_widget_GridLayout_LayoutParams
 {
 public:
+	android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc);
+	android_widget_GridLayout_LayoutParams(void * proxy);
+	virtual ~android_widget_GridLayout_LayoutParams();
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 void setGravity(int& arg0);

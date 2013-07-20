@@ -62,6 +62,9 @@ class java_util_Date;
 class java_security_Timestamp
 {
 public:
+	java_security_Timestamp(const java_security_Timestamp& cc);
+	java_security_Timestamp(void * proxy);
+	virtual ~java_security_Timestamp();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

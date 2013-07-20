@@ -64,6 +64,9 @@ class java_io_OutputStream;
 class android_graphics_Picture
 {
 public:
+	android_graphics_Picture(const android_graphics_Picture& cc);
+	android_graphics_Picture(void * proxy);
+	virtual ~android_graphics_Picture();
 	 int getWidth();
 	 int getHeight();
 	 void draw(android_graphics_Canvas& arg0);

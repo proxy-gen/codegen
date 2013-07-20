@@ -95,6 +95,9 @@ class android_support_v4_content_Loader_OnLoadCompleteListener;
 class android_support_v4_content_Loader
 {
 public:
+	android_support_v4_content_Loader(const android_support_v4_content_Loader& cc);
+	android_support_v4_content_Loader(void * proxy);
+	virtual ~android_support_v4_content_Loader();
 	 java_lang_String *  toString();
 	 android_content_Context *  getContext();
 	 int getId();

@@ -134,6 +134,9 @@ class android_graphics_drawable_Drawable;
 class android_widget_ListView
 {
 public:
+	android_widget_ListView(const android_widget_ListView& cc);
+	android_widget_ListView(void * proxy);
+	virtual ~android_widget_ListView();
 	 bool isOpaque();
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
 	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);

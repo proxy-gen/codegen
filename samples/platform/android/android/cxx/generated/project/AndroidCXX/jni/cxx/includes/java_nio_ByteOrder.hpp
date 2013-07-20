@@ -48,6 +48,9 @@ class java_nio_ByteOrder;
 class java_nio_ByteOrder
 {
 public:
+	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
+	java_nio_ByteOrder(void * proxy);
+	virtual ~java_nio_ByteOrder();
 	 java_lang_String *  toString();
 	static java_nio_ByteOrder *  nativeOrder();
 };	

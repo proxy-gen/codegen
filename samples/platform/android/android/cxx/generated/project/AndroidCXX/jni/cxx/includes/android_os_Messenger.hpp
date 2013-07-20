@@ -72,6 +72,9 @@ class android_os_Messenger;
 class android_os_Messenger
 {
 public:
+	android_os_Messenger(const android_os_Messenger& cc);
+	android_os_Messenger(void * proxy);
+	virtual ~android_os_Messenger();
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 void send(android_os_Message& arg0);

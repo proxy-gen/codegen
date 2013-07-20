@@ -49,6 +49,9 @@ class android_graphics_Canvas;
 class android_widget_EdgeEffect
 {
 public:
+	android_widget_EdgeEffect(const android_widget_EdgeEffect& cc);
+	android_widget_EdgeEffect(void * proxy);
+	virtual ~android_widget_EdgeEffect();
 	 void setSize(int& arg0);
 	 void finish();
 	 bool draw(android_graphics_Canvas& arg0);

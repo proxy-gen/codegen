@@ -74,6 +74,9 @@ class java_lang_CharSequence;
 class android_util_TypedValue
 {
 public:
+	android_util_TypedValue(const android_util_TypedValue& cc);
+	android_util_TypedValue(void * proxy);
+	virtual ~android_util_TypedValue();
 	 java_lang_String *  toString();
 	 float getFloat();
 	 float getDimension(android_util_DisplayMetrics& arg0);

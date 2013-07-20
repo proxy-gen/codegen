@@ -104,6 +104,9 @@ class android_graphics_RectF;
 class android_graphics_Path
 {
 public:
+	android_graphics_Path(const android_graphics_Path& cc);
+	android_graphics_Path(void * proxy);
+	virtual ~android_graphics_Path();
 	 void offset(float& arg0,android_graphics_Path& arg1);
 	 bool isEmpty();
 	 void transform(android_graphics_Matrix& arg0,android_graphics_Path& arg1);

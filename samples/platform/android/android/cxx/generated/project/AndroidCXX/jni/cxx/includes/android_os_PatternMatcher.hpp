@@ -55,6 +55,9 @@ class android_os_Parcel;
 class android_os_PatternMatcher
 {
 public:
+	android_os_PatternMatcher(const android_os_PatternMatcher& cc);
+	android_os_PatternMatcher(void * proxy);
+	virtual ~android_os_PatternMatcher();
 	 java_lang_String *  toString();
 	 int getType();
 	 java_lang_String *  getPath();

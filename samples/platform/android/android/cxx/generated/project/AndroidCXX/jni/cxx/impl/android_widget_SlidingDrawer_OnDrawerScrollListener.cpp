@@ -12,7 +12,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_SlidingDrawer_OnDrawerScrollListener.hpp>
@@ -50,9 +49,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_widget_SlidingDrawer_OnDrawerScrollListener::onScrollStarted()
 {
 	const char *methodName = "onScrollStarted";

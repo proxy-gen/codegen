@@ -90,6 +90,9 @@ class java_util_Locale;
 class java_util_Locale
 {
 public:
+	java_util_Locale(const java_util_Locale& cc);
+	java_util_Locale(void * proxy);
+	virtual ~java_util_Locale();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

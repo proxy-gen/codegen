@@ -55,6 +55,9 @@ namespace AndroidCXX {
 class android_widget_OverScroller
 {
 public:
+	android_widget_OverScroller(const android_widget_OverScroller& cc);
+	android_widget_OverScroller(void * proxy);
+	virtual ~android_widget_OverScroller();
 	 void setFriction(float& arg0);
 	 bool isFinished();
 	 void forceFinished(bool& arg0);

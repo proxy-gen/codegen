@@ -60,6 +60,9 @@ class java_lang_Class;
 class java_lang_Object
 {
 public:
+	java_lang_Object(const java_lang_Object& cc);
+	java_lang_Object(void * proxy);
+	virtual ~java_lang_Object();
 	 void wait(long& arg0,int& arg1);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();

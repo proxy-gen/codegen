@@ -93,6 +93,9 @@ class android_widget_SlidingDrawer_OnDrawerScrollListener;
 class android_widget_SlidingDrawer
 {
 public:
+	android_widget_SlidingDrawer(const android_widget_SlidingDrawer& cc);
+	android_widget_SlidingDrawer(void * proxy);
+	virtual ~android_widget_SlidingDrawer();
 	 void lock();
 	 void close();
 	 android_view_View *  getContent();

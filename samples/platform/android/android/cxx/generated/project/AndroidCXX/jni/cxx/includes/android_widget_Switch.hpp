@@ -106,6 +106,9 @@ class java_lang_CharSequence;
 class android_widget_Switch
 {
 public:
+	android_widget_Switch(const android_widget_Switch& cc);
+	android_widget_Switch(void * proxy);
+	virtual ~android_widget_Switch();
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 void jumpDrawablesToCurrentState();
 	 void onPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);

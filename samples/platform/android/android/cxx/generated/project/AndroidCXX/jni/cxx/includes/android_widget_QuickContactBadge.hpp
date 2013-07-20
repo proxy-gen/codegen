@@ -74,6 +74,9 @@ class java_lang_String;
 class android_widget_QuickContactBadge
 {
 public:
+	android_widget_QuickContactBadge(const android_widget_QuickContactBadge& cc);
+	android_widget_QuickContactBadge(void * proxy);
+	virtual ~android_widget_QuickContactBadge();
 	 void setMode(int& arg0);
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);

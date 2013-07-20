@@ -57,6 +57,9 @@ class java_io_InputStream;
 class android_webkit_WebResourceResponse
 {
 public:
+	android_webkit_WebResourceResponse(const android_webkit_WebResourceResponse& cc);
+	android_webkit_WebResourceResponse(void * proxy);
+	virtual ~android_webkit_WebResourceResponse();
 	 java_lang_String *  getEncoding();
 	 java_io_InputStream *  getData();
 	 void setData(java_io_InputStream& arg0);

@@ -57,6 +57,9 @@ class java_lang_String;
 class android_util_DisplayMetrics
 {
 public:
+	android_util_DisplayMetrics(const android_util_DisplayMetrics& cc);
+	android_util_DisplayMetrics(void * proxy);
+	virtual ~android_util_DisplayMetrics();
 	 bool equals(java_lang_Object& arg0,android_util_DisplayMetrics& arg1);
 	 java_lang_String *  toString();
 	 int hashCode();

@@ -65,6 +65,9 @@ class android_widget_Adapter;
 class android_widget_AdapterViewFlipper
 {
 public:
+	android_widget_AdapterViewFlipper(const android_widget_AdapterViewFlipper& cc);
+	android_widget_AdapterViewFlipper(void * proxy);
+	virtual ~android_widget_AdapterViewFlipper();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setAdapter(android_widget_Adapter& arg0);

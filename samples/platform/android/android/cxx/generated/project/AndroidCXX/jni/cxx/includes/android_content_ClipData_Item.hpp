@@ -76,6 +76,9 @@ class android_content_Context;
 class android_content_ClipData_Item
 {
 public:
+	android_content_ClipData_Item(const android_content_ClipData_Item& cc);
+	android_content_ClipData_Item(void * proxy);
+	virtual ~android_content_ClipData_Item();
 	 java_lang_String *  toString();
 	 java_lang_CharSequence *  getText();
 	 android_content_Intent *  getIntent();

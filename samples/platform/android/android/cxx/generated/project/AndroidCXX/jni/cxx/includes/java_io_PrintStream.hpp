@@ -84,6 +84,9 @@ class java_util_Locale;
 class java_io_PrintStream
 {
 public:
+	java_io_PrintStream(const java_io_PrintStream& cc);
+	java_io_PrintStream(void * proxy);
+	virtual ~java_io_PrintStream();
 	 void println(char& arg0,bool& arg1,java_lang_Object& arg2,java_lang_String& arg3,std::vector<char>& arg4,double& arg5,float& arg6,long& arg7,int& arg8);
 	 java_io_PrintStream *  append(java_lang_CharSequence& arg0,int& arg1,char& arg2);
 	 java_io_PrintStream *  format(java_util_Locale& arg0,java_lang_String& arg1,std::vector<long>& arg2);

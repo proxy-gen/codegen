@@ -314,6 +314,9 @@ class android_webkit_WebSettings;
 class android_webkit_WebView
 {
 public:
+	android_webkit_WebView(const android_webkit_WebView& cc);
+	android_webkit_WebView(void * proxy);
+	virtual ~android_webkit_WebView();
 	 void destroy();
 	 void freeMemory();
 	 android_net_http_SslCertificate *  getCertificate();

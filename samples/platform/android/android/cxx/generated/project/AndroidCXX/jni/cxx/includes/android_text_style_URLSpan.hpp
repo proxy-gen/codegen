@@ -57,6 +57,9 @@ class android_view_View;
 class android_text_style_URLSpan
 {
 public:
+	android_text_style_URLSpan(const android_text_style_URLSpan& cc);
+	android_text_style_URLSpan(void * proxy);
+	virtual ~android_text_style_URLSpan();
 	 java_lang_String *  getURL();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

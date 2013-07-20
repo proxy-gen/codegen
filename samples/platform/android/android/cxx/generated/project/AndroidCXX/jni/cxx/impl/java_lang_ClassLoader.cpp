@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -79,7 +78,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -93,7 +91,7 @@ template void convert_proxy<java_net_URL>(long& java_value, long& cxx_value, con
 
 template void convert_proxy<java_util_Enumeration>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 {
 	const char *methodName = "loadClass";

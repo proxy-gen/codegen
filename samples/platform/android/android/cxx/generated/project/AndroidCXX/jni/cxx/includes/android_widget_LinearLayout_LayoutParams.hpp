@@ -44,6 +44,9 @@ class java_lang_String;
 class android_widget_LinearLayout_LayoutParams
 {
 public:
+	android_widget_LinearLayout_LayoutParams(const android_widget_LinearLayout_LayoutParams& cc);
+	android_widget_LinearLayout_LayoutParams(void * proxy);
+	virtual ~android_widget_LinearLayout_LayoutParams();
 	 java_lang_String *  debug(java_lang_String& arg0);
 };	
 

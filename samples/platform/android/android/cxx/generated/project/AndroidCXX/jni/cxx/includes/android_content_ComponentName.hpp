@@ -83,6 +83,9 @@ class android_os_Parcel;
 class android_content_ComponentName
 {
 public:
+	android_content_ComponentName(const android_content_ComponentName& cc);
+	android_content_ComponentName(void * proxy);
+	virtual ~android_content_ComponentName();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

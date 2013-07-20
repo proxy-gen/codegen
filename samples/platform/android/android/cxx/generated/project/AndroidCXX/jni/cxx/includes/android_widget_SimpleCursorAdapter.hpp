@@ -104,6 +104,9 @@ class android_widget_SimpleCursorAdapter_CursorToStringConverter;
 class android_widget_SimpleCursorAdapter
 {
 public:
+	android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc);
+	android_widget_SimpleCursorAdapter(void * proxy);
+	virtual ~android_widget_SimpleCursorAdapter();
 	 java_lang_CharSequence *  convertToString(android_database_Cursor& arg0);
 	 void bindView(android_view_View& arg0,android_content_Context& arg1,android_database_Cursor& arg2);
 	 android_database_Cursor *  swapCursor(android_database_Cursor& arg0);

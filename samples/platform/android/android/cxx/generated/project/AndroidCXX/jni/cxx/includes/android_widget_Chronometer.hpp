@@ -69,6 +69,9 @@ class android_widget_Chronometer_OnChronometerTickListener;
 class android_widget_Chronometer
 {
 public:
+	android_widget_Chronometer(const android_widget_Chronometer& cc);
+	android_widget_Chronometer(void * proxy);
+	virtual ~android_widget_Chronometer();
 	 void start();
 	 void stop();
 	 java_lang_String *  getFormat();

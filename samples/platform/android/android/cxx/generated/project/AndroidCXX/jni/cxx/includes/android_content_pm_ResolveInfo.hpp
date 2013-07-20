@@ -76,6 +76,9 @@ class android_graphics_drawable_Drawable;
 class android_content_pm_ResolveInfo
 {
 public:
+	android_content_pm_ResolveInfo(const android_content_pm_ResolveInfo& cc);
+	android_content_pm_ResolveInfo(void * proxy);
+	virtual ~android_content_pm_ResolveInfo();
 	 java_lang_String *  toString();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 int describeContents();

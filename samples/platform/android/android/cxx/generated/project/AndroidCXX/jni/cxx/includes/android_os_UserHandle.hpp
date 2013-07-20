@@ -64,6 +64,9 @@ class android_os_UserHandle;
 class android_os_UserHandle
 {
 public:
+	android_os_UserHandle(const android_os_UserHandle& cc);
+	android_os_UserHandle(void * proxy);
+	virtual ~android_os_UserHandle();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

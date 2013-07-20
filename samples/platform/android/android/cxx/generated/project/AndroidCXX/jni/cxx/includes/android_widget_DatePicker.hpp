@@ -79,6 +79,9 @@ class android_widget_CalendarView;
 class android_widget_DatePicker
 {
 public:
+	android_widget_DatePicker(const android_widget_DatePicker& cc);
+	android_widget_DatePicker(void * proxy);
+	virtual ~android_widget_DatePicker();
 	 void init(int& arg0,android_widget_DatePicker_OnDateChangedListener& arg1);
 	 int getYear();
 	 int getMonth();

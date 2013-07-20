@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -85,7 +84,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_os_Bundle>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -105,7 +103,7 @@ template void convert_proxy<android_app_FragmentManager_OnBackStackChangedListen
 
 template void convert_proxy<android_app_Fragment_SavedState>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool android_app_FragmentManager::isDestroyed()
 {
 	const char *methodName = "isDestroyed";

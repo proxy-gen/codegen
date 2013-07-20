@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -61,7 +60,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -71,7 +69,7 @@ template void convert_proxy<java_util_List>(long& java_value, long& cxx_value, c
 
 template void convert_proxy<java_util_Iterator>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool java_security_cert_CertPath::equals(java_lang_Object& arg0)
 {
 	const char *methodName = "equals";

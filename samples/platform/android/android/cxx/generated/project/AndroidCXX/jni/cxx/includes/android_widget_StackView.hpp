@@ -68,6 +68,9 @@ class android_os_Bundle;
 class android_widget_StackView
 {
 public:
+	android_widget_StackView(const android_widget_StackView& cc);
+	android_widget_StackView(void * proxy);
+	virtual ~android_widget_StackView();
 	 void advance();
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 	 bool onGenericMotionEvent(android_view_MotionEvent& arg0);

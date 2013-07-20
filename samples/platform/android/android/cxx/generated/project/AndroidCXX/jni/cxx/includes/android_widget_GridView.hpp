@@ -90,6 +90,9 @@ class android_content_Intent;
 class android_widget_GridView
 {
 public:
+	android_widget_GridView(const android_widget_GridView& cc);
+	android_widget_GridView(void * proxy);
+	virtual ~android_widget_GridView();
 	 bool onKeyDown(int& arg0,android_view_KeyEvent& arg1);
 	 bool onKeyUp(int& arg0,android_view_KeyEvent& arg1);
 	 bool onKeyMultiple(int& arg0,android_view_KeyEvent& arg1);

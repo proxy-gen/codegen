@@ -88,6 +88,9 @@ class android_os_Bundle;
 class android_view_View_AccessibilityDelegate
 {
 public:
+	android_view_View_AccessibilityDelegate(const android_view_View_AccessibilityDelegate& cc);
+	android_view_View_AccessibilityDelegate(void * proxy);
+	virtual ~android_view_View_AccessibilityDelegate();
 	 bool dispatchPopulateAccessibilityEvent(android_view_View& arg0,android_view_accessibility_AccessibilityEvent& arg1);
 	 bool onRequestSendAccessibilityEvent(android_view_ViewGroup& arg0,android_view_View& arg1,android_view_accessibility_AccessibilityEvent& arg2);
 	 void sendAccessibilityEvent(android_view_View& arg0,int& arg1);

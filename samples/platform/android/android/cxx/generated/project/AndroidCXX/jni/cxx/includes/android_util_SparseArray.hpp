@@ -68,6 +68,9 @@ class android_util_SparseArray;
 class android_util_SparseArray
 {
 public:
+	android_util_SparseArray(const android_util_SparseArray& cc);
+	android_util_SparseArray(void * proxy);
+	virtual ~android_util_SparseArray();
 	 java_lang_Object *  get(int& arg0,java_lang_Object& arg1);
 	 void put(int& arg0,java_lang_Object& arg1);
 	 void append(int& arg0,java_lang_Object& arg1);

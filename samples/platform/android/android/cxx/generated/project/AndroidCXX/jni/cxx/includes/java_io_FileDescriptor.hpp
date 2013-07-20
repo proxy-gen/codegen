@@ -39,6 +39,9 @@ namespace AndroidCXX {
 class java_io_FileDescriptor
 {
 public:
+	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
+	java_io_FileDescriptor(void * proxy);
+	virtual ~java_io_FileDescriptor();
 	 bool valid();
 	 void sync();
 };	

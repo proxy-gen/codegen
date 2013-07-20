@@ -52,6 +52,9 @@ class java_nio_channels_FileChannel;
 class java_io_FileOutputStream
 {
 public:
+	java_io_FileOutputStream(const java_io_FileOutputStream& cc);
+	java_io_FileOutputStream(void * proxy);
+	virtual ~java_io_FileOutputStream();
 	 void write(std::vector<char>& arg0,int& arg1);
 	 void close();
 	 java_io_FileDescriptor *  getFD();

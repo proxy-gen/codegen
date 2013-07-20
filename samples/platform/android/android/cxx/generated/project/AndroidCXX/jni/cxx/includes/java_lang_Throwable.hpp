@@ -78,6 +78,9 @@ class java_lang_StackTraceElement;
 class java_lang_Throwable
 {
 public:
+	java_lang_Throwable(const java_lang_Throwable& cc);
+	java_lang_Throwable(void * proxy);
+	virtual ~java_lang_Throwable();
 	 void printStackTrace(java_io_PrintStream& arg0,java_io_PrintWriter& arg1);
 	 java_lang_Throwable *  fillInStackTrace();
 	 java_lang_Throwable *  getCause();

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -51,13 +50,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_webkit_WebView>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_graphics_Picture>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 void android_webkit_WebView_PictureListener::onNewPicture(android_webkit_WebView& arg0,android_graphics_Picture& arg1)
 {
 	const char *methodName = "onNewPicture";

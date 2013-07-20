@@ -121,6 +121,9 @@ class android_view_KeyEvent;
 class android_webkit_WebViewClient
 {
 public:
+	android_webkit_WebViewClient(const android_webkit_WebViewClient& cc);
+	android_webkit_WebViewClient(void * proxy);
+	virtual ~android_webkit_WebViewClient();
 	 bool shouldOverrideUrlLoading(android_webkit_WebView& arg0,java_lang_String& arg1);
 	 void onPageStarted(android_webkit_WebView& arg0,java_lang_String& arg1,android_graphics_Bitmap& arg2);
 	 void onPageFinished(android_webkit_WebView& arg0,java_lang_String& arg1);

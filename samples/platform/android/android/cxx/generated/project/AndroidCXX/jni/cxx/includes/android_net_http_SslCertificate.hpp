@@ -76,6 +76,9 @@ class android_net_http_SslCertificate_DName;
 class android_net_http_SslCertificate
 {
 public:
+	android_net_http_SslCertificate(const android_net_http_SslCertificate& cc);
+	android_net_http_SslCertificate(void * proxy);
+	virtual ~android_net_http_SslCertificate();
 	 java_lang_String *  toString();
 	static android_os_Bundle *  saveState(android_net_http_SslCertificate& arg0);
 	static android_net_http_SslCertificate *  restoreState(android_os_Bundle& arg0);

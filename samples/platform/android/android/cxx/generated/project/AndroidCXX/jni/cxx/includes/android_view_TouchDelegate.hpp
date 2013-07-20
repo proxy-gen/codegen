@@ -43,6 +43,9 @@ class android_view_MotionEvent;
 class android_view_TouchDelegate
 {
 public:
+	android_view_TouchDelegate(const android_view_TouchDelegate& cc);
+	android_view_TouchDelegate(void * proxy);
+	virtual ~android_view_TouchDelegate();
 	 bool onTouchEvent(android_view_MotionEvent& arg0);
 };	
 

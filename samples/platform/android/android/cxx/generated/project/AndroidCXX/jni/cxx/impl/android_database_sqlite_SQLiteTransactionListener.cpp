@@ -13,7 +13,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_database_sqlite_SQLiteTransactionListener.hpp>
@@ -51,9 +50,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_database_sqlite_SQLiteTransactionListener::onBegin()
 {
 	const char *methodName = "onBegin";

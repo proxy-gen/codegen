@@ -69,6 +69,9 @@ class java_lang_Byte;
 class java_lang_Byte
 {
 public:
+	java_lang_Byte(const java_lang_Byte& cc);
+	java_lang_Byte(void * proxy);
+	virtual ~java_lang_Byte();
 	 bool equals(java_lang_Object& arg0);
 	static java_lang_String *  toString(unsigned char& arg0);
 	 int hashCode();

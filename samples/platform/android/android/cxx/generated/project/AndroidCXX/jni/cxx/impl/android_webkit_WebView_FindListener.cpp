@@ -11,7 +11,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_webkit_WebView_FindListener.hpp>
@@ -49,9 +48,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 void android_webkit_WebView_FindListener::onFindResultReceived(int& arg0,bool& arg1)
 {
 	const char *methodName = "onFindResultReceived";

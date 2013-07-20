@@ -68,6 +68,9 @@ class java_lang_CharSequence;
 class android_widget_ToggleButton
 {
 public:
+	android_widget_ToggleButton(const android_widget_ToggleButton& cc);
+	android_widget_ToggleButton(void * proxy);
+	virtual ~android_widget_ToggleButton();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 void setBackgroundDrawable(android_graphics_drawable_Drawable& arg0);

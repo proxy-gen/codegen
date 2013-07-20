@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -60,7 +59,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_MenuItem>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -70,7 +68,7 @@ template void convert_proxy<android_view_SubMenu>(long& java_value, long& cxx_va
 
 template void convert_proxy<android_view_ActionProvider_VisibilityListener>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 bool android_view_ActionProvider::isVisible()
 {
 	const char *methodName = "isVisible";

@@ -45,6 +45,9 @@ class android_graphics_Matrix;
 class android_graphics_Shader
 {
 public:
+	android_graphics_Shader(const android_graphics_Shader& cc);
+	android_graphics_Shader(void * proxy);
+	virtual ~android_graphics_Shader();
 	 bool getLocalMatrix(android_graphics_Matrix& arg0);
 	 void setLocalMatrix(android_graphics_Matrix& arg0);
 };	

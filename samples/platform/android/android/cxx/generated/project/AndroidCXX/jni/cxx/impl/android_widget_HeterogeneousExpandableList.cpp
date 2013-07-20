@@ -14,7 +14,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_HeterogeneousExpandableList.hpp>
@@ -52,9 +51,8 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
-
+// Functions
 int android_widget_HeterogeneousExpandableList::getGroupType(int& arg0)
 {
 	const char *methodName = "getGroupType";

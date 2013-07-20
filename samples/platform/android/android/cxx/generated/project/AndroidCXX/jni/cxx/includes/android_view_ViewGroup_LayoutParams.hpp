@@ -38,6 +38,9 @@ namespace AndroidCXX {
 class android_view_ViewGroup_LayoutParams
 {
 public:
+	android_view_ViewGroup_LayoutParams(const android_view_ViewGroup_LayoutParams& cc);
+	android_view_ViewGroup_LayoutParams(void * proxy);
+	virtual ~android_view_ViewGroup_LayoutParams();
 	 void resolveLayoutDirection(int& arg0);
 };	
 

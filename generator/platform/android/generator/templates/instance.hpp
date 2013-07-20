@@ -14,6 +14,7 @@
 #set $config_data = $config_module.config_data
 #set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
+#set $entity_class_config = $CONFIG.entity_class
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
@@ -124,6 +125,11 @@ class $proxied_type;
 class $entity_class_name
 {
 public:
+	#if '_instance' in $entity_class_config['tags']
+	${entity_class_name}(const ${entity_class_name}& cc);
+	${entity_class_name}(void * proxy);
+	virtual ~${entity_class_name}();
+	#end if	
 	#for $function in $functions
 	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
 	#end for

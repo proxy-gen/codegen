@@ -110,6 +110,9 @@ class android_widget_TabHost_OnTabChangeListener;
 class android_widget_TabHost
 {
 public:
+	android_widget_TabHost(const android_widget_TabHost& cc);
+	android_widget_TabHost(void * proxy);
+	virtual ~android_widget_TabHost();
 	 void setup(android_app_LocalActivityManager& arg0);
 	 bool dispatchKeyEvent(android_view_KeyEvent& arg0);
 	 void dispatchWindowFocusChanged(bool& arg0);

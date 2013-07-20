@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -73,7 +72,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_animation_Animator>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -85,7 +83,7 @@ template void convert_proxy<android_animation_Animator_AnimatorListener>(long& j
 
 template void convert_proxy<java_util_ArrayList>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_animation_Animator *  android_animation_Animator::clone()
 {
 	const char *methodName = "clone";

@@ -52,6 +52,9 @@ class android_os_Parcel;
 class android_content_pm_FeatureInfo
 {
 public:
+	android_content_pm_FeatureInfo(const android_content_pm_FeatureInfo& cc);
+	android_content_pm_FeatureInfo(void * proxy);
+	virtual ~android_content_pm_FeatureInfo();
 	 java_lang_String *  toString();
 	 int describeContents();
 	 void writeToParcel(android_os_Parcel& arg0,int& arg1);

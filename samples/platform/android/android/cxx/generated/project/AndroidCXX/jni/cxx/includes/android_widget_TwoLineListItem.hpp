@@ -57,6 +57,9 @@ class android_widget_TextView;
 class android_widget_TwoLineListItem
 {
 public:
+	android_widget_TwoLineListItem(const android_widget_TwoLineListItem& cc);
+	android_widget_TwoLineListItem(void * proxy);
+	virtual ~android_widget_TwoLineListItem();
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 void onInitializeAccessibilityNodeInfo(android_view_accessibility_AccessibilityNodeInfo& arg0);
 	 android_widget_TextView *  getText1();

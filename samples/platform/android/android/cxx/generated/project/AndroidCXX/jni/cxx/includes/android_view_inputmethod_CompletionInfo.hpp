@@ -60,6 +60,9 @@ class java_lang_CharSequence;
 class android_view_inputmethod_CompletionInfo
 {
 public:
+	android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc);
+	android_view_inputmethod_CompletionInfo(void * proxy);
+	virtual ~android_view_inputmethod_CompletionInfo();
 	 java_lang_String *  toString();
 	 long getId();
 	 int getPosition();

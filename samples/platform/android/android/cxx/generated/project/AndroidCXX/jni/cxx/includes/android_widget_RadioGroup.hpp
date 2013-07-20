@@ -86,6 +86,9 @@ class android_widget_RadioGroup_OnCheckedChangeListener;
 class android_widget_RadioGroup
 {
 public:
+	android_widget_RadioGroup(const android_widget_RadioGroup& cc);
+	android_widget_RadioGroup(void * proxy);
+	virtual ~android_widget_RadioGroup();
 	 void check(int& arg0);
 	 void addView(android_view_View& arg0,int& arg1,android_view_ViewGroup_LayoutParams& arg2);
 	 void setOnHierarchyChangeListener(android_view_ViewGroup_OnHierarchyChangeListener& arg0);

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -52,13 +51,12 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_View>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 template void convert_proxy<android_view_ViewGroup>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_view_View *  android_widget_SpinnerAdapter::getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2)
 {
 	const char *methodName = "getDropDownView";

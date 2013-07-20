@@ -236,6 +236,9 @@ class android_graphics_Rect;
 class android_graphics_Paint
 {
 public:
+	android_graphics_Paint(const android_graphics_Paint& cc);
+	android_graphics_Paint(void * proxy);
+	virtual ~android_graphics_Paint();
 	 void set(android_graphics_Paint& arg0);
 	 void reset();
 	 int getColor();

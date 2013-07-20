@@ -99,6 +99,9 @@ class java_lang_CharSequence;
 class java_lang_StringBuffer
 {
 public:
+	java_lang_StringBuffer(const java_lang_StringBuffer& cc);
+	java_lang_StringBuffer(void * proxy);
+	virtual ~java_lang_StringBuffer();
 	 java_lang_String *  toString();
 	 java_lang_StringBuffer *  append(std::vector<char>& arg0,int& arg1,java_lang_Object& arg2,java_lang_String& arg3,java_lang_StringBuffer& arg4,java_lang_CharSequence& arg5,bool& arg6,char& arg7,long& arg8,float& arg9,double& arg10);
 	 int indexOf(java_lang_String& arg0,int& arg1);

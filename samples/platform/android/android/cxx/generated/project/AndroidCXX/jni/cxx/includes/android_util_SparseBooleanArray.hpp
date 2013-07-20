@@ -52,6 +52,9 @@ class android_util_SparseBooleanArray;
 class android_util_SparseBooleanArray
 {
 public:
+	android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc);
+	android_util_SparseBooleanArray(void * proxy);
+	virtual ~android_util_SparseBooleanArray();
 	 bool get(int& arg0,bool& arg1);
 	 void put(int& arg0,bool& arg1);
 	 void append(int& arg0,bool& arg1);

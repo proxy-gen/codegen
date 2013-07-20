@@ -43,6 +43,9 @@ class android_view_Menu;
 class android_view_MenuInflater
 {
 public:
+	android_view_MenuInflater(const android_view_MenuInflater& cc);
+	android_view_MenuInflater(void * proxy);
+	virtual ~android_view_MenuInflater();
 	 void inflate(int& arg0,android_view_Menu& arg1);
 };	
 

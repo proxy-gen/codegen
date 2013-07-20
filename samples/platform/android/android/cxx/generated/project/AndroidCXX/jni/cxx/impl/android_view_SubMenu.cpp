@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -63,7 +62,6 @@ void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 }
 
 // Proxy Converter Types
-// Forward Declarations
 
 template void convert_proxy<android_view_MenuItem>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
@@ -75,7 +73,7 @@ template void convert_proxy<java_lang_CharSequence>(long& java_value, long& cxx_
 
 template void convert_proxy<android_view_View>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-
+// Functions
 android_view_MenuItem *  android_view_SubMenu::getItem()
 {
 	const char *methodName = "getItem";

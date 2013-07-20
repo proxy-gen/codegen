@@ -95,6 +95,9 @@ class java_util_Map;
 class java_util_HashMap
 {
 public:
+	java_util_HashMap(const java_util_HashMap& cc);
+	java_util_HashMap(void * proxy);
+	virtual ~java_util_HashMap();
 	 java_lang_Object *  get(java_lang_Object& arg0);
 	 java_lang_Object *  put(java_lang_Object& arg0);
 	 java_util_Collection *  values();

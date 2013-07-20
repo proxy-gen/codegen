@@ -38,6 +38,9 @@ namespace AndroidCXX {
 class android_graphics_BitmapFactory_Options
 {
 public:
+	android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc);
+	android_graphics_BitmapFactory_Options(void * proxy);
+	virtual ~android_graphics_BitmapFactory_Options();
 	 void requestCancelDecode();
 };	
 

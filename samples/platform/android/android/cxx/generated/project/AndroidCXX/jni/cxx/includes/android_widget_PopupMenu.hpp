@@ -64,6 +64,9 @@ class android_widget_PopupMenu_OnDismissListener;
 class android_widget_PopupMenu
 {
 public:
+	android_widget_PopupMenu(const android_widget_PopupMenu& cc);
+	android_widget_PopupMenu(void * proxy);
+	virtual ~android_widget_PopupMenu();
 	 void inflate(int& arg0);
 	 void show();
 	 android_view_MenuInflater *  getMenuInflater();

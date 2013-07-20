@@ -58,6 +58,9 @@ class android_os_Parcel;
 class android_content_pm_ActivityInfo
 {
 public:
+	android_content_pm_ActivityInfo(const android_content_pm_ActivityInfo& cc);
+	android_content_pm_ActivityInfo(void * proxy);
+	virtual ~android_content_pm_ActivityInfo();
 	 java_lang_String *  toString();
 	 void dump(android_util_Printer& arg0,java_lang_String& arg1);
 	 int describeContents();

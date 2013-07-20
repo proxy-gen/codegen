@@ -70,6 +70,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 class android_widget_RelativeLayout
 {
 public:
+	android_widget_RelativeLayout(const android_widget_RelativeLayout& cc);
+	android_widget_RelativeLayout(void * proxy);
+	virtual ~android_widget_RelativeLayout();
 	 bool dispatchPopulateAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);
 	 android_widget_RelativeLayout_LayoutParams *  generateLayoutParams(android_util_AttributeSet& arg0);
 	 bool shouldDelayChildPressedState();

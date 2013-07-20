@@ -43,6 +43,9 @@ class java_lang_String;
 class java_nio_channels_FileChannel_MapMode
 {
 public:
+	java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc);
+	java_nio_channels_FileChannel_MapMode(void * proxy);
+	virtual ~java_nio_channels_FileChannel_MapMode();
 	 java_lang_String *  toString();
 };	
 

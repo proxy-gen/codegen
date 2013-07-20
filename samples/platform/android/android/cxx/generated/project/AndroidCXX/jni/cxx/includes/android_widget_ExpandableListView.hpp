@@ -134,6 +134,9 @@ class android_widget_ExpandableListView_OnChildClickListener;
 class android_widget_ExpandableListView
 {
 public:
+	android_widget_ExpandableListView(const android_widget_ExpandableListView& cc);
+	android_widget_ExpandableListView(void * proxy);
+	virtual ~android_widget_ExpandableListView();
 	 android_os_Parcelable *  onSaveInstanceState();
 	 void onRestoreInstanceState(android_os_Parcelable& arg0);
 	 void onInitializeAccessibilityEvent(android_view_accessibility_AccessibilityEvent& arg0);

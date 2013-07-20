@@ -62,6 +62,9 @@ class java_net_SocketAddress;
 class java_net_DatagramPacket
 {
 public:
+	java_net_DatagramPacket(const java_net_DatagramPacket& cc);
+	java_net_DatagramPacket(void * proxy);
+	virtual ~java_net_DatagramPacket();
 	 int getLength();
 	 java_net_InetAddress *  getAddress();
 	 void setLength(int& arg0);
