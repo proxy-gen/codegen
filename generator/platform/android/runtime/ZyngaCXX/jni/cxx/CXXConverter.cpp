@@ -199,13 +199,13 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<char> *cxx_vector = (std::vector<char> *) cxx_value;
+		std::vector<byte> *cxx_vector = (std::vector<byte> *) cxx_value;
 		int count = cxx_vector->size();
 		char java_array[count];
 		int item_idx = 0;
-		for(std::vector<char>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
+		for(std::vector<byte>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
 		{
-			char item = (char) *it;
+			byte item = (byte) *it;
 			java_array[item_idx++] = item;
 		}
 		java_value = (long) jni->createByteArray(*java_array, count);
@@ -215,13 +215,13 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<char> *cxx_vector = (std::vector<char> *) cxx_value;
+		std::vector<byte> *cxx_vector = (std::vector<byte> *) cxx_value;
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		char * java_array = jni->getByteArray((jbyteArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
 		{
 			char item = (char) java_array[idx];
-			cxx_vector->push_back(item);
+			cxx_vector->push_back((byte) item);
 		}
 		jni->popLocalFrame();
 	}

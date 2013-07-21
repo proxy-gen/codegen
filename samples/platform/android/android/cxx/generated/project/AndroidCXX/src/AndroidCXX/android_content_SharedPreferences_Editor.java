@@ -11,7 +11,7 @@ public class android_content_SharedPreferences_Editor implements android.content
 	public native android.content.SharedPreferences$Editor putFloat(java.lang.String arg0,float arg1);
 	public native android.content.SharedPreferences$Editor clear();
 	public native android.content.SharedPreferences$Editor remove(java.lang.String arg0);
-	public native android.content.SharedPreferences$Editor putString(java.lang.String arg0);
+	public native android.content.SharedPreferences$Editor putString(java.lang.String arg0,java.lang.String arg1);
 	public native void apply();
 	public native android.content.SharedPreferences$Editor putStringSet(java.lang.String arg0,java.util.Set arg1);
 	public native boolean commit();

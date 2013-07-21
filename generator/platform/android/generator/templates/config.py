@@ -169,6 +169,9 @@ config = {
 				#for $constructor in $constructors
 				{
 					'name' : '${constructor['name']}',
+					#if 'tags' in $constructor
+					'tags' : $constructor['tags'],
+					#end if					
 					#set $params = $constructor['params']
 					'params' : [
 						#for $param in $params

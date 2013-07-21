@@ -46,8 +46,8 @@
  	$child_type_stack.extend($param['children'])
  	#end if
 #end for
-#set $returns = $function['returns'] 
 #set $function['param_str'] = $param_str
+#set $returns = $function['returns'] 
 #for $retrn in $returns
 	#set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
  	#set $function['retrn_type'] = $typeinfo['typename']
@@ -74,6 +74,53 @@
 #set $function['modifier_str'] = $modifier_str
 #end for
 
+#set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
+
+#for $constructor in $constructors
+#set $param_str = ""
+#set $params = $constructor['params']
+#set $param_idx = 0
+#set $proxied_typeinfo_list = list()
+#set $child_type_stack = list()
+#for $param in $params
+ 	#set $typeinfo = $param['deriveddata']['targetdata']['typeinfo']
+ 	#if 'isproxied' in $typeinfo
+ 		$proxied_typeinfo_list.append(typeinfo) 
+ 	#end if
+	#if $param_idx > 0
+		#set $param_str = $param_str + $COMMA 
+	#end if
+	#set $param_str = $param_str + $typeinfo['typename'] + $REF
+	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+	#set $param_idx = $param_idx + 1
+ 	#if 'children' in $param
+ 	$child_type_stack.extend($param['children'])
+ 	#end if
+#end for
+#set $constructor['param_str'] = $param_str
+#while $len(child_type_stack) > 0
+ 	#set $current_child_type = $child_type_stack.pop()
+ 	#set $typeinfo = $current_child_type['deriveddata']['targetdata']['typeinfo']
+ 	#if 'isproxied' in $typeinfo
+ 		$proxied_typeinfo_list.append(typeinfo) 
+ 	#end if
+ 	#if 'children' in $current_child_type
+ 	$child_type_stack.extend($current_child_type['children'])
+ 	#end if
+#end while
+#set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
+#end for
+
+#set $proxied_typeinfos = list()
+
+#for $function in $functions
+$proxied_typeinfos.extend(function['proxied_typeinfo_list'])
+#end for
+
+#for $constructor in $constructors
+$proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
+#end for
+
 // Generated Code 
 
 #ifndef _$entity_class_name
@@ -81,11 +128,6 @@
 //
 // Scroll Down 
 //
-
-#set $proxied_typeinfos = list()
-#for $function in $functions
-$proxied_typeinfos.extend(function['proxied_typeinfo_list'])
-#end for
 
 #set $included_types = list()
 #for $proxied_typeinfo in $proxied_typeinfos
@@ -103,6 +145,7 @@ $included_types.append($proxied_typeinfo['filename'])
 \#include <string>
 \#include <stack>
 \#include <list>
+\#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -125,11 +168,27 @@ class $proxied_type;
 class $entity_class_name
 {
 public:
-	#if '_instance' in $entity_class_config['tags']
+
+	#if not '_static' in $entity_class_config['tags']
 	${entity_class_name}(const ${entity_class_name}& cc);
+	#end if
+	#if not '_static' in $entity_class_config['tags']
 	${entity_class_name}(void * proxy);
+	#end if
+	#if not '_static' in $entity_class_config['tags']
+	// Public Constructors
+	// #for $constructor in $constructors
+	// ${entity_class_name}($constructor['param_str']);
+	// #end for
+	#end if
+	#if not '_static' in $entity_class_config['tags']
+	// Default Destructor
 	virtual ~${entity_class_name}();
 	#end if	
+	#if not '_static' in $entity_class_config['tags']
+	void * proxied();
+	#end if
+	// Functions
 	#for $function in $functions
 	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
 	#end for

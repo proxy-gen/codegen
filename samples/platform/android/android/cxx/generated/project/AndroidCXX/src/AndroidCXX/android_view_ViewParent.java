@@ -6,7 +6,7 @@ package AndroidCXX
 public class android_view_ViewParent implements android.view.ViewParent
 {
 	public native android.view.ViewParent getParent();
-	public native void requestChildFocus(android.view.View arg0);
+	public native void requestChildFocus(android.view.View arg0,android.view.View arg1);
 	public native void focusableViewAvailable(android.view.View arg0);
 	public native boolean showContextMenuForChild(android.view.View arg0);
 	public native android.view.ActionMode startActionModeForChild(android.view.View arg0,android.view.ActionMode$Callback arg1);

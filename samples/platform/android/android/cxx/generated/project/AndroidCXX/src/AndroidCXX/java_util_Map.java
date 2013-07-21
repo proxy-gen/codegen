@@ -6,7 +6,7 @@ package AndroidCXX
 public class java_util_Map implements java.util.Map
 {
 	public native java.lang.Object get(java.lang.Object arg0);
-	public native java.lang.Object put(java.lang.Object arg0);
+	public native java.lang.Object put(java.lang.Object arg0,java.lang.Object arg1);
 	public native boolean equals(java.lang.Object arg0);
 	public native java.util.Collection values();
 	public native int hashCode();

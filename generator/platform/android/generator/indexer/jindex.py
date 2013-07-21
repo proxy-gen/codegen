@@ -695,8 +695,9 @@ class TranslationUnit(JavaObject):
 			config_data = TranslationUnit._find_or_create_constructor_config_data(config_data["constructors"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
-			# process
-			pass
+			class_config_data = config_data_stack[len(config_data_stack)-2]
+			config_data = config_data_stack[len(config_data_stack)-1]
+			TranslationUnit._update_constructor_config_data(class_config_data, config_data, _type, modifiers, idx)
 		if callback_type == CallbackType.EXIT:
 			config_data_stack.pop()
 
@@ -859,6 +860,28 @@ class TranslationUnit(JavaObject):
 				del clazz["tags"]
 
 	@classmethod
+	def _update_constructor_config_data(cls, clazz, constructor, _type, modifiers, idx):
+		if "tags" in constructor:
+			tags = constructor["tags"]
+		else:
+			tags = list()
+
+		tags = sorted(list(set(tags)))
+
+		if "_no_proxy" in tags:
+			tags = list()
+			tags.append("_no_proxy")
+		else:
+			tags.append("_proxy")
+
+		tags = sorted(list(set(tags)))
+		if len(tags) > 0:
+			constructor["tags"] = tags
+		else:
+			if "tags" in constructor:
+				del constructor["tags"]
+
+	@classmethod
 	def _update_function_config_data(cls, clazz, function, _type, modifiers, idx):
 		if "tags" in function:
 			tags = function["tags"]
@@ -926,28 +949,16 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):
-		the_constructor = None
-		for constructor in constructors:
-			if constructor["name"] == constructor_name:
-				the_constructor = constructor
-				break
-		if not the_constructor:
-			the_constructor = dict()
-			constructors.append(the_constructor)
+		the_constructor = dict()
+		constructors.append(the_constructor)
 		the_constructor["name"] = constructor_name
 		the_constructor["params"] = the_constructor.get("params", list())
 		return the_constructor
 
 	@classmethod
 	def _find_or_create_function_config_data(cls, functions, function_name):
-		the_function = None
-		for function in functions:
-			if function["name"] == function_name:
-				the_function = function
-				break
-		if not the_function:
-			the_function = dict()
-			functions.append(the_function)
+		the_function = dict()
+		functions.append(the_function)
 		the_function["name"] = function_name
 		the_function["params"] = the_function.get("params", list())
 		the_function["returns"] = the_function.get("returns", list())
@@ -980,14 +991,8 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _find_or_create_param_config_data(cls, params, param_type_hierarchy):
-		the_param_type_hierarchy = None
-		for a_param_type_hierarchy in params:
-			if type_hierarchy_matches(a_param_type_hierarchy, param_type_hierarchy):
-				the_param_type_hierarchy = a_param_type_hierarchy
-				break
-		if not the_param_type_hierarchy:
-			the_param_type_hierarchy = param_type_hierarchy
-			params.append(the_param_type_hierarchy)
+		the_param_type_hierarchy = param_type_hierarchy
+		params.append(the_param_type_hierarchy)
 		return the_param_type_hierarchy
 
 	@classmethod
