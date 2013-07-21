@@ -949,6 +949,8 @@ class Generator(BaseGenerator):
 			class_file_name = Utils.to_file_name(class_name,"hpp")
 			classinfo['filename'] = class_file_name
 			classinfo['namespace'] = config_module.config_data['namespace']
+			if '_enum' in class_config['tags']:
+				classinfo['namespace'] = class_name.upper()
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
 
@@ -1080,6 +1082,8 @@ class Generator(BaseGenerator):
 					file_name = Utils.to_file_name(type_name,"hpp")
 					typeinfo['filename'] = file_name
 					is_enum = True if '_enum' in clazz['tags'] else False
+					if is_enum:
+						typeinfo['namespace'] = type_name.upper()
 					typeinfo['isenum'] = is_enum
 					typeinfo['isproxied'] = True
 					break
