@@ -15,6 +15,16 @@
  		 
 	
 
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_util_Map_Entry
@@ -24,12 +34,6 @@
 //
 
 
-
-
-
-
-
-
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -37,6 +41,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -51,6 +56,13 @@ class java_lang_Object;
 class java_util_Map_Entry
 {
 public:
+
+	java_util_Map_Entry(const java_util_Map_Entry& cc);
+	java_util_Map_Entry(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_Map_Entry();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 java_lang_Object *  getValue();

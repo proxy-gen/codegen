@@ -19,6 +19,8 @@
  	
  		 
  		 
+ 	
+ 		 
 	
  	
  		 
@@ -33,6 +35,26 @@
  	
  		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_util_Collection
@@ -40,21 +62,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -67,6 +74,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -85,6 +93,13 @@ class java_util_Iterator;
 class java_util_Collection
 {
 public:
+
+	java_util_Collection(const java_util_Collection& cc);
+	java_util_Collection(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_Collection();
+	// Functions
 	 bool add(java_lang_Object& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
@@ -93,7 +108,8 @@ public:
 	 bool contains(java_lang_Object& arg0);
 	 bool addAll(java_util_Collection& arg0);
 	 int size();
-	 std::vector<long> toArray(std::vector<long>& arg0);
+	 std::vector<java_lang_Object > toArray(std::vector<java_lang_Object >& arg0);
+	 std::vector<java_lang_Object > toArray();
 	 java_util_Iterator *  iterator();
 	 bool remove(java_lang_Object& arg0);
 	 bool removeAll(java_util_Collection& arg0);

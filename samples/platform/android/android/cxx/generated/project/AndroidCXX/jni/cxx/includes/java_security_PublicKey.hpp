@@ -10,6 +10,11 @@
 
 
 
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_PublicKey
@@ -19,12 +24,12 @@
 //
 
 
-
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,6 +42,13 @@ namespace AndroidCXX {
 class java_security_PublicKey
 {
 public:
+
+	java_security_PublicKey(const java_security_PublicKey& cc);
+	java_security_PublicKey(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_security_PublicKey();
+	// Functions
 };	
 
 } // namespace

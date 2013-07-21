@@ -10,7 +10,15 @@
 
 
  	
+	
+ 	
+	
  		 
+	
+	
+	
+ 	
+	
  	
 	
  		 
@@ -19,12 +27,44 @@
  	
  	
 	
+ 	
 	
 	
 	
 	
 	
 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -33,24 +73,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,6 +87,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -85,8 +108,22 @@ class java_nio_ByteOrder;
 class java_nio_LongBuffer
 {
 public:
-	 long get(std::vector<long>& arg0,int& arg1);
-	 java_nio_LongBuffer *  put(java_nio_LongBuffer& arg0,long& arg1,int& arg2,std::vector<long>& arg3);
+
+	java_nio_LongBuffer(const java_nio_LongBuffer& cc);
+	java_nio_LongBuffer(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_nio_LongBuffer();
+	// Functions
+	 long get();
+	 java_nio_LongBuffer *  get(std::vector<long>& arg0);
+	 java_nio_LongBuffer *  get(std::vector<long>& arg0,int& arg1,int& arg2);
+	 long get(int& arg0);
+	 java_nio_LongBuffer *  put(java_nio_LongBuffer& arg0);
+	 java_nio_LongBuffer *  put(long& arg0);
+	 java_nio_LongBuffer *  put(int& arg0,long& arg1);
+	 java_nio_LongBuffer *  put(std::vector<long>& arg0,int& arg1,int& arg2);
+	 java_nio_LongBuffer *  put(std::vector<long>& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -95,7 +132,8 @@ public:
 	 bool hasArray();
 	 std::vector<long> array();
 	 int arrayOffset();
-	static java_nio_LongBuffer *  wrap(std::vector<long>& arg0,int& arg1);
+	static java_nio_LongBuffer *  wrap(std::vector<long>& arg0,int& arg1,int& arg2);
+	static java_nio_LongBuffer *  wrap(std::vector<long>& arg0);
 	static java_nio_LongBuffer *  allocate(int& arg0);
 	 java_nio_LongBuffer *  duplicate();
 	 java_nio_LongBuffer *  slice();

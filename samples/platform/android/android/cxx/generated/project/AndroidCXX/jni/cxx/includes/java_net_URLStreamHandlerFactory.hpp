@@ -12,6 +12,12 @@
  		 
 	
 
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_net_URLStreamHandlerFactory
@@ -19,8 +25,6 @@
 //
 // Scroll Down 
 //
-
-
 
 
 #include <java_lang_String.hpp>
@@ -32,6 +36,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,6 +53,13 @@ class java_net_URLStreamHandler;
 class java_net_URLStreamHandlerFactory
 {
 public:
+
+	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
+	java_net_URLStreamHandlerFactory(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_net_URLStreamHandlerFactory();
+	// Functions
 	 java_net_URLStreamHandler *  createURLStreamHandler(java_lang_String& arg0);
 };	
 

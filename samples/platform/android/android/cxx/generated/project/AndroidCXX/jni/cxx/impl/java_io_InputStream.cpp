@@ -17,6 +17,14 @@
 
 
 
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #include <java_io_InputStream.hpp>
@@ -25,6 +33,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_io_InputStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -34,30 +43,93 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc)
 {
+	LOGV("java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc) exit");
 }
+java_io_InputStream::java_io_InputStream(void * proxy)
+{
+	LOGV("java_io_InputStream::java_io_InputStream(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
+	LOGV("java_io_InputStream::java_io_InputStream(void * proxy) exit");
+}
+// Public Constructors
+java_io_InputStream::java_io_InputStream()
+{
+	LOGV("java_io_InputStream::java_io_InputStream( enter");	
+
+	const char *methodName = "java.io.InputStream";
+	const char *methodSignature = "()V";
+	const char *className = "java_io_InputStream";
+
+	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_InputStream cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_InputStream jni address %d", javaObject);
+
+		
+	jni->popLocalFrame();
+
+	LOGV("java_io_InputStream::java_io_InputStream( exit");	
+}
+// Default Instance Destructor
+java_io_InputStream::~java_io_InputStream()
+{
+	LOGV("java_io_InputStream::~java_io_InputStream() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_io_InputStream::~java_io_InputStream() exit");
+}
 // Functions
 void java_io_InputStream::close()
 {
+	LOGV("void java_io_InputStream::close() enter");
+
 	const char *methodName = "close";
 	const char *methodSignature = "()V";
 	const char *className = "java_io_InputStream";
@@ -79,9 +151,13 @@ void java_io_InputStream::close()
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_io_InputStream::close() exit");
+
 }
 void java_io_InputStream::mark(int& arg0)
 {
+	LOGV("void java_io_InputStream::mark(int& arg0) enter");
+
 	const char *methodName = "mark";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_io_InputStream";
@@ -124,9 +200,13 @@ void java_io_InputStream::mark(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_io_InputStream::mark(int& arg0) exit");
+
 }
 void java_io_InputStream::reset()
 {
+	LOGV("void java_io_InputStream::reset() enter");
+
 	const char *methodName = "reset";
 	const char *methodSignature = "()V";
 	const char *className = "java_io_InputStream";
@@ -148,11 +228,15 @@ void java_io_InputStream::reset()
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_io_InputStream::reset() exit");
+
 }
-int java_io_InputStream::read(std::vector<char>& arg0,int& arg1)
+int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 {
+	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+
 	const char *methodName = "read";
-	const char *methodSignature = "([[BI)I";
+	const char *methodSignature = "([BII)I";
 	const char *className = "java_io_InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -227,9 +311,30 @@ int java_io_InputStream::read(std::vector<char>& arg0,int& arg1)
 		// Convert to JNI
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
 
 	int result;
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
 	{
@@ -250,10 +355,147 @@ int java_io_InputStream::read(std::vector<char>& arg0,int& arg1)
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+
+	return result;
+}
+int java_io_InputStream::read(std::vector<byte>& arg0)
+{
+	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0) enter");
+
+	const char *methodName = "read";
+	const char *methodSignature = "([B)I";
+	const char *className = "java_io_InputStream";
+
+	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_InputStream cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_InputStream jni address %d", javaObject);
+
+	jbyteArray jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_byte_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("byte");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_byte);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni__byte_array_type_to_jni(java_value);
+	}
+
+	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("int java_io_InputStream::read(std::vector<byte>& arg0) exit");
+
+	return result;
+}
+int java_io_InputStream::read()
+{
+	LOGV("int java_io_InputStream::read() enter");
+
+	const char *methodName = "read";
+	const char *methodSignature = "()I";
+	const char *className = "java_io_InputStream";
+
+	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_io_InputStream cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_io_InputStream jni address %d", javaObject);
+
+
+	int result;
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (int) (*((int *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("int java_io_InputStream::read() exit");
+
 	return result;
 }
 long java_io_InputStream::skip(long& arg0)
 {
+	LOGV("long java_io_InputStream::skip(long& arg0) enter");
+
 	const char *methodName = "skip";
 	const char *methodSignature = "(J)J";
 	const char *className = "java_io_InputStream";
@@ -314,10 +556,14 @@ long java_io_InputStream::skip(long& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("long java_io_InputStream::skip(long& arg0) exit");
+
 	return result;
 }
 int java_io_InputStream::available()
 {
+	LOGV("int java_io_InputStream::available() enter");
+
 	const char *methodName = "available";
 	const char *methodSignature = "()I";
 	const char *className = "java_io_InputStream";
@@ -357,10 +603,14 @@ int java_io_InputStream::available()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_io_InputStream::available() exit");
+
 	return result;
 }
 bool java_io_InputStream::markSupported()
 {
+	LOGV("bool java_io_InputStream::markSupported() enter");
+
 	const char *methodName = "markSupported";
 	const char *methodSignature = "()Z";
 	const char *className = "java_io_InputStream";
@@ -399,6 +649,8 @@ bool java_io_InputStream::markSupported()
 	result = (bool) (*((bool *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("bool java_io_InputStream::markSupported() exit");
 
 	return result;
 }

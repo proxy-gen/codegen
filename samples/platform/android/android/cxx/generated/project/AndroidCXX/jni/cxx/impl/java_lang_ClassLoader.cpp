@@ -8,6 +8,7 @@
 //
 
 
+
  		 
 	
 	
@@ -26,6 +27,10 @@
 	
  		 
  		 
+
+
+
+
 
 
 
@@ -49,6 +54,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_ClassLoader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -58,42 +64,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc)
 {
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc) exit");
 }
+java_lang_ClassLoader::java_lang_ClassLoader(void * proxy)
+{
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_Class>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_ClassLoader>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_io_InputStream>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_net_URL>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_util_Enumeration>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_lang_ClassLoader::~java_lang_ClassLoader()
+{
+	LOGV("java_lang_ClassLoader::~java_lang_ClassLoader() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_lang_ClassLoader::~java_lang_ClassLoader() exit");
+}
 // Functions
 java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 {
+	LOGV("java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0) enter");
+
 	const char *methodName = "loadClass";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
 	const char *className = "java_lang_ClassLoader";
@@ -110,7 +142,7 @@ java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -126,10 +158,10 @@ java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_lang_Class *  result;
@@ -161,21 +193,25 @@ java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 		
 		{
 			{
-				converter_stack.push((long) &convert_proxy<java_lang_Object>);				
+				converter_stack.push((long) &convert_java_lang_Object);				
 
 			}
 		}
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_Class>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_Class * ) (*((java_lang_Class *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader()
 {
+	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader() enter");
+
 	const char *methodName = "getSystemClassLoader";
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "java_lang_ClassLoader";
@@ -209,16 +245,20 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_ClassLoader>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_ClassLoader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_ClassLoader * ) (*((java_lang_ClassLoader *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader() exit");
+
 	return result;
 }
 java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0)
 {
+	LOGV("java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) enter");
+
 	const char *methodName = "getResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "java_lang_ClassLoader";
@@ -235,7 +275,7 @@ java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_Stri
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -251,10 +291,10 @@ java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_Stri
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_io_InputStream *  result;
@@ -273,16 +313,20 @@ java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_Stri
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_io_InputStream>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_io_InputStream * ) (*((java_io_InputStream *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 {
+	LOGV("java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0) enter");
+
 	const char *methodName = "getResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
 	const char *className = "java_lang_ClassLoader";
@@ -299,7 +343,7 @@ java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -315,10 +359,10 @@ java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_net_URL *  result;
@@ -337,16 +381,20 @@ java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_net_URL>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_net_URL * ) (*((java_net_URL *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0)
 {
+	LOGV("java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) enter");
+
 	const char *methodName = "getSystemResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "java_lang_ClassLoader";
@@ -363,7 +411,7 @@ java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lan
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -379,10 +427,10 @@ java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lan
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_io_InputStream *  result;
@@ -401,16 +449,20 @@ java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lan
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_io_InputStream>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_io_InputStream * ) (*((java_io_InputStream *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 {
+	LOGV("java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) enter");
+
 	const char *methodName = "getSystemResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
 	const char *className = "java_lang_ClassLoader";
@@ -427,7 +479,7 @@ java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -443,10 +495,10 @@ java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_net_URL *  result;
@@ -465,16 +517,20 @@ java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_net_URL>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_net_URL * ) (*((java_net_URL *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0)
 {
+	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0) enter");
+
 	const char *methodName = "getResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
 	const char *className = "java_lang_ClassLoader";
@@ -491,7 +547,7 @@ java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& a
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -507,10 +563,10 @@ java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& a
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_util_Enumeration *  result;
@@ -542,21 +598,25 @@ java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& a
 		
 		{
 			{
-				converter_stack.push((long) &convert_proxy<java_net_URL>);				
+				converter_stack.push((long) &convert_java_net_URL);				
 
 			}
 		}
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_util_Enumeration>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Enumeration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_util_Enumeration * ) (*((java_util_Enumeration *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0)
 {
+	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) enter");
+
 	const char *methodName = "getSystemResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
 	const char *className = "java_lang_ClassLoader";
@@ -573,7 +633,7 @@ java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_Str
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -589,10 +649,10 @@ java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_Str
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_util_Enumeration *  result;
@@ -624,21 +684,25 @@ java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_Str
 		
 		{
 			{
-				converter_stack.push((long) &convert_proxy<java_net_URL>);				
+				converter_stack.push((long) &convert_java_net_URL);				
 
 			}
 		}
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_util_Enumeration>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Enumeration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_util_Enumeration * ) (*((java_util_Enumeration *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) exit");
+
 	return result;
 }
 java_lang_ClassLoader *  java_lang_ClassLoader::getParent()
 {
+	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getParent() enter");
+
 	const char *methodName = "getParent";
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "java_lang_ClassLoader";
@@ -672,16 +736,20 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getParent()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_ClassLoader>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_ClassLoader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_ClassLoader * ) (*((java_lang_ClassLoader *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getParent() exit");
+
 	return result;
 }
 void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0)
 {
+	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0) enter");
+
 	const char *methodName = "setDefaultAssertionStatus";
 	const char *methodSignature = "(Z)V";
 	const char *className = "java_lang_ClassLoader";
@@ -724,9 +792,13 @@ void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_lang_ClassLoader::setDefaultAssertionStatus(bool& arg0) exit");
+
 }
 void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,bool& arg1)
 {
+	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,bool& arg1) enter");
+
 	const char *methodName = "setPackageAssertionStatus";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "java_lang_ClassLoader";
@@ -743,7 +815,7 @@ void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,boo
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -759,10 +831,10 @@ void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,boo
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 	jboolean jarg1;
 	{
@@ -790,9 +862,13 @@ void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,boo
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,bool& arg1) exit");
+
 }
 void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool& arg1)
 {
+	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool& arg1) enter");
+
 	const char *methodName = "setClassAssertionStatus";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "java_lang_ClassLoader";
@@ -809,7 +885,7 @@ void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool&
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -825,10 +901,10 @@ void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool&
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 	jboolean jarg1;
 	{
@@ -856,9 +932,13 @@ void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool&
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool& arg1) exit");
+
 }
 void java_lang_ClassLoader::clearAssertionStatus()
 {
+	LOGV("void java_lang_ClassLoader::clearAssertionStatus() enter");
+
 	const char *methodName = "clearAssertionStatus";
 	const char *methodSignature = "()V";
 	const char *className = "java_lang_ClassLoader";
@@ -879,5 +959,7 @@ void java_lang_ClassLoader::clearAssertionStatus()
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
 		
 	jni->popLocalFrame();
+
+	LOGV("void java_lang_ClassLoader::clearAssertionStatus() exit");
 
 }

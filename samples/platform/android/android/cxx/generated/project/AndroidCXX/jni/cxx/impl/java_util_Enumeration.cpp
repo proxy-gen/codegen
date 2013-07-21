@@ -8,7 +8,12 @@
 //
 
 
+
 	
+
+
+
+
 
 
 
@@ -21,6 +26,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_util_Enumeration"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -30,32 +36,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc)
 {
+	LOGV("java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc) exit");
 }
+java_util_Enumeration::java_util_Enumeration(void * proxy)
+{
+	LOGV("java_util_Enumeration::java_util_Enumeration(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_util_Enumeration::java_util_Enumeration(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_util_Enumeration::~java_util_Enumeration()
+{
+	LOGV("java_util_Enumeration::~java_util_Enumeration() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_util_Enumeration::~java_util_Enumeration() exit");
+}
 // Functions
 bool java_util_Enumeration::hasMoreElements()
 {
+	LOGV("bool java_util_Enumeration::hasMoreElements() enter");
+
 	const char *methodName = "hasMoreElements";
 	const char *methodSignature = "()Z";
 	const char *className = "java_util_Enumeration";
@@ -95,10 +137,14 @@ bool java_util_Enumeration::hasMoreElements()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_util_Enumeration::hasMoreElements() exit");
+
 	return result;
 }
 java_lang_Object *  java_util_Enumeration::nextElement()
 {
+	LOGV("java_lang_Object *  java_util_Enumeration::nextElement() enter");
+
 	const char *methodName = "nextElement";
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java_util_Enumeration";
@@ -132,11 +178,13 @@ java_lang_Object *  java_util_Enumeration::nextElement()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_lang_Object *  java_util_Enumeration::nextElement() exit");
 
 	return result;
 }

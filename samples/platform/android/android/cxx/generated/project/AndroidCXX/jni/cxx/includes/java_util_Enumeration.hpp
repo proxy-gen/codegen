@@ -11,6 +11,13 @@
 
 	
 
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_util_Enumeration
@@ -20,9 +27,6 @@
 //
 
 
-
-
-
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -30,6 +34,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -44,6 +49,13 @@ class java_lang_Object;
 class java_util_Enumeration
 {
 public:
+
+	java_util_Enumeration(const java_util_Enumeration& cc);
+	java_util_Enumeration(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_Enumeration();
+	// Functions
 	 bool hasMoreElements();
 	 java_lang_Object *  nextElement();
 };	

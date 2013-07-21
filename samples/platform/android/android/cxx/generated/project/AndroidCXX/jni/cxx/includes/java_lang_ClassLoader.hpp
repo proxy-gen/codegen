@@ -34,6 +34,24 @@
  		 
  		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_ClassLoader
@@ -41,20 +59,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -75,6 +79,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -101,6 +106,13 @@ class java_util_Enumeration;
 class java_lang_ClassLoader
 {
 public:
+
+	java_lang_ClassLoader(const java_lang_ClassLoader& cc);
+	java_lang_ClassLoader(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_ClassLoader();
+	// Functions
 	 java_lang_Class *  loadClass(java_lang_String& arg0);
 	static java_lang_ClassLoader *  getSystemClassLoader();
 	 java_io_InputStream *  getResourceAsStream(java_lang_String& arg0);

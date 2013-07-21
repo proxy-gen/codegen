@@ -542,9 +542,9 @@ config = {
 		{
 			"name" : "java.lang.String",
 		},
-		{
-			"name" : "java.net.Proxy$Type",
-		},
+		# {
+		# 	"name" : "java.net.Proxy$Type",
+		# },
 		# {
 		# 	"name" : "org.json.JSONObject",
 		# },

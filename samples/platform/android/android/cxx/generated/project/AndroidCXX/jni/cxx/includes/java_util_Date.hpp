@@ -19,6 +19,45 @@
 	
 	
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_util_Date
@@ -26,34 +65,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -66,6 +77,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -84,9 +96,19 @@ class java_util_Date;
 class java_util_Date
 {
 public:
+
 	java_util_Date(const java_util_Date& cc);
 	java_util_Date(void * proxy);
+	// Public Constructors
+	java_util_Date();
+	java_util_Date(long& arg0);
+	java_util_Date(int& arg0,int& arg1,int& arg2);
+	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
+	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
+	java_util_Date(java_lang_String& arg0);
+	// Default Destructor
 	virtual ~java_util_Date();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -103,7 +125,7 @@ public:
 	 int getHours();
 	 int getMinutes();
 	 int getSeconds();
-	static long UTC(int& arg0);
+	static long UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
 	 void setDate(int& arg0);
 	 void setMonth(int& arg0);
 	 void setHours(int& arg0);

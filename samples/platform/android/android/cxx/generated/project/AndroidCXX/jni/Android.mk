@@ -6,10 +6,10 @@ LOCAL_PATH := $(call my-dir)
 
 find_src_files = $(addprefix $(1)/,$(notdir $(wildcard $(LOCAL_PATH)/$(1)/*.cpp)))
 
-#CXX_SRC_FILES := 	$(call find_src_files,cxx/impl) $(call find_src_files,cxx/converters)
-CXX_SRC_FILES  := 	cxx/impl/java_lang_String.cpp \
-					cxx/impl/java_lang_Object.cpp \
-					cxx/converters/AndroidCXXConverter.cpp \
+CXX_SRC_FILES := 	$(call find_src_files,cxx/impl) $(call find_src_files,cxx/converters)
+#CXX_SRC_FILES  := 	cxx/impl/java_lang_String.cpp \
+#					cxx/impl/java_lang_Object.cpp \
+#					cxx/converters/AndroidCXXConverter.cpp \
 
 CXX_INCLUDES := $(LOCAL_PATH)/cxx/includes $(LOCAL_PATH)/cxx/converters
 

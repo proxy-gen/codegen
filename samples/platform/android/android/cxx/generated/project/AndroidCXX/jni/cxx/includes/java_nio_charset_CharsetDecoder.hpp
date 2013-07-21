@@ -15,6 +15,8 @@
 	
  		 
 	
+ 		 
+	
 	
  		 
 	
@@ -26,6 +28,27 @@
  		 
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -34,22 +57,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_nio_charset_Charset.hpp>
@@ -70,6 +77,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -96,8 +104,16 @@ class java_lang_String;
 class java_nio_charset_CharsetDecoder
 {
 public:
+
+	java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc);
+	java_nio_charset_CharsetDecoder(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_nio_charset_CharsetDecoder();
+	// Functions
 	 java_nio_charset_Charset *  charset();
 	 java_nio_charset_CoderResult *  decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2);
+	 java_nio_CharBuffer *  decode(java_nio_ByteBuffer& arg0);
 	 java_nio_charset_CoderResult *  flush(java_nio_CharBuffer& arg0);
 	 java_nio_charset_CharsetDecoder *  reset();
 	 java_nio_charset_CharsetDecoder *  onMalformedInput(java_nio_charset_CodingErrorAction& arg0);

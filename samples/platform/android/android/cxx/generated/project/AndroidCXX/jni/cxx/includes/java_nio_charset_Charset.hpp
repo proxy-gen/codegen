@@ -19,6 +19,7 @@
  		 
 	
  		 
+	
  		 
 	
  		 
@@ -30,10 +31,36 @@
  	
  		 
  		 
+	
  		 
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -42,25 +69,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -87,6 +95,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -119,6 +128,13 @@ class java_nio_charset_CharsetEncoder;
 class java_nio_charset_Charset
 {
 public:
+
+	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
+	java_nio_charset_Charset(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_nio_charset_Charset();
+	// Functions
 	 java_lang_String *  name();
 	static java_nio_charset_Charset *  forName(java_lang_String& arg0);
 	 bool equals(java_lang_Object& arg0);
@@ -127,11 +143,13 @@ public:
 	 int compareTo(java_nio_charset_Charset& arg0);
 	 bool contains(java_nio_charset_Charset& arg0);
 	 java_nio_CharBuffer *  decode(java_nio_ByteBuffer& arg0);
-	 java_nio_ByteBuffer *  encode(java_nio_CharBuffer& arg0,java_lang_String& arg1);
+	 java_nio_ByteBuffer *  encode(java_nio_CharBuffer& arg0);
+	 java_nio_ByteBuffer *  encode(java_lang_String& arg0);
 	static bool isSupported(java_lang_String& arg0);
 	static java_nio_charset_Charset *  defaultCharset();
 	 java_util_Set *  aliases();
 	static java_util_SortedMap *  availableCharsets();
+	 java_lang_String *  displayName();
 	 java_lang_String *  displayName(java_util_Locale& arg0);
 	 bool isRegistered();
 	 java_nio_charset_CharsetDecoder *  newDecoder();

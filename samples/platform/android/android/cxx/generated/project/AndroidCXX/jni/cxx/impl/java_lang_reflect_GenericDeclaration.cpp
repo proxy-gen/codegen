@@ -11,6 +11,11 @@
 
 
 
+
+
+
+
+
 // Generated Code 
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
@@ -19,6 +24,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_reflect_GenericDeclaration"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -28,30 +34,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc)
 {
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc) exit");
 }
-
-// Proxy Converter Types
-
-// Functions
-std::vector<long> java_lang_reflect_GenericDeclaration::getTypeParameters()
+java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy)
 {
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy) enter");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration()
+{
+	LOGV("java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_lang_reflect_GenericDeclaration::~java_lang_reflect_GenericDeclaration() exit");
+}
+// Functions
+std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaration::getTypeParameters()
+{
+	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaration::getTypeParameters() enter");
+
 	const char *methodName = "getTypeParameters";
 	const char *methodSignature = "()[java/lang/reflect/TypeVariable";
 	const char *className = "java_lang_reflect_GenericDeclaration";
@@ -69,7 +113,7 @@ std::vector<long> java_lang_reflect_GenericDeclaration::getTypeParameters()
 	LOGV("java_lang_reflect_GenericDeclaration jni address %d", javaObject);
 
 
-	std::vector<long> result;
+	std::vector<java_lang_reflect_TypeVariable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -109,23 +153,25 @@ std::vector<long> java_lang_reflect_GenericDeclaration::getTypeParameters()
 		
 		{
 			{
-				converter_stack.push((long) &convert_proxy<java_lang_reflect_TypeVariable>);				
+				converter_stack.push((long) &convert_java_lang_reflect_TypeVariable);				
 
 					
 			}
 		}
 		{
 			{
-				converter_stack.push((long) &convert_proxy<java_lang_Object>);				
+				converter_stack.push((long) &convert_java_lang_Object);				
 
 			}
 		}
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<long>) (*((std::vector<long> *) cxx_value));
+	result = (std::vector<java_lang_reflect_TypeVariable >) (*((std::vector<java_lang_reflect_TypeVariable > *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaration::getTypeParameters() exit");
 
 	return result;
 }

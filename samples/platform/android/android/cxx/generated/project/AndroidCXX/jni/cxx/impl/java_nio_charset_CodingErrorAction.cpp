@@ -8,7 +8,12 @@
 //
 
 
+
 	
+
+
+
+
 
 
 
@@ -20,6 +25,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_charset_CodingErrorAction"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -29,33 +35,10 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
-{
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
-}
-
-// Proxy Converter Types
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
 // Default Instance Constructors
 java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc)
 {
-	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc) invoked");
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long ccaddress = (long) &cc;
@@ -73,10 +56,12 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const jav
 		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc) exit");
 }
 java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy)
 {
-	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) invoked");
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -89,11 +74,14 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * pr
 		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) exit");
 }
+// Public Constructors
 // Default Instance Destructor
 java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
 {
-	LOGV("java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction() invoked");
+	LOGV("java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction() enter");
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
 	jobject proxiedComponent = ctx->findProxyComponent(address);
@@ -102,10 +90,13 @@ java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
 	}		
+	LOGV("java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction() exit");
 }
 // Functions
 java_lang_String *  java_nio_charset_CodingErrorAction::toString()
 {
+	LOGV("java_lang_String *  java_nio_charset_CodingErrorAction::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_nio_charset_CodingErrorAction";
@@ -124,9 +115,9 @@ java_lang_String *  java_nio_charset_CodingErrorAction::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -139,11 +130,13 @@ java_lang_String *  java_nio_charset_CodingErrorAction::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_lang_String *  java_nio_charset_CodingErrorAction::toString() exit");
 
 	return result;
 }

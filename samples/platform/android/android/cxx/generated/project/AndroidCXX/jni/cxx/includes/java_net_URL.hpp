@@ -25,10 +25,61 @@
 	
  		 
 	
+	
  	
 	
  		 
+	
  		 
+
+
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -37,27 +88,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -77,11 +107,14 @@
 
 #include <java_net_URLStreamHandlerFactory.hpp>
 
+#include <java_net_URLStreamHandler.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,12 +142,24 @@ class java_lang_Class;
 
 class java_net_URLStreamHandlerFactory;
 
+class java_net_URLStreamHandler;
+
 class java_net_URL
 {
 public:
+
 	java_net_URL(const java_net_URL& cc);
 	java_net_URL(void * proxy);
+	// Public Constructors
+	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3);
+	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2);
+	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3,java_net_URLStreamHandler& arg4);
+	java_net_URL(java_lang_String& arg0);
+	java_net_URL(java_net_URL& arg0,java_lang_String& arg1);
+	java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_URLStreamHandler& arg2);
+	// Default Destructor
 	virtual ~java_net_URL();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -133,7 +178,9 @@ public:
 	 bool sameFile(java_net_URL& arg0);
 	 java_lang_String *  toExternalForm();
 	 java_net_URLConnection *  openConnection(java_net_Proxy& arg0);
-	 java_lang_Object *  getContent(std::vector<long>& arg0);
+	 java_net_URLConnection *  openConnection();
+	 java_lang_Object *  getContent(std::vector<java_lang_Class >& arg0);
+	 java_lang_Object *  getContent();
 	static void setURLStreamHandlerFactory(java_net_URLStreamHandlerFactory& arg0);
 };	
 

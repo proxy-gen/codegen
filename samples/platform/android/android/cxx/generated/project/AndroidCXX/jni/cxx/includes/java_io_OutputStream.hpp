@@ -10,6 +10,18 @@
 
 
  	
+ 	
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -20,15 +32,12 @@
 //
 
 
-
-
-
-
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,7 +50,17 @@ namespace AndroidCXX {
 class java_io_OutputStream
 {
 public:
-	 void write(int& arg0,std::vector<char>& arg1);
+
+	java_io_OutputStream(const java_io_OutputStream& cc);
+	java_io_OutputStream(void * proxy);
+	// Public Constructors
+	java_io_OutputStream();
+	// Default Destructor
+	virtual ~java_io_OutputStream();
+	// Functions
+	 void write(int& arg0);
+	 void write(std::vector<byte>& arg0);
+	 void write(std::vector<byte>& arg0,int& arg1,int& arg2);
 	 void flush();
 	 void close();
 };	

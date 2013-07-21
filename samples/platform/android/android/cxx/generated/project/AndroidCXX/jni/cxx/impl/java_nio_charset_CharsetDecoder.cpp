@@ -8,12 +8,15 @@
 //
 
 
+
 	
  		 
  		 
 	
  		 
 	
+ 		 
+	
 	
  		 
 	
@@ -25,6 +28,11 @@
  		 
 	
 	
+
+
+
+
+
 
 
 
@@ -50,6 +58,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_charset_CharsetDecoder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -59,44 +68,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc)
 {
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc) exit");
 }
+java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy)
+{
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_nio_charset_Charset>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_ByteBuffer>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_CharBuffer>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_charset_CoderResult>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_charset_CharsetDecoder>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_charset_CodingErrorAction>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder()
+{
+	LOGV("java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder() exit");
+}
 // Functions
 java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::charset()
 {
+	LOGV("java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::charset() enter");
+
 	const char *methodName = "charset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -130,16 +163,20 @@ java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::charset()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_Charset>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_Charset * ) (*((java_nio_charset_Charset *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::charset() exit");
+
 	return result;
 }
 java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2)
 {
+	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2) enter");
+
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -172,7 +209,7 @@ java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_ByteBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -193,7 +230,7 @@ java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_CharBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -236,16 +273,88 @@ java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CoderResult>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CoderResult * ) (*((java_nio_charset_CoderResult *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2) exit");
+
+	return result;
+}
+java_nio_CharBuffer *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0)
+{
+	LOGV("java_nio_CharBuffer *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0) enter");
+
+	const char *methodName = "decode";
+	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;";
+	const char *className = "java_nio_charset_CharsetDecoder";
+
+	LOGV("java_nio_charset_CharsetDecoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CharsetDecoder cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.ByteBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	java_nio_CharBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.CharBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_CharBuffer *  java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0) exit");
+
 	return result;
 }
 java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0)
 {
+	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0) enter");
+
 	const char *methodName = "flush";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -278,7 +387,7 @@ java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::flush(java_nio_
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_CharBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -300,16 +409,20 @@ java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::flush(java_nio_
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CoderResult>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CoderResult * ) (*((java_nio_charset_CoderResult *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0) exit");
+
 	return result;
 }
 java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::reset()
 {
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::reset() enter");
+
 	const char *methodName = "reset";
 	const char *methodSignature = "()Ljava/nio/charset/CharsetDecoder;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -343,16 +456,20 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::reset()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CharsetDecoder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CharsetDecoder * ) (*((java_nio_charset_CharsetDecoder *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::reset() exit");
+
 	return result;
 }
 java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0)
 {
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0) enter");
+
 	const char *methodName = "onMalformedInput";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -385,7 +502,7 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onMalformedI
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_charset_CodingErrorAction>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -407,16 +524,20 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onMalformedI
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CharsetDecoder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CharsetDecoder * ) (*((java_nio_charset_CharsetDecoder *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0) exit");
+
 	return result;
 }
 java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0)
 {
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0) enter");
+
 	const char *methodName = "onUnmappableCharacter";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -449,7 +570,7 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onUnmappable
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_charset_CodingErrorAction>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -471,16 +592,20 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onUnmappable
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CharsetDecoder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CharsetDecoder * ) (*((java_nio_charset_CharsetDecoder *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0) exit");
+
 	return result;
 }
 java_lang_String *  java_nio_charset_CharsetDecoder::replacement()
 {
+	LOGV("java_lang_String *  java_nio_charset_CharsetDecoder::replacement() enter");
+
 	const char *methodName = "replacement";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -499,9 +624,9 @@ java_lang_String *  java_nio_charset_CharsetDecoder::replacement()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -514,16 +639,20 @@ java_lang_String *  java_nio_charset_CharsetDecoder::replacement()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_nio_charset_CharsetDecoder::replacement() exit");
+
 	return result;
 }
 java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::malformedInputAction()
 {
+	LOGV("java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::malformedInputAction() enter");
+
 	const char *methodName = "malformedInputAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -557,16 +686,20 @@ java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::malformed
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CodingErrorAction>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CodingErrorAction * ) (*((java_nio_charset_CodingErrorAction *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::malformedInputAction() exit");
+
 	return result;
 }
 java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::unmappableCharacterAction()
 {
+	LOGV("java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::unmappableCharacterAction() enter");
+
 	const char *methodName = "unmappableCharacterAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -600,16 +733,20 @@ java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::unmappabl
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CodingErrorAction>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CodingErrorAction * ) (*((java_nio_charset_CodingErrorAction *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CodingErrorAction *  java_nio_charset_CharsetDecoder::unmappableCharacterAction() exit");
+
 	return result;
 }
 java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0)
 {
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0) enter");
+
 	const char *methodName = "replaceWith";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -626,7 +763,7 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -642,10 +779,10 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_nio_charset_CharsetDecoder *  result;
@@ -664,16 +801,20 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_CharsetDecoder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_CharsetDecoder * ) (*((java_nio_charset_CharsetDecoder *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0) exit");
+
 	return result;
 }
 float java_nio_charset_CharsetDecoder::maxCharsPerByte()
 {
+	LOGV("float java_nio_charset_CharsetDecoder::maxCharsPerByte() enter");
+
 	const char *methodName = "maxCharsPerByte";
 	const char *methodSignature = "()F";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -713,10 +854,14 @@ float java_nio_charset_CharsetDecoder::maxCharsPerByte()
 		
 	jni->popLocalFrame();
 
+	LOGV("float java_nio_charset_CharsetDecoder::maxCharsPerByte() exit");
+
 	return result;
 }
 float java_nio_charset_CharsetDecoder::averageCharsPerByte()
 {
+	LOGV("float java_nio_charset_CharsetDecoder::averageCharsPerByte() enter");
+
 	const char *methodName = "averageCharsPerByte";
 	const char *methodSignature = "()F";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -756,10 +901,14 @@ float java_nio_charset_CharsetDecoder::averageCharsPerByte()
 		
 	jni->popLocalFrame();
 
+	LOGV("float java_nio_charset_CharsetDecoder::averageCharsPerByte() exit");
+
 	return result;
 }
 bool java_nio_charset_CharsetDecoder::isAutoDetecting()
 {
+	LOGV("bool java_nio_charset_CharsetDecoder::isAutoDetecting() enter");
+
 	const char *methodName = "isAutoDetecting";
 	const char *methodSignature = "()Z";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -799,10 +948,14 @@ bool java_nio_charset_CharsetDecoder::isAutoDetecting()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_nio_charset_CharsetDecoder::isAutoDetecting() exit");
+
 	return result;
 }
 bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 {
+	LOGV("bool java_nio_charset_CharsetDecoder::isCharsetDetected() enter");
+
 	const char *methodName = "isCharsetDetected";
 	const char *methodSignature = "()Z";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -842,10 +995,14 @@ bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_nio_charset_CharsetDecoder::isCharsetDetected() exit");
+
 	return result;
 }
 java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::detectedCharset()
 {
+	LOGV("java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::detectedCharset() enter");
+
 	const char *methodName = "detectedCharset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
 	const char *className = "java_nio_charset_CharsetDecoder";
@@ -879,11 +1036,13 @@ java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::detectedCharset()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_charset_Charset>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_charset_Charset * ) (*((java_nio_charset_Charset *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_nio_charset_Charset *  java_nio_charset_CharsetDecoder::detectedCharset() exit");
 
 	return result;
 }

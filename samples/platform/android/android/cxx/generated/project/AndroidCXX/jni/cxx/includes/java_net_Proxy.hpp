@@ -14,6 +14,19 @@
 	
 	
 
+
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_net_Proxy
@@ -21,12 +34,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
 
 
 #include <java_net_Proxy_Type.hpp>
@@ -42,6 +49,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,9 +69,14 @@ class java_net_SocketAddress;
 class java_net_Proxy
 {
 public:
+
 	java_net_Proxy(const java_net_Proxy& cc);
 	java_net_Proxy(void * proxy);
+	// Public Constructors
+	java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1);
+	// Default Destructor
 	virtual ~java_net_Proxy();
+	// Functions
 	 java_net_Proxy_Type *  type();
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();

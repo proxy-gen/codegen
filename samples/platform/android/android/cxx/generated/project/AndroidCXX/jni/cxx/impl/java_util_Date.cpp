@@ -8,6 +8,7 @@
 //
 
 
+
  		 
 	
 	
@@ -17,6 +18,17 @@
  		 
 	
 	
+
+
+ 		 
+
+
+
+
+
+
+
+
 
 
 
@@ -54,6 +66,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_util_Date"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -63,37 +76,10 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
-{
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
-}
-
-// Proxy Converter Types
-
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_util_Date>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
 // Default Instance Constructors
 java_util_Date::java_util_Date(const java_util_Date& cc)
 {
-	LOGV("java_util_Date::java_util_Date(const java_util_Date& cc) invoked");
+	LOGV("java_util_Date::java_util_Date(const java_util_Date& cc) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long ccaddress = (long) &cc;
@@ -111,10 +97,12 @@ java_util_Date::java_util_Date(const java_util_Date& cc)
 		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_util_Date::java_util_Date(const java_util_Date& cc) exit");
 }
 java_util_Date::java_util_Date(void * proxy)
 {
-	LOGV("java_util_Date::java_util_Date(void * proxy) invoked");
+	LOGV("java_util_Date::java_util_Date(void * proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -127,11 +115,500 @@ java_util_Date::java_util_Date(void * proxy)
 		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_util_Date::java_util_Date(void * proxy) exit");
+}
+// Public Constructors
+java_util_Date::java_util_Date()
+{
+	LOGV("java_util_Date::java_util_Date( enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "()V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date( exit");	
+}
+java_util_Date::java_util_Date(long& arg0)
+{
+	LOGV("java_util_Date::java_util_Date(long& arg0 enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "(J)V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+	jlong jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_long_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date(long& arg0 exit");	
+}
+java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
+{
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2 enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "(III)V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2 exit");	
+}
+java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
+{
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4 enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "(IIIII)V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg4;
+	{
+		long cxx_value = (long) & arg4;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg4 = convert_jni_int_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4 exit");	
+}
+java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
+{
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5 enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "(IIIIII)V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg4;
+	{
+		long cxx_value = (long) & arg4;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg4 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg5;
+	{
+		long cxx_value = (long) & arg5;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg5 = convert_jni_int_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5 exit");	
+}
+java_util_Date::java_util_Date(java_lang_String& arg0)
+{
+	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0 enter");	
+
+	const char *methodName = "java.util.Date";
+	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *className = "java_util_Date";
+
+	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Date cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Date jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0 exit");	
 }
 // Default Instance Destructor
 java_util_Date::~java_util_Date()
 {
-	LOGV("java_util_Date::~java_util_Date() invoked");
+	LOGV("java_util_Date::~java_util_Date() enter");
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
 	jobject proxiedComponent = ctx->findProxyComponent(address);
@@ -140,10 +617,13 @@ java_util_Date::~java_util_Date()
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
 	}		
+	LOGV("java_util_Date::~java_util_Date() exit");
 }
 // Functions
 bool java_util_Date::equals(java_lang_Object& arg0)
 {
+	LOGV("bool java_util_Date::equals(java_lang_Object& arg0) enter");
+
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java_util_Date";
@@ -176,7 +656,7 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -204,10 +684,14 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_util_Date::equals(java_lang_Object& arg0) exit");
+
 	return result;
 }
 java_lang_String *  java_util_Date::toString()
 {
+	LOGV("java_lang_String *  java_util_Date::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_util_Date";
@@ -226,9 +710,9 @@ java_lang_String *  java_util_Date::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -241,16 +725,20 @@ java_lang_String *  java_util_Date::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_util_Date::toString() exit");
+
 	return result;
 }
 int java_util_Date::hashCode()
 {
+	LOGV("int java_util_Date::hashCode() enter");
+
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -290,10 +778,14 @@ int java_util_Date::hashCode()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::hashCode() exit");
+
 	return result;
 }
 java_lang_Object *  java_util_Date::clone()
 {
+	LOGV("java_lang_Object *  java_util_Date::clone() enter");
+
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java_util_Date";
@@ -327,16 +819,20 @@ java_lang_Object *  java_util_Date::clone()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_Object *  java_util_Date::clone() exit");
+
 	return result;
 }
 int java_util_Date::compareTo(java_util_Date& arg0)
 {
+	LOGV("int java_util_Date::compareTo(java_util_Date& arg0) enter");
+
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/util/Date;)I";
 	const char *className = "java_util_Date";
@@ -369,7 +865,7 @@ int java_util_Date::compareTo(java_util_Date& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_util_Date>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -397,10 +893,14 @@ int java_util_Date::compareTo(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::compareTo(java_util_Date& arg0) exit");
+
 	return result;
 }
 bool java_util_Date::after(java_util_Date& arg0)
 {
+	LOGV("bool java_util_Date::after(java_util_Date& arg0) enter");
+
 	const char *methodName = "after";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
 	const char *className = "java_util_Date";
@@ -433,7 +933,7 @@ bool java_util_Date::after(java_util_Date& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_util_Date>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -461,10 +961,14 @@ bool java_util_Date::after(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_util_Date::after(java_util_Date& arg0) exit");
+
 	return result;
 }
 bool java_util_Date::before(java_util_Date& arg0)
 {
+	LOGV("bool java_util_Date::before(java_util_Date& arg0) enter");
+
 	const char *methodName = "before";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
 	const char *className = "java_util_Date";
@@ -497,7 +1001,7 @@ bool java_util_Date::before(java_util_Date& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_util_Date>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -525,10 +1029,14 @@ bool java_util_Date::before(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_util_Date::before(java_util_Date& arg0) exit");
+
 	return result;
 }
 long java_util_Date::parse(java_lang_String& arg0)
 {
+	LOGV("long java_util_Date::parse(java_lang_String& arg0) enter");
+
 	const char *methodName = "parse";
 	const char *methodSignature = "(Ljava/lang/String;)J";
 	const char *className = "java_util_Date";
@@ -545,7 +1053,7 @@ long java_util_Date::parse(java_lang_String& arg0)
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_util_Date jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -561,10 +1069,10 @@ long java_util_Date::parse(java_lang_String& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	long result;
@@ -589,10 +1097,14 @@ long java_util_Date::parse(java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("long java_util_Date::parse(java_lang_String& arg0) exit");
+
 	return result;
 }
 void java_util_Date::setTime(long& arg0)
 {
+	LOGV("void java_util_Date::setTime(long& arg0) enter");
+
 	const char *methodName = "setTime";
 	const char *methodSignature = "(J)V";
 	const char *className = "java_util_Date";
@@ -635,9 +1147,13 @@ void java_util_Date::setTime(long& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setTime(long& arg0) exit");
+
 }
 long java_util_Date::getTime()
 {
+	LOGV("long java_util_Date::getTime() enter");
+
 	const char *methodName = "getTime";
 	const char *methodSignature = "()J";
 	const char *className = "java_util_Date";
@@ -677,10 +1193,14 @@ long java_util_Date::getTime()
 		
 	jni->popLocalFrame();
 
+	LOGV("long java_util_Date::getTime() exit");
+
 	return result;
 }
 int java_util_Date::getYear()
 {
+	LOGV("int java_util_Date::getYear() enter");
+
 	const char *methodName = "getYear";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -720,10 +1240,14 @@ int java_util_Date::getYear()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getYear() exit");
+
 	return result;
 }
 int java_util_Date::getMonth()
 {
+	LOGV("int java_util_Date::getMonth() enter");
+
 	const char *methodName = "getMonth";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -763,10 +1287,14 @@ int java_util_Date::getMonth()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getMonth() exit");
+
 	return result;
 }
 int java_util_Date::getDate()
 {
+	LOGV("int java_util_Date::getDate() enter");
+
 	const char *methodName = "getDate";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -806,10 +1334,14 @@ int java_util_Date::getDate()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getDate() exit");
+
 	return result;
 }
 int java_util_Date::getHours()
 {
+	LOGV("int java_util_Date::getHours() enter");
+
 	const char *methodName = "getHours";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -849,10 +1381,14 @@ int java_util_Date::getHours()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getHours() exit");
+
 	return result;
 }
 int java_util_Date::getMinutes()
 {
+	LOGV("int java_util_Date::getMinutes() enter");
+
 	const char *methodName = "getMinutes";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -892,10 +1428,14 @@ int java_util_Date::getMinutes()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getMinutes() exit");
+
 	return result;
 }
 int java_util_Date::getSeconds()
 {
+	LOGV("int java_util_Date::getSeconds() enter");
+
 	const char *methodName = "getSeconds";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -935,12 +1475,16 @@ int java_util_Date::getSeconds()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getSeconds() exit");
+
 	return result;
 }
-long java_util_Date::UTC(int& arg0)
+long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
 {
+	LOGV("long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) enter");
+
 	const char *methodName = "UTC";
-	const char *methodSignature = "(I)J";
+	const char *methodSignature = "(IIIIII)J";
 	const char *className = "java_util_Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -976,9 +1520,114 @@ long java_util_Date::UTC(int& arg0)
 		// Convert to JNI
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg3;
+	{
+		long cxx_value = (long) & arg3;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg3 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg4;
+	{
+		long cxx_value = (long) & arg4;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg4 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg5;
+	{
+		long cxx_value = (long) & arg5;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg5 = convert_jni_int_to_jni(java_value);
+	}
 
 	long result;
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -999,10 +1648,14 @@ long java_util_Date::UTC(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");
+
 	return result;
 }
 void java_util_Date::setDate(int& arg0)
 {
+	LOGV("void java_util_Date::setDate(int& arg0) enter");
+
 	const char *methodName = "setDate";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1045,9 +1698,13 @@ void java_util_Date::setDate(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setDate(int& arg0) exit");
+
 }
 void java_util_Date::setMonth(int& arg0)
 {
+	LOGV("void java_util_Date::setMonth(int& arg0) enter");
+
 	const char *methodName = "setMonth";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1090,9 +1747,13 @@ void java_util_Date::setMonth(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setMonth(int& arg0) exit");
+
 }
 void java_util_Date::setHours(int& arg0)
 {
+	LOGV("void java_util_Date::setHours(int& arg0) enter");
+
 	const char *methodName = "setHours";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1135,9 +1796,13 @@ void java_util_Date::setHours(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setHours(int& arg0) exit");
+
 }
 void java_util_Date::setMinutes(int& arg0)
 {
+	LOGV("void java_util_Date::setMinutes(int& arg0) enter");
+
 	const char *methodName = "setMinutes";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1180,9 +1845,13 @@ void java_util_Date::setMinutes(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setMinutes(int& arg0) exit");
+
 }
 void java_util_Date::setSeconds(int& arg0)
 {
+	LOGV("void java_util_Date::setSeconds(int& arg0) enter");
+
 	const char *methodName = "setSeconds";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1225,9 +1894,13 @@ void java_util_Date::setSeconds(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setSeconds(int& arg0) exit");
+
 }
 void java_util_Date::setYear(int& arg0)
 {
+	LOGV("void java_util_Date::setYear(int& arg0) enter");
+
 	const char *methodName = "setYear";
 	const char *methodSignature = "(I)V";
 	const char *className = "java_util_Date";
@@ -1270,9 +1943,13 @@ void java_util_Date::setYear(int& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_Date::setYear(int& arg0) exit");
+
 }
 int java_util_Date::getDay()
 {
+	LOGV("int java_util_Date::getDay() enter");
+
 	const char *methodName = "getDay";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -1312,10 +1989,14 @@ int java_util_Date::getDay()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_Date::getDay() exit");
+
 	return result;
 }
 java_lang_String *  java_util_Date::toLocaleString()
 {
+	LOGV("java_lang_String *  java_util_Date::toLocaleString() enter");
+
 	const char *methodName = "toLocaleString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_util_Date";
@@ -1334,9 +2015,9 @@ java_lang_String *  java_util_Date::toLocaleString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -1349,16 +2030,20 @@ java_lang_String *  java_util_Date::toLocaleString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_util_Date::toLocaleString() exit");
+
 	return result;
 }
 java_lang_String *  java_util_Date::toGMTString()
 {
+	LOGV("java_lang_String *  java_util_Date::toGMTString() enter");
+
 	const char *methodName = "toGMTString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_util_Date";
@@ -1377,9 +2062,9 @@ java_lang_String *  java_util_Date::toGMTString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -1392,16 +2077,20 @@ java_lang_String *  java_util_Date::toGMTString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_util_Date::toGMTString() exit");
+
 	return result;
 }
 int java_util_Date::getTimezoneOffset()
 {
+	LOGV("int java_util_Date::getTimezoneOffset() enter");
+
 	const char *methodName = "getTimezoneOffset";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_Date";
@@ -1440,6 +2129,8 @@ int java_util_Date::getTimezoneOffset()
 	result = (int) (*((int *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("int java_util_Date::getTimezoneOffset() exit");
 
 	return result;
 }

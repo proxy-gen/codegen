@@ -12,28 +12,48 @@
  		 
 	
  		 
-	
  		 
 	
- 	
  		 
 	
  	
  		 
+	
  	
- 		 
- 		 
  		 
  	
  		 
  		 
  		 
+ 	
+ 		 
+ 		 
+ 		 
 	
 	
  	
  		 
  		 
  		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -42,21 +62,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -73,6 +78,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -95,8 +101,15 @@ class java_util_Map;
 class java_util_Map
 {
 public:
+
+	java_util_Map(const java_util_Map& cc);
+	java_util_Map(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_Map();
+	// Functions
 	 java_lang_Object *  get(java_lang_Object& arg0);
-	 java_lang_Object *  put(java_lang_Object& arg0);
+	 java_lang_Object *  put(java_lang_Object& arg0,java_lang_Object& arg1);
 	 bool equals(java_lang_Object& arg0);
 	 java_util_Collection *  values();
 	 int hashCode();

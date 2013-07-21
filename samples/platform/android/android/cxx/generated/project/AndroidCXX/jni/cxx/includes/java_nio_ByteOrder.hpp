@@ -12,6 +12,13 @@
 	
 	
 
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_nio_ByteOrder
@@ -19,9 +26,6 @@
 //
 // Scroll Down 
 //
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -32,6 +36,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,9 +53,13 @@ class java_nio_ByteOrder;
 class java_nio_ByteOrder
 {
 public:
+
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
 	java_nio_ByteOrder(void * proxy);
+	// Public Constructors
+	// Default Destructor
 	virtual ~java_nio_ByteOrder();
+	// Functions
 	 java_lang_String *  toString();
 	static java_nio_ByteOrder *  nativeOrder();
 };	

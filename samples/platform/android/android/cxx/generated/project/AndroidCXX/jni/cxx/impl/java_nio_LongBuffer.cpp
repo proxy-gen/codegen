@@ -8,11 +8,19 @@
 //
 
 
+
+	
+	
+ 		 
+	
+	
+	
+	
+	
  		 
 	
  		 
 	
- 		 
 	
 	
 	
@@ -20,6 +28,18 @@
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,6 +67,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_LongBuffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,40 +77,203 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_nio_LongBuffer::java_nio_LongBuffer(const java_nio_LongBuffer& cc)
 {
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer(const java_nio_LongBuffer& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer(const java_nio_LongBuffer& cc) exit");
 }
-
-// Proxy Converter Types
-
-template void convert_proxy<java_nio_LongBuffer>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_ByteOrder>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-// Functions
-long java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1)
+java_nio_LongBuffer::java_nio_LongBuffer(void * proxy)
 {
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer(void * proxy) enter");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_nio_LongBuffer::~java_nio_LongBuffer()
+{
+	LOGV("java_nio_LongBuffer::~java_nio_LongBuffer() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_nio_LongBuffer::~java_nio_LongBuffer() exit");
+}
+// Functions
+long java_nio_LongBuffer::get()
+{
+	LOGV("long java_nio_LongBuffer::get() enter");
+
 	const char *methodName = "get";
-	const char *methodSignature = "([[JI)J";
+	const char *methodSignature = "()J";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+
+	long result;
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_long_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (long) (*((long *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("long java_nio_LongBuffer::get() exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0) enter");
+
+	const char *methodName = "get";
+	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jlongArray jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_long_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_long);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__long_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni__long_array_type_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1,int& arg2)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1,int& arg2) enter");
+
+	const char *methodName = "get";
+	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -164,9 +348,98 @@ long java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1)
 		// Convert to JNI
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1,int& arg2) exit");
+
+	return result;
+}
+long java_nio_LongBuffer::get(int& arg0)
+{
+	LOGV("long java_nio_LongBuffer::get(int& arg0) enter");
+
+	const char *methodName = "get";
+	const char *methodSignature = "(I)J";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
 
 	long result;
-	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
 	{
@@ -187,12 +460,16 @@ long java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1)
 		
 	jni->popLocalFrame();
 
+	LOGV("long java_nio_LongBuffer::get(int& arg0) exit");
+
 	return result;
 }
-java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& arg1,int& arg2,std::vector<long>& arg3)
+java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0)
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0) enter");
+
 	const char *methodName = "put";
-	const char *methodSignature = "(Ljava/nio/LongBuffer;JI[[J)Ljava/nio/LongBuffer;";
+	const char *methodSignature = "(Ljava/nio/LongBuffer;)Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -223,10 +500,146 @@ java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& 
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::put(long& arg0)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(long& arg0) enter");
+
+	const char *methodName = "put";
+	const char *methodSignature = "(J)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jlong jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_long_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(long& arg0) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::put(int& arg0,long& arg1)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(int& arg0,long& arg1) enter");
+
+	const char *methodName = "put";
+	const char *methodSignature = "(IJ)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 	jlong jarg1;
 	{
@@ -249,11 +662,12 @@ java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& 
 		// Convert to JNI
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
-	jint jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
 
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
 		
@@ -261,18 +675,43 @@ java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& 
 		{
 			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
 			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
 		}
 		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg2 = convert_jni_int_to_jni(java_value);
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	jlongArray jarg3;
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(int& arg0,long& arg1) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0,int& arg1,int& arg2)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0,int& arg1,int& arg2) enter");
+
+	const char *methodName = "put";
+	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jlongArray jarg0;
 	{
-		long cxx_value = (long) & arg3;
+		long cxx_value = (long) & arg0;
 		long java_value = 0;
 
 		CXXTypeHierarchy cxx_type_hierarchy;
@@ -307,11 +746,53 @@ java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& 
 		convert__long_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg3 = convert_jni__long_array_type_to_jni(java_value);
+		jarg0 = convert_jni__long_array_type_to_jni(java_value);
+	}
+	jint jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_int_to_jni(java_value);
+	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
 	java_nio_LongBuffer *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -326,16 +807,106 @@ java_nio_LongBuffer *  java_nio_LongBuffer::put(java_nio_LongBuffer& arg0,long& 
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0,int& arg1,int& arg2) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0) enter");
+
+	const char *methodName = "put";
+	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jlongArray jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_long_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_long);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__long_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni__long_array_type_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::put(std::vector<long>& arg0) exit");
+
 	return result;
 }
 bool java_nio_LongBuffer::equals(java_lang_Object& arg0)
 {
+	LOGV("bool java_nio_LongBuffer::equals(java_lang_Object& arg0) enter");
+
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java_nio_LongBuffer";
@@ -368,7 +939,7 @@ bool java_nio_LongBuffer::equals(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -396,10 +967,14 @@ bool java_nio_LongBuffer::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_nio_LongBuffer::equals(java_lang_Object& arg0) exit");
+
 	return result;
 }
 java_lang_String *  java_nio_LongBuffer::toString()
 {
+	LOGV("java_lang_String *  java_nio_LongBuffer::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_nio_LongBuffer";
@@ -418,9 +993,9 @@ java_lang_String *  java_nio_LongBuffer::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -433,16 +1008,20 @@ java_lang_String *  java_nio_LongBuffer::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_nio_LongBuffer::toString() exit");
+
 	return result;
 }
 int java_nio_LongBuffer::hashCode()
 {
+	LOGV("int java_nio_LongBuffer::hashCode() enter");
+
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
 	const char *className = "java_nio_LongBuffer";
@@ -482,10 +1061,14 @@ int java_nio_LongBuffer::hashCode()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_nio_LongBuffer::hashCode() exit");
+
 	return result;
 }
 int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0)
 {
+	LOGV("int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0) enter");
+
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/LongBuffer;)I";
 	const char *className = "java_nio_LongBuffer";
@@ -518,7 +1101,7 @@ int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -546,10 +1129,14 @@ int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0) exit");
+
 	return result;
 }
 bool java_nio_LongBuffer::isDirect()
 {
+	LOGV("bool java_nio_LongBuffer::isDirect() enter");
+
 	const char *methodName = "isDirect";
 	const char *methodSignature = "()Z";
 	const char *className = "java_nio_LongBuffer";
@@ -589,10 +1176,14 @@ bool java_nio_LongBuffer::isDirect()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_nio_LongBuffer::isDirect() exit");
+
 	return result;
 }
 bool java_nio_LongBuffer::hasArray()
 {
+	LOGV("bool java_nio_LongBuffer::hasArray() enter");
+
 	const char *methodName = "hasArray";
 	const char *methodSignature = "()Z";
 	const char *className = "java_nio_LongBuffer";
@@ -632,12 +1223,16 @@ bool java_nio_LongBuffer::hasArray()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_nio_LongBuffer::hasArray() exit");
+
 	return result;
 }
 std::vector<long> java_nio_LongBuffer::array()
 {
+	LOGV("std::vector<long> java_nio_LongBuffer::array() enter");
+
 	const char *methodName = "array";
-	const char *methodSignature = "()[[J";
+	const char *methodSignature = "()[J";
 	const char *className = "java_nio_LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -693,10 +1288,14 @@ std::vector<long> java_nio_LongBuffer::array()
 		
 	jni->popLocalFrame();
 
+	LOGV("std::vector<long> java_nio_LongBuffer::array() exit");
+
 	return result;
 }
 int java_nio_LongBuffer::arrayOffset()
 {
+	LOGV("int java_nio_LongBuffer::arrayOffset() enter");
+
 	const char *methodName = "arrayOffset";
 	const char *methodSignature = "()I";
 	const char *className = "java_nio_LongBuffer";
@@ -736,12 +1335,16 @@ int java_nio_LongBuffer::arrayOffset()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_nio_LongBuffer::arrayOffset() exit");
+
 	return result;
 }
-java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& arg1)
+java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& arg1,int& arg2)
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& arg1,int& arg2) enter");
+
 	const char *methodName = "wrap";
-	const char *methodSignature = "([[JI)Ljava/nio/LongBuffer;";
+	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -816,9 +1419,30 @@ java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& ar
 		// Convert to JNI
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
+	jint jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_int_to_jni(java_value);
+	}
 
 	java_nio_LongBuffer *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
 	{
@@ -833,16 +1457,106 @@ java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& ar
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& arg1,int& arg2) exit");
+
+	return result;
+}
+java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0)
+{
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0) enter");
+
+	const char *methodName = "wrap";
+	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
+	const char *className = "java_nio_LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", javaObject);
+
+	jlongArray jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("_long_array_type");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("long");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_long);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert__long_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni__long_array_type_to_jni(java_value);
+	}
+
+	java_nio_LongBuffer *  result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.nio.LongBuffer");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::wrap(std::vector<long>& arg0) exit");
+
 	return result;
 }
 java_nio_LongBuffer *  java_nio_LongBuffer::allocate(int& arg0)
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::allocate(int& arg0) enter");
+
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
@@ -897,16 +1611,20 @@ java_nio_LongBuffer *  java_nio_LongBuffer::allocate(int& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::allocate(int& arg0) exit");
+
 	return result;
 }
 java_nio_LongBuffer *  java_nio_LongBuffer::duplicate()
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::duplicate() enter");
+
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
@@ -940,16 +1658,20 @@ java_nio_LongBuffer *  java_nio_LongBuffer::duplicate()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::duplicate() exit");
+
 	return result;
 }
 java_nio_LongBuffer *  java_nio_LongBuffer::slice()
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::slice() enter");
+
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
@@ -983,16 +1705,20 @@ java_nio_LongBuffer *  java_nio_LongBuffer::slice()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::slice() exit");
+
 	return result;
 }
 java_nio_LongBuffer *  java_nio_LongBuffer::asReadOnlyBuffer()
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::asReadOnlyBuffer() enter");
+
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
@@ -1026,16 +1752,20 @@ java_nio_LongBuffer *  java_nio_LongBuffer::asReadOnlyBuffer()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::asReadOnlyBuffer() exit");
+
 	return result;
 }
 java_nio_LongBuffer *  java_nio_LongBuffer::compact()
 {
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::compact() enter");
+
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
 	const char *className = "java_nio_LongBuffer";
@@ -1069,16 +1799,20 @@ java_nio_LongBuffer *  java_nio_LongBuffer::compact()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_LongBuffer>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_LongBuffer * ) (*((java_nio_LongBuffer *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_nio_LongBuffer *  java_nio_LongBuffer::compact() exit");
+
 	return result;
 }
 java_nio_ByteOrder *  java_nio_LongBuffer::order()
 {
+	LOGV("java_nio_ByteOrder *  java_nio_LongBuffer::order() enter");
+
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
 	const char *className = "java_nio_LongBuffer";
@@ -1112,11 +1846,13 @@ java_nio_ByteOrder *  java_nio_LongBuffer::order()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_ByteOrder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_ByteOrder * ) (*((java_nio_ByteOrder *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_nio_ByteOrder *  java_nio_LongBuffer::order() exit");
 
 	return result;
 }

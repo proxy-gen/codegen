@@ -35,6 +35,29 @@
 	
  		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_Package
@@ -42,24 +65,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -76,6 +81,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -98,15 +104,23 @@ class java_net_URL;
 class java_lang_Package
 {
 public:
+
+	java_lang_Package(const java_lang_Package& cc);
+	java_lang_Package(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_Package();
+	// Functions
 	 java_lang_String *  toString();
 	 int hashCode();
 	 java_lang_String *  getName();
 	static java_lang_Package *  getPackage(java_lang_String& arg0);
 	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
 	 bool isAnnotationPresent(java_lang_Class& arg0);
-	 std::vector<long> getAnnotations();
-	 std::vector<long> getDeclaredAnnotations();
-	static std::vector<long> getPackages();
+	 std::vector<java_lang_annotation_Annotation > getAnnotations();
+	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
+	static std::vector<java_lang_Package > getPackages();
+	 bool isSealed();
 	 bool isSealed(java_net_URL& arg0);
 	 java_lang_String *  getSpecificationTitle();
 	 java_lang_String *  getSpecificationVersion();

@@ -14,6 +14,20 @@
  		 
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_util_ListIterator
@@ -23,16 +37,6 @@
 //
 
 
-
-
-
-
-
-
-
-
-
-
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -40,6 +44,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,6 +59,13 @@ class java_lang_Object;
 class java_util_ListIterator
 {
 public:
+
+	java_util_ListIterator(const java_util_ListIterator& cc);
+	java_util_ListIterator(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_ListIterator();
+	// Functions
 	 void add(java_lang_Object& arg0);
 	 bool hasNext();
 	 java_lang_Object *  next();

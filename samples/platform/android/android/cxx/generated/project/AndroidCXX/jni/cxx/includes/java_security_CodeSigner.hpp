@@ -14,6 +14,19 @@
 	
 	
 
+
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_CodeSigner
@@ -21,12 +34,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -42,6 +49,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -62,9 +70,14 @@ class java_security_Timestamp;
 class java_security_CodeSigner
 {
 public:
+
 	java_security_CodeSigner(const java_security_CodeSigner& cc);
 	java_security_CodeSigner(void * proxy);
+	// Public Constructors
+	java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1);
+	// Default Destructor
 	virtual ~java_security_CodeSigner();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

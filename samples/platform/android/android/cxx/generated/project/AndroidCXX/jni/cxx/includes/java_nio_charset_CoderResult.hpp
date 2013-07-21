@@ -13,6 +13,21 @@
 	
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_nio_charset_CoderResult
@@ -20,17 +35,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -41,6 +45,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,9 +62,13 @@ class java_nio_charset_CoderResult;
 class java_nio_charset_CoderResult
 {
 public:
+
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
 	java_nio_charset_CoderResult(void * proxy);
+	// Public Constructors
+	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
+	// Functions
 	 java_lang_String *  toString();
 	 int length();
 	 void throwException();

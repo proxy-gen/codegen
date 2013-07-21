@@ -10,9 +10,19 @@
 
 
  		 
+	
+ 		 
  	
 	
  		 
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -21,8 +31,6 @@
 //
 // Scroll Down 
 //
-
-
 
 
 #include <java_net_URLConnection.hpp>
@@ -36,6 +44,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,7 +63,16 @@ class java_lang_Class;
 class java_net_ContentHandler
 {
 public:
-	 java_lang_Object *  getContent(java_net_URLConnection& arg0,std::vector<long>& arg1);
+
+	java_net_ContentHandler(const java_net_ContentHandler& cc);
+	java_net_ContentHandler(void * proxy);
+	// Public Constructors
+	java_net_ContentHandler();
+	// Default Destructor
+	virtual ~java_net_ContentHandler();
+	// Functions
+	 java_lang_Object *  getContent(java_net_URLConnection& arg0);
+	 java_lang_Object *  getContent(java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
 };	
 
 } // namespace

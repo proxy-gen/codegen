@@ -14,6 +14,12 @@
  	
  		 
 
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_GenericDeclaration
@@ -21,8 +27,6 @@
 //
 // Scroll Down 
 //
-
-
 
 
 #include <java_lang_reflect_TypeVariable.hpp>
@@ -34,6 +38,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,7 +55,14 @@ class java_lang_Object;
 class java_lang_reflect_GenericDeclaration
 {
 public:
-	 std::vector<long> getTypeParameters();
+
+	java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc);
+	java_lang_reflect_GenericDeclaration(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_reflect_GenericDeclaration();
+	// Functions
+	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
 };	
 
 } // namespace

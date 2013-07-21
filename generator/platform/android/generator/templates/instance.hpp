@@ -177,17 +177,14 @@ public:
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Public Constructors
-	// #for $constructor in $constructors
-	// ${entity_class_name}($constructor['param_str']);
-	// #end for
+	#for $constructor in $constructors
+	${entity_class_name}($constructor['param_str']);
+	#end for
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor
 	virtual ~${entity_class_name}();
 	#end if	
-	#if not '_static' in $entity_class_config['tags']
-	void * proxied();
-	#end if
 	// Functions
 	#for $function in $functions
 	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);

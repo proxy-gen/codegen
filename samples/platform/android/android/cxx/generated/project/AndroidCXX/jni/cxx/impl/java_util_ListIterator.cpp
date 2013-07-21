@@ -8,10 +8,15 @@
 //
 
 
+
  		 
 	
  		 
 	
+
+
+
+
 
 
 
@@ -31,6 +36,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_util_ListIterator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,32 +46,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_util_ListIterator::java_util_ListIterator(const java_util_ListIterator& cc)
 {
+	LOGV("java_util_ListIterator::java_util_ListIterator(const java_util_ListIterator& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_util_ListIterator::java_util_ListIterator(const java_util_ListIterator& cc) exit");
 }
+java_util_ListIterator::java_util_ListIterator(void * proxy)
+{
+	LOGV("java_util_ListIterator::java_util_ListIterator(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_util_ListIterator::java_util_ListIterator(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_util_ListIterator::~java_util_ListIterator()
+{
+	LOGV("java_util_ListIterator::~java_util_ListIterator() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_util_ListIterator::~java_util_ListIterator() exit");
+}
 // Functions
 void java_util_ListIterator::add(java_lang_Object& arg0)
 {
+	LOGV("void java_util_ListIterator::add(java_lang_Object& arg0) enter");
+
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "java_util_ListIterator";
@@ -98,7 +140,7 @@ void java_util_ListIterator::add(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -108,9 +150,13 @@ void java_util_ListIterator::add(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_ListIterator::add(java_lang_Object& arg0) exit");
+
 }
 bool java_util_ListIterator::hasNext()
 {
+	LOGV("bool java_util_ListIterator::hasNext() enter");
+
 	const char *methodName = "hasNext";
 	const char *methodSignature = "()Z";
 	const char *className = "java_util_ListIterator";
@@ -150,10 +196,14 @@ bool java_util_ListIterator::hasNext()
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_util_ListIterator::hasNext() exit");
+
 	return result;
 }
 java_lang_Object *  java_util_ListIterator::next()
 {
+	LOGV("java_lang_Object *  java_util_ListIterator::next() enter");
+
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java_util_ListIterator";
@@ -187,16 +237,20 @@ java_lang_Object *  java_util_ListIterator::next()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_Object *  java_util_ListIterator::next() exit");
+
 	return result;
 }
 void java_util_ListIterator::remove()
 {
+	LOGV("void java_util_ListIterator::remove() enter");
+
 	const char *methodName = "remove";
 	const char *methodSignature = "()V";
 	const char *className = "java_util_ListIterator";
@@ -218,9 +272,13 @@ void java_util_ListIterator::remove()
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_ListIterator::remove() exit");
+
 }
 void java_util_ListIterator::set(java_lang_Object& arg0)
 {
+	LOGV("void java_util_ListIterator::set(java_lang_Object& arg0) enter");
+
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "java_util_ListIterator";
@@ -253,7 +311,7 @@ void java_util_ListIterator::set(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -263,9 +321,13 @@ void java_util_ListIterator::set(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_util_ListIterator::set(java_lang_Object& arg0) exit");
+
 }
 int java_util_ListIterator::nextIndex()
 {
+	LOGV("int java_util_ListIterator::nextIndex() enter");
+
 	const char *methodName = "nextIndex";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_ListIterator";
@@ -305,10 +367,14 @@ int java_util_ListIterator::nextIndex()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_ListIterator::nextIndex() exit");
+
 	return result;
 }
 java_lang_Object *  java_util_ListIterator::previous()
 {
+	LOGV("java_lang_Object *  java_util_ListIterator::previous() enter");
+
 	const char *methodName = "previous";
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java_util_ListIterator";
@@ -342,16 +408,20 @@ java_lang_Object *  java_util_ListIterator::previous()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_Object *  java_util_ListIterator::previous() exit");
+
 	return result;
 }
 int java_util_ListIterator::previousIndex()
 {
+	LOGV("int java_util_ListIterator::previousIndex() enter");
+
 	const char *methodName = "previousIndex";
 	const char *methodSignature = "()I";
 	const char *className = "java_util_ListIterator";
@@ -391,10 +461,14 @@ int java_util_ListIterator::previousIndex()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_util_ListIterator::previousIndex() exit");
+
 	return result;
 }
 bool java_util_ListIterator::hasPrevious()
 {
+	LOGV("bool java_util_ListIterator::hasPrevious() enter");
+
 	const char *methodName = "hasPrevious";
 	const char *methodSignature = "()Z";
 	const char *className = "java_util_ListIterator";
@@ -433,6 +507,8 @@ bool java_util_ListIterator::hasPrevious()
 	result = (bool) (*((bool *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("bool java_util_ListIterator::hasPrevious() exit");
 
 	return result;
 }

@@ -17,6 +17,21 @@
 	
  		 
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_Permission
@@ -24,15 +39,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -47,6 +53,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,6 +74,14 @@ class java_security_PermissionCollection;
 class java_security_Permission
 {
 public:
+
+	java_security_Permission(const java_security_Permission& cc);
+	java_security_Permission(void * proxy);
+	// Public Constructors
+	java_security_Permission(java_lang_String& arg0);
+	// Default Destructor
+	virtual ~java_security_Permission();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

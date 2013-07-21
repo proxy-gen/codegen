@@ -8,10 +8,18 @@
 //
 
 
+
  		 
 	
 	
 	
+
+
+ 		 
+ 		 
+
+
+
 
 
 
@@ -27,6 +35,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_security_Timestamp"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -36,39 +45,10 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
-{
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
-}
-
-// Proxy Converter Types
-
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_security_cert_CertPath>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_util_Date>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
 // Default Instance Constructors
 java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc)
 {
-	LOGV("java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc) invoked");
+	LOGV("java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long ccaddress = (long) &cc;
@@ -86,10 +66,12 @@ java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& 
 		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc) exit");
 }
 java_security_Timestamp::java_security_Timestamp(void * proxy)
 {
-	LOGV("java_security_Timestamp::java_security_Timestamp(void * proxy) invoked");
+	LOGV("java_security_Timestamp::java_security_Timestamp(void * proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -102,11 +84,81 @@ java_security_Timestamp::java_security_Timestamp(void * proxy)
 		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_security_Timestamp::java_security_Timestamp(void * proxy) exit");
+}
+// Public Constructors
+java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1)
+{
+	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1 enter");	
+
+	const char *methodName = "java.security.Timestamp";
+	const char *methodSignature = "(Ljava/util/Date;Ljava/security/cert/CertPath;)V";
+	const char *className = "java_security_Timestamp";
+
+	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Timestamp jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.util.Date");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.security.cert.CertPath");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_security_cert_CertPath(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+		
+	jni->popLocalFrame();
+
+	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1 exit");	
 }
 // Default Instance Destructor
 java_security_Timestamp::~java_security_Timestamp()
 {
-	LOGV("java_security_Timestamp::~java_security_Timestamp() invoked");
+	LOGV("java_security_Timestamp::~java_security_Timestamp() enter");
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
 	jobject proxiedComponent = ctx->findProxyComponent(address);
@@ -115,10 +167,13 @@ java_security_Timestamp::~java_security_Timestamp()
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
 	}		
+	LOGV("java_security_Timestamp::~java_security_Timestamp() exit");
 }
 // Functions
 bool java_security_Timestamp::equals(java_lang_Object& arg0)
 {
+	LOGV("bool java_security_Timestamp::equals(java_lang_Object& arg0) enter");
+
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java_security_Timestamp";
@@ -151,7 +206,7 @@ bool java_security_Timestamp::equals(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -179,10 +234,14 @@ bool java_security_Timestamp::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_security_Timestamp::equals(java_lang_Object& arg0) exit");
+
 	return result;
 }
 java_lang_String *  java_security_Timestamp::toString()
 {
+	LOGV("java_lang_String *  java_security_Timestamp::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_security_Timestamp";
@@ -201,9 +260,9 @@ java_lang_String *  java_security_Timestamp::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -216,16 +275,20 @@ java_lang_String *  java_security_Timestamp::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_security_Timestamp::toString() exit");
+
 	return result;
 }
 int java_security_Timestamp::hashCode()
 {
+	LOGV("int java_security_Timestamp::hashCode() enter");
+
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
 	const char *className = "java_security_Timestamp";
@@ -265,10 +328,14 @@ int java_security_Timestamp::hashCode()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_security_Timestamp::hashCode() exit");
+
 	return result;
 }
 java_security_cert_CertPath *  java_security_Timestamp::getSignerCertPath()
 {
+	LOGV("java_security_cert_CertPath *  java_security_Timestamp::getSignerCertPath() enter");
+
 	const char *methodName = "getSignerCertPath";
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
 	const char *className = "java_security_Timestamp";
@@ -302,16 +369,20 @@ java_security_cert_CertPath *  java_security_Timestamp::getSignerCertPath()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_security_cert_CertPath>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_security_cert_CertPath(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_security_cert_CertPath * ) (*((java_security_cert_CertPath *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_security_cert_CertPath *  java_security_Timestamp::getSignerCertPath() exit");
+
 	return result;
 }
 java_util_Date *  java_security_Timestamp::getTimestamp()
 {
+	LOGV("java_util_Date *  java_security_Timestamp::getTimestamp() enter");
+
 	const char *methodName = "getTimestamp";
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "java_security_Timestamp";
@@ -345,11 +416,13 @@ java_util_Date *  java_security_Timestamp::getTimestamp()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_util_Date>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_util_Date * ) (*((java_util_Date *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_util_Date *  java_security_Timestamp::getTimestamp() exit");
 
 	return result;
 }

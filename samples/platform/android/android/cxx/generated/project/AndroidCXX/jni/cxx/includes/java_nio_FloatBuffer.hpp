@@ -10,7 +10,15 @@
 
 
  	
+	
+ 	
+	
  		 
+	
+	
+	
+ 	
+	
  	
 	
  		 
@@ -19,12 +27,44 @@
  	
  	
 	
+ 	
 	
 	
 	
 	
 	
 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -33,24 +73,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,6 +87,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -85,8 +108,22 @@ class java_nio_ByteOrder;
 class java_nio_FloatBuffer
 {
 public:
-	 float get(std::vector<float>& arg0,int& arg1);
-	 java_nio_FloatBuffer *  put(java_nio_FloatBuffer& arg0,float& arg1,int& arg2,std::vector<float>& arg3);
+
+	java_nio_FloatBuffer(const java_nio_FloatBuffer& cc);
+	java_nio_FloatBuffer(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_nio_FloatBuffer();
+	// Functions
+	 float get();
+	 java_nio_FloatBuffer *  get(std::vector<float>& arg0);
+	 java_nio_FloatBuffer *  get(std::vector<float>& arg0,int& arg1,int& arg2);
+	 float get(int& arg0);
+	 java_nio_FloatBuffer *  put(java_nio_FloatBuffer& arg0);
+	 java_nio_FloatBuffer *  put(float& arg0);
+	 java_nio_FloatBuffer *  put(int& arg0,float& arg1);
+	 java_nio_FloatBuffer *  put(std::vector<float>& arg0,int& arg1,int& arg2);
+	 java_nio_FloatBuffer *  put(std::vector<float>& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -95,7 +132,8 @@ public:
 	 bool hasArray();
 	 std::vector<float> array();
 	 int arrayOffset();
-	static java_nio_FloatBuffer *  wrap(std::vector<float>& arg0,int& arg1);
+	static java_nio_FloatBuffer *  wrap(std::vector<float>& arg0,int& arg1,int& arg2);
+	static java_nio_FloatBuffer *  wrap(std::vector<float>& arg0);
 	static java_nio_FloatBuffer *  allocate(int& arg0);
 	 java_nio_FloatBuffer *  duplicate();
 	 java_nio_FloatBuffer *  slice();

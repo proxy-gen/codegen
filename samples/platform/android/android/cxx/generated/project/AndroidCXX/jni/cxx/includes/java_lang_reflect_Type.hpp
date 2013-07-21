@@ -10,6 +10,11 @@
 
 
 
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_Type
@@ -19,12 +24,12 @@
 //
 
 
-
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,6 +42,13 @@ namespace AndroidCXX {
 class java_lang_reflect_Type
 {
 public:
+
+	java_lang_reflect_Type(const java_lang_reflect_Type& cc);
+	java_lang_reflect_Type(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_reflect_Type();
+	// Functions
 };	
 
 } // namespace

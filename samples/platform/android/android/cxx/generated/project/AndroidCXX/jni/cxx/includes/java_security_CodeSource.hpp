@@ -18,6 +18,26 @@
  	
  		 
 
+
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_CodeSource
@@ -25,14 +45,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -51,6 +63,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,16 +88,22 @@ class java_security_CodeSigner;
 class java_security_CodeSource
 {
 public:
+
 	java_security_CodeSource(const java_security_CodeSource& cc);
 	java_security_CodeSource(void * proxy);
+	// Public Constructors
+	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1);
+	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1);
+	// Default Destructor
 	virtual ~java_security_CodeSource();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 java_net_URL *  getLocation();
-	 std::vector<long> getCertificates();
+	 std::vector<java_security_cert_Certificate > getCertificates();
 	 bool implies(java_security_CodeSource& arg0);
-	 std::vector<long> getCodeSigners();
+	 std::vector<java_security_CodeSigner > getCodeSigners();
 };	
 
 } // namespace

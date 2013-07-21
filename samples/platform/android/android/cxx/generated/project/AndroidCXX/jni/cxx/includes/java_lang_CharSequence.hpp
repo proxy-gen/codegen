@@ -12,6 +12,15 @@
 	
 	
 
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_CharSequence
@@ -19,11 +28,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -34,6 +38,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,10 +55,17 @@ class java_lang_CharSequence;
 class java_lang_CharSequence
 {
 public:
+
+	java_lang_CharSequence(const java_lang_CharSequence& cc);
+	java_lang_CharSequence(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_CharSequence();
+	// Functions
 	 java_lang_String *  toString();
 	 int length();
 	 char charAt(int& arg0);
-	 java_lang_CharSequence *  subSequence(int& arg0);
+	 java_lang_CharSequence *  subSequence(int& arg0,int& arg1);
 };	
 
 } // namespace

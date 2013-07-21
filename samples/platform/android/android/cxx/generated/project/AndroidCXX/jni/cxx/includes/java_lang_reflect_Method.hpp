@@ -51,6 +51,33 @@
  	
  		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_Method
@@ -58,29 +85,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -101,6 +105,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -127,28 +132,35 @@ class java_lang_reflect_Type;
 class java_lang_reflect_Method
 {
 public:
-	 java_lang_Object *  invoke(java_lang_Object& arg0,std::vector<long>& arg1);
+
+	java_lang_reflect_Method(const java_lang_reflect_Method& cc);
+	java_lang_reflect_Method(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_reflect_Method();
+	// Functions
+	 java_lang_Object *  invoke(java_lang_Object& arg0,std::vector<java_lang_Object >& arg1);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 int getModifiers();
 	 java_lang_String *  getName();
 	 bool isSynthetic();
-	 std::vector<long> getTypeParameters();
+	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
 	 java_lang_Class *  getDeclaringClass();
 	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
-	 std::vector<long> getDeclaredAnnotations();
+	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 java_lang_Class *  getReturnType();
-	 std::vector<long> getParameterTypes();
+	 std::vector<java_lang_Class > getParameterTypes();
 	 java_lang_String *  toGenericString();
 	 java_lang_reflect_Type *  getGenericReturnType();
-	 std::vector<long> getGenericParameterTypes();
-	 std::vector<long> getExceptionTypes();
-	 std::vector<long> getGenericExceptionTypes();
+	 std::vector<java_lang_reflect_Type > getGenericParameterTypes();
+	 std::vector<java_lang_Class > getExceptionTypes();
+	 std::vector<java_lang_reflect_Type > getGenericExceptionTypes();
 	 bool isBridge();
 	 bool isVarArgs();
 	 java_lang_Object *  getDefaultValue();
-	 std::vector<long> getParameterAnnotations();
+	 std::vector<std::vector<java_lang_annotation_Annotation > > getParameterAnnotations();
 };	
 
 } // namespace

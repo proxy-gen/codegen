@@ -47,6 +47,29 @@
  	
  		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_Constructor
@@ -54,25 +77,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -93,6 +97,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -119,24 +124,31 @@ class java_lang_reflect_Type;
 class java_lang_reflect_Constructor
 {
 public:
+
+	java_lang_reflect_Constructor(const java_lang_reflect_Constructor& cc);
+	java_lang_reflect_Constructor(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_reflect_Constructor();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 int getModifiers();
 	 java_lang_String *  getName();
-	 java_lang_Object *  newInstance(std::vector<long>& arg0);
+	 java_lang_Object *  newInstance(std::vector<java_lang_Object >& arg0);
 	 bool isSynthetic();
-	 std::vector<long> getTypeParameters();
+	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
 	 java_lang_Class *  getDeclaringClass();
 	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
-	 std::vector<long> getDeclaredAnnotations();
-	 std::vector<long> getParameterTypes();
+	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
+	 std::vector<java_lang_Class > getParameterTypes();
 	 java_lang_String *  toGenericString();
-	 std::vector<long> getGenericParameterTypes();
-	 std::vector<long> getExceptionTypes();
-	 std::vector<long> getGenericExceptionTypes();
+	 std::vector<java_lang_reflect_Type > getGenericParameterTypes();
+	 std::vector<java_lang_Class > getExceptionTypes();
+	 std::vector<java_lang_reflect_Type > getGenericExceptionTypes();
 	 bool isVarArgs();
-	 std::vector<long> getParameterAnnotations();
+	 std::vector<std::vector<java_lang_annotation_Annotation > > getParameterAnnotations();
 };	
 
 } // namespace

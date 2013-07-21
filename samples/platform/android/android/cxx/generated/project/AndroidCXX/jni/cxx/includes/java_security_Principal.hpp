@@ -13,6 +13,15 @@
 	
 	
 
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_Principal
@@ -20,11 +29,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -36,6 +40,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -52,6 +57,13 @@ class java_lang_String;
 class java_security_Principal
 {
 public:
+
+	java_security_Principal(const java_security_Principal& cc);
+	java_security_Principal(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_security_Principal();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

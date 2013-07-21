@@ -12,6 +12,12 @@
  		 
 	
 
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_net_ContentHandlerFactory
@@ -19,8 +25,6 @@
 //
 // Scroll Down 
 //
-
-
 
 
 #include <java_lang_String.hpp>
@@ -32,6 +36,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,6 +53,13 @@ class java_net_ContentHandler;
 class java_net_ContentHandlerFactory
 {
 public:
+
+	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
+	java_net_ContentHandlerFactory(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_net_ContentHandlerFactory();
+	// Functions
 	 java_net_ContentHandler *  createContentHandler(java_lang_String& arg0);
 };	
 

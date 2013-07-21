@@ -15,11 +15,25 @@
  	
  		 
 	
+ 	
  		 
  	
 	
  	
  		 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -28,14 +42,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -53,6 +59,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,12 +82,20 @@ class java_util_Iterator;
 class java_security_cert_CertPath
 {
 public:
+
+	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
+	java_security_cert_CertPath(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_security_cert_CertPath();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 java_util_List *  getCertificates();
 	 java_lang_String *  getType();
-	 std::vector<char> getEncoded(java_lang_String& arg0);
+	 std::vector<byte> getEncoded();
+	 std::vector<byte> getEncoded(java_lang_String& arg0);
 	 java_util_Iterator *  getEncodings();
 };	
 

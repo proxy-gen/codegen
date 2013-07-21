@@ -10,7 +10,15 @@
 
 
  	
+	
+ 	
+	
  		 
+	
+	
+	
+ 	
+	
  	
 	
  		 
@@ -19,12 +27,44 @@
  	
  	
 	
+ 	
 	
 	
 	
 	
 	
 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -33,24 +73,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,6 +87,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -85,8 +108,22 @@ class java_nio_ByteOrder;
 class java_nio_DoubleBuffer
 {
 public:
-	 double get(std::vector<double>& arg0,int& arg1);
-	 java_nio_DoubleBuffer *  put(java_nio_DoubleBuffer& arg0,double& arg1,int& arg2,std::vector<double>& arg3);
+
+	java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc);
+	java_nio_DoubleBuffer(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_nio_DoubleBuffer();
+	// Functions
+	 double get();
+	 java_nio_DoubleBuffer *  get(std::vector<double>& arg0);
+	 java_nio_DoubleBuffer *  get(std::vector<double>& arg0,int& arg1,int& arg2);
+	 double get(int& arg0);
+	 java_nio_DoubleBuffer *  put(java_nio_DoubleBuffer& arg0);
+	 java_nio_DoubleBuffer *  put(double& arg0);
+	 java_nio_DoubleBuffer *  put(int& arg0,double& arg1);
+	 java_nio_DoubleBuffer *  put(std::vector<double>& arg0,int& arg1,int& arg2);
+	 java_nio_DoubleBuffer *  put(std::vector<double>& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -95,7 +132,8 @@ public:
 	 bool hasArray();
 	 std::vector<double> array();
 	 int arrayOffset();
-	static java_nio_DoubleBuffer *  wrap(std::vector<double>& arg0,int& arg1);
+	static java_nio_DoubleBuffer *  wrap(std::vector<double>& arg0,int& arg1,int& arg2);
+	static java_nio_DoubleBuffer *  wrap(std::vector<double>& arg0);
 	static java_nio_DoubleBuffer *  allocate(int& arg0);
 	 java_nio_DoubleBuffer *  duplicate();
 	 java_nio_DoubleBuffer *  slice();

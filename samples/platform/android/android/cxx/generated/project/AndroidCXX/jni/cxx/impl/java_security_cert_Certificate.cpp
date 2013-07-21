@@ -8,12 +8,19 @@
 //
 
 
+
  		 
 	
 	
  		 
  		 
+ 		 
 	
+
+
+
+
+
 
 
 
@@ -31,6 +38,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_security_cert_Certificate"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,36 +48,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_security_cert_Certificate::java_security_cert_Certificate(const java_security_cert_Certificate& cc)
 {
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate(const java_security_cert_Certificate& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate(const java_security_cert_Certificate& cc) exit");
 }
+java_security_cert_Certificate::java_security_cert_Certificate(void * proxy)
+{
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_lang_Object>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_security_PublicKey>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_security_cert_Certificate::~java_security_cert_Certificate()
+{
+	LOGV("java_security_cert_Certificate::~java_security_cert_Certificate() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_security_cert_Certificate::~java_security_cert_Certificate() exit");
+}
 // Functions
 bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 {
+	LOGV("bool java_security_cert_Certificate::equals(java_lang_Object& arg0) enter");
+
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java_security_cert_Certificate";
@@ -102,7 +142,7 @@ bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_Object>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
@@ -130,10 +170,14 @@ bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
+	LOGV("bool java_security_cert_Certificate::equals(java_lang_Object& arg0) exit");
+
 	return result;
 }
 java_lang_String *  java_security_cert_Certificate::toString()
 {
+	LOGV("java_lang_String *  java_security_cert_Certificate::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_security_cert_Certificate";
@@ -152,9 +196,9 @@ java_lang_String *  java_security_cert_Certificate::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -167,16 +211,20 @@ java_lang_String *  java_security_cert_Certificate::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_security_cert_Certificate::toString() exit");
+
 	return result;
 }
 int java_security_cert_Certificate::hashCode()
 {
+	LOGV("int java_security_cert_Certificate::hashCode() enter");
+
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
 	const char *className = "java_security_cert_Certificate";
@@ -216,10 +264,14 @@ int java_security_cert_Certificate::hashCode()
 		
 	jni->popLocalFrame();
 
+	LOGV("int java_security_cert_Certificate::hashCode() exit");
+
 	return result;
 }
 java_lang_String *  java_security_cert_Certificate::getType()
 {
+	LOGV("java_lang_String *  java_security_cert_Certificate::getType() enter");
+
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_security_cert_Certificate";
@@ -238,9 +290,9 @@ java_lang_String *  java_security_cert_Certificate::getType()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -253,18 +305,22 @@ java_lang_String *  java_security_cert_Certificate::getType()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_security_cert_Certificate::getType() exit");
+
 	return result;
 }
-std::vector<char> java_security_cert_Certificate::getEncoded()
+std::vector<byte> java_security_cert_Certificate::getEncoded()
 {
+	LOGV("std::vector<byte> java_security_cert_Certificate::getEncoded() enter");
+
 	const char *methodName = "getEncoded";
-	const char *methodSignature = "()[[B";
+	const char *methodSignature = "()[B";
 	const char *className = "java_security_cert_Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -280,7 +336,7 @@ std::vector<char> java_security_cert_Certificate::getEncoded()
 	LOGV("java_security_cert_Certificate jni address %d", javaObject);
 
 
-	std::vector<char> result;
+	std::vector<byte> result;
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
@@ -316,14 +372,67 @@ std::vector<char> java_security_cert_Certificate::getEncoded()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<char>) (*((std::vector<char> *) cxx_value));
+	result = (std::vector<byte>) (*((std::vector<byte> *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("std::vector<byte> java_security_cert_Certificate::getEncoded() exit");
+
 	return result;
+}
+void java_security_cert_Certificate::verify(java_security_PublicKey& arg0)
+{
+	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0) enter");
+
+	const char *methodName = "verify";
+	const char *methodSignature = "(Ljava/security/PublicKey;)V";
+	const char *className = "java_security_cert_Certificate";
+
+	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_cert_Certificate cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_cert_Certificate jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.security.PublicKey");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_security_PublicKey(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
+
+	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0) exit");
+
 }
 void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1)
 {
+	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1) enter");
+
 	const char *methodName = "verify";
 	const char *methodSignature = "(Ljava/security/PublicKey;Ljava/lang/String;)V";
 	const char *className = "java_security_cert_Certificate";
@@ -356,12 +465,12 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_l
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_security_PublicKey>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_security_PublicKey(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
-	jobject jarg1;
+	jstring jarg1;
 	{
 		long cxx_value = (long) & arg1;
 		long java_value = 0;
@@ -377,19 +486,23 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_l
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 		
 	jni->popLocalFrame();
 
+	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1) exit");
+
 }
 java_security_PublicKey *  java_security_cert_Certificate::getPublicKey()
 {
+	LOGV("java_security_PublicKey *  java_security_cert_Certificate::getPublicKey() enter");
+
 	const char *methodName = "getPublicKey";
 	const char *methodSignature = "()Ljava/security/PublicKey;";
 	const char *className = "java_security_cert_Certificate";
@@ -423,11 +536,13 @@ java_security_PublicKey *  java_security_cert_Certificate::getPublicKey()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_security_PublicKey>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_security_PublicKey(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_security_PublicKey * ) (*((java_security_PublicKey *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_security_PublicKey *  java_security_cert_Certificate::getPublicKey() exit");
 
 	return result;
 }

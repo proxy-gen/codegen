@@ -8,8 +8,13 @@
 //
 
 
+
 	
 	
+
+
+
+
 
 
 
@@ -22,6 +27,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_ByteOrder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -31,35 +37,10 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
-{
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
-}
-
-// Proxy Converter Types
-
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_nio_ByteOrder>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
 // Default Instance Constructors
 java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc)
 {
-	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc) invoked");
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long ccaddress = (long) &cc;
@@ -77,10 +58,12 @@ java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc)
 		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(const java_nio_ByteOrder& cc) exit");
 }
 java_nio_ByteOrder::java_nio_ByteOrder(void * proxy)
 {
-	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(void * proxy) invoked");
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(void * proxy) enter");
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
@@ -93,11 +76,14 @@ java_nio_ByteOrder::java_nio_ByteOrder(void * proxy)
 		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
+
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder(void * proxy) exit");
 }
+// Public Constructors
 // Default Instance Destructor
 java_nio_ByteOrder::~java_nio_ByteOrder()
 {
-	LOGV("java_nio_ByteOrder::~java_nio_ByteOrder() invoked");
+	LOGV("java_nio_ByteOrder::~java_nio_ByteOrder() enter");
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
 	jobject proxiedComponent = ctx->findProxyComponent(address);
@@ -106,10 +92,13 @@ java_nio_ByteOrder::~java_nio_ByteOrder()
 		JNIContext *jni = JNIContext::sharedInstance();
 		ctx->deregisterProxyComponent(address);
 	}		
+	LOGV("java_nio_ByteOrder::~java_nio_ByteOrder() exit");
 }
 // Functions
 java_lang_String *  java_nio_ByteOrder::toString()
 {
+	LOGV("java_lang_String *  java_nio_ByteOrder::toString() enter");
+
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java_nio_ByteOrder";
@@ -128,9 +117,9 @@ java_lang_String *  java_nio_ByteOrder::toString()
 
 
 	java_lang_String *  result;
-	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
-	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	long java_value = convert_jni_string_to_java(jni_result);
 	{
 		CXXTypeHierarchy cxx_type_hierarchy;
 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
@@ -143,16 +132,20 @@ java_lang_String *  java_nio_ByteOrder::toString()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
 		
 	jni->popLocalFrame();
 
+	LOGV("java_lang_String *  java_nio_ByteOrder::toString() exit");
+
 	return result;
 }
 java_nio_ByteOrder *  java_nio_ByteOrder::nativeOrder()
 {
+	LOGV("java_nio_ByteOrder *  java_nio_ByteOrder::nativeOrder() enter");
+
 	const char *methodName = "nativeOrder";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
 	const char *className = "java_nio_ByteOrder";
@@ -186,11 +179,13 @@ java_nio_ByteOrder *  java_nio_ByteOrder::nativeOrder()
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_nio_ByteOrder>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_nio_ByteOrder * ) (*((java_nio_ByteOrder *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_nio_ByteOrder *  java_nio_ByteOrder::nativeOrder() exit");
 
 	return result;
 }

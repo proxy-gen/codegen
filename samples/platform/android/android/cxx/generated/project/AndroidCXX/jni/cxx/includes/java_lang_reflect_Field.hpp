@@ -45,6 +45,43 @@
  		 
  		 
  		 
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -53,38 +90,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -102,6 +107,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -124,13 +130,20 @@ class java_lang_reflect_Type;
 class java_lang_reflect_Field
 {
 public:
+
+	java_lang_reflect_Field(const java_lang_reflect_Field& cc);
+	java_lang_reflect_Field(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_reflect_Field();
+	// Functions
 	 java_lang_Object *  get(java_lang_Object& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 int getModifiers();
 	 bool getBoolean(java_lang_Object& arg0);
-	 unsigned char getByte(java_lang_Object& arg0);
+	 byte getByte(java_lang_Object& arg0);
 	 short getShort(java_lang_Object& arg0);
 	 char getChar(java_lang_Object& arg0);
 	 int getInt(java_lang_Object& arg0);
@@ -141,14 +154,14 @@ public:
 	 bool isSynthetic();
 	 java_lang_Class *  getDeclaringClass();
 	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
-	 std::vector<long> getDeclaredAnnotations();
+	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 bool isEnumConstant();
 	 java_lang_Class *  getType();
 	 java_lang_reflect_Type *  getGenericType();
 	 java_lang_String *  toGenericString();
-	 void set(java_lang_Object& arg0);
+	 void set(java_lang_Object& arg0,java_lang_Object& arg1);
 	 void setBoolean(java_lang_Object& arg0,bool& arg1);
-	 void setByte(java_lang_Object& arg0,unsigned char& arg1);
+	 void setByte(java_lang_Object& arg0,byte& arg1);
 	 void setChar(java_lang_Object& arg0,char& arg1);
 	 void setShort(java_lang_Object& arg0,short& arg1);
 	 void setInt(java_lang_Object& arg0,int& arg1);

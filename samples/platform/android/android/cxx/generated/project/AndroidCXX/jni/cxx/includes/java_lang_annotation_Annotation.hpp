@@ -15,6 +15,15 @@
  	
  		 
 
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_lang_annotation_Annotation
@@ -22,11 +31,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -41,6 +45,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,6 +66,13 @@ class java_lang_annotation_Annotation;
 class java_lang_annotation_Annotation
 {
 public:
+
+	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
+	java_lang_annotation_Annotation(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_lang_annotation_Annotation();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();

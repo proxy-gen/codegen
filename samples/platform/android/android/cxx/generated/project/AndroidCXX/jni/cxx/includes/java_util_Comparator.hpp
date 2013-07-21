@@ -11,6 +11,14 @@
 
  		 
  		 
+ 		 
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -21,9 +29,6 @@
 //
 
 
-
-
-
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -31,6 +36,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,8 +51,15 @@ class java_lang_Object;
 class java_util_Comparator
 {
 public:
+
+	java_util_Comparator(const java_util_Comparator& cc);
+	java_util_Comparator(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_util_Comparator();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 int compare(java_lang_Object& arg0);
+	 int compare(java_lang_Object& arg0,java_lang_Object& arg1);
 };	
 
 } // namespace

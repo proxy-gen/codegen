@@ -8,8 +8,13 @@
 //
 
 
+
  		 
 	
+
+
+
+
 
 
 
@@ -21,6 +26,7 @@
 #include <JNIContext.hpp>
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_net_ContentHandlerFactory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -30,34 +36,68 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// Proxy Converter Template
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template <class T>
-void convert_proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+// Default Instance Constructors
+java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc)
 {
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc) enter");
+
 	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		cxx_value = 0; // TODO: add constructor (long) new T((void *)java_value);
-	}
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc) exit");
 }
+java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy)
+{
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy) enter");
 
-// Proxy Converter Types
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
 
-template void convert_proxy<java_lang_String>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
-template void convert_proxy<java_net_ContentHandler>(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-
+	LOGV("java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(void * proxy) exit");
+}
+// Public Constructors
+// Default Instance Destructor
+java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory()
+{
+	LOGV("java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory() exit");
+}
 // Functions
 java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0)
 {
+	LOGV("java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) enter");
+
 	const char *methodName = "createContentHandler";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/ContentHandler;";
 	const char *className = "java_net_ContentHandlerFactory";
@@ -74,7 +114,7 @@ java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_net_ContentHandlerFactory jni address %d", javaObject);
 
-	jobject jarg0;
+	jstring jarg0;
 	{
 		long cxx_value = (long) & arg0;
 		long java_value = 0;
@@ -90,10 +130,10 @@ java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_proxy<java_lang_String>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
 	java_net_ContentHandler *  result;
@@ -112,11 +152,13 @@ java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_proxy<java_net_ContentHandler>(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_java_net_ContentHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
 	result = (java_net_ContentHandler * ) (*((java_net_ContentHandler *  *) cxx_value));
 		
 	jni->popLocalFrame();
+
+	LOGV("java_net_ContentHandler *  java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) exit");
 
 	return result;
 }

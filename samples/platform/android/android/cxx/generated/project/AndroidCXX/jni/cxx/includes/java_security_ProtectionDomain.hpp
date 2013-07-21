@@ -17,6 +17,26 @@
 	
  		 
 
+
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
 // Generated Code 
 
 #ifndef _java_security_ProtectionDomain
@@ -24,13 +44,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
 
 
 #include <java_lang_String.hpp>
@@ -50,6 +63,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,13 +88,19 @@ class java_security_Permission;
 class java_security_ProtectionDomain
 {
 public:
+
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
 	java_security_ProtectionDomain(void * proxy);
+	// Public Constructors
+	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1);
+	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3);
+	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
+	// Functions
 	 java_lang_String *  toString();
 	 java_lang_ClassLoader *  getClassLoader();
 	 java_security_CodeSource *  getCodeSource();
-	 std::vector<long> getPrincipals();
+	 std::vector<java_security_Principal > getPrincipals();
 	 java_security_PermissionCollection *  getPermissions();
 	 bool implies(java_security_Permission& arg0);
 };	

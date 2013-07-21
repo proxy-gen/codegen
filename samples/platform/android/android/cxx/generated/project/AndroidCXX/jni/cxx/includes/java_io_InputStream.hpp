@@ -10,6 +10,22 @@
 
 
  	
+ 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -20,19 +36,12 @@
 //
 
 
-
-
-
-
-
-
-
-
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,10 +54,20 @@ namespace AndroidCXX {
 class java_io_InputStream
 {
 public:
+
+	java_io_InputStream(const java_io_InputStream& cc);
+	java_io_InputStream(void * proxy);
+	// Public Constructors
+	java_io_InputStream();
+	// Default Destructor
+	virtual ~java_io_InputStream();
+	// Functions
 	 void close();
 	 void mark(int& arg0);
 	 void reset();
-	 int read(std::vector<char>& arg0,int& arg1);
+	 int read(std::vector<byte>& arg0,int& arg1,int& arg2);
+	 int read(std::vector<byte>& arg0);
+	 int read();
 	 long skip(long& arg0);
 	 int available();
 	 bool markSupported();

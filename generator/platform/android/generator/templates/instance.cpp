@@ -170,101 +170,101 @@ ${entity_class_name}::${entity_class_name}(void * proxy)
 #end if
 #if not '_static' in $entity_class_config['tags']
 // Public Constructors
-// #for $constructor in $constructors
-// ${entity_class_name}::${entity_class_name}($constructor['param_str'])
-// {
-// 	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] enter");	
+#for $constructor in $constructors
+${entity_class_name}::${entity_class_name}($constructor['param_str'])
+{
+	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] enter");	
 
-// 	#set $cons_jnidata = $constructor['deriveddata']['jnidata']
-// 	const char *methodName = "$constructor['name']";
-// 	const char *methodSignature = "$cons_jnidata['jnisignature']";
-// 	const char *className = "$entity_class_name";
+	#set $cons_jnidata = $constructor['deriveddata']['jnidata']
+	const char *methodName = "$constructor['name']";
+	const char *methodSignature = "$cons_jnidata['jnisignature']";
+	const char *className = "$entity_class_name";
 
-// 	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-// 	CXXContext *ctx = CXXContext::sharedInstance();
-// 	JNIContext *jni = JNIContext::sharedInstance();
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
-// 	jni->pushLocalFrame();
+	jni->pushLocalFrame();
 
-// 	long cxxAddress = (long) this;
-// 	LOGV("${entity_class_name} cxx address %d", cxxAddress);
-// 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-// 	LOGV("${entity_class_name} jni address %d", javaObject);
+	long cxxAddress = (long) this;
+	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("${entity_class_name} jni address %d", javaObject);
 
-// 	#set methodvararg = ""
-// 	#set $param_idx = 0
-// 	#for $param in $constructor['params']
-// 	#set $arg = "arg" + str($param_idx)
-// 	#set $jarg = "jarg" + str($param_idx)
-// 	#set $param_jnidata = $param['deriveddata']['jnidata']
-// 	#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
-// 	$param_jnidata['jnitype'] $jarg;
-// 	{
-// 		long cxx_value = (long) & $arg;
-// 		long java_value = 0;
+	#set methodvararg = ""
+	#set $param_idx = 0
+	#for $param in $constructor['params']
+	#set $arg = "arg" + str($param_idx)
+	#set $jarg = "jarg" + str($param_idx)
+	#set $param_jnidata = $param['deriveddata']['jnidata']
+	#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
+	$param_jnidata['jnitype'] $jarg;
+	{
+		long cxx_value = (long) & $arg;
+		long java_value = 0;
 
-// 		## Create CXXTypeHierarchy
-// 		CXXTypeHierarchy cxx_type_hierarchy;
-// 		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-// 		#set $type_stack = list()
-// 		$type_stack.append($param)
-// 		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-// 		#while $len(type_stack) > 0
-// 		{
-// 			#set $current_type = $type_stack.pop()
-// 			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-// 			cxx_type_hierarchy_stack.pop();
-// 			cxx_type_hierarchy.type_name = std::string("$current_type['type']");
-// 			#if 'children' in $current_type	
-// 			#for $child_type in $current_type['children']
-// 			{
-// 				CXXTypeHierarchy child_cxx_type_hierarchy;
-// 				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-// 				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-// 				$type_stack.append(child_type)
-// 			}
-// 			#end for
-// 			#end if	
-// 		}
-// 		#end while	
-// 		## Create Converter Stack
-// 		std::stack<long> converter_stack;
-// 		#set $type_stack = list()
-// 		#if 'children' in $param
-// 		$type_stack.append($param)
-// 		#end if
-// 		#while $len(type_stack) > 0
-// 		{
-// 			#set $current_type = $type_stack.pop()
-// 			#for $idx in $range(0,len(current_type['children']))
-// 			{
-// 				#set $child_type = $current_type['children'][idx]
-// 				#set $child_type_typeinfo = $child_type['deriveddata']['targetdata']['typeinfo']
-// 				converter_stack.push((long) &${child_type_typeinfo['typeconverter']});				
+		## Create CXXTypeHierarchy
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		#set $type_stack = list()
+		$type_stack.append($param)
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		#while $len(type_stack) > 0
+		{
+			#set $current_type = $type_stack.pop()
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("$current_type['type']");
+			#if 'children' in $current_type	
+			#for $child_type in $current_type['children']
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				$type_stack.append(child_type)
+			}
+			#end for
+			#end if	
+		}
+		#end while	
+		## Create Converter Stack
+		std::stack<long> converter_stack;
+		#set $type_stack = list()
+		#if 'children' in $param
+		$type_stack.append($param)
+		#end if
+		#while $len(type_stack) > 0
+		{
+			#set $current_type = $type_stack.pop()
+			#for $idx in $range(0,len(current_type['children']))
+			{
+				#set $child_type = $current_type['children'][idx]
+				#set $child_type_typeinfo = $child_type['deriveddata']['targetdata']['typeinfo']
+				converter_stack.push((long) &${child_type_typeinfo['typeconverter']});				
 
-// 				#if 'children' in $child_type
-// 					$type_stack.append($child_type)
-// 				#end if
-// 			}
-// 			#end for
-// 		}
-// 		#end while
-// 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-// 		${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+				#if 'children' in $child_type
+					$type_stack.append($child_type)
+				#end if
+			}
+			#end for
+		}
+		#end while
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
-// 		// Convert to JNI
-// 		$jarg = ${param_jnidata['jniconverter']}_to_jni(java_value);
-// 		#set $methodvararg = $methodvararg + "," + $jarg
-// 	}
-// 	#set $param_idx = $param_idx + 1
-// 	#end for
+		// Convert to JNI
+		$jarg = ${param_jnidata['jniconverter']}_to_jni(java_value);
+		#set $methodvararg = $methodvararg + "," + $jarg
+	}
+	#set $param_idx = $param_idx + 1
+	#end for
 		
-// 	jni->popLocalFrame();
+	jni->popLocalFrame();
 
-// 	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] exit");	
-// }
-// #end for
+	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] exit");	
+}
+#end for
 #end if
 #if not '_static' in $entity_class_config['tags']
 // Default Instance Destructor

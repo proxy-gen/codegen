@@ -15,7 +15,21 @@
  	
  		 
  		 
+ 		 
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -24,14 +38,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -45,6 +51,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,11 +70,19 @@ class java_security_PublicKey;
 class java_security_cert_Certificate
 {
 public:
+
+	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
+	java_security_cert_Certificate(void * proxy);
+	// Public Constructors
+	// Default Destructor
+	virtual ~java_security_cert_Certificate();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
 	 java_lang_String *  getType();
-	 std::vector<char> getEncoded();
+	 std::vector<byte> getEncoded();
+	 void verify(java_security_PublicKey& arg0);
 	 void verify(java_security_PublicKey& arg0,java_lang_String& arg1);
 	 java_security_PublicKey *  getPublicKey();
 };	

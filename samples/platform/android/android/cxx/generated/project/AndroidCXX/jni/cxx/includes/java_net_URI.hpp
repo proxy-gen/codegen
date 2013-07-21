@@ -15,17 +15,6 @@
 	
 	
  		 
- 		 
-	
-	
-	
-	
-	
-	
-	
-	
- 		 
-	
 	
  		 
 	
@@ -36,7 +25,77 @@
 	
 	
 	
+ 		 
 	
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Generated Code 
 
@@ -45,35 +104,6 @@
 //
 // Scroll Down 
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #include <java_lang_Object.hpp>
@@ -88,6 +118,7 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
 
 #ifdef __cplusplus
 extern "C" {
@@ -108,9 +139,18 @@ class java_net_URL;
 class java_net_URI
 {
 public:
+
 	java_net_URI(const java_net_URI& cc);
 	java_net_URI(void * proxy);
+	// Public Constructors
+	java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6);
+	java_net_URI(java_lang_String& arg0);
+	java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4);
+	java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3);
+	java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2);
+	// Default Destructor
 	virtual ~java_net_URI();
+	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 java_lang_String *  toString();
 	 int hashCode();
@@ -118,7 +158,8 @@ public:
 	 bool isAbsolute();
 	 java_lang_String *  getPath();
 	 java_net_URL *  toURL();
-	 java_net_URI *  resolve(java_lang_String& arg0,java_net_URI& arg1);
+	 java_net_URI *  resolve(java_lang_String& arg0);
+	 java_net_URI *  resolve(java_net_URI& arg0);
 	 java_net_URI *  normalize();
 	 bool isOpaque();
 	 java_lang_String *  getScheme();
