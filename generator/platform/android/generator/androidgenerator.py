@@ -176,7 +176,7 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.report_outdir_name):
 			os.makedirs(self.report_outdir_name)
 		logging.debug("self.report_outdir_name " + str(self.report_outdir_name))
-		self.config_report_file_name = "config_report.md"
+		self.config_report_file_name = "report.md"
 		logging.debug("self.config_report_file_name " + str(self.config_report_file_name))
 		config_report_file_path = os.path.join(self.report_outdir_name, self.config_report_file_name)
 		logging.debug("config_report_file_path " + str(config_report_file_path))
@@ -185,7 +185,7 @@ class Generator(BaseGenerator):
 		self._update_config(self.config_module)
 		config_report = self.config_module.analyze_config()
 		config_report_file = open(config_report_file_path, "w+")
-		config_report_md = Template(file=os.path.join(self.target, "templates", "config_report.md"), searchList=[{'CONFIG': self}])
+		config_report_md = Template(file=os.path.join(self.target, "templates", "report.md"), searchList=[{'CONFIG': self}])
 		logging.debug("config_report_md " + str(config_report_md))
 		self.config_report_file.write(str(config_report_md))
 		self.config_report_file.close()
