@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_Object.hpp>
@@ -347,7 +348,7 @@ bool java_lang_Object::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -355,9 +356,9 @@ bool java_lang_Object::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_lang_Object::toString()
+java_lang_String java_lang_Object::toString()
 {
-	LOGV("java_lang_String *  java_lang_Object::toString() enter");
+	LOGV("java_lang_String java_lang_Object::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -376,7 +377,7 @@ java_lang_String *  java_lang_Object::toString()
 	LOGV("java_lang_Object jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -394,11 +395,11 @@ java_lang_String *  java_lang_Object::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_lang_Object::toString() exit");
+	LOGV("java_lang_String java_lang_Object::toString() exit");
 
 	return result;
 }
@@ -441,7 +442,7 @@ int java_lang_Object::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -449,9 +450,9 @@ int java_lang_Object::hashCode()
 
 	return result;
 }
-java_lang_Class *  java_lang_Object::getClass()
+java_lang_Class java_lang_Object::getClass()
 {
-	LOGV("java_lang_Class *  java_lang_Object::getClass() enter");
+	LOGV("java_lang_Class java_lang_Object::getClass() enter");
 
 	const char *methodName = "getClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
@@ -470,7 +471,7 @@ java_lang_Class *  java_lang_Object::getClass()
 	LOGV("java_lang_Object jni address %d", javaObject);
 
 
-	java_lang_Class *  result;
+	java_lang_Class result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -506,11 +507,11 @@ java_lang_Class *  java_lang_Object::getClass()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Class * ) (*((java_lang_Class *  *) cxx_value));
+	result = (java_lang_Class) (java_lang_Class((java_lang_Class *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Class *  java_lang_Object::getClass() exit");
+	LOGV("java_lang_Class java_lang_Object::getClass() exit");
 
 	return result;
 }

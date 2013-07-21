@@ -19,6 +19,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_ByteOrder
@@ -60,11 +61,12 @@ public:
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
 	java_nio_ByteOrder(void * proxy);
 	// Public Constructors
+	java_nio_ByteOrder();
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
-	 java_lang_String *  toString();
-	static java_nio_ByteOrder *  nativeOrder();
+	 java_lang_String toString();
+	static java_nio_ByteOrder nativeOrder();
 };	
 
 } // namespace

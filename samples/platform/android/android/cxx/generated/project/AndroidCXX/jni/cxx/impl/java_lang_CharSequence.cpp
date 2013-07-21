@@ -21,6 +21,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_CharSequence.hpp>
@@ -81,6 +82,10 @@ java_lang_CharSequence::java_lang_CharSequence(void * proxy)
 
 	LOGV("java_lang_CharSequence::java_lang_CharSequence(void * proxy) exit");
 }
+java_lang_CharSequence::java_lang_CharSequence()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_lang_CharSequence::~java_lang_CharSequence()
@@ -97,9 +102,9 @@ java_lang_CharSequence::~java_lang_CharSequence()
 	LOGV("java_lang_CharSequence::~java_lang_CharSequence() exit");
 }
 // Functions
-java_lang_String *  java_lang_CharSequence::toString()
+java_lang_String java_lang_CharSequence::toString()
 {
-	LOGV("java_lang_String *  java_lang_CharSequence::toString() enter");
+	LOGV("java_lang_String java_lang_CharSequence::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -118,7 +123,7 @@ java_lang_String *  java_lang_CharSequence::toString()
 	LOGV("java_lang_CharSequence jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -136,11 +141,11 @@ java_lang_String *  java_lang_CharSequence::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_lang_CharSequence::toString() exit");
+	LOGV("java_lang_String java_lang_CharSequence::toString() exit");
 
 	return result;
 }
@@ -183,7 +188,7 @@ int java_lang_CharSequence::length()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -251,7 +256,7 @@ char java_lang_CharSequence::charAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (*((char *) cxx_value));
+	result = (char) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -259,9 +264,9 @@ char java_lang_CharSequence::charAt(int& arg0)
 
 	return result;
 }
-java_lang_CharSequence *  java_lang_CharSequence::subSequence(int& arg0,int& arg1)
+java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1)
 {
-	LOGV("java_lang_CharSequence *  java_lang_CharSequence::subSequence(int& arg0,int& arg1) enter");
+	LOGV("java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -322,7 +327,7 @@ java_lang_CharSequence *  java_lang_CharSequence::subSequence(int& arg0,int& arg
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_CharSequence *  result;
+	java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -340,11 +345,11 @@ java_lang_CharSequence *  java_lang_CharSequence::subSequence(int& arg0,int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_CharSequence * ) (*((java_lang_CharSequence *  *) cxx_value));
+	result = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_CharSequence *  java_lang_CharSequence::subSequence(int& arg0,int& arg1) exit");
+	LOGV("java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) exit");
 
 	return result;
 }

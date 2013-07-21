@@ -46,6 +46,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_ClassLoader.hpp>
@@ -106,6 +107,10 @@ java_lang_ClassLoader::java_lang_ClassLoader(void * proxy)
 
 	LOGV("java_lang_ClassLoader::java_lang_ClassLoader(void * proxy) exit");
 }
+java_lang_ClassLoader::java_lang_ClassLoader()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_lang_ClassLoader::~java_lang_ClassLoader()
@@ -122,9 +127,9 @@ java_lang_ClassLoader::~java_lang_ClassLoader()
 	LOGV("java_lang_ClassLoader::~java_lang_ClassLoader() exit");
 }
 // Functions
-java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
+java_lang_Class java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 {
-	LOGV("java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0) enter");
+	LOGV("java_lang_Class java_lang_ClassLoader::loadClass(java_lang_String& arg0) enter");
 
 	const char *methodName = "loadClass";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
@@ -164,7 +169,7 @@ java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_Class *  result;
+	java_lang_Class result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -200,17 +205,17 @@ java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Class * ) (*((java_lang_Class *  *) cxx_value));
+	result = (java_lang_Class) (java_lang_Class((java_lang_Class *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Class *  java_lang_ClassLoader::loadClass(java_lang_String& arg0) exit");
+	LOGV("java_lang_Class java_lang_ClassLoader::loadClass(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader()
+java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader()
 {
-	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader() enter");
+	LOGV("java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader() enter");
 
 	const char *methodName = "getSystemClassLoader";
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
@@ -229,7 +234,7 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader()
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
 
-	java_lang_ClassLoader *  result;
+	java_lang_ClassLoader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -247,17 +252,17 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_ClassLoader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_ClassLoader * ) (*((java_lang_ClassLoader *  *) cxx_value));
+	result = (java_lang_ClassLoader) (java_lang_ClassLoader((java_lang_ClassLoader *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getSystemClassLoader() exit");
+	LOGV("java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader() exit");
 
 	return result;
 }
-java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0)
+java_io_InputStream java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0)
 {
-	LOGV("java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) enter");
+	LOGV("java_io_InputStream java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
@@ -297,7 +302,7 @@ java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_Stri
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_io_InputStream *  result;
+	java_io_InputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -315,17 +320,17 @@ java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_Stri
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_io_InputStream * ) (*((java_io_InputStream *  *) cxx_value));
+	result = (java_io_InputStream) (java_io_InputStream((java_io_InputStream *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_io_InputStream *  java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) exit");
+	LOGV("java_io_InputStream java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
+java_net_URL java_lang_ClassLoader::getResource(java_lang_String& arg0)
 {
-	LOGV("java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0) enter");
+	LOGV("java_net_URL java_lang_ClassLoader::getResource(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
@@ -365,7 +370,7 @@ java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_URL *  result;
+	java_net_URL result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -383,17 +388,17 @@ java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URL * ) (*((java_net_URL *  *) cxx_value));
+	result = (java_net_URL) (java_net_URL((java_net_URL *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL *  java_lang_ClassLoader::getResource(java_lang_String& arg0) exit");
+	LOGV("java_net_URL java_lang_ClassLoader::getResource(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0)
+java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0)
 {
-	LOGV("java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) enter");
+	LOGV("java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResourceAsStream";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
@@ -433,7 +438,7 @@ java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lan
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_io_InputStream *  result;
+	java_io_InputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -451,17 +456,17 @@ java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_io_InputStream * ) (*((java_io_InputStream *  *) cxx_value));
+	result = (java_io_InputStream) (java_io_InputStream((java_io_InputStream *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_io_InputStream *  java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) exit");
+	LOGV("java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
+java_net_URL java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 {
-	LOGV("java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) enter");
+	LOGV("java_net_URL java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResource";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
@@ -501,7 +506,7 @@ java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_URL *  result;
+	java_net_URL result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -519,17 +524,17 @@ java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URL * ) (*((java_net_URL *  *) cxx_value));
+	result = (java_net_URL) (java_net_URL((java_net_URL *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL *  java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) exit");
+	LOGV("java_net_URL java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0)
+java_util_Enumeration java_lang_ClassLoader::getResources(java_lang_String& arg0)
 {
-	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0) enter");
+	LOGV("java_util_Enumeration java_lang_ClassLoader::getResources(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
@@ -569,7 +574,7 @@ java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& a
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_util_Enumeration *  result;
+	java_util_Enumeration result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -605,17 +610,17 @@ java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Enumeration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Enumeration * ) (*((java_util_Enumeration *  *) cxx_value));
+	result = (java_util_Enumeration) (java_util_Enumeration((java_util_Enumeration *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getResources(java_lang_String& arg0) exit");
+	LOGV("java_util_Enumeration java_lang_ClassLoader::getResources(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0)
+java_util_Enumeration java_lang_ClassLoader::getSystemResources(java_lang_String& arg0)
 {
-	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) enter");
+	LOGV("java_util_Enumeration java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResources";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
@@ -655,7 +660,7 @@ java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_Str
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_util_Enumeration *  result;
+	java_util_Enumeration result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -691,17 +696,17 @@ java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_Str
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Enumeration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Enumeration * ) (*((java_util_Enumeration *  *) cxx_value));
+	result = (java_util_Enumeration) (java_util_Enumeration((java_util_Enumeration *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Enumeration *  java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) exit");
+	LOGV("java_util_Enumeration java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_lang_ClassLoader *  java_lang_ClassLoader::getParent()
+java_lang_ClassLoader java_lang_ClassLoader::getParent()
 {
-	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getParent() enter");
+	LOGV("java_lang_ClassLoader java_lang_ClassLoader::getParent() enter");
 
 	const char *methodName = "getParent";
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
@@ -720,7 +725,7 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getParent()
 	LOGV("java_lang_ClassLoader jni address %d", javaObject);
 
 
-	java_lang_ClassLoader *  result;
+	java_lang_ClassLoader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -738,11 +743,11 @@ java_lang_ClassLoader *  java_lang_ClassLoader::getParent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_ClassLoader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_ClassLoader * ) (*((java_lang_ClassLoader *  *) cxx_value));
+	result = (java_lang_ClassLoader) (java_lang_ClassLoader((java_lang_ClassLoader *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_ClassLoader *  java_lang_ClassLoader::getParent() exit");
+	LOGV("java_lang_ClassLoader java_lang_ClassLoader::getParent() exit");
 
 	return result;
 }

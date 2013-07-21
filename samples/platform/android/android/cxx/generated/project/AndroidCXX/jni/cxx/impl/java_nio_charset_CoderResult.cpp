@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_nio_charset_CoderResult.hpp>
@@ -88,6 +89,10 @@ java_nio_charset_CoderResult::java_nio_charset_CoderResult(void * proxy)
 
 	LOGV("java_nio_charset_CoderResult::java_nio_charset_CoderResult(void * proxy) exit");
 }
+java_nio_charset_CoderResult::java_nio_charset_CoderResult()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_nio_charset_CoderResult::~java_nio_charset_CoderResult()
@@ -104,9 +109,9 @@ java_nio_charset_CoderResult::~java_nio_charset_CoderResult()
 	LOGV("java_nio_charset_CoderResult::~java_nio_charset_CoderResult() exit");
 }
 // Functions
-java_lang_String *  java_nio_charset_CoderResult::toString()
+java_lang_String java_nio_charset_CoderResult::toString()
 {
-	LOGV("java_lang_String *  java_nio_charset_CoderResult::toString() enter");
+	LOGV("java_lang_String java_nio_charset_CoderResult::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -125,7 +130,7 @@ java_lang_String *  java_nio_charset_CoderResult::toString()
 	LOGV("java_nio_charset_CoderResult jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -143,11 +148,11 @@ java_lang_String *  java_nio_charset_CoderResult::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_CoderResult::toString() exit");
+	LOGV("java_lang_String java_nio_charset_CoderResult::toString() exit");
 
 	return result;
 }
@@ -190,7 +195,7 @@ int java_nio_charset_CoderResult::length()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -265,7 +270,7 @@ bool java_nio_charset_CoderResult::isUnderflow()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -312,7 +317,7 @@ bool java_nio_charset_CoderResult::isError()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -359,7 +364,7 @@ bool java_nio_charset_CoderResult::isOverflow()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -367,9 +372,9 @@ bool java_nio_charset_CoderResult::isOverflow()
 
 	return result;
 }
-java_nio_charset_CoderResult *  java_nio_charset_CoderResult::malformedForLength(int& arg0)
+java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0)
 {
-	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CoderResult::malformedForLength(int& arg0) enter");
+	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) enter");
 
 	const char *methodName = "malformedForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
@@ -409,7 +414,7 @@ java_nio_charset_CoderResult *  java_nio_charset_CoderResult::malformedForLength
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult *  result;
+	java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -427,11 +432,11 @@ java_nio_charset_CoderResult *  java_nio_charset_CoderResult::malformedForLength
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult * ) (*((java_nio_charset_CoderResult *  *) cxx_value));
+	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CoderResult::malformedForLength(int& arg0) exit");
+	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) exit");
 
 	return result;
 }
@@ -474,7 +479,7 @@ bool java_nio_charset_CoderResult::isMalformed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -521,7 +526,7 @@ bool java_nio_charset_CoderResult::isUnmappable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -529,9 +534,9 @@ bool java_nio_charset_CoderResult::isUnmappable()
 
 	return result;
 }
-java_nio_charset_CoderResult *  java_nio_charset_CoderResult::unmappableForLength(int& arg0)
+java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0)
 {
-	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CoderResult::unmappableForLength(int& arg0) enter");
+	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) enter");
 
 	const char *methodName = "unmappableForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
@@ -571,7 +576,7 @@ java_nio_charset_CoderResult *  java_nio_charset_CoderResult::unmappableForLengt
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult *  result;
+	java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -589,11 +594,11 @@ java_nio_charset_CoderResult *  java_nio_charset_CoderResult::unmappableForLengt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult * ) (*((java_nio_charset_CoderResult *  *) cxx_value));
+	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult *  java_nio_charset_CoderResult::unmappableForLength(int& arg0) exit");
+	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) exit");
 
 	return result;
 }

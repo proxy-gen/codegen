@@ -105,6 +105,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_StringBuilder
@@ -165,41 +166,41 @@ public:
 	// Default Destructor
 	virtual ~java_lang_StringBuilder();
 	// Functions
-	 java_lang_String *  toString();
-	 java_lang_StringBuilder *  append(java_lang_CharSequence& arg0);
-	 java_lang_StringBuilder *  append(java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 java_lang_StringBuilder *  append(std::vector<char>& arg0);
-	 java_lang_StringBuilder *  append(bool& arg0);
-	 java_lang_StringBuilder *  append(char& arg0);
-	 java_lang_StringBuilder *  append(int& arg0);
-	 java_lang_StringBuilder *  append(long& arg0);
-	 java_lang_StringBuilder *  append(float& arg0);
-	 java_lang_StringBuilder *  append(double& arg0);
-	 java_lang_StringBuilder *  append(std::vector<char>& arg0,int& arg1,int& arg2);
-	 java_lang_StringBuilder *  append(java_lang_Object& arg0);
-	 java_lang_StringBuilder *  append(java_lang_String& arg0);
-	 java_lang_StringBuilder *  append(java_lang_StringBuffer& arg0);
+	 java_lang_String toString();
+	 java_lang_StringBuilder append(java_lang_CharSequence& arg0);
+	 java_lang_StringBuilder append(java_lang_CharSequence& arg0,int& arg1,int& arg2);
+	 java_lang_StringBuilder append(std::vector<char>& arg0);
+	 java_lang_StringBuilder append(bool& arg0);
+	 java_lang_StringBuilder append(char& arg0);
+	 java_lang_StringBuilder append(int& arg0);
+	 java_lang_StringBuilder append(long& arg0);
+	 java_lang_StringBuilder append(float& arg0);
+	 java_lang_StringBuilder append(double& arg0);
+	 java_lang_StringBuilder append(std::vector<char>& arg0,int& arg1,int& arg2);
+	 java_lang_StringBuilder append(java_lang_Object& arg0);
+	 java_lang_StringBuilder append(java_lang_String& arg0);
+	 java_lang_StringBuilder append(java_lang_StringBuffer& arg0);
 	 int indexOf(java_lang_String& arg0);
 	 int indexOf(java_lang_String& arg0,int& arg1);
 	 int lastIndexOf(java_lang_String& arg0,int& arg1);
 	 int lastIndexOf(java_lang_String& arg0);
-	 java_lang_StringBuilder *  replace(int& arg0,int& arg1,java_lang_String& arg2);
-	 java_lang_StringBuilder *  appendCodePoint(int& arg0);
-	 java_lang_StringBuilder *  _delete(int& arg0,int& arg1);
-	 java_lang_StringBuilder *  deleteCharAt(int& arg0);
-	 java_lang_StringBuilder *  insert(int& arg0,float& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,double& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3);
-	 java_lang_StringBuilder *  insert(int& arg0,java_lang_Object& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,java_lang_String& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,std::vector<char>& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,java_lang_CharSequence& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3);
-	 java_lang_StringBuilder *  insert(int& arg0,bool& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,char& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,int& arg1);
-	 java_lang_StringBuilder *  insert(int& arg0,long& arg1);
-	 java_lang_StringBuilder *  reverse();
+	 java_lang_StringBuilder replace(int& arg0,int& arg1,java_lang_String& arg2);
+	 java_lang_StringBuilder appendCodePoint(int& arg0);
+	 java_lang_StringBuilder _delete(int& arg0,int& arg1);
+	 java_lang_StringBuilder deleteCharAt(int& arg0);
+	 java_lang_StringBuilder insert(int& arg0,float& arg1);
+	 java_lang_StringBuilder insert(int& arg0,double& arg1);
+	 java_lang_StringBuilder insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3);
+	 java_lang_StringBuilder insert(int& arg0,java_lang_Object& arg1);
+	 java_lang_StringBuilder insert(int& arg0,java_lang_String& arg1);
+	 java_lang_StringBuilder insert(int& arg0,std::vector<char>& arg1);
+	 java_lang_StringBuilder insert(int& arg0,java_lang_CharSequence& arg1);
+	 java_lang_StringBuilder insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3);
+	 java_lang_StringBuilder insert(int& arg0,bool& arg1);
+	 java_lang_StringBuilder insert(int& arg0,char& arg1);
+	 java_lang_StringBuilder insert(int& arg0,int& arg1);
+	 java_lang_StringBuilder insert(int& arg0,long& arg1);
+	 java_lang_StringBuilder reverse();
 };	
 
 } // namespace

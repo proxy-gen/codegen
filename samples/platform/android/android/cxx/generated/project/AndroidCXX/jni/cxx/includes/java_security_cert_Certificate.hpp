@@ -31,6 +31,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_cert_Certificate
@@ -77,17 +78,18 @@ public:
 	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
 	java_security_cert_Certificate(void * proxy);
 	// Public Constructors
+	java_security_cert_Certificate();
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_String *  getType();
+	 java_lang_String getType();
 	 std::vector<byte> getEncoded();
 	 void verify(java_security_PublicKey& arg0);
 	 void verify(java_security_PublicKey& arg0,java_lang_String& arg1);
-	 java_security_PublicKey *  getPublicKey();
+	 java_security_PublicKey getPublicKey();
 };	
 
 } // namespace

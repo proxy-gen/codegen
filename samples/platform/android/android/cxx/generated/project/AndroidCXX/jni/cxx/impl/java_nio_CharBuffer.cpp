@@ -85,6 +85,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_nio_CharBuffer.hpp>
@@ -145,6 +146,10 @@ java_nio_CharBuffer::java_nio_CharBuffer(void * proxy)
 
 	LOGV("java_nio_CharBuffer::java_nio_CharBuffer(void * proxy) exit");
 }
+java_nio_CharBuffer::java_nio_CharBuffer()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_nio_CharBuffer::~java_nio_CharBuffer()
@@ -161,9 +166,9 @@ java_nio_CharBuffer::~java_nio_CharBuffer()
 	LOGV("java_nio_CharBuffer::~java_nio_CharBuffer() exit");
 }
 // Functions
-java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
@@ -221,7 +226,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0)
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -239,17 +244,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
@@ -349,7 +354,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -367,11 +372,11 @@ java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
@@ -414,7 +419,7 @@ char java_nio_CharBuffer::get()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (*((char *) cxx_value));
+	result = (char) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -482,7 +487,7 @@ char java_nio_CharBuffer::get(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (*((char *) cxx_value));
+	result = (char) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -490,9 +495,9 @@ char java_nio_CharBuffer::get(int& arg0)
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(int& arg0,char& arg1)
+java_nio_CharBuffer java_nio_CharBuffer::put(int& arg0,char& arg1)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(int& arg0,char& arg1) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(int& arg0,char& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IC)Ljava/nio/CharBuffer;";
@@ -553,7 +558,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(int& arg0,char& arg1)
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -571,17 +576,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(int& arg0,char& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(int& arg0,char& arg1) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(int& arg0,char& arg1) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(char& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::put(char& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(char& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(char& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(C)Ljava/nio/CharBuffer;";
@@ -621,7 +626,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -639,17 +644,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(char& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(char& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/CharBuffer;";
@@ -689,7 +694,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -707,17 +712,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/String;II)Ljava/nio/CharBuffer;";
@@ -799,7 +804,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -817,17 +822,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
@@ -885,7 +890,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0)
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -903,17 +908,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
@@ -1013,7 +1018,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1031,17 +1036,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::put(java_nio_CharBuffer& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::put(java_nio_CharBuffer& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_nio_CharBuffer& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_nio_CharBuffer& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/CharBuffer;";
@@ -1081,7 +1086,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_nio_CharBuffer& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1099,11 +1104,11 @@ java_nio_CharBuffer *  java_nio_CharBuffer::put(java_nio_CharBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::put(java_nio_CharBuffer& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::put(java_nio_CharBuffer& arg0) exit");
 
 	return result;
 }
@@ -1167,7 +1172,7 @@ bool java_nio_CharBuffer::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1175,9 +1180,9 @@ bool java_nio_CharBuffer::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_nio_CharBuffer::toString()
+java_lang_String java_nio_CharBuffer::toString()
 {
-	LOGV("java_lang_String *  java_nio_CharBuffer::toString() enter");
+	LOGV("java_lang_String java_nio_CharBuffer::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1196,7 +1201,7 @@ java_lang_String *  java_nio_CharBuffer::toString()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1214,17 +1219,17 @@ java_lang_String *  java_nio_CharBuffer::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_CharBuffer::toString() exit");
+	LOGV("java_lang_String java_nio_CharBuffer::toString() exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/nio/CharBuffer;";
@@ -1306,7 +1311,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0,
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1324,17 +1329,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::append(char& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::append(char& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(char& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(char& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/nio/CharBuffer;";
@@ -1374,7 +1379,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1392,17 +1397,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(char& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(char& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;";
@@ -1442,7 +1447,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1460,11 +1465,11 @@ java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::append(java_lang_CharSequence& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0) exit");
 
 	return result;
 }
@@ -1507,7 +1512,7 @@ int java_nio_CharBuffer::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1575,7 +1580,7 @@ int java_nio_CharBuffer::compareTo(java_nio_CharBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1622,7 +1627,7 @@ int java_nio_CharBuffer::length()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1690,7 +1695,7 @@ char java_nio_CharBuffer::charAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (*((char *) cxx_value));
+	result = (char) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1698,9 +1703,9 @@ char java_nio_CharBuffer::charAt(int& arg0)
 
 	return result;
 }
-java_lang_CharSequence *  java_nio_CharBuffer::subSequence(int& arg0,int& arg1)
+java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& arg1)
 {
-	LOGV("java_lang_CharSequence *  java_nio_CharBuffer::subSequence(int& arg0,int& arg1) enter");
+	LOGV("java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -1761,7 +1766,7 @@ java_lang_CharSequence *  java_nio_CharBuffer::subSequence(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_CharSequence *  result;
+	java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1779,11 +1784,11 @@ java_lang_CharSequence *  java_nio_CharBuffer::subSequence(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_CharSequence * ) (*((java_lang_CharSequence *  *) cxx_value));
+	result = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_CharSequence *  java_nio_CharBuffer::subSequence(int& arg0,int& arg1) exit");
+	LOGV("java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& arg1) exit");
 
 	return result;
 }
@@ -1826,7 +1831,7 @@ bool java_nio_CharBuffer::isDirect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1873,7 +1878,7 @@ bool java_nio_CharBuffer::hasArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1938,7 +1943,7 @@ std::vector<char> java_nio_CharBuffer::array()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<char>) (*((std::vector<char> *) cxx_value));
+	result = (std::vector<char>) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1985,7 +1990,7 @@ int java_nio_CharBuffer::arrayOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1993,9 +1998,9 @@ int java_nio_CharBuffer::arrayOffset()
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/nio/CharBuffer;";
@@ -2077,7 +2082,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,in
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2095,17 +2100,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2)
+java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
@@ -2205,7 +2210,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& ar
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2223,17 +2228,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
@@ -2291,7 +2296,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0)
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2309,17 +2314,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(std::vector<char>& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;";
@@ -2359,7 +2364,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2377,11 +2382,11 @@ java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0) exit");
 
 	return result;
 }
@@ -2445,7 +2450,7 @@ int java_nio_CharBuffer::read(java_nio_CharBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2453,9 +2458,9 @@ int java_nio_CharBuffer::read(java_nio_CharBuffer& arg0)
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::allocate(int& arg0)
+java_nio_CharBuffer java_nio_CharBuffer::allocate(int& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::allocate(int& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::allocate(int& arg0) enter");
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/CharBuffer;";
@@ -2495,7 +2500,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::allocate(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2513,17 +2518,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::allocate(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::allocate(int& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::allocate(int& arg0) exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::duplicate()
+java_nio_CharBuffer java_nio_CharBuffer::duplicate()
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::duplicate() enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::duplicate() enter");
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
@@ -2542,7 +2547,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::duplicate()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2560,17 +2565,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::duplicate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::duplicate() exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::duplicate() exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::slice()
+java_nio_CharBuffer java_nio_CharBuffer::slice()
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::slice() enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::slice() enter");
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
@@ -2589,7 +2594,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::slice()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2607,17 +2612,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::slice()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::slice() exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::slice() exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::asReadOnlyBuffer()
+java_nio_CharBuffer java_nio_CharBuffer::asReadOnlyBuffer()
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::asReadOnlyBuffer() enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::asReadOnlyBuffer() enter");
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
@@ -2636,7 +2641,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::asReadOnlyBuffer()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2654,17 +2659,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::asReadOnlyBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::asReadOnlyBuffer() exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::asReadOnlyBuffer() exit");
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_CharBuffer::compact()
+java_nio_CharBuffer java_nio_CharBuffer::compact()
 {
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::compact() enter");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::compact() enter");
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
@@ -2683,7 +2688,7 @@ java_nio_CharBuffer *  java_nio_CharBuffer::compact()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2701,17 +2706,17 @@ java_nio_CharBuffer *  java_nio_CharBuffer::compact()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_CharBuffer::compact() exit");
+	LOGV("java_nio_CharBuffer java_nio_CharBuffer::compact() exit");
 
 	return result;
 }
-java_nio_ByteOrder *  java_nio_CharBuffer::order()
+java_nio_ByteOrder java_nio_CharBuffer::order()
 {
-	LOGV("java_nio_ByteOrder *  java_nio_CharBuffer::order() enter");
+	LOGV("java_nio_ByteOrder java_nio_CharBuffer::order() enter");
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
@@ -2730,7 +2735,7 @@ java_nio_ByteOrder *  java_nio_CharBuffer::order()
 	LOGV("java_nio_CharBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteOrder *  result;
+	java_nio_ByteOrder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2748,11 +2753,11 @@ java_nio_ByteOrder *  java_nio_CharBuffer::order()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteOrder * ) (*((java_nio_ByteOrder *  *) cxx_value));
+	result = (java_nio_ByteOrder) (java_nio_ByteOrder((java_nio_ByteOrder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteOrder *  java_nio_CharBuffer::order() exit");
+	LOGV("java_nio_ByteOrder java_nio_CharBuffer::order() exit");
 
 	return result;
 }

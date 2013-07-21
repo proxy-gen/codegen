@@ -66,6 +66,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_LongBuffer
@@ -115,34 +116,35 @@ public:
 	java_nio_LongBuffer(const java_nio_LongBuffer& cc);
 	java_nio_LongBuffer(void * proxy);
 	// Public Constructors
+	java_nio_LongBuffer();
 	// Default Destructor
 	virtual ~java_nio_LongBuffer();
 	// Functions
 	 long get();
-	 java_nio_LongBuffer *  get(std::vector<long>& arg0);
-	 java_nio_LongBuffer *  get(std::vector<long>& arg0,int& arg1,int& arg2);
+	 java_nio_LongBuffer get(std::vector<long>& arg0);
+	 java_nio_LongBuffer get(std::vector<long>& arg0,int& arg1,int& arg2);
 	 long get(int& arg0);
-	 java_nio_LongBuffer *  put(java_nio_LongBuffer& arg0);
-	 java_nio_LongBuffer *  put(long& arg0);
-	 java_nio_LongBuffer *  put(int& arg0,long& arg1);
-	 java_nio_LongBuffer *  put(std::vector<long>& arg0,int& arg1,int& arg2);
-	 java_nio_LongBuffer *  put(std::vector<long>& arg0);
+	 java_nio_LongBuffer put(java_nio_LongBuffer& arg0);
+	 java_nio_LongBuffer put(long& arg0);
+	 java_nio_LongBuffer put(int& arg0,long& arg1);
+	 java_nio_LongBuffer put(std::vector<long>& arg0,int& arg1,int& arg2);
+	 java_nio_LongBuffer put(std::vector<long>& arg0);
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
 	 int compareTo(java_nio_LongBuffer& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<long> array();
 	 int arrayOffset();
-	static java_nio_LongBuffer *  wrap(std::vector<long>& arg0,int& arg1,int& arg2);
-	static java_nio_LongBuffer *  wrap(std::vector<long>& arg0);
-	static java_nio_LongBuffer *  allocate(int& arg0);
-	 java_nio_LongBuffer *  duplicate();
-	 java_nio_LongBuffer *  slice();
-	 java_nio_LongBuffer *  asReadOnlyBuffer();
-	 java_nio_LongBuffer *  compact();
-	 java_nio_ByteOrder *  order();
+	static java_nio_LongBuffer wrap(std::vector<long>& arg0,int& arg1,int& arg2);
+	static java_nio_LongBuffer wrap(std::vector<long>& arg0);
+	static java_nio_LongBuffer allocate(int& arg0);
+	 java_nio_LongBuffer duplicate();
+	 java_nio_LongBuffer slice();
+	 java_nio_LongBuffer asReadOnlyBuffer();
+	 java_nio_LongBuffer compact();
+	 java_nio_ByteOrder order();
 };	
 
 } // namespace

@@ -17,6 +17,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_nio_charset_CodingErrorAction.hpp>
@@ -77,6 +78,10 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * pr
 
 	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * proxy) exit");
 }
+java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
@@ -93,9 +98,9 @@ java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction()
 	LOGV("java_nio_charset_CodingErrorAction::~java_nio_charset_CodingErrorAction() exit");
 }
 // Functions
-java_lang_String *  java_nio_charset_CodingErrorAction::toString()
+java_lang_String java_nio_charset_CodingErrorAction::toString()
 {
-	LOGV("java_lang_String *  java_nio_charset_CodingErrorAction::toString() enter");
+	LOGV("java_lang_String java_nio_charset_CodingErrorAction::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -114,7 +119,7 @@ java_lang_String *  java_nio_charset_CodingErrorAction::toString()
 	LOGV("java_nio_charset_CodingErrorAction jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -132,11 +137,11 @@ java_lang_String *  java_nio_charset_CodingErrorAction::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_CodingErrorAction::toString() exit");
+	LOGV("java_lang_String java_nio_charset_CodingErrorAction::toString() exit");
 
 	return result;
 }

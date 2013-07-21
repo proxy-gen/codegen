@@ -83,6 +83,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_Field
@@ -137,12 +138,13 @@ public:
 	java_lang_reflect_Field(const java_lang_reflect_Field& cc);
 	java_lang_reflect_Field(void * proxy);
 	// Public Constructors
+	java_lang_reflect_Field();
 	// Default Destructor
 	virtual ~java_lang_reflect_Field();
 	// Functions
-	 java_lang_Object *  get(java_lang_Object& arg0);
+	 java_lang_Object get(java_lang_Object& arg0);
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
 	 int getModifiers();
 	 bool getBoolean(java_lang_Object& arg0);
@@ -153,15 +155,15 @@ public:
 	 long getLong(java_lang_Object& arg0);
 	 float getFloat(java_lang_Object& arg0);
 	 double getDouble(java_lang_Object& arg0);
-	 java_lang_String *  getName();
+	 java_lang_String getName();
 	 bool isSynthetic();
-	 java_lang_Class *  getDeclaringClass();
-	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
+	 java_lang_Class getDeclaringClass();
+	 java_lang_annotation_Annotation getAnnotation(java_lang_Class& arg0);
 	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 bool isEnumConstant();
-	 java_lang_Class *  getType();
-	 java_lang_reflect_Type *  getGenericType();
-	 java_lang_String *  toGenericString();
+	 java_lang_Class getType();
+	 java_lang_reflect_Type getGenericType();
+	 java_lang_String toGenericString();
 	 void set(java_lang_Object& arg0,java_lang_Object& arg1);
 	 void setBoolean(java_lang_Object& arg0,bool& arg1);
 	 void setByte(java_lang_Object& arg0,byte& arg1);

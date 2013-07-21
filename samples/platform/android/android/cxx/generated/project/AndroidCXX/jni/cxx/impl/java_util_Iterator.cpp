@@ -19,6 +19,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Iterator.hpp>
@@ -79,6 +80,10 @@ java_util_Iterator::java_util_Iterator(void * proxy)
 
 	LOGV("java_util_Iterator::java_util_Iterator(void * proxy) exit");
 }
+java_util_Iterator::java_util_Iterator()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_util_Iterator::~java_util_Iterator()
@@ -134,7 +139,7 @@ bool java_util_Iterator::hasNext()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -142,9 +147,9 @@ bool java_util_Iterator::hasNext()
 
 	return result;
 }
-java_lang_Object *  java_util_Iterator::next()
+java_lang_Object java_util_Iterator::next()
 {
-	LOGV("java_lang_Object *  java_util_Iterator::next() enter");
+	LOGV("java_lang_Object java_util_Iterator::next() enter");
 
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -163,7 +168,7 @@ java_lang_Object *  java_util_Iterator::next()
 	LOGV("java_util_Iterator jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -181,11 +186,11 @@ java_lang_Object *  java_util_Iterator::next()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Iterator::next() exit");
+	LOGV("java_lang_Object java_util_Iterator::next() exit");
 
 	return result;
 }

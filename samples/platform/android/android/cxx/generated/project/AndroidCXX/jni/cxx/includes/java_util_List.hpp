@@ -84,6 +84,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_List
@@ -137,12 +138,13 @@ public:
 	java_util_List(const java_util_List& cc);
 	java_util_List(void * proxy);
 	// Public Constructors
+	java_util_List();
 	// Default Destructor
 	virtual ~java_util_List();
 	// Functions
 	 void add(int& arg0,java_lang_Object& arg1);
 	 bool add(java_lang_Object& arg0);
-	 java_lang_Object *  get(int& arg0);
+	 java_lang_Object get(int& arg0);
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
 	 int indexOf(java_lang_Object& arg0);
@@ -155,13 +157,13 @@ public:
 	 int size();
 	 std::vector<java_lang_Object > toArray(std::vector<java_lang_Object >& arg0);
 	 std::vector<java_lang_Object > toArray();
-	 java_util_Iterator *  iterator();
-	 java_lang_Object *  remove(int& arg0);
+	 java_util_Iterator iterator();
+	 java_lang_Object remove(int& arg0);
 	 bool remove(java_lang_Object& arg0);
-	 java_lang_Object *  set(int& arg0,java_lang_Object& arg1);
-	 java_util_ListIterator *  listIterator(int& arg0);
-	 java_util_ListIterator *  listIterator();
-	 java_util_List *  subList(int& arg0,int& arg1);
+	 java_lang_Object set(int& arg0,java_lang_Object& arg1);
+	 java_util_ListIterator listIterator(int& arg0);
+	 java_util_ListIterator listIterator();
+	 java_util_List subList(int& arg0,int& arg1);
 	 bool removeAll(java_util_Collection& arg0);
 	 bool containsAll(java_util_Collection& arg0);
 	 bool retainAll(java_util_Collection& arg0);

@@ -19,6 +19,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Iterator
@@ -57,11 +58,12 @@ public:
 	java_util_Iterator(const java_util_Iterator& cc);
 	java_util_Iterator(void * proxy);
 	// Public Constructors
+	java_util_Iterator();
 	// Default Destructor
 	virtual ~java_util_Iterator();
 	// Functions
 	 bool hasNext();
-	 java_lang_Object *  next();
+	 java_lang_Object next();
 	 void remove();
 };	
 

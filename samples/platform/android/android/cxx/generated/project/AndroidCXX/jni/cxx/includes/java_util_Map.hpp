@@ -55,6 +55,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Map
@@ -108,21 +109,22 @@ public:
 	java_util_Map(const java_util_Map& cc);
 	java_util_Map(void * proxy);
 	// Public Constructors
+	java_util_Map();
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	 java_lang_Object *  get(java_lang_Object& arg0);
-	 java_lang_Object *  put(java_lang_Object& arg0,java_lang_Object& arg1);
+	 java_lang_Object get(java_lang_Object& arg0);
+	 java_lang_Object put(java_lang_Object& arg0,java_lang_Object& arg1);
 	 bool equals(java_lang_Object& arg0);
-	 java_util_Collection *  values();
+	 java_util_Collection values();
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
 	 int size();
-	 java_util_Set *  entrySet();
+	 java_util_Set entrySet();
 	 void putAll(java_util_Map& arg0);
-	 java_lang_Object *  remove(java_lang_Object& arg0);
-	 java_util_Set *  keySet();
+	 java_lang_Object remove(java_lang_Object& arg0);
+	 java_util_Set keySet();
 	 bool containsValue(java_lang_Object& arg0);
 	 bool containsKey(java_lang_Object& arg0);
 };	

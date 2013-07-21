@@ -58,6 +58,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Date.hpp>
@@ -746,7 +747,7 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -754,9 +755,9 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_util_Date::toString()
+java_lang_String java_util_Date::toString()
 {
-	LOGV("java_lang_String *  java_util_Date::toString() enter");
+	LOGV("java_lang_String java_util_Date::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -775,7 +776,7 @@ java_lang_String *  java_util_Date::toString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -793,11 +794,11 @@ java_lang_String *  java_util_Date::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Date::toString() exit");
+	LOGV("java_lang_String java_util_Date::toString() exit");
 
 	return result;
 }
@@ -840,7 +841,7 @@ int java_util_Date::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -848,9 +849,9 @@ int java_util_Date::hashCode()
 
 	return result;
 }
-java_lang_Object *  java_util_Date::clone()
+java_lang_Object java_util_Date::clone()
 {
-	LOGV("java_lang_Object *  java_util_Date::clone() enter");
+	LOGV("java_lang_Object java_util_Date::clone() enter");
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -869,7 +870,7 @@ java_lang_Object *  java_util_Date::clone()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -887,11 +888,11 @@ java_lang_Object *  java_util_Date::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Date::clone() exit");
+	LOGV("java_lang_Object java_util_Date::clone() exit");
 
 	return result;
 }
@@ -955,7 +956,7 @@ int java_util_Date::compareTo(java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1023,7 +1024,7 @@ bool java_util_Date::after(java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1091,7 +1092,7 @@ bool java_util_Date::before(java_util_Date& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1159,7 +1160,7 @@ long java_util_Date::parse(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (*((long *) cxx_value));
+	result = (long) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1255,7 +1256,7 @@ long java_util_Date::getTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (*((long *) cxx_value));
+	result = (long) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1302,7 +1303,7 @@ int java_util_Date::getYear()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1349,7 +1350,7 @@ int java_util_Date::getMonth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1396,7 +1397,7 @@ int java_util_Date::getDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1443,7 +1444,7 @@ int java_util_Date::getHours()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1490,7 +1491,7 @@ int java_util_Date::getMinutes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1537,7 +1538,7 @@ int java_util_Date::getSeconds()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1710,7 +1711,7 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (*((long *) cxx_value));
+	result = (long) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2051,7 +2052,7 @@ int java_util_Date::getDay()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2059,9 +2060,9 @@ int java_util_Date::getDay()
 
 	return result;
 }
-java_lang_String *  java_util_Date::toLocaleString()
+java_lang_String java_util_Date::toLocaleString()
 {
-	LOGV("java_lang_String *  java_util_Date::toLocaleString() enter");
+	LOGV("java_lang_String java_util_Date::toLocaleString() enter");
 
 	const char *methodName = "toLocaleString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2080,7 +2081,7 @@ java_lang_String *  java_util_Date::toLocaleString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2098,17 +2099,17 @@ java_lang_String *  java_util_Date::toLocaleString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Date::toLocaleString() exit");
+	LOGV("java_lang_String java_util_Date::toLocaleString() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Date::toGMTString()
+java_lang_String java_util_Date::toGMTString()
 {
-	LOGV("java_lang_String *  java_util_Date::toGMTString() enter");
+	LOGV("java_lang_String java_util_Date::toGMTString() enter");
 
 	const char *methodName = "toGMTString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2127,7 +2128,7 @@ java_lang_String *  java_util_Date::toGMTString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2145,11 +2146,11 @@ java_lang_String *  java_util_Date::toGMTString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Date::toGMTString() exit");
+	LOGV("java_lang_String java_util_Date::toGMTString() exit");
 
 	return result;
 }
@@ -2192,7 +2193,7 @@ int java_util_Date::getTimezoneOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 

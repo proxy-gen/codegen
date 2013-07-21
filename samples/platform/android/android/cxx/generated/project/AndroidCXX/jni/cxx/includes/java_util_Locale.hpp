@@ -74,6 +74,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Locale
@@ -122,31 +123,32 @@ public:
 	java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2);
 	java_util_Locale(java_lang_String& arg0,java_lang_String& arg1);
 	java_util_Locale(java_lang_String& arg0);
+	java_util_Locale();
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_Object *  clone();
-	 java_lang_String *  getLanguage();
-	static java_util_Locale *  getDefault();
+	 java_lang_Object clone();
+	 java_lang_String getLanguage();
+	static java_util_Locale getDefault();
 	static void setDefault(java_util_Locale& arg0);
 	static std::vector<java_util_Locale > getAvailableLocales();
 	static std::vector<java_lang_String > getISOCountries();
 	static std::vector<java_lang_String > getISOLanguages();
-	 java_lang_String *  getCountry();
-	 java_lang_String *  getVariant();
-	 java_lang_String *  getISO3Language();
-	 java_lang_String *  getISO3Country();
-	 java_lang_String *  getDisplayLanguage(java_util_Locale& arg0);
-	 java_lang_String *  getDisplayLanguage();
-	 java_lang_String *  getDisplayCountry(java_util_Locale& arg0);
-	 java_lang_String *  getDisplayCountry();
-	 java_lang_String *  getDisplayVariant();
-	 java_lang_String *  getDisplayVariant(java_util_Locale& arg0);
-	 java_lang_String *  getDisplayName(java_util_Locale& arg0);
-	 java_lang_String *  getDisplayName();
+	 java_lang_String getCountry();
+	 java_lang_String getVariant();
+	 java_lang_String getISO3Language();
+	 java_lang_String getISO3Country();
+	 java_lang_String getDisplayLanguage(java_util_Locale& arg0);
+	 java_lang_String getDisplayLanguage();
+	 java_lang_String getDisplayCountry(java_util_Locale& arg0);
+	 java_lang_String getDisplayCountry();
+	 java_lang_String getDisplayVariant();
+	 java_lang_String getDisplayVariant(java_util_Locale& arg0);
+	 java_lang_String getDisplayName(java_util_Locale& arg0);
+	 java_lang_String getDisplayName();
 };	
 
 } // namespace

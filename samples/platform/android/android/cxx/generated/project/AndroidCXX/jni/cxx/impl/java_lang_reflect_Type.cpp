@@ -15,6 +15,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_reflect_Type.hpp>
@@ -74,6 +75,10 @@ java_lang_reflect_Type::java_lang_reflect_Type(void * proxy)
 	}
 
 	LOGV("java_lang_reflect_Type::java_lang_reflect_Type(void * proxy) exit");
+}
+java_lang_reflect_Type::java_lang_reflect_Type()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor

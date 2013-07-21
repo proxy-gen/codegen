@@ -16,6 +16,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
@@ -75,6 +76,10 @@ java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void 
 	}
 
 	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void * proxy) exit");
+}
+java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -167,7 +172,7 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaratio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_TypeVariable >) (*((std::vector<java_lang_reflect_TypeVariable > *) cxx_value));
+	result = (std::vector<java_lang_reflect_TypeVariable >) (cxx_value);
 		
 	jni->popLocalFrame();
 

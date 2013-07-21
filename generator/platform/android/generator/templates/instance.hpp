@@ -52,7 +52,6 @@
 	#set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
  	#set $function['retrn_type'] = $typeinfo['typename']
  	#if 'isproxied' in $typeinfo
- 	#set $function['retrn_type'] = $typeinfo['typename'] + " * "
 	$proxied_typeinfo_list.append(typeinfo)
 	#end if
 	#if 'children' in $retrn
@@ -109,6 +108,14 @@
  	#end if
 #end while
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
+#end for
+
+#set $no_arg_constructor = True
+#for $constructor in $constructors
+ 	#if $len(constructor['params']) == 0
+ 		#set $no_arg_constructor = False
+ 		#break
+ 	#end if
 #end for
 
 #set $proxied_typeinfos = list()
@@ -189,6 +196,9 @@ public:
 	#for $constructor in $constructors
 	${entity_class_name}($constructor['param_str']);
 	#end for
+	#if $no_arg_constructor
+	${entity_class_name}();
+	#end if
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor

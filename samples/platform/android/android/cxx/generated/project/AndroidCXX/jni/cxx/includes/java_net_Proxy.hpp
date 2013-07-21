@@ -27,6 +27,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_net_Proxy
@@ -79,14 +80,15 @@ public:
 	java_net_Proxy(void * proxy);
 	// Public Constructors
 	java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1);
+	java_net_Proxy();
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	 java_net_Proxy_Type *  type();
+	 java_net_Proxy_Type type();
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_net_SocketAddress *  address();
+	 java_net_SocketAddress address();
 };	
 
 } // namespace

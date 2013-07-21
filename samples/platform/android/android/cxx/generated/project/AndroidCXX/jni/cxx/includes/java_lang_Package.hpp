@@ -58,6 +58,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_Package
@@ -111,26 +112,27 @@ public:
 	java_lang_Package(const java_lang_Package& cc);
 	java_lang_Package(void * proxy);
 	// Public Constructors
+	java_lang_Package();
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_String *  getName();
-	static java_lang_Package *  getPackage(java_lang_String& arg0);
-	 java_lang_annotation_Annotation *  getAnnotation(java_lang_Class& arg0);
+	 java_lang_String getName();
+	static java_lang_Package getPackage(java_lang_String& arg0);
+	 java_lang_annotation_Annotation getAnnotation(java_lang_Class& arg0);
 	 bool isAnnotationPresent(java_lang_Class& arg0);
 	 std::vector<java_lang_annotation_Annotation > getAnnotations();
 	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	static std::vector<java_lang_Package > getPackages();
 	 bool isSealed();
 	 bool isSealed(java_net_URL& arg0);
-	 java_lang_String *  getSpecificationTitle();
-	 java_lang_String *  getSpecificationVersion();
-	 java_lang_String *  getSpecificationVendor();
-	 java_lang_String *  getImplementationTitle();
-	 java_lang_String *  getImplementationVersion();
-	 java_lang_String *  getImplementationVendor();
+	 java_lang_String getSpecificationTitle();
+	 java_lang_String getSpecificationVersion();
+	 java_lang_String getSpecificationVendor();
+	 java_lang_String getImplementationTitle();
+	 java_lang_String getImplementationVersion();
+	 java_lang_String getImplementationVendor();
 	 bool isCompatibleWith(java_lang_String& arg0);
 };	
 

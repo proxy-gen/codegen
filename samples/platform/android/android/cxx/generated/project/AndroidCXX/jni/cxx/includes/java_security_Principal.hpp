@@ -22,6 +22,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_Principal
@@ -64,13 +65,14 @@ public:
 	java_security_Principal(const java_security_Principal& cc);
 	java_security_Principal(void * proxy);
 	// Public Constructors
+	java_security_Principal();
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_String *  getName();
+	 java_lang_String getName();
 };	
 
 } // namespace

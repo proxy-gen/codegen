@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_ListIterator
@@ -66,16 +67,17 @@ public:
 	java_util_ListIterator(const java_util_ListIterator& cc);
 	java_util_ListIterator(void * proxy);
 	// Public Constructors
+	java_util_ListIterator();
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
 	 void add(java_lang_Object& arg0);
 	 bool hasNext();
-	 java_lang_Object *  next();
+	 java_lang_Object next();
 	 void remove();
 	 void set(java_lang_Object& arg0);
 	 int nextIndex();
-	 java_lang_Object *  previous();
+	 java_lang_Object previous();
 	 int previousIndex();
 	 bool hasPrevious();
 };	

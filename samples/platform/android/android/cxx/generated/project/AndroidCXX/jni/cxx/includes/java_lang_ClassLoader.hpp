@@ -52,6 +52,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_ClassLoader
@@ -113,18 +114,19 @@ public:
 	java_lang_ClassLoader(const java_lang_ClassLoader& cc);
 	java_lang_ClassLoader(void * proxy);
 	// Public Constructors
+	java_lang_ClassLoader();
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions
-	 java_lang_Class *  loadClass(java_lang_String& arg0);
-	static java_lang_ClassLoader *  getSystemClassLoader();
-	 java_io_InputStream *  getResourceAsStream(java_lang_String& arg0);
-	 java_net_URL *  getResource(java_lang_String& arg0);
-	static java_io_InputStream *  getSystemResourceAsStream(java_lang_String& arg0);
-	static java_net_URL *  getSystemResource(java_lang_String& arg0);
-	 java_util_Enumeration *  getResources(java_lang_String& arg0);
-	static java_util_Enumeration *  getSystemResources(java_lang_String& arg0);
-	 java_lang_ClassLoader *  getParent();
+	 java_lang_Class loadClass(java_lang_String& arg0);
+	static java_lang_ClassLoader getSystemClassLoader();
+	 java_io_InputStream getResourceAsStream(java_lang_String& arg0);
+	 java_net_URL getResource(java_lang_String& arg0);
+	static java_io_InputStream getSystemResourceAsStream(java_lang_String& arg0);
+	static java_net_URL getSystemResource(java_lang_String& arg0);
+	 java_util_Enumeration getResources(java_lang_String& arg0);
+	static java_util_Enumeration getSystemResources(java_lang_String& arg0);
+	 java_lang_ClassLoader getParent();
 	 void setDefaultAssertionStatus(bool& arg0);
 	 void setPackageAssertionStatus(java_lang_String& arg0,bool& arg1);
 	 void setClassAssertionStatus(java_lang_String& arg0,bool& arg1);

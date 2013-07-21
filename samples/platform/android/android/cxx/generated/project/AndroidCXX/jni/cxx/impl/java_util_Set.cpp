@@ -39,6 +39,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Set.hpp>
@@ -98,6 +99,10 @@ java_util_Set::java_util_Set(void * proxy)
 	}
 
 	LOGV("java_util_Set::java_util_Set(void * proxy) exit");
+}
+java_util_Set::java_util_Set()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -175,7 +180,7 @@ bool java_util_Set::add(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -243,7 +248,7 @@ bool java_util_Set::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -290,7 +295,7 @@ int java_util_Set::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -365,7 +370,7 @@ bool java_util_Set::isEmpty()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -433,7 +438,7 @@ bool java_util_Set::contains(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -519,7 +524,7 @@ bool java_util_Set::addAll(java_util_Collection& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -566,7 +571,7 @@ int java_util_Set::size()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -670,7 +675,7 @@ std::vector<java_lang_Object > java_util_Set::toArray(std::vector<java_lang_Obje
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (*((std::vector<java_lang_Object > *) cxx_value));
+	result = (std::vector<java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -735,7 +740,7 @@ std::vector<java_lang_Object > java_util_Set::toArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (*((std::vector<java_lang_Object > *) cxx_value));
+	result = (std::vector<java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -743,9 +748,9 @@ std::vector<java_lang_Object > java_util_Set::toArray()
 
 	return result;
 }
-java_util_Iterator *  java_util_Set::iterator()
+java_util_Iterator java_util_Set::iterator()
 {
-	LOGV("java_util_Iterator *  java_util_Set::iterator() enter");
+	LOGV("java_util_Iterator java_util_Set::iterator() enter");
 
 	const char *methodName = "iterator";
 	const char *methodSignature = "()Ljava/util/Iterator;";
@@ -764,7 +769,7 @@ java_util_Iterator *  java_util_Set::iterator()
 	LOGV("java_util_Set jni address %d", javaObject);
 
 
-	java_util_Iterator *  result;
+	java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -800,11 +805,11 @@ java_util_Iterator *  java_util_Set::iterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Iterator * ) (*((java_util_Iterator *  *) cxx_value));
+	result = (java_util_Iterator) (java_util_Iterator((java_util_Iterator *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Iterator *  java_util_Set::iterator() exit");
+	LOGV("java_util_Iterator java_util_Set::iterator() exit");
 
 	return result;
 }
@@ -868,7 +873,7 @@ bool java_util_Set::remove(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -954,7 +959,7 @@ bool java_util_Set::removeAll(java_util_Collection& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1040,7 +1045,7 @@ bool java_util_Set::containsAll(java_util_Collection& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1126,7 +1131,7 @@ bool java_util_Set::retainAll(java_util_Collection& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -24,6 +24,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_net_ContentHandler
@@ -74,8 +75,8 @@ public:
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
-	 java_lang_Object *  getContent(java_net_URLConnection& arg0);
-	 java_lang_Object *  getContent(java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
+	 java_lang_Object getContent(java_net_URLConnection& arg0);
+	 java_lang_Object getContent(java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
 };	
 
 } // namespace

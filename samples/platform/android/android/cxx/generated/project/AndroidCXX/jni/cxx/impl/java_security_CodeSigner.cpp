@@ -27,6 +27,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_security_CodeSigner.hpp>
@@ -86,6 +87,10 @@ java_security_CodeSigner::java_security_CodeSigner(void * proxy)
 	}
 
 	LOGV("java_security_CodeSigner::java_security_CodeSigner(void * proxy) exit");
+}
+java_security_CodeSigner::java_security_CodeSigner()
+{
+
 }
 // Public Constructors
 java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1)
@@ -241,7 +246,7 @@ bool java_security_CodeSigner::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -249,9 +254,9 @@ bool java_security_CodeSigner::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_security_CodeSigner::toString()
+java_lang_String java_security_CodeSigner::toString()
 {
-	LOGV("java_lang_String *  java_security_CodeSigner::toString() enter");
+	LOGV("java_lang_String java_security_CodeSigner::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -270,7 +275,7 @@ java_lang_String *  java_security_CodeSigner::toString()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -288,11 +293,11 @@ java_lang_String *  java_security_CodeSigner::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_CodeSigner::toString() exit");
+	LOGV("java_lang_String java_security_CodeSigner::toString() exit");
 
 	return result;
 }
@@ -335,7 +340,7 @@ int java_security_CodeSigner::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -343,9 +348,9 @@ int java_security_CodeSigner::hashCode()
 
 	return result;
 }
-java_security_cert_CertPath *  java_security_CodeSigner::getSignerCertPath()
+java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
 {
-	LOGV("java_security_cert_CertPath *  java_security_CodeSigner::getSignerCertPath() enter");
+	LOGV("java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() enter");
 
 	const char *methodName = "getSignerCertPath";
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
@@ -364,7 +369,7 @@ java_security_cert_CertPath *  java_security_CodeSigner::getSignerCertPath()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_security_cert_CertPath *  result;
+	java_security_cert_CertPath result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -382,17 +387,17 @@ java_security_cert_CertPath *  java_security_CodeSigner::getSignerCertPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_cert_CertPath(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_cert_CertPath * ) (*((java_security_cert_CertPath *  *) cxx_value));
+	result = (java_security_cert_CertPath) (java_security_cert_CertPath((java_security_cert_CertPath *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_cert_CertPath *  java_security_CodeSigner::getSignerCertPath() exit");
+	LOGV("java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() exit");
 
 	return result;
 }
-java_security_Timestamp *  java_security_CodeSigner::getTimestamp()
+java_security_Timestamp java_security_CodeSigner::getTimestamp()
 {
-	LOGV("java_security_Timestamp *  java_security_CodeSigner::getTimestamp() enter");
+	LOGV("java_security_Timestamp java_security_CodeSigner::getTimestamp() enter");
 
 	const char *methodName = "getTimestamp";
 	const char *methodSignature = "()Ljava/security/Timestamp;";
@@ -411,7 +416,7 @@ java_security_Timestamp *  java_security_CodeSigner::getTimestamp()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_security_Timestamp *  result;
+	java_security_Timestamp result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -429,11 +434,11 @@ java_security_Timestamp *  java_security_CodeSigner::getTimestamp()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_Timestamp(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_Timestamp * ) (*((java_security_Timestamp *  *) cxx_value));
+	result = (java_security_Timestamp) (java_security_Timestamp((java_security_Timestamp *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_Timestamp *  java_security_CodeSigner::getTimestamp() exit");
+	LOGV("java_security_Timestamp java_security_CodeSigner::getTimestamp() exit");
 
 	return result;
 }

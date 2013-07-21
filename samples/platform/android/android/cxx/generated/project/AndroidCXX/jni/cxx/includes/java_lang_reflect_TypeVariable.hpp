@@ -22,6 +22,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_TypeVariable
@@ -68,12 +69,13 @@ public:
 	java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc);
 	java_lang_reflect_TypeVariable(void * proxy);
 	// Public Constructors
+	java_lang_reflect_TypeVariable();
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
-	 java_lang_String *  getName();
+	 java_lang_String getName();
 	 std::vector<java_lang_reflect_Type > getBounds();
-	 java_lang_reflect_GenericDeclaration *  getGenericDeclaration();
+	 java_lang_reflect_GenericDeclaration getGenericDeclaration();
 };	
 
 } // namespace

@@ -38,6 +38,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_CodeSource
@@ -97,13 +98,14 @@ public:
 	// Public Constructors
 	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1);
 	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1);
+	java_security_CodeSource();
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_net_URL *  getLocation();
+	 java_net_URL getLocation();
 	 std::vector<java_security_cert_Certificate > getCertificates();
 	 bool implies(java_security_CodeSource& arg0);
 	 std::vector<java_security_CodeSigner > getCodeSigners();

@@ -18,6 +18,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Enumeration.hpp>
@@ -78,6 +79,10 @@ java_util_Enumeration::java_util_Enumeration(void * proxy)
 
 	LOGV("java_util_Enumeration::java_util_Enumeration(void * proxy) exit");
 }
+java_util_Enumeration::java_util_Enumeration()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_util_Enumeration::~java_util_Enumeration()
@@ -133,7 +138,7 @@ bool java_util_Enumeration::hasMoreElements()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -141,9 +146,9 @@ bool java_util_Enumeration::hasMoreElements()
 
 	return result;
 }
-java_lang_Object *  java_util_Enumeration::nextElement()
+java_lang_Object java_util_Enumeration::nextElement()
 {
-	LOGV("java_lang_Object *  java_util_Enumeration::nextElement() enter");
+	LOGV("java_lang_Object java_util_Enumeration::nextElement() enter");
 
 	const char *methodName = "nextElement";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -162,7 +167,7 @@ java_lang_Object *  java_util_Enumeration::nextElement()
 	LOGV("java_util_Enumeration jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -180,11 +185,11 @@ java_lang_Object *  java_util_Enumeration::nextElement()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Enumeration::nextElement() exit");
+	LOGV("java_lang_Object java_util_Enumeration::nextElement() exit");
 
 	return result;
 }

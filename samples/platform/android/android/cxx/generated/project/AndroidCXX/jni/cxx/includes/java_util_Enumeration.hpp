@@ -18,6 +18,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Enumeration
@@ -56,11 +57,12 @@ public:
 	java_util_Enumeration(const java_util_Enumeration& cc);
 	java_util_Enumeration(void * proxy);
 	// Public Constructors
+	java_util_Enumeration();
 	// Default Destructor
 	virtual ~java_util_Enumeration();
 	// Functions
 	 bool hasMoreElements();
-	 java_lang_Object *  nextElement();
+	 java_lang_Object nextElement();
 };	
 
 } // namespace

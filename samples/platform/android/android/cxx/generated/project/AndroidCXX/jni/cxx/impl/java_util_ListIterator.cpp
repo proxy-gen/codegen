@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_ListIterator.hpp>
@@ -87,6 +88,10 @@ java_util_ListIterator::java_util_ListIterator(void * proxy)
 	}
 
 	LOGV("java_util_ListIterator::java_util_ListIterator(void * proxy) exit");
+}
+java_util_ListIterator::java_util_ListIterator()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -192,7 +197,7 @@ bool java_util_ListIterator::hasNext()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -200,9 +205,9 @@ bool java_util_ListIterator::hasNext()
 
 	return result;
 }
-java_lang_Object *  java_util_ListIterator::next()
+java_lang_Object java_util_ListIterator::next()
 {
-	LOGV("java_lang_Object *  java_util_ListIterator::next() enter");
+	LOGV("java_lang_Object java_util_ListIterator::next() enter");
 
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -221,7 +226,7 @@ java_lang_Object *  java_util_ListIterator::next()
 	LOGV("java_util_ListIterator jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -239,11 +244,11 @@ java_lang_Object *  java_util_ListIterator::next()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_ListIterator::next() exit");
+	LOGV("java_lang_Object java_util_ListIterator::next() exit");
 
 	return result;
 }
@@ -363,7 +368,7 @@ int java_util_ListIterator::nextIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -371,9 +376,9 @@ int java_util_ListIterator::nextIndex()
 
 	return result;
 }
-java_lang_Object *  java_util_ListIterator::previous()
+java_lang_Object java_util_ListIterator::previous()
 {
-	LOGV("java_lang_Object *  java_util_ListIterator::previous() enter");
+	LOGV("java_lang_Object java_util_ListIterator::previous() enter");
 
 	const char *methodName = "previous";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -392,7 +397,7 @@ java_lang_Object *  java_util_ListIterator::previous()
 	LOGV("java_util_ListIterator jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -410,11 +415,11 @@ java_lang_Object *  java_util_ListIterator::previous()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_ListIterator::previous() exit");
+	LOGV("java_lang_Object java_util_ListIterator::previous() exit");
 
 	return result;
 }
@@ -457,7 +462,7 @@ int java_util_ListIterator::previousIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -504,7 +509,7 @@ bool java_util_ListIterator::hasPrevious()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 

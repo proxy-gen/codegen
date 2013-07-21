@@ -37,6 +37,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_ProtectionDomain
@@ -97,14 +98,15 @@ public:
 	// Public Constructors
 	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1);
 	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3);
+	java_security_ProtectionDomain();
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions
-	 java_lang_String *  toString();
-	 java_lang_ClassLoader *  getClassLoader();
-	 java_security_CodeSource *  getCodeSource();
+	 java_lang_String toString();
+	 java_lang_ClassLoader getClassLoader();
+	 java_security_CodeSource getCodeSource();
 	 std::vector<java_security_Principal > getPrincipals();
-	 java_security_PermissionCollection *  getPermissions();
+	 java_security_PermissionCollection getPermissions();
 	 bool implies(java_security_Permission& arg0);
 };	
 

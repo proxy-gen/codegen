@@ -35,6 +35,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_cert_CertPath
@@ -89,17 +90,18 @@ public:
 	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
 	java_security_cert_CertPath(void * proxy);
 	// Public Constructors
+	java_security_cert_CertPath();
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_util_List *  getCertificates();
-	 java_lang_String *  getType();
+	 java_util_List getCertificates();
+	 java_lang_String getType();
 	 std::vector<byte> getEncoded();
 	 std::vector<byte> getEncoded(java_lang_String& arg0);
-	 java_util_Iterator *  getEncodings();
+	 java_util_Iterator getEncodings();
 };	
 
 } // namespace

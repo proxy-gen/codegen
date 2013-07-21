@@ -101,6 +101,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_StringBuilder.hpp>
@@ -384,9 +385,9 @@ java_lang_StringBuilder::~java_lang_StringBuilder()
 	LOGV("java_lang_StringBuilder::~java_lang_StringBuilder() exit");
 }
 // Functions
-java_lang_String *  java_lang_StringBuilder::toString()
+java_lang_String java_lang_StringBuilder::toString()
 {
-	LOGV("java_lang_String *  java_lang_StringBuilder::toString() enter");
+	LOGV("java_lang_String java_lang_StringBuilder::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -405,7 +406,7 @@ java_lang_String *  java_lang_StringBuilder::toString()
 	LOGV("java_lang_StringBuilder jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -423,17 +424,17 @@ java_lang_String *  java_lang_StringBuilder::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_lang_StringBuilder::toString() exit");
+	LOGV("java_lang_String java_lang_StringBuilder::toString() exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;";
@@ -473,7 +474,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequenc
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -491,17 +492,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequenc
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2)
+java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;";
@@ -583,7 +584,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequenc
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -601,17 +602,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequenc
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([C)Ljava/lang/StringBuilder;";
@@ -669,7 +670,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& ar
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -687,17 +688,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(bool& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(bool& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(bool& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(bool& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Z)Ljava/lang/StringBuilder;";
@@ -737,7 +738,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -755,17 +756,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(bool& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(bool& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(char& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(char& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(char& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(char& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/lang/StringBuilder;";
@@ -805,7 +806,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -823,17 +824,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(char& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(char& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(int& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(int& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(int& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(int& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(I)Ljava/lang/StringBuilder;";
@@ -873,7 +874,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -891,17 +892,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(int& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(long& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(long& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(long& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(long& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(J)Ljava/lang/StringBuilder;";
@@ -941,7 +942,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -959,17 +960,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(long& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(long& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(float& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(float& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(float& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(float& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(F)Ljava/lang/StringBuilder;";
@@ -1009,7 +1010,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1027,17 +1028,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(float& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(float& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(double& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(double& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(double& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(double& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(D)Ljava/lang/StringBuilder;";
@@ -1077,7 +1078,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1095,17 +1096,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(double& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(double& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(double& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2)
+java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([CII)Ljava/lang/StringBuilder;";
@@ -1205,7 +1206,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& ar
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1223,17 +1224,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<char>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_Object& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_Object& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_Object& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_Object& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/StringBuilder;";
@@ -1273,7 +1274,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_Object& arg
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1291,17 +1292,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_Object& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_Object& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_String& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_String& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_String& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_String& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/StringBuilder;";
@@ -1341,7 +1342,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_String& arg
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1359,17 +1360,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_String& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_String& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_StringBuffer& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_StringBuffer& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_StringBuffer& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_StringBuffer& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuilder;";
@@ -1409,7 +1410,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_StringBuffe
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1427,11 +1428,11 @@ java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_StringBuffe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::append(java_lang_StringBuffer& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::append(java_lang_StringBuffer& arg0) exit");
 
 	return result;
 }
@@ -1495,7 +1496,7 @@ int java_lang_StringBuilder::indexOf(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1584,7 +1585,7 @@ int java_lang_StringBuilder::indexOf(java_lang_String& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1673,7 +1674,7 @@ int java_lang_StringBuilder::lastIndexOf(java_lang_String& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1741,7 +1742,7 @@ int java_lang_StringBuilder::lastIndexOf(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1749,9 +1750,9 @@ int java_lang_StringBuilder::lastIndexOf(java_lang_String& arg0)
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2)
+java_lang_StringBuilder java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(IILjava/lang/String;)Ljava/lang/StringBuilder;";
@@ -1833,7 +1834,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::replace(int& arg0,int& arg1,
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1851,17 +1852,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::replace(int& arg0,int& arg1,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::replace(int& arg0,int& arg1,java_lang_String& arg2) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::appendCodePoint(int& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::appendCodePoint(int& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::appendCodePoint(int& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::appendCodePoint(int& arg0) enter");
 
 	const char *methodName = "appendCodePoint";
 	const char *methodSignature = "(I)Ljava/lang/StringBuilder;";
@@ -1901,7 +1902,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::appendCodePoint(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1919,17 +1920,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::appendCodePoint(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::appendCodePoint(int& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::appendCodePoint(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::_delete(int& arg0,int& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::_delete(int& arg0,int& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::_delete(int& arg0,int& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::_delete(int& arg0,int& arg1) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(II)Ljava/lang/StringBuilder;";
@@ -1990,7 +1991,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::_delete(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2008,17 +2009,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::_delete(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::_delete(int& arg0,int& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::_delete(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::deleteCharAt(int& arg0)
+java_lang_StringBuilder java_lang_StringBuilder::deleteCharAt(int& arg0)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::deleteCharAt(int& arg0) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::deleteCharAt(int& arg0) enter");
 
 	const char *methodName = "deleteCharAt";
 	const char *methodSignature = "(I)Ljava/lang/StringBuilder;";
@@ -2058,7 +2059,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::deleteCharAt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2076,17 +2077,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::deleteCharAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::deleteCharAt(int& arg0) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::deleteCharAt(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,float& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,float& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,float& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,float& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IF)Ljava/lang/StringBuilder;";
@@ -2147,7 +2148,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,float& arg1
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2165,17 +2166,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,float& arg1
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,float& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,float& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,double& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,double& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,double& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,double& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ID)Ljava/lang/StringBuilder;";
@@ -2236,7 +2237,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,double& arg
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2254,17 +2255,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,double& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,double& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,double& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[CII)Ljava/lang/StringBuilder;";
@@ -2385,7 +2386,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2403,17 +2404,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/StringBuilder;";
@@ -2474,7 +2475,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_O
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2492,17 +2493,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_O
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_Object& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/StringBuilder;";
@@ -2563,7 +2564,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_S
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2581,17 +2582,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_String& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[C)Ljava/lang/StringBuilder;";
@@ -2670,7 +2671,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector
 		jarg1 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2688,17 +2689,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,std::vector<char>& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/StringBuilder;";
@@ -2759,7 +2760,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_C
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2777,17 +2778,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_C
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuilder;";
@@ -2890,7 +2891,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_C
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2908,17 +2909,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_C
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,bool& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,bool& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,bool& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,bool& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IZ)Ljava/lang/StringBuilder;";
@@ -2979,7 +2980,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,bool& arg1)
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2997,17 +2998,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,bool& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,bool& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,bool& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,char& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,char& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,char& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,char& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IC)Ljava/lang/StringBuilder;";
@@ -3068,7 +3069,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,char& arg1)
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3086,17 +3087,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,char& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,char& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,char& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,int& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,int& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,int& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,int& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(II)Ljava/lang/StringBuilder;";
@@ -3157,7 +3158,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3175,17 +3176,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,int& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,long& arg1)
+java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,long& arg1)
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,long& arg1) enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,long& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IJ)Ljava/lang/StringBuilder;";
@@ -3246,7 +3247,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,long& arg1)
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3264,17 +3265,17 @@ java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,long& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::insert(int& arg0,long& arg1) exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,long& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuilder *  java_lang_StringBuilder::reverse()
+java_lang_StringBuilder java_lang_StringBuilder::reverse()
 {
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::reverse() enter");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::reverse() enter");
 
 	const char *methodName = "reverse";
 	const char *methodSignature = "()Ljava/lang/StringBuilder;";
@@ -3293,7 +3294,7 @@ java_lang_StringBuilder *  java_lang_StringBuilder::reverse()
 	LOGV("java_lang_StringBuilder jni address %d", javaObject);
 
 
-	java_lang_StringBuilder *  result;
+	java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3311,11 +3312,11 @@ java_lang_StringBuilder *  java_lang_StringBuilder::reverse()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuilder * ) (*((java_lang_StringBuilder *  *) cxx_value));
+	result = (java_lang_StringBuilder) (java_lang_StringBuilder((java_lang_StringBuilder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuilder *  java_lang_StringBuilder::reverse() exit");
+	LOGV("java_lang_StringBuilder java_lang_StringBuilder::reverse() exit");
 
 	return result;
 }

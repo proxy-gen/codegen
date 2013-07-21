@@ -27,6 +27,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_Timestamp
@@ -78,14 +79,15 @@ public:
 	java_security_Timestamp(void * proxy);
 	// Public Constructors
 	java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1);
+	java_security_Timestamp();
 	// Default Destructor
 	virtual ~java_security_Timestamp();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_security_cert_CertPath *  getSignerCertPath();
-	 java_util_Date *  getTimestamp();
+	 java_security_cert_CertPath getSignerCertPath();
+	 java_util_Date getTimestamp();
 };	
 
 } // namespace

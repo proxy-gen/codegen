@@ -18,6 +18,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_net_ContentHandlerFactory
@@ -60,10 +61,11 @@ public:
 	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
 	java_net_ContentHandlerFactory(void * proxy);
 	// Public Constructors
+	java_net_ContentHandlerFactory();
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions
-	 java_net_ContentHandler *  createContentHandler(java_lang_String& arg0);
+	 java_net_ContentHandler createContentHandler(java_lang_String& arg0);
 };	
 
 } // namespace

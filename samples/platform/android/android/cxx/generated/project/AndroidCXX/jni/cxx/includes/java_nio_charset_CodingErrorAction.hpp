@@ -17,6 +17,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_charset_CodingErrorAction
@@ -55,10 +56,11 @@ public:
 	java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc);
 	java_nio_charset_CodingErrorAction(void * proxy);
 	// Public Constructors
+	java_nio_charset_CodingErrorAction();
 	// Default Destructor
 	virtual ~java_nio_charset_CodingErrorAction();
 	// Functions
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 };	
 
 } // namespace

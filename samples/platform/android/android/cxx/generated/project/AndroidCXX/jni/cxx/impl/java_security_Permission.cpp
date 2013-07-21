@@ -32,6 +32,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_security_Permission.hpp>
@@ -91,6 +92,10 @@ java_security_Permission::java_security_Permission(void * proxy)
 	}
 
 	LOGV("java_security_Permission::java_security_Permission(void * proxy) exit");
+}
+java_security_Permission::java_security_Permission()
+{
+
 }
 // Public Constructors
 java_security_Permission::java_security_Permission(java_lang_String& arg0)
@@ -225,7 +230,7 @@ bool java_security_Permission::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -233,9 +238,9 @@ bool java_security_Permission::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_security_Permission::toString()
+java_lang_String java_security_Permission::toString()
 {
-	LOGV("java_lang_String *  java_security_Permission::toString() enter");
+	LOGV("java_lang_String java_security_Permission::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -254,7 +259,7 @@ java_lang_String *  java_security_Permission::toString()
 	LOGV("java_security_Permission jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -272,11 +277,11 @@ java_lang_String *  java_security_Permission::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_Permission::toString() exit");
+	LOGV("java_lang_String java_security_Permission::toString() exit");
 
 	return result;
 }
@@ -319,7 +324,7 @@ int java_security_Permission::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -327,9 +332,9 @@ int java_security_Permission::hashCode()
 
 	return result;
 }
-java_lang_String *  java_security_Permission::getName()
+java_lang_String java_security_Permission::getName()
 {
-	LOGV("java_lang_String *  java_security_Permission::getName() enter");
+	LOGV("java_lang_String java_security_Permission::getName() enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -348,7 +353,7 @@ java_lang_String *  java_security_Permission::getName()
 	LOGV("java_security_Permission jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -366,11 +371,11 @@ java_lang_String *  java_security_Permission::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_Permission::getName() exit");
+	LOGV("java_lang_String java_security_Permission::getName() exit");
 
 	return result;
 }
@@ -434,7 +439,7 @@ bool java_security_Permission::implies(java_security_Permission& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -442,9 +447,9 @@ bool java_security_Permission::implies(java_security_Permission& arg0)
 
 	return result;
 }
-java_lang_String *  java_security_Permission::getActions()
+java_lang_String java_security_Permission::getActions()
 {
-	LOGV("java_lang_String *  java_security_Permission::getActions() enter");
+	LOGV("java_lang_String java_security_Permission::getActions() enter");
 
 	const char *methodName = "getActions";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -463,7 +468,7 @@ java_lang_String *  java_security_Permission::getActions()
 	LOGV("java_security_Permission jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -481,17 +486,17 @@ java_lang_String *  java_security_Permission::getActions()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_Permission::getActions() exit");
+	LOGV("java_lang_String java_security_Permission::getActions() exit");
 
 	return result;
 }
-java_security_PermissionCollection *  java_security_Permission::newPermissionCollection()
+java_security_PermissionCollection java_security_Permission::newPermissionCollection()
 {
-	LOGV("java_security_PermissionCollection *  java_security_Permission::newPermissionCollection() enter");
+	LOGV("java_security_PermissionCollection java_security_Permission::newPermissionCollection() enter");
 
 	const char *methodName = "newPermissionCollection";
 	const char *methodSignature = "()Ljava/security/PermissionCollection;";
@@ -510,7 +515,7 @@ java_security_PermissionCollection *  java_security_Permission::newPermissionCol
 	LOGV("java_security_Permission jni address %d", javaObject);
 
 
-	java_security_PermissionCollection *  result;
+	java_security_PermissionCollection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -528,11 +533,11 @@ java_security_PermissionCollection *  java_security_Permission::newPermissionCol
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_PermissionCollection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_PermissionCollection * ) (*((java_security_PermissionCollection *  *) cxx_value));
+	result = (java_security_PermissionCollection) (java_security_PermissionCollection((java_security_PermissionCollection *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_PermissionCollection *  java_security_Permission::newPermissionCollection() exit");
+	LOGV("java_security_PermissionCollection java_security_Permission::newPermissionCollection() exit");
 
 	return result;
 }

@@ -25,6 +25,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Map_Entry
@@ -63,14 +64,15 @@ public:
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
 	java_util_Map_Entry(void * proxy);
 	// Public Constructors
+	java_util_Map_Entry();
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
 	 int hashCode();
-	 java_lang_Object *  getValue();
-	 java_lang_Object *  getKey();
-	 java_lang_Object *  setValue(java_lang_Object& arg0);
+	 java_lang_Object getValue();
+	 java_lang_Object getKey();
+	 java_lang_Object setValue(java_lang_Object& arg0);
 };	
 
 } // namespace

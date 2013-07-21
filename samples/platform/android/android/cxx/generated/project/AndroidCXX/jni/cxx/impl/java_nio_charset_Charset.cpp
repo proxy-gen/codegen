@@ -57,6 +57,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_nio_charset_Charset.hpp>
@@ -117,6 +118,10 @@ java_nio_charset_Charset::java_nio_charset_Charset(void * proxy)
 
 	LOGV("java_nio_charset_Charset::java_nio_charset_Charset(void * proxy) exit");
 }
+java_nio_charset_Charset::java_nio_charset_Charset()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_nio_charset_Charset::~java_nio_charset_Charset()
@@ -133,9 +138,9 @@ java_nio_charset_Charset::~java_nio_charset_Charset()
 	LOGV("java_nio_charset_Charset::~java_nio_charset_Charset() exit");
 }
 // Functions
-java_lang_String *  java_nio_charset_Charset::name()
+java_lang_String java_nio_charset_Charset::name()
 {
-	LOGV("java_lang_String *  java_nio_charset_Charset::name() enter");
+	LOGV("java_lang_String java_nio_charset_Charset::name() enter");
 
 	const char *methodName = "name";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -154,7 +159,7 @@ java_lang_String *  java_nio_charset_Charset::name()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -172,17 +177,17 @@ java_lang_String *  java_nio_charset_Charset::name()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_Charset::name() exit");
+	LOGV("java_lang_String java_nio_charset_Charset::name() exit");
 
 	return result;
 }
-java_nio_charset_Charset *  java_nio_charset_Charset::forName(java_lang_String& arg0)
+java_nio_charset_Charset java_nio_charset_Charset::forName(java_lang_String& arg0)
 {
-	LOGV("java_nio_charset_Charset *  java_nio_charset_Charset::forName(java_lang_String& arg0) enter");
+	LOGV("java_nio_charset_Charset java_nio_charset_Charset::forName(java_lang_String& arg0) enter");
 
 	const char *methodName = "forName";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/Charset;";
@@ -222,7 +227,7 @@ java_nio_charset_Charset *  java_nio_charset_Charset::forName(java_lang_String& 
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_nio_charset_Charset *  result;
+	java_nio_charset_Charset result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -240,11 +245,11 @@ java_nio_charset_Charset *  java_nio_charset_Charset::forName(java_lang_String& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_Charset * ) (*((java_nio_charset_Charset *  *) cxx_value));
+	result = (java_nio_charset_Charset) (java_nio_charset_Charset((java_nio_charset_Charset *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_Charset *  java_nio_charset_Charset::forName(java_lang_String& arg0) exit");
+	LOGV("java_nio_charset_Charset java_nio_charset_Charset::forName(java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -308,7 +313,7 @@ bool java_nio_charset_Charset::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -316,9 +321,9 @@ bool java_nio_charset_Charset::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_nio_charset_Charset::toString()
+java_lang_String java_nio_charset_Charset::toString()
 {
-	LOGV("java_lang_String *  java_nio_charset_Charset::toString() enter");
+	LOGV("java_lang_String java_nio_charset_Charset::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -337,7 +342,7 @@ java_lang_String *  java_nio_charset_Charset::toString()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -355,11 +360,11 @@ java_lang_String *  java_nio_charset_Charset::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_Charset::toString() exit");
+	LOGV("java_lang_String java_nio_charset_Charset::toString() exit");
 
 	return result;
 }
@@ -402,7 +407,7 @@ int java_nio_charset_Charset::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -470,7 +475,7 @@ int java_nio_charset_Charset::compareTo(java_nio_charset_Charset& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -538,7 +543,7 @@ bool java_nio_charset_Charset::contains(java_nio_charset_Charset& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -546,9 +551,9 @@ bool java_nio_charset_Charset::contains(java_nio_charset_Charset& arg0)
 
 	return result;
 }
-java_nio_CharBuffer *  java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0)
+java_nio_CharBuffer java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0)
 {
-	LOGV("java_nio_CharBuffer *  java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0) enter");
+	LOGV("java_nio_CharBuffer java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;";
@@ -588,7 +593,7 @@ java_nio_CharBuffer *  java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer *  result;
+	java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -606,17 +611,17 @@ java_nio_CharBuffer *  java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer * ) (*((java_nio_CharBuffer *  *) cxx_value));
+	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer *  java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0) exit");
+	LOGV("java_nio_CharBuffer java_nio_charset_Charset::decode(java_nio_ByteBuffer& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0)
+java_nio_ByteBuffer java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0)
 {
-	LOGV("java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0) enter");
+	LOGV("java_nio_ByteBuffer java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0) enter");
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/ByteBuffer;";
@@ -656,7 +661,7 @@ java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_nio_CharBuffer& arg
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer *  result;
+	java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -674,17 +679,17 @@ java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_nio_CharBuffer& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer * ) (*((java_nio_ByteBuffer *  *) cxx_value));
+	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0) exit");
+	LOGV("java_nio_ByteBuffer java_nio_charset_Charset::encode(java_nio_CharBuffer& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_lang_String& arg0)
+java_nio_ByteBuffer java_nio_charset_Charset::encode(java_lang_String& arg0)
 {
-	LOGV("java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_lang_String& arg0) enter");
+	LOGV("java_nio_ByteBuffer java_nio_charset_Charset::encode(java_lang_String& arg0) enter");
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/ByteBuffer;";
@@ -724,7 +729,7 @@ java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer *  result;
+	java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -742,11 +747,11 @@ java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer * ) (*((java_nio_ByteBuffer *  *) cxx_value));
+	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer *  java_nio_charset_Charset::encode(java_lang_String& arg0) exit");
+	LOGV("java_nio_ByteBuffer java_nio_charset_Charset::encode(java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -810,7 +815,7 @@ bool java_nio_charset_Charset::isSupported(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -818,9 +823,9 @@ bool java_nio_charset_Charset::isSupported(java_lang_String& arg0)
 
 	return result;
 }
-java_nio_charset_Charset *  java_nio_charset_Charset::defaultCharset()
+java_nio_charset_Charset java_nio_charset_Charset::defaultCharset()
 {
-	LOGV("java_nio_charset_Charset *  java_nio_charset_Charset::defaultCharset() enter");
+	LOGV("java_nio_charset_Charset java_nio_charset_Charset::defaultCharset() enter");
 
 	const char *methodName = "defaultCharset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
@@ -839,7 +844,7 @@ java_nio_charset_Charset *  java_nio_charset_Charset::defaultCharset()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_nio_charset_Charset *  result;
+	java_nio_charset_Charset result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -857,17 +862,17 @@ java_nio_charset_Charset *  java_nio_charset_Charset::defaultCharset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_Charset * ) (*((java_nio_charset_Charset *  *) cxx_value));
+	result = (java_nio_charset_Charset) (java_nio_charset_Charset((java_nio_charset_Charset *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_Charset *  java_nio_charset_Charset::defaultCharset() exit");
+	LOGV("java_nio_charset_Charset java_nio_charset_Charset::defaultCharset() exit");
 
 	return result;
 }
-java_util_Set *  java_nio_charset_Charset::aliases()
+java_util_Set java_nio_charset_Charset::aliases()
 {
-	LOGV("java_util_Set *  java_nio_charset_Charset::aliases() enter");
+	LOGV("java_util_Set java_nio_charset_Charset::aliases() enter");
 
 	const char *methodName = "aliases";
 	const char *methodSignature = "()Ljava/util/Set;";
@@ -886,7 +891,7 @@ java_util_Set *  java_nio_charset_Charset::aliases()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_util_Set *  result;
+	java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -922,17 +927,17 @@ java_util_Set *  java_nio_charset_Charset::aliases()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Set * ) (*((java_util_Set *  *) cxx_value));
+	result = (java_util_Set) (java_util_Set((java_util_Set *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Set *  java_nio_charset_Charset::aliases() exit");
+	LOGV("java_util_Set java_nio_charset_Charset::aliases() exit");
 
 	return result;
 }
-java_util_SortedMap *  java_nio_charset_Charset::availableCharsets()
+java_util_SortedMap java_nio_charset_Charset::availableCharsets()
 {
-	LOGV("java_util_SortedMap *  java_nio_charset_Charset::availableCharsets() enter");
+	LOGV("java_util_SortedMap java_nio_charset_Charset::availableCharsets() enter");
 
 	const char *methodName = "availableCharsets";
 	const char *methodSignature = "()Ljava/util/SortedMap;";
@@ -951,7 +956,7 @@ java_util_SortedMap *  java_nio_charset_Charset::availableCharsets()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_util_SortedMap *  result;
+	java_util_SortedMap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1002,17 +1007,17 @@ java_util_SortedMap *  java_nio_charset_Charset::availableCharsets()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_SortedMap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_SortedMap * ) (*((java_util_SortedMap *  *) cxx_value));
+	result = (java_util_SortedMap) (java_util_SortedMap((java_util_SortedMap *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_SortedMap *  java_nio_charset_Charset::availableCharsets() exit");
+	LOGV("java_util_SortedMap java_nio_charset_Charset::availableCharsets() exit");
 
 	return result;
 }
-java_lang_String *  java_nio_charset_Charset::displayName()
+java_lang_String java_nio_charset_Charset::displayName()
 {
-	LOGV("java_lang_String *  java_nio_charset_Charset::displayName() enter");
+	LOGV("java_lang_String java_nio_charset_Charset::displayName() enter");
 
 	const char *methodName = "displayName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1031,7 +1036,7 @@ java_lang_String *  java_nio_charset_Charset::displayName()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1049,17 +1054,17 @@ java_lang_String *  java_nio_charset_Charset::displayName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_Charset::displayName() exit");
+	LOGV("java_lang_String java_nio_charset_Charset::displayName() exit");
 
 	return result;
 }
-java_lang_String *  java_nio_charset_Charset::displayName(java_util_Locale& arg0)
+java_lang_String java_nio_charset_Charset::displayName(java_util_Locale& arg0)
 {
-	LOGV("java_lang_String *  java_nio_charset_Charset::displayName(java_util_Locale& arg0) enter");
+	LOGV("java_lang_String java_nio_charset_Charset::displayName(java_util_Locale& arg0) enter");
 
 	const char *methodName = "displayName";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1099,7 +1104,7 @@ java_lang_String *  java_nio_charset_Charset::displayName(java_util_Locale& arg0
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1117,11 +1122,11 @@ java_lang_String *  java_nio_charset_Charset::displayName(java_util_Locale& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_nio_charset_Charset::displayName(java_util_Locale& arg0) exit");
+	LOGV("java_lang_String java_nio_charset_Charset::displayName(java_util_Locale& arg0) exit");
 
 	return result;
 }
@@ -1164,7 +1169,7 @@ bool java_nio_charset_Charset::isRegistered()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1172,9 +1177,9 @@ bool java_nio_charset_Charset::isRegistered()
 
 	return result;
 }
-java_nio_charset_CharsetDecoder *  java_nio_charset_Charset::newDecoder()
+java_nio_charset_CharsetDecoder java_nio_charset_Charset::newDecoder()
 {
-	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_Charset::newDecoder() enter");
+	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_Charset::newDecoder() enter");
 
 	const char *methodName = "newDecoder";
 	const char *methodSignature = "()Ljava/nio/charset/CharsetDecoder;";
@@ -1193,7 +1198,7 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_Charset::newDecoder()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_nio_charset_CharsetDecoder *  result;
+	java_nio_charset_CharsetDecoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1211,17 +1216,17 @@ java_nio_charset_CharsetDecoder *  java_nio_charset_Charset::newDecoder()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetDecoder * ) (*((java_nio_charset_CharsetDecoder *  *) cxx_value));
+	result = (java_nio_charset_CharsetDecoder) (java_nio_charset_CharsetDecoder((java_nio_charset_CharsetDecoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetDecoder *  java_nio_charset_Charset::newDecoder() exit");
+	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_Charset::newDecoder() exit");
 
 	return result;
 }
-java_nio_charset_CharsetEncoder *  java_nio_charset_Charset::newEncoder()
+java_nio_charset_CharsetEncoder java_nio_charset_Charset::newEncoder()
 {
-	LOGV("java_nio_charset_CharsetEncoder *  java_nio_charset_Charset::newEncoder() enter");
+	LOGV("java_nio_charset_CharsetEncoder java_nio_charset_Charset::newEncoder() enter");
 
 	const char *methodName = "newEncoder";
 	const char *methodSignature = "()Ljava/nio/charset/CharsetEncoder;";
@@ -1240,7 +1245,7 @@ java_nio_charset_CharsetEncoder *  java_nio_charset_Charset::newEncoder()
 	LOGV("java_nio_charset_Charset jni address %d", javaObject);
 
 
-	java_nio_charset_CharsetEncoder *  result;
+	java_nio_charset_CharsetEncoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1258,11 +1263,11 @@ java_nio_charset_CharsetEncoder *  java_nio_charset_Charset::newEncoder()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetEncoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetEncoder * ) (*((java_nio_charset_CharsetEncoder *  *) cxx_value));
+	result = (java_nio_charset_CharsetEncoder) (java_nio_charset_CharsetEncoder((java_nio_charset_CharsetEncoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetEncoder *  java_nio_charset_Charset::newEncoder() exit");
+	LOGV("java_nio_charset_CharsetEncoder java_nio_charset_Charset::newEncoder() exit");
 
 	return result;
 }
@@ -1305,7 +1310,7 @@ bool java_nio_charset_Charset::canEncode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 

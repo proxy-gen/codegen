@@ -24,6 +24,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_annotation_Annotation
@@ -73,13 +74,14 @@ public:
 	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
 	java_lang_annotation_Annotation(void * proxy);
 	// Public Constructors
+	java_lang_annotation_Annotation();
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_Class *  annotationType();
+	 java_lang_Class annotationType();
 };	
 
 } // namespace

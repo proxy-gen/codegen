@@ -193,6 +193,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_String
@@ -273,22 +274,22 @@ public:
 	virtual ~java_lang_String();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
 	 int compareTo(java_lang_String& arg0);
 	 int indexOf(int& arg0);
 	 int indexOf(java_lang_String& arg0);
 	 int indexOf(java_lang_String& arg0,int& arg1);
 	 int indexOf(int& arg0,int& arg1);
-	static java_lang_String *  valueOf(java_lang_Object& arg0);
-	static java_lang_String *  valueOf(double& arg0);
-	static java_lang_String *  valueOf(float& arg0);
-	static java_lang_String *  valueOf(long& arg0);
-	static java_lang_String *  valueOf(int& arg0);
-	static java_lang_String *  valueOf(char& arg0);
-	static java_lang_String *  valueOf(bool& arg0);
-	static java_lang_String *  valueOf(std::vector<char>& arg0,int& arg1,int& arg2);
-	static java_lang_String *  valueOf(std::vector<char>& arg0);
+	static java_lang_String valueOf(java_lang_Object& arg0);
+	static java_lang_String valueOf(double& arg0);
+	static java_lang_String valueOf(float& arg0);
+	static java_lang_String valueOf(long& arg0);
+	static java_lang_String valueOf(int& arg0);
+	static java_lang_String valueOf(char& arg0);
+	static java_lang_String valueOf(bool& arg0);
+	static java_lang_String valueOf(std::vector<char>& arg0,int& arg1,int& arg2);
+	static java_lang_String valueOf(std::vector<char>& arg0);
 	 int length();
 	 bool isEmpty();
 	 char charAt(int& arg0);
@@ -314,29 +315,29 @@ public:
 	 int lastIndexOf(int& arg0);
 	 int lastIndexOf(int& arg0,int& arg1);
 	 int lastIndexOf(java_lang_String& arg0);
-	 java_lang_String *  substring(int& arg0,int& arg1);
-	 java_lang_String *  substring(int& arg0);
-	 java_lang_CharSequence *  subSequence(int& arg0,int& arg1);
-	 java_lang_String *  concat(java_lang_String& arg0);
-	 java_lang_String *  replace(java_lang_CharSequence& arg0,java_lang_CharSequence& arg1);
-	 java_lang_String *  replace(char& arg0,char& arg1);
+	 java_lang_String substring(int& arg0,int& arg1);
+	 java_lang_String substring(int& arg0);
+	 java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 java_lang_String concat(java_lang_String& arg0);
+	 java_lang_String replace(java_lang_CharSequence& arg0,java_lang_CharSequence& arg1);
+	 java_lang_String replace(char& arg0,char& arg1);
 	 bool matches(java_lang_String& arg0);
 	 bool contains(java_lang_CharSequence& arg0);
-	 java_lang_String *  replaceFirst(java_lang_String& arg0,java_lang_String& arg1);
-	 java_lang_String *  replaceAll(java_lang_String& arg0,java_lang_String& arg1);
+	 java_lang_String replaceFirst(java_lang_String& arg0,java_lang_String& arg1);
+	 java_lang_String replaceAll(java_lang_String& arg0,java_lang_String& arg1);
 	 std::vector<java_lang_String > split(java_lang_String& arg0);
 	 std::vector<java_lang_String > split(java_lang_String& arg0,int& arg1);
-	 java_lang_String *  toLowerCase();
-	 java_lang_String *  toLowerCase(java_util_Locale& arg0);
-	 java_lang_String *  toUpperCase(java_util_Locale& arg0);
-	 java_lang_String *  toUpperCase();
-	 java_lang_String *  trim();
+	 java_lang_String toLowerCase();
+	 java_lang_String toLowerCase(java_util_Locale& arg0);
+	 java_lang_String toUpperCase(java_util_Locale& arg0);
+	 java_lang_String toUpperCase();
+	 java_lang_String trim();
 	 std::vector<char> toCharArray();
-	static java_lang_String *  format(java_lang_String& arg0,std::vector<java_lang_Object >& arg1);
-	static java_lang_String *  format(java_util_Locale& arg0,java_lang_String& arg1,std::vector<java_lang_Object >& arg2);
-	static java_lang_String *  copyValueOf(std::vector<char>& arg0);
-	static java_lang_String *  copyValueOf(std::vector<char>& arg0,int& arg1,int& arg2);
-	 java_lang_String *  intern();
+	static java_lang_String format(java_lang_String& arg0,std::vector<java_lang_Object >& arg1);
+	static java_lang_String format(java_util_Locale& arg0,java_lang_String& arg1,std::vector<java_lang_Object >& arg2);
+	static java_lang_String copyValueOf(std::vector<char>& arg0);
+	static java_lang_String copyValueOf(std::vector<char>& arg0,int& arg1,int& arg2);
+	 java_lang_String intern();
 };	
 
 } // namespace

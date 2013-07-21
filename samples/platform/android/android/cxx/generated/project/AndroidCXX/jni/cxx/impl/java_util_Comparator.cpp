@@ -20,6 +20,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Comparator.hpp>
@@ -79,6 +80,10 @@ java_util_Comparator::java_util_Comparator(void * proxy)
 	}
 
 	LOGV("java_util_Comparator::java_util_Comparator(void * proxy) exit");
+}
+java_util_Comparator::java_util_Comparator()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -156,7 +161,7 @@ bool java_util_Comparator::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -245,7 +250,7 @@ int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 

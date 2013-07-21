@@ -30,6 +30,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_security_cert_Certificate.hpp>
@@ -89,6 +90,10 @@ java_security_cert_Certificate::java_security_cert_Certificate(void * proxy)
 	}
 
 	LOGV("java_security_cert_Certificate::java_security_cert_Certificate(void * proxy) exit");
+}
+java_security_cert_Certificate::java_security_cert_Certificate()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -166,7 +171,7 @@ bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -174,9 +179,9 @@ bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_security_cert_Certificate::toString()
+java_lang_String java_security_cert_Certificate::toString()
 {
-	LOGV("java_lang_String *  java_security_cert_Certificate::toString() enter");
+	LOGV("java_lang_String java_security_cert_Certificate::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -195,7 +200,7 @@ java_lang_String *  java_security_cert_Certificate::toString()
 	LOGV("java_security_cert_Certificate jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -213,11 +218,11 @@ java_lang_String *  java_security_cert_Certificate::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_cert_Certificate::toString() exit");
+	LOGV("java_lang_String java_security_cert_Certificate::toString() exit");
 
 	return result;
 }
@@ -260,7 +265,7 @@ int java_security_cert_Certificate::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -268,9 +273,9 @@ int java_security_cert_Certificate::hashCode()
 
 	return result;
 }
-java_lang_String *  java_security_cert_Certificate::getType()
+java_lang_String java_security_cert_Certificate::getType()
 {
-	LOGV("java_lang_String *  java_security_cert_Certificate::getType() enter");
+	LOGV("java_lang_String java_security_cert_Certificate::getType() enter");
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -289,7 +294,7 @@ java_lang_String *  java_security_cert_Certificate::getType()
 	LOGV("java_security_cert_Certificate jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -307,11 +312,11 @@ java_lang_String *  java_security_cert_Certificate::getType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_security_cert_Certificate::getType() exit");
+	LOGV("java_lang_String java_security_cert_Certificate::getType() exit");
 
 	return result;
 }
@@ -372,7 +377,7 @@ std::vector<byte> java_security_cert_Certificate::getEncoded()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<byte>) (*((std::vector<byte> *) cxx_value));
+	result = (std::vector<byte>) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -499,9 +504,9 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_l
 	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1) exit");
 
 }
-java_security_PublicKey *  java_security_cert_Certificate::getPublicKey()
+java_security_PublicKey java_security_cert_Certificate::getPublicKey()
 {
-	LOGV("java_security_PublicKey *  java_security_cert_Certificate::getPublicKey() enter");
+	LOGV("java_security_PublicKey java_security_cert_Certificate::getPublicKey() enter");
 
 	const char *methodName = "getPublicKey";
 	const char *methodSignature = "()Ljava/security/PublicKey;";
@@ -520,7 +525,7 @@ java_security_PublicKey *  java_security_cert_Certificate::getPublicKey()
 	LOGV("java_security_cert_Certificate jni address %d", javaObject);
 
 
-	java_security_PublicKey *  result;
+	java_security_PublicKey result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -538,11 +543,11 @@ java_security_PublicKey *  java_security_cert_Certificate::getPublicKey()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_PublicKey(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_PublicKey * ) (*((java_security_PublicKey *  *) cxx_value));
+	result = (java_security_PublicKey) (java_security_PublicKey((java_security_PublicKey *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_PublicKey *  java_security_cert_Certificate::getPublicKey() exit");
+	LOGV("java_security_PublicKey java_security_cert_Certificate::getPublicKey() exit");
 
 	return result;
 }

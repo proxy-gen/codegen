@@ -15,6 +15,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_security_PublicKey.hpp>
@@ -74,6 +75,10 @@ java_security_PublicKey::java_security_PublicKey(void * proxy)
 	}
 
 	LOGV("java_security_PublicKey::java_security_PublicKey(void * proxy) exit");
+}
+java_security_PublicKey::java_security_PublicKey()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor

@@ -18,6 +18,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_net_URLStreamHandlerFactory
@@ -60,10 +61,11 @@ public:
 	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
 	java_net_URLStreamHandlerFactory(void * proxy);
 	// Public Constructors
+	java_net_URLStreamHandlerFactory();
 	// Default Destructor
 	virtual ~java_net_URLStreamHandlerFactory();
 	// Functions
-	 java_net_URLStreamHandler *  createURLStreamHandler(java_lang_String& arg0);
+	 java_net_URLStreamHandler createURLStreamHandler(java_lang_String& arg0);
 };	
 
 } // namespace

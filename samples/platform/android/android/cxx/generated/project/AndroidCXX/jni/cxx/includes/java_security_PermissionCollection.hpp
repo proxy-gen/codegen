@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_security_PermissionCollection
@@ -79,10 +80,10 @@ public:
 	virtual ~java_security_PermissionCollection();
 	// Functions
 	 void add(java_security_Permission& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 bool implies(java_security_Permission& arg0);
 	 void setReadOnly();
-	 java_util_Enumeration *  elements();
+	 java_util_Enumeration elements();
 	 bool isReadOnly();
 };	
 

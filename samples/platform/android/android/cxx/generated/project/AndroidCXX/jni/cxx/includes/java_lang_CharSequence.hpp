@@ -21,6 +21,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_CharSequence
@@ -62,13 +63,14 @@ public:
 	java_lang_CharSequence(const java_lang_CharSequence& cc);
 	java_lang_CharSequence(void * proxy);
 	// Public Constructors
+	java_lang_CharSequence();
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int length();
 	 char charAt(int& arg0);
-	 java_lang_CharSequence *  subSequence(int& arg0,int& arg1);
+	 java_lang_CharSequence subSequence(int& arg0,int& arg1);
 };	
 
 } // namespace

@@ -28,6 +28,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_charset_CoderResult
@@ -69,19 +70,20 @@ public:
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
 	java_nio_charset_CoderResult(void * proxy);
 	// Public Constructors
+	java_nio_charset_CoderResult();
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int length();
 	 void throwException();
 	 bool isUnderflow();
 	 bool isError();
 	 bool isOverflow();
-	static java_nio_charset_CoderResult *  malformedForLength(int& arg0);
+	static java_nio_charset_CoderResult malformedForLength(int& arg0);
 	 bool isMalformed();
 	 bool isUnmappable();
-	static java_nio_charset_CoderResult *  unmappableForLength(int& arg0);
+	static java_nio_charset_CoderResult unmappableForLength(int& arg0);
 };	
 
 } // namespace

@@ -51,6 +51,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_charset_CharsetEncoder
@@ -112,25 +113,26 @@ public:
 	java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc);
 	java_nio_charset_CharsetEncoder(void * proxy);
 	// Public Constructors
+	java_nio_charset_CharsetEncoder();
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions
-	 java_nio_charset_Charset *  charset();
-	 java_nio_charset_CoderResult *  encode(java_nio_CharBuffer& arg0,java_nio_ByteBuffer& arg1,bool& arg2);
-	 java_nio_ByteBuffer *  encode(java_nio_CharBuffer& arg0);
-	 java_nio_charset_CoderResult *  flush(java_nio_ByteBuffer& arg0);
-	 java_nio_charset_CharsetEncoder *  reset();
+	 java_nio_charset_Charset charset();
+	 java_nio_charset_CoderResult encode(java_nio_CharBuffer& arg0,java_nio_ByteBuffer& arg1,bool& arg2);
+	 java_nio_ByteBuffer encode(java_nio_CharBuffer& arg0);
+	 java_nio_charset_CoderResult flush(java_nio_ByteBuffer& arg0);
+	 java_nio_charset_CharsetEncoder reset();
 	 bool canEncode(char& arg0);
 	 bool canEncode(java_lang_CharSequence& arg0);
-	 java_nio_charset_CharsetEncoder *  onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
-	 java_nio_charset_CharsetEncoder *  onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
+	 java_nio_charset_CharsetEncoder onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
+	 java_nio_charset_CharsetEncoder onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
 	 float maxBytesPerChar();
 	 bool isLegalReplacement(std::vector<byte>& arg0);
 	 float averageBytesPerChar();
 	 std::vector<byte> replacement();
-	 java_nio_charset_CodingErrorAction *  malformedInputAction();
-	 java_nio_charset_CodingErrorAction *  unmappableCharacterAction();
-	 java_nio_charset_CharsetEncoder *  replaceWith(std::vector<byte>& arg0);
+	 java_nio_charset_CodingErrorAction malformedInputAction();
+	 java_nio_charset_CodingErrorAction unmappableCharacterAction();
+	 java_nio_charset_CharsetEncoder replaceWith(std::vector<byte>& arg0);
 };	
 
 } // namespace

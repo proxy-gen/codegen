@@ -25,6 +25,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Map_Entry.hpp>
@@ -84,6 +85,10 @@ java_util_Map_Entry::java_util_Map_Entry(void * proxy)
 	}
 
 	LOGV("java_util_Map_Entry::java_util_Map_Entry(void * proxy) exit");
+}
+java_util_Map_Entry::java_util_Map_Entry()
+{
+
 }
 // Public Constructors
 // Default Instance Destructor
@@ -161,7 +166,7 @@ bool java_util_Map_Entry::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -208,7 +213,7 @@ int java_util_Map_Entry::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -216,9 +221,9 @@ int java_util_Map_Entry::hashCode()
 
 	return result;
 }
-java_lang_Object *  java_util_Map_Entry::getValue()
+java_lang_Object java_util_Map_Entry::getValue()
 {
-	LOGV("java_lang_Object *  java_util_Map_Entry::getValue() enter");
+	LOGV("java_lang_Object java_util_Map_Entry::getValue() enter");
 
 	const char *methodName = "getValue";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -237,7 +242,7 @@ java_lang_Object *  java_util_Map_Entry::getValue()
 	LOGV("java_util_Map_Entry jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -255,17 +260,17 @@ java_lang_Object *  java_util_Map_Entry::getValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Map_Entry::getValue() exit");
+	LOGV("java_lang_Object java_util_Map_Entry::getValue() exit");
 
 	return result;
 }
-java_lang_Object *  java_util_Map_Entry::getKey()
+java_lang_Object java_util_Map_Entry::getKey()
 {
-	LOGV("java_lang_Object *  java_util_Map_Entry::getKey() enter");
+	LOGV("java_lang_Object java_util_Map_Entry::getKey() enter");
 
 	const char *methodName = "getKey";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -284,7 +289,7 @@ java_lang_Object *  java_util_Map_Entry::getKey()
 	LOGV("java_util_Map_Entry jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -302,17 +307,17 @@ java_lang_Object *  java_util_Map_Entry::getKey()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Map_Entry::getKey() exit");
+	LOGV("java_lang_Object java_util_Map_Entry::getKey() exit");
 
 	return result;
 }
-java_lang_Object *  java_util_Map_Entry::setValue(java_lang_Object& arg0)
+java_lang_Object java_util_Map_Entry::setValue(java_lang_Object& arg0)
 {
-	LOGV("java_lang_Object *  java_util_Map_Entry::setValue(java_lang_Object& arg0) enter");
+	LOGV("java_lang_Object java_util_Map_Entry::setValue(java_lang_Object& arg0) enter");
 
 	const char *methodName = "setValue";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
@@ -352,7 +357,7 @@ java_lang_Object *  java_util_Map_Entry::setValue(java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -370,11 +375,11 @@ java_lang_Object *  java_util_Map_Entry::setValue(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Map_Entry::setValue(java_lang_Object& arg0) exit");
+	LOGV("java_lang_Object java_util_Map_Entry::setValue(java_lang_Object& arg0) exit");
 
 	return result;
 }

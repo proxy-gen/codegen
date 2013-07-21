@@ -50,6 +50,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_nio_charset_CharsetDecoder
@@ -111,25 +112,26 @@ public:
 	java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc);
 	java_nio_charset_CharsetDecoder(void * proxy);
 	// Public Constructors
+	java_nio_charset_CharsetDecoder();
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
-	 java_nio_charset_Charset *  charset();
-	 java_nio_charset_CoderResult *  decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2);
-	 java_nio_CharBuffer *  decode(java_nio_ByteBuffer& arg0);
-	 java_nio_charset_CoderResult *  flush(java_nio_CharBuffer& arg0);
-	 java_nio_charset_CharsetDecoder *  reset();
-	 java_nio_charset_CharsetDecoder *  onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
-	 java_nio_charset_CharsetDecoder *  onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
-	 java_lang_String *  replacement();
-	 java_nio_charset_CodingErrorAction *  malformedInputAction();
-	 java_nio_charset_CodingErrorAction *  unmappableCharacterAction();
-	 java_nio_charset_CharsetDecoder *  replaceWith(java_lang_String& arg0);
+	 java_nio_charset_Charset charset();
+	 java_nio_charset_CoderResult decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2);
+	 java_nio_CharBuffer decode(java_nio_ByteBuffer& arg0);
+	 java_nio_charset_CoderResult flush(java_nio_CharBuffer& arg0);
+	 java_nio_charset_CharsetDecoder reset();
+	 java_nio_charset_CharsetDecoder onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
+	 java_nio_charset_CharsetDecoder onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
+	 java_lang_String replacement();
+	 java_nio_charset_CodingErrorAction malformedInputAction();
+	 java_nio_charset_CodingErrorAction unmappableCharacterAction();
+	 java_nio_charset_CharsetDecoder replaceWith(java_lang_String& arg0);
 	 float maxCharsPerByte();
 	 float averageCharsPerByte();
 	 bool isAutoDetecting();
 	 bool isCharsetDetected();
-	 java_nio_charset_Charset *  detectedCharset();
+	 java_nio_charset_Charset detectedCharset();
 };	
 
 } // namespace

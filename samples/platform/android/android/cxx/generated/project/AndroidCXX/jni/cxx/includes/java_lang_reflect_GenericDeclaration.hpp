@@ -20,6 +20,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_reflect_GenericDeclaration
@@ -62,6 +63,7 @@ public:
 	java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc);
 	java_lang_reflect_GenericDeclaration(void * proxy);
 	// Public Constructors
+	java_lang_reflect_GenericDeclaration();
 	// Default Destructor
 	virtual ~java_lang_reflect_GenericDeclaration();
 	// Functions

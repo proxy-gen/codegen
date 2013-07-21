@@ -58,6 +58,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Date
@@ -113,9 +114,9 @@ public:
 	virtual ~java_util_Date();
 	// Functions
 	 bool equals(java_lang_Object& arg0);
-	 java_lang_String *  toString();
+	 java_lang_String toString();
 	 int hashCode();
-	 java_lang_Object *  clone();
+	 java_lang_Object clone();
 	 int compareTo(java_util_Date& arg0);
 	 bool after(java_util_Date& arg0);
 	 bool before(java_util_Date& arg0);
@@ -136,8 +137,8 @@ public:
 	 void setSeconds(int& arg0);
 	 void setYear(int& arg0);
 	 int getDay();
-	 java_lang_String *  toLocaleString();
-	 java_lang_String *  toGMTString();
+	 java_lang_String toLocaleString();
+	 java_lang_String toGMTString();
 	 int getTimezoneOffset();
 };	
 

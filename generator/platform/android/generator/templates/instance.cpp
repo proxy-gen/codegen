@@ -50,7 +50,6 @@
 	#set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
  	#set $function['retrn_type'] = $typeinfo['typename']
  	#if 'isproxied' in $typeinfo
- 	#set $function['retrn_type'] = $typeinfo['typename'] + " * "
 	$proxied_typeinfo_list.append(typeinfo)
 	#end if
  	#break
@@ -94,6 +93,14 @@
  	#end if
 #end while
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
+#end for
+
+#set $no_arg_constructor = True
+#for $constructor in $constructors
+ 	#if $len(constructor['params']) == 0
+ 		#set $no_arg_constructor = False
+ 		#break
+ 	#end if
 #end for
 
 #set $proxied_typeinfos = list()
@@ -169,6 +176,14 @@ ${entity_class_name}::${entity_class_name}(void * proxy)
 
 	LOGV("${entity_class_name}::${entity_class_name}(void * proxy) exit");
 }
+#end if
+#if not '_static' in $entity_class_config['tags']
+#if $no_arg_constructor
+${entity_class_name}::${entity_class_name}()
+{
+
+}
+#end if
 #end if
 #if not '_static' in $entity_class_config['tags']
 // Public Constructors
@@ -449,7 +464,15 @@ $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(fu
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		${retrn_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = ($function['retrn_type']) (*(($function['retrn_type'] *) cxx_value));
+	#if 'isproxied' in $retrn_typeinfo
+	#if $retrn_typeinfo['isenum'] == True
+	result = (${function['retrn_type']}) (cxx_value);
+	#else
+	result = (${function['retrn_type']}) (${function['retrn_type']}((${function['retrn_type']} *) cxx_value));
+	#end if
+	#else
+	result = ($function['retrn_type']) (cxx_value);
+	#end if
 	#else
 	jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);
 	#end if

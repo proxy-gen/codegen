@@ -57,6 +57,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_SortedMap
@@ -114,18 +115,19 @@ public:
 	java_util_SortedMap(const java_util_SortedMap& cc);
 	java_util_SortedMap(void * proxy);
 	// Public Constructors
+	java_util_SortedMap();
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions
-	 java_util_Collection *  values();
-	 java_util_Set *  entrySet();
-	 java_util_Set *  keySet();
-	 java_util_Comparator *  comparator();
-	 java_util_SortedMap *  subMap(java_lang_Object& arg0,java_lang_Object& arg1);
-	 java_util_SortedMap *  headMap(java_lang_Object& arg0);
-	 java_util_SortedMap *  tailMap(java_lang_Object& arg0);
-	 java_lang_Object *  firstKey();
-	 java_lang_Object *  lastKey();
+	 java_util_Collection values();
+	 java_util_Set entrySet();
+	 java_util_Set keySet();
+	 java_util_Comparator comparator();
+	 java_util_SortedMap subMap(java_lang_Object& arg0,java_lang_Object& arg1);
+	 java_util_SortedMap headMap(java_lang_Object& arg0);
+	 java_util_SortedMap tailMap(java_lang_Object& arg0);
+	 java_lang_Object firstKey();
+	 java_lang_Object lastKey();
 };	
 
 } // namespace

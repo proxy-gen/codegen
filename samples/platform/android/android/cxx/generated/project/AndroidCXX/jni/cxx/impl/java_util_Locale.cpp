@@ -68,6 +68,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_util_Locale.hpp>
@@ -127,6 +128,10 @@ java_util_Locale::java_util_Locale(void * proxy)
 	}
 
 	LOGV("java_util_Locale::java_util_Locale(void * proxy) exit");
+}
+java_util_Locale::java_util_Locale()
+{
+
 }
 // Public Constructors
 java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2)
@@ -438,7 +443,7 @@ bool java_util_Locale::equals(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (*((bool *) cxx_value));
+	result = (bool) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -446,9 +451,9 @@ bool java_util_Locale::equals(java_lang_Object& arg0)
 
 	return result;
 }
-java_lang_String *  java_util_Locale::toString()
+java_lang_String java_util_Locale::toString()
 {
-	LOGV("java_lang_String *  java_util_Locale::toString() enter");
+	LOGV("java_lang_String java_util_Locale::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -467,7 +472,7 @@ java_lang_String *  java_util_Locale::toString()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -485,11 +490,11 @@ java_lang_String *  java_util_Locale::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::toString() exit");
+	LOGV("java_lang_String java_util_Locale::toString() exit");
 
 	return result;
 }
@@ -532,7 +537,7 @@ int java_util_Locale::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (*((int *) cxx_value));
+	result = (int) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -540,9 +545,9 @@ int java_util_Locale::hashCode()
 
 	return result;
 }
-java_lang_Object *  java_util_Locale::clone()
+java_lang_Object java_util_Locale::clone()
 {
-	LOGV("java_lang_Object *  java_util_Locale::clone() enter");
+	LOGV("java_lang_Object java_util_Locale::clone() enter");
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -561,7 +566,7 @@ java_lang_Object *  java_util_Locale::clone()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_Object *  result;
+	java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -579,17 +584,17 @@ java_lang_Object *  java_util_Locale::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object * ) (*((java_lang_Object *  *) cxx_value));
+	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object *  java_util_Locale::clone() exit");
+	LOGV("java_lang_Object java_util_Locale::clone() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getLanguage()
+java_lang_String java_util_Locale::getLanguage()
 {
-	LOGV("java_lang_String *  java_util_Locale::getLanguage() enter");
+	LOGV("java_lang_String java_util_Locale::getLanguage() enter");
 
 	const char *methodName = "getLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -608,7 +613,7 @@ java_lang_String *  java_util_Locale::getLanguage()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -626,17 +631,17 @@ java_lang_String *  java_util_Locale::getLanguage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getLanguage() exit");
+	LOGV("java_lang_String java_util_Locale::getLanguage() exit");
 
 	return result;
 }
-java_util_Locale *  java_util_Locale::getDefault()
+java_util_Locale java_util_Locale::getDefault()
 {
-	LOGV("java_util_Locale *  java_util_Locale::getDefault() enter");
+	LOGV("java_util_Locale java_util_Locale::getDefault() enter");
 
 	const char *methodName = "getDefault";
 	const char *methodSignature = "()Ljava/util/Locale;";
@@ -655,7 +660,7 @@ java_util_Locale *  java_util_Locale::getDefault()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_util_Locale *  result;
+	java_util_Locale result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -673,11 +678,11 @@ java_util_Locale *  java_util_Locale::getDefault()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Locale * ) (*((java_util_Locale *  *) cxx_value));
+	result = (java_util_Locale) (java_util_Locale((java_util_Locale *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale *  java_util_Locale::getDefault() exit");
+	LOGV("java_util_Locale java_util_Locale::getDefault() exit");
 
 	return result;
 }
@@ -787,7 +792,7 @@ std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_util_Locale >) (*((std::vector<java_util_Locale > *) cxx_value));
+	result = (std::vector<java_util_Locale >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -852,7 +857,7 @@ std::vector<java_lang_String > java_util_Locale::getISOCountries()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (*((std::vector<java_lang_String > *) cxx_value));
+	result = (std::vector<java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -917,7 +922,7 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (*((std::vector<java_lang_String > *) cxx_value));
+	result = (std::vector<java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -925,9 +930,9 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getCountry()
+java_lang_String java_util_Locale::getCountry()
 {
-	LOGV("java_lang_String *  java_util_Locale::getCountry() enter");
+	LOGV("java_lang_String java_util_Locale::getCountry() enter");
 
 	const char *methodName = "getCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -946,7 +951,7 @@ java_lang_String *  java_util_Locale::getCountry()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -964,17 +969,17 @@ java_lang_String *  java_util_Locale::getCountry()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getCountry() exit");
+	LOGV("java_lang_String java_util_Locale::getCountry() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getVariant()
+java_lang_String java_util_Locale::getVariant()
 {
-	LOGV("java_lang_String *  java_util_Locale::getVariant() enter");
+	LOGV("java_lang_String java_util_Locale::getVariant() enter");
 
 	const char *methodName = "getVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -993,7 +998,7 @@ java_lang_String *  java_util_Locale::getVariant()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1011,17 +1016,17 @@ java_lang_String *  java_util_Locale::getVariant()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getVariant() exit");
+	LOGV("java_lang_String java_util_Locale::getVariant() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getISO3Language()
+java_lang_String java_util_Locale::getISO3Language()
 {
-	LOGV("java_lang_String *  java_util_Locale::getISO3Language() enter");
+	LOGV("java_lang_String java_util_Locale::getISO3Language() enter");
 
 	const char *methodName = "getISO3Language";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1040,7 +1045,7 @@ java_lang_String *  java_util_Locale::getISO3Language()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1058,17 +1063,17 @@ java_lang_String *  java_util_Locale::getISO3Language()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getISO3Language() exit");
+	LOGV("java_lang_String java_util_Locale::getISO3Language() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getISO3Country()
+java_lang_String java_util_Locale::getISO3Country()
 {
-	LOGV("java_lang_String *  java_util_Locale::getISO3Country() enter");
+	LOGV("java_lang_String java_util_Locale::getISO3Country() enter");
 
 	const char *methodName = "getISO3Country";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1087,7 +1092,7 @@ java_lang_String *  java_util_Locale::getISO3Country()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1105,17 +1110,17 @@ java_lang_String *  java_util_Locale::getISO3Country()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getISO3Country() exit");
+	LOGV("java_lang_String java_util_Locale::getISO3Country() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
+java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1155,7 +1160,7 @@ java_lang_String *  java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1173,17 +1178,17 @@ java_lang_String *  java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayLanguage()
+java_lang_String java_util_Locale::getDisplayLanguage()
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayLanguage() enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayLanguage() enter");
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1202,7 +1207,7 @@ java_lang_String *  java_util_Locale::getDisplayLanguage()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1220,17 +1225,17 @@ java_lang_String *  java_util_Locale::getDisplayLanguage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayLanguage() exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayLanguage() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
+java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayCountry(java_util_Locale& arg0) enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1270,7 +1275,7 @@ java_lang_String *  java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1288,17 +1293,17 @@ java_lang_String *  java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayCountry(java_util_Locale& arg0) exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayCountry()
+java_lang_String java_util_Locale::getDisplayCountry()
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayCountry() enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayCountry() enter");
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1317,7 +1322,7 @@ java_lang_String *  java_util_Locale::getDisplayCountry()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1335,17 +1340,17 @@ java_lang_String *  java_util_Locale::getDisplayCountry()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayCountry() exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayCountry() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayVariant()
+java_lang_String java_util_Locale::getDisplayVariant()
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayVariant() enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayVariant() enter");
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1364,7 +1369,7 @@ java_lang_String *  java_util_Locale::getDisplayVariant()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1382,17 +1387,17 @@ java_lang_String *  java_util_Locale::getDisplayVariant()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayVariant() exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayVariant() exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
+java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayVariant(java_util_Locale& arg0) enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1432,7 +1437,7 @@ java_lang_String *  java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1450,17 +1455,17 @@ java_lang_String *  java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayVariant(java_util_Locale& arg0) exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayName(java_util_Locale& arg0)
+java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0)
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayName(java_util_Locale& arg0) enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1500,7 +1505,7 @@ java_lang_String *  java_util_Locale::getDisplayName(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1518,17 +1523,17 @@ java_lang_String *  java_util_Locale::getDisplayName(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayName(java_util_Locale& arg0) exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String *  java_util_Locale::getDisplayName()
+java_lang_String java_util_Locale::getDisplayName()
 {
-	LOGV("java_lang_String *  java_util_Locale::getDisplayName() enter");
+	LOGV("java_lang_String java_util_Locale::getDisplayName() enter");
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1547,7 +1552,7 @@ java_lang_String *  java_util_Locale::getDisplayName()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1565,11 +1570,11 @@ java_lang_String *  java_util_Locale::getDisplayName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_util_Locale::getDisplayName() exit");
+	LOGV("java_lang_String java_util_Locale::getDisplayName() exit");
 
 	return result;
 }

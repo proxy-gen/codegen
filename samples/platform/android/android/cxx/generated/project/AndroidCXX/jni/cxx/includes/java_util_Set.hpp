@@ -55,6 +55,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_util_Set
@@ -101,6 +102,7 @@ public:
 	java_util_Set(const java_util_Set& cc);
 	java_util_Set(void * proxy);
 	// Public Constructors
+	java_util_Set();
 	// Default Destructor
 	virtual ~java_util_Set();
 	// Functions
@@ -114,7 +116,7 @@ public:
 	 int size();
 	 std::vector<java_lang_Object > toArray(std::vector<java_lang_Object >& arg0);
 	 std::vector<java_lang_Object > toArray();
-	 java_util_Iterator *  iterator();
+	 java_util_Iterator iterator();
 	 bool remove(java_lang_Object& arg0);
 	 bool removeAll(java_util_Collection& arg0);
 	 bool containsAll(java_util_Collection& arg0);

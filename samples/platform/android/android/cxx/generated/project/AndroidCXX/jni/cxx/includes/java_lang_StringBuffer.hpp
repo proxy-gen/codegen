@@ -124,6 +124,7 @@
 
 
 
+
 // Generated Code 
 
 #ifndef _java_lang_StringBuffer
@@ -180,20 +181,20 @@ public:
 	// Default Destructor
 	virtual ~java_lang_StringBuffer();
 	// Functions
-	 java_lang_String *  toString();
-	 java_lang_StringBuffer *  append(std::vector<char>& arg0,int& arg1,int& arg2);
-	 java_lang_StringBuffer *  append(java_lang_Object& arg0);
-	 java_lang_StringBuffer *  append(java_lang_String& arg0);
-	 java_lang_StringBuffer *  append(java_lang_StringBuffer& arg0);
-	 java_lang_StringBuffer *  append(java_lang_CharSequence& arg0);
-	 java_lang_StringBuffer *  append(java_lang_CharSequence& arg0,int& arg1,int& arg2);
-	 java_lang_StringBuffer *  append(std::vector<char>& arg0);
-	 java_lang_StringBuffer *  append(bool& arg0);
-	 java_lang_StringBuffer *  append(char& arg0);
-	 java_lang_StringBuffer *  append(int& arg0);
-	 java_lang_StringBuffer *  append(long& arg0);
-	 java_lang_StringBuffer *  append(float& arg0);
-	 java_lang_StringBuffer *  append(double& arg0);
+	 java_lang_String toString();
+	 java_lang_StringBuffer append(std::vector<char>& arg0,int& arg1,int& arg2);
+	 java_lang_StringBuffer append(java_lang_Object& arg0);
+	 java_lang_StringBuffer append(java_lang_String& arg0);
+	 java_lang_StringBuffer append(java_lang_StringBuffer& arg0);
+	 java_lang_StringBuffer append(java_lang_CharSequence& arg0);
+	 java_lang_StringBuffer append(java_lang_CharSequence& arg0,int& arg1,int& arg2);
+	 java_lang_StringBuffer append(std::vector<char>& arg0);
+	 java_lang_StringBuffer append(bool& arg0);
+	 java_lang_StringBuffer append(char& arg0);
+	 java_lang_StringBuffer append(int& arg0);
+	 java_lang_StringBuffer append(long& arg0);
+	 java_lang_StringBuffer append(float& arg0);
+	 java_lang_StringBuffer append(double& arg0);
 	 int indexOf(java_lang_String& arg0,int& arg1);
 	 int indexOf(java_lang_String& arg0);
 	 int length();
@@ -205,31 +206,31 @@ public:
 	 void getChars(int& arg0,int& arg1,std::vector<char>& arg2,int& arg3);
 	 int lastIndexOf(java_lang_String& arg0);
 	 int lastIndexOf(java_lang_String& arg0,int& arg1);
-	 java_lang_String *  substring(int& arg0);
-	 java_lang_String *  substring(int& arg0,int& arg1);
-	 java_lang_CharSequence *  subSequence(int& arg0,int& arg1);
-	 java_lang_StringBuffer *  replace(int& arg0,int& arg1,java_lang_String& arg2);
+	 java_lang_String substring(int& arg0);
+	 java_lang_String substring(int& arg0,int& arg1);
+	 java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 java_lang_StringBuffer replace(int& arg0,int& arg1,java_lang_String& arg2);
 	 int capacity();
 	 void ensureCapacity(int& arg0);
 	 void trimToSize();
 	 void setLength(int& arg0);
 	 void setCharAt(int& arg0,char& arg1);
-	 java_lang_StringBuffer *  appendCodePoint(int& arg0);
-	 java_lang_StringBuffer *  _delete(int& arg0,int& arg1);
-	 java_lang_StringBuffer *  deleteCharAt(int& arg0);
-	 java_lang_StringBuffer *  insert(int& arg0,long& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,int& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,char& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,bool& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3);
-	 java_lang_StringBuffer *  insert(int& arg0,java_lang_CharSequence& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,std::vector<char>& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3);
-	 java_lang_StringBuffer *  insert(int& arg0,double& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,float& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,java_lang_String& arg1);
-	 java_lang_StringBuffer *  insert(int& arg0,java_lang_Object& arg1);
-	 java_lang_StringBuffer *  reverse();
+	 java_lang_StringBuffer appendCodePoint(int& arg0);
+	 java_lang_StringBuffer _delete(int& arg0,int& arg1);
+	 java_lang_StringBuffer deleteCharAt(int& arg0);
+	 java_lang_StringBuffer insert(int& arg0,long& arg1);
+	 java_lang_StringBuffer insert(int& arg0,int& arg1);
+	 java_lang_StringBuffer insert(int& arg0,char& arg1);
+	 java_lang_StringBuffer insert(int& arg0,bool& arg1);
+	 java_lang_StringBuffer insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3);
+	 java_lang_StringBuffer insert(int& arg0,java_lang_CharSequence& arg1);
+	 java_lang_StringBuffer insert(int& arg0,std::vector<char>& arg1);
+	 java_lang_StringBuffer insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3);
+	 java_lang_StringBuffer insert(int& arg0,double& arg1);
+	 java_lang_StringBuffer insert(int& arg0,float& arg1);
+	 java_lang_StringBuffer insert(int& arg0,java_lang_String& arg1);
+	 java_lang_StringBuffer insert(int& arg0,java_lang_Object& arg1);
+	 java_lang_StringBuffer reverse();
 };	
 
 } // namespace

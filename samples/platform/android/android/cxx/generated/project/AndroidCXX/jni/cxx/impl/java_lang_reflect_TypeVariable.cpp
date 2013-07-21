@@ -20,6 +20,7 @@
 
 
 
+
 // Generated Code 
 
 #include <java_lang_reflect_TypeVariable.hpp>
@@ -80,6 +81,10 @@ java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(void * proxy)
 
 	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(void * proxy) exit");
 }
+java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable()
+{
+
+}
 // Public Constructors
 // Default Instance Destructor
 java_lang_reflect_TypeVariable::~java_lang_reflect_TypeVariable()
@@ -96,9 +101,9 @@ java_lang_reflect_TypeVariable::~java_lang_reflect_TypeVariable()
 	LOGV("java_lang_reflect_TypeVariable::~java_lang_reflect_TypeVariable() exit");
 }
 // Functions
-java_lang_String *  java_lang_reflect_TypeVariable::getName()
+java_lang_String java_lang_reflect_TypeVariable::getName()
 {
-	LOGV("java_lang_String *  java_lang_reflect_TypeVariable::getName() enter");
+	LOGV("java_lang_String java_lang_reflect_TypeVariable::getName() enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -117,7 +122,7 @@ java_lang_String *  java_lang_reflect_TypeVariable::getName()
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	java_lang_String *  result;
+	java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -135,11 +140,11 @@ java_lang_String *  java_lang_reflect_TypeVariable::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String * ) (*((java_lang_String *  *) cxx_value));
+	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String *  java_lang_reflect_TypeVariable::getName() exit");
+	LOGV("java_lang_String java_lang_reflect_TypeVariable::getName() exit");
 
 	return result;
 }
@@ -200,7 +205,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_Type >) (*((std::vector<java_lang_reflect_Type > *) cxx_value));
+	result = (std::vector<java_lang_reflect_Type >) (cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -208,9 +213,9 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 
 	return result;
 }
-java_lang_reflect_GenericDeclaration *  java_lang_reflect_TypeVariable::getGenericDeclaration()
+java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration()
 {
-	LOGV("java_lang_reflect_GenericDeclaration *  java_lang_reflect_TypeVariable::getGenericDeclaration() enter");
+	LOGV("java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration() enter");
 
 	const char *methodName = "getGenericDeclaration";
 	const char *methodSignature = "()Ljava/lang/reflect/GenericDeclaration;";
@@ -229,7 +234,7 @@ java_lang_reflect_GenericDeclaration *  java_lang_reflect_TypeVariable::getGener
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	java_lang_reflect_GenericDeclaration *  result;
+	java_lang_reflect_GenericDeclaration result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -247,11 +252,11 @@ java_lang_reflect_GenericDeclaration *  java_lang_reflect_TypeVariable::getGener
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_reflect_GenericDeclaration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_reflect_GenericDeclaration * ) (*((java_lang_reflect_GenericDeclaration *  *) cxx_value));
+	result = (java_lang_reflect_GenericDeclaration) (java_lang_reflect_GenericDeclaration((java_lang_reflect_GenericDeclaration *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_reflect_GenericDeclaration *  java_lang_reflect_TypeVariable::getGenericDeclaration() exit");
+	LOGV("java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration() exit");
 
 	return result;
 }
