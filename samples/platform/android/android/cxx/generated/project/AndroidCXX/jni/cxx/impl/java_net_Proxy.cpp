@@ -94,7 +94,7 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress&
 
 	const char *methodName = "java.net.Proxy";
 	const char *methodSignature = "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

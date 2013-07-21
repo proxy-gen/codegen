@@ -926,6 +926,7 @@ class Generator(BaseGenerator):
 		if "deriveddata" not in class_config:
 			class_config['deriveddata'] = dict()
 		self._attach_derived_target_class_data(class_config, config_module)
+		self._attach_derived_jni_class_data(class_config, config_module)
 		logging.debug("_attach_derived_class_data exit")
 
 	def _attach_derived_target_class_data(self, class_config, config_module):
@@ -949,6 +950,25 @@ class Generator(BaseGenerator):
 			classinfo['filename'] = class_file_name
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
+
+	def _attach_derived_jni_class_data(self, class_config, config_module):
+			logging.debug("_attach_derived_class_data enter")
+			deriveddata = class_config['deriveddata']
+			if "jnidata" not in deriveddata:
+				deriveddata['jnidata'] = dict()
+			self._attach_derived_jni_class_signature(class_config, config_module)
+			logging.debug("_attach_derived_class_data enter")	
+
+	def _attach_derived_jni_class_signature(self, class_config, config_module):
+		logging.debug("_attach_derived_jni_class_signature enter")
+		deriveddata = class_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			class_name = class_config['name']
+			class_sig = Utils.to_jni_class_name(class_name)
+			jnidata['jnisignature'] = class_sig
+		assert 'jnisignature' in jnidata
+		logging.debug("_attach_derived_jni_class_signature exit")
 
 	def _attach_derived_function_data(self, function_config, config_module):
 		logging.debug("_attach_derived_function_data enter")
@@ -1537,6 +1557,10 @@ class Utils(object):
 		if cxx_name in Utils.cxx_reserved_names:
 			return '_' + cxx_name
 		return cxx_name
+
+	@classmethod
+	def to_jni_class_name(cls, class_name):
+		return Utils.to_resource_name(class_name)
 
 	@classmethod
 	def to_file_name(cls, base_name, extension):

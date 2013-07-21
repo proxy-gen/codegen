@@ -135,7 +135,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	const char *methodName = "java.util.Locale";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -223,7 +223,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	const char *methodName = "java.util.Locale";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -290,7 +290,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0)
 
 	const char *methodName = "java.util.Locale";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

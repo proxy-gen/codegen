@@ -99,7 +99,7 @@ java_security_Permission::java_security_Permission(java_lang_String& arg0)
 
 	const char *methodName = "java.security.Permission";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

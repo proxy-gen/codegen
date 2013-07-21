@@ -95,7 +95,7 @@ java_lang_Object::java_lang_Object()
 
 	const char *methodName = "java.lang.Object";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

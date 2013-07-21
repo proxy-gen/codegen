@@ -34,7 +34,9 @@ namespace AndroidCXX {
 
 enum java_net_Proxy_Type
 {
-
+	DIRECT,
+	HTTP,
+	SOCKS,
 };
 
 } // namespace

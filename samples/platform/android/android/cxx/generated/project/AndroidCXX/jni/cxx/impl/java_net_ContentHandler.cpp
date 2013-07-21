@@ -89,7 +89,7 @@ java_net_ContentHandler::java_net_ContentHandler()
 
 	const char *methodName = "java.net.ContentHandler";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_ContentHandler";
+	const char *className = "java/net/ContentHandler";
 
 	LOGV("java_net_ContentHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

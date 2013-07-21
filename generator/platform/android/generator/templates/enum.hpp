@@ -16,6 +16,7 @@
 #set $package = $config_data['package']
 #set $enum_class_name = $CONFIG.enum_class_name
 #set $class_name = $CONFIG.class_name
+#set $class_config = $CONFIG.enum_class
 #set $enum_head_file_name = $CONFIG.enum_head_file_name
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
@@ -116,7 +117,9 @@ namespace ${namespace} {
 
 enum $enum_class_name
 {
-
+	#for $field in $class_config['fields']
+	${field['name']},
+	#end for
 };
 
 } // namespace

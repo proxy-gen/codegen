@@ -94,7 +94,7 @@ java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_secur
 
 	const char *methodName = "java.security.Timestamp";
 	const char *methodSignature = "(Ljava/util/Date;Ljava/security/cert/CertPath;)V";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

@@ -102,7 +102,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 
 	const char *methodName = "java.security.ProtectionDomain";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -169,7 +169,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 
 	const char *methodName = "java.security.ProtectionDomain";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[java/security/Principal)V";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

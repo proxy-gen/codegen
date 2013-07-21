@@ -186,7 +186,7 @@ java_lang_StringBuffer::java_lang_StringBuffer()
 
 	const char *methodName = "java.lang.StringBuffer";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_StringBuffer";
+	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -211,7 +211,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(int& arg0)
 
 	const char *methodName = "java.lang.StringBuffer";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_lang_StringBuffer";
+	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -257,7 +257,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0)
 
 	const char *methodName = "java.lang.StringBuffer";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_lang_StringBuffer";
+	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -303,7 +303,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0)
 
 	const char *methodName = "java.lang.StringBuffer";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
-	const char *className = "java_lang_StringBuffer";
+	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

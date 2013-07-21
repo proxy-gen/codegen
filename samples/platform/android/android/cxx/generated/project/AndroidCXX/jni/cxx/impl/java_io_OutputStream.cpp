@@ -88,7 +88,7 @@ java_io_OutputStream::java_io_OutputStream()
 
 	const char *methodName = "java.io.OutputStream";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

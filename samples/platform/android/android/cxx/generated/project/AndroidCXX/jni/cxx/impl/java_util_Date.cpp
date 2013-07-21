@@ -125,7 +125,7 @@ java_util_Date::java_util_Date()
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -150,7 +150,7 @@ java_util_Date::java_util_Date(long& arg0)
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "(J)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -196,7 +196,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "(III)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -284,7 +284,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "(IIIII)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -414,7 +414,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "(IIIIII)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -565,7 +565,7 @@ java_util_Date::java_util_Date(java_lang_String& arg0)
 
 	const char *methodName = "java.util.Date";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

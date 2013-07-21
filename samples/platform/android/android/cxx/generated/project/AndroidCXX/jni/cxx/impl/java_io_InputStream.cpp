@@ -92,7 +92,7 @@ java_io_InputStream::java_io_InputStream()
 
 	const char *methodName = "java.io.InputStream";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

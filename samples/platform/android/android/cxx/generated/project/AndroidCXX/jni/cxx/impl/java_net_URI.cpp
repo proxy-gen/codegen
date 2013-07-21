@@ -164,7 +164,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	const char *methodName = "java.net.URI";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -336,7 +336,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0)
 
 	const char *methodName = "java.net.URI";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -382,7 +382,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	const char *methodName = "java.net.URI";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -512,7 +512,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	const char *methodName = "java.net.URI";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -621,7 +621,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	const char *methodName = "java.net.URI";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

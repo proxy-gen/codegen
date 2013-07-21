@@ -17,6 +17,8 @@
 #set $entity_class_config = $CONFIG.entity_class
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
+#set $class_classinfo = $CONFIG.entity_class['deriveddata']['targetdata']['classinfo']
+#set $class_jnidata = $CONFIG.entity_class['deriveddata']['jnidata']
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
@@ -178,7 +180,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 	#set $cons_jnidata = $constructor['deriveddata']['jnidata']
 	const char *methodName = "$constructor['name']";
 	const char *methodSignature = "$cons_jnidata['jnisignature']";
-	const char *className = "$entity_class_name";
+	const char *className = "$class_jnidata['jnisignature']";
 
 	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

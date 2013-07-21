@@ -15,6 +15,7 @@
 void convert_java_lang_String(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -29,6 +30,7 @@ void convert_java_lang_String(long& java_value, long& cxx_value, const CXXTypeHi
 void convert_java_nio_charset_Charset(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -43,6 +45,7 @@ void convert_java_nio_charset_Charset(long& java_value, long& cxx_value, const C
 void convert_java_lang_Object(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -57,6 +60,7 @@ void convert_java_lang_Object(long& java_value, long& cxx_value, const CXXTypeHi
 void convert_java_lang_Class(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -71,6 +75,7 @@ void convert_java_lang_Class(long& java_value, long& cxx_value, const CXXTypeHie
 void convert_java_lang_ClassLoader(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -85,6 +90,7 @@ void convert_java_lang_ClassLoader(long& java_value, long& cxx_value, const CXXT
 void convert_java_io_InputStream(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -99,6 +105,7 @@ void convert_java_io_InputStream(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_net_URL(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -113,6 +120,7 @@ void convert_java_net_URL(long& java_value, long& cxx_value, const CXXTypeHierar
 void convert_java_net_URLStreamHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -127,6 +135,7 @@ void convert_java_net_URLStreamHandler(long& java_value, long& cxx_value, const 
 void convert_java_net_URI(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -141,6 +150,7 @@ void convert_java_net_URI(long& java_value, long& cxx_value, const CXXTypeHierar
 void convert_java_net_Proxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -155,18 +165,62 @@ void convert_java_net_Proxy(long& java_value, long& cxx_value, const CXXTypeHier
 void convert_java_net_Proxy_Type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
+		const char * enum_string = 0;
+		do
+		{
+			if (DIRECT == cxx_value)
+			{
+				enum_string = "DIRECT";
+				break;
+			}
+			if (HTTP == cxx_value)
+			{
+				enum_string = "HTTP";
+				break;
+			}
+			if (SOCKS == cxx_value)
+			{
+				enum_string = "SOCKS";
+				break;
+			}
+		}
+		while(0);
+		java_value = (long) jni->toJEnum(jni->getClassRef("java/net/Proxy$Type"), enum_string);
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
+		jstring jenum = jni->toCXXEnumString((jobject) java_value);
+		const char * enum_string = jni->getUTFString(jenum).c_str();
+		cxx_value = 0;
+		do
+		{
+				if (strcmp("DIRECT", enum_string) == 0)
+				{
+					cxx_value = DIRECT;
+					break;
+				}
+				if (strcmp("HTTP", enum_string) == 0)
+				{
+					cxx_value = HTTP;
+					break;
+				}
+				if (strcmp("SOCKS", enum_string) == 0)
+				{
+					cxx_value = SOCKS;
+					break;
+				}
+		} 
+		while (0);		
 	}
 }
 void convert_java_net_SocketAddress(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -181,6 +235,7 @@ void convert_java_net_SocketAddress(long& java_value, long& cxx_value, const CXX
 void convert_java_net_URLConnection(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -195,6 +250,7 @@ void convert_java_net_URLConnection(long& java_value, long& cxx_value, const CXX
 void convert_java_security_Permission(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -209,6 +265,7 @@ void convert_java_security_Permission(long& java_value, long& cxx_value, const C
 void convert_java_security_PermissionCollection(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -223,6 +280,7 @@ void convert_java_security_PermissionCollection(long& java_value, long& cxx_valu
 void convert_java_util_Enumeration(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -237,6 +295,7 @@ void convert_java_util_Enumeration(long& java_value, long& cxx_value, const CXXT
 void convert_java_net_FileNameMap(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -251,6 +310,7 @@ void convert_java_net_FileNameMap(long& java_value, long& cxx_value, const CXXTy
 void convert_java_util_Map(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -265,6 +325,7 @@ void convert_java_util_Map(long& java_value, long& cxx_value, const CXXTypeHiera
 void convert_java_util_Collection(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -279,6 +340,7 @@ void convert_java_util_Collection(long& java_value, long& cxx_value, const CXXTy
 void convert_java_util_Iterator(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -293,6 +355,7 @@ void convert_java_util_Iterator(long& java_value, long& cxx_value, const CXXType
 void convert_java_util_Set(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -307,6 +370,7 @@ void convert_java_util_Set(long& java_value, long& cxx_value, const CXXTypeHiera
 void convert_java_util_Map_Entry(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -321,6 +385,7 @@ void convert_java_util_Map_Entry(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_util_List(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -335,6 +400,7 @@ void convert_java_util_List(long& java_value, long& cxx_value, const CXXTypeHier
 void convert_java_util_ListIterator(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -349,6 +415,7 @@ void convert_java_util_ListIterator(long& java_value, long& cxx_value, const CXX
 void convert_java_io_OutputStream(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -363,6 +430,7 @@ void convert_java_io_OutputStream(long& java_value, long& cxx_value, const CXXTy
 void convert_java_net_ContentHandlerFactory(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -377,6 +445,7 @@ void convert_java_net_ContentHandlerFactory(long& java_value, long& cxx_value, c
 void convert_java_net_ContentHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -391,6 +460,7 @@ void convert_java_net_ContentHandler(long& java_value, long& cxx_value, const CX
 void convert_java_net_URLStreamHandlerFactory(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -405,6 +475,7 @@ void convert_java_net_URLStreamHandlerFactory(long& java_value, long& cxx_value,
 void convert_java_lang_reflect_TypeVariable(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -419,6 +490,7 @@ void convert_java_lang_reflect_TypeVariable(long& java_value, long& cxx_value, c
 void convert_java_lang_reflect_Type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -433,6 +505,7 @@ void convert_java_lang_reflect_Type(long& java_value, long& cxx_value, const CXX
 void convert_java_lang_reflect_GenericDeclaration(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -447,6 +520,7 @@ void convert_java_lang_reflect_GenericDeclaration(long& java_value, long& cxx_va
 void convert_java_lang_Package(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -461,6 +535,7 @@ void convert_java_lang_Package(long& java_value, long& cxx_value, const CXXTypeH
 void convert_java_lang_annotation_Annotation(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -475,6 +550,7 @@ void convert_java_lang_annotation_Annotation(long& java_value, long& cxx_value, 
 void convert_java_lang_reflect_Method(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -489,6 +565,7 @@ void convert_java_lang_reflect_Method(long& java_value, long& cxx_value, const C
 void convert_java_lang_reflect_Constructor(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -503,6 +580,7 @@ void convert_java_lang_reflect_Constructor(long& java_value, long& cxx_value, co
 void convert_java_lang_reflect_Field(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -517,6 +595,7 @@ void convert_java_lang_reflect_Field(long& java_value, long& cxx_value, const CX
 void convert_java_security_ProtectionDomain(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -531,6 +610,7 @@ void convert_java_security_ProtectionDomain(long& java_value, long& cxx_value, c
 void convert_java_security_CodeSource(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -545,6 +625,7 @@ void convert_java_security_CodeSource(long& java_value, long& cxx_value, const C
 void convert_java_security_CodeSigner(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -559,6 +640,7 @@ void convert_java_security_CodeSigner(long& java_value, long& cxx_value, const C
 void convert_java_security_cert_CertPath(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -573,6 +655,7 @@ void convert_java_security_cert_CertPath(long& java_value, long& cxx_value, cons
 void convert_java_security_cert_Certificate(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -587,6 +670,7 @@ void convert_java_security_cert_Certificate(long& java_value, long& cxx_value, c
 void convert_java_security_PublicKey(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -601,6 +685,7 @@ void convert_java_security_PublicKey(long& java_value, long& cxx_value, const CX
 void convert_java_security_Timestamp(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -615,6 +700,7 @@ void convert_java_security_Timestamp(long& java_value, long& cxx_value, const CX
 void convert_java_util_Date(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -629,6 +715,7 @@ void convert_java_util_Date(long& java_value, long& cxx_value, const CXXTypeHier
 void convert_java_security_Principal(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -643,6 +730,7 @@ void convert_java_security_Principal(long& java_value, long& cxx_value, const CX
 void convert_java_nio_ByteBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -657,6 +745,7 @@ void convert_java_nio_ByteBuffer(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_nio_ByteOrder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -671,6 +760,7 @@ void convert_java_nio_ByteOrder(long& java_value, long& cxx_value, const CXXType
 void convert_java_nio_CharBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -685,6 +775,7 @@ void convert_java_nio_CharBuffer(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_lang_CharSequence(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -699,6 +790,7 @@ void convert_java_lang_CharSequence(long& java_value, long& cxx_value, const CXX
 void convert_java_nio_ShortBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -713,6 +805,7 @@ void convert_java_nio_ShortBuffer(long& java_value, long& cxx_value, const CXXTy
 void convert_java_nio_IntBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -727,6 +820,7 @@ void convert_java_nio_IntBuffer(long& java_value, long& cxx_value, const CXXType
 void convert_java_nio_LongBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -741,6 +835,7 @@ void convert_java_nio_LongBuffer(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_nio_FloatBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -755,6 +850,7 @@ void convert_java_nio_FloatBuffer(long& java_value, long& cxx_value, const CXXTy
 void convert_java_nio_DoubleBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -769,6 +865,7 @@ void convert_java_nio_DoubleBuffer(long& java_value, long& cxx_value, const CXXT
 void convert_java_util_SortedMap(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -783,6 +880,7 @@ void convert_java_util_SortedMap(long& java_value, long& cxx_value, const CXXTyp
 void convert_java_util_Comparator(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -797,6 +895,7 @@ void convert_java_util_Comparator(long& java_value, long& cxx_value, const CXXTy
 void convert_java_util_Locale(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -811,6 +910,7 @@ void convert_java_util_Locale(long& java_value, long& cxx_value, const CXXTypeHi
 void convert_java_nio_charset_CharsetDecoder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -825,6 +925,7 @@ void convert_java_nio_charset_CharsetDecoder(long& java_value, long& cxx_value, 
 void convert_java_nio_charset_CoderResult(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -839,6 +940,7 @@ void convert_java_nio_charset_CoderResult(long& java_value, long& cxx_value, con
 void convert_java_nio_charset_CodingErrorAction(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -853,6 +955,7 @@ void convert_java_nio_charset_CodingErrorAction(long& java_value, long& cxx_valu
 void convert_java_nio_charset_CharsetEncoder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -867,6 +970,7 @@ void convert_java_nio_charset_CharsetEncoder(long& java_value, long& cxx_value, 
 void convert_java_lang_StringBuffer(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
@@ -881,6 +985,7 @@ void convert_java_lang_StringBuffer(long& java_value, long& cxx_value, const CXX
 void convert_java_lang_StringBuilder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{

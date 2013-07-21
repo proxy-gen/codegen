@@ -168,7 +168,7 @@ java_lang_StringBuilder::java_lang_StringBuilder(int& arg0)
 
 	const char *methodName = "java.lang.StringBuilder";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_lang_StringBuilder";
+	const char *className = "java/lang/StringBuilder";
 
 	LOGV("java_lang_StringBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -214,7 +214,7 @@ java_lang_StringBuilder::java_lang_StringBuilder()
 
 	const char *methodName = "java.lang.StringBuilder";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_StringBuilder";
+	const char *className = "java/lang/StringBuilder";
 
 	LOGV("java_lang_StringBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -239,7 +239,7 @@ java_lang_StringBuilder::java_lang_StringBuilder(java_lang_String& arg0)
 
 	const char *methodName = "java.lang.StringBuilder";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_lang_StringBuilder";
+	const char *className = "java/lang/StringBuilder";
 
 	LOGV("java_lang_StringBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -285,7 +285,7 @@ java_lang_StringBuilder::java_lang_StringBuilder(java_lang_CharSequence& arg0)
 
 	const char *methodName = "java.lang.StringBuilder";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
-	const char *className = "java_lang_StringBuilder";
+	const char *className = "java/lang/StringBuilder";
 
 	LOGV("java_lang_StringBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

@@ -83,7 +83,7 @@ java_net_URLStreamHandler::java_net_URLStreamHandler()
 
 	const char *methodName = "java.net.URLStreamHandler";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_URLStreamHandler";
+	const char *className = "java/net/URLStreamHandler";
 
 	LOGV("java_net_URLStreamHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

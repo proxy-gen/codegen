@@ -93,7 +93,7 @@ java_security_PermissionCollection::java_security_PermissionCollection()
 
 	const char *methodName = "java.security.PermissionCollection";
 	const char *methodSignature = "()V";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

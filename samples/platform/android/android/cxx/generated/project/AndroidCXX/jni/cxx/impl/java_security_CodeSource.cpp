@@ -101,7 +101,7 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	const char *methodName = "java.security.CodeSource";
 	const char *methodSignature = "(Ljava/net/URL;[java/security/CodeSigner)V";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -186,7 +186,7 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	const char *methodName = "java.security.CodeSource";
 	const char *methodSignature = "(Ljava/net/URL;[java/security/cert/Certificate)V";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

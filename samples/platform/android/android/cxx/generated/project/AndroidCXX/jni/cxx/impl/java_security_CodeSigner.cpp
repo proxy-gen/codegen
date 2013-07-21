@@ -94,7 +94,7 @@ java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& 
 
 	const char *methodName = "java.security.CodeSigner";
 	const char *methodSignature = "(Ljava/security/cert/CertPath;Ljava/security/Timestamp;)V";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

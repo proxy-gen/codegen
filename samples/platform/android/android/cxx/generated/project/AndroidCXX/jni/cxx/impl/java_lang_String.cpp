@@ -242,7 +242,7 @@ java_lang_String::java_lang_String()
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -267,7 +267,7 @@ java_lang_String::java_lang_String(java_lang_String& arg0)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -313,7 +313,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([C)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -377,7 +377,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([CII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -483,7 +483,7 @@ java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([III)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -589,7 +589,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,i
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BIII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -716,7 +716,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -801,7 +801,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BIILjava/lang/String;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -928,7 +928,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BIILjava/nio/charset/Charset;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1055,7 +1055,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BLjava/lang/String;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1140,7 +1140,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Char
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BLjava/nio/charset/Charset;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1225,7 +1225,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([BII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1331,7 +1331,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "([B)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1395,7 +1395,7 @@ java_lang_String::java_lang_String(java_lang_StringBuffer& arg0)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1441,7 +1441,7 @@ java_lang_String::java_lang_String(java_lang_StringBuilder& arg0)
 
 	const char *methodName = "java.lang.String";
 	const char *methodSignature = "(Ljava/lang/StringBuilder;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

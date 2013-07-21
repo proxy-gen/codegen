@@ -83,7 +83,7 @@ java_net_SocketAddress::java_net_SocketAddress()
 
 	const char *methodName = "java.net.SocketAddress";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_SocketAddress";
+	const char *className = "java/net/SocketAddress";
 
 	LOGV("java_net_SocketAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
