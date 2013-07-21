@@ -106,10 +106,21 @@ java_lang_Object::java_lang_Object()
 
 	long cxxAddress = (long) this;
 	LOGV("java_lang_Object cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_lang_Object jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_Object jni address %d", proxiedComponent);
 
-		
+	if (proxiedComponent == 0)
+	{
+
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
 	jni->popLocalFrame();
 
 	LOGV("java_lang_Object::java_lang_Object( exit");	

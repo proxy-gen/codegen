@@ -110,31 +110,42 @@ java_security_Permission::java_security_Permission(java_lang_String& arg0)
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_Permission cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_security_Permission jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Permission jni address %d", proxiedComponent);
 
-	jstring jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0 exit");	

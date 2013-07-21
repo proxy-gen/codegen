@@ -157,94 +157,105 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& ar
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jstring jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
-	}
-	jint jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jint jarg2;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
+			long cxx_value = (long) & arg2;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("int");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg2 = convert_jni_int_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg2 = convert_jni_int_to_jni(java_value);
-	}
-	jstring jarg3;
-	{
-		long cxx_value = (long) & arg3;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg3;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg3;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg3 = convert_jni_string_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg3 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3 exit");	
@@ -266,73 +277,84 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jstring jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
-	}
-	jstring jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg2;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg2;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg2 = convert_jni_string_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg2 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2 exit");	
@@ -354,115 +376,126 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& ar
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jstring jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
-	}
-	jint jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jint jarg2;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
+			long cxx_value = (long) & arg2;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("int");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg2 = convert_jni_int_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg2 = convert_jni_int_to_jni(java_value);
-	}
-	jstring jarg3;
-	{
-		long cxx_value = (long) & arg3;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg3;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg3;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg3 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg3 = convert_jni_string_to_jni(java_value);
-	}
-	jobject jarg4;
-	{
-		long cxx_value = (long) & arg4;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg4;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URLStreamHandler");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URLStreamHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg4;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URLStreamHandler");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URLStreamHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3,java_net_URLStreamHandler& arg4 exit");	
@@ -484,31 +517,42 @@ java_net_URL::java_net_URL(java_lang_String& arg0)
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jstring jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0 exit");	
@@ -530,52 +574,63 @@ java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1)
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jobject jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URL");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URL");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1 exit");	
@@ -597,73 +652,84 @@ java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_UR
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URL cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URL jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URL jni address %d", proxiedComponent);
 
-	jobject jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URL");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URL");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jstring jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_string_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
-	}
-	jobject jarg2;
-	{
-		long cxx_value = (long) & arg2;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg2;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URLStreamHandler");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URLStreamHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg2;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URLStreamHandler");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URLStreamHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_URLStreamHandler& arg2 exit");	

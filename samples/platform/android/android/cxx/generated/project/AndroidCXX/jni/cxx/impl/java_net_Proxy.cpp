@@ -105,52 +105,63 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress&
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_Proxy cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_Proxy jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_Proxy jni address %d", proxiedComponent);
 
-	jobject jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.Proxy$Type");
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.Proxy$Type");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_Proxy_Type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_Proxy_Type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobject jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.SocketAddress");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1 exit");	

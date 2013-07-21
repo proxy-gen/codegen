@@ -58,6 +58,8 @@ extern "C" {
 namespace AndroidCXX {
 
 
+using namespace JAVA_NET_PROXY_TYPE;
+
 using namespace AndroidCXX;
 
 // Forward Declarations

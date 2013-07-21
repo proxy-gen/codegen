@@ -94,10 +94,21 @@ java_net_URLStreamHandler::java_net_URLStreamHandler()
 
 	long cxxAddress = (long) this;
 	LOGV("java_net_URLStreamHandler cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_net_URLStreamHandler jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URLStreamHandler jni address %d", proxiedComponent);
 
-		
+	if (proxiedComponent == 0)
+	{
+
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
 	jni->popLocalFrame();
 
 	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler( exit");	

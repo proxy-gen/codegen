@@ -104,10 +104,21 @@ java_security_PermissionCollection::java_security_PermissionCollection()
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_PermissionCollection cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_security_PermissionCollection jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_PermissionCollection jni address %d", proxiedComponent);
 
-		
+	if (proxiedComponent == 0)
+	{
+
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
 	jni->popLocalFrame();
 
 	LOGV("java_security_PermissionCollection::java_security_PermissionCollection( exit");	

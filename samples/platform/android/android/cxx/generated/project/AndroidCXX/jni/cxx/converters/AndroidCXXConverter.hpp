@@ -87,6 +87,7 @@
 #include <java_lang_StringBuilder.hpp>
 
 using namespace AndroidCXX;
+using namespace JAVA_NET_PROXY_TYPE;
 
 
 // Proxy Converter Types

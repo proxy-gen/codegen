@@ -112,70 +112,81 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_security_CodeSource jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSource jni address %d", proxiedComponent);
 
-	jobject jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URL");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobjectArray jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_object_array_type");
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
 			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URL");
 			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 		}
+		jobjectArray jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.security.CodeSigner");
-		}
-		std::stack<long> converter_stack;
-		
-		{
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
 			{
-				converter_stack.push((long) &convert_java_security_CodeSigner);				
-
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("_object_array_type");
+				{
+					CXXTypeHierarchy child_cxx_type_hierarchy;
+					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+					
+				}
 			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.security.CodeSigner");
+			}
+			std::stack<long> converter_stack;
+			
+			{
+				{
+					converter_stack.push((long) &convert_java_security_CodeSigner);				
 
-		// Convert to JNI
-		jarg1 = convert_jni__object_array_type_to_jni(java_value);
+				}
+			}
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni__object_array_type_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1 exit");	
@@ -197,70 +208,81 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	long cxxAddress = (long) this;
 	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_security_CodeSource jni address %d", javaObject);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSource jni address %d", proxiedComponent);
 
-	jobject jarg0;
+	if (proxiedComponent == 0)
 	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
 
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		jobject jarg0;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.net.URL");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
 
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobjectArray jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_object_array_type");
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
 			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.net.URL");
 			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 		}
+		jobjectArray jarg1;
 		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.security.cert.Certificate");
-		}
-		std::stack<long> converter_stack;
-		
-		{
+			long cxx_value = (long) & arg1;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
 			{
-				converter_stack.push((long) &convert_java_security_cert_Certificate);				
-
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("_object_array_type");
+				{
+					CXXTypeHierarchy child_cxx_type_hierarchy;
+					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+					
+				}
 			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.security.cert.Certificate");
+			}
+			std::stack<long> converter_stack;
+			
+			{
+				{
+					converter_stack.push((long) &convert_java_security_cert_Certificate);				
 
-		// Convert to JNI
-		jarg1 = convert_jni__object_array_type_to_jni(java_value);
+				}
+			}
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg1 = convert_jni__object_array_type_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
 	}
-		
+
 	jni->popLocalFrame();
 
 	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1 exit");	
