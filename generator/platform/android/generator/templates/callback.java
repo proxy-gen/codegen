@@ -6,7 +6,7 @@
 #set $package = $config_data['package']
 #set $callback_class = $CONFIG.callback_class
 #set $callback_class_name = $CONFIG.callback_class_name
-package $package
+package $package;
 #set $SPACE = " "
 #set $COMMA = ","
 #set $base_class = $callback_class['name'].replace('$','.')
@@ -20,7 +20,25 @@ public class $callback_class_name extends $base_class
 {
 #set $constructors = $callback_class['constructors']
 #for $constructor in $constructors
+	#set $param_str = ""
+	#set $invoke_str = ""
+	#set $params = $constructor['params']
+	#set $param_idx = 0
+	#for $param in $params
+		#if $param_idx > 0
+			#set $param_str = $param_str + $COMMA 
+			#set $invoke_str = $invoke_str + $COMMA 
+		#end if
+		#set $param_str = $param_str + $param['type']
+		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+		#set $invoke_str = $invoke_str + $param['type']
+		#set $param_idx = $param_idx + 1
+	#end for
 	//TODO constructor here
+	public $callback_class_name($param_str)
+	{
+		super($invoke_str);
+	}
 #end for
 #set $functions = $callback_class['functions']
 #for $function in $functions
