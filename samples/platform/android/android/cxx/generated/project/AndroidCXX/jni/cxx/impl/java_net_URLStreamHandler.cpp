@@ -80,9 +80,9 @@ java_net_URLStreamHandler::java_net_URLStreamHandler(void * proxy)
 // Public Constructors
 java_net_URLStreamHandler::java_net_URLStreamHandler()
 {
-	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler( enter");	
+	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler() enter");	
 
-	const char *methodName = "java.net.URLStreamHandler";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/net/URLStreamHandler";
 
@@ -104,7 +104,7 @@ java_net_URLStreamHandler::java_net_URLStreamHandler()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -112,7 +112,7 @@ java_net_URLStreamHandler::java_net_URLStreamHandler()
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler( exit");	
+	LOGV("java_net_URLStreamHandler::java_net_URLStreamHandler() exit");	
 }
 // Default Instance Destructor
 java_net_URLStreamHandler::~java_net_URLStreamHandler()

@@ -85,9 +85,9 @@ java_io_OutputStream::java_io_OutputStream(void * proxy)
 // Public Constructors
 java_io_OutputStream::java_io_OutputStream()
 {
-	LOGV("java_io_OutputStream::java_io_OutputStream( enter");	
+	LOGV("java_io_OutputStream::java_io_OutputStream() enter");	
 
-	const char *methodName = "java.io.OutputStream";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/io/OutputStream";
 
@@ -109,7 +109,7 @@ java_io_OutputStream::java_io_OutputStream()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -117,7 +117,7 @@ java_io_OutputStream::java_io_OutputStream()
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_OutputStream::java_io_OutputStream( exit");	
+	LOGV("java_io_OutputStream::java_io_OutputStream() exit");	
 }
 // Default Instance Destructor
 java_io_OutputStream::~java_io_OutputStream()
@@ -140,7 +140,7 @@ void java_io_OutputStream::write(int& arg0)
 
 	const char *methodName = "write";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -189,7 +189,7 @@ void java_io_OutputStream::write(std::vector<byte>& arg0)
 
 	const char *methodName = "write";
 	const char *methodSignature = "([B)V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -256,7 +256,7 @@ void java_io_OutputStream::write(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "write";
 	const char *methodSignature = "([BII)V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -365,7 +365,7 @@ void java_io_OutputStream::flush()
 
 	const char *methodName = "flush";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -393,7 +393,7 @@ void java_io_OutputStream::close()
 
 	const char *methodName = "close";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_OutputStream";
+	const char *className = "java/io/OutputStream";
 
 	LOGV("java_io_OutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

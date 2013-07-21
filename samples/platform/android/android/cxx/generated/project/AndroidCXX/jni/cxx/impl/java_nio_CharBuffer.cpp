@@ -148,7 +148,37 @@ java_nio_CharBuffer::java_nio_CharBuffer(void * proxy)
 }
 java_nio_CharBuffer::java_nio_CharBuffer()
 {
+	LOGV("java_nio_CharBuffer::java_nio_CharBuffer() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/CharBuffer";
+
+	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_CharBuffer cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_CharBuffer jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_CharBuffer::java_nio_CharBuffer() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -172,7 +202,7 @@ java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -258,7 +288,7 @@ java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0,int& arg1,i
 
 	const char *methodName = "get";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -386,7 +416,7 @@ char java_nio_CharBuffer::get()
 
 	const char *methodName = "get";
 	const char *methodSignature = "()C";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -433,7 +463,7 @@ char java_nio_CharBuffer::get(int& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)C";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -501,7 +531,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(int& arg0,char& arg1)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IC)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -590,7 +620,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(char& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(C)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -658,7 +688,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -726,7 +756,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(java_lang_String& arg0,int& arg1,in
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/String;II)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -836,7 +866,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -922,7 +952,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0,int& arg1,i
 
 	const char *methodName = "put";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1050,7 +1080,7 @@ java_nio_CharBuffer java_nio_CharBuffer::put(java_nio_CharBuffer& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1118,7 +1148,7 @@ bool java_nio_CharBuffer::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1186,7 +1216,7 @@ java_lang_String java_nio_CharBuffer::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1232,8 +1262,8 @@ java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int
 	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
-	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *methodSignature = "(Ljava_lang_CharSequence;II)Ljava/nio/CharBuffer;";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1343,7 +1373,7 @@ java_nio_CharBuffer java_nio_CharBuffer::append(char& arg0)
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1410,8 +1440,8 @@ java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0)
 	LOGV("java_nio_CharBuffer java_nio_CharBuffer::append(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "append";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *methodSignature = "(Ljava_lang_CharSequence;)Ljava/nio/CharBuffer;";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1479,7 +1509,7 @@ int java_nio_CharBuffer::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1526,7 +1556,7 @@ int java_nio_CharBuffer::compareTo(java_nio_CharBuffer& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)I";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1594,7 +1624,7 @@ int java_nio_CharBuffer::length()
 
 	const char *methodName = "length";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1641,7 +1671,7 @@ char java_nio_CharBuffer::charAt(int& arg0)
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1708,8 +1738,8 @@ java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& arg1)
 	LOGV("java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
-	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
-	const char *className = "java_nio_CharBuffer";
+	const char *methodSignature = "(II)Ljava_lang_CharSequence;";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1798,7 +1828,7 @@ bool java_nio_CharBuffer::isDirect()
 
 	const char *methodName = "isDirect";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1845,7 +1875,7 @@ bool java_nio_CharBuffer::hasArray()
 
 	const char *methodName = "hasArray";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1892,7 +1922,7 @@ std::vector<char> java_nio_CharBuffer::array()
 
 	const char *methodName = "array";
 	const char *methodSignature = "()[C";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1957,7 +1987,7 @@ int java_nio_CharBuffer::arrayOffset()
 
 	const char *methodName = "arrayOffset";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2003,8 +2033,8 @@ java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& 
 	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "wrap";
-	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *methodSignature = "(Ljava_lang_CharSequence;II)Ljava/nio/CharBuffer;";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2114,7 +2144,7 @@ java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0,int& arg1,
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([CII)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2242,7 +2272,7 @@ java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0)
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([C)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2327,8 +2357,8 @@ java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0)
 	LOGV("java_nio_CharBuffer java_nio_CharBuffer::wrap(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "wrap";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *methodSignature = "(Ljava_lang_CharSequence;)Ljava/nio/CharBuffer;";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2396,7 +2426,7 @@ int java_nio_CharBuffer::read(java_nio_CharBuffer& arg0)
 
 	const char *methodName = "read";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)I";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2464,7 +2494,7 @@ java_nio_CharBuffer java_nio_CharBuffer::allocate(int& arg0)
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2532,7 +2562,7 @@ java_nio_CharBuffer java_nio_CharBuffer::duplicate()
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2579,7 +2609,7 @@ java_nio_CharBuffer java_nio_CharBuffer::slice()
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2626,7 +2656,7 @@ java_nio_CharBuffer java_nio_CharBuffer::asReadOnlyBuffer()
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2673,7 +2703,7 @@ java_nio_CharBuffer java_nio_CharBuffer::compact()
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2720,7 +2750,7 @@ java_nio_ByteOrder java_nio_CharBuffer::order()
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
-	const char *className = "java_nio_CharBuffer";
+	const char *className = "java/nio/CharBuffer";
 
 	LOGV("java_nio_CharBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

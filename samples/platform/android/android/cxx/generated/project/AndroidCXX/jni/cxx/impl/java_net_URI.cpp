@@ -160,14 +160,44 @@ java_net_URI::java_net_URI(void * proxy)
 }
 java_net_URI::java_net_URI()
 {
+	LOGV("java_net_URI::java_net_URI() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/net/URI";
+
+	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_URI cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_URI jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_net_URI::java_net_URI() exit");	
 }
 // Public Constructors
 java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6 enter");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6) enter");	
 
-	const char *methodName = "java.net.URI";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URI";
 
@@ -336,7 +366,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -344,13 +374,13 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6 exit");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6) exit");	
 }
 java_net_URI::java_net_URI(java_lang_String& arg0)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0 enter");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0) enter");	
 
-	const char *methodName = "java.net.URI";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/net/URI";
 
@@ -393,7 +423,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -401,13 +431,13 @@ java_net_URI::java_net_URI(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0 exit");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0) exit");	
 }
 java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4 enter");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4) enter");	
 
-	const char *methodName = "java.net.URI";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URI";
 
@@ -534,7 +564,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -542,13 +572,13 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4 exit");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4) exit");	
 }
 java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3 enter");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3) enter");	
 
-	const char *methodName = "java.net.URI";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URI";
 
@@ -654,7 +684,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -662,13 +692,13 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3 exit");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3) exit");	
 }
 java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2 enter");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) enter");	
 
-	const char *methodName = "java.net.URI";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URI";
 
@@ -753,7 +783,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -761,7 +791,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2 exit");	
+	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) exit");	
 }
 // Default Instance Destructor
 java_net_URI::~java_net_URI()
@@ -784,7 +814,7 @@ bool java_net_URI::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -852,7 +882,7 @@ java_lang_String java_net_URI::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -899,7 +929,7 @@ int java_net_URI::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -946,7 +976,7 @@ int java_net_URI::compareTo(java_net_URI& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/net/URI;)I";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1014,7 +1044,7 @@ bool java_net_URI::isAbsolute()
 
 	const char *methodName = "isAbsolute";
 	const char *methodSignature = "()Z";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1061,7 +1091,7 @@ java_lang_String java_net_URI::getPath()
 
 	const char *methodName = "getPath";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1108,7 +1138,7 @@ java_net_URL java_net_URI::toURL()
 
 	const char *methodName = "toURL";
 	const char *methodSignature = "()Ljava/net/URL;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1155,7 +1185,7 @@ java_net_URI java_net_URI::resolve(java_lang_String& arg0)
 
 	const char *methodName = "resolve";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1223,7 +1253,7 @@ java_net_URI java_net_URI::resolve(java_net_URI& arg0)
 
 	const char *methodName = "resolve";
 	const char *methodSignature = "(Ljava/net/URI;)Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1291,7 +1321,7 @@ java_net_URI java_net_URI::normalize()
 
 	const char *methodName = "normalize";
 	const char *methodSignature = "()Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1338,7 +1368,7 @@ bool java_net_URI::isOpaque()
 
 	const char *methodName = "isOpaque";
 	const char *methodSignature = "()Z";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1385,7 +1415,7 @@ java_lang_String java_net_URI::getScheme()
 
 	const char *methodName = "getScheme";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1432,7 +1462,7 @@ java_lang_String java_net_URI::getAuthority()
 
 	const char *methodName = "getAuthority";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1479,7 +1509,7 @@ java_lang_String java_net_URI::getFragment()
 
 	const char *methodName = "getFragment";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1526,7 +1556,7 @@ java_lang_String java_net_URI::getQuery()
 
 	const char *methodName = "getQuery";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1573,7 +1603,7 @@ java_lang_String java_net_URI::getUserInfo()
 
 	const char *methodName = "getUserInfo";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1620,7 +1650,7 @@ int java_net_URI::getPort()
 
 	const char *methodName = "getPort";
 	const char *methodSignature = "()I";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1667,7 +1697,7 @@ java_lang_String java_net_URI::getHost()
 
 	const char *methodName = "getHost";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1714,7 +1744,7 @@ java_net_URI java_net_URI::create(java_lang_String& arg0)
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1782,7 +1812,7 @@ java_net_URI java_net_URI::parseServerAuthority()
 
 	const char *methodName = "parseServerAuthority";
 	const char *methodSignature = "()Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1829,7 +1859,7 @@ java_net_URI java_net_URI::relativize(java_net_URI& arg0)
 
 	const char *methodName = "relativize";
 	const char *methodSignature = "(Ljava/net/URI;)Ljava/net/URI;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1897,7 +1927,7 @@ java_lang_String java_net_URI::getRawSchemeSpecificPart()
 
 	const char *methodName = "getRawSchemeSpecificPart";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1944,7 +1974,7 @@ java_lang_String java_net_URI::getSchemeSpecificPart()
 
 	const char *methodName = "getSchemeSpecificPart";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1991,7 +2021,7 @@ java_lang_String java_net_URI::getRawAuthority()
 
 	const char *methodName = "getRawAuthority";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2038,7 +2068,7 @@ java_lang_String java_net_URI::getRawUserInfo()
 
 	const char *methodName = "getRawUserInfo";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2085,7 +2115,7 @@ java_lang_String java_net_URI::getRawPath()
 
 	const char *methodName = "getRawPath";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2132,7 +2162,7 @@ java_lang_String java_net_URI::getRawQuery()
 
 	const char *methodName = "getRawQuery";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2179,7 +2209,7 @@ java_lang_String java_net_URI::getRawFragment()
 
 	const char *methodName = "getRawFragment";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2226,7 +2256,7 @@ java_lang_String java_net_URI::toASCIIString()
 
 	const char *methodName = "toASCIIString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_URI";
+	const char *className = "java/net/URI";
 
 	LOGV("java_net_URI className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

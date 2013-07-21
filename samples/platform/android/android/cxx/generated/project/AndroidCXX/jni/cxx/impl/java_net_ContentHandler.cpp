@@ -86,9 +86,9 @@ java_net_ContentHandler::java_net_ContentHandler(void * proxy)
 // Public Constructors
 java_net_ContentHandler::java_net_ContentHandler()
 {
-	LOGV("java_net_ContentHandler::java_net_ContentHandler( enter");	
+	LOGV("java_net_ContentHandler::java_net_ContentHandler() enter");	
 
-	const char *methodName = "java.net.ContentHandler";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/net/ContentHandler";
 
@@ -110,7 +110,7 @@ java_net_ContentHandler::java_net_ContentHandler()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -118,7 +118,7 @@ java_net_ContentHandler::java_net_ContentHandler()
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_ContentHandler::java_net_ContentHandler( exit");	
+	LOGV("java_net_ContentHandler::java_net_ContentHandler() exit");	
 }
 // Default Instance Destructor
 java_net_ContentHandler::~java_net_ContentHandler()
@@ -141,7 +141,7 @@ java_lang_Object java_net_ContentHandler::getContent(java_net_URLConnection& arg
 
 	const char *methodName = "getContent";
 	const char *methodSignature = "(Ljava/net/URLConnection;)Ljava/lang/Object;";
-	const char *className = "java_net_ContentHandler";
+	const char *className = "java/net/ContentHandler";
 
 	LOGV("java_net_ContentHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -208,8 +208,8 @@ java_lang_Object java_net_ContentHandler::getContent(java_net_URLConnection& arg
 	LOGV("java_lang_Object java_net_ContentHandler::getContent(java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1) enter");
 
 	const char *methodName = "getContent";
-	const char *methodSignature = "(Ljava/net/URLConnection;[java/lang/Class)Ljava/lang/Object;";
-	const char *className = "java_net_ContentHandler";
+	const char *methodSignature = "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;";
+	const char *className = "java/net/ContentHandler";
 
 	LOGV("java_net_ContentHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

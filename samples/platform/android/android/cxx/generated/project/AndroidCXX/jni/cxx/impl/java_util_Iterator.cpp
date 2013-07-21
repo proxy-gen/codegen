@@ -82,7 +82,37 @@ java_util_Iterator::java_util_Iterator(void * proxy)
 }
 java_util_Iterator::java_util_Iterator()
 {
+	LOGV("java_util_Iterator::java_util_Iterator() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_util_Iterator";
+
+	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Iterator cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Iterator jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_util_Iterator::java_util_Iterator() exit");	
 }
 // Public Constructors
 // Default Instance Destructor

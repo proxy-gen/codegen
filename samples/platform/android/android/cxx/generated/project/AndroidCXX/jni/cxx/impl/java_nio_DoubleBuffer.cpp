@@ -122,7 +122,37 @@ java_nio_DoubleBuffer::java_nio_DoubleBuffer(void * proxy)
 }
 java_nio_DoubleBuffer::java_nio_DoubleBuffer()
 {
+	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/DoubleBuffer";
+
+	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_DoubleBuffer cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_DoubleBuffer jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_DoubleBuffer::java_nio_DoubleBuffer() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -146,7 +176,7 @@ double java_nio_DoubleBuffer::get()
 
 	const char *methodName = "get";
 	const char *methodSignature = "()D";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -193,7 +223,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -279,7 +309,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::get(std::vector<double>& arg0,int& 
 
 	const char *methodName = "get";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -407,7 +437,7 @@ double java_nio_DoubleBuffer::get(int& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)D";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -475,7 +505,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::put(java_nio_DoubleBuffer& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/DoubleBuffer;)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -543,7 +573,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::put(double& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(D)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -611,7 +641,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::put(int& arg0,double& arg1)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(ID)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -700,7 +730,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0,int& 
 
 	const char *methodName = "put";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -828,7 +858,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::put(std::vector<double>& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -914,7 +944,7 @@ bool java_nio_DoubleBuffer::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -982,7 +1012,7 @@ java_lang_String java_nio_DoubleBuffer::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1029,7 +1059,7 @@ int java_nio_DoubleBuffer::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1076,7 +1106,7 @@ int java_nio_DoubleBuffer::compareTo(java_nio_DoubleBuffer& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/DoubleBuffer;)I";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1144,7 +1174,7 @@ bool java_nio_DoubleBuffer::isDirect()
 
 	const char *methodName = "isDirect";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1191,7 +1221,7 @@ bool java_nio_DoubleBuffer::hasArray()
 
 	const char *methodName = "hasArray";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1238,7 +1268,7 @@ std::vector<double> java_nio_DoubleBuffer::array()
 
 	const char *methodName = "array";
 	const char *methodSignature = "()[D";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1303,7 +1333,7 @@ int java_nio_DoubleBuffer::arrayOffset()
 
 	const char *methodName = "arrayOffset";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1350,7 +1380,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0,int&
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([DII)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1478,7 +1508,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::wrap(std::vector<double>& arg0)
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([D)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1564,7 +1594,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::allocate(int& arg0)
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1632,7 +1662,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::duplicate()
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1679,7 +1709,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::slice()
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1726,7 +1756,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::asReadOnlyBuffer()
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1773,7 +1803,7 @@ java_nio_DoubleBuffer java_nio_DoubleBuffer::compact()
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/DoubleBuffer;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1820,7 +1850,7 @@ java_nio_ByteOrder java_nio_DoubleBuffer::order()
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
-	const char *className = "java_nio_DoubleBuffer";
+	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

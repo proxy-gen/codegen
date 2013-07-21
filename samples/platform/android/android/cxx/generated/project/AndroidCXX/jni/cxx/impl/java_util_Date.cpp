@@ -122,9 +122,9 @@ java_util_Date::java_util_Date(void * proxy)
 // Public Constructors
 java_util_Date::java_util_Date()
 {
-	LOGV("java_util_Date::java_util_Date( enter");	
+	LOGV("java_util_Date::java_util_Date() enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/util/Date";
 
@@ -146,7 +146,7 @@ java_util_Date::java_util_Date()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -154,13 +154,13 @@ java_util_Date::java_util_Date()
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date( exit");	
+	LOGV("java_util_Date::java_util_Date() exit");	
 }
 java_util_Date::java_util_Date(long& arg0)
 {
-	LOGV("java_util_Date::java_util_Date(long& arg0 enter");	
+	LOGV("java_util_Date::java_util_Date(long& arg0) enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(J)V";
 	const char *className = "java/util/Date";
 
@@ -203,7 +203,7 @@ java_util_Date::java_util_Date(long& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -211,13 +211,13 @@ java_util_Date::java_util_Date(long& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(long& arg0 exit");	
+	LOGV("java_util_Date::java_util_Date(long& arg0) exit");	
 }
 java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2 enter");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2) enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(III)V";
 	const char *className = "java/util/Date";
 
@@ -302,7 +302,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -310,13 +310,13 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2 exit");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2) exit");	
 }
 java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4 enter");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIII)V";
 	const char *className = "java/util/Date";
 
@@ -443,7 +443,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -451,13 +451,13 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4 exit");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4) exit");	
 }
 java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5)
 {
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5 enter");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(IIIIII)V";
 	const char *className = "java/util/Date";
 
@@ -605,7 +605,7 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -613,13 +613,13 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5 exit");	
+	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");	
 }
 java_util_Date::java_util_Date(java_lang_String& arg0)
 {
-	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0 enter");	
+	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0) enter");	
 
-	const char *methodName = "java.util.Date";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/util/Date";
 
@@ -662,7 +662,7 @@ java_util_Date::java_util_Date(java_lang_String& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -670,7 +670,7 @@ java_util_Date::java_util_Date(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0 exit");	
+	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Date::~java_util_Date()
@@ -693,7 +693,7 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -761,7 +761,7 @@ java_lang_String java_util_Date::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -808,7 +808,7 @@ int java_util_Date::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -855,7 +855,7 @@ java_lang_Object java_util_Date::clone()
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -902,7 +902,7 @@ int java_util_Date::compareTo(java_util_Date& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/util/Date;)I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -970,7 +970,7 @@ bool java_util_Date::after(java_util_Date& arg0)
 
 	const char *methodName = "after";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1038,7 +1038,7 @@ bool java_util_Date::before(java_util_Date& arg0)
 
 	const char *methodName = "before";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1106,7 +1106,7 @@ long java_util_Date::parse(java_lang_String& arg0)
 
 	const char *methodName = "parse";
 	const char *methodSignature = "(Ljava/lang/String;)J";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1174,7 +1174,7 @@ void java_util_Date::setTime(long& arg0)
 
 	const char *methodName = "setTime";
 	const char *methodSignature = "(J)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1223,7 +1223,7 @@ long java_util_Date::getTime()
 
 	const char *methodName = "getTime";
 	const char *methodSignature = "()J";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1270,7 +1270,7 @@ int java_util_Date::getYear()
 
 	const char *methodName = "getYear";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1317,7 +1317,7 @@ int java_util_Date::getMonth()
 
 	const char *methodName = "getMonth";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1364,7 +1364,7 @@ int java_util_Date::getDate()
 
 	const char *methodName = "getDate";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1411,7 +1411,7 @@ int java_util_Date::getHours()
 
 	const char *methodName = "getHours";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1458,7 +1458,7 @@ int java_util_Date::getMinutes()
 
 	const char *methodName = "getMinutes";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1505,7 +1505,7 @@ int java_util_Date::getSeconds()
 
 	const char *methodName = "getSeconds";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1552,7 +1552,7 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 
 	const char *methodName = "UTC";
 	const char *methodSignature = "(IIIIII)J";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1725,7 +1725,7 @@ void java_util_Date::setDate(int& arg0)
 
 	const char *methodName = "setDate";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1774,7 +1774,7 @@ void java_util_Date::setMonth(int& arg0)
 
 	const char *methodName = "setMonth";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1823,7 +1823,7 @@ void java_util_Date::setHours(int& arg0)
 
 	const char *methodName = "setHours";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1872,7 +1872,7 @@ void java_util_Date::setMinutes(int& arg0)
 
 	const char *methodName = "setMinutes";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1921,7 +1921,7 @@ void java_util_Date::setSeconds(int& arg0)
 
 	const char *methodName = "setSeconds";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1970,7 +1970,7 @@ void java_util_Date::setYear(int& arg0)
 
 	const char *methodName = "setYear";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2019,7 +2019,7 @@ int java_util_Date::getDay()
 
 	const char *methodName = "getDay";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2066,7 +2066,7 @@ java_lang_String java_util_Date::toLocaleString()
 
 	const char *methodName = "toLocaleString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2113,7 +2113,7 @@ java_lang_String java_util_Date::toGMTString()
 
 	const char *methodName = "toGMTString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2160,7 +2160,7 @@ int java_util_Date::getTimezoneOffset()
 
 	const char *methodName = "getTimezoneOffset";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Date";
+	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

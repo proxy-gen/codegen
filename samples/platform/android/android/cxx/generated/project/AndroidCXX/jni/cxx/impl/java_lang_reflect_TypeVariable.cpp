@@ -83,7 +83,37 @@ java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(void * proxy)
 }
 java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable()
 {
+	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_lang_reflect_TypeVariable";
+
+	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_TypeVariable cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_TypeVariable jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -153,7 +183,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds() enter");
 
 	const char *methodName = "getBounds";
-	const char *methodSignature = "()[java/lang/reflect/Type";
+	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
 	const char *className = "java_lang_reflect_TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -218,7 +248,7 @@ java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericD
 	LOGV("java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration() enter");
 
 	const char *methodName = "getGenericDeclaration";
-	const char *methodSignature = "()Ljava/lang/reflect/GenericDeclaration;";
+	const char *methodSignature = "()Ljava_lang_reflect_GenericDeclaration;";
 	const char *className = "java_lang_reflect_TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);

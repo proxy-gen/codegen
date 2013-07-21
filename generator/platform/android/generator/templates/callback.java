@@ -6,7 +6,7 @@
 #set $package = $config_data['package']
 #set $callback_class = $CONFIG.callback_class
 #set $callback_class_name = $CONFIG.callback_class_name
-package $package;
+// Default Package
 #set $SPACE = " "
 #set $COMMA = ","
 #set $base_class = $callback_class['name'].replace('$','.')

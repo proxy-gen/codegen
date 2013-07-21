@@ -122,7 +122,37 @@ java_nio_LongBuffer::java_nio_LongBuffer(void * proxy)
 }
 java_nio_LongBuffer::java_nio_LongBuffer()
 {
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/LongBuffer";
+
+	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_LongBuffer cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_LongBuffer jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_LongBuffer::java_nio_LongBuffer() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -146,7 +176,7 @@ long java_nio_LongBuffer::get()
 
 	const char *methodName = "get";
 	const char *methodSignature = "()J";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -193,7 +223,7 @@ java_nio_LongBuffer java_nio_LongBuffer::get(std::vector<long>& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -279,7 +309,7 @@ java_nio_LongBuffer java_nio_LongBuffer::get(std::vector<long>& arg0,int& arg1,i
 
 	const char *methodName = "get";
 	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -407,7 +437,7 @@ long java_nio_LongBuffer::get(int& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)J";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -475,7 +505,7 @@ java_nio_LongBuffer java_nio_LongBuffer::put(java_nio_LongBuffer& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/LongBuffer;)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -543,7 +573,7 @@ java_nio_LongBuffer java_nio_LongBuffer::put(long& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(J)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -611,7 +641,7 @@ java_nio_LongBuffer java_nio_LongBuffer::put(int& arg0,long& arg1)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IJ)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -700,7 +730,7 @@ java_nio_LongBuffer java_nio_LongBuffer::put(std::vector<long>& arg0,int& arg1,i
 
 	const char *methodName = "put";
 	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -828,7 +858,7 @@ java_nio_LongBuffer java_nio_LongBuffer::put(std::vector<long>& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -914,7 +944,7 @@ bool java_nio_LongBuffer::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -982,7 +1012,7 @@ java_lang_String java_nio_LongBuffer::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1029,7 +1059,7 @@ int java_nio_LongBuffer::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1076,7 +1106,7 @@ int java_nio_LongBuffer::compareTo(java_nio_LongBuffer& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/LongBuffer;)I";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1144,7 +1174,7 @@ bool java_nio_LongBuffer::isDirect()
 
 	const char *methodName = "isDirect";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1191,7 +1221,7 @@ bool java_nio_LongBuffer::hasArray()
 
 	const char *methodName = "hasArray";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1238,7 +1268,7 @@ std::vector<long> java_nio_LongBuffer::array()
 
 	const char *methodName = "array";
 	const char *methodSignature = "()[J";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1303,7 +1333,7 @@ int java_nio_LongBuffer::arrayOffset()
 
 	const char *methodName = "arrayOffset";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1350,7 +1380,7 @@ java_nio_LongBuffer java_nio_LongBuffer::wrap(std::vector<long>& arg0,int& arg1,
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([JII)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1478,7 +1508,7 @@ java_nio_LongBuffer java_nio_LongBuffer::wrap(std::vector<long>& arg0)
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([J)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1564,7 +1594,7 @@ java_nio_LongBuffer java_nio_LongBuffer::allocate(int& arg0)
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1632,7 +1662,7 @@ java_nio_LongBuffer java_nio_LongBuffer::duplicate()
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1679,7 +1709,7 @@ java_nio_LongBuffer java_nio_LongBuffer::slice()
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1726,7 +1756,7 @@ java_nio_LongBuffer java_nio_LongBuffer::asReadOnlyBuffer()
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1773,7 +1803,7 @@ java_nio_LongBuffer java_nio_LongBuffer::compact()
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1820,7 +1850,7 @@ java_nio_ByteOrder java_nio_LongBuffer::order()
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
-	const char *className = "java_nio_LongBuffer";
+	const char *className = "java/nio/LongBuffer";
 
 	LOGV("java_nio_LongBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

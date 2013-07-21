@@ -93,7 +93,37 @@ java_security_cert_Certificate::java_security_cert_Certificate(void * proxy)
 }
 java_security_cert_Certificate::java_security_cert_Certificate()
 {
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/cert/Certificate";
+
+	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_cert_Certificate cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_cert_Certificate jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_cert_Certificate::java_security_cert_Certificate() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -117,7 +147,7 @@ bool java_security_cert_Certificate::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_cert_Certificate";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -185,7 +215,7 @@ java_lang_String java_security_cert_Certificate::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_cert_Certificate";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -232,7 +262,7 @@ int java_security_cert_Certificate::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_cert_Certificate";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -279,7 +309,7 @@ java_lang_String java_security_cert_Certificate::getType()
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_cert_Certificate";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -326,7 +356,7 @@ std::vector<byte> java_security_cert_Certificate::getEncoded()
 
 	const char *methodName = "getEncoded";
 	const char *methodSignature = "()[B";
-	const char *className = "java_security_cert_Certificate";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -390,8 +420,8 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0)
 	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0) enter");
 
 	const char *methodName = "verify";
-	const char *methodSignature = "(Ljava/security/PublicKey;)V";
-	const char *className = "java_security_cert_Certificate";
+	const char *methodSignature = "(Ljava_security_PublicKey;)V";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -439,8 +469,8 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_l
 	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "verify";
-	const char *methodSignature = "(Ljava/security/PublicKey;Ljava/lang/String;)V";
-	const char *className = "java_security_cert_Certificate";
+	const char *methodSignature = "(Ljava_security_PublicKey;Ljava/lang/String;)V";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -509,8 +539,8 @@ java_security_PublicKey java_security_cert_Certificate::getPublicKey()
 	LOGV("java_security_PublicKey java_security_cert_Certificate::getPublicKey() enter");
 
 	const char *methodName = "getPublicKey";
-	const char *methodSignature = "()Ljava/security/PublicKey;";
-	const char *className = "java_security_cert_Certificate";
+	const char *methodSignature = "()Ljava_security_PublicKey;";
+	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

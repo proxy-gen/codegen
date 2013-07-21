@@ -106,7 +106,37 @@ java_util_Map::java_util_Map(void * proxy)
 }
 java_util_Map::java_util_Map()
 {
+	LOGV("java_util_Map::java_util_Map() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_util_Map";
+
+	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Map cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Map jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_util_Map::java_util_Map() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -354,7 +384,7 @@ java_util_Collection java_util_Map::values()
 	LOGV("java_util_Collection java_util_Map::values() enter");
 
 	const char *methodName = "values";
-	const char *methodSignature = "()Ljava/util/Collection;";
+	const char *methodSignature = "()Ljava_util_Collection;";
 	const char *className = "java_util_Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -588,7 +618,7 @@ java_util_Set java_util_Map::entrySet()
 	LOGV("java_util_Set java_util_Map::entrySet() enter");
 
 	const char *methodName = "entrySet";
-	const char *methodSignature = "()Ljava/util/Set;";
+	const char *methodSignature = "()Ljava_util_Set;";
 	const char *className = "java_util_Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -686,7 +716,7 @@ void java_util_Map::putAll(java_util_Map& arg0)
 	LOGV("void java_util_Map::putAll(java_util_Map& arg0) enter");
 
 	const char *methodName = "putAll";
-	const char *methodSignature = "(Ljava/util/Map;)V";
+	const char *methodSignature = "(Ljava_util_Map;)V";
 	const char *className = "java_util_Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -836,7 +866,7 @@ java_util_Set java_util_Map::keySet()
 	LOGV("java_util_Set java_util_Map::keySet() enter");
 
 	const char *methodName = "keySet";
-	const char *methodSignature = "()Ljava/util/Set;";
+	const char *methodSignature = "()Ljava_util_Set;";
 	const char *className = "java_util_Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);

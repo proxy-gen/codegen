@@ -79,7 +79,37 @@ java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(void 
 }
 java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration()
 {
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_lang_reflect_GenericDeclaration";
+
+	LOGV("java_lang_reflect_GenericDeclaration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_GenericDeclaration cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_GenericDeclaration jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -102,7 +132,7 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaratio
 	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaration::getTypeParameters() enter");
 
 	const char *methodName = "getTypeParameters";
-	const char *methodSignature = "()[java/lang/reflect/TypeVariable";
+	const char *methodSignature = "()[Ljava/lang/reflect/TypeVariable;";
 	const char *className = "java_lang_reflect_GenericDeclaration";
 
 	LOGV("java_lang_reflect_GenericDeclaration className %d methodName %s methodSignature %s", className, methodName, methodSignature);

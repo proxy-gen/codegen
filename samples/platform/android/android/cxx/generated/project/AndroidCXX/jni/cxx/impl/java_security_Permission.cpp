@@ -95,14 +95,44 @@ java_security_Permission::java_security_Permission(void * proxy)
 }
 java_security_Permission::java_security_Permission()
 {
+	LOGV("java_security_Permission::java_security_Permission() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/Permission";
+
+	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_Permission cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Permission jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_Permission::java_security_Permission() exit");	
 }
 // Public Constructors
 java_security_Permission::java_security_Permission(java_lang_String& arg0)
 {
-	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0 enter");	
+	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0) enter");	
 
-	const char *methodName = "java.security.Permission";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/security/Permission";
 
@@ -145,7 +175,7 @@ java_security_Permission::java_security_Permission(java_lang_String& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -153,7 +183,7 @@ java_security_Permission::java_security_Permission(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0 exit");	
+	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0) exit");	
 }
 // Default Instance Destructor
 java_security_Permission::~java_security_Permission()
@@ -176,7 +206,7 @@ bool java_security_Permission::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -244,7 +274,7 @@ java_lang_String java_security_Permission::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -291,7 +321,7 @@ int java_security_Permission::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -338,7 +368,7 @@ java_lang_String java_security_Permission::getName()
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -385,7 +415,7 @@ bool java_security_Permission::implies(java_security_Permission& arg0)
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -453,7 +483,7 @@ java_lang_String java_security_Permission::getActions()
 
 	const char *methodName = "getActions";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -500,7 +530,7 @@ java_security_PermissionCollection java_security_Permission::newPermissionCollec
 
 	const char *methodName = "newPermissionCollection";
 	const char *methodSignature = "()Ljava/security/PermissionCollection;";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -547,7 +577,7 @@ void java_security_Permission::checkGuard(java_lang_Object& arg0)
 
 	const char *methodName = "checkGuard";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
-	const char *className = "java_security_Permission";
+	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

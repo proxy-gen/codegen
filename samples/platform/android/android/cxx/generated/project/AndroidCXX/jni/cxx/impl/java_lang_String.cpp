@@ -239,9 +239,9 @@ java_lang_String::java_lang_String(void * proxy)
 // Public Constructors
 java_lang_String::java_lang_String()
 {
-	LOGV("java_lang_String::java_lang_String( enter");	
+	LOGV("java_lang_String::java_lang_String() enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/String";
 
@@ -263,7 +263,7 @@ java_lang_String::java_lang_String()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -271,13 +271,13 @@ java_lang_String::java_lang_String()
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String( exit");	
+	LOGV("java_lang_String::java_lang_String() exit");	
 }
 java_lang_String::java_lang_String(java_lang_String& arg0)
 {
-	LOGV("java_lang_String::java_lang_String(java_lang_String& arg0 enter");	
+	LOGV("java_lang_String::java_lang_String(java_lang_String& arg0) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/String";
 
@@ -320,7 +320,7 @@ java_lang_String::java_lang_String(java_lang_String& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -328,13 +328,13 @@ java_lang_String::java_lang_String(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(java_lang_String& arg0 exit");	
+	LOGV("java_lang_String::java_lang_String(java_lang_String& arg0) exit");	
 }
 java_lang_String::java_lang_String(std::vector<char>& arg0)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([C)V";
 	const char *className = "java/lang/String";
 
@@ -395,7 +395,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -403,13 +403,13 @@ java_lang_String::java_lang_String(std::vector<char>& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0) exit");	
 }
 java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([CII)V";
 	const char *className = "java/lang/String";
 
@@ -512,7 +512,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -520,13 +520,13 @@ java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2) exit");	
 }
 java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([III)V";
 	const char *className = "java/lang/String";
 
@@ -629,7 +629,7 @@ java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -637,13 +637,13 @@ java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,int& arg3)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,int& arg3 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,int& arg3) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BIII)V";
 	const char *className = "java/lang/String";
 
@@ -767,7 +767,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,i
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -775,13 +775,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,i
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,int& arg3 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,int& arg3) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BI)V";
 	const char *className = "java/lang/String";
 
@@ -863,7 +863,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -871,13 +871,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BIILjava/lang/String;)V";
 	const char *className = "java/lang/String";
 
@@ -1001,7 +1001,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1009,13 +1009,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_nio_charset_Charset& arg3)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_nio_charset_Charset& arg3 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_nio_charset_Charset& arg3) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BIILjava/nio/charset/Charset;)V";
 	const char *className = "java/lang/String";
 
@@ -1139,7 +1139,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1147,13 +1147,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_nio_charset_Charset& arg3 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_nio_charset_Charset& arg3) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BLjava/lang/String;)V";
 	const char *className = "java/lang/String";
 
@@ -1235,7 +1235,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1243,13 +1243,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Charset& arg1)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Charset& arg1 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Charset& arg1) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BLjava/nio/charset/Charset;)V";
 	const char *className = "java/lang/String";
 
@@ -1331,7 +1331,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Char
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1339,13 +1339,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Char
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Charset& arg1 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Charset& arg1) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/lang/String";
 
@@ -1448,7 +1448,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1456,13 +1456,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2) exit");	
 }
 java_lang_String::java_lang_String(std::vector<byte>& arg0)
 {
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0 enter");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "([B)V";
 	const char *className = "java/lang/String";
 
@@ -1523,7 +1523,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1531,13 +1531,13 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0 exit");	
+	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0) exit");	
 }
 java_lang_String::java_lang_String(java_lang_StringBuffer& arg0)
 {
-	LOGV("java_lang_String::java_lang_String(java_lang_StringBuffer& arg0 enter");	
+	LOGV("java_lang_String::java_lang_String(java_lang_StringBuffer& arg0) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)V";
 	const char *className = "java/lang/String";
 
@@ -1580,7 +1580,7 @@ java_lang_String::java_lang_String(java_lang_StringBuffer& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1588,13 +1588,13 @@ java_lang_String::java_lang_String(java_lang_StringBuffer& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(java_lang_StringBuffer& arg0 exit");	
+	LOGV("java_lang_String::java_lang_String(java_lang_StringBuffer& arg0) exit");	
 }
 java_lang_String::java_lang_String(java_lang_StringBuilder& arg0)
 {
-	LOGV("java_lang_String::java_lang_String(java_lang_StringBuilder& arg0 enter");	
+	LOGV("java_lang_String::java_lang_String(java_lang_StringBuilder& arg0) enter");	
 
-	const char *methodName = "java.lang.String";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/StringBuilder;)V";
 	const char *className = "java/lang/String";
 
@@ -1637,7 +1637,7 @@ java_lang_String::java_lang_String(java_lang_StringBuilder& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -1645,7 +1645,7 @@ java_lang_String::java_lang_String(java_lang_StringBuilder& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String::java_lang_String(java_lang_StringBuilder& arg0 exit");	
+	LOGV("java_lang_String::java_lang_String(java_lang_StringBuilder& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_String::~java_lang_String()
@@ -1668,7 +1668,7 @@ bool java_lang_String::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1736,7 +1736,7 @@ java_lang_String java_lang_String::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1783,7 +1783,7 @@ int java_lang_String::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1830,7 +1830,7 @@ int java_lang_String::compareTo(java_lang_String& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/lang/String;)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1898,7 +1898,7 @@ int java_lang_String::indexOf(int& arg0)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1966,7 +1966,7 @@ int java_lang_String::indexOf(java_lang_String& arg0)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2034,7 +2034,7 @@ int java_lang_String::indexOf(java_lang_String& arg0,int& arg1)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2123,7 +2123,7 @@ int java_lang_String::indexOf(int& arg0,int& arg1)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2212,7 +2212,7 @@ java_lang_String java_lang_String::valueOf(java_lang_Object& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2280,7 +2280,7 @@ java_lang_String java_lang_String::valueOf(double& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(D)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2348,7 +2348,7 @@ java_lang_String java_lang_String::valueOf(float& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(F)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2416,7 +2416,7 @@ java_lang_String java_lang_String::valueOf(long& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(J)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2484,7 +2484,7 @@ java_lang_String java_lang_String::valueOf(int& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(I)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2552,7 +2552,7 @@ java_lang_String java_lang_String::valueOf(char& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(C)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2620,7 +2620,7 @@ java_lang_String java_lang_String::valueOf(bool& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "(Z)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2688,7 +2688,7 @@ java_lang_String java_lang_String::valueOf(std::vector<char>& arg0,int& arg1,int
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "([CII)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2816,7 +2816,7 @@ java_lang_String java_lang_String::valueOf(std::vector<char>& arg0)
 
 	const char *methodName = "valueOf";
 	const char *methodSignature = "([C)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2902,7 +2902,7 @@ int java_lang_String::length()
 
 	const char *methodName = "length";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2949,7 +2949,7 @@ bool java_lang_String::isEmpty()
 
 	const char *methodName = "isEmpty";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2996,7 +2996,7 @@ char java_lang_String::charAt(int& arg0)
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3064,7 +3064,7 @@ int java_lang_String::codePointAt(int& arg0)
 
 	const char *methodName = "codePointAt";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3132,7 +3132,7 @@ int java_lang_String::codePointBefore(int& arg0)
 
 	const char *methodName = "codePointBefore";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3200,7 +3200,7 @@ int java_lang_String::codePointCount(int& arg0,int& arg1)
 
 	const char *methodName = "codePointCount";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3289,7 +3289,7 @@ int java_lang_String::offsetByCodePoints(int& arg0,int& arg1)
 
 	const char *methodName = "offsetByCodePoints";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3378,7 +3378,7 @@ void java_lang_String::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int&
 
 	const char *methodName = "getChars";
 	const char *methodSignature = "(II[CI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3508,7 +3508,7 @@ std::vector<byte> java_lang_String::getBytes(java_lang_String& arg0)
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "(Ljava/lang/String;)[B";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3594,7 +3594,7 @@ void java_lang_String::getBytes(int& arg0,int& arg1,std::vector<byte>& arg2,int&
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "(II[BI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3724,7 +3724,7 @@ std::vector<byte> java_lang_String::getBytes(java_nio_charset_Charset& arg0)
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "(Ljava/nio/charset/Charset;)[B";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3810,7 +3810,7 @@ std::vector<byte> java_lang_String::getBytes()
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "()[B";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3875,7 +3875,7 @@ bool java_lang_String::contentEquals(java_lang_StringBuffer& arg0)
 
 	const char *methodName = "contentEquals";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -3942,8 +3942,8 @@ bool java_lang_String::contentEquals(java_lang_CharSequence& arg0)
 	LOGV("bool java_lang_String::contentEquals(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "contentEquals";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava_lang_CharSequence;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4011,7 +4011,7 @@ bool java_lang_String::equalsIgnoreCase(java_lang_String& arg0)
 
 	const char *methodName = "equalsIgnoreCase";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4079,7 +4079,7 @@ int java_lang_String::compareToIgnoreCase(java_lang_String& arg0)
 
 	const char *methodName = "compareToIgnoreCase";
 	const char *methodSignature = "(Ljava/lang/String;)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4147,7 +4147,7 @@ bool java_lang_String::regionMatches(int& arg0,java_lang_String& arg1,int& arg2,
 
 	const char *methodName = "regionMatches";
 	const char *methodSignature = "(ILjava/lang/String;II)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4278,7 +4278,7 @@ bool java_lang_String::regionMatches(bool& arg0,int& arg1,java_lang_String& arg2
 
 	const char *methodName = "regionMatches";
 	const char *methodSignature = "(ZILjava/lang/String;II)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4430,7 +4430,7 @@ bool java_lang_String::startsWith(java_lang_String& arg0,int& arg1)
 
 	const char *methodName = "startsWith";
 	const char *methodSignature = "(Ljava/lang/String;I)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4519,7 +4519,7 @@ bool java_lang_String::startsWith(java_lang_String& arg0)
 
 	const char *methodName = "startsWith";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4587,7 +4587,7 @@ bool java_lang_String::endsWith(java_lang_String& arg0)
 
 	const char *methodName = "endsWith";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4655,7 +4655,7 @@ int java_lang_String::lastIndexOf(java_lang_String& arg0,int& arg1)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4744,7 +4744,7 @@ int java_lang_String::lastIndexOf(int& arg0)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4812,7 +4812,7 @@ int java_lang_String::lastIndexOf(int& arg0,int& arg1)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4901,7 +4901,7 @@ int java_lang_String::lastIndexOf(java_lang_String& arg0)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -4969,7 +4969,7 @@ java_lang_String java_lang_String::substring(int& arg0,int& arg1)
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(II)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5058,7 +5058,7 @@ java_lang_String java_lang_String::substring(int& arg0)
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(I)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5125,8 +5125,8 @@ java_lang_CharSequence java_lang_String::subSequence(int& arg0,int& arg1)
 	LOGV("java_lang_CharSequence java_lang_String::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
-	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(II)Ljava_lang_CharSequence;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5215,7 +5215,7 @@ java_lang_String java_lang_String::concat(java_lang_String& arg0)
 
 	const char *methodName = "concat";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5282,8 +5282,8 @@ java_lang_String java_lang_String::replace(java_lang_CharSequence& arg0,java_lan
 	LOGV("java_lang_String java_lang_String::replace(java_lang_CharSequence& arg0,java_lang_CharSequence& arg1) enter");
 
 	const char *methodName = "replace";
-	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava_lang_CharSequence;Ljava_lang_CharSequence;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5372,7 +5372,7 @@ java_lang_String java_lang_String::replace(char& arg0,char& arg1)
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(CC)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5461,7 +5461,7 @@ bool java_lang_String::matches(java_lang_String& arg0)
 
 	const char *methodName = "matches";
 	const char *methodSignature = "(Ljava/lang/String;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5528,8 +5528,8 @@ bool java_lang_String::contains(java_lang_CharSequence& arg0)
 	LOGV("bool java_lang_String::contains(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "contains";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava_lang_CharSequence;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5597,7 +5597,7 @@ java_lang_String java_lang_String::replaceFirst(java_lang_String& arg0,java_lang
 
 	const char *methodName = "replaceFirst";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5686,7 +5686,7 @@ java_lang_String java_lang_String::replaceAll(java_lang_String& arg0,java_lang_S
 
 	const char *methodName = "replaceAll";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5774,8 +5774,8 @@ std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0)
 	LOGV("std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0) enter");
 
 	const char *methodName = "split";
-	const char *methodSignature = "(Ljava/lang/String;)[java/lang/String";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5860,8 +5860,8 @@ std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0,in
 	LOGV("std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "split";
-	const char *methodSignature = "(Ljava/lang/String;I)[java/lang/String";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;I)[Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5968,7 +5968,7 @@ java_lang_String java_lang_String::toLowerCase()
 
 	const char *methodName = "toLowerCase";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6015,7 +6015,7 @@ java_lang_String java_lang_String::toLowerCase(java_util_Locale& arg0)
 
 	const char *methodName = "toLowerCase";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6083,7 +6083,7 @@ java_lang_String java_lang_String::toUpperCase(java_util_Locale& arg0)
 
 	const char *methodName = "toUpperCase";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6151,7 +6151,7 @@ java_lang_String java_lang_String::toUpperCase()
 
 	const char *methodName = "toUpperCase";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6198,7 +6198,7 @@ java_lang_String java_lang_String::trim()
 
 	const char *methodName = "trim";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6245,7 +6245,7 @@ std::vector<char> java_lang_String::toCharArray()
 
 	const char *methodName = "toCharArray";
 	const char *methodSignature = "()[C";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6309,8 +6309,8 @@ java_lang_String java_lang_String::format(java_lang_String& arg0,std::vector<jav
 	LOGV("java_lang_String java_lang_String::format(java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
 
 	const char *methodName = "format";
-	const char *methodSignature = "(Ljava/lang/String;[java/lang/Object)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6416,8 +6416,8 @@ java_lang_String java_lang_String::format(java_util_Locale& arg0,java_lang_Strin
 	LOGV("java_lang_String java_lang_String::format(java_util_Locale& arg0,java_lang_String& arg1,std::vector<java_lang_Object >& arg2) enter");
 
 	const char *methodName = "format";
-	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[java/lang/Object)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6545,7 +6545,7 @@ java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0)
 
 	const char *methodName = "copyValueOf";
 	const char *methodSignature = "([C)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6631,7 +6631,7 @@ java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0,int& arg1
 
 	const char *methodName = "copyValueOf";
 	const char *methodSignature = "([CII)Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6759,7 +6759,7 @@ java_lang_String java_lang_String::intern()
 
 	const char *methodName = "intern";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

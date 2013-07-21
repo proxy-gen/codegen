@@ -122,7 +122,37 @@ java_nio_ShortBuffer::java_nio_ShortBuffer(void * proxy)
 }
 java_nio_ShortBuffer::java_nio_ShortBuffer()
 {
+	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/ShortBuffer";
+
+	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_ShortBuffer cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_ShortBuffer jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -146,7 +176,7 @@ short java_nio_ShortBuffer::get()
 
 	const char *methodName = "get";
 	const char *methodSignature = "()S";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -193,7 +223,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "([S)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -279,7 +309,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& arg0,int& arg
 
 	const char *methodName = "get";
 	const char *methodSignature = "([SII)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -407,7 +437,7 @@ short java_nio_ShortBuffer::get(int& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(I)S";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -475,7 +505,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::put(java_nio_ShortBuffer& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/ShortBuffer;)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -543,7 +573,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::put(short& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(S)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -611,7 +641,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::put(int& arg0,short& arg1)
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IS)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -700,7 +730,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& arg0,int& arg
 
 	const char *methodName = "put";
 	const char *methodSignature = "([SII)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -828,7 +858,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& arg0)
 
 	const char *methodName = "put";
 	const char *methodSignature = "([S)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -914,7 +944,7 @@ bool java_nio_ShortBuffer::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -982,7 +1012,7 @@ java_lang_String java_nio_ShortBuffer::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1029,7 +1059,7 @@ int java_nio_ShortBuffer::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1076,7 +1106,7 @@ int java_nio_ShortBuffer::compareTo(java_nio_ShortBuffer& arg0)
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/ShortBuffer;)I";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1144,7 +1174,7 @@ bool java_nio_ShortBuffer::isDirect()
 
 	const char *methodName = "isDirect";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1191,7 +1221,7 @@ bool java_nio_ShortBuffer::hasArray()
 
 	const char *methodName = "hasArray";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1238,7 +1268,7 @@ std::vector<short> java_nio_ShortBuffer::array()
 
 	const char *methodName = "array";
 	const char *methodSignature = "()[S";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1303,7 +1333,7 @@ int java_nio_ShortBuffer::arrayOffset()
 
 	const char *methodName = "arrayOffset";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1350,7 +1380,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& arg0,int& ar
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([SII)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1478,7 +1508,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& arg0)
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([S)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1564,7 +1594,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::allocate(int& arg0)
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1632,7 +1662,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::duplicate()
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1679,7 +1709,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::slice()
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1726,7 +1756,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::asReadOnlyBuffer()
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1773,7 +1803,7 @@ java_nio_ShortBuffer java_nio_ShortBuffer::compact()
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/ShortBuffer;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1820,7 +1850,7 @@ java_nio_ByteOrder java_nio_ShortBuffer::order()
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
-	const char *className = "java_nio_ShortBuffer";
+	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

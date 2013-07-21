@@ -104,7 +104,37 @@ java_lang_reflect_Constructor::java_lang_reflect_Constructor(void * proxy)
 }
 java_lang_reflect_Constructor::java_lang_reflect_Constructor()
 {
+	LOGV("java_lang_reflect_Constructor::java_lang_reflect_Constructor() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/lang/reflect/Constructor";
+
+	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Constructor cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Constructor jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_reflect_Constructor::java_lang_reflect_Constructor() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -128,7 +158,7 @@ bool java_lang_reflect_Constructor::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -196,7 +226,7 @@ java_lang_String java_lang_reflect_Constructor::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -243,7 +273,7 @@ int java_lang_reflect_Constructor::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -290,7 +320,7 @@ int java_lang_reflect_Constructor::getModifiers()
 
 	const char *methodName = "getModifiers";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -337,7 +367,7 @@ java_lang_String java_lang_reflect_Constructor::getName()
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -383,8 +413,8 @@ java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<java_lan
 	LOGV("java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<java_lang_Object >& arg0) enter");
 
 	const char *methodName = "newInstance";
-	const char *methodSignature = "([java/lang/Object)Ljava/lang/Object;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "([Ljava/lang/Object;)Ljava/lang/Object;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -470,7 +500,7 @@ bool java_lang_reflect_Constructor::isSynthetic()
 
 	const char *methodName = "isSynthetic";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -516,8 +546,8 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getT
 	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters() enter");
 
 	const char *methodName = "getTypeParameters";
-	const char *methodSignature = "()[java/lang/reflect/TypeVariable";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/reflect/TypeVariable;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -618,7 +648,7 @@ java_lang_Class java_lang_reflect_Constructor::getDeclaringClass()
 
 	const char *methodName = "getDeclaringClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -682,8 +712,8 @@ java_lang_annotation_Annotation java_lang_reflect_Constructor::getAnnotation(jav
 	LOGV("java_lang_annotation_Annotation java_lang_reflect_Constructor::getAnnotation(java_lang_Class& arg0) enter");
 
 	const char *methodName = "getAnnotation";
-	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "(Ljava/lang/Class;)Ljava_lang_annotation_Annotation;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -768,8 +798,8 @@ std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::get
 	LOGV("std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations() enter");
 
 	const char *methodName = "getDeclaredAnnotations";
-	const char *methodSignature = "()[java/lang/annotation/Annotation";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/annotation/Annotation;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -833,8 +863,8 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes()
 	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes() enter");
 
 	const char *methodName = "getParameterTypes";
-	const char *methodSignature = "()[java/lang/Class";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/Class;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -917,7 +947,7 @@ java_lang_String java_lang_reflect_Constructor::toGenericString()
 
 	const char *methodName = "toGenericString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -963,8 +993,8 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericPa
 	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes() enter");
 
 	const char *methodName = "getGenericParameterTypes";
-	const char *methodSignature = "()[java/lang/reflect/Type";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1028,8 +1058,8 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes()
 	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes() enter");
 
 	const char *methodName = "getExceptionTypes";
-	const char *methodSignature = "()[java/lang/Class";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/Class;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1111,8 +1141,8 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericEx
 	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes() enter");
 
 	const char *methodName = "getGenericExceptionTypes";
-	const char *methodSignature = "()[java/lang/reflect/Type";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1177,7 +1207,7 @@ bool java_lang_reflect_Constructor::isVarArgs()
 
 	const char *methodName = "isVarArgs";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1223,8 +1253,8 @@ std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Co
 	LOGV("std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations() enter");
 
 	const char *methodName = "getParameterAnnotations";
-	const char *methodSignature = "()[_object_array_type";
-	const char *className = "java_lang_reflect_Constructor";
+	const char *methodSignature = "()[[Ljava/lang/annotation/Annotation;";
+	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

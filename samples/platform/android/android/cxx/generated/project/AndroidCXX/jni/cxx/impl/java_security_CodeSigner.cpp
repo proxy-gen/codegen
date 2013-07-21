@@ -90,14 +90,44 @@ java_security_CodeSigner::java_security_CodeSigner(void * proxy)
 }
 java_security_CodeSigner::java_security_CodeSigner()
 {
+	LOGV("java_security_CodeSigner::java_security_CodeSigner() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/CodeSigner";
+
+	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_CodeSigner cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSigner jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_CodeSigner::java_security_CodeSigner() exit");	
 }
 // Public Constructors
 java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1)
 {
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1 enter");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1) enter");	
 
-	const char *methodName = "java.security.CodeSigner";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/cert/CertPath;Ljava/security/Timestamp;)V";
 	const char *className = "java/security/CodeSigner";
 
@@ -161,7 +191,7 @@ java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& 
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -169,7 +199,7 @@ java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& 
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1 exit");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_CodeSigner::~java_security_CodeSigner()
@@ -192,7 +222,7 @@ bool java_security_CodeSigner::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -260,7 +290,7 @@ java_lang_String java_security_CodeSigner::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -307,7 +337,7 @@ int java_security_CodeSigner::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -354,7 +384,7 @@ java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
 
 	const char *methodName = "getSignerCertPath";
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -401,7 +431,7 @@ java_security_Timestamp java_security_CodeSigner::getTimestamp()
 
 	const char *methodName = "getTimestamp";
 	const char *methodSignature = "()Ljava/security/Timestamp;";
-	const char *className = "java_security_CodeSigner";
+	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

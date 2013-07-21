@@ -89,9 +89,9 @@ java_io_InputStream::java_io_InputStream(void * proxy)
 // Public Constructors
 java_io_InputStream::java_io_InputStream()
 {
-	LOGV("java_io_InputStream::java_io_InputStream( enter");	
+	LOGV("java_io_InputStream::java_io_InputStream() enter");	
 
-	const char *methodName = "java.io.InputStream";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/io/InputStream";
 
@@ -113,7 +113,7 @@ java_io_InputStream::java_io_InputStream()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -121,7 +121,7 @@ java_io_InputStream::java_io_InputStream()
 
 	jni->popLocalFrame();
 
-	LOGV("java_io_InputStream::java_io_InputStream( exit");	
+	LOGV("java_io_InputStream::java_io_InputStream() exit");	
 }
 // Default Instance Destructor
 java_io_InputStream::~java_io_InputStream()
@@ -144,7 +144,7 @@ void java_io_InputStream::close()
 
 	const char *methodName = "close";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -172,7 +172,7 @@ void java_io_InputStream::mark(int& arg0)
 
 	const char *methodName = "mark";
 	const char *methodSignature = "(I)V";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -221,7 +221,7 @@ void java_io_InputStream::reset()
 
 	const char *methodName = "reset";
 	const char *methodSignature = "()V";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -249,7 +249,7 @@ int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "read";
 	const char *methodSignature = "([BII)I";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -377,7 +377,7 @@ int java_io_InputStream::read(std::vector<byte>& arg0)
 
 	const char *methodName = "read";
 	const char *methodSignature = "([B)I";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -463,7 +463,7 @@ int java_io_InputStream::read()
 
 	const char *methodName = "read";
 	const char *methodSignature = "()I";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -510,7 +510,7 @@ long java_io_InputStream::skip(long& arg0)
 
 	const char *methodName = "skip";
 	const char *methodSignature = "(J)J";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -578,7 +578,7 @@ int java_io_InputStream::available()
 
 	const char *methodName = "available";
 	const char *methodSignature = "()I";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -625,7 +625,7 @@ bool java_io_InputStream::markSupported()
 
 	const char *methodName = "markSupported";
 	const char *methodSignature = "()Z";
-	const char *className = "java_io_InputStream";
+	const char *className = "java/io/InputStream";
 
 	LOGV("java_io_InputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

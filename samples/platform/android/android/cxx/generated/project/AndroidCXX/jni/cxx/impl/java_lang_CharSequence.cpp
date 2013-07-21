@@ -84,7 +84,37 @@ java_lang_CharSequence::java_lang_CharSequence(void * proxy)
 }
 java_lang_CharSequence::java_lang_CharSequence()
 {
+	LOGV("java_lang_CharSequence::java_lang_CharSequence() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_lang_CharSequence";
+
+	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_CharSequence cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_CharSequence jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_CharSequence::java_lang_CharSequence() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -269,7 +299,7 @@ java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1)
 	LOGV("java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
-	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
+	const char *methodSignature = "(II)Ljava_lang_CharSequence;";
 	const char *className = "java_lang_CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);

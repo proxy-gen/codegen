@@ -100,7 +100,37 @@ java_util_SortedMap::java_util_SortedMap(void * proxy)
 }
 java_util_SortedMap::java_util_SortedMap()
 {
+	LOGV("java_util_SortedMap::java_util_SortedMap() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_util_SortedMap";
+
+	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_SortedMap cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_SortedMap jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_util_SortedMap::java_util_SortedMap() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -123,7 +153,7 @@ java_util_Collection java_util_SortedMap::values()
 	LOGV("java_util_Collection java_util_SortedMap::values() enter");
 
 	const char *methodName = "values";
-	const char *methodSignature = "()Ljava/util/Collection;";
+	const char *methodSignature = "()Ljava_util_Collection;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -188,7 +218,7 @@ java_util_Set java_util_SortedMap::entrySet()
 	LOGV("java_util_Set java_util_SortedMap::entrySet() enter");
 
 	const char *methodName = "entrySet";
-	const char *methodSignature = "()Ljava/util/Set;";
+	const char *methodSignature = "()Ljava_util_Set;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -286,7 +316,7 @@ java_util_Set java_util_SortedMap::keySet()
 	LOGV("java_util_Set java_util_SortedMap::keySet() enter");
 
 	const char *methodName = "keySet";
-	const char *methodSignature = "()Ljava/util/Set;";
+	const char *methodSignature = "()Ljava_util_Set;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -351,7 +381,7 @@ java_util_Comparator java_util_SortedMap::comparator()
 	LOGV("java_util_Comparator java_util_SortedMap::comparator() enter");
 
 	const char *methodName = "comparator";
-	const char *methodSignature = "()Ljava/util/Comparator;";
+	const char *methodSignature = "()Ljava_util_Comparator;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -416,7 +446,7 @@ java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang
 	LOGV("java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang_Object& arg1) enter");
 
 	const char *methodName = "subMap";
-	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;";
+	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava_util_SortedMap;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -538,7 +568,7 @@ java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0)
 	LOGV("java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0) enter");
 
 	const char *methodName = "headMap";
-	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
+	const char *methodSignature = "(Ljava/lang/Object;)Ljava_util_SortedMap;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -639,7 +669,7 @@ java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0)
 	LOGV("java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0) enter");
 
 	const char *methodName = "tailMap";
-	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
+	const char *methodSignature = "(Ljava/lang/Object;)Ljava_util_SortedMap;";
 	const char *className = "java_util_SortedMap";
 
 	LOGV("java_util_SortedMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);

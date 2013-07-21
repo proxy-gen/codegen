@@ -555,7 +555,7 @@ class Generator(BaseGenerator):
  
 	def _generate_java_code(self):
 		logging.debug("_generate_java_code enter")
-		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src", self.package_name)
+		self.java_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "src")
 		if not os.path.exists(self.java_outdir_name):
 			os.makedirs(self.java_outdir_name)
 		logging.debug("self.java_outdir_name " + str(self.java_outdir_name))
@@ -968,7 +968,11 @@ class Generator(BaseGenerator):
 		jnidata = deriveddata['jnidata']
 		if 'jnisignature' not in jnidata:
 			class_name = class_config['name']
-			class_sig = Utils.to_jni_class_name(class_name)
+			if '_callback' in class_config['tags']:
+				class_name = Utils.to_class_name(class_name)					
+				class_sig = Utils.to_jni_class_name(class_name)
+			else:
+				class_sig = Utils.to_jni_class_name(class_name)
 			jnidata['jnisignature'] = class_sig
 		assert 'jnisignature' in jnidata
 		logging.debug("_attach_derived_jni_class_signature exit")
@@ -1085,6 +1089,8 @@ class Generator(BaseGenerator):
 					if is_enum:
 						typeinfo['namespace'] = type_name.upper()
 					typeinfo['isenum'] = is_enum
+					is_callback = True if '_callback' in clazz['tags'] else False
+					typeinfo['iscallback'] = is_callback
 					typeinfo['isproxied'] = True
 					break
 			elif type_config['converter'] == 'convert__object_array_type':
@@ -1164,7 +1170,14 @@ class Generator(BaseGenerator):
 		logging.debug("_attach_derived_jni_type_signature enter")
 		deriveddata = type_config['deriveddata']
 		jnidata = deriveddata['jnidata']
+		typeinfo = deriveddata['targetdata']['typeinfo']
 		if 'jnisignature' not in jnidata:
+			type_config = type_config.copy()
+			type_ = type_config['type']
+			if 'iscallback' in typeinfo:
+				if typeinfo['iscallback']:
+					type_ = typeinfo['typename']
+			type_config['type'] = type_
 			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
 		logging.debug("_attach_derived_jni_type_signature exit")
 
@@ -1575,8 +1588,8 @@ class Utils(object):
 			else:
 				array_type = 'java.lang.Object'
 				if 'children' in type_config:
-					array_type = type_config['children'][0]['type']
-			return '[' + Utils.to_resource_name(array_type)
+					array_type = Utils.to_jni_type_signature(type_config['children'][0])
+			return '[' + array_type
 		return 'L' + Utils.to_resource_name(type_) + ';'
 
 

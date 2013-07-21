@@ -90,9 +90,9 @@ java_security_PermissionCollection::java_security_PermissionCollection(void * pr
 // Public Constructors
 java_security_PermissionCollection::java_security_PermissionCollection()
 {
-	LOGV("java_security_PermissionCollection::java_security_PermissionCollection( enter");	
+	LOGV("java_security_PermissionCollection::java_security_PermissionCollection() enter");	
 
-	const char *methodName = "java.security.PermissionCollection";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/security/PermissionCollection";
 
@@ -114,7 +114,7 @@ java_security_PermissionCollection::java_security_PermissionCollection()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -122,7 +122,7 @@ java_security_PermissionCollection::java_security_PermissionCollection()
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_PermissionCollection::java_security_PermissionCollection( exit");	
+	LOGV("java_security_PermissionCollection::java_security_PermissionCollection() exit");	
 }
 // Default Instance Destructor
 java_security_PermissionCollection::~java_security_PermissionCollection()
@@ -145,7 +145,7 @@ void java_security_PermissionCollection::add(java_security_Permission& arg0)
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/security/Permission;)V";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -194,7 +194,7 @@ java_lang_String java_security_PermissionCollection::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -241,7 +241,7 @@ bool java_security_PermissionCollection::implies(java_security_Permission& arg0)
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -309,7 +309,7 @@ void java_security_PermissionCollection::setReadOnly()
 
 	const char *methodName = "setReadOnly";
 	const char *methodSignature = "()V";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -336,8 +336,8 @@ java_util_Enumeration java_security_PermissionCollection::elements()
 	LOGV("java_util_Enumeration java_security_PermissionCollection::elements() enter");
 
 	const char *methodName = "elements";
-	const char *methodSignature = "()Ljava/util/Enumeration;";
-	const char *className = "java_security_PermissionCollection";
+	const char *methodSignature = "()Ljava_util_Enumeration;";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -402,7 +402,7 @@ bool java_security_PermissionCollection::isReadOnly()
 
 	const char *methodName = "isReadOnly";
 	const char *methodSignature = "()Z";
-	const char *className = "java_security_PermissionCollection";
+	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

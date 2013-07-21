@@ -111,7 +111,37 @@ java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(void * proxy)
 }
 java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder()
 {
+	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/charset/CharsetEncoder";
+
+	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CharsetEncoder cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CharsetEncoder jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -135,7 +165,7 @@ java_nio_charset_Charset java_nio_charset_CharsetEncoder::charset()
 
 	const char *methodName = "charset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -182,7 +212,7 @@ java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::encode(java_nio_Ch
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;Z)Ljava/nio/charset/CoderResult;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -292,7 +322,7 @@ java_nio_ByteBuffer java_nio_charset_CharsetEncoder::encode(java_nio_CharBuffer&
 
 	const char *methodName = "encode";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/ByteBuffer;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -360,7 +390,7 @@ java_nio_charset_CoderResult java_nio_charset_CharsetEncoder::flush(java_nio_Byt
 
 	const char *methodName = "flush";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -428,7 +458,7 @@ java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::reset()
 
 	const char *methodName = "reset";
 	const char *methodSignature = "()Ljava/nio/charset/CharsetEncoder;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -475,7 +505,7 @@ bool java_nio_charset_CharsetEncoder::canEncode(char& arg0)
 
 	const char *methodName = "canEncode";
 	const char *methodSignature = "(C)Z";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -542,8 +572,8 @@ bool java_nio_charset_CharsetEncoder::canEncode(java_lang_CharSequence& arg0)
 	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "canEncode";
-	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *methodSignature = "(Ljava_lang_CharSequence;)Z";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -611,7 +641,7 @@ java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onMalformedInpu
 
 	const char *methodName = "onMalformedInput";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -679,7 +709,7 @@ java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::onUnmappableCha
 
 	const char *methodName = "onUnmappableCharacter";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetEncoder;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -747,7 +777,7 @@ float java_nio_charset_CharsetEncoder::maxBytesPerChar()
 
 	const char *methodName = "maxBytesPerChar";
 	const char *methodSignature = "()F";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -794,7 +824,7 @@ bool java_nio_charset_CharsetEncoder::isLegalReplacement(std::vector<byte>& arg0
 
 	const char *methodName = "isLegalReplacement";
 	const char *methodSignature = "([B)Z";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -880,7 +910,7 @@ float java_nio_charset_CharsetEncoder::averageBytesPerChar()
 
 	const char *methodName = "averageBytesPerChar";
 	const char *methodSignature = "()F";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -927,7 +957,7 @@ std::vector<byte> java_nio_charset_CharsetEncoder::replacement()
 
 	const char *methodName = "replacement";
 	const char *methodSignature = "()[B";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -992,7 +1022,7 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::malformedInp
 
 	const char *methodName = "malformedInputAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1039,7 +1069,7 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetEncoder::unmappableCh
 
 	const char *methodName = "unmappableCharacterAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1086,7 +1116,7 @@ java_nio_charset_CharsetEncoder java_nio_charset_CharsetEncoder::replaceWith(std
 
 	const char *methodName = "replaceWith";
 	const char *methodSignature = "([B)Ljava/nio/charset/CharsetEncoder;";
-	const char *className = "java_nio_charset_CharsetEncoder";
+	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

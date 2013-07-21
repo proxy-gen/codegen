@@ -78,7 +78,37 @@ java_lang_reflect_Type::java_lang_reflect_Type(void * proxy)
 }
 java_lang_reflect_Type::java_lang_reflect_Type()
 {
+	LOGV("java_lang_reflect_Type::java_lang_reflect_Type() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_lang_reflect_Type";
+
+	LOGV("java_lang_reflect_Type className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Type cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Type jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_reflect_Type::java_lang_reflect_Type() exit");	
 }
 // Public Constructors
 // Default Instance Destructor

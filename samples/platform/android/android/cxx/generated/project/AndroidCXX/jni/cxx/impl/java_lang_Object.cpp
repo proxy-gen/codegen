@@ -92,9 +92,9 @@ java_lang_Object::java_lang_Object(void * proxy)
 // Public Constructors
 java_lang_Object::java_lang_Object()
 {
-	LOGV("java_lang_Object::java_lang_Object( enter");	
+	LOGV("java_lang_Object::java_lang_Object() enter");	
 
-	const char *methodName = "java.lang.Object";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/Object";
 
@@ -116,7 +116,7 @@ java_lang_Object::java_lang_Object()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -124,7 +124,7 @@ java_lang_Object::java_lang_Object()
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object::java_lang_Object( exit");	
+	LOGV("java_lang_Object::java_lang_Object() exit");	
 }
 // Default Instance Destructor
 java_lang_Object::~java_lang_Object()
@@ -147,7 +147,7 @@ void java_lang_Object::wait()
 
 	const char *methodName = "wait";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -175,7 +175,7 @@ void java_lang_Object::wait(long& arg0)
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(J)V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -224,7 +224,7 @@ void java_lang_Object::wait(long& arg0,int& arg1)
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(JI)V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -294,7 +294,7 @@ bool java_lang_Object::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -362,7 +362,7 @@ java_lang_String java_lang_Object::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -409,7 +409,7 @@ int java_lang_Object::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -456,7 +456,7 @@ java_lang_Class java_lang_Object::getClass()
 
 	const char *methodName = "getClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -521,7 +521,7 @@ void java_lang_Object::notify()
 
 	const char *methodName = "notify";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -549,7 +549,7 @@ void java_lang_Object::notifyAll()
 
 	const char *methodName = "notifyAll";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_Object";
+	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

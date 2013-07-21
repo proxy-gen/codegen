@@ -131,14 +131,44 @@ java_util_Locale::java_util_Locale(void * proxy)
 }
 java_util_Locale::java_util_Locale()
 {
+	LOGV("java_util_Locale::java_util_Locale() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/util/Locale";
+
+	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_Locale cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_Locale jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_util_Locale::java_util_Locale() exit");	
 }
 // Public Constructors
 java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2 enter");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) enter");	
 
-	const char *methodName = "java.util.Locale";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
@@ -223,7 +253,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -231,13 +261,13 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2 exit");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) exit");	
 }
 java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1 enter");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1) enter");	
 
-	const char *methodName = "java.util.Locale";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
@@ -301,7 +331,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -309,13 +339,13 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1 exit");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1) exit");	
 }
 java_util_Locale::java_util_Locale(java_lang_String& arg0)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0 enter");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0) enter");	
 
-	const char *methodName = "java.util.Locale";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
@@ -358,7 +388,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0)
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -366,7 +396,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0 exit");	
+	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Locale::~java_util_Locale()
@@ -389,7 +419,7 @@ bool java_util_Locale::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -457,7 +487,7 @@ java_lang_String java_util_Locale::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -504,7 +534,7 @@ int java_util_Locale::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -551,7 +581,7 @@ java_lang_Object java_util_Locale::clone()
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -598,7 +628,7 @@ java_lang_String java_util_Locale::getLanguage()
 
 	const char *methodName = "getLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -645,7 +675,7 @@ java_util_Locale java_util_Locale::getDefault()
 
 	const char *methodName = "getDefault";
 	const char *methodSignature = "()Ljava/util/Locale;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -692,7 +722,7 @@ void java_util_Locale::setDefault(java_util_Locale& arg0)
 
 	const char *methodName = "setDefault";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -740,8 +770,8 @@ std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
 	LOGV("std::vector<java_util_Locale > java_util_Locale::getAvailableLocales() enter");
 
 	const char *methodName = "getAvailableLocales";
-	const char *methodSignature = "()[java/util/Locale";
-	const char *className = "java_util_Locale";
+	const char *methodSignature = "()[Ljava/util/Locale;";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -805,8 +835,8 @@ std::vector<java_lang_String > java_util_Locale::getISOCountries()
 	LOGV("std::vector<java_lang_String > java_util_Locale::getISOCountries() enter");
 
 	const char *methodName = "getISOCountries";
-	const char *methodSignature = "()[java/lang/String";
-	const char *className = "java_util_Locale";
+	const char *methodSignature = "()[Ljava/lang/String;";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -870,8 +900,8 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 	LOGV("std::vector<java_lang_String > java_util_Locale::getISOLanguages() enter");
 
 	const char *methodName = "getISOLanguages";
-	const char *methodSignature = "()[java/lang/String";
-	const char *className = "java_util_Locale";
+	const char *methodSignature = "()[Ljava/lang/String;";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -936,7 +966,7 @@ java_lang_String java_util_Locale::getCountry()
 
 	const char *methodName = "getCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -983,7 +1013,7 @@ java_lang_String java_util_Locale::getVariant()
 
 	const char *methodName = "getVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1030,7 +1060,7 @@ java_lang_String java_util_Locale::getISO3Language()
 
 	const char *methodName = "getISO3Language";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1077,7 +1107,7 @@ java_lang_String java_util_Locale::getISO3Country()
 
 	const char *methodName = "getISO3Country";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1124,7 +1154,7 @@ java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1192,7 +1222,7 @@ java_lang_String java_util_Locale::getDisplayLanguage()
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1239,7 +1269,7 @@ java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1307,7 +1337,7 @@ java_lang_String java_util_Locale::getDisplayCountry()
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1354,7 +1384,7 @@ java_lang_String java_util_Locale::getDisplayVariant()
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1401,7 +1431,7 @@ java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1469,7 +1499,7 @@ java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0)
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1537,7 +1567,7 @@ java_lang_String java_util_Locale::getDisplayName()
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_util_Locale";
+	const char *className = "java/util/Locale";
 
 	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

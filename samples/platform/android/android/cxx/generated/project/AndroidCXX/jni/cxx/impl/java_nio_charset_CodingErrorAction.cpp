@@ -80,7 +80,37 @@ java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction(void * pr
 }
 java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction()
 {
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/charset/CodingErrorAction";
+
+	LOGV("java_nio_charset_CodingErrorAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CodingErrorAction cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CodingErrorAction jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_charset_CodingErrorAction::java_nio_charset_CodingErrorAction() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -104,7 +134,7 @@ java_lang_String java_nio_charset_CodingErrorAction::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_charset_CodingErrorAction";
+	const char *className = "java/nio/charset/CodingErrorAction";
 
 	LOGV("java_nio_charset_CodingErrorAction className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

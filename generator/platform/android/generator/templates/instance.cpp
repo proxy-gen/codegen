@@ -181,7 +181,37 @@ ${entity_class_name}::${entity_class_name}(void * proxy)
 #if $no_arg_constructor
 ${entity_class_name}::${entity_class_name}()
 {
+	LOGV("${entity_class_name}::${entity_class_name}() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "$class_jnidata['jnisignature']";
+
+	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("${entity_class_name} jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("${entity_class_name}::${entity_class_name}() exit");	
 }
 #end if
 #end if
@@ -190,10 +220,10 @@ ${entity_class_name}::${entity_class_name}()
 #for $constructor in $constructors
 ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 {
-	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] enter");	
+	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str']) enter");	
 
 	#set $cons_jnidata = $constructor['deriveddata']['jnidata']
-	const char *methodName = "$constructor['name']";
+	const char *methodName = "<init>";
 	const char *methodSignature = "$cons_jnidata['jnisignature']";
 	const char *className = "$class_jnidata['jnisignature']";
 
@@ -282,7 +312,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature)$methodvararg);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature)$methodvararg);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -290,7 +320,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 
 	jni->popLocalFrame();
 
-	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str'] exit");	
+	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str']) exit");	
 }
 #end for
 #end if
@@ -319,7 +349,7 @@ $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(fu
 	#set $func_jnidata = $function['deriveddata']['jnidata']
 	const char *methodName = "$function['name']";
 	const char *methodSignature = "$func_jnidata['jnisignature']";
-	const char *className = "$entity_class_name";
+	const char *className = "$class_jnidata['jnisignature']";
 
 	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

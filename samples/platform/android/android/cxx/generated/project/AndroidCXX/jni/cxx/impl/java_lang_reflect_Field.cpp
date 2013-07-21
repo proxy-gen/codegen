@@ -138,7 +138,37 @@ java_lang_reflect_Field::java_lang_reflect_Field(void * proxy)
 }
 java_lang_reflect_Field::java_lang_reflect_Field()
 {
+	LOGV("java_lang_reflect_Field::java_lang_reflect_Field() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/lang/reflect/Field";
+
+	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_lang_reflect_Field cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_lang_reflect_Field jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_lang_reflect_Field::java_lang_reflect_Field() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -162,7 +192,7 @@ java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -230,7 +260,7 @@ bool java_lang_reflect_Field::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -298,7 +328,7 @@ java_lang_String java_lang_reflect_Field::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -345,7 +375,7 @@ int java_lang_reflect_Field::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -392,7 +422,7 @@ int java_lang_reflect_Field::getModifiers()
 
 	const char *methodName = "getModifiers";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -439,7 +469,7 @@ bool java_lang_reflect_Field::getBoolean(java_lang_Object& arg0)
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -507,7 +537,7 @@ byte java_lang_reflect_Field::getByte(java_lang_Object& arg0)
 
 	const char *methodName = "getByte";
 	const char *methodSignature = "(Ljava/lang/Object;)B";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -575,7 +605,7 @@ short java_lang_reflect_Field::getShort(java_lang_Object& arg0)
 
 	const char *methodName = "getShort";
 	const char *methodSignature = "(Ljava/lang/Object;)S";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -643,7 +673,7 @@ char java_lang_reflect_Field::getChar(java_lang_Object& arg0)
 
 	const char *methodName = "getChar";
 	const char *methodSignature = "(Ljava/lang/Object;)C";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -711,7 +741,7 @@ int java_lang_reflect_Field::getInt(java_lang_Object& arg0)
 
 	const char *methodName = "getInt";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -779,7 +809,7 @@ long java_lang_reflect_Field::getLong(java_lang_Object& arg0)
 
 	const char *methodName = "getLong";
 	const char *methodSignature = "(Ljava/lang/Object;)J";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -847,7 +877,7 @@ float java_lang_reflect_Field::getFloat(java_lang_Object& arg0)
 
 	const char *methodName = "getFloat";
 	const char *methodSignature = "(Ljava/lang/Object;)F";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -915,7 +945,7 @@ double java_lang_reflect_Field::getDouble(java_lang_Object& arg0)
 
 	const char *methodName = "getDouble";
 	const char *methodSignature = "(Ljava/lang/Object;)D";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -983,7 +1013,7 @@ java_lang_String java_lang_reflect_Field::getName()
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1030,7 +1060,7 @@ bool java_lang_reflect_Field::isSynthetic()
 
 	const char *methodName = "isSynthetic";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1077,7 +1107,7 @@ java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 
 	const char *methodName = "getDeclaringClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1141,8 +1171,8 @@ java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang
 	LOGV("java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang_Class& arg0) enter");
 
 	const char *methodName = "getAnnotation";
-	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
-	const char *className = "java_lang_reflect_Field";
+	const char *methodSignature = "(Ljava/lang/Class;)Ljava_lang_annotation_Annotation;";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1227,8 +1257,8 @@ std::vector<java_lang_annotation_Annotation > java_lang_reflect_Field::getDeclar
 	LOGV("std::vector<java_lang_annotation_Annotation > java_lang_reflect_Field::getDeclaredAnnotations() enter");
 
 	const char *methodName = "getDeclaredAnnotations";
-	const char *methodSignature = "()[java/lang/annotation/Annotation";
-	const char *className = "java_lang_reflect_Field";
+	const char *methodSignature = "()[Ljava/lang/annotation/Annotation;";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1293,7 +1323,7 @@ bool java_lang_reflect_Field::isEnumConstant()
 
 	const char *methodName = "isEnumConstant";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1340,7 +1370,7 @@ java_lang_Class java_lang_reflect_Field::getType()
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1404,8 +1434,8 @@ java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 	LOGV("java_lang_reflect_Type java_lang_reflect_Field::getGenericType() enter");
 
 	const char *methodName = "getGenericType";
-	const char *methodSignature = "()Ljava/lang/reflect/Type;";
-	const char *className = "java_lang_reflect_Field";
+	const char *methodSignature = "()Ljava_lang_reflect_Type;";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1452,7 +1482,7 @@ java_lang_String java_lang_reflect_Field::toGenericString()
 
 	const char *methodName = "toGenericString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1499,7 +1529,7 @@ void java_lang_reflect_Field::set(java_lang_Object& arg0,java_lang_Object& arg1)
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1569,7 +1599,7 @@ void java_lang_reflect_Field::setBoolean(java_lang_Object& arg0,bool& arg1)
 
 	const char *methodName = "setBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;Z)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1639,7 +1669,7 @@ void java_lang_reflect_Field::setByte(java_lang_Object& arg0,byte& arg1)
 
 	const char *methodName = "setByte";
 	const char *methodSignature = "(Ljava/lang/Object;B)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1709,7 +1739,7 @@ void java_lang_reflect_Field::setChar(java_lang_Object& arg0,char& arg1)
 
 	const char *methodName = "setChar";
 	const char *methodSignature = "(Ljava/lang/Object;C)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1779,7 +1809,7 @@ void java_lang_reflect_Field::setShort(java_lang_Object& arg0,short& arg1)
 
 	const char *methodName = "setShort";
 	const char *methodSignature = "(Ljava/lang/Object;S)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1849,7 +1879,7 @@ void java_lang_reflect_Field::setInt(java_lang_Object& arg0,int& arg1)
 
 	const char *methodName = "setInt";
 	const char *methodSignature = "(Ljava/lang/Object;I)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1919,7 +1949,7 @@ void java_lang_reflect_Field::setLong(java_lang_Object& arg0,long& arg1)
 
 	const char *methodName = "setLong";
 	const char *methodSignature = "(Ljava/lang/Object;J)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1989,7 +2019,7 @@ void java_lang_reflect_Field::setFloat(java_lang_Object& arg0,float& arg1)
 
 	const char *methodName = "setFloat";
 	const char *methodSignature = "(Ljava/lang/Object;F)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -2059,7 +2089,7 @@ void java_lang_reflect_Field::setDouble(java_lang_Object& arg0,double& arg1)
 
 	const char *methodName = "setDouble";
 	const char *methodSignature = "(Ljava/lang/Object;D)V";
-	const char *className = "java_lang_reflect_Field";
+	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

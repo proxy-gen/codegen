@@ -123,7 +123,37 @@ java_util_List::java_util_List(void * proxy)
 }
 java_util_List::java_util_List()
 {
+	LOGV("java_util_List::java_util_List() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java_util_List";
+
+	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_util_List cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_util_List jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_util_List::java_util_List() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -746,7 +776,7 @@ bool java_util_List::addAll(int& arg0,java_util_Collection& arg1)
 	LOGV("bool java_util_List::addAll(int& arg0,java_util_Collection& arg1) enter");
 
 	const char *methodName = "addAll";
-	const char *methodSignature = "(ILjava/util/Collection;)Z";
+	const char *methodSignature = "(ILjava_util_Collection;)Z";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -853,7 +883,7 @@ bool java_util_List::addAll(java_util_Collection& arg0)
 	LOGV("bool java_util_List::addAll(java_util_Collection& arg0) enter");
 
 	const char *methodName = "addAll";
-	const char *methodSignature = "(Ljava/util/Collection;)Z";
+	const char *methodSignature = "(Ljava_util_Collection;)Z";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -986,7 +1016,7 @@ std::vector<java_lang_Object > java_util_List::toArray(std::vector<java_lang_Obj
 	LOGV("std::vector<java_lang_Object > java_util_List::toArray(std::vector<java_lang_Object >& arg0) enter");
 
 	const char *methodName = "toArray";
-	const char *methodSignature = "([java/lang/Object)[java/lang/Object";
+	const char *methodSignature = "([Ljava/lang/Object;)[Ljava/lang/Object;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1090,7 +1120,7 @@ std::vector<java_lang_Object > java_util_List::toArray()
 	LOGV("std::vector<java_lang_Object > java_util_List::toArray() enter");
 
 	const char *methodName = "toArray";
-	const char *methodSignature = "()[java/lang/Object";
+	const char *methodSignature = "()[Ljava/lang/Object;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1155,7 +1185,7 @@ java_util_Iterator java_util_List::iterator()
 	LOGV("java_util_Iterator java_util_List::iterator() enter");
 
 	const char *methodName = "iterator";
-	const char *methodSignature = "()Ljava/util/Iterator;";
+	const char *methodSignature = "()Ljava_util_Iterator;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1445,7 +1475,7 @@ java_util_ListIterator java_util_List::listIterator(int& arg0)
 	LOGV("java_util_ListIterator java_util_List::listIterator(int& arg0) enter");
 
 	const char *methodName = "listIterator";
-	const char *methodSignature = "(I)Ljava/util/ListIterator;";
+	const char *methodSignature = "(I)Ljava_util_ListIterator;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1531,7 +1561,7 @@ java_util_ListIterator java_util_List::listIterator()
 	LOGV("java_util_ListIterator java_util_List::listIterator() enter");
 
 	const char *methodName = "listIterator";
-	const char *methodSignature = "()Ljava/util/ListIterator;";
+	const char *methodSignature = "()Ljava_util_ListIterator;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1596,7 +1626,7 @@ java_util_List java_util_List::subList(int& arg0,int& arg1)
 	LOGV("java_util_List java_util_List::subList(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subList";
-	const char *methodSignature = "(II)Ljava/util/List;";
+	const char *methodSignature = "(II)Ljava_util_List;";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1703,7 +1733,7 @@ bool java_util_List::removeAll(java_util_Collection& arg0)
 	LOGV("bool java_util_List::removeAll(java_util_Collection& arg0) enter");
 
 	const char *methodName = "removeAll";
-	const char *methodSignature = "(Ljava/util/Collection;)Z";
+	const char *methodSignature = "(Ljava_util_Collection;)Z";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1789,7 +1819,7 @@ bool java_util_List::containsAll(java_util_Collection& arg0)
 	LOGV("bool java_util_List::containsAll(java_util_Collection& arg0) enter");
 
 	const char *methodName = "containsAll";
-	const char *methodSignature = "(Ljava/util/Collection;)Z";
+	const char *methodSignature = "(Ljava_util_Collection;)Z";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1875,7 +1905,7 @@ bool java_util_List::retainAll(java_util_Collection& arg0)
 	LOGV("bool java_util_List::retainAll(java_util_Collection& arg0) enter");
 
 	const char *methodName = "retainAll";
-	const char *methodSignature = "(Ljava/util/Collection;)Z";
+	const char *methodSignature = "(Ljava_util_Collection;)Z";
 	const char *className = "java_util_List";
 
 	LOGV("java_util_List className %d methodName %s methodSignature %s", className, methodName, methodSignature);

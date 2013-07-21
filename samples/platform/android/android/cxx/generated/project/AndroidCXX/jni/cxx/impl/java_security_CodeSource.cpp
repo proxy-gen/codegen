@@ -97,15 +97,45 @@ java_security_CodeSource::java_security_CodeSource(void * proxy)
 }
 java_security_CodeSource::java_security_CodeSource()
 {
+	LOGV("java_security_CodeSource::java_security_CodeSource() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/CodeSource";
+
+	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_CodeSource cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_CodeSource jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_CodeSource::java_security_CodeSource() exit");	
 }
 // Public Constructors
 java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1)
 {
-	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1 enter");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1) enter");	
 
-	const char *methodName = "java.security.CodeSource";
-	const char *methodSignature = "(Ljava/net/URL;[java/security/CodeSigner)V";
+	const char *methodName = "<init>";
+	const char *methodSignature = "(Ljava/net/URL;[Ljava/security/CodeSigner;)V";
 	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -186,7 +216,7 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -194,14 +224,14 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1 exit");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1) exit");	
 }
 java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1)
 {
-	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1 enter");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1) enter");	
 
-	const char *methodName = "java.security.CodeSource";
-	const char *methodSignature = "(Ljava/net/URL;[java/security/cert/Certificate)V";
+	const char *methodName = "<init>";
+	const char *methodSignature = "(Ljava/net/URL;[Ljava/security/cert/Certificate;)V";
 	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -282,7 +312,7 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -290,7 +320,7 @@ java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vecto
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1 exit");	
+	LOGV("java_security_CodeSource::java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_CodeSource::~java_security_CodeSource()
@@ -313,7 +343,7 @@ bool java_security_CodeSource::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -381,7 +411,7 @@ java_lang_String java_security_CodeSource::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -428,7 +458,7 @@ int java_security_CodeSource::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -475,7 +505,7 @@ java_net_URL java_security_CodeSource::getLocation()
 
 	const char *methodName = "getLocation";
 	const char *methodSignature = "()Ljava/net/URL;";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -521,8 +551,8 @@ std::vector<java_security_cert_Certificate > java_security_CodeSource::getCertif
 	LOGV("std::vector<java_security_cert_Certificate > java_security_CodeSource::getCertificates() enter");
 
 	const char *methodName = "getCertificates";
-	const char *methodSignature = "()[java/security/cert/Certificate";
-	const char *className = "java_security_CodeSource";
+	const char *methodSignature = "()[Ljava/security/cert/Certificate;";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -587,7 +617,7 @@ bool java_security_CodeSource::implies(java_security_CodeSource& arg0)
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/CodeSource;)Z";
-	const char *className = "java_security_CodeSource";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -654,8 +684,8 @@ std::vector<java_security_CodeSigner > java_security_CodeSource::getCodeSigners(
 	LOGV("std::vector<java_security_CodeSigner > java_security_CodeSource::getCodeSigners() enter");
 
 	const char *methodName = "getCodeSigners";
-	const char *methodSignature = "()[java/security/CodeSigner";
-	const char *className = "java_security_CodeSource";
+	const char *methodSignature = "()[Ljava/security/CodeSigner;";
+	const char *className = "java/security/CodeSource";
 
 	LOGV("java_security_CodeSource className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

@@ -82,7 +82,37 @@ java_nio_ByteOrder::java_nio_ByteOrder(void * proxy)
 }
 java_nio_ByteOrder::java_nio_ByteOrder()
 {
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/ByteOrder";
+
+	LOGV("java_nio_ByteOrder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_ByteOrder cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_ByteOrder jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_ByteOrder::java_nio_ByteOrder() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -106,7 +136,7 @@ java_lang_String java_nio_ByteOrder::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_ByteOrder";
+	const char *className = "java/nio/ByteOrder";
 
 	LOGV("java_nio_ByteOrder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -153,7 +183,7 @@ java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 
 	const char *methodName = "nativeOrder";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
-	const char *className = "java_nio_ByteOrder";
+	const char *className = "java/nio/ByteOrder";
 
 	LOGV("java_nio_ByteOrder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

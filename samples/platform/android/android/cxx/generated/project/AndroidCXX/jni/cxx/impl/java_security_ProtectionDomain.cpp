@@ -98,14 +98,44 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(void * proxy)
 }
 java_security_ProtectionDomain::java_security_ProtectionDomain()
 {
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/ProtectionDomain";
+
+	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_ProtectionDomain cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_ProtectionDomain jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain() exit");	
 }
 // Public Constructors
 java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1 enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1) enter");	
 
-	const char *methodName = "java.security.ProtectionDomain";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V";
 	const char *className = "java/security/ProtectionDomain";
 
@@ -169,7 +199,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -177,14 +207,14 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1 exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1) exit");	
 }
 java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3 enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3) enter");	
 
-	const char *methodName = "java.security.ProtectionDomain";
-	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[java/security/Principal)V";
+	const char *methodName = "<init>";
+	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V";
 	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -307,7 +337,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1,jarg2,jarg3);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1,jarg2,jarg3);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -315,7 +345,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_Cod
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3 exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3) exit");	
 }
 // Default Instance Destructor
 java_security_ProtectionDomain::~java_security_ProtectionDomain()
@@ -338,7 +368,7 @@ java_lang_String java_security_ProtectionDomain::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -385,7 +415,7 @@ java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader()
 
 	const char *methodName = "getClassLoader";
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -432,7 +462,7 @@ java_security_CodeSource java_security_ProtectionDomain::getCodeSource()
 
 	const char *methodName = "getCodeSource";
 	const char *methodSignature = "()Ljava/security/CodeSource;";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -478,8 +508,8 @@ std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincip
 	LOGV("std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincipals() enter");
 
 	const char *methodName = "getPrincipals";
-	const char *methodSignature = "()[java/security/Principal";
-	const char *className = "java_security_ProtectionDomain";
+	const char *methodSignature = "()[Ljava/security/Principal;";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -544,7 +574,7 @@ java_security_PermissionCollection java_security_ProtectionDomain::getPermission
 
 	const char *methodName = "getPermissions";
 	const char *methodSignature = "()Ljava/security/PermissionCollection;";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -591,7 +621,7 @@ bool java_security_ProtectionDomain::implies(java_security_Permission& arg0)
 
 	const char *methodName = "implies";
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
-	const char *className = "java_security_ProtectionDomain";
+	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

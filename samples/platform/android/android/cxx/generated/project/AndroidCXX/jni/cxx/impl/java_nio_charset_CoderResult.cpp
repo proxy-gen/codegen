@@ -91,7 +91,37 @@ java_nio_charset_CoderResult::java_nio_charset_CoderResult(void * proxy)
 }
 java_nio_charset_CoderResult::java_nio_charset_CoderResult()
 {
+	LOGV("java_nio_charset_CoderResult::java_nio_charset_CoderResult() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/nio/charset/CoderResult";
+
+	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_nio_charset_CoderResult cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_nio_charset_CoderResult jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_nio_charset_CoderResult::java_nio_charset_CoderResult() exit");	
 }
 // Public Constructors
 // Default Instance Destructor
@@ -115,7 +145,7 @@ java_lang_String java_nio_charset_CoderResult::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -162,7 +192,7 @@ int java_nio_charset_CoderResult::length()
 
 	const char *methodName = "length";
 	const char *methodSignature = "()I";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -209,7 +239,7 @@ void java_nio_charset_CoderResult::throwException()
 
 	const char *methodName = "throwException";
 	const char *methodSignature = "()V";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -237,7 +267,7 @@ bool java_nio_charset_CoderResult::isUnderflow()
 
 	const char *methodName = "isUnderflow";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -284,7 +314,7 @@ bool java_nio_charset_CoderResult::isError()
 
 	const char *methodName = "isError";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -331,7 +361,7 @@ bool java_nio_charset_CoderResult::isOverflow()
 
 	const char *methodName = "isOverflow";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -378,7 +408,7 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(in
 
 	const char *methodName = "malformedForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -446,7 +476,7 @@ bool java_nio_charset_CoderResult::isMalformed()
 
 	const char *methodName = "isMalformed";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -493,7 +523,7 @@ bool java_nio_charset_CoderResult::isUnmappable()
 
 	const char *methodName = "isUnmappable";
 	const char *methodSignature = "()Z";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -540,7 +570,7 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(i
 
 	const char *methodName = "unmappableForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
-	const char *className = "java_nio_charset_CoderResult";
+	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

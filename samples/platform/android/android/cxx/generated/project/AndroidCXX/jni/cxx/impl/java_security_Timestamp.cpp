@@ -90,14 +90,44 @@ java_security_Timestamp::java_security_Timestamp(void * proxy)
 }
 java_security_Timestamp::java_security_Timestamp()
 {
+	LOGV("java_security_Timestamp::java_security_Timestamp() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/security/Timestamp";
+
+	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_security_Timestamp cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_security_Timestamp jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_security_Timestamp::java_security_Timestamp() exit");	
 }
 // Public Constructors
 java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1)
 {
-	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1 enter");	
+	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1) enter");	
 
-	const char *methodName = "java.security.Timestamp";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Date;Ljava/security/cert/CertPath;)V";
 	const char *className = "java/security/Timestamp";
 
@@ -161,7 +191,7 @@ java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_secur
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -169,7 +199,7 @@ java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_secur
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1 exit");	
+	LOGV("java_security_Timestamp::java_security_Timestamp(java_util_Date& arg0,java_security_cert_CertPath& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_Timestamp::~java_security_Timestamp()
@@ -192,7 +222,7 @@ bool java_security_Timestamp::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -260,7 +290,7 @@ java_lang_String java_security_Timestamp::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -307,7 +337,7 @@ int java_security_Timestamp::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -354,7 +384,7 @@ java_security_cert_CertPath java_security_Timestamp::getSignerCertPath()
 
 	const char *methodName = "getSignerCertPath";
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -401,7 +431,7 @@ java_util_Date java_security_Timestamp::getTimestamp()
 
 	const char *methodName = "getTimestamp";
 	const char *methodSignature = "()Ljava/util/Date;";
-	const char *className = "java_security_Timestamp";
+	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

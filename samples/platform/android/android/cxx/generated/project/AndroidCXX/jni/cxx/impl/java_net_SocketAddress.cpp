@@ -80,9 +80,9 @@ java_net_SocketAddress::java_net_SocketAddress(void * proxy)
 // Public Constructors
 java_net_SocketAddress::java_net_SocketAddress()
 {
-	LOGV("java_net_SocketAddress::java_net_SocketAddress( enter");	
+	LOGV("java_net_SocketAddress::java_net_SocketAddress() enter");	
 
-	const char *methodName = "java.net.SocketAddress";
+	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
 	const char *className = "java/net/SocketAddress";
 
@@ -104,7 +104,7 @@ java_net_SocketAddress::java_net_SocketAddress()
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -112,7 +112,7 @@ java_net_SocketAddress::java_net_SocketAddress()
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_SocketAddress::java_net_SocketAddress( exit");	
+	LOGV("java_net_SocketAddress::java_net_SocketAddress() exit");	
 }
 // Default Instance Destructor
 java_net_SocketAddress::~java_net_SocketAddress()

@@ -90,14 +90,44 @@ java_net_Proxy::java_net_Proxy(void * proxy)
 }
 java_net_Proxy::java_net_Proxy()
 {
+	LOGV("java_net_Proxy::java_net_Proxy() enter");	
 
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "java/net/Proxy";
+
+	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("java_net_Proxy cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("java_net_Proxy jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("java_net_Proxy::java_net_Proxy() exit");	
 }
 // Public Constructors
 java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1)
 {
-	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1 enter");	
+	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1) enter");	
 
-	const char *methodName = "java.net.Proxy";
+	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V";
 	const char *className = "java/net/Proxy";
 
@@ -161,7 +191,7 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress&
 			
 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature),jarg0,jarg1);
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0,jarg1);
 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
@@ -169,7 +199,7 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress&
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1 exit");	
+	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1) exit");	
 }
 // Default Instance Destructor
 java_net_Proxy::~java_net_Proxy()
@@ -192,7 +222,7 @@ java_net_Proxy_Type java_net_Proxy::type()
 
 	const char *methodName = "type";
 	const char *methodSignature = "()Ljava/net/Proxy$Type;";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -239,7 +269,7 @@ bool java_net_Proxy::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -307,7 +337,7 @@ java_lang_String java_net_Proxy::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -354,7 +384,7 @@ int java_net_Proxy::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -401,7 +431,7 @@ java_net_SocketAddress java_net_Proxy::address()
 
 	const char *methodName = "address";
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
-	const char *className = "java_net_Proxy";
+	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
