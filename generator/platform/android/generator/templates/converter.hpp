@@ -34,6 +34,14 @@
 #end for
 
 using namespace ${namespace};
+#for $class_config in $classes
+#set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#set $class_namespace = $classinfo['namespace']
+#if $namespace != $class_namespace
+using namespace ${class_namespace};
+#end if
+#end for
+
 
 // Proxy Converter Types
 #for $class_config in $classes

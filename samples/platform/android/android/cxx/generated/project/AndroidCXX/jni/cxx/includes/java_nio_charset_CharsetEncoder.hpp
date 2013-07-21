@@ -86,6 +86,9 @@ extern "C" {
 
 namespace AndroidCXX {
 
+
+using namespace AndroidCXX;
+
 // Forward Declarations
 
 class java_nio_charset_Charset;

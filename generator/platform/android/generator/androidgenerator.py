@@ -948,6 +948,7 @@ class Generator(BaseGenerator):
 			classinfo['typename'] = class_name
 			class_file_name = Utils.to_file_name(class_name,"hpp")
 			classinfo['filename'] = class_file_name
+			classinfo['namespace'] = config_module.config_data['namespace']
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
 
@@ -1059,18 +1060,8 @@ class Generator(BaseGenerator):
 		deriveddata = type_config['deriveddata']
 		if "targetdata" not in deriveddata:
 			deriveddata['targetdata'] = dict()
-		self._attach_derived_target_namespace(type_config, config_module)
 		self._attach_derived_target_type_info(type_config, config_module)
 		logging.debug("_attach_derived_target_type_data exit")
-
-	def _attach_derived_target_namespace(self, type_config, config_module):
-		logging.debug("_attach_derived_target_namespace enter")
-		deriveddata = type_config['deriveddata']
-		targetdata = deriveddata['targetdata']
-		if 'namespace' not in targetdata:
-			targetdata['namespace'] = config_module.config_data['namespace']
-		assert "namespace" in targetdata, "namespace not attached to " + str(type_config)
-		logging.debug("_attach_derived_target_namespace exit")
 
 	def _attach_derived_target_type_info(self, type_config, config_module):
 		logging.debug("_attach_derived_target_type_name enter")
@@ -1078,6 +1069,7 @@ class Generator(BaseGenerator):
 		targetdata = deriveddata['targetdata']
 		if 'typeinfo' not in targetdata:
 			typeinfo = targetdata['typeinfo'] = dict()
+			typeinfo['namespace'] = config_module.config_data['namespace']
 			if type_config['converter'] == 'convert_proxy':
 				classes = config_module.list_all_classes(tags=None,xtags=None,name=type_config['type'])
 				for clazz in classes:

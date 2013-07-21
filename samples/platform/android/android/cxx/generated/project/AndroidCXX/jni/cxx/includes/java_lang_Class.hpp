@@ -252,6 +252,9 @@ extern "C" {
 
 namespace AndroidCXX {
 
+
+using namespace AndroidCXX;
+
 // Forward Declarations
 
 class java_lang_String;

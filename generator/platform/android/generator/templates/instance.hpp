@@ -12,9 +12,9 @@
 #set $REF = "&"
 #set $config_module = $CONFIG.config_module
 #set $config_data = $config_module.config_data
-#set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
 #set $entity_class_config = $CONFIG.entity_class
+#set $entity_class_info = $entity_class_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
@@ -151,7 +151,16 @@ $included_types.append($proxied_typeinfo['filename'])
 extern "C" {
 #endif //__cplusplus
 
-namespace ${namespace} {
+namespace ${entity_class_info['namespace']} {
+
+#set $proxied_namespaces = list()
+#for $proxied_typeinfo in $proxied_typeinfos
+#set $proxied_namespace = $proxied_typeinfo['namespace']
+#if $proxied_namespace not in $proxied_namespaces
+$proxied_namespaces.append(proxied_namespace)
+using namespace $proxied_namespace;
+#end if
+#end for
 
 // Forward Declarations
 #set $forwarded_types = list()
