@@ -277,6 +277,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_Context"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1177,9 +1179,9 @@ AndroidCXX::java_lang_String android_content_Context::getString(int& arg0)
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<java_lang_Object >& arg1)
+AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(I[Ljava/lang/Object;)Ljava/lang/String;";
@@ -1280,7 +1282,7 @@ AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::v
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_Context::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 	return result;
 }
@@ -3128,9 +3130,9 @@ AndroidCXX::java_io_File android_content_Context::getExternalCacheDir()
 
 	return result;
 }
-std::vector<java_lang_String > android_content_Context::fileList()
+std::vector<AndroidCXX::java_lang_String > android_content_Context::fileList()
 {
-	LOGV("std::vector<java_lang_String > android_content_Context::fileList() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Context::fileList() enter");
 
 	const char *methodName = "fileList";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -3149,7 +3151,7 @@ std::vector<java_lang_String > android_content_Context::fileList()
 	LOGV("android_content_Context jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3185,11 +3187,11 @@ std::vector<java_lang_String > android_content_Context::fileList()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_Context::fileList() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Context::fileList() exit");
 
 	return result;
 }
@@ -3659,9 +3661,9 @@ AndroidCXX::java_io_File android_content_Context::getDatabasePath(AndroidCXX::ja
 
 	return result;
 }
-std::vector<java_lang_String > android_content_Context::databaseList()
+std::vector<AndroidCXX::java_lang_String > android_content_Context::databaseList()
 {
-	LOGV("std::vector<java_lang_String > android_content_Context::databaseList() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Context::databaseList() enter");
 
 	const char *methodName = "databaseList";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -3680,7 +3682,7 @@ std::vector<java_lang_String > android_content_Context::databaseList()
 	LOGV("android_content_Context jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3716,11 +3718,11 @@ std::vector<java_lang_String > android_content_Context::databaseList()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_Context::databaseList() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Context::databaseList() exit");
 
 	return result;
 }
@@ -4038,9 +4040,9 @@ void android_content_Context::clearWallpaper()
 	LOGV("void android_content_Context::clearWallpaper() exit");
 
 }
-void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1)
+void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1)
 {
-	LOGV("void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
 
 	const char *methodName = "startActivities";
 	const char *methodSignature = "([Landroid/content/Intent;Landroid/os/Bundle;)V";
@@ -4123,12 +4125,12 @@ void android_content_Context::startActivities(std::vector<android_content_Intent
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
 
 }
-void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0)
+void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0)
 {
-	LOGV("void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0) enter");
+	LOGV("void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0) enter");
 
 	const char *methodName = "startActivities";
 	const char *methodSignature = "([Landroid/content/Intent;)V";
@@ -4190,7 +4192,7 @@ void android_content_Context::startActivities(std::vector<android_content_Intent
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_content_Context::startActivities(std::vector<android_content_Intent >& arg0) exit");
+	LOGV("void android_content_Context::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0) exit");
 
 }
 void android_content_Context::startIntentSender(AndroidCXX::android_content_IntentSender& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,int& arg3,int& arg4,AndroidCXX::android_os_Bundle& arg5)

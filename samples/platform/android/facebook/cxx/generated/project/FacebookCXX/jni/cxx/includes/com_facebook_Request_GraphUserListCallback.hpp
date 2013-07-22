@@ -50,24 +50,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_util_List;
 
 class com_facebook_Response;
 
@@ -84,7 +68,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphUserListCallback();
 	// Functions
-	 void onCompleted(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1);
+	 void onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1);
 };	
 
 } // namespace

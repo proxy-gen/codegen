@@ -137,6 +137,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "org_json_JSONObject"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -397,9 +399,9 @@ org_json_JSONObject::org_json_JSONObject(void * proxy)
 	LOGV("org_json_JSONObject::org_json_JSONObject(void * proxy) exit");
 }
 // Public Constructors
-org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<java_lang_String >& arg1)
+org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<java_lang_String >& arg1) enter");	
+	LOGV("org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lorg/json/JSONObject;[Ljava/lang/String;)V";
@@ -491,7 +493,7 @@ org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,s
 
 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<java_lang_String >& arg1) exit");	
+	LOGV("org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");	
 }
 org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONTokener& arg0)
 {

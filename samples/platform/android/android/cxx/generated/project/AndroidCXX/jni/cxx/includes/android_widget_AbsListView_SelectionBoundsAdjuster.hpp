@@ -43,15 +43,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_graphics_Rect;

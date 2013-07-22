@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Object;
 
 class com_facebook_widget_PickerFragment_GraphObjectFilter
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_GraphObjectFilter();
 	// Functions
-	 bool includeItem(FacebookCXX::java_lang_Object& arg0);
+	 bool includeItem(AndroidCXX::java_lang_Object& arg0);
 };	
 
 } // namespace

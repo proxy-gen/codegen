@@ -55,36 +55,13 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Class;
 
 class com_facebook_model_GraphObjectList;
 
 class com_facebook_model_GraphObject;
 
-class org_json_JSONArray;
 
 class com_facebook_model_GraphObjectList
 {
@@ -97,8 +74,8 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObjectList();
 	// Functions
-	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(FacebookCXX::java_lang_Class& arg0);
-	 FacebookCXX::org_json_JSONArray getInnerJSONArray();
+	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::org_json_JSONArray getInnerJSONArray();
 };	
 
 } // namespace

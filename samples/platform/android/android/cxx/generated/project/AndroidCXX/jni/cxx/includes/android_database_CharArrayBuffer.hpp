@@ -42,9 +42,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class android_database_CharArrayBuffer

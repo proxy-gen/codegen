@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_widget_GraphObjectAdapter_ItemPictureData
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPictureData();
 	// Functions
-	 FacebookCXX::java_lang_String getUrl();
+	 AndroidCXX::java_lang_String getUrl();
 };	
 
 } // namespace

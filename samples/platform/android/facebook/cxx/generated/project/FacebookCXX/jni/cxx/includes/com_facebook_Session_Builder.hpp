@@ -58,41 +58,15 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session;
 
-class java_lang_String;
 
 class com_facebook_Session_Builder;
 
 class com_facebook_TokenCachingStrategy;
 
-class android_content_Context;
 
 class com_facebook_Session_Builder
 {
@@ -101,13 +75,13 @@ public:
 	com_facebook_Session_Builder(const com_facebook_Session_Builder& cc);
 	com_facebook_Session_Builder(void * proxy);
 	// Public Constructors
-	com_facebook_Session_Builder(FacebookCXX::android_content_Context& arg0);
+	com_facebook_Session_Builder(AndroidCXX::android_content_Context& arg0);
 	com_facebook_Session_Builder();
 	// Default Destructor
 	virtual ~com_facebook_Session_Builder();
 	// Functions
 	 FacebookCXX::com_facebook_Session build();
-	 FacebookCXX::com_facebook_Session_Builder setApplicationId(FacebookCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_Session_Builder setApplicationId(AndroidCXX::java_lang_String& arg0);
 	 FacebookCXX::com_facebook_Session_Builder setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy& arg0);
 };	
 

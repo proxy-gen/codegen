@@ -48,6 +48,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton_LoginButtonProperties"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -87,6 +89,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -490,9 +497,9 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(F
 	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
 
 	const char *methodName = "setReadPermissions";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
@@ -575,12 +582,12 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(F
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
 
 }
-void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
+void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) enter");
 
 	const char *methodName = "setPublishPermissions";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
@@ -663,7 +670,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermission
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1) exit");
 
 }
 void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions()

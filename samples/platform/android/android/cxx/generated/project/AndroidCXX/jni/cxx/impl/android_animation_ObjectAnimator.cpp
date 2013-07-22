@@ -77,6 +77,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_animation_ObjectAnimator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1342,9 +1344,9 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Ljava/lang/Object;Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;";
@@ -1538,13 +1540,13 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3) exit");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::android_util_Property& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;";
@@ -1687,13 +1689,13 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<java_lang_Object >& arg3) exit");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofObject(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_animation_TypeEvaluator& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<android_animation_PropertyValuesHolder >& arg1)
+AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1)
 {
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<android_animation_PropertyValuesHolder >& arg1) enter");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1) enter");
 
 	const char *methodName = "ofPropertyValuesHolder";
 	const char *methodSignature = "(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;";
@@ -1794,7 +1796,7 @@ AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::o
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<android_animation_PropertyValuesHolder >& arg1) exit");
+	LOGV("AndroidCXX::android_animation_ObjectAnimator android_animation_ObjectAnimator::ofPropertyValuesHolder(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::android_animation_PropertyValuesHolder >& arg1) exit");
 
 	return result;
 }
@@ -1932,9 +1934,9 @@ void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0)
 	LOGV("void android_animation_ObjectAnimator::setFloatValues(std::vector<float>& arg0) exit");
 
 }
-void android_animation_ObjectAnimator::setObjectValues(std::vector<java_lang_Object >& arg0)
+void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "setObjectValues";
 	const char *methodSignature = "([Ljava/lang/Object;)V";
@@ -1996,6 +1998,6 @@ void android_animation_ObjectAnimator::setObjectValues(std::vector<java_lang_Obj
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("void android_animation_ObjectAnimator::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 }

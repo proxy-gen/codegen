@@ -50,28 +50,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_widget_AdapterView;
 
-class android_view_View;
 
-class java_lang_Object;
 
 class com_facebook_widget_PickerFragment_3
 {
@@ -84,7 +66,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_3();
 	// Functions
-	 void onItemClick(FacebookCXX::android_widget_AdapterView& arg0,FacebookCXX::android_view_View& arg1,int& arg2,long& arg3);
+	 void onItemClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3);
 };	
 
 } // namespace

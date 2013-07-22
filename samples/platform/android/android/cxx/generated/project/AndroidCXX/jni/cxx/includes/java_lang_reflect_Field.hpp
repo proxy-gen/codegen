@@ -117,111 +117,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -262,7 +157,7 @@ public:
 	 bool isSynthetic();
 	 AndroidCXX::java_lang_Class getDeclaringClass();
 	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
-	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 bool isEnumConstant();
 	 AndroidCXX::java_lang_Class getType();
 	 AndroidCXX::java_lang_reflect_Type getGenericType();

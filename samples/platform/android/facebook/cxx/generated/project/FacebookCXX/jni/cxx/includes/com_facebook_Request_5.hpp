@@ -44,21 +44,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_Request_5
 {
@@ -71,7 +58,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Request_5();
 	// Functions
-	 void writeString(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1);
+	 void writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 };	
 
 } // namespace

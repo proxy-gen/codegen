@@ -74,42 +74,6 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_GraphObjectPagingLoader_OnErrorListener;
@@ -120,9 +84,7 @@ class com_facebook_model_GraphObject;
 
 class com_facebook_Request;
 
-class android_content_Context;
 
-class java_lang_Class;
 
 class com_facebook_widget_GraphObjectPagingLoader
 {
@@ -131,7 +93,7 @@ public:
 	com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc);
 	com_facebook_widget_GraphObjectPagingLoader(void * proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectPagingLoader(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_Class& arg1);
+	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
 	com_facebook_widget_GraphObjectPagingLoader();
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader();

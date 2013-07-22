@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton_LoginClickListener_1"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_widget_LoginButton_LoginClickListener_1::~com_facebook_widget_Login
 	LOGV("com_facebook_widget_LoginButton_LoginClickListener_1::~com_facebook_widget_LoginButton_LoginClickListener_1() exit");
 }
 // Functions
-void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(FacebookCXX::android_content_DialogInterface& arg0,int& arg1)
+void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(FacebookCXX::android_content_DialogInterface& arg0,int& arg1) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1) enter");
 
 	const char *methodName = "onClick";
 	const char *methodSignature = "(Landroid/content/DialogInterface;I)V";
@@ -205,6 +209,6 @@ void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(FacebookCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(FacebookCXX::android_content_DialogInterface& arg0,int& arg1) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1) exit");
 
 }

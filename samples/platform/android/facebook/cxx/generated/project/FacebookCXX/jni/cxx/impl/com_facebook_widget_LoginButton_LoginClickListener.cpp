@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton_LoginClickListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_widget_LoginButton_LoginClickListener::~com_facebook_widget_LoginBu
 	LOGV("com_facebook_widget_LoginButton_LoginClickListener::~com_facebook_widget_LoginButton_LoginClickListener() exit");
 }
 // Functions
-void com_facebook_widget_LoginButton_LoginClickListener::onClick(FacebookCXX::android_view_View& arg0)
+void com_facebook_widget_LoginButton_LoginClickListener::onClick(AndroidCXX::android_view_View& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton_LoginClickListener::onClick(FacebookCXX::android_view_View& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton_LoginClickListener::onClick(AndroidCXX::android_view_View& arg0) enter");
 
 	const char *methodName = "onClick";
 	const char *methodSignature = "(Landroid/view/View;)V";
@@ -184,6 +188,6 @@ void com_facebook_widget_LoginButton_LoginClickListener::onClick(FacebookCXX::an
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton_LoginClickListener::onClick(FacebookCXX::android_view_View& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton_LoginClickListener::onClick(AndroidCXX::android_view_View& arg0) exit");
 
 }

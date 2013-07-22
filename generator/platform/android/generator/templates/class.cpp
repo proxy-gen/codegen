@@ -144,6 +144,8 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 // TODO: integrate with custom converters
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
+// TODO: FIXME: add include package
+\#include <AndroidCXXConverter.hpp>
 
 \#define LOG_TAG "${entity_class_name}"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)

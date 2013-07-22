@@ -48,26 +48,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_ComponentName;
 
-class android_os_IBinder;
 
 class com_facebook_GetTokenClient
 {
@@ -80,8 +63,8 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient();
 	// Functions
-	 void onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
 };	
 
 } // namespace

@@ -87,78 +87,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -180,8 +108,8 @@ public:
 	 int getAttributeCount();
 	 AndroidCXX::java_lang_String getAttributeName(int& arg0);
 	 int getAttributeNameResource(int& arg0);
-	 int getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,int& arg3);
-	 int getAttributeListValue(int& arg0,std::vector<java_lang_String >& arg1,int& arg2);
+	 int getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3);
+	 int getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2);
 	 bool getAttributeBooleanValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2);
 	 bool getAttributeBooleanValue(int& arg0,bool& arg1);
 	 int getAttributeResourceValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);

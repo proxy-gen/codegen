@@ -51,6 +51,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_text_Editable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1074,9 +1076,9 @@ void android_text_Editable::clearSpans()
 	LOGV("void android_text_Editable::clearSpans() exit");
 
 }
-void android_text_Editable::setFilters(std::vector<android_text_InputFilter >& arg0)
+void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0)
 {
-	LOGV("void android_text_Editable::setFilters(std::vector<android_text_InputFilter >& arg0) enter");
+	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) enter");
 
 	const char *methodName = "setFilters";
 	const char *methodSignature = "([Landroid/text/InputFilter;)V";
@@ -1138,12 +1140,12 @@ void android_text_Editable::setFilters(std::vector<android_text_InputFilter >& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_text_Editable::setFilters(std::vector<android_text_InputFilter >& arg0) exit");
+	LOGV("void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) exit");
 
 }
-std::vector<android_text_InputFilter > android_text_Editable::getFilters()
+std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFilters()
 {
-	LOGV("std::vector<android_text_InputFilter > android_text_Editable::getFilters() enter");
+	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFilters() enter");
 
 	const char *methodName = "getFilters";
 	const char *methodSignature = "()[Landroid/text/InputFilter;";
@@ -1162,7 +1164,7 @@ std::vector<android_text_InputFilter > android_text_Editable::getFilters()
 	LOGV("android_text_Editable jni address %d", javaObject);
 
 
-	std::vector<android_text_InputFilter > result;
+	std::vector<AndroidCXX::android_text_InputFilter > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1198,11 +1200,11 @@ std::vector<android_text_InputFilter > android_text_Editable::getFilters()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_text_InputFilter >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_text_InputFilter >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_text_InputFilter > android_text_Editable::getFilters() exit");
+	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFilters() exit");
 
 	return result;
 }

@@ -29,6 +29,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,6 +48,16 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace COM_FACEBOOK_SESSIONSTATE;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -146,9 +158,9 @@ com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::~com_facebook
 	LOGV("com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::~com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback() exit");
 }
 // Functions
-void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_SessionState& arg1,FacebookCXX::java_lang_Exception& arg2)
+void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2)
 {
-	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_SessionState& arg1,FacebookCXX::java_lang_Exception& arg2) enter");
+	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2) enter");
 
 	const char *methodName = "call";
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
@@ -234,6 +246,6 @@ void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(Fac
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_SessionState& arg1,FacebookCXX::java_lang_Exception& arg2) exit");
+	LOGV("void com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback::call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2) exit");
 
 }

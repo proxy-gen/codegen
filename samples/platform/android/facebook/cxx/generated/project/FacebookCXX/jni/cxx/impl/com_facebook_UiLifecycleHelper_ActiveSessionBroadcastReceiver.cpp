@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +146,9 @@ com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::~com_facebook_UiL
 	LOGV("com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::~com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver() exit");
 }
 // Functions
-void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_content_Intent& arg1)
+void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1)
 {
-	LOGV("void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_content_Intent& arg1) enter");
+	LOGV("void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1) enter");
 
 	const char *methodName = "onReceive";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/content/Intent;)V";
@@ -209,6 +213,6 @@ void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(Fa
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_content_Intent& arg1) exit");
+	LOGV("void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1) exit");
 
 }

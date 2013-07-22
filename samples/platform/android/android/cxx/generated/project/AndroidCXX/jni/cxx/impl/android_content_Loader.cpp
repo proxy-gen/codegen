@@ -61,6 +61,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_Loader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -434,9 +436,9 @@ void android_content_Loader::reset()
 	LOGV("void android_content_Loader::reset() exit");
 
 }
-void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3)
+void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
 {
-	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3) enter");
+	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
@@ -561,7 +563,7 @@ void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX:
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3) exit");
+	LOGV("void android_content_Loader::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
 
 }
 void android_content_Loader::abandon()

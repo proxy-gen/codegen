@@ -86,60 +86,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -179,7 +125,7 @@ public:
 	static AndroidCXX::android_os_ParcelFileDescriptor adoptFd(int& arg0);
 	static AndroidCXX::android_os_ParcelFileDescriptor fromSocket(AndroidCXX::java_net_Socket& arg0);
 	static AndroidCXX::android_os_ParcelFileDescriptor fromDatagramSocket(AndroidCXX::java_net_DatagramSocket& arg0);
-	static std::vector<android_os_ParcelFileDescriptor > createPipe();
+	static std::vector<AndroidCXX::android_os_ParcelFileDescriptor > createPipe();
 	 AndroidCXX::java_io_FileDescriptor getFileDescriptor();
 	 long getStatSize();
 	 int getFd();

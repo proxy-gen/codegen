@@ -69,53 +69,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
-class android_support_v4_content_Loader;
 
 class com_facebook_widget_SimpleGraphObjectCursor;
 
@@ -132,9 +88,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy_1();
 	// Functions
-	 FacebookCXX::android_support_v4_content_Loader onCreateLoader(int& arg0,FacebookCXX::android_os_Bundle& arg1);
-	 void onLoadFinished(FacebookCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1);
-	 void onLoaderReset(FacebookCXX::android_support_v4_content_Loader& arg0);
+	 AndroidCXX::android_support_v4_content_Loader onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1);
+	 void onLoadFinished(AndroidCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1);
+	 void onLoaderReset(AndroidCXX::android_support_v4_content_Loader& arg0);
 };	
 
 } // namespace

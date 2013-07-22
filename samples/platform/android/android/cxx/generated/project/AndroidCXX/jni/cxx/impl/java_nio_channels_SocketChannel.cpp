@@ -46,6 +46,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_channels_SocketChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -175,9 +177,9 @@ java_nio_channels_SocketChannel::~java_nio_channels_SocketChannel()
 	LOGV("java_nio_channels_SocketChannel::~java_nio_channels_SocketChannel() exit");
 }
 // Functions
-long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0)
+long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
 {
-	LOGV("long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -257,7 +259,7 @@ long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& a
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
 
 	return result;
 }
@@ -329,9 +331,9 @@ int java_nio_channels_SocketChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0
 
 	return result;
 }
-long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
 {
-	LOGV("long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -453,13 +455,13 @@ long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& a
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_SocketChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
 {
-	LOGV("long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -581,13 +583,13 @@ long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0)
+long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
 {
-	LOGV("long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -667,7 +669,7 @@ long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_SocketChannel::read(std::vector<java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
 
 	return result;
 }

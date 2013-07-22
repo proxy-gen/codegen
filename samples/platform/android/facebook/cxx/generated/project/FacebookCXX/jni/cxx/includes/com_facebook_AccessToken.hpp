@@ -76,77 +76,14 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class java_util_List;
 
-class java_util_Date;
 
 
 class com_facebook_AccessToken;
 
-class android_content_Intent;
 
 class com_facebook_AccessToken
 {
@@ -159,14 +96,14 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_AccessToken();
 	// Functions
-	 FacebookCXX::java_lang_String toString();
-	 FacebookCXX::java_util_List getPermissions();
-	 FacebookCXX::java_lang_String getToken();
-	 FacebookCXX::java_util_Date getExpires();
+	 AndroidCXX::java_lang_String toString();
+	 AndroidCXX::java_util_List getPermissions();
+	 AndroidCXX::java_lang_String getToken();
+	 AndroidCXX::java_util_Date getExpires();
 	 COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource getSource();
-	 FacebookCXX::java_util_Date getLastRefresh();
-	static FacebookCXX::com_facebook_AccessToken createFromExistingAccessToken(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_util_Date& arg1,FacebookCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,FacebookCXX::java_util_List& arg4);
-	static FacebookCXX::com_facebook_AccessToken createFromNativeLinkingIntent(FacebookCXX::android_content_Intent& arg0);
+	 AndroidCXX::java_util_Date getLastRefresh();
+	static FacebookCXX::com_facebook_AccessToken createFromExistingAccessToken(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Date& arg1,AndroidCXX::java_util_Date& arg2,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg3,AndroidCXX::java_util_List& arg4);
+	static FacebookCXX::com_facebook_AccessToken createFromNativeLinkingIntent(AndroidCXX::android_content_Intent& arg0);
 };	
 
 } // namespace

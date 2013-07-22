@@ -139,117 +139,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -300,8 +189,8 @@ public:
 	 AndroidCXX::java_io_PrintWriter append(AndroidCXX::java_lang_CharSequence& arg0);
 	 AndroidCXX::java_io_PrintWriter append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2);
 	 AndroidCXX::java_io_PrintWriter append(char& arg0);
-	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2);
-	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1);
+	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2);
+	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1);
 	 void write(std::vector<char>& arg0);
 	 void write(std::vector<char>& arg0,int& arg1,int& arg2);
 	 void write(int& arg0);
@@ -319,8 +208,8 @@ public:
 	 void flush();
 	 void close();
 	 bool checkError();
-	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1);
-	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2);
+	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1);
+	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2);
 };	
 
 } // namespace

@@ -147,116 +147,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace JAVA_LANG_THREAD_STATE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -304,7 +194,7 @@ public:
 	static AndroidCXX::java_lang_Thread currentThread();
 	 AndroidCXX::java_lang_String getName();
 	 AndroidCXX::java_lang_ThreadGroup getThreadGroup();
-	 std::vector<java_lang_StackTraceElement > getStackTrace();
+	 std::vector<AndroidCXX::java_lang_StackTraceElement > getStackTrace();
 	static void dumpStack();
 	 void setPriority(int& arg0);
 	 void setDaemon(bool& arg0);
@@ -323,7 +213,7 @@ public:
 	 int getPriority();
 	 void setName(AndroidCXX::java_lang_String& arg0);
 	static int activeCount();
-	static int enumerate(std::vector<java_lang_Thread >& arg0);
+	static int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0);
 	 int countStackFrames();
 	 void join();
 	 void join(long& arg0,int& arg1);

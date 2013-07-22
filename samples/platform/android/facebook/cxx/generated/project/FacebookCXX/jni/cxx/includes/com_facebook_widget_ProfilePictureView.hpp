@@ -67,48 +67,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_ProfilePictureView_OnErrorListener;
 
-class java_lang_String;
 
-class android_content_Context;
 
-class android_util_AttributeSet;
 
 class com_facebook_widget_ProfilePictureView
 {
@@ -117,9 +81,9 @@ public:
 	com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc);
 	com_facebook_widget_ProfilePictureView(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ProfilePictureView(FacebookCXX::android_content_Context& arg0);
-	com_facebook_widget_ProfilePictureView(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1);
-	com_facebook_widget_ProfilePictureView(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1,int& arg2);
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0);
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	com_facebook_widget_ProfilePictureView();
 	// Default Destructor
 	virtual ~com_facebook_widget_ProfilePictureView();
@@ -130,8 +94,8 @@ public:
 	 int getPresetSize();
 	 void setPresetSize(int& arg0);
 	 void setCropped(bool& arg0);
-	 FacebookCXX::java_lang_String getProfileId();
-	 void setProfileId(FacebookCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getProfileId();
+	 void setProfileId(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

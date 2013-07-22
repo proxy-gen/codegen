@@ -248,7 +248,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.AccessToken$SerializationProxyV1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -704,7 +704,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$AuthorizationRequest',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -774,7 +774,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$GetTokenAuthHandler',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -794,7 +794,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaLoginDialogAuthHandler',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -804,7 +804,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$KatanaProxyAuthHandler',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -906,7 +906,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$Result',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -988,7 +988,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$WebViewAuthHandler',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -998,7 +998,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1371,7 +1371,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Range',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2255,7 +2255,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.NativeProtocol',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'KATANA_PROXY_AUTH_PERMISSIONS_KEY',
@@ -4682,7 +4682,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest$AuthRequestSerializationProxyV1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5025,7 +5025,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$SerializationProxyV1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5976,7 +5976,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState',
-			'tags' : ['_proxy'],
+			'tags' : ['_enum', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CREATED',
@@ -9702,7 +9702,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject$Factory',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10416,7 +10416,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.JsonUtil',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10994,7 +10994,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11004,7 +11004,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.FriendPickerFragment$ImmediateLoadingStrategy',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12552,7 +12552,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12562,7 +12562,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Builder',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12598,7 +12598,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12608,7 +12608,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponse',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12640,7 +12640,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageResponseCache',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14505,7 +14505,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PlacePickerFragment$1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15543,7 +15543,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.UrlRedirectCache',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -16726,7 +16726,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_MAX_CONCURRENT',

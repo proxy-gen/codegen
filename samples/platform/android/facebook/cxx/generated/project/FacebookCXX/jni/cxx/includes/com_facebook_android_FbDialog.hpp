@@ -65,63 +65,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_Context;
 
-class java_lang_String;
 
 class com_facebook_android_Facebook_DialogListener;
 
-class android_os_Bundle;
 
 class com_facebook_android_FbDialog
 {
@@ -130,10 +79,10 @@ public:
 	com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc);
 	com_facebook_android_FbDialog(void * proxy);
 	// Public Constructors
-	com_facebook_android_FbDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2);
-	com_facebook_android_FbDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3);
-	com_facebook_android_FbDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3);
-	com_facebook_android_FbDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3);
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4);
 	com_facebook_android_FbDialog();
 	// Default Destructor
 	virtual ~com_facebook_android_FbDialog();

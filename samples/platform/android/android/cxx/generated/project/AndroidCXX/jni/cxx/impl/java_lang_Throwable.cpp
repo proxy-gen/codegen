@@ -53,6 +53,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_Throwable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -823,9 +825,9 @@ AndroidCXX::java_lang_String java_lang_Throwable::getLocalizedMessage()
 
 	return result;
 }
-std::vector<java_lang_StackTraceElement > java_lang_Throwable::getStackTrace()
+std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getStackTrace()
 {
-	LOGV("std::vector<java_lang_StackTraceElement > java_lang_Throwable::getStackTrace() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getStackTrace() enter");
 
 	const char *methodName = "getStackTrace";
 	const char *methodSignature = "()[Ljava/lang/StackTraceElement;";
@@ -844,7 +846,7 @@ std::vector<java_lang_StackTraceElement > java_lang_Throwable::getStackTrace()
 	LOGV("java_lang_Throwable jni address %d", javaObject);
 
 
-	std::vector<java_lang_StackTraceElement > result;
+	std::vector<AndroidCXX::java_lang_StackTraceElement > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -880,17 +882,17 @@ std::vector<java_lang_StackTraceElement > java_lang_Throwable::getStackTrace()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_StackTraceElement >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_StackTraceElement >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_StackTraceElement > java_lang_Throwable::getStackTrace() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getStackTrace() exit");
 
 	return result;
 }
-void java_lang_Throwable::setStackTrace(std::vector<java_lang_StackTraceElement >& arg0)
+void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0)
 {
-	LOGV("void java_lang_Throwable::setStackTrace(std::vector<java_lang_StackTraceElement >& arg0) enter");
+	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0) enter");
 
 	const char *methodName = "setStackTrace";
 	const char *methodSignature = "([Ljava/lang/StackTraceElement;)V";
@@ -952,6 +954,6 @@ void java_lang_Throwable::setStackTrace(std::vector<java_lang_StackTraceElement 
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_Throwable::setStackTrace(std::vector<java_lang_StackTraceElement >& arg0) exit");
+	LOGV("void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0) exit");
 
 }

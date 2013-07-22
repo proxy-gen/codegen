@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_MultiSelectionStrategy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -167,9 +171,9 @@ void com_facebook_widget_PickerFragment_MultiSelectionStrategy::clear()
 	LOGV("void com_facebook_widget_PickerFragment_MultiSelectionStrategy::clear() exit");
 
 }
-FacebookCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds()
+AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds()
 {
-	LOGV("FacebookCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds() enter");
+	LOGV("AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds() enter");
 
 	const char *methodName = "getSelectedIds";
 	const char *methodSignature = "()Ljava/util/Collection;";
@@ -188,7 +192,7 @@ FacebookCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelect
 	LOGV("com_facebook_widget_PickerFragment_MultiSelectionStrategy jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Collection result;
+	AndroidCXX::java_util_Collection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -224,11 +228,11 @@ FacebookCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelect
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Collection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Collection) (FacebookCXX::java_util_Collection((FacebookCXX::java_util_Collection *) cxx_value));
+	result = (AndroidCXX::java_util_Collection) (AndroidCXX::java_util_Collection((AndroidCXX::java_util_Collection *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds() exit");
+	LOGV("AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_MultiSelectionStrategy::getSelectedIds() exit");
 
 	return result;
 }

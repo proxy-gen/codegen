@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_3"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +146,9 @@ com_facebook_widget_PickerFragment_3::~com_facebook_widget_PickerFragment_3()
 	LOGV("com_facebook_widget_PickerFragment_3::~com_facebook_widget_PickerFragment_3() exit");
 }
 // Functions
-void com_facebook_widget_PickerFragment_3::onItemClick(FacebookCXX::android_widget_AdapterView& arg0,FacebookCXX::android_view_View& arg1,int& arg2,long& arg3)
+void com_facebook_widget_PickerFragment_3::onItemClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3)
 {
-	LOGV("void com_facebook_widget_PickerFragment_3::onItemClick(FacebookCXX::android_widget_AdapterView& arg0,FacebookCXX::android_view_View& arg1,int& arg2,long& arg3) enter");
+	LOGV("void com_facebook_widget_PickerFragment_3::onItemClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) enter");
 
 	const char *methodName = "onItemClick";
 	const char *methodSignature = "(Landroid/widget/AdapterView;Landroid/view/View;IJ)V";
@@ -269,6 +273,6 @@ void com_facebook_widget_PickerFragment_3::onItemClick(FacebookCXX::android_widg
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PickerFragment_3::onItemClick(FacebookCXX::android_widget_AdapterView& arg0,FacebookCXX::android_view_View& arg1,int& arg2,long& arg3) exit");
+	LOGV("void com_facebook_widget_PickerFragment_3::onItemClick(AndroidCXX::android_widget_AdapterView& arg0,AndroidCXX::android_view_View& arg1,int& arg2,long& arg3) exit");
 
 }

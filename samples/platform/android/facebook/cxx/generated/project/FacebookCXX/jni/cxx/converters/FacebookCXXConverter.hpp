@@ -22,6 +22,7 @@
 #include <CXXTypeHierarchy.hpp>
 #include <CXXTypes.hpp>
 #include <JNIContext.hpp>
+#include <com_facebook_AccessToken_SerializationProxyV1.hpp>
 #include <com_facebook_AccessToken.hpp>
 #include <com_facebook_AccessTokenSource.hpp>
 #include <com_facebook_AuthorizationClient_1.hpp>
@@ -31,19 +32,27 @@
 #include <com_facebook_AuthorizationClient_5.hpp>
 #include <com_facebook_AuthorizationClient_AuthDialogBuilder.hpp>
 #include <com_facebook_AuthorizationClient_AuthHandler.hpp>
+#include <com_facebook_AuthorizationClient_AuthorizationRequest.hpp>
 #include <com_facebook_AuthorizationClient_BackgroundProcessingListener.hpp>
 #include <com_facebook_AuthorizationClient_GetTokenAuthHandler_1.hpp>
+#include <com_facebook_AuthorizationClient_GetTokenAuthHandler.hpp>
 #include <com_facebook_AuthorizationClient_KatanaAuthHandler.hpp>
+#include <com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler.hpp>
+#include <com_facebook_AuthorizationClient_KatanaProxyAuthHandler.hpp>
 #include <com_facebook_AuthorizationClient_OnCompletedListener.hpp>
 #include <com_facebook_AuthorizationClient_Result_Code.hpp>
+#include <com_facebook_AuthorizationClient_Result.hpp>
 #include <com_facebook_AuthorizationClient_StartActivityDelegate.hpp>
 #include <com_facebook_AuthorizationClient_WebViewAuthHandler_1.hpp>
+#include <com_facebook_AuthorizationClient_WebViewAuthHandler.hpp>
+#include <com_facebook_AuthorizationClient.hpp>
 #include <com_facebook_FacebookAuthorizationException.hpp>
 #include <com_facebook_FacebookDialogException.hpp>
 #include <com_facebook_FacebookException.hpp>
 #include <com_facebook_FacebookGraphObjectException.hpp>
 #include <com_facebook_FacebookOperationCanceledException.hpp>
 #include <com_facebook_FacebookRequestError_Category.hpp>
+#include <com_facebook_FacebookRequestError_Range.hpp>
 #include <com_facebook_FacebookRequestError.hpp>
 #include <com_facebook_FacebookSdkVersion.hpp>
 #include <com_facebook_FacebookServiceException.hpp>
@@ -58,6 +67,7 @@
 #include <com_facebook_LoginActivity_1.hpp>
 #include <com_facebook_LoginActivity_2.hpp>
 #include <com_facebook_LoginActivity.hpp>
+#include <com_facebook_NativeProtocol.hpp>
 #include <com_facebook_NonCachingTokenCachingStrategy.hpp>
 #include <com_facebook_Request_1.hpp>
 #include <com_facebook_Request_2.hpp>
@@ -85,11 +95,13 @@
 #include <com_facebook_Session_AuthorizationRequest_2.hpp>
 #include <com_facebook_Session_AuthorizationRequest_3.hpp>
 #include <com_facebook_Session_AuthorizationRequest_4.hpp>
+#include <com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1.hpp>
 #include <com_facebook_Session_AuthorizationRequest.hpp>
 #include <com_facebook_Session_AutoPublishAsyncTask.hpp>
 #include <com_facebook_Session_Builder.hpp>
 #include <com_facebook_Session_NewPermissionsRequest.hpp>
 #include <com_facebook_Session_OpenRequest.hpp>
+#include <com_facebook_Session_SerializationProxyV1.hpp>
 #include <com_facebook_Session_StartActivityDelegate.hpp>
 #include <com_facebook_Session_StatusCallback.hpp>
 #include <com_facebook_Session_TokenRefreshRequest.hpp>
@@ -135,15 +147,19 @@
 #include <com_facebook_model_GraphObject_Factory_GraphObjectListImpl.hpp>
 #include <com_facebook_model_GraphObject_Factory_GraphObjectProxy.hpp>
 #include <com_facebook_model_GraphObject_Factory_ProxyBase.hpp>
+#include <com_facebook_model_GraphObject_Factory.hpp>
 #include <com_facebook_model_GraphObject.hpp>
 #include <com_facebook_model_GraphObjectList.hpp>
 #include <com_facebook_model_GraphPlace.hpp>
 #include <com_facebook_model_GraphUser.hpp>
 #include <com_facebook_model_JsonUtil_JSONObjectEntry.hpp>
+#include <com_facebook_model_JsonUtil.hpp>
 #include <com_facebook_model_OpenGraphAction.hpp>
 #include <com_facebook_model_PropertyName.hpp>
 #include <com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback.hpp>
 #include <com_facebook_widget_FacebookFragment.hpp>
+#include <com_facebook_widget_FriendPickerFragment_1.hpp>
+#include <com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy.hpp>
 #include <com_facebook_widget_FriendPickerFragment.hpp>
 #include <com_facebook_widget_GraphObjectAdapter_1.hpp>
 #include <com_facebook_widget_GraphObjectAdapter_2.hpp>
@@ -167,8 +183,13 @@
 #include <com_facebook_widget_ImageDownloader_DownloadImageWorkItem.hpp>
 #include <com_facebook_widget_ImageDownloader_DownloaderContext.hpp>
 #include <com_facebook_widget_ImageDownloader_RequestKey.hpp>
+#include <com_facebook_widget_ImageDownloader.hpp>
+#include <com_facebook_widget_ImageRequest_Builder.hpp>
 #include <com_facebook_widget_ImageRequest_Callback.hpp>
+#include <com_facebook_widget_ImageRequest.hpp>
+#include <com_facebook_widget_ImageResponse.hpp>
 #include <com_facebook_widget_ImageResponseCache_BufferedHttpInputStream.hpp>
+#include <com_facebook_widget_ImageResponseCache.hpp>
 #include <com_facebook_widget_LoginButton_1.hpp>
 #include <com_facebook_widget_LoginButton_LoginButtonCallback.hpp>
 #include <com_facebook_widget_LoginButton_LoginButtonProperties.hpp>
@@ -197,6 +218,7 @@
 #include <com_facebook_widget_PickerFragment_SelectionStrategy.hpp>
 #include <com_facebook_widget_PickerFragment_SingleSelectionStrategy.hpp>
 #include <com_facebook_widget_PickerFragment.hpp>
+#include <com_facebook_widget_PlacePickerFragment_1.hpp>
 #include <com_facebook_widget_PlacePickerFragment_2.hpp>
 #include <com_facebook_widget_PlacePickerFragment_3.hpp>
 #include <com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy_1.hpp>
@@ -207,6 +229,7 @@
 #include <com_facebook_widget_ProfilePictureView_OnErrorListener.hpp>
 #include <com_facebook_widget_ProfilePictureView.hpp>
 #include <com_facebook_widget_SimpleGraphObjectCursor.hpp>
+#include <com_facebook_widget_UrlRedirectCache.hpp>
 #include <com_facebook_widget_UserSettingsFragment_1.hpp>
 #include <com_facebook_widget_UserSettingsFragment_2.hpp>
 #include <com_facebook_widget_UserSettingsFragment.hpp>
@@ -223,6 +246,7 @@
 #include <com_facebook_widget_WorkQueue_1.hpp>
 #include <com_facebook_widget_WorkQueue_WorkItem.hpp>
 #include <com_facebook_widget_WorkQueue_WorkNode.hpp>
+#include <com_facebook_widget_WorkQueue.hpp>
 
 using namespace FacebookCXX;
 // 
@@ -233,7 +257,27 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
 // using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -317,7 +361,23 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // using namespace COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY;
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -366,6 +426,10 @@ using namespace FacebookCXX;
 // 
 // 
 // using namespace COM_FACEBOOK_LOGGINGBEHAVIOR;
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -533,6 +597,14 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
 // 
 // 
@@ -550,6 +622,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace COM_FACEBOOK_SESSIONSTATE;
 // 
 // 
 // 
@@ -584,6 +658,22 @@ using namespace FacebookCXX;
 // 
 // 
 // using namespace COM_FACEBOOK_TESTSESSION_MODE;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -1052,9 +1142,42 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
 
 // Proxy Converter Types
+void convert_com_facebook_AccessToken_SerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AccessToken(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AccessTokenSource(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1064,19 +1187,27 @@ void convert_com_facebook_AuthorizationClient_4(long& java_value, long& cxx_valu
 void convert_com_facebook_AuthorizationClient_5(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_AuthDialogBuilder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_AuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_AuthorizationRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_BackgroundProcessingListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_GetTokenAuthHandler_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_GetTokenAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_KatanaAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_KatanaProxyAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_OnCompletedListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_Result_Code(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_Result(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_StartActivityDelegate(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_AuthorizationClient_WebViewAuthHandler_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient_WebViewAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_AuthorizationClient(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookAuthorizationException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookDialogException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookGraphObjectException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookOperationCanceledException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookRequestError_Category(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_FacebookRequestError_Range(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookRequestError(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookSdkVersion(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_FacebookServiceException(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1091,6 +1222,7 @@ void convert_com_facebook_LoggingBehavior(long& java_value, long& cxx_value, con
 void convert_com_facebook_LoginActivity_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_LoginActivity_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_LoginActivity(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_NativeProtocol(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_NonCachingTokenCachingStrategy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Request_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Request_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1118,11 +1250,13 @@ void convert_com_facebook_Session_AuthorizationRequest_1(long& java_value, long&
 void convert_com_facebook_Session_AuthorizationRequest_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_AuthorizationRequest_3(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_AuthorizationRequest_4(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_AuthorizationRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_AutoPublishAsyncTask(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_Builder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_NewPermissionsRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_OpenRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_Session_SerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_StartActivityDelegate(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_StatusCallback(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_Session_TokenRefreshRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1168,15 +1302,19 @@ void convert_com_facebook_model_GraphMultiResult(long& java_value, long& cxx_val
 void convert_com_facebook_model_GraphObject_Factory_GraphObjectListImpl(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphObject_Factory_GraphObjectProxy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphObject_Factory_ProxyBase(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_model_GraphObject_Factory(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphObject(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphObjectList(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphPlace(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_GraphUser(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_JsonUtil_JSONObjectEntry(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_model_JsonUtil(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_OpenGraphAction(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_model_PropertyName(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_FacebookFragment(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_FriendPickerFragment_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_FriendPickerFragment(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_GraphObjectAdapter_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_GraphObjectAdapter_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1200,8 +1338,13 @@ void convert_com_facebook_widget_ImageDownloader_CacheReadWorkItem(long& java_va
 void convert_com_facebook_widget_ImageDownloader_DownloadImageWorkItem(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_ImageDownloader_DownloaderContext(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_ImageDownloader_RequestKey(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_ImageDownloader(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_ImageRequest_Builder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_ImageRequest_Callback(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_ImageRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_ImageResponse(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_ImageResponseCache(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_LoginButton_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_LoginButton_LoginButtonCallback(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_LoginButton_LoginButtonProperties(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1230,6 +1373,7 @@ void convert_com_facebook_widget_PickerFragment_PickerFragmentAdapter(long& java
 void convert_com_facebook_widget_PickerFragment_SelectionStrategy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_PickerFragment_SingleSelectionStrategy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_PickerFragment(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_PlacePickerFragment_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_PlacePickerFragment_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_PlacePickerFragment_3(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1240,6 +1384,7 @@ void convert_com_facebook_widget_ProfilePictureView_1(long& java_value, long& cx
 void convert_com_facebook_widget_ProfilePictureView_OnErrorListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_ProfilePictureView(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_SimpleGraphObjectCursor(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_UrlRedirectCache(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_UserSettingsFragment_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_UserSettingsFragment_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_UserSettingsFragment(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
@@ -1256,5 +1401,6 @@ void convert_com_facebook_widget_WebDialog(long& java_value, long& cxx_value, co
 void convert_com_facebook_widget_WorkQueue_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_WorkQueue_WorkItem(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_com_facebook_widget_WorkQueue_WorkNode(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_com_facebook_widget_WorkQueue(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 #endif // _FacebookCXXConverter

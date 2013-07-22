@@ -47,6 +47,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_SimpleGraphObjectCursor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -61,6 +63,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -983,9 +990,9 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isAfterLast()
 
 	return result;
 }
-void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(FacebookCXX::java_util_Collection& arg0,bool& arg1)
+void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1)
 {
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(FacebookCXX::java_util_Collection& arg0,bool& arg1) enter");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1) enter");
 
 	const char *methodName = "addGraphObjects";
 	const char *methodSignature = "(Ljava/util/Collection;Z)V";
@@ -1068,7 +1075,7 @@ void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(FacebookCXX::j
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(FacebookCXX::java_util_Collection& arg0,bool& arg1) exit");
+	LOGV("void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1) exit");
 
 }
 void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool& arg0)

@@ -143,156 +143,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -316,9 +166,9 @@ public:
 	android_widget_SimpleExpandableListAdapter(const android_widget_SimpleExpandableListAdapter& cc);
 	android_widget_SimpleExpandableListAdapter(void * proxy);
 	// Public Constructors
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,AndroidCXX::java_util_List& arg6,int& arg7,std::vector<java_lang_String >& arg8,std::vector<int>& arg9);
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,AndroidCXX::java_util_List& arg6,int& arg7,int& arg8,std::vector<java_lang_String >& arg9,std::vector<int>& arg10);
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4,AndroidCXX::java_util_List& arg5,int& arg6,std::vector<java_lang_String >& arg7,std::vector<int>& arg8);
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,AndroidCXX::java_util_List& arg6,int& arg7,std::vector<AndroidCXX::java_lang_String >& arg8,std::vector<int>& arg9);
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,AndroidCXX::java_util_List& arg6,int& arg7,int& arg8,std::vector<AndroidCXX::java_lang_String >& arg9,std::vector<int>& arg10);
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,AndroidCXX::java_util_List& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8);
 	android_widget_SimpleExpandableListAdapter();
 	// Default Destructor
 	virtual ~android_widget_SimpleExpandableListAdapter();

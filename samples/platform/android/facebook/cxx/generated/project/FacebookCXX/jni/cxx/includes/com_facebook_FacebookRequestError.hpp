@@ -77,62 +77,14 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_FacebookException;
 
-class java_net_HttpURLConnection;
 
 
-class org_json_JSONObject;
 
-class java_lang_Object;
 
 class com_facebook_FacebookRequestError
 {
@@ -141,25 +93,25 @@ public:
 	com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc);
 	com_facebook_FacebookRequestError(void * proxy);
 	// Public Constructors
-	com_facebook_FacebookRequestError(int& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2);
+	com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
 	com_facebook_FacebookRequestError();
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError();
 	// Functions
-	 FacebookCXX::java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 	 FacebookCXX::com_facebook_FacebookException getException();
-	 FacebookCXX::java_net_HttpURLConnection getConnection();
+	 AndroidCXX::java_net_HttpURLConnection getConnection();
 	 int getErrorCode();
 	 bool shouldNotifyUser();
 	 int getUserActionMessageId();
 	 COM_FACEBOOK_FACEBOOKREQUESTERROR_CATEGORY::com_facebook_FacebookRequestError_Category getCategory();
 	 int getRequestStatusCode();
 	 int getSubErrorCode();
-	 FacebookCXX::java_lang_String getErrorType();
-	 FacebookCXX::java_lang_String getErrorMessage();
-	 FacebookCXX::org_json_JSONObject getRequestResultBody();
-	 FacebookCXX::org_json_JSONObject getRequestResult();
-	 FacebookCXX::java_lang_Object getBatchRequestResult();
+	 AndroidCXX::java_lang_String getErrorType();
+	 AndroidCXX::java_lang_String getErrorMessage();
+	 AndroidCXX::org_json_JSONObject getRequestResultBody();
+	 AndroidCXX::org_json_JSONObject getRequestResult();
+	 AndroidCXX::java_lang_Object getBatchRequestResult();
 };	
 
 } // namespace

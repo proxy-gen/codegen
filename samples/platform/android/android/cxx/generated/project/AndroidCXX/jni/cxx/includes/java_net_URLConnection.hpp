@@ -156,135 +156,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -322,7 +193,7 @@ public:
 	// Functions
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_net_URL getURL();
-	 AndroidCXX::java_lang_Object getContent(std::vector<java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class >& arg0);
 	 AndroidCXX::java_lang_Object getContent();
 	 AndroidCXX::java_io_InputStream getInputStream();
 	 AndroidCXX::java_security_Permission getPermission();

@@ -52,21 +52,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -87,7 +72,7 @@ public:
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
 	 AndroidCXX::java_lang_String getName();
-	 std::vector<java_lang_reflect_Type > getBounds();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getBounds();
 	 AndroidCXX::java_lang_reflect_GenericDeclaration getGenericDeclaration();
 };	
 

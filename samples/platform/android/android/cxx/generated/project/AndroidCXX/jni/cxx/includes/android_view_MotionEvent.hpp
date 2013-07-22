@@ -160,75 +160,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -264,8 +195,8 @@ public:
 	 float getX(int& arg0);
 	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
 	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,float& arg3,float& arg4,float& arg5,float& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11);
-	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12);
-	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<android_view_MotionEvent_PointerProperties >& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13);
+	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12);
+	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::android_view_MotionEvent_PointerProperties >& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13);
 	static AndroidCXX::android_view_MotionEvent obtain(AndroidCXX::android_view_MotionEvent& arg0);
 	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,float& arg3,float& arg4,int& arg5);
 	static AndroidCXX::android_view_MotionEvent obtain(long& arg0,long& arg1,int& arg2,int& arg3,float& arg4,float& arg5,float& arg6,float& arg7,int& arg8,float& arg9,float& arg10,int& arg11,int& arg12);
@@ -334,7 +265,7 @@ public:
 	 void setEdgeFlags(int& arg0);
 	 void offsetLocation(float& arg0,float& arg1);
 	 void setLocation(float& arg0,float& arg1);
-	 void addBatch(long& arg0,std::vector<android_view_MotionEvent_PointerCoords >& arg1,int& arg2);
+	 void addBatch(long& arg0,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg1,int& arg2);
 	 void addBatch(long& arg0,float& arg1,float& arg2,float& arg3,float& arg4,int& arg5);
 	static AndroidCXX::java_lang_String axisToString(int& arg0);
 	static int axisFromString(AndroidCXX::java_lang_String& arg0);

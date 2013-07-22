@@ -92,48 +92,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -171,7 +129,7 @@ public:
 	 int getIndex(int& arg0);
 	 void recycle();
 	 AndroidCXX::java_lang_CharSequence getText(int& arg0);
-	 std::vector<java_lang_CharSequence > getTextArray(int& arg0);
+	 std::vector<AndroidCXX::java_lang_CharSequence > getTextArray(int& arg0);
 	 float getDimension(int& arg0,float& arg1);
 	 int getDimensionPixelOffset(int& arg0,int& arg1);
 	 int getDimensionPixelSize(int& arg0,int& arg1);

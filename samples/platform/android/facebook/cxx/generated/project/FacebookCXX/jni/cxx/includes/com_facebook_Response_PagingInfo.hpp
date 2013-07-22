@@ -45,21 +45,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_Response_PagingInfo
 {
@@ -72,8 +59,8 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Response_PagingInfo();
 	// Functions
-	 FacebookCXX::java_lang_String getNext();
-	 FacebookCXX::java_lang_String getPrevious();
+	 AndroidCXX::java_lang_String getNext();
+	 AndroidCXX::java_lang_String getPrevious();
 };	
 
 } // namespace

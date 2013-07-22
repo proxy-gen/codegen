@@ -67,62 +67,14 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_widget_WebDialog_RequestsDialogBuilder;
 
-class android_content_Context;
 
 class com_facebook_Session;
 
-class android_os_Bundle;
 
 class com_facebook_widget_WebDialog_RequestsDialogBuilder
 {
@@ -131,16 +83,16 @@ public:
 	com_facebook_widget_WebDialog_RequestsDialogBuilder(const com_facebook_widget_WebDialog_RequestsDialogBuilder& cc);
 	com_facebook_widget_WebDialog_RequestsDialogBuilder(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1);
-	com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2);
+	com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1);
+	com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2);
 	com_facebook_widget_WebDialog_RequestsDialogBuilder();
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_RequestsDialogBuilder();
 	// Functions
-	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setData(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setTitle(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setMessage(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setTo(FacebookCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setData(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setTitle(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setMessage(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder setTo(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

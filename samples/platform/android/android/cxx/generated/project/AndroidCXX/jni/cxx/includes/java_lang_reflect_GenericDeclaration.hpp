@@ -48,18 +48,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_reflect_TypeVariable;
@@ -77,7 +65,7 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_GenericDeclaration();
 	// Functions
-	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
+	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
 };	
 
 } // namespace

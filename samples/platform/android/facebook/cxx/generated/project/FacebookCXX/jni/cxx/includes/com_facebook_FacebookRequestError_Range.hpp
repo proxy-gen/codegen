@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_FacebookRequestError_Range
 {
 public:
 
+	com_facebook_FacebookRequestError_Range(const com_facebook_FacebookRequestError_Range& cc);
+	com_facebook_FacebookRequestError_Range(void * proxy);
+	// Public Constructors
+	com_facebook_FacebookRequestError_Range();
+	// Default Destructor
+	virtual ~com_facebook_FacebookRequestError_Range();
 	// Functions
 };	
 

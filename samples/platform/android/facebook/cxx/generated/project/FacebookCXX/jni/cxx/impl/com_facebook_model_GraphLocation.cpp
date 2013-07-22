@@ -49,6 +49,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphLocation"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -60,6 +62,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -187,9 +191,9 @@ com_facebook_model_GraphLocation::~com_facebook_model_GraphLocation()
 	LOGV("com_facebook_model_GraphLocation::~com_facebook_model_GraphLocation() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getState()
+AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getState() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState() enter");
 
 	const char *methodName = "getState";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -208,7 +212,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getState()
 	LOGV("com_facebook_model_GraphLocation jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -226,17 +230,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getState() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getState() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setState(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setState(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setState";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -280,12 +284,12 @@ void com_facebook_model_GraphLocation::setState(FacebookCXX::java_lang_String& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphLocation::setState(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setState(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
+AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCountry() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry() enter");
 
 	const char *methodName = "getCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -304,7 +308,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
 	LOGV("com_facebook_model_GraphLocation jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -322,11 +326,11 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCountry()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCountry() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCountry() exit");
 
 	return result;
 }
@@ -522,9 +526,9 @@ void com_facebook_model_GraphLocation::setLongitude(double& arg0)
 	LOGV("void com_facebook_model_GraphLocation::setLongitude(double& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
+AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getStreet() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet() enter");
 
 	const char *methodName = "getStreet";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -543,7 +547,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
 	LOGV("com_facebook_model_GraphLocation jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -561,17 +565,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getStreet()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getStreet() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getStreet() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setStreet(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setStreet(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setStreet";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -615,12 +619,12 @@ void com_facebook_model_GraphLocation::setStreet(FacebookCXX::java_lang_String& 
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphLocation::setStreet(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setStreet(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
+AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCity() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity() enter");
 
 	const char *methodName = "getCity";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -639,7 +643,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
 	LOGV("com_facebook_model_GraphLocation jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -657,17 +661,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getCity() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getCity() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setCity(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setCity(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setCity";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -711,12 +715,12 @@ void com_facebook_model_GraphLocation::setCity(FacebookCXX::java_lang_String& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphLocation::setCity(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setCity(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-void com_facebook_model_GraphLocation::setCountry(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setCountry(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setCountry";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -760,12 +764,12 @@ void com_facebook_model_GraphLocation::setCountry(FacebookCXX::java_lang_String&
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphLocation::setCountry(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setCountry(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
+AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getZip() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip() enter");
 
 	const char *methodName = "getZip";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -784,7 +788,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
 	LOGV("com_facebook_model_GraphLocation jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -802,17 +806,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getZip()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphLocation::getZip() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphLocation::getZip() exit");
 
 	return result;
 }
-void com_facebook_model_GraphLocation::setZip(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphLocation::setZip(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setZip";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -856,6 +860,6 @@ void com_facebook_model_GraphLocation::setZip(FacebookCXX::java_lang_String& arg
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphLocation::setZip(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphLocation::setZip(AndroidCXX::java_lang_String& arg0) exit");
 
 }

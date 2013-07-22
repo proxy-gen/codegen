@@ -61,6 +61,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphUser"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -69,6 +71,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -223,9 +230,9 @@ com_facebook_model_GraphUser::~com_facebook_model_GraphUser()
 	LOGV("com_facebook_model_GraphUser::~com_facebook_model_GraphUser() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getName()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getName()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getName() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getName() enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -244,7 +251,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getName()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -262,11 +269,11 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getName() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getName() exit");
 
 	return result;
 }
@@ -317,9 +324,9 @@ FacebookCXX::com_facebook_model_GraphLocation com_facebook_model_GraphUser::getL
 
 	return result;
 }
-void com_facebook_model_GraphUser::setName(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -363,12 +370,12 @@ void com_facebook_model_GraphUser::setName(FacebookCXX::java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setName(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getId()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getId() enter");
 
 	const char *methodName = "getId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -387,7 +394,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getId()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -405,17 +412,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getId() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -459,12 +466,12 @@ void com_facebook_model_GraphUser::setId(FacebookCXX::java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getFirstName()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getFirstName()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getFirstName() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getFirstName() enter");
 
 	const char *methodName = "getFirstName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -483,7 +490,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getFirstName()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -501,17 +508,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getFirstName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getFirstName() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getFirstName() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setFirstName(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setFirstName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setFirstName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setFirstName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setFirstName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -555,12 +562,12 @@ void com_facebook_model_GraphUser::setFirstName(FacebookCXX::java_lang_String& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setFirstName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setFirstName(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName() enter");
 
 	const char *methodName = "getMiddleName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -579,7 +586,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -597,17 +604,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getMiddleName() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setMiddleName(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setMiddleName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setMiddleName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setMiddleName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setMiddleName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -651,12 +658,12 @@ void com_facebook_model_GraphUser::setMiddleName(FacebookCXX::java_lang_String& 
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setMiddleName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setMiddleName(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLastName()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLastName()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLastName() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLastName() enter");
 
 	const char *methodName = "getLastName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -675,7 +682,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLastName()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -693,17 +700,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLastName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLastName() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLastName() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setLastName(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setLastName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setLastName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setLastName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setLastName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -747,12 +754,12 @@ void com_facebook_model_GraphUser::setLastName(FacebookCXX::java_lang_String& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setLastName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setLastName(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLink()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLink()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLink() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLink() enter");
 
 	const char *methodName = "getLink";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -771,7 +778,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLink()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -789,17 +796,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLink()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getLink() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getLink() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setLink(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setLink(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setLink(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setLink(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setLink";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -843,12 +850,12 @@ void com_facebook_model_GraphUser::setLink(FacebookCXX::java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setLink(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setLink(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getUsername()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getUsername()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getUsername() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getUsername() enter");
 
 	const char *methodName = "getUsername";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -867,7 +874,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getUsername()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -885,17 +892,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getUsername()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getUsername() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getUsername() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setUsername(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setUsername(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setUsername(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setUsername(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setUsername";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -939,12 +946,12 @@ void com_facebook_model_GraphUser::setUsername(FacebookCXX::java_lang_String& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setUsername(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setUsername(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphUser::getBirthday()
+AndroidCXX::java_lang_String com_facebook_model_GraphUser::getBirthday()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getBirthday() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getBirthday() enter");
 
 	const char *methodName = "getBirthday";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -963,7 +970,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getBirthday()
 	LOGV("com_facebook_model_GraphUser jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -981,17 +988,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphUser::getBirthday()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphUser::getBirthday() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphUser::getBirthday() exit");
 
 	return result;
 }
-void com_facebook_model_GraphUser::setBirthday(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphUser::setBirthday(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphUser::setBirthday(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphUser::setBirthday(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setBirthday";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1035,7 +1042,7 @@ void com_facebook_model_GraphUser::setBirthday(FacebookCXX::java_lang_String& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphUser::setBirthday(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphUser::setBirthday(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 void com_facebook_model_GraphUser::setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0)

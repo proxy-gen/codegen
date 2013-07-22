@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_AuthorizationClient_GetTokenAuthHandler_1"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_AuthorizationClient_GetTokenAuthHandler_1::~com_facebook_Authorizat
 	LOGV("com_facebook_AuthorizationClient_GetTokenAuthHandler_1::~com_facebook_AuthorizationClient_GetTokenAuthHandler_1() exit");
 }
 // Functions
-void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "completed";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -184,6 +188,6 @@ void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(FacebookC
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

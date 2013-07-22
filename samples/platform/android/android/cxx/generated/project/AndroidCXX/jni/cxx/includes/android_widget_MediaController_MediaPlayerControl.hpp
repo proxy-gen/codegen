@@ -49,9 +49,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class android_widget_MediaController_MediaPlayerControl

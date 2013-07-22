@@ -107,78 +107,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -211,19 +139,19 @@ public:
 	 int hashCode();
 	 int getModifiers();
 	 AndroidCXX::java_lang_String getName();
-	 AndroidCXX::java_lang_Object newInstance(std::vector<java_lang_Object >& arg0);
+	 AndroidCXX::java_lang_Object newInstance(std::vector<AndroidCXX::java_lang_Object >& arg0);
 	 bool isSynthetic();
-	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
+	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
 	 AndroidCXX::java_lang_Class getDeclaringClass();
 	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
-	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
-	 std::vector<java_lang_Class > getParameterTypes();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
+	 std::vector<AndroidCXX::java_lang_Class > getParameterTypes();
 	 AndroidCXX::java_lang_String toGenericString();
-	 std::vector<java_lang_reflect_Type > getGenericParameterTypes();
-	 std::vector<java_lang_Class > getExceptionTypes();
-	 std::vector<java_lang_reflect_Type > getGenericExceptionTypes();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getGenericParameterTypes();
+	 std::vector<AndroidCXX::java_lang_Class > getExceptionTypes();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getGenericExceptionTypes();
 	 bool isVarArgs();
-	 std::vector<std::vector<java_lang_annotation_Annotation > > getParameterAnnotations();
+	 std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > getParameterAnnotations();
 };	
 
 } // namespace

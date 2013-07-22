@@ -115,90 +115,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -226,28 +142,28 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_Method();
 	// Functions
-	 AndroidCXX::java_lang_Object invoke(AndroidCXX::java_lang_Object& arg0,std::vector<java_lang_Object >& arg1);
+	 AndroidCXX::java_lang_Object invoke(AndroidCXX::java_lang_Object& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1);
 	 bool equals(AndroidCXX::java_lang_Object& arg0);
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 int getModifiers();
 	 AndroidCXX::java_lang_String getName();
 	 bool isSynthetic();
-	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
+	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
 	 AndroidCXX::java_lang_Class getDeclaringClass();
 	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
-	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 AndroidCXX::java_lang_Class getReturnType();
-	 std::vector<java_lang_Class > getParameterTypes();
+	 std::vector<AndroidCXX::java_lang_Class > getParameterTypes();
 	 AndroidCXX::java_lang_String toGenericString();
 	 AndroidCXX::java_lang_reflect_Type getGenericReturnType();
-	 std::vector<java_lang_reflect_Type > getGenericParameterTypes();
-	 std::vector<java_lang_Class > getExceptionTypes();
-	 std::vector<java_lang_reflect_Type > getGenericExceptionTypes();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getGenericParameterTypes();
+	 std::vector<AndroidCXX::java_lang_Class > getExceptionTypes();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getGenericExceptionTypes();
 	 bool isBridge();
 	 bool isVarArgs();
 	 AndroidCXX::java_lang_Object getDefaultValue();
-	 std::vector<std::vector<java_lang_annotation_Annotation > > getParameterAnnotations();
+	 std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > getParameterAnnotations();
 };	
 
 } // namespace

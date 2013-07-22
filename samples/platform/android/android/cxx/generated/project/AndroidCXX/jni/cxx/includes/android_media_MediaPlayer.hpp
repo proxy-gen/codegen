@@ -166,135 +166,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_content_Context;
@@ -381,7 +252,7 @@ public:
 	 int getAudioSessionId();
 	 void attachAuxEffect(int& arg0);
 	 void setAuxEffectSendLevel(float& arg0);
-	 std::vector<android_media_MediaPlayer_TrackInfo > getTrackInfo();
+	 std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > getTrackInfo();
 	 void addTimedTextSource(AndroidCXX::java_io_FileDescriptor& arg0,AndroidCXX::java_lang_String& arg1);
 	 void addTimedTextSource(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::java_lang_String& arg2);
 	 void addTimedTextSource(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);

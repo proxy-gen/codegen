@@ -221,7 +221,7 @@ class Generator(BaseGenerator):
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		# derived data attached temporary 
-		self._attach_derived_data(self.config_module.config_data, self.config_module)
+		self.config_module.attach_derived_data()
 		self.header_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "includes")
 		if not os.path.exists(self.header_outdir_name):
 			os.makedirs(self.header_outdir_name)		
@@ -237,7 +237,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
-		self._detach_derived_data(self.config_module.config_data, self.config_module)			
+		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
 
@@ -406,13 +406,13 @@ class Generator(BaseGenerator):
 			assert self.config_module.is_valid, "config_module is not valid"
 			self._update_config(self.config_module)
 			# derived data attached temporary 
-			self._attach_derived_data(self.config_module.config_data, self.config_module)
+			self.config_module.attach_derived_data()
 			self.jni_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "jni", "includes")
 			if not os.path.exists(self.jni_outdir_name):
 				os.makedirs(self.jni_outdir_name)		
 			logging.debug("self.jni_outdir_name " + str(self.jni_outdir_name))
 			self._generate_jni_callback_code()
-			self._detach_derived_data(self.config_module.config_data, self.config_module)			
+			self.config_module.detach_derived_data()			
 			self.config_module = None
 			logging.debug("_generate_jni_code exit")
 
@@ -627,496 +627,20 @@ class Generator(BaseGenerator):
 		self.config_module = None	
 		logging.debug("_generate_wrapper_exported_project exit")
 
-	def _update_config(self, config_module):
-		logging.debug("Generator _update_config_data enter")
-		self._add_namespace_to_config_data(config_module.config_data)
-		self._add_package_to_config_data(config_module.config_data)
-		self._tag_config_data(config_module.config_data)
-		self._attach_include_converters(config_module.config_data)
-		self._attach_default_converters(config_module.config_data)
-		self._attach_config_converters(config_module.config_data, config_module)
-		logging.debug("Generator _update_config_data exit")
-
-	def _add_namespace_to_config_data(self, config_data):
-		logging.debug("_add_namespace_to_config_data enter")
-		config_data['namespace'] = self.namespace_name
-		logging.debug("_add_namespace_to_config_data enter")
-
-	def _add_package_to_config_data(self, config_data):
-		logging.debug("_add_package_to_config_data enter")
-		config_data['package'] = self.package_name
-		logging.debug("_add_package_to_config_data enter")
-
-	def _tag_config_data(self, config_data):
-		logging.debug("_tag_config_data enter")
-		if "params" in config_data or "returns" in config_data:
-			if "params" in config_data:
-				for param in config_data["params"]:
-					self._tag_param(param)
-			if "returns" in config_data:
-				for retrn in config_data["returns"]:
-					self._tag_return(retrn)
-		else:
-			if "classes" in config_data:
-				for clazz in config_data["classes"]:
-					self._tag_class(clazz)
-					self._tag_config_data(clazz)
-			if "functions" in config_data:
-				for function in config_data["functions"]:
-					self._tag_function(function)
-					self._tag_config_data(function)
-			if "constructors" in config_data:
-				for constructor in config_data["constructors"]:
-					self._tag_constructor(constructor)
-					self._tag_config_data(constructor)
-		logging.debug("_tag_config_data exit")
-
-	def _tag_param(self, param):
-		if 'children' in param:
-			for child_param in param['children']:
-				self._tag_param(child_param)
-
-	def _tag_return(self, retrn):
-		self._tag_param(retrn)
-
-	def _tag_class(self, clazz):
-		pass
-
-	def _tag_function(self, function):
-		pass
-
-	def _tag_constructor(self, constructor):
-		pass
-
-	def _attach_include_converters(self, config_data):
-		logging.debug("_attach_include_converters enter")
-		if "converters" not in config_data:
-			config_data["converters"] = []
-		for include_converter in self.include_converters:
-			found = False
-			for converter in config_data["converters"]:
-				if converter["name"] == include_converter["name"]:
-					found = True
-					break
-			if found == False:
-				config_data["converters"].append(include_converter)
-		logging.debug("_attach_include_converters exit")
-
-	def _attach_default_converters(self, config_data):
-		logging.debug("_attach_default_converters enter")
-		if "converters" not in config_data:
-			config_data["converters"] = []
-		for default_converter in self.default_converters:
-			found = False
-			for converter in config_data["converters"]:
-				if converter["name"] == default_converter["name"]:
-					found = True
-					break
-			if found == False:
-				config_data["converters"].append(default_converter)
-		logging.debug("_attach_default_converters exit")
-
-	def _attach_config_converters(self, config_data, config_module):
-		logging.debug("_attach_config_converters enter")
-		if "params" in config_data or "returns" in config_data:
-			if "params" in config_data:
-				for param in config_data["params"]:
-					self._attach_config_converter(param, config_module)
-			if "returns" in config_data:
-				for retrn in config_data["returns"]:
-					self._attach_config_converter(retrn, config_module)
-		else:
-			if "classes" in config_data:
-				for clazz in config_data["classes"]:
-					self._attach_config_converters(clazz, config_module)
-			if "functions" in config_data:
-				for function in config_data["functions"]:
-					self._attach_config_converters(function, config_module)
-			if "constructors" in config_data:
-				for constructor in config_data["constructors"]:
-					self._attach_config_converters(constructor, config_module)
-			if "fields" in config_data:
-				for field in config_data["fields"]:
-					self._attach_config_converter(field["type"], config_module)
-		logging.debug("_attach_config_converters enter")
-
-	def _attach_config_converter(self, convertible, config_module):
-		logging.debug("_attach_config_converter enter")
-		if "converter" not in convertible:
-			for clazz in config_module.config_data["classes"]:
-				if clazz["name"] == convertible["type"]:
-					no_proxy = False
-					if "tags" in clazz:
-						if "no_proxy" in clazz["tags"]:
-							no_proxy = True
-					if not no_proxy:
-						convertible["converter"] = 'convert_proxy'
-		if "converter" not in convertible:
-			for include_config_data in config_module.include_config_data_list:
-				for clazz in include_config_data["classes"]:
-					if clazz["name"] == convertible["type"]:
-						no_proxy = False
-						if "tags" in clazz:
-							if "no_proxy" in clazz["tags"]:
-								no_proxy = True
-						if not no_proxy:
-							convertible["converter"] = 'convert_proxy'					
-		if "converter" not in convertible:
-			converters = config_module.config_data["converters"]
-			for converter in converters:
-				if "java" in converter:
-						if "cxx" in converter:
-							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
-								jindex.VoidType.is_void_id(convertible["type"]) or\
-								jindex.ArrayType.is_array_id(convertible["type"]) or\
-							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
-							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
-							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
-								if convertible["type"] == converter["java"]["type"]:
-									convertible["converter"] = converter["name"]
-							else:
-								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
-									convertible["converter"] = converter["name"]
-		if "converter" not in convertible:
-			convertible["converter"] = "_TODO_"
-		if "children" in convertible:
-			for child_convertible in convertible["children"]:
-				self._attach_config_converter(child_convertible, config_module)
-		logging.debug("_attach_config_converter exit")
-
-	def _attach_derived_data(self, config_data, config_module):
-		logging.debug("_attach_derived_data enter")
-		if "params" in config_data or "returns" in config_data:
-			if "params" in config_data:
-				for param in config_data["params"]:
-					self._attach_derived_type_data(param, config_module)
-			if "returns" in config_data:
-				for retrn in config_data["returns"]:
-					self._attach_derived_type_data(retrn, config_module)
-		else:
-			if "classes" in config_data:
-				for clazz in config_data["classes"]:
-					self._attach_derived_data(clazz, config_module)
-					self._attach_derived_class_data(clazz, config_module)
-			if "functions" in config_data:
-				for function in config_data["functions"]:
-					self._attach_derived_data(function, config_module)
-					self._attach_derived_function_data(function, config_module)
-			if "constructors" in config_data:
-				for constructor in config_data["constructors"]:
-					self._attach_derived_data(constructor, config_module)
-					self._attach_derived_constructor_data(constructor, config_module)
-			if "fields" in config_data:
-				for field in config_data["fields"]:
-					self._attach_derived_type_data(field["type"], config_module)
-		logging.debug("_attach_derived_data enter")
-
-	def _attach_derived_class_data(self, class_config, config_module):
-		logging.debug("_attach_derived_class_data enter")
-		if "deriveddata" not in class_config:
-			class_config['deriveddata'] = dict()
-		self._attach_derived_target_class_data(class_config, config_module)
-		self._attach_derived_jni_class_data(class_config, config_module)
-		logging.debug("_attach_derived_class_data exit")
-
-	def _attach_derived_target_class_data(self, class_config, config_module):
-		logging.debug("_attach_derived_target_class_data enter")
-		deriveddata = class_config['deriveddata']
-		if "targetdata" not in deriveddata:
-			deriveddata['targetdata'] = dict()
-		self._attach_derived_target_class_info(class_config, config_module)
-		logging.debug("_attach_derived_target_class_data exit")
-
-	def _attach_derived_target_class_info(self, class_config, config_module):
-		logging.debug("_attach_derived_target_class_name enter")
-		deriveddata = class_config['deriveddata']
-		targetdata = deriveddata['targetdata']
-		if 'classinfo' not in targetdata:
-			classinfo = targetdata['classinfo'] = dict()
-			class_name = class_config['name']
-			class_name = Utils.to_class_name(class_name)					
-			classinfo['typename'] = class_name
-			class_file_name = Utils.to_file_name(class_name,"hpp")
-			classinfo['filename'] = class_file_name
-			classinfo['namespace'] = config_module.config_data['namespace']
-			if '_enum' in class_config['tags']:
-				classinfo['namespace'] = class_name.upper()
-		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
-		logging.debug("_attach_derived_target_class_info exit")	
-
-	def _attach_derived_jni_class_data(self, class_config, config_module):
-			logging.debug("_attach_derived_class_data enter")
-			deriveddata = class_config['deriveddata']
-			if "jnidata" not in deriveddata:
-				deriveddata['jnidata'] = dict()
-			self._attach_derived_jni_class_signature(class_config, config_module)
-			logging.debug("_attach_derived_class_data enter")	
-
-	def _attach_derived_jni_class_signature(self, class_config, config_module):
-		logging.debug("_attach_derived_jni_class_signature enter")
-		deriveddata = class_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		if 'jnisignature' not in jnidata:
-			class_name = class_config['name']
-			if '_callback' in class_config['tags']:
-				class_name = Utils.to_class_name(class_name)					
-				class_sig = Utils.to_jni_class_name(class_name)
-			else:
-				class_sig = Utils.to_jni_class_name(class_name)
-			jnidata['jnisignature'] = class_sig
-		assert 'jnisignature' in jnidata
-		logging.debug("_attach_derived_jni_class_signature exit")
-
-	def _attach_derived_function_data(self, function_config, config_module):
-		logging.debug("_attach_derived_function_data enter")
-		if "deriveddata" not in function_config:
-			function_config['deriveddata'] = dict()
-		self._attach_derived_jni_function_data(function_config, config_module)
-		logging.debug("_attach_derived_function_data enter")
-
-	def _attach_derived_jni_function_data(self, function_config, config_module):
-		logging.debug("_attach_derived_function_data enter")
-		deriveddata = function_config['deriveddata']
-		if "jnidata" not in deriveddata:
-			deriveddata['jnidata'] = dict()
-		self._attach_derived_jni_function_signature(function_config, config_module)
-		self._attach_derived_jni_function_invoke_id(function_config, config_module)
-		logging.debug("_attach_derived_function_data enter")	
-
-	def _attach_derived_jni_function_signature(self, function_config, config_module):
-		logging.debug("_attach_derived_jni_function_signature enter")
-		deriveddata = function_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		if 'jnisignature' not in jnidata:
-			function_sig = "("
-			for param in function_config['params']:
-				function_sig += param['deriveddata']['jnidata']['jnisignature']
-			function_sig += ")"
-			returns = function_config['returns']
-			function_sig += returns[0]['deriveddata']['jnidata']['jnisignature']
-			jnidata['jnisignature'] = function_sig
-		assert 'jnisignature' in jnidata
-		logging.debug("_attach_derived_jni_function_signature exit")
-
-	def _attach_derived_jni_function_invoke_id(self, function_config, config_module):
-		logging.debug("_attach_derived_jni_function_invoke_id enter")
-		deriveddata = function_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		if 'jniinvokeid' not in jnidata:
-			returns = function_config['returns']
-			if jindex.PrimitiveType.is_primitive_id(returns[0]['type']):
-				jniinvokeid = returns[0]['type'].capitalize()
-			elif jindex.VoidType.is_void_id(returns[0]['type']):
-				jniinvokeid = 'Void'
-			else:
-				jniinvokeid = 'Object'
-			jnidata['jniinvokeid'] = jniinvokeid
-		assert 'jniinvokeid' in jnidata
-		logging.debug("_attach_derived_jni_function_invoke_id exit")
-
-	def _attach_derived_constructor_data(self, constructor_config, config_module):
-		logging.debug("_attach_derived_constructor_data enter")
-		if "deriveddata" not in constructor_config:
-			constructor_config['deriveddata'] = dict()
-		self._attach_derived_jni_constructor_data(constructor_config, config_module)
-		logging.debug("_attach_derived_constructor_data enter")
-
-	def _attach_derived_jni_constructor_data(self, constructor_config, config_module):
-		logging.debug("_attach_derived_constructor_data enter")
-		deriveddata = constructor_config['deriveddata']
-		if "jnidata" not in deriveddata:
-			deriveddata['jnidata'] = dict()
-		self._attach_derived_jni_constructor_signature(constructor_config, config_module)
-		logging.debug("_attach_derived_constructor_data enter")	
-
-	def _attach_derived_jni_constructor_signature(self, constructor_config, config_module):
-		logging.debug("_attach_derived_jni_constructor_signature enter")
-		deriveddata = constructor_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		if 'jnisignature' not in jnidata:
-			constructor_sig = "("
-			for param in constructor_config['params']:
-				constructor_sig += param['deriveddata']['jnidata']['jnisignature']
-			constructor_sig += ")"
-			constructor_sig += "V"
-			jnidata['jnisignature'] = constructor_sig
-		assert 'jnisignature' in jnidata
-		logging.debug("_attach_derived_jni_constructor_signature exit")
-
-	def _attach_derived_type_data(self, type_config, config_module):
-		logging.debug("_attach_derived_type_data enter")
-		if "deriveddata" not in type_config:
-			type_config['deriveddata'] = dict()
-		self._attach_derived_target_type_data(type_config, config_module)
-		self._attach_derived_jni_type_data(type_config, config_module)
-		logging.debug("_attach_derived_type_data exit")
-
-	def _attach_derived_target_type_data(self, type_config, config_module):
-		logging.debug("_attach_derived_target_type_data enter")
-		deriveddata = type_config['deriveddata']
-		if "targetdata" not in deriveddata:
-			deriveddata['targetdata'] = dict()
-		self._attach_derived_target_type_info(type_config, config_module)
-		logging.debug("_attach_derived_target_type_data exit")
-
-	def _attach_derived_target_type_info(self, type_config, config_module):
-		logging.debug("_attach_derived_target_type_name enter")
-		deriveddata = type_config['deriveddata']
-		targetdata = deriveddata['targetdata']
-		if 'typeinfo' not in targetdata:
-			typeinfo = targetdata['typeinfo'] = dict()
-			typeinfo['namespace'] = config_module.config_data['namespace']
-			if type_config['converter'] == 'convert_proxy':
-				classes = config_module.list_all_classes(tags=None,xtags=None,name=type_config['type'])
-				for clazz in classes:
-					type_name = clazz['name']
-					type_name = Utils.to_class_name(type_name)					
-					typeinfo['typeconverter'] = "convert_" + type_name
-					file_name = Utils.to_file_name(type_name,"hpp")
-					typeinfo['filename'] = file_name
-					is_enum = True if '_enum' in clazz['tags'] else False
-					if is_enum:
-						typeinfo['namespace'] = type_name.upper()
-					typeinfo['isenum'] = is_enum
-					is_callback = True if '_callback' in clazz['tags'] else False
-					typeinfo['iscallback'] = is_callback
-					typeinfo['isproxied'] = True
-					typeinfo['typename'] = type_name
-					break
-			elif type_config['converter'] == 'convert__object_array_type':
-				type_name_stack = list()	
-				temp_config = type_config			
-				while True:
-					if 'children' in temp_config:
-						temp_config = temp_config['children'][0]
-						type_name = temp_config['type']
-						if jindex.ArrayType.is_array_id(type_name):
-							type_name = 'std::vector'
-							type_name_stack.append(type_name)
-						else:
-							type_name_stack.append(type_name)
-							break
-				if len(type_name_stack) == 0:
-					type_name = "<" + "java.lang.Object" + ">"
-					type_name = Utils.to_class_name(type_name)
-				else:
-					type_name = ""
-					while len(type_name_stack) > 0:
-						temp_name = type_name_stack.pop()
-						temp_name = Utils.to_class_name(temp_name)
-						type_name = "<" + temp_name + type_name + " >"
-				typeinfo['typename'] = "std::vector" + type_name 
-				typeinfo['typeconverter'] = type_config['converter']
-			else:
-				converters = config_module.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)
-				for converter in converters:
-					type_name = converter['cxx']['type']
-					typeinfo['typename'] = type_name
-					typeinfo['typeconverter'] = converter['name']
-					break
-			assert 'typename' in typeinfo, 'TODO: add valid converter to ' + str(type_config)
-		assert "typeinfo" in targetdata, "typeinfo not attached to " + str(type_config)
-		logging.debug("_attach_derived_target_type_info exit")
-
-	def _attach_derived_jni_type_data(self, type_config, config_module):
-		logging.debug("_attach_derived_jni_type_data enter")
-		deriveddata = type_config['deriveddata']
-		if "jnidata" not in deriveddata:
-			deriveddata['jnidata'] = dict()
-		self._attach_derived_jni_type_converter(type_config, config_module)
-		self._attach_derived_jni_type_signature(type_config, config_module)
-		if "children" in type_config:
-			for child_type_config in type_config["children"]:
-				self._attach_derived_type_data(child_type_config, config_module)
-		logging.debug("_attach_derived_jni_type_data exit")
-
-	def _attach_derived_jni_type_converter(self, type_config, config_module):
-		logging.debug("_attach_derived_jni_type_converter enter")
-		deriveddata = type_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		if 'jniconverter' not in jnidata:
-			converters = config_module.config_data["converters"]
-			for converter in converters:
-				if "java" in converter:
-						if "jni" in converter:
-							if 	jindex.PrimitiveType.is_primitive_id(type_config["type"]) or\
-								jindex.VoidType.is_void_id(type_config["type"]) or\
-								jindex.ArrayType.is_array_id(type_config["type"]) or\
-							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
-							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
-							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
-								if type_config["type"] == converter["java"]["type"]:
-									jnidata["jniconverter"] = converter["name"]
-									jnidata["jnitypename"] = converter["jni"]["type"]
-							else:
-								if jindex.TypeHierarchy.canCastClass1ToClass2(type_config["type"],converter["java"]["type"]):
-									jnidata["jniconverter"] = converter["name"]
-									jnidata["jnitypename"] = converter["jni"]["type"]
-		assert "jniconverter" in jnidata, "derived jniconverter not attached to " + str(type_config)
-		assert "jnitypename" in jnidata, "derived jnitypename not attached to " + str(type_config)
-		logging.debug("_attach_derived_jni_type_converter exit")
-
-	def _attach_derived_jni_type_signature(self, type_config, config_module):
-		logging.debug("_attach_derived_jni_type_signature enter")
-		deriveddata = type_config['deriveddata']
-		jnidata = deriveddata['jnidata']
-		typeinfo = deriveddata['targetdata']['typeinfo']
-		if 'jnisignature' not in jnidata:
-			type_config = type_config.copy()
-			type_ = type_config['type']
-			if 'iscallback' in typeinfo:
-				if typeinfo['iscallback']:
-					type_ = typeinfo['typename']
-			type_config['type'] = type_
-			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
-		logging.debug("_attach_derived_jni_type_signature exit")
-
-	def _detach_derived_data(self, config_data, config_module):
-		logging.debug("_detach_derived_data enter")
-		if "params" in config_data or "returns" in config_data:
-			if "params" in config_data:
-				for param in config_data["params"]:
-					self._detach_derived_type_data(param, config_module)
-			if "returns" in config_data:
-				for retrn in config_data["returns"]:
-					self._detach_derived_type_data(retrn, config_module)
-		else:
-			if "classes" in config_data:
-				for clazz in config_data["classes"]:
-					self._detach_derived_data(clazz, config_module)
-			if "functions" in config_data:
-				for function in config_data["functions"]:
-					self._detach_derived_data(function, config_module)
-					self._detach_derived_function_data(function, config_module)
-			if "constructors" in config_data:
-				for constructor in config_data["constructors"]:
-					self._detach_derived_data(constructor, config_module)
-			if "fields" in config_data:
-				for field in config_data["fields"]:
-					self._detach_derived_type_data(field["type"], config_module)
-		logging.debug("_detach_derived_data enter")
-
-	def _detach_derived_function_data(self, function_config, config_module):
-		logging.debug("_detach_derived_function_data enter")
-		if "deriveddata" in function_config:
-			del function_config["deriveddata"]
-		assert "deriveddata" not in function_config, "deriveddata not detached from " + str(function_config)
-		logging.debug("_detach_derived_function_data exit")	
-
-	def _detach_derived_type_data(self, type_config, config_module):
-		logging.debug("_detach_derived_type_data enter")
-		if "deriveddata" in type_config:
-			del type_config["deriveddata"]
-		assert "deriveddata" not in type_config, "deriveddata not detached from " + str(type_config)
-		if "children" in type_config:
-			for child_type_config in type_config["children"]:
-				self._detach_derived_type_data(child_type_config, config_module)
-		logging.debug("_detach_derived_type_data exit")	
-
 	def _teardown_index(self):
 		if jindex.Index.destroy() != jindex.INDEX_OK:
 			print("*** Found errors - could not shutdown generator")
 			raise Exception("Fatal error in shutdown generator")
+
+	def _update_config(self, config_module):
+		logging.debug("Generator _update_config_data enter")
+		config_module.add_namespace_to_config_data(self.namespace_name)
+		config_module.add_package_to_config_data(self.package_name)
+		config_module.attach_include_converters(self.include_converters)
+		config_module.attach_default_converters(self.default_converters)
+		config_module.attach_config_converters()
+		logging.debug("Generator _update_config_data exit")	
+
 
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_path):
@@ -1142,6 +666,57 @@ class ConfigModule(object):
 	def to_file_name(self, base_name, extension):
 		file_name = ".".join([base_name, extension])
 		return file_name
+
+	def add_namespace_to_config_data(self, namespace_name):
+		logging.debug("_add_namespace_to_config_data enter")
+		self.config_data['namespace'] = namespace_name
+		logging.debug("_add_namespace_to_config_data enter")
+
+	def add_package_to_config_data(self, package_name):
+		logging.debug("_add_package_to_config_data enter")
+		self.config_data['package'] = package_name
+		logging.debug("_add_package_to_config_data enter")
+
+	def attach_include_converters(self, include_converters):
+		logging.debug("_attach_include_converters enter")
+		if "converters" not in self.config_data:
+			self.config_data["converters"] = []
+		for include_converter in include_converters:
+			found = False
+			for converter in self.config_data["converters"]:
+				if converter["name"] == include_converter["name"]:
+					found = True
+					break
+			if found == False:
+				self.config_data["converters"].append(include_converter)
+		logging.debug("_attach_include_converters exit")
+
+	def attach_default_converters(self, default_converters):
+		logging.debug("_attach_default_converters enter")
+		if "converters" not in self.config_data:
+			self.config_data["converters"] = []
+		for default_converter in default_converters:
+			found = False
+			for converter in self.config_data["converters"]:
+				if converter["name"] == default_converter["name"]:
+					found = True
+					break
+			if found == False:
+				self.config_data["converters"].append(default_converter)
+		logging.debug("_attach_default_converters exit")		
+
+	def attach_config_converters(self):
+		self._attach_config_converters(self.config_data, self.config_data);
+
+	def attach_derived_data(self):
+		self._attach_derived_data(self.config_data, self.config_data)
+		for include_config_data in self.include_config_data_list:
+			self._attach_derived_data(include_config_data, include_config_data)
+
+	def detach_derived_data(self):
+		self._detach_derived_data(self.config_data, self.config_data)
+		for include_config_data in self.include_config_data_list:
+			self._detach_derived_data(include_config_data, include_config_data)
 
 	def analyze_config(self, config_module):
 		config_report = dict()
@@ -1174,6 +749,18 @@ class ConfigModule(object):
 		for include_config_data in self.include_config_data_list:
 			classes.extend(self._list_classes_in_config_data(tags,xtags,name,include_config_data))
 		return classes
+
+	def list_all_namespaced_classes(self, tags, xtags, name):
+		self._init_info()
+		namespaced_classes = list()
+		classes = self._list_classes_in_config_data(tags,xtags,name,self.config_data)
+		for clazz in classes:
+			namespaced_classes.append({"namespace" : self.config_data["namespace"], "clazz" : clazz})
+		for include_config_data in self.include_config_data_list:
+			included_classes = self._list_classes_in_config_data(tags,xtags,name,include_config_data)
+			for included_clazz in included_classes:
+				namespaced_classes.append({"namespace" : include_config_data["namespace"], "clazz" : included_clazz})
+		return namespaced_classes
 
 	def list_functions(self,class_tags,class_xtags,class_name,function_tags,function_xtags,function_name):
 		functions = list()
@@ -1312,6 +899,420 @@ class ConfigModule(object):
 				converters = self._list_converters_in_config_data(name=None,cxx_type=None,java_type=None,config_data=config_data)
 				for converter in converters:
 					self.converter_info[converter['name']] = { 'converter' : converter, 'namespace' : config_data['namespace'], 'package' : config_data['package']}
+
+	def _attach_config_converters(self, config_item_data, config_data):
+		logging.debug("_attach_config_converters enter")
+		if "params" in config_item_data or "returns" in config_item_data:
+			if "params" in config_item_data:
+				for param in config_item_data["params"]:
+					self._attach_config_converter(param, config_data)
+			if "returns" in config_item_data:
+				for retrn in config_item_data["returns"]:
+					self._attach_config_converter(retrn, config_data)
+		else:
+			if "classes" in config_item_data:
+				for clazz in config_item_data["classes"]:
+					self._attach_config_converters(clazz, config_data)
+			if "functions" in config_item_data:
+				for function in config_item_data["functions"]:
+					self._attach_config_converters(function, config_data)
+			if "constructors" in config_item_data:
+				for constructor in config_item_data["constructors"]:
+					self._attach_config_converters(constructor, config_data)
+			if "fields" in config_item_data:
+				for field in config_item_data["fields"]:
+					self._attach_config_converter(field["type"], config_data)
+		logging.debug("_attach_config_converters enter")
+
+	def _attach_config_converter(self, convertible, config_data):
+		logging.debug("_attach_config_converter enter")
+		if "converter" not in convertible:
+			for clazz in config_data["classes"]:
+				if clazz["name"] == convertible["type"]:
+					no_proxy = False
+					if "tags" in clazz:
+						if "no_proxy" in clazz["tags"]:
+							no_proxy = True
+					if not no_proxy:
+						convertible["converter"] = 'convert_proxy'
+		if "converter" not in convertible:
+			for include_config_data in self.include_config_data_list:
+				for clazz in include_config_data["classes"]:
+					if clazz["name"] == convertible["type"]:
+						no_proxy = False
+						if "tags" in clazz:
+							if "no_proxy" in clazz["tags"]:
+								no_proxy = True
+						if not no_proxy:
+							convertible["converter"] = 'convert_proxy'					
+		if "converter" not in convertible:
+			converters = config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if "cxx" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
+								jindex.VoidType.is_void_id(convertible["type"]) or\
+								jindex.ArrayType.is_array_id(convertible["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if convertible["type"] == converter["java"]["type"]:
+									convertible["converter"] = converter["name"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+									convertible["converter"] = converter["name"]
+		if "converter" not in convertible:
+			convertible["converter"] = "_TODO_"
+		if "children" in convertible:
+			for child_convertible in convertible["children"]:
+				self._attach_config_converter(child_convertible, config_data)
+		logging.debug("_attach_config_converter exit")
+
+	def _attach_derived_data(self, config_item_data, config_data):
+		logging.debug("_attach_derived_data enter")
+		if "params" in config_item_data or "returns" in config_item_data:
+			if "params" in config_item_data:
+				for param in config_item_data["params"]:
+					self._attach_derived_type_data(param, config_data)
+			if "returns" in config_item_data:
+				for retrn in config_item_data["returns"]:
+					self._attach_derived_type_data(retrn, config_data)
+		else:
+			if "classes" in config_item_data:
+				for clazz in config_item_data["classes"]:
+					self._attach_derived_data(clazz, config_data)
+					self._attach_derived_class_data(clazz, config_data)
+			if "functions" in config_item_data:
+				for function in config_item_data["functions"]:
+					self._attach_derived_data(function, config_data)
+					self._attach_derived_function_data(function, config_data)
+			if "constructors" in config_item_data:
+				for constructor in config_item_data["constructors"]:
+					self._attach_derived_data(constructor, config_data)
+					self._attach_derived_constructor_data(constructor, config_data)
+			if "fields" in config_item_data:
+				for field in config_item_data["fields"]:
+					self._attach_derived_type_data(field["type"], config_data)
+		logging.debug("_attach_derived_data enter")
+
+	def _attach_derived_class_data(self, class_config, config_data):
+		logging.debug("_attach_derived_class_data enter")
+		if "deriveddata" not in class_config:
+			class_config['deriveddata'] = dict()
+		self._attach_derived_target_class_data(class_config, config_data)
+		self._attach_derived_jni_class_data(class_config, config_data)
+		logging.debug("_attach_derived_class_data exit")
+
+	def _attach_derived_target_class_data(self, class_config, config_data):
+		logging.debug("_attach_derived_target_class_data enter")
+		deriveddata = class_config['deriveddata']
+		if "targetdata" not in deriveddata:
+			deriveddata['targetdata'] = dict()
+		self._attach_derived_target_class_info(class_config, config_data)
+		logging.debug("_attach_derived_target_class_data exit")
+
+	def _attach_derived_target_class_info(self, class_config, config_data):
+		logging.debug("_attach_derived_target_class_name enter")
+		deriveddata = class_config['deriveddata']
+		targetdata = deriveddata['targetdata']
+		if 'classinfo' not in targetdata:
+			classinfo = targetdata['classinfo'] = dict()
+			class_name = class_config['name']
+			class_name = Utils.to_class_name(class_name)					
+			classinfo['typename'] = class_name
+			class_file_name = Utils.to_file_name(class_name,"hpp")
+			classinfo['filename'] = class_file_name
+			classinfo['namespace'] = config_data['namespace']
+			if '_enum' in class_config['tags']:
+				classinfo['namespace'] = class_name.upper()
+		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
+		logging.debug("_attach_derived_target_class_info exit")	
+
+	def _attach_derived_jni_class_data(self, class_config, config_data):
+			logging.debug("_attach_derived_class_data enter")
+			deriveddata = class_config['deriveddata']
+			if "jnidata" not in deriveddata:
+				deriveddata['jnidata'] = dict()
+			self._attach_derived_jni_class_signature(class_config, config_data)
+			logging.debug("_attach_derived_class_data enter")	
+
+	def _attach_derived_jni_class_signature(self, class_config, config_data):
+		logging.debug("_attach_derived_jni_class_signature enter")
+		deriveddata = class_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			class_name = class_config['name']
+			if '_callback' in class_config['tags']:
+				class_name = Utils.to_class_name(class_name)					
+				class_sig = Utils.to_jni_class_name(class_name)
+			else:
+				class_sig = Utils.to_jni_class_name(class_name)
+			jnidata['jnisignature'] = class_sig
+		assert 'jnisignature' in jnidata
+		logging.debug("_attach_derived_jni_class_signature exit")
+
+	def _attach_derived_function_data(self, function_config, config_data):
+		logging.debug("_attach_derived_function_data enter")
+		if "deriveddata" not in function_config:
+			function_config['deriveddata'] = dict()
+		self._attach_derived_jni_function_data(function_config, config_data)
+		logging.debug("_attach_derived_function_data enter")
+
+	def _attach_derived_jni_function_data(self, function_config, config_data):
+		logging.debug("_attach_derived_function_data enter")
+		deriveddata = function_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_function_signature(function_config, config_data)
+		self._attach_derived_jni_function_invoke_id(function_config, config_data)
+		logging.debug("_attach_derived_function_data enter")	
+
+	def _attach_derived_jni_function_signature(self, function_config, config_data):
+		logging.debug("_attach_derived_jni_function_signature enter")
+		deriveddata = function_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			function_sig = "("
+			for param in function_config['params']:
+				function_sig += param['deriveddata']['jnidata']['jnisignature']
+			function_sig += ")"
+			returns = function_config['returns']
+			function_sig += returns[0]['deriveddata']['jnidata']['jnisignature']
+			jnidata['jnisignature'] = function_sig
+		assert 'jnisignature' in jnidata
+		logging.debug("_attach_derived_jni_function_signature exit")
+
+	def _attach_derived_jni_function_invoke_id(self, function_config, config_data):
+		logging.debug("_attach_derived_jni_function_invoke_id enter")
+		deriveddata = function_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jniinvokeid' not in jnidata:
+			returns = function_config['returns']
+			if jindex.PrimitiveType.is_primitive_id(returns[0]['type']):
+				jniinvokeid = returns[0]['type'].capitalize()
+			elif jindex.VoidType.is_void_id(returns[0]['type']):
+				jniinvokeid = 'Void'
+			else:
+				jniinvokeid = 'Object'
+			jnidata['jniinvokeid'] = jniinvokeid
+		assert 'jniinvokeid' in jnidata
+		logging.debug("_attach_derived_jni_function_invoke_id exit")
+
+	def _attach_derived_constructor_data(self, constructor_config, config_data):
+		logging.debug("_attach_derived_constructor_data enter")
+		if "deriveddata" not in constructor_config:
+			constructor_config['deriveddata'] = dict()
+		self._attach_derived_jni_constructor_data(constructor_config, config_data)
+		logging.debug("_attach_derived_constructor_data enter")
+
+	def _attach_derived_jni_constructor_data(self, constructor_config, config_data):
+		logging.debug("_attach_derived_constructor_data enter")
+		deriveddata = constructor_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_constructor_signature(constructor_config, config_data)
+		logging.debug("_attach_derived_constructor_data enter")	
+
+	def _attach_derived_jni_constructor_signature(self, constructor_config, config_data):
+		logging.debug("_attach_derived_jni_constructor_signature enter")
+		deriveddata = constructor_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jnisignature' not in jnidata:
+			constructor_sig = "("
+			for param in constructor_config['params']:
+				constructor_sig += param['deriveddata']['jnidata']['jnisignature']
+			constructor_sig += ")"
+			constructor_sig += "V"
+			jnidata['jnisignature'] = constructor_sig
+		assert 'jnisignature' in jnidata
+		logging.debug("_attach_derived_jni_constructor_signature exit")
+
+	def _attach_derived_type_data(self, type_config, config_data):
+		logging.debug("_attach_derived_type_data enter")
+		if "deriveddata" not in type_config:
+			type_config['deriveddata'] = dict()
+		self._attach_derived_target_type_data(type_config, config_data)
+		self._attach_derived_jni_type_data(type_config, config_data)
+		logging.debug("_attach_derived_type_data exit")
+
+	def _attach_derived_target_type_data(self, type_config, config_data):
+		logging.debug("_attach_derived_target_type_data enter")
+		deriveddata = type_config['deriveddata']
+		if "targetdata" not in deriveddata:
+			deriveddata['targetdata'] = dict()
+		self._attach_derived_target_type_info(type_config, config_data)
+		logging.debug("_attach_derived_target_type_data exit")
+
+	def _attach_derived_target_type_info(self, type_config, config_data):
+		logging.debug("_attach_derived_target_type_name enter")
+		deriveddata = type_config['deriveddata']
+		targetdata = deriveddata['targetdata']
+		if 'typeinfo' not in targetdata:
+			typeinfo = targetdata['typeinfo'] = dict()
+			typeinfo['namespace'] = config_data['namespace']
+			if type_config['converter'] == 'convert_proxy':
+				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=type_config['type'])
+				for namespaced_class in namespaced_classes:
+					clazz = namespaced_class["clazz"]
+					typeinfo['namespace'] = namespaced_class['namespace']
+					type_name = clazz['name']
+					type_name = Utils.to_class_name(type_name)					
+					typeinfo['typeconverter'] = "convert_" + type_name
+					file_name = Utils.to_file_name(type_name,"hpp")
+					typeinfo['filename'] = file_name
+					is_enum = True if '_enum' in clazz['tags'] else False
+					if is_enum:
+						typeinfo['namespace'] = type_name.upper()
+					typeinfo['isenum'] = is_enum
+					is_callback = True if '_callback' in clazz['tags'] else False
+					typeinfo['iscallback'] = is_callback
+					typeinfo['isproxied'] = True
+					typeinfo['typename'] = type_name
+					break
+			elif type_config['converter'] == 'convert__object_array_type':
+				temp_config_stack = list()	
+				temp_config = type_config			
+				while True:
+					if 'children' in temp_config:
+						temp_config = temp_config['children'][0]
+						temp_config_stack.append(temp_config)
+						temp_type_name = temp_config['type']
+						if not jindex.ArrayType.is_array_id(temp_type_name):						
+							break
+				type_name = ""
+				if len(temp_config_stack) == 0:
+					class_name = "java.lang.Object"
+					namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=class_name)
+					for namespaced_class in namespaced_classes:
+						clazz = namespaced_class["clazz"]
+						class_name = clazz['name']
+						class_name = Utils.to_class_name(class_name)
+						type_name = "<" + namespaced_class['namespace'] + "::" + class_name + ">"
+						break
+				else:
+					while len(temp_config_stack) > 0:
+						temp_config = temp_config_stack.pop()
+						temp_name = temp_config['type']
+						if jindex.ArrayType.is_array_id(temp_name):
+							type_name = "<" + "std::vector" + type_name + " >"
+						elif temp_config['converter'] == 'convert_proxy':
+							namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=temp_name)
+							for namespaced_class in namespaced_classes:
+								clazz = namespaced_class["clazz"]
+								class_name = clazz['name']
+								temp_name = namespaced_class["namespace"] + "::" + class_name
+								temp_name = Utils.to_class_name(temp_name)
+								type_name = "<" + temp_name + type_name + " >"
+								break
+						else:
+							type_name = "<" + temp_name + type_name + " >"
+				typeinfo['typename'] = "std::vector" + type_name 
+				typeinfo['typeconverter'] = type_config['converter']
+			else:
+				converters = self.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)
+				for converter in converters:
+					type_name = converter['cxx']['type']
+					typeinfo['typename'] = type_name
+					typeinfo['typeconverter'] = converter['name']
+					break
+			assert 'typename' in typeinfo, 'TODO: add valid converter to ' + str(type_config)
+		assert "typeinfo" in targetdata, "typeinfo not attached to " + str(type_config)
+		logging.debug("_attach_derived_target_type_info exit")
+
+	def _attach_derived_jni_type_data(self, type_config, config_data):
+		logging.debug("_attach_derived_jni_type_data enter")
+		deriveddata = type_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_type_converter(type_config, config_data)
+		self._attach_derived_jni_type_signature(type_config, config_data)
+		if "children" in type_config:
+			for child_type_config in type_config["children"]:
+				self._attach_derived_type_data(child_type_config, config_data)
+		logging.debug("_attach_derived_jni_type_data exit")
+
+	def _attach_derived_jni_type_converter(self, type_config, config_data):
+		logging.debug("_attach_derived_jni_type_converter enter")
+		deriveddata = type_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		if 'jniconverter' not in jnidata:
+			converters = config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+						if "jni" in converter:
+							if 	jindex.PrimitiveType.is_primitive_id(type_config["type"]) or\
+								jindex.VoidType.is_void_id(type_config["type"]) or\
+								jindex.ArrayType.is_array_id(type_config["type"]) or\
+							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
+							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
+							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
+								if type_config["type"] == converter["java"]["type"]:
+									jnidata["jniconverter"] = converter["name"]
+									jnidata["jnitypename"] = converter["jni"]["type"]
+							else:
+								if jindex.TypeHierarchy.canCastClass1ToClass2(type_config["type"],converter["java"]["type"]):
+									jnidata["jniconverter"] = converter["name"]
+									jnidata["jnitypename"] = converter["jni"]["type"]
+		assert "jniconverter" in jnidata, "derived jniconverter not attached to " + str(type_config)
+		assert "jnitypename" in jnidata, "derived jnitypename not attached to " + str(type_config)
+		logging.debug("_attach_derived_jni_type_converter exit")
+
+	def _attach_derived_jni_type_signature(self, type_config, config_data):
+		logging.debug("_attach_derived_jni_type_signature enter")
+		deriveddata = type_config['deriveddata']
+		jnidata = deriveddata['jnidata']
+		typeinfo = deriveddata['targetdata']['typeinfo']
+		if 'jnisignature' not in jnidata:
+			type_config = type_config.copy()
+			type_ = type_config['type']
+			if 'iscallback' in typeinfo:
+				if typeinfo['iscallback']:
+					type_ = typeinfo['typename']
+			type_config['type'] = type_
+			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
+		logging.debug("_attach_derived_jni_type_signature exit")
+
+	def _detach_derived_data(self, config_item_data, config_data):
+		logging.debug("_detach_derived_data enter")
+		if "params" in config_item_data or "returns" in config_item_data:
+			if "params" in config_item_data:
+				for param in config_item_data["params"]:
+					self._detach_derived_type_data(param, config_data)
+			if "returns" in config_item_data:
+				for retrn in config_item_data["returns"]:
+					self._detach_derived_type_data(retrn, config_data)
+		else:
+			if "classes" in config_item_data:
+				for clazz in config_item_data["classes"]:
+					self._detach_derived_data(clazz, config_data)
+			if "functions" in config_item_data:
+				for function in config_item_data["functions"]:
+					self._detach_derived_data(function, config_data)
+					self._detach_derived_function_data(function, config_data)
+			if "constructors" in config_item_data:
+				for constructor in config_item_data["constructors"]:
+					self._detach_derived_data(constructor, config_data)
+			if "fields" in config_item_data:
+				for field in config_item_data["fields"]:
+					self._detach_derived_type_data(field["type"], config_data)
+		logging.debug("_detach_derived_data enter")
+
+	def _detach_derived_function_data(self, function_config, config_data):
+		logging.debug("_detach_derived_function_data enter")
+		if "deriveddata" in function_config:
+			del function_config["deriveddata"]
+		assert "deriveddata" not in function_config, "deriveddata not detached from " + str(function_config)
+		logging.debug("_detach_derived_function_data exit")	
+
+	def _detach_derived_type_data(self, type_config, config_data):
+		logging.debug("_detach_derived_type_data enter")
+		if "deriveddata" in type_config:
+			del type_config["deriveddata"]
+		assert "deriveddata" not in type_config, "deriveddata not detached from " + str(type_config)
+		if "children" in type_config:
+			for child_type_config in type_config["children"]:
+				self._detach_derived_type_data(child_type_config, config_data)
+		logging.debug("_detach_derived_type_data exit")	
 
 	@classmethod
 	def load_config(cls, config_file_name):

@@ -46,23 +46,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Runnable;
 
-class java_lang_Thread;
 
 class com_facebook_Settings_1
 {
@@ -75,7 +61,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Settings_1();
 	// Functions
-	 FacebookCXX::java_lang_Thread newThread(FacebookCXX::java_lang_Runnable& arg0);
+	 AndroidCXX::java_lang_Thread newThread(AndroidCXX::java_lang_Runnable& arg0);
 };	
 
 } // namespace

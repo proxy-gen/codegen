@@ -91,72 +91,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -186,9 +120,9 @@ public:
 	static AndroidCXX::java_lang_Package getPackage(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
 	 bool isAnnotationPresent(AndroidCXX::java_lang_Class& arg0);
-	 std::vector<java_lang_annotation_Annotation > getAnnotations();
-	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
-	static std::vector<java_lang_Package > getPackages();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getAnnotations();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
+	static std::vector<AndroidCXX::java_lang_Package > getPackages();
 	 bool isSealed();
 	 bool isSealed(AndroidCXX::java_net_URL& arg0);
 	 AndroidCXX::java_lang_String getSpecificationTitle();

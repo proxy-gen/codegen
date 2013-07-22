@@ -50,6 +50,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_nio_channels_DatagramChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -191,9 +193,9 @@ java_nio_channels_DatagramChannel::~java_nio_channels_DatagramChannel()
 	LOGV("java_nio_channels_DatagramChannel::~java_nio_channels_DatagramChannel() exit");
 }
 // Functions
-long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0)
+long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
 {
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -273,7 +275,7 @@ long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >&
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
 
 	return result;
 }
@@ -345,9 +347,9 @@ int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer& ar
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
 {
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "write";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -469,7 +471,7 @@ long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >&
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
@@ -562,9 +564,9 @@ int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer& arg
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
+long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2)
 {
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
@@ -686,7 +688,7 @@ long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& 
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
@@ -758,9 +760,9 @@ int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer& arg
 
 	return result;
 }
-long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0)
+long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0)
 {
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0) enter");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) enter");
 
 	const char *methodName = "read";
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
@@ -840,7 +842,7 @@ long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& 
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<java_nio_ByteBuffer >& arg0) exit");
+	LOGV("long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0) exit");
 
 	return result;
 }

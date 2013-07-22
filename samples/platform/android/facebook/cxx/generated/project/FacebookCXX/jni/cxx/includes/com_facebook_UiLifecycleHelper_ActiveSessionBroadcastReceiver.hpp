@@ -46,23 +46,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_Context;
 
-class android_content_Intent;
 
 class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver
 {
@@ -75,7 +61,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
 	// Functions
-	 void onReceive(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_content_Intent& arg1);
+	 void onReceive(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_content_Intent& arg1);
 };	
 
 } // namespace

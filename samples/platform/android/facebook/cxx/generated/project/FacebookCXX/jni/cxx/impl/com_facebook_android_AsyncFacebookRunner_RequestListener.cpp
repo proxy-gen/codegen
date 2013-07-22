@@ -40,6 +40,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_AsyncFacebookRunner_RequestListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -48,6 +50,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -178,9 +185,9 @@ com_facebook_android_AsyncFacebookRunner_RequestListener::~com_facebook_android_
 	LOGV("com_facebook_android_AsyncFacebookRunner_RequestListener::~com_facebook_android_AsyncFacebookRunner_RequestListener() exit");
 }
 // Functions
-void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Object& arg1)
+void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Object& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "onComplete";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)V";
@@ -245,12 +252,12 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(Facebo
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Object& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onComplete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,FacebookCXX::java_lang_Object& arg1)
+void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,FacebookCXX::java_lang_Object& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "onFacebookError";
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;Ljava/lang/Object;)V";
@@ -315,12 +322,12 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(F
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,FacebookCXX::java_lang_Object& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(FacebookCXX::java_io_FileNotFoundException& arg0,FacebookCXX::java_lang_Object& arg1)
+void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(FacebookCXX::java_io_FileNotFoundException& arg0,FacebookCXX::java_lang_Object& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "onFileNotFoundException";
 	const char *methodSignature = "(Ljava/io/FileNotFoundException;Ljava/lang/Object;)V";
@@ -385,12 +392,12 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundExc
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(FacebookCXX::java_io_FileNotFoundException& arg0,FacebookCXX::java_lang_Object& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(FacebookCXX::java_net_MalformedURLException& arg0,FacebookCXX::java_lang_Object& arg1)
+void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(AndroidCXX::java_net_MalformedURLException& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(FacebookCXX::java_net_MalformedURLException& arg0,FacebookCXX::java_lang_Object& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(AndroidCXX::java_net_MalformedURLException& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "onMalformedURLException";
 	const char *methodSignature = "(Ljava/net/MalformedURLException;Ljava/lang/Object;)V";
@@ -455,12 +462,12 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLExc
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(FacebookCXX::java_net_MalformedURLException& arg0,FacebookCXX::java_lang_Object& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onMalformedURLException(AndroidCXX::java_net_MalformedURLException& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(FacebookCXX::java_io_IOException& arg0,FacebookCXX::java_lang_Object& arg1)
+void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(AndroidCXX::java_io_IOException& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(FacebookCXX::java_io_IOException& arg0,FacebookCXX::java_lang_Object& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(AndroidCXX::java_io_IOException& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "onIOException";
 	const char *methodSignature = "(Ljava/io/IOException;Ljava/lang/Object;)V";
@@ -525,6 +532,6 @@ void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(Fac
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(FacebookCXX::java_io_IOException& arg0,FacebookCXX::java_lang_Object& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner_RequestListener::onIOException(AndroidCXX::java_io_IOException& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }

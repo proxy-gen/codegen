@@ -44,6 +44,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WebDialog_RequestsDialogBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,6 +54,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -176,9 +183,9 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDial
 	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder() exit");	
 }
 // Public Constructors
-com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1)
+com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1)
 {
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) enter");	
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;)V";
@@ -252,11 +259,11 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDial
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) exit");	
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) exit");	
 }
-com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2)
+com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2) enter");	
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Landroid/os/Bundle;)V";
@@ -351,7 +358,7 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDial
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2) exit");	
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_WebDialog_RequestsDialogBuilder::~com_facebook_widget_WebDialog_RequestsDialogBuilder()
@@ -368,9 +375,9 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::~com_facebook_widget_WebDia
 	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder::~com_facebook_widget_WebDialog_RequestsDialogBuilder() exit");
 }
 // Functions
-FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setData";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
@@ -432,13 +439,13 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setData(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setTitle";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
@@ -500,13 +507,13 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTitle(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setMessage";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
@@ -568,13 +575,13 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setMessage(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setTo";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
@@ -636,7 +643,7 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_widget_WebDialog_RequestsDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

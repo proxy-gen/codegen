@@ -147,120 +147,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -302,8 +188,8 @@ public:
 	 bool isAbsolute();
 	 AndroidCXX::java_lang_String getCanonicalPath();
 	 bool setReadOnly();
-	 std::vector<java_lang_String > list(AndroidCXX::java_io_FilenameFilter& arg0);
-	 std::vector<java_lang_String > list();
+	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_io_FilenameFilter& arg0);
+	 std::vector<AndroidCXX::java_lang_String > list();
 	 bool _delete();
 	 bool exists();
 	 AndroidCXX::java_io_File getParentFile();
@@ -321,9 +207,9 @@ public:
 	 long lastModified();
 	 bool createNewFile();
 	 void deleteOnExit();
-	 std::vector<java_io_File > listFiles(AndroidCXX::java_io_FileFilter& arg0);
-	 std::vector<java_io_File > listFiles();
-	 std::vector<java_io_File > listFiles(AndroidCXX::java_io_FilenameFilter& arg0);
+	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FileFilter& arg0);
+	 std::vector<AndroidCXX::java_io_File > listFiles();
+	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FilenameFilter& arg0);
 	 bool mkdir();
 	 bool mkdirs();
 	 bool renameTo(AndroidCXX::java_io_File& arg0);
@@ -335,7 +221,7 @@ public:
 	 bool setExecutable(bool& arg0,bool& arg1);
 	 bool setExecutable(bool& arg0);
 	 bool canExecute();
-	static std::vector<java_io_File > listRoots();
+	static std::vector<AndroidCXX::java_io_File > listRoots();
 	 long getTotalSpace();
 	 long getFreeSpace();
 	 long getUsableSpace();

@@ -80,57 +80,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_io_PrintStream;
@@ -166,8 +115,8 @@ public:
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_String getMessage();
 	 AndroidCXX::java_lang_String getLocalizedMessage();
-	 std::vector<java_lang_StackTraceElement > getStackTrace();
-	 void setStackTrace(std::vector<java_lang_StackTraceElement >& arg0);
+	 std::vector<AndroidCXX::java_lang_StackTraceElement > getStackTrace();
+	 void setStackTrace(std::vector<AndroidCXX::java_lang_StackTraceElement >& arg0);
 };	
 
 } // namespace

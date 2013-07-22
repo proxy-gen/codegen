@@ -31,6 +31,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PlacePickerFragment_SearchTextWatcher"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,6 +44,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -148,9 +152,9 @@ com_facebook_widget_PlacePickerFragment_SearchTextWatcher::~com_facebook_widget_
 	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher::~com_facebook_widget_PlacePickerFragment_SearchTextWatcher() exit");
 }
 // Functions
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "onTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -257,12 +261,12 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(Fa
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "beforeTextChanged";
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
@@ -369,12 +373,12 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChange
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(FacebookCXX::android_text_Editable& arg0)
+void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(FacebookCXX::android_text_Editable& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) enter");
 
 	const char *methodName = "afterTextChanged";
 	const char *methodSignature = "(Landroid/text/Editable;)V";
@@ -418,6 +422,6 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(FacebookCXX::android_text_Editable& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged(AndroidCXX::android_text_Editable& arg0) exit");
 
 }

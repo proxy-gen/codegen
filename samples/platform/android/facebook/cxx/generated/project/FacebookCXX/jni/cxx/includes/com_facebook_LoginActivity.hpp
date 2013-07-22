@@ -48,21 +48,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_LoginActivity
 {
@@ -75,9 +62,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity();
 	// Functions
-	 void onCreate(FacebookCXX::android_os_Bundle& arg0);
+	 void onCreate(AndroidCXX::android_os_Bundle& arg0);
 	 void onResume();
-	 void onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0);
+	 void onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0);
 	 void onPause();
 };	
 

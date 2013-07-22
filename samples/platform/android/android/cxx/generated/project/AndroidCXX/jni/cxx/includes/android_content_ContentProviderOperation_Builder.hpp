@@ -74,60 +74,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_content_ContentProviderOperation;
@@ -157,7 +103,7 @@ public:
 	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelectionBackReference(int& arg0,int& arg1);
 	 AndroidCXX::android_content_ContentProviderOperation_Builder withValues(AndroidCXX::android_content_ContentValues& arg0);
 	 AndroidCXX::android_content_ContentProviderOperation_Builder withValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
-	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelection(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1);
+	 AndroidCXX::android_content_ContentProviderOperation_Builder withSelection(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
 	 AndroidCXX::android_content_ContentProviderOperation_Builder withExpectedCount(int& arg0);
 	 AndroidCXX::android_content_ContentProviderOperation_Builder withYieldAllowed(bool& arg0);
 };	

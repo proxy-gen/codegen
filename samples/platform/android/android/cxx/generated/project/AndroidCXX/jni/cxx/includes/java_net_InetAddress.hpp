@@ -88,54 +88,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -179,7 +131,7 @@ public:
 	 AndroidCXX::java_lang_String getCanonicalHostName();
 	static AndroidCXX::java_net_InetAddress getByAddress(std::vector<byte>& arg0);
 	static AndroidCXX::java_net_InetAddress getByAddress(AndroidCXX::java_lang_String& arg0,std::vector<byte>& arg1);
-	static std::vector<java_net_InetAddress > getAllByName(AndroidCXX::java_lang_String& arg0);
+	static std::vector<AndroidCXX::java_net_InetAddress > getAllByName(AndroidCXX::java_lang_String& arg0);
 	static AndroidCXX::java_net_InetAddress getLocalHost();
 };	
 

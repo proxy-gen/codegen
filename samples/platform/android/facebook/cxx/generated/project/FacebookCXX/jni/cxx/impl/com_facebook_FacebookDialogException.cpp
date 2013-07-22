@@ -31,6 +31,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookDialogException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,6 +44,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -133,9 +137,9 @@ com_facebook_FacebookDialogException::com_facebook_FacebookDialogException()
 	LOGV("com_facebook_FacebookDialogException::com_facebook_FacebookDialogException() exit");	
 }
 // Public Constructors
-com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(FacebookCXX::java_lang_String& arg0,int& arg1,FacebookCXX::java_lang_String& arg2)
+com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(FacebookCXX::java_lang_String& arg0,int& arg1,FacebookCXX::java_lang_String& arg2) enter");	
+	LOGV("com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;ILjava/lang/String;)V";
@@ -230,7 +234,7 @@ com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(Faceb
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(FacebookCXX::java_lang_String& arg0,int& arg1,FacebookCXX::java_lang_String& arg2) exit");	
+	LOGV("com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_FacebookDialogException::~com_facebook_FacebookDialogException()
@@ -294,9 +298,9 @@ int com_facebook_FacebookDialogException::getErrorCode()
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl()
+AndroidCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl() enter");
 
 	const char *methodName = "getFailingUrl";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -315,7 +319,7 @@ FacebookCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUr
 	LOGV("com_facebook_FacebookDialogException jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -333,11 +337,11 @@ FacebookCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl() exit");
 
 	return result;
 }

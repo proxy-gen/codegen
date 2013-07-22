@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_NativeProtocol
 {
 public:
 
+	com_facebook_NativeProtocol(const com_facebook_NativeProtocol& cc);
+	com_facebook_NativeProtocol(void * proxy);
+	// Public Constructors
+	com_facebook_NativeProtocol();
+	// Default Destructor
+	virtual ~com_facebook_NativeProtocol();
 	// Functions
 };	
 

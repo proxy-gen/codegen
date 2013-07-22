@@ -55,34 +55,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
-class android_content_Context;
 
-class java_lang_String;
 
 class com_facebook_SharedPreferencesTokenCachingStrategy
 {
@@ -91,15 +67,15 @@ public:
 	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
 	com_facebook_SharedPreferencesTokenCachingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0);
-	com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1);
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0);
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
 	com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions
 	 void clear();
-	 FacebookCXX::android_os_Bundle load();
-	 void save(FacebookCXX::android_os_Bundle& arg0);
+	 AndroidCXX::android_os_Bundle load();
+	 void save(AndroidCXX::android_os_Bundle& arg0);
 };	
 
 } // namespace

@@ -53,33 +53,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_WebDialog;
 
-class android_content_Context;
 
-class java_lang_String;
 
-class android_os_Bundle;
 
 class com_facebook_AuthorizationClient_AuthDialogBuilder
 {
@@ -88,7 +67,7 @@ public:
 	com_facebook_AuthorizationClient_AuthDialogBuilder(const com_facebook_AuthorizationClient_AuthDialogBuilder& cc);
 	com_facebook_AuthorizationClient_AuthDialogBuilder(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_AuthDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_os_Bundle& arg2);
+	com_facebook_AuthorizationClient_AuthDialogBuilder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
 	com_facebook_AuthorizationClient_AuthDialogBuilder();
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthDialogBuilder();

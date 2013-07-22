@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_GetTokenClient_CompletedListener
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_CompletedListener();
 	// Functions
-	 void completed(FacebookCXX::android_os_Bundle& arg0);
+	 void completed(AndroidCXX::android_os_Bundle& arg0);
 };	
 
 } // namespace

@@ -63,6 +63,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_util_ArrayList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1122,9 +1124,9 @@ int java_util_ArrayList::size()
 
 	return result;
 }
-std::vector<java_lang_Object > java_util_ArrayList::toArray(std::vector<java_lang_Object >& arg0)
+std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("std::vector<java_lang_Object > java_util_ArrayList::toArray(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "toArray";
 	const char *methodSignature = "([Ljava/lang/Object;)[Ljava/lang/Object;";
@@ -1182,7 +1184,7 @@ std::vector<java_lang_Object > java_util_ArrayList::toArray(std::vector<java_lan
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	std::vector<java_lang_Object > result;
+	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1218,17 +1220,17 @@ std::vector<java_lang_Object > java_util_ArrayList::toArray(std::vector<java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Object > java_util_ArrayList::toArray(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 	return result;
 }
-std::vector<java_lang_Object > java_util_ArrayList::toArray()
+std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray()
 {
-	LOGV("std::vector<java_lang_Object > java_util_ArrayList::toArray() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray() enter");
 
 	const char *methodName = "toArray";
 	const char *methodSignature = "()[Ljava/lang/Object;";
@@ -1247,7 +1249,7 @@ std::vector<java_lang_Object > java_util_ArrayList::toArray()
 	LOGV("java_util_ArrayList jni address %d", javaObject);
 
 
-	std::vector<java_lang_Object > result;
+	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1283,11 +1285,11 @@ std::vector<java_lang_Object > java_util_ArrayList::toArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Object > java_util_ArrayList::toArray() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > java_util_ArrayList::toArray() exit");
 
 	return result;
 }

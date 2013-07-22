@@ -69,6 +69,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_ClipData"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -246,9 +248,9 @@ android_content_ClipData::android_content_ClipData()
 	LOGV("android_content_ClipData::android_content_ClipData() exit");	
 }
 // Public Constructors
-android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2)
+android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2)
 {
-	LOGV("android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2) enter");	
+	LOGV("android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V";
@@ -361,7 +363,7 @@ android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSeq
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2) exit");	
+	LOGV("android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2) exit");	
 }
 android_content_ClipData::android_content_ClipData(AndroidCXX::android_content_ClipDescription& arg0,AndroidCXX::android_content_ClipData_Item& arg1)
 {

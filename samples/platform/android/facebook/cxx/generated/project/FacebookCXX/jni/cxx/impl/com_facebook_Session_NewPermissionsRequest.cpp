@@ -46,6 +46,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_NewPermissionsRequest"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -88,6 +90,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -188,9 +195,9 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest() exit");	
 }
 // Public Constructors
-com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1)
+com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1)
 {
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) enter");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)V";
@@ -282,11 +289,11 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) exit");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) exit");	
 }
-com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_support_v4_app_Fragment& arg0,FacebookCXX::java_util_List& arg1)
+com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1)
 {
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_support_v4_app_Fragment& arg0,FacebookCXX::java_util_List& arg1) enter");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;Ljava/util/List;)V";
@@ -378,7 +385,7 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_support_v4_app_Fragment& arg0,FacebookCXX::java_util_List& arg1) exit");	
+	LOGV("com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_Session_NewPermissionsRequest::~com_facebook_Session_NewPermissionsRequest()

@@ -31,6 +31,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_TokenRefreshRequest"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,6 +44,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -176,9 +180,9 @@ void com_facebook_Session_TokenRefreshRequest::bind()
 	LOGV("void com_facebook_Session_TokenRefreshRequest::bind() exit");
 
 }
-void com_facebook_Session_TokenRefreshRequest::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1)
+void com_facebook_Session_TokenRefreshRequest::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1)
 {
-	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) enter");
+	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) enter");
 
 	const char *methodName = "onServiceConnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
@@ -243,12 +247,12 @@ void com_facebook_Session_TokenRefreshRequest::onServiceConnected(FacebookCXX::a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) exit");
+	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) exit");
 
 }
-void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0)
+void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0)
 {
-	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) enter");
+	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) enter");
 
 	const char *methodName = "onServiceDisconnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
@@ -292,6 +296,6 @@ void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(FacebookCXX
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) exit");
+	LOGV("void com_facebook_Session_TokenRefreshRequest::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) exit");
 
 }

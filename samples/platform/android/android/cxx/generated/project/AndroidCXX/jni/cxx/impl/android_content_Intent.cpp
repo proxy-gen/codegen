@@ -371,6 +371,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_Intent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -4403,9 +4405,9 @@ AndroidCXX::android_os_Parcelable android_content_Intent::getParcelableExtra(And
 
 	return result;
 }
-std::vector<android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getParcelableArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Landroid/os/Parcelable;";
@@ -4445,7 +4447,7 @@ std::vector<android_os_Parcelable > android_content_Intent::getParcelableArrayEx
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<android_os_Parcelable > result;
+	std::vector<AndroidCXX::android_os_Parcelable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4481,11 +4483,11 @@ std::vector<android_os_Parcelable > android_content_Intent::getParcelableArrayEx
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_os_Parcelable >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_os_Parcelable >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_content_Intent::getParcelableArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -5589,9 +5591,9 @@ std::vector<double> android_content_Intent::getDoubleArrayExtra(AndroidCXX::java
 
 	return result;
 }
-std::vector<java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getStringArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
@@ -5631,7 +5633,7 @@ std::vector<java_lang_String > android_content_Intent::getStringArrayExtra(Andro
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -5667,17 +5669,17 @@ std::vector<java_lang_String > android_content_Intent::getStringArrayExtra(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_Intent::getStringArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-std::vector<java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getCharSequenceArrayExtra";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/CharSequence;";
@@ -5717,7 +5719,7 @@ std::vector<java_lang_CharSequence > android_content_Intent::getCharSequenceArra
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_CharSequence > result;
+	std::vector<AndroidCXX::java_lang_CharSequence > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -5753,11 +5755,11 @@ std::vector<java_lang_CharSequence > android_content_Intent::getCharSequenceArra
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_CharSequence >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_CharSequence >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_Intent::getCharSequenceArrayExtra(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -6923,9 +6925,9 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<android_os_Parcelable >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<android_os_Parcelable >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Landroid/os/Parcelable;)Landroid/content/Intent;";
@@ -7026,7 +7028,7 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<android_os_Parcelable >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1) exit");
 
 	return result;
 }
@@ -7868,9 +7870,9 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;";
@@ -7971,13 +7973,13 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_CharSequence >& arg1)
+AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1)
 {
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_CharSequence >& arg1) enter");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1) enter");
 
 	const char *methodName = "putExtra";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/CharSequence;)Landroid/content/Intent;";
@@ -8078,7 +8080,7 @@ AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_CharSequence >& arg1) exit");
+	LOGV("AndroidCXX::android_content_Intent android_content_Intent::putExtra(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1) exit");
 
 	return result;
 }

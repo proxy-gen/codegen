@@ -57,6 +57,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_UserSettingsFragment"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -68,6 +70,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -88,6 +92,9 @@ using namespace FacebookCXX;
 // 
 // 
 // using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
+// 
+// 
+// 
 // 
 // 
 // 
@@ -225,9 +232,9 @@ com_facebook_widget_UserSettingsFragment::~com_facebook_widget_UserSettingsFragm
 	LOGV("com_facebook_widget_UserSettingsFragment::~com_facebook_widget_UserSettingsFragment() exit");
 }
 // Functions
-void com_facebook_widget_UserSettingsFragment::onCreate(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_widget_UserSettingsFragment::onCreate(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_widget_UserSettingsFragment::onCreate(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_UserSettingsFragment::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -271,7 +278,7 @@ void com_facebook_widget_UserSettingsFragment::onCreate(FacebookCXX::android_os_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_UserSettingsFragment::onCreate(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_UserSettingsFragment::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_widget_UserSettingsFragment::onResume()
@@ -302,9 +309,9 @@ void com_facebook_widget_UserSettingsFragment::onResume()
 	LOGV("void com_facebook_widget_UserSettingsFragment::onResume() exit");
 
 }
-FacebookCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(FacebookCXX::android_view_LayoutInflater& arg0,FacebookCXX::android_view_ViewGroup& arg1,FacebookCXX::android_os_Bundle& arg2)
+AndroidCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("FacebookCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(FacebookCXX::android_view_LayoutInflater& arg0,FacebookCXX::android_view_ViewGroup& arg1,FacebookCXX::android_os_Bundle& arg2) enter");
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
 
 	const char *methodName = "onCreateView";
 	const char *methodSignature = "(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;";
@@ -386,7 +393,7 @@ FacebookCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreat
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::android_view_View result;
+	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -404,11 +411,11 @@ FacebookCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_view_View) (FacebookCXX::android_view_View((FacebookCXX::android_view_View *) cxx_value));
+	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(FacebookCXX::android_view_LayoutInflater& arg0,FacebookCXX::android_view_ViewGroup& arg1,FacebookCXX::android_os_Bundle& arg2) exit");
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
 
 	return result;
 }
@@ -749,9 +756,9 @@ void com_facebook_widget_UserSettingsFragment::setOnErrorListener(FacebookCXX::c
 	LOGV("void com_facebook_widget_UserSettingsFragment::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0) exit");
 
 }
-void com_facebook_widget_UserSettingsFragment::setReadPermissions(FacebookCXX::java_util_List& arg0)
+void com_facebook_widget_UserSettingsFragment::setReadPermissions(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_widget_UserSettingsFragment::setReadPermissions(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_widget_UserSettingsFragment::setReadPermissions(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setReadPermissions";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -813,12 +820,12 @@ void com_facebook_widget_UserSettingsFragment::setReadPermissions(FacebookCXX::j
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_UserSettingsFragment::setReadPermissions(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_widget_UserSettingsFragment::setReadPermissions(AndroidCXX::java_util_List& arg0) exit");
 
 }
-void com_facebook_widget_UserSettingsFragment::setPublishPermissions(FacebookCXX::java_util_List& arg0)
+void com_facebook_widget_UserSettingsFragment::setPublishPermissions(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_widget_UserSettingsFragment::setPublishPermissions(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_widget_UserSettingsFragment::setPublishPermissions(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setPublishPermissions";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -880,7 +887,7 @@ void com_facebook_widget_UserSettingsFragment::setPublishPermissions(FacebookCXX
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_UserSettingsFragment::setPublishPermissions(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_widget_UserSettingsFragment::setPublishPermissions(AndroidCXX::java_util_List& arg0) exit");
 
 }
 void com_facebook_widget_UserSettingsFragment::clearPermissions()

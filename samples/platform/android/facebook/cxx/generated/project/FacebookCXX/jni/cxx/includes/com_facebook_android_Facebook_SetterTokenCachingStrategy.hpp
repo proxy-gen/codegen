@@ -46,21 +46,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_android_Facebook_SetterTokenCachingStrategy
 {
@@ -74,8 +61,8 @@ public:
 	virtual ~com_facebook_android_Facebook_SetterTokenCachingStrategy();
 	// Functions
 	 void clear();
-	 FacebookCXX::android_os_Bundle load();
-	 void save(FacebookCXX::android_os_Bundle& arg0);
+	 AndroidCXX::android_os_Bundle load();
+	 void save(AndroidCXX::android_os_Bundle& arg0);
 };	
 
 } // namespace

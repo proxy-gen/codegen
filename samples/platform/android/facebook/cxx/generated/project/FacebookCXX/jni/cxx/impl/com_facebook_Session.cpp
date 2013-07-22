@@ -96,6 +96,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -108,11 +110,21 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// using namespace AndroidCXX;
 // 
 // 
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// using namespace COM_FACEBOOK_SESSIONSTATE;
 // 
 // 
 // 
@@ -312,9 +324,9 @@ com_facebook_Session::com_facebook_Session()
 	LOGV("com_facebook_Session::com_facebook_Session() exit");	
 }
 // Public Constructors
-com_facebook_Session::com_facebook_Session(FacebookCXX::android_content_Context& arg0)
+com_facebook_Session::com_facebook_Session(AndroidCXX::android_content_Context& arg0)
 {
-	LOGV("com_facebook_Session::com_facebook_Session(FacebookCXX::android_content_Context& arg0) enter");	
+	LOGV("com_facebook_Session::com_facebook_Session(AndroidCXX::android_content_Context& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -367,7 +379,7 @@ com_facebook_Session::com_facebook_Session(FacebookCXX::android_content_Context&
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session::com_facebook_Session(FacebookCXX::android_content_Context& arg0) exit");	
+	LOGV("com_facebook_Session::com_facebook_Session(AndroidCXX::android_content_Context& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_Session::~com_facebook_Session()
@@ -384,9 +396,9 @@ com_facebook_Session::~com_facebook_Session()
 	LOGV("com_facebook_Session::~com_facebook_Session() exit");
 }
 // Functions
-bool com_facebook_Session::equals(FacebookCXX::java_lang_Object& arg0)
+bool com_facebook_Session::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool com_facebook_Session::equals(FacebookCXX::java_lang_Object& arg0) enter");
+	LOGV("bool com_facebook_Session::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -448,13 +460,13 @@ bool com_facebook_Session::equals(FacebookCXX::java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_Session::equals(FacebookCXX::java_lang_Object& arg0) exit");
+	LOGV("bool com_facebook_Session::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_Session::toString()
+AndroidCXX::java_lang_String com_facebook_Session::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -473,7 +485,7 @@ FacebookCXX::java_lang_String com_facebook_Session::toString()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -491,11 +503,11 @@ FacebookCXX::java_lang_String com_facebook_Session::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::toString() exit");
 
 	return result;
 }
@@ -546,9 +558,9 @@ int com_facebook_Session::hashCode()
 
 	return result;
 }
-FacebookCXX::java_util_List com_facebook_Session::getPermissions()
+AndroidCXX::java_util_List com_facebook_Session::getPermissions()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_Session::getPermissions() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_Session::getPermissions() enter");
 
 	const char *methodName = "getPermissions";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -567,7 +579,7 @@ FacebookCXX::java_util_List com_facebook_Session::getPermissions()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -603,17 +615,17 @@ FacebookCXX::java_util_List com_facebook_Session::getPermissions()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_Session::getPermissions() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_Session::getPermissions() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_SessionState com_facebook_Session::getState()
+COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState com_facebook_Session::getState()
 {
-	LOGV("FacebookCXX::com_facebook_SessionState com_facebook_Session::getState() enter");
+	LOGV("COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState com_facebook_Session::getState() enter");
 
 	const char *methodName = "getState";
 	const char *methodSignature = "()Lcom/facebook/SessionState;";
@@ -632,7 +644,7 @@ FacebookCXX::com_facebook_SessionState com_facebook_Session::getState()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_SessionState result;
+	COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -650,11 +662,11 @@ FacebookCXX::com_facebook_SessionState com_facebook_Session::getState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionState(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_SessionState) (FacebookCXX::com_facebook_SessionState((FacebookCXX::com_facebook_SessionState *) cxx_value));
+	result = (COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_SessionState com_facebook_Session::getState() exit");
+	LOGV("COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState com_facebook_Session::getState() exit");
 
 	return result;
 }
@@ -803,9 +815,9 @@ bool com_facebook_Session::isClosed()
 
 	return result;
 }
-bool com_facebook_Session::onActivityResult(FacebookCXX::android_app_Activity& arg0,int& arg1,int& arg2,FacebookCXX::android_content_Intent& arg3)
+bool com_facebook_Session::onActivityResult(AndroidCXX::android_app_Activity& arg0,int& arg1,int& arg2,AndroidCXX::android_content_Intent& arg3)
 {
-	LOGV("bool com_facebook_Session::onActivityResult(FacebookCXX::android_app_Activity& arg0,int& arg1,int& arg2,FacebookCXX::android_content_Intent& arg3) enter");
+	LOGV("bool com_facebook_Session::onActivityResult(AndroidCXX::android_app_Activity& arg0,int& arg1,int& arg2,AndroidCXX::android_content_Intent& arg3) enter");
 
 	const char *methodName = "onActivityResult";
 	const char *methodSignature = "(Landroid/app/Activity;IILandroid/content/Intent;)Z";
@@ -930,13 +942,13 @@ bool com_facebook_Session::onActivityResult(FacebookCXX::android_app_Activity& a
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_Session::onActivityResult(FacebookCXX::android_app_Activity& arg0,int& arg1,int& arg2,FacebookCXX::android_content_Intent& arg3) exit");
+	LOGV("bool com_facebook_Session::onActivityResult(AndroidCXX::android_app_Activity& arg0,int& arg1,int& arg2,AndroidCXX::android_content_Intent& arg3) exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_Session::getApplicationId()
+AndroidCXX::java_lang_String com_facebook_Session::getApplicationId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::getApplicationId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::getApplicationId() enter");
 
 	const char *methodName = "getApplicationId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -955,7 +967,7 @@ FacebookCXX::java_lang_String com_facebook_Session::getApplicationId()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -973,11 +985,11 @@ FacebookCXX::java_lang_String com_facebook_Session::getApplicationId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::getApplicationId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::getApplicationId() exit");
 
 	return result;
 }
@@ -1105,9 +1117,9 @@ bool com_facebook_Session::isOpened()
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_Session::getAccessToken()
+AndroidCXX::java_lang_String com_facebook_Session::getAccessToken()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::getAccessToken() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::getAccessToken() enter");
 
 	const char *methodName = "getAccessToken";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1126,7 +1138,7 @@ FacebookCXX::java_lang_String com_facebook_Session::getAccessToken()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1144,11 +1156,11 @@ FacebookCXX::java_lang_String com_facebook_Session::getAccessToken()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_Session::getAccessToken() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Session::getAccessToken() exit");
 
 	return result;
 }
@@ -1201,9 +1213,9 @@ void com_facebook_Session::removeCallback(FacebookCXX::com_facebook_Session_Stat
 	LOGV("void com_facebook_Session::removeCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0) exit");
 
 }
-FacebookCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle()
+AndroidCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle()
 {
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle() enter");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle() enter");
 
 	const char *methodName = "getAuthorizationBundle";
 	const char *methodSignature = "()Landroid/os/Bundle;";
@@ -1222,7 +1234,7 @@ FacebookCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::android_os_Bundle result;
+	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1240,17 +1252,17 @@ FacebookCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_os_Bundle) (FacebookCXX::android_os_Bundle((FacebookCXX::android_os_Bundle *) cxx_value));
+	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle() exit");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle() exit");
 
 	return result;
 }
-FacebookCXX::java_util_Date com_facebook_Session::getExpirationDate()
+AndroidCXX::java_util_Date com_facebook_Session::getExpirationDate()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_Session::getExpirationDate() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_Session::getExpirationDate() enter");
 
 	const char *methodName = "getExpirationDate";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -1269,7 +1281,7 @@ FacebookCXX::java_util_Date com_facebook_Session::getExpirationDate()
 	LOGV("com_facebook_Session jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1287,11 +1299,11 @@ FacebookCXX::java_util_Date com_facebook_Session::getExpirationDate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_Session::getExpirationDate() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_Session::getExpirationDate() exit");
 
 	return result;
 }
@@ -1491,9 +1503,9 @@ void com_facebook_Session::requestNewPublishPermissions(FacebookCXX::com_faceboo
 	LOGV("void com_facebook_Session::requestNewPublishPermissions(FacebookCXX::com_facebook_Session_NewPermissionsRequest& arg0) exit");
 
 }
-void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1)
+void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1)
 {
-	LOGV("void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1) enter");
+	LOGV("void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
 
 	const char *methodName = "saveSession";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/os/Bundle;)V";
@@ -1558,12 +1570,12 @@ void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,F
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1) exit");
+	LOGV("void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
 
 }
-FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,FacebookCXX::android_os_Bundle& arg3)
+FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,AndroidCXX::android_os_Bundle& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,FacebookCXX::android_os_Bundle& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,AndroidCXX::android_os_Bundle& arg3) enter");
 
 	const char *methodName = "restoreSession";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/TokenCachingStrategy;Lcom/facebook/Session$StatusCallback;Landroid/os/Bundle;)Lcom/facebook/Session;";
@@ -1688,7 +1700,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(FacebookC
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,FacebookCXX::android_os_Bundle& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,AndroidCXX::android_os_Bundle& arg3) exit");
 
 	return result;
 }
@@ -1788,9 +1800,9 @@ void com_facebook_Session::setActiveSession(FacebookCXX::com_facebook_Session& a
 	LOGV("void com_facebook_Session::setActiveSession(FacebookCXX::com_facebook_Session& arg0) exit");
 
 }
-FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(FacebookCXX::android_content_Context& arg0)
+FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(AndroidCXX::android_content_Context& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(FacebookCXX::android_content_Context& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(AndroidCXX::android_content_Context& arg0) enter");
 
 	const char *methodName = "openActiveSessionFromCache";
 	const char *methodSignature = "(Landroid/content/Context;)Lcom/facebook/Session;";
@@ -1852,13 +1864,13 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCac
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(FacebookCXX::android_content_Context& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCache(AndroidCXX::android_content_Context& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3)
+FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3) enter");
 
 	const char *methodName = "openActiveSession";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/support/v4/app/Fragment;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
@@ -1983,13 +1995,13 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(Facebo
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2)
+FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) enter");
 
 	const char *methodName = "openActiveSession";
 	const char *methodSignature = "(Landroid/app/Activity;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
@@ -2093,13 +2105,13 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(Facebo
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(FacebookCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(AndroidCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2)
+FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) enter");
 
 	const char *methodName = "openActiveSessionWithAccessToken";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
@@ -2203,7 +2215,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAcc
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2) exit");
 
 	return result;
 }

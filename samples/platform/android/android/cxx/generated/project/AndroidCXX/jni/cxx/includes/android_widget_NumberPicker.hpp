@@ -106,63 +106,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_view_MotionEvent;
@@ -222,8 +165,8 @@ public:
 	 void setMinValue(int& arg0);
 	 int getMaxValue();
 	 void setMaxValue(int& arg0);
-	 std::vector<java_lang_String > getDisplayedValues();
-	 void setDisplayedValues(std::vector<java_lang_String >& arg0);
+	 std::vector<AndroidCXX::java_lang_String > getDisplayedValues();
+	 void setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0);
 };	
 
 } // namespace

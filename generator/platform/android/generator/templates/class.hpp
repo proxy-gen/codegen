@@ -179,25 +179,17 @@ extern "C" {
 
 namespace ${entity_class_info['namespace']} {
 
-// #set $proxied_namespaces = list()
-// #for $proxied_typeinfo in $proxied_typeinfos
-// #set $proxied_namespace = $proxied_typeinfo['namespace']
-// #if $proxied_namespace not in $proxied_namespaces
-// $proxied_namespaces.append(proxied_namespace)
-// #if $proxied_namespace != $entity_class_info['namespace']
-// using namespace $proxied_namespace;
-// #end if
-// #end if
-// #end for
-
 // Forward Declarations
 #set $forwarded_types = list()
 #for $proxied_typeinfo in $proxied_typeinfos
 #set $proxied_type = $proxied_typeinfo['typename']
 #if $proxied_type not in $forwarded_types
 $forwarded_types.append(proxied_type)
+#set $proxied_namespace = $proxied_typeinfo['namespace']
 #if $proxied_typeinfo['isenum'] == False
+#if $proxied_namespace == $entity_class_info['namespace']
 class $proxied_type;
+#end if
 #end if
 #end if
 #end for

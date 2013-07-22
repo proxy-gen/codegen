@@ -33,6 +33,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_LoadingStrategy_1"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -41,6 +43,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -156,9 +163,9 @@ com_facebook_widget_PickerFragment_LoadingStrategy_1::~com_facebook_widget_Picke
 	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1::~com_facebook_widget_PickerFragment_LoadingStrategy_1() exit");
 }
 // Functions
-FacebookCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,FacebookCXX::android_os_Bundle& arg1)
+AndroidCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1)
 {
-	LOGV("FacebookCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,FacebookCXX::android_os_Bundle& arg1) enter");
+	LOGV("AndroidCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
 
 	const char *methodName = "onCreateLoader";
 	const char *methodSignature = "(ILandroid/os/Bundle;)Landroid/support/v4/content/Loader;";
@@ -219,7 +226,7 @@ FacebookCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragmen
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::android_support_v4_content_Loader result;
+	AndroidCXX::android_support_v4_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -273,17 +280,17 @@ FacebookCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragmen
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_support_v4_content_Loader) (FacebookCXX::android_support_v4_content_Loader((FacebookCXX::android_support_v4_content_Loader *) cxx_value));
+	result = (AndroidCXX::android_support_v4_content_Loader) (AndroidCXX::android_support_v4_content_Loader((AndroidCXX::android_support_v4_content_Loader *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,FacebookCXX::android_os_Bundle& arg1) exit");
+	LOGV("AndroidCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment_LoadingStrategy_1::onCreateLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
 
 	return result;
 }
-void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(FacebookCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1)
+void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(AndroidCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1)
 {
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(FacebookCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1) enter");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(AndroidCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1) enter");
 
 	const char *methodName = "onLoadFinished";
 	const char *methodSignature = "(Landroid/support/v4/content/Loader;Lcom/facebook/widget/SimpleGraphObjectCursor;)V";
@@ -402,12 +409,12 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(Facebo
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(FacebookCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1) exit");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(AndroidCXX::android_support_v4_content_Loader& arg0,FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor& arg1) exit");
 
 }
-void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(FacebookCXX::android_support_v4_content_Loader& arg0)
+void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(AndroidCXX::android_support_v4_content_Loader& arg0)
 {
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(FacebookCXX::android_support_v4_content_Loader& arg0) enter");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(AndroidCXX::android_support_v4_content_Loader& arg0) enter");
 
 	const char *methodName = "onLoaderReset";
 	const char *methodSignature = "(Landroid/support/v4/content/Loader;)V";
@@ -487,6 +494,6 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(Faceboo
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(FacebookCXX::android_support_v4_content_Loader& arg0) exit");
+	LOGV("void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(AndroidCXX::android_support_v4_content_Loader& arg0) exit");
 
 }

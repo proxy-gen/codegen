@@ -59,39 +59,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_model_GraphLocation;
 
@@ -106,14 +75,14 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions
-	 FacebookCXX::java_lang_String getName();
+	 AndroidCXX::java_lang_String getName();
 	 FacebookCXX::com_facebook_model_GraphLocation getLocation();
-	 void setName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getId();
-	 FacebookCXX::java_lang_String getCategory();
-	 void setId(FacebookCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getId();
+	 AndroidCXX::java_lang_String getCategory();
+	 void setId(AndroidCXX::java_lang_String& arg0);
 	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0);
-	 void setCategory(FacebookCXX::java_lang_String& arg0);
+	 void setCategory(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

@@ -74,58 +74,6 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session_StatusCallback;
@@ -133,14 +81,10 @@ class com_facebook_Session_StatusCallback;
 class com_facebook_Session_OpenRequest;
 
 
-class java_util_List;
-
-class java_lang_String;
 
 
-class android_app_Activity;
 
-class android_support_v4_app_Fragment;
+
 
 class com_facebook_Session_OpenRequest
 {
@@ -149,8 +93,8 @@ public:
 	com_facebook_Session_OpenRequest(const com_facebook_Session_OpenRequest& cc);
 	com_facebook_Session_OpenRequest(void * proxy);
 	// Public Constructors
-	com_facebook_Session_OpenRequest(FacebookCXX::android_app_Activity& arg0);
-	com_facebook_Session_OpenRequest(FacebookCXX::android_support_v4_app_Fragment& arg0);
+	com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity& arg0);
+	com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment& arg0);
 	com_facebook_Session_OpenRequest();
 	// Default Destructor
 	virtual ~com_facebook_Session_OpenRequest();
@@ -158,7 +102,7 @@ public:
 	 FacebookCXX::com_facebook_Session_OpenRequest setCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
 	 FacebookCXX::com_facebook_Session_OpenRequest setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0);
 	 FacebookCXX::com_facebook_Session_OpenRequest setRequestCode(int& arg0);
-	 FacebookCXX::com_facebook_Session_OpenRequest setPermissions(FacebookCXX::java_util_List& arg0);
+	 FacebookCXX::com_facebook_Session_OpenRequest setPermissions(AndroidCXX::java_util_List& arg0);
 	 FacebookCXX::com_facebook_Session_OpenRequest setDefaultAudience(COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience& arg0);
 };	
 

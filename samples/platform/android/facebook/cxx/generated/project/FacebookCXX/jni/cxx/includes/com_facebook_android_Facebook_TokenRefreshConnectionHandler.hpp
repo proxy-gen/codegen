@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Message;
 
 class com_facebook_android_Facebook_TokenRefreshConnectionHandler
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshConnectionHandler();
 	// Functions
-	 void handleMessage(FacebookCXX::android_os_Message& arg0);
+	 void handleMessage(AndroidCXX::android_os_Message& arg0);
 };	
 
 } // namespace

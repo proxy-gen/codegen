@@ -74,60 +74,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_CharSequence;
@@ -157,8 +103,8 @@ public:
 	 AndroidCXX::android_text_Editable insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1);
 	 AndroidCXX::android_text_Editable insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3);
 	 void clearSpans();
-	 void setFilters(std::vector<android_text_InputFilter >& arg0);
-	 std::vector<android_text_InputFilter > getFilters();
+	 void setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0);
+	 std::vector<AndroidCXX::android_text_InputFilter > getFilters();
 };	
 
 } // namespace

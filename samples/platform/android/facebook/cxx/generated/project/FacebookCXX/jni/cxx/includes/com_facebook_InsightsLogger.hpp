@@ -76,81 +76,16 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_Context;
 
-class java_lang_String;
 
 class com_facebook_Session;
 
 class com_facebook_InsightsLogger;
 
-class java_math_BigDecimal;
 
-class java_util_Currency;
 
-class android_os_Bundle;
 
 class com_facebook_InsightsLogger
 {
@@ -163,12 +98,12 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_InsightsLogger();
 	// Functions
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3);
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1);
-	static FacebookCXX::com_facebook_InsightsLogger newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2);
-	 void logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1,FacebookCXX::android_os_Bundle& arg2);
-	 void logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1);
-	 void logConversionPixel(FacebookCXX::java_lang_String& arg0,double& arg1);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
+	static FacebookCXX::com_facebook_InsightsLogger newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	 void logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1,AndroidCXX::android_os_Bundle& arg2);
+	 void logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1);
+	 void logConversionPixel(AndroidCXX::java_lang_String& arg0,double& arg1);
 };	
 
 } // namespace

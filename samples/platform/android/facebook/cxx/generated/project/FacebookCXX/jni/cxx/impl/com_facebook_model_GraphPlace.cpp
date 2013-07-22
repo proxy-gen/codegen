@@ -41,6 +41,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphPlace"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -49,6 +51,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -173,9 +180,9 @@ com_facebook_model_GraphPlace::~com_facebook_model_GraphPlace()
 	LOGV("com_facebook_model_GraphPlace::~com_facebook_model_GraphPlace() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getName()
+AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getName()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getName() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getName() enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -194,7 +201,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getName()
 	LOGV("com_facebook_model_GraphPlace jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -212,11 +219,11 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getName() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getName() exit");
 
 	return result;
 }
@@ -267,9 +274,9 @@ FacebookCXX::com_facebook_model_GraphLocation com_facebook_model_GraphPlace::get
 
 	return result;
 }
-void com_facebook_model_GraphPlace::setName(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphPlace::setName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphPlace::setName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphPlace::setName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setName";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -313,12 +320,12 @@ void com_facebook_model_GraphPlace::setName(FacebookCXX::java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphPlace::setName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphPlace::setName(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getId()
+AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getId() enter");
 
 	const char *methodName = "getId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -337,7 +344,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getId()
 	LOGV("com_facebook_model_GraphPlace jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -355,17 +362,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getId() exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getCategory()
+AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getCategory()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getCategory() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getCategory() enter");
 
 	const char *methodName = "getCategory";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -384,7 +391,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getCategory()
 	LOGV("com_facebook_model_GraphPlace jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -402,17 +409,17 @@ FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getCategory()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphPlace::getCategory() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphPlace::getCategory() exit");
 
 	return result;
 }
-void com_facebook_model_GraphPlace::setId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphPlace::setId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphPlace::setId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphPlace::setId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -456,7 +463,7 @@ void com_facebook_model_GraphPlace::setId(FacebookCXX::java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphPlace::setId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphPlace::setId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 void com_facebook_model_GraphPlace::setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0)
@@ -508,9 +515,9 @@ void com_facebook_model_GraphPlace::setLocation(FacebookCXX::com_facebook_model_
 	LOGV("void com_facebook_model_GraphPlace::setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0) exit");
 
 }
-void com_facebook_model_GraphPlace::setCategory(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_GraphPlace::setCategory(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_GraphPlace::setCategory(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_GraphPlace::setCategory(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setCategory";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -554,6 +561,6 @@ void com_facebook_model_GraphPlace::setCategory(FacebookCXX::java_lang_String& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_GraphPlace::setCategory(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_GraphPlace::setCategory(AndroidCXX::java_lang_String& arg0) exit");
 
 }

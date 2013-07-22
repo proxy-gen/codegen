@@ -49,26 +49,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_CharSequence;
 
-class android_text_Editable;
 
 class com_facebook_widget_PlacePickerFragment_SearchTextWatcher
 {
@@ -81,9 +64,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_SearchTextWatcher();
 	// Functions
-	 void onTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void beforeTextChanged(FacebookCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
-	 void afterTextChanged(FacebookCXX::android_text_Editable& arg0);
+	 void onTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
+	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2,int& arg3);
+	 void afterTextChanged(AndroidCXX::android_text_Editable& arg0);
 };	
 
 } // namespace

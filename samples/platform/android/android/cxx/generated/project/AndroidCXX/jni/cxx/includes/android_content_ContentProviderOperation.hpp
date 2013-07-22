@@ -89,66 +89,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -187,9 +127,9 @@ public:
 	 bool isYieldAllowed();
 	 bool isWriteOperation();
 	 bool isReadOperation();
-	 AndroidCXX::android_content_ContentProviderResult apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<android_content_ContentProviderResult >& arg1,int& arg2);
-	 AndroidCXX::android_content_ContentValues resolveValueBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1);
-	 std::vector<java_lang_String > resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1);
+	 AndroidCXX::android_content_ContentProviderResult apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<AndroidCXX::android_content_ContentProviderResult >& arg1,int& arg2);
+	 AndroidCXX::android_content_ContentValues resolveValueBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1);
+	 std::vector<AndroidCXX::java_lang_String > resolveSelectionArgsBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1);
 };	
 
 } // namespace

@@ -67,26 +67,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_model_GraphObject;
 
-class java_util_Collection;
 
 class com_facebook_widget_SimpleGraphObjectCursor
 {
@@ -116,7 +100,7 @@ public:
 	 bool isLast();
 	 bool isBeforeFirst();
 	 bool isAfterLast();
-	 void addGraphObjects(FacebookCXX::java_util_Collection& arg0,bool& arg1);
+	 void addGraphObjects(AndroidCXX::java_util_Collection& arg0,bool& arg1);
 	 void setMoreObjectsAvailable(bool& arg0);
 	 void setFromCache(bool& arg0);
 };	

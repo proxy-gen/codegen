@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Message;
 
 class com_facebook_GetTokenClient_1
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_1();
 	// Functions
-	 void handleMessage(FacebookCXX::android_os_Message& arg0);
+	 void handleMessage(AndroidCXX::android_os_Message& arg0);
 };	
 
 } // namespace

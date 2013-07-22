@@ -89,107 +89,13 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class android_os_Bundle;
 
 class com_facebook_android_AsyncFacebookRunner_RequestListener;
 
-class java_lang_Object;
 
-class android_content_Context;
 
 class com_facebook_android_Facebook;
 
@@ -205,15 +111,15 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner();
 	// Functions
-	 void request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,FacebookCXX::java_lang_Object& arg4);
-	 void request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,FacebookCXX::java_lang_Object& arg3);
-	 void request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2);
-	 void request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2);
-	 void request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
-	 void request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2);
-	 void request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
-	 void logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
-	 void logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2);
+	 void request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4);
+	 void request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3);
+	 void request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2);
+	 void request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2);
+	 void request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
+	 void request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2);
+	 void request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
+	 void logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1);
+	 void logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2);
 };	
 
 } // namespace

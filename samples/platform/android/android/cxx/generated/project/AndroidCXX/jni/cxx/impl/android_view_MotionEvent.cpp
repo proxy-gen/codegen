@@ -126,6 +126,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_view_MotionEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1095,9 +1097,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 
 	return result;
 }
-AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12)
+AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12)
 {
-	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12) enter");
+	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(JJII[I[Landroid/view/MotionEvent$PointerCoords;IFFIIII)Landroid/view/MotionEvent;";
@@ -1447,13 +1449,13 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12) exit");
+	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<int>& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,float& arg7,float& arg8,int& arg9,int& arg10,int& arg11,int& arg12) exit");
 
 	return result;
 }
-AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<android_view_MotionEvent_PointerProperties >& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13)
+AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::android_view_MotionEvent_PointerProperties >& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13)
 {
-	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<android_view_MotionEvent_PointerProperties >& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13) enter");
+	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::android_view_MotionEvent_PointerProperties >& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13) enter");
 
 	const char *methodName = "obtain";
 	const char *methodSignature = "(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIII)Landroid/view/MotionEvent;";
@@ -1824,7 +1826,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<android_view_MotionEvent_PointerProperties >& arg4,std::vector<android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13) exit");
+	LOGV("AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0,long& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::android_view_MotionEvent_PointerProperties >& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg5,int& arg6,int& arg7,float& arg8,float& arg9,int& arg10,int& arg11,int& arg12,int& arg13) exit");
 
 	return result;
 }
@@ -6533,9 +6535,9 @@ void android_view_MotionEvent::setLocation(float& arg0,float& arg1)
 	LOGV("void android_view_MotionEvent::setLocation(float& arg0,float& arg1) exit");
 
 }
-void android_view_MotionEvent::addBatch(long& arg0,std::vector<android_view_MotionEvent_PointerCoords >& arg1,int& arg2)
+void android_view_MotionEvent::addBatch(long& arg0,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg1,int& arg2)
 {
-	LOGV("void android_view_MotionEvent::addBatch(long& arg0,std::vector<android_view_MotionEvent_PointerCoords >& arg1,int& arg2) enter");
+	LOGV("void android_view_MotionEvent::addBatch(long& arg0,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg1,int& arg2) enter");
 
 	const char *methodName = "addBatch";
 	const char *methodSignature = "(J[Landroid/view/MotionEvent$PointerCoords;I)V";
@@ -6639,7 +6641,7 @@ void android_view_MotionEvent::addBatch(long& arg0,std::vector<android_view_Moti
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_view_MotionEvent::addBatch(long& arg0,std::vector<android_view_MotionEvent_PointerCoords >& arg1,int& arg2) exit");
+	LOGV("void android_view_MotionEvent::addBatch(long& arg0,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords >& arg1,int& arg2) exit");
 
 }
 void android_view_MotionEvent::addBatch(long& arg0,float& arg1,float& arg2,float& arg3,float& arg4,int& arg5)

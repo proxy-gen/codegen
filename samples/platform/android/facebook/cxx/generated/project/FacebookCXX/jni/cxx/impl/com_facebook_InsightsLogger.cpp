@@ -49,6 +49,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_InsightsLogger"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -57,6 +59,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -211,9 +218,9 @@ com_facebook_InsightsLogger::~com_facebook_InsightsLogger()
 	LOGV("com_facebook_InsightsLogger::~com_facebook_InsightsLogger() exit");
 }
 // Functions
-FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3)
+FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3)
 {
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3) enter");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3) enter");
 
 	const char *methodName = "newLogger";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/Session;)Lcom/facebook/InsightsLogger;";
@@ -338,13 +345,13 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3) exit");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_Session& arg3) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1)
+FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "newLogger";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/InsightsLogger;";
@@ -427,13 +434,13 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2)
+FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");
 
 	const char *methodName = "newLogger";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/InsightsLogger;";
@@ -537,13 +544,13 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");
 
 	return result;
 }
-void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1,FacebookCXX::android_os_Bundle& arg2)
+void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1,FacebookCXX::android_os_Bundle& arg2) enter");
+	LOGV("void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
 
 	const char *methodName = "logPurchase";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/util/Currency;Landroid/os/Bundle;)V";
@@ -629,12 +636,12 @@ void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal&
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1,FacebookCXX::android_os_Bundle& arg2) exit");
+	LOGV("void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
 
 }
-void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1)
+void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1)
 {
-	LOGV("void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1) enter");
+	LOGV("void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1) enter");
 
 	const char *methodName = "logPurchase";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/util/Currency;)V";
@@ -699,12 +706,12 @@ void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal&
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_InsightsLogger::logPurchase(FacebookCXX::java_math_BigDecimal& arg0,FacebookCXX::java_util_Currency& arg1) exit");
+	LOGV("void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_util_Currency& arg1) exit");
 
 }
-void com_facebook_InsightsLogger::logConversionPixel(FacebookCXX::java_lang_String& arg0,double& arg1)
+void com_facebook_InsightsLogger::logConversionPixel(AndroidCXX::java_lang_String& arg0,double& arg1)
 {
-	LOGV("void com_facebook_InsightsLogger::logConversionPixel(FacebookCXX::java_lang_String& arg0,double& arg1) enter");
+	LOGV("void com_facebook_InsightsLogger::logConversionPixel(AndroidCXX::java_lang_String& arg0,double& arg1) enter");
 
 	const char *methodName = "logConversionPixel";
 	const char *methodSignature = "(Ljava/lang/String;D)V";
@@ -769,6 +776,6 @@ void com_facebook_InsightsLogger::logConversionPixel(FacebookCXX::java_lang_Stri
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_InsightsLogger::logConversionPixel(FacebookCXX::java_lang_String& arg0,double& arg1) exit");
+	LOGV("void com_facebook_InsightsLogger::logConversionPixel(AndroidCXX::java_lang_String& arg0,double& arg1) exit");
 
 }

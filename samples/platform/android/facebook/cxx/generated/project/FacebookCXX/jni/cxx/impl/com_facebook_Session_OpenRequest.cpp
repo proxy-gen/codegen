@@ -43,6 +43,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_OpenRequest"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -74,6 +76,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -179,9 +186,9 @@ com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest()
 	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest() exit");	
 }
 // Public Constructors
-com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_app_Activity& arg0)
+com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity& arg0)
 {
-	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_app_Activity& arg0) enter");	
+	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/Activity;)V";
@@ -234,11 +241,11 @@ com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_app_Activity& arg0) exit");	
+	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity& arg0) exit");	
 }
-com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_support_v4_app_Fragment& arg0)
+com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment& arg0)
 {
-	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_support_v4_app_Fragment& arg0) enter");	
+	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;)V";
@@ -291,7 +298,7 @@ com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(FacebookCXX::android_support_v4_app_Fragment& arg0) exit");	
+	LOGV("com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_Session_OpenRequest::~com_facebook_Session_OpenRequest()
@@ -512,9 +519,9 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 
 	return result;
 }
-FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(FacebookCXX::java_util_List& arg0)
+FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setPermissions";
 	const char *methodSignature = "(Ljava/util/List;)Lcom/facebook/Session$OpenRequest;";
@@ -594,7 +601,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::setPermissions(AndroidCXX::java_util_List& arg0) exit");
 
 	return result;
 }

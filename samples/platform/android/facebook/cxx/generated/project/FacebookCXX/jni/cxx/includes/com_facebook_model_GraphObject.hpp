@@ -70,61 +70,14 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class java_lang_Object;
 
-class java_lang_Class;
 
 class com_facebook_model_GraphObject;
 
-class java_util_Map;
 
-class org_json_JSONObject;
 
 class com_facebook_model_GraphObject
 {
@@ -137,12 +90,12 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions
-	 void setProperty(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Object& arg1);
-	 FacebookCXX::java_lang_Object getProperty(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::com_facebook_model_GraphObject cast(FacebookCXX::java_lang_Class& arg0);
-	 FacebookCXX::java_util_Map asMap();
-	 FacebookCXX::org_json_JSONObject getInnerJSONObject();
-	 void removeProperty(FacebookCXX::java_lang_String& arg0);
+	 void setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_model_GraphObject cast(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_util_Map asMap();
+	 AndroidCXX::org_json_JSONObject getInnerJSONObject();
+	 void removeProperty(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

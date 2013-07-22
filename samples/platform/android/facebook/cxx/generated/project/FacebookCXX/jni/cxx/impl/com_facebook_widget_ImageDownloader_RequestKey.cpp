@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_ImageDownloader_RequestKey"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -139,9 +143,9 @@ com_facebook_widget_ImageDownloader_RequestKey::~com_facebook_widget_ImageDownlo
 	LOGV("com_facebook_widget_ImageDownloader_RequestKey::~com_facebook_widget_ImageDownloader_RequestKey() exit");
 }
 // Functions
-bool com_facebook_widget_ImageDownloader_RequestKey::equals(FacebookCXX::java_lang_Object& arg0)
+bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool com_facebook_widget_ImageDownloader_RequestKey::equals(FacebookCXX::java_lang_Object& arg0) enter");
+	LOGV("bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -203,7 +207,7 @@ bool com_facebook_widget_ImageDownloader_RequestKey::equals(FacebookCXX::java_la
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_ImageDownloader_RequestKey::equals(FacebookCXX::java_lang_Object& arg0) exit");
+	LOGV("bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }

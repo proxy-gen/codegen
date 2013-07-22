@@ -65,51 +65,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_WebDialog_OnCompleteListener;
 
-class android_content_Context;
 
-class java_lang_String;
 
-class android_os_Bundle;
 
 class com_facebook_widget_WebDialog
 {
@@ -118,9 +79,9 @@ public:
 	com_facebook_widget_WebDialog(const com_facebook_widget_WebDialog& cc);
 	com_facebook_widget_WebDialog(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,int& arg2);
-	com_facebook_widget_WebDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_os_Bundle& arg2,int& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg4);
-	com_facebook_widget_WebDialog(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,int& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg4);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
 	com_facebook_widget_WebDialog();
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog();

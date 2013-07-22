@@ -73,42 +73,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -130,8 +94,8 @@ public:
 	java_security_CodeSource(const java_security_CodeSource& cc);
 	java_security_CodeSource(void * proxy);
 	// Public Constructors
-	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1);
-	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_CodeSigner >& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_cert_Certificate >& arg1);
 	java_security_CodeSource();
 	// Default Destructor
 	virtual ~java_security_CodeSource();
@@ -140,9 +104,9 @@ public:
 	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 AndroidCXX::java_net_URL getLocation();
-	 std::vector<java_security_cert_Certificate > getCertificates();
+	 std::vector<AndroidCXX::java_security_cert_Certificate > getCertificates();
 	 bool implies(AndroidCXX::java_security_CodeSource& arg0);
-	 std::vector<java_security_CodeSigner > getCodeSigners();
+	 std::vector<AndroidCXX::java_security_CodeSigner > getCodeSigners();
 };	
 
 } // namespace

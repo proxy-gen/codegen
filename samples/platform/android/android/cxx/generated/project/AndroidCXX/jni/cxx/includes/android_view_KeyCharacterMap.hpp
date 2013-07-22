@@ -72,24 +72,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_view_KeyCharacterMap;
@@ -122,7 +104,7 @@ public:
 	 char getMatch(int& arg0,std::vector<char>& arg1);
 	 char getMatch(int& arg0,std::vector<char>& arg1,int& arg2);
 	 bool isPrintingKey(int& arg0);
-	 std::vector<android_view_KeyEvent > getEvents(std::vector<char>& arg0);
+	 std::vector<AndroidCXX::android_view_KeyEvent > getEvents(std::vector<char>& arg0);
 	 int getKeyboardType();
 	 int getModifierBehavior();
 	static bool deviceHasKey(int& arg0);

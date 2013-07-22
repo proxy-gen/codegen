@@ -104,6 +104,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_Thread"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1136,9 +1138,9 @@ AndroidCXX::java_lang_ThreadGroup java_lang_Thread::getThreadGroup()
 
 	return result;
 }
-std::vector<java_lang_StackTraceElement > java_lang_Thread::getStackTrace()
+std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Thread::getStackTrace()
 {
-	LOGV("std::vector<java_lang_StackTraceElement > java_lang_Thread::getStackTrace() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Thread::getStackTrace() enter");
 
 	const char *methodName = "getStackTrace";
 	const char *methodSignature = "()[Ljava/lang/StackTraceElement;";
@@ -1157,7 +1159,7 @@ std::vector<java_lang_StackTraceElement > java_lang_Thread::getStackTrace()
 	LOGV("java_lang_Thread jni address %d", javaObject);
 
 
-	std::vector<java_lang_StackTraceElement > result;
+	std::vector<AndroidCXX::java_lang_StackTraceElement > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1193,11 +1195,11 @@ std::vector<java_lang_StackTraceElement > java_lang_Thread::getStackTrace()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_StackTraceElement >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_StackTraceElement >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_StackTraceElement > java_lang_Thread::getStackTrace() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Thread::getStackTrace() exit");
 
 	return result;
 }
@@ -1928,9 +1930,9 @@ int java_lang_Thread::activeCount()
 
 	return result;
 }
-int java_lang_Thread::enumerate(std::vector<java_lang_Thread >& arg0)
+int java_lang_Thread::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0)
 {
-	LOGV("int java_lang_Thread::enumerate(std::vector<java_lang_Thread >& arg0) enter");
+	LOGV("int java_lang_Thread::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/Thread;)I";
@@ -2010,7 +2012,7 @@ int java_lang_Thread::enumerate(std::vector<java_lang_Thread >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_Thread::enumerate(std::vector<java_lang_Thread >& arg0) exit");
+	LOGV("int java_lang_Thread::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) exit");
 
 	return result;
 }

@@ -30,6 +30,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_TestSession_TestTokenCachingStrategy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -41,6 +43,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -172,9 +176,9 @@ void com_facebook_TestSession_TestTokenCachingStrategy::clear()
 	LOGV("void com_facebook_TestSession_TestTokenCachingStrategy::clear() exit");
 
 }
-FacebookCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load()
+AndroidCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load()
 {
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load() enter");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load() enter");
 
 	const char *methodName = "load";
 	const char *methodSignature = "()Landroid/os/Bundle;";
@@ -193,7 +197,7 @@ FacebookCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy
 	LOGV("com_facebook_TestSession_TestTokenCachingStrategy jni address %d", javaObject);
 
 
-	FacebookCXX::android_os_Bundle result;
+	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -211,17 +215,17 @@ FacebookCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_os_Bundle) (FacebookCXX::android_os_Bundle((FacebookCXX::android_os_Bundle *) cxx_value));
+	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load() exit");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy::load() exit");
 
 	return result;
 }
-void com_facebook_TestSession_TestTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_TestSession_TestTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_TestSession_TestTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_TestSession_TestTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "save";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -265,6 +269,6 @@ void com_facebook_TestSession_TestTokenCachingStrategy::save(FacebookCXX::androi
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TestSession_TestTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_TestSession_TestTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

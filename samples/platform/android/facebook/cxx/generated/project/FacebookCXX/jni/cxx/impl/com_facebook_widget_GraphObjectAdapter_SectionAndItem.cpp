@@ -30,6 +30,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectAdapter_SectionAndItem"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,6 +48,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -137,9 +144,9 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem() exit");	
 }
 // Public Constructors
-com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1)
+com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1)
 {
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) enter");	
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/model/GraphObject;)V";
@@ -213,7 +220,7 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) exit");	
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_GraphObjectAdapter_SectionAndItem::~com_facebook_widget_GraphObjectAdapter_SectionAndItem()

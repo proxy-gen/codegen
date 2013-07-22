@@ -97,72 +97,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_view_MenuItem;
@@ -200,7 +134,7 @@ public:
 	 AndroidCXX::android_view_SubMenu addSubMenu(int& arg0,int& arg1,int& arg2,AndroidCXX::java_lang_CharSequence& arg3);
 	 AndroidCXX::android_view_SubMenu addSubMenu(int& arg0);
 	 AndroidCXX::android_view_SubMenu addSubMenu(AndroidCXX::java_lang_CharSequence& arg0);
-	 int addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<android_view_MenuItem >& arg7);
+	 int addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<AndroidCXX::android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<AndroidCXX::android_view_MenuItem >& arg7);
 	 void removeItem(int& arg0);
 	 void removeGroup(int& arg0);
 	 void setGroupCheckable(int& arg0,bool& arg1,bool& arg2);

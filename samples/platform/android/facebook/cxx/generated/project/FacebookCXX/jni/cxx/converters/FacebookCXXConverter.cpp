@@ -12,6 +12,21 @@
 #include <FacebookCXXConverter.hpp>
 
 // Proxy Converter Types
+void convert_com_facebook_AccessToken_SerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AccessToken_SerializationProxyV1 *cxx_object = new com_facebook_AccessToken_SerializationProxyV1((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_AccessToken(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -227,6 +242,21 @@ void convert_com_facebook_AuthorizationClient_AuthHandler(long& java_value, long
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_AuthorizationClient_AuthorizationRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_AuthorizationRequest *cxx_object = new com_facebook_AuthorizationClient_AuthorizationRequest((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_AuthorizationClient_BackgroundProcessingListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -257,6 +287,21 @@ void convert_com_facebook_AuthorizationClient_GetTokenAuthHandler_1(long& java_v
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_AuthorizationClient_GetTokenAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_GetTokenAuthHandler *cxx_object = new com_facebook_AuthorizationClient_GetTokenAuthHandler((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_AuthorizationClient_KatanaAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -269,6 +314,36 @@ void convert_com_facebook_AuthorizationClient_KatanaAuthHandler(long& java_value
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_AuthorizationClient_KatanaAuthHandler *cxx_object = new com_facebook_AuthorizationClient_KatanaAuthHandler((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler *cxx_object = new com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_AuthorizationClient_KatanaProxyAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_KatanaProxyAuthHandler *cxx_object = new com_facebook_AuthorizationClient_KatanaProxyAuthHandler((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -342,6 +417,21 @@ void convert_com_facebook_AuthorizationClient_Result_Code(long& java_value, long
 		while (0);		
 	}
 }
+void convert_com_facebook_AuthorizationClient_Result(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_Result *cxx_object = new com_facebook_AuthorizationClient_Result((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_AuthorizationClient_StartActivityDelegate(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -369,6 +459,36 @@ void convert_com_facebook_AuthorizationClient_WebViewAuthHandler_1(long& java_va
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_AuthorizationClient_WebViewAuthHandler_1 *cxx_object = new com_facebook_AuthorizationClient_WebViewAuthHandler_1((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_AuthorizationClient_WebViewAuthHandler(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient_WebViewAuthHandler *cxx_object = new com_facebook_AuthorizationClient_WebViewAuthHandler((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_AuthorizationClient(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_AuthorizationClient *cxx_object = new com_facebook_AuthorizationClient((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -550,6 +670,21 @@ void convert_com_facebook_FacebookRequestError_Category(long& java_value, long& 
 				}
 		} 
 		while (0);		
+	}
+}
+void convert_com_facebook_FacebookRequestError_Range(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_FacebookRequestError_Range *cxx_object = new com_facebook_FacebookRequestError_Range((void *) java_value);
+		cxx_value = (long) cxx_object;
 	}
 }
 void convert_com_facebook_FacebookRequestError(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
@@ -859,6 +994,21 @@ void convert_com_facebook_LoginActivity(long& java_value, long& cxx_value, const
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_LoginActivity *cxx_object = new com_facebook_LoginActivity((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_NativeProtocol(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_NativeProtocol *cxx_object = new com_facebook_NativeProtocol((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -1297,6 +1447,21 @@ void convert_com_facebook_Session_AuthorizationRequest_4(long& java_value, long&
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1 *cxx_object = new com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_Session_AuthorizationRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -1369,6 +1534,21 @@ void convert_com_facebook_Session_OpenRequest(long& java_value, long& cxx_value,
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_Session_OpenRequest *cxx_object = new com_facebook_Session_OpenRequest((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_Session_SerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_Session_SerializationProxyV1 *cxx_object = new com_facebook_Session_SerializationProxyV1((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -1629,12 +1809,92 @@ void convert_com_facebook_SessionState(long& java_value, long& cxx_value, const 
 
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		java_value = (long) ctx->findProxyComponent(cxx_value);
+		const char * enum_string = 0;
+		do
+		{
+			if (COM_FACEBOOK_SESSIONSTATE::CREATED == cxx_value)
+			{
+				enum_string = "CREATED";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::CREATED_TOKEN_LOADED == cxx_value)
+			{
+				enum_string = "CREATED_TOKEN_LOADED";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::OPENING == cxx_value)
+			{
+				enum_string = "OPENING";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::OPENED == cxx_value)
+			{
+				enum_string = "OPENED";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::OPENED_TOKEN_UPDATED == cxx_value)
+			{
+				enum_string = "OPENED_TOKEN_UPDATED";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::CLOSED_LOGIN_FAILED == cxx_value)
+			{
+				enum_string = "CLOSED_LOGIN_FAILED";
+				break;
+			}
+			if (COM_FACEBOOK_SESSIONSTATE::CLOSED == cxx_value)
+			{
+				enum_string = "CLOSED";
+				break;
+			}
+		}
+		while(0);
+		java_value = (long) jni->toJEnum(jni->getClassRef("com/facebook/SessionState"), enum_string);
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		com_facebook_SessionState *cxx_object = new com_facebook_SessionState((void *) java_value);
-		cxx_value = (long) cxx_object;
+		jstring jenum = jni->toCXXEnumString((jobject) java_value);
+		const char * enum_string = jni->getUTFString(jenum).c_str();
+		cxx_value = 0;
+		do
+		{
+				if (strcmp("CREATED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::CREATED;
+					break;
+				}
+				if (strcmp("CREATED_TOKEN_LOADED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::CREATED_TOKEN_LOADED;
+					break;
+				}
+				if (strcmp("OPENING", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::OPENING;
+					break;
+				}
+				if (strcmp("OPENED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::OPENED;
+					break;
+				}
+				if (strcmp("OPENED_TOKEN_UPDATED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::OPENED_TOKEN_UPDATED;
+					break;
+				}
+				if (strcmp("CLOSED_LOGIN_FAILED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::CLOSED_LOGIN_FAILED;
+					break;
+				}
+				if (strcmp("CLOSED", enum_string) == 0)
+				{
+					cxx_value = COM_FACEBOOK_SESSIONSTATE::CLOSED;
+					break;
+				}
+		} 
+		while (0);		
 	}
 }
 void convert_com_facebook_Settings_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
@@ -2207,6 +2467,21 @@ void convert_com_facebook_model_GraphObject_Factory_ProxyBase(long& java_value, 
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_model_GraphObject_Factory(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_model_GraphObject_Factory *cxx_object = new com_facebook_model_GraphObject_Factory((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_model_GraphObject(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -2282,6 +2557,21 @@ void convert_com_facebook_model_JsonUtil_JSONObjectEntry(long& java_value, long&
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_model_JsonUtil(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_model_JsonUtil *cxx_object = new com_facebook_model_JsonUtil((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_model_OpenGraphAction(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -2339,6 +2629,36 @@ void convert_com_facebook_widget_FacebookFragment(long& java_value, long& cxx_va
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_widget_FacebookFragment *cxx_object = new com_facebook_widget_FacebookFragment((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_FriendPickerFragment_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_FriendPickerFragment_1 *cxx_object = new com_facebook_widget_FriendPickerFragment_1((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy *cxx_object = new com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -2727,6 +3047,36 @@ void convert_com_facebook_widget_ImageDownloader_RequestKey(long& java_value, lo
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_widget_ImageDownloader(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_ImageDownloader *cxx_object = new com_facebook_widget_ImageDownloader((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_ImageRequest_Builder(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_ImageRequest_Builder *cxx_object = new com_facebook_widget_ImageRequest_Builder((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_widget_ImageRequest_Callback(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -2742,6 +3092,36 @@ void convert_com_facebook_widget_ImageRequest_Callback(long& java_value, long& c
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_widget_ImageRequest(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_ImageRequest *cxx_object = new com_facebook_widget_ImageRequest((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_ImageResponse(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_ImageResponse *cxx_object = new com_facebook_widget_ImageResponse((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -2754,6 +3134,21 @@ void convert_com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(long
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_widget_ImageResponseCache_BufferedHttpInputStream *cxx_object = new com_facebook_widget_ImageResponseCache_BufferedHttpInputStream((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_ImageResponseCache(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_ImageResponseCache *cxx_object = new com_facebook_widget_ImageResponseCache((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -3177,6 +3572,21 @@ void convert_com_facebook_widget_PickerFragment(long& java_value, long& cxx_valu
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_com_facebook_widget_PlacePickerFragment_1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_PlacePickerFragment_1 *cxx_object = new com_facebook_widget_PlacePickerFragment_1((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_com_facebook_widget_PlacePickerFragment_2(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -3324,6 +3734,21 @@ void convert_com_facebook_widget_SimpleGraphObjectCursor(long& java_value, long&
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_widget_SimpleGraphObjectCursor *cxx_object = new com_facebook_widget_SimpleGraphObjectCursor((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_UrlRedirectCache(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_UrlRedirectCache *cxx_object = new com_facebook_widget_UrlRedirectCache((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -3564,6 +3989,21 @@ void convert_com_facebook_widget_WorkQueue_WorkNode(long& java_value, long& cxx_
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		com_facebook_widget_WorkQueue_WorkNode *cxx_object = new com_facebook_widget_WorkQueue_WorkNode((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_com_facebook_widget_WorkQueue(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		com_facebook_widget_WorkQueue *cxx_object = new com_facebook_widget_WorkQueue((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }

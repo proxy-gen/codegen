@@ -54,27 +54,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_net_URLConnection;
@@ -95,7 +74,7 @@ public:
 	virtual ~java_net_ContentHandler();
 	// Functions
 	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0);
-	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
+	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
 };	
 
 } // namespace

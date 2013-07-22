@@ -50,28 +50,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_GraphObjectAdapter;
 
 class com_facebook_FacebookException;
 
-class java_lang_Object;
 
 class com_facebook_widget_PickerFragment_LoadingStrategy_3
 {

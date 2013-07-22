@@ -67,62 +67,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_webkit_WebView;
 
-class java_lang_String;
 
-class android_graphics_Bitmap;
 
-class android_webkit_SslErrorHandler;
 
-class android_net_http_SslError;
 
 class com_facebook_widget_WebDialog_DialogWebViewClient
 {
@@ -135,11 +85,11 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_DialogWebViewClient();
 	// Functions
-	 bool shouldOverrideUrlLoading(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1);
-	 void onPageStarted(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_graphics_Bitmap& arg2);
-	 void onPageFinished(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1);
-	 void onReceivedError(FacebookCXX::android_webkit_WebView& arg0,int& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::java_lang_String& arg3);
-	 void onReceivedSslError(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::android_webkit_SslErrorHandler& arg1,FacebookCXX::android_net_http_SslError& arg2);
+	 bool shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
+	 void onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2);
+	 void onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1);
+	 void onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
+	 void onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2);
 };	
 
 } // namespace

@@ -29,6 +29,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_AuthorizationRequest_4"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,6 +42,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -143,9 +147,9 @@ com_facebook_Session_AuthorizationRequest_4::~com_facebook_Session_Authorization
 	LOGV("com_facebook_Session_AuthorizationRequest_4::~com_facebook_Session_AuthorizationRequest_4() exit");
 }
 // Functions
-void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(FacebookCXX::android_content_Intent& arg0,int& arg1)
+void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1)
 {
-	LOGV("void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(FacebookCXX::android_content_Intent& arg0,int& arg1) enter");
+	LOGV("void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1) enter");
 
 	const char *methodName = "startActivityForResult";
 	const char *methodSignature = "(Landroid/content/Intent;I)V";
@@ -210,12 +214,12 @@ void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(Faceboo
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(FacebookCXX::android_content_Intent& arg0,int& arg1) exit");
+	LOGV("void com_facebook_Session_AuthorizationRequest_4::startActivityForResult(AndroidCXX::android_content_Intent& arg0,int& arg1) exit");
 
 }
-FacebookCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext()
+AndroidCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext()
 {
-	LOGV("FacebookCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext() enter");
+	LOGV("AndroidCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext() enter");
 
 	const char *methodName = "getActivityContext";
 	const char *methodSignature = "()Landroid/app/Activity;";
@@ -234,7 +238,7 @@ FacebookCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::g
 	LOGV("com_facebook_Session_AuthorizationRequest_4 jni address %d", javaObject);
 
 
-	FacebookCXX::android_app_Activity result;
+	AndroidCXX::android_app_Activity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -252,11 +256,11 @@ FacebookCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::g
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_Activity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_app_Activity) (FacebookCXX::android_app_Activity((FacebookCXX::android_app_Activity *) cxx_value));
+	result = (AndroidCXX::android_app_Activity) (AndroidCXX::android_app_Activity((AndroidCXX::android_app_Activity *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext() exit");
+	LOGV("AndroidCXX::android_app_Activity com_facebook_Session_AuthorizationRequest_4::getActivityContext() exit");
 
 	return result;
 }

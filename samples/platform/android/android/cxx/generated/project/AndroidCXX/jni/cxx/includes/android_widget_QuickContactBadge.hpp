@@ -78,48 +78,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_view_accessibility_AccessibilityEvent;
@@ -158,7 +116,7 @@ public:
 	 void assignContactUri(AndroidCXX::android_net_Uri& arg0);
 	 void assignContactFromEmail(AndroidCXX::java_lang_String& arg0,bool& arg1);
 	 void assignContactFromPhone(AndroidCXX::java_lang_String& arg0,bool& arg1);
-	 void setExcludeMimes(std::vector<java_lang_String >& arg0);
+	 void setExcludeMimes(std::vector<AndroidCXX::java_lang_String >& arg0);
 };	
 
 } // namespace

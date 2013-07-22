@@ -124,111 +124,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -260,8 +155,8 @@ public:
 	// Public Constructors
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1);
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<java_lang_Object >& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<java_lang_Object >& arg3);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2);
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3);
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::java_util_List& arg2);
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,AndroidCXX::java_util_List& arg3);
 	android_widget_ArrayAdapter();
@@ -271,7 +166,7 @@ public:
 	 void add(AndroidCXX::java_lang_Object& arg0);
 	 void clear();
 	 void addAll(AndroidCXX::java_util_Collection& arg0);
-	 void addAll(std::vector<java_lang_Object >& arg0);
+	 void addAll(std::vector<AndroidCXX::java_lang_Object >& arg0);
 	 void remove(AndroidCXX::java_lang_Object& arg0);
 	 AndroidCXX::android_content_Context getContext();
 	 void insert(AndroidCXX::java_lang_Object& arg0,int& arg1);

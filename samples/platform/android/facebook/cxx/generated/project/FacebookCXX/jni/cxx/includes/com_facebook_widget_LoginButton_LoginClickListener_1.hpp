@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_DialogInterface;
 
 class com_facebook_widget_LoginButton_LoginClickListener_1
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginClickListener_1();
 	// Functions
-	 void onClick(FacebookCXX::android_content_DialogInterface& arg0,int& arg1);
+	 void onClick(AndroidCXX::android_content_DialogInterface& arg0,int& arg1);
 };	
 
 } // namespace

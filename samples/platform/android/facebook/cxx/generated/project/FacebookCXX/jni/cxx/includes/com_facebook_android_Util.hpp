@@ -73,75 +73,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class android_os_Bundle;
 
-class android_content_Context;
 
-class org_json_JSONObject;
 
 class com_facebook_android_Util
 {
@@ -154,13 +90,13 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_android_Util();
 	// Functions
-	static FacebookCXX::android_os_Bundle parseUrl(FacebookCXX::java_lang_String& arg0);
-	static FacebookCXX::java_lang_String openUrl(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_os_Bundle& arg2);
-	static void showAlert(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2);
-	static FacebookCXX::java_lang_String encodePostBody(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_lang_String& arg1);
-	static FacebookCXX::java_lang_String encodeUrl(FacebookCXX::android_os_Bundle& arg0);
-	static FacebookCXX::android_os_Bundle decodeUrl(FacebookCXX::java_lang_String& arg0);
-	static FacebookCXX::org_json_JSONObject parseJson(FacebookCXX::java_lang_String& arg0);
+	static AndroidCXX::android_os_Bundle parseUrl(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_String openUrl(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
+	static void showAlert(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	static AndroidCXX::java_lang_String encodePostBody(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1);
+	static AndroidCXX::java_lang_String encodeUrl(AndroidCXX::android_os_Bundle& arg0);
+	static AndroidCXX::android_os_Bundle decodeUrl(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::org_json_JSONObject parseJson(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

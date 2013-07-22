@@ -67,6 +67,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_animation_PropertyValuesHolder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -980,9 +982,9 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 
 	return result;
 }
-AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/PropertyValuesHolder;";
@@ -1104,13 +1106,13 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "ofObject";
 	const char *methodSignature = "(Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/PropertyValuesHolder;";
@@ -1250,7 +1252,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofObject(AndroidCXX::android_util_Property& arg0,AndroidCXX::android_animation_TypeEvaluator& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }
@@ -1388,9 +1390,9 @@ void android_animation_PropertyValuesHolder::setFloatValues(std::vector<float>& 
 	LOGV("void android_animation_PropertyValuesHolder::setFloatValues(std::vector<float>& arg0) exit");
 
 }
-void android_animation_PropertyValuesHolder::setObjectValues(std::vector<java_lang_Object >& arg0)
+void android_animation_PropertyValuesHolder::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("void android_animation_PropertyValuesHolder::setObjectValues(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("void android_animation_PropertyValuesHolder::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "setObjectValues";
 	const char *methodSignature = "([Ljava/lang/Object;)V";
@@ -1452,7 +1454,7 @@ void android_animation_PropertyValuesHolder::setObjectValues(std::vector<java_la
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_animation_PropertyValuesHolder::setObjectValues(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("void android_animation_PropertyValuesHolder::setObjectValues(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 }
 void android_animation_PropertyValuesHolder::setEvaluator(AndroidCXX::android_animation_TypeEvaluator& arg0)
@@ -1504,9 +1506,9 @@ void android_animation_PropertyValuesHolder::setEvaluator(AndroidCXX::android_an
 	LOGV("void android_animation_PropertyValuesHolder::setEvaluator(AndroidCXX::android_animation_TypeEvaluator& arg0) exit");
 
 }
-AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<android_animation_Keyframe >& arg1)
+AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1)
 {
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<android_animation_Keyframe >& arg1) enter");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1) enter");
 
 	const char *methodName = "ofKeyframe";
 	const char *methodSignature = "(Landroid/util/Property;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;";
@@ -1607,13 +1609,13 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<android_animation_Keyframe >& arg1) exit");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::android_util_Property& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<android_animation_Keyframe >& arg1)
+AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1)
 {
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<android_animation_Keyframe >& arg1) enter");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1) enter");
 
 	const char *methodName = "ofKeyframe";
 	const char *methodSignature = "(Ljava/lang/String;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;";
@@ -1714,13 +1716,13 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<android_animation_Keyframe >& arg1) exit");
+	LOGV("AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyValuesHolder::ofKeyframe(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_animation_Keyframe >& arg1) exit");
 
 	return result;
 }
-void android_animation_PropertyValuesHolder::setKeyframes(std::vector<android_animation_Keyframe >& arg0)
+void android_animation_PropertyValuesHolder::setKeyframes(std::vector<AndroidCXX::android_animation_Keyframe >& arg0)
 {
-	LOGV("void android_animation_PropertyValuesHolder::setKeyframes(std::vector<android_animation_Keyframe >& arg0) enter");
+	LOGV("void android_animation_PropertyValuesHolder::setKeyframes(std::vector<AndroidCXX::android_animation_Keyframe >& arg0) enter");
 
 	const char *methodName = "setKeyframes";
 	const char *methodSignature = "([Landroid/animation/Keyframe;)V";
@@ -1782,6 +1784,6 @@ void android_animation_PropertyValuesHolder::setKeyframes(std::vector<android_an
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_animation_PropertyValuesHolder::setKeyframes(std::vector<android_animation_Keyframe >& arg0) exit");
+	LOGV("void android_animation_PropertyValuesHolder::setKeyframes(std::vector<AndroidCXX::android_animation_Keyframe >& arg0) exit");
 
 }

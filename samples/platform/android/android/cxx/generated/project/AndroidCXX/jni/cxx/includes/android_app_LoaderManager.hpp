@@ -82,60 +82,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_content_Loader;
@@ -164,7 +110,7 @@ public:
 	virtual ~android_app_LoaderManager();
 	// Functions
 	 AndroidCXX::android_content_Loader getLoader(int& arg0);
-	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3);
+	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
 	 AndroidCXX::android_content_Loader initLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_app_LoaderManager_LoaderCallbacks& arg2);
 	 AndroidCXX::android_content_Loader restartLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_app_LoaderManager_LoaderCallbacks& arg2);
 	 void destroyLoader(int& arg0);

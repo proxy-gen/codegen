@@ -103,105 +103,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -231,9 +132,9 @@ public:
 	 AndroidCXX::java_lang_String getLanguage();
 	static AndroidCXX::java_util_Locale getDefault();
 	static void setDefault(AndroidCXX::java_util_Locale& arg0);
-	static std::vector<java_util_Locale > getAvailableLocales();
-	static std::vector<java_lang_String > getISOCountries();
-	static std::vector<java_lang_String > getISOLanguages();
+	static std::vector<AndroidCXX::java_util_Locale > getAvailableLocales();
+	static std::vector<AndroidCXX::java_lang_String > getISOCountries();
+	static std::vector<AndroidCXX::java_lang_String > getISOLanguages();
 	 AndroidCXX::java_lang_String getCountry();
 	 AndroidCXX::java_lang_String getVariant();
 	 AndroidCXX::java_lang_String getISO3Language();

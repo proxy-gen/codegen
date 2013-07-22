@@ -50,6 +50,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_res_AssetManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -203,9 +205,9 @@ android_content_res_AssetManager::~android_content_res_AssetManager()
 	LOGV("android_content_res_AssetManager::~android_content_res_AssetManager() exit");
 }
 // Functions
-std::vector<java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "list";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
@@ -245,7 +247,7 @@ std::vector<java_lang_String > android_content_res_AssetManager::list(AndroidCXX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -281,11 +283,11 @@ std::vector<java_lang_String > android_content_res_AssetManager::list(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::list(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -856,9 +858,9 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 
 	return result;
 }
-std::vector<java_lang_String > android_content_res_AssetManager::getLocales()
+std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::getLocales()
 {
-	LOGV("std::vector<java_lang_String > android_content_res_AssetManager::getLocales() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::getLocales() enter");
 
 	const char *methodName = "getLocales";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -877,7 +879,7 @@ std::vector<java_lang_String > android_content_res_AssetManager::getLocales()
 	LOGV("android_content_res_AssetManager jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -913,11 +915,11 @@ std::vector<java_lang_String > android_content_res_AssetManager::getLocales()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_res_AssetManager::getLocales() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::getLocales() exit");
 
 	return result;
 }

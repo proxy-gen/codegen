@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_view_View;
 
 class com_facebook_widget_PickerFragment_4
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_4();
 	// Functions
-	 bool onLongClick(FacebookCXX::android_view_View& arg0);
+	 bool onLongClick(AndroidCXX::android_view_View& arg0);
 };	
 
 } // namespace

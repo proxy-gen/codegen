@@ -62,6 +62,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_net_InetAddress"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1486,9 +1488,9 @@ AndroidCXX::java_net_InetAddress java_net_InetAddress::getByAddress(AndroidCXX::
 
 	return result;
 }
-std::vector<java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getAllByName";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/net/InetAddress;";
@@ -1528,7 +1530,7 @@ std::vector<java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_net_InetAddress > result;
+	std::vector<AndroidCXX::java_net_InetAddress > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1564,11 +1566,11 @@ std::vector<java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_net_InetAddress >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_net_InetAddress >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_net_InetAddress > java_net_InetAddress::getAllByName(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

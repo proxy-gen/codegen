@@ -109,57 +109,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -215,7 +164,7 @@ public:
 	 int getColumnIndex(AndroidCXX::java_lang_String& arg0);
 	 int getColumnIndexOrThrow(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_lang_String getColumnName(int& arg0);
-	 std::vector<java_lang_String > getColumnNames();
+	 std::vector<AndroidCXX::java_lang_String > getColumnNames();
 	 int getColumnCount();
 	 std::vector<byte> getBlob(int& arg0);
 	 void copyStringToBuffer(int& arg0,AndroidCXX::android_database_CharArrayBuffer& arg1);

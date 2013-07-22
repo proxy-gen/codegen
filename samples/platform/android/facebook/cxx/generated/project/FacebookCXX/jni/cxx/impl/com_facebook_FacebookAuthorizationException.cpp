@@ -33,6 +33,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookAuthorizationException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -44,6 +46,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -140,9 +144,9 @@ com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationE
 
 	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException() exit");	
 }
-com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0)
+com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0) enter");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -195,11 +199,11 @@ com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationE
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0) exit");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0) exit");	
 }
-com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Throwable& arg1)
+com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1)
 {
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Throwable& arg1) enter");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
@@ -273,11 +277,11 @@ com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationE
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_Throwable& arg1) exit");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1) exit");	
 }
-com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_Throwable& arg0)
+com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable& arg0)
 {
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_Throwable& arg0) enter");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
@@ -330,7 +334,7 @@ com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationE
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(FacebookCXX::java_lang_Throwable& arg0) exit");	
+	LOGV("com_facebook_FacebookAuthorizationException::com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_FacebookAuthorizationException::~com_facebook_FacebookAuthorizationException()

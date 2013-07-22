@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler
 {
 public:
 
+	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(const com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler& cc);
+	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(void * proxy);
+	// Public Constructors
+	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler();
+	// Default Destructor
+	virtual ~com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler();
 	// Functions
 };	
 

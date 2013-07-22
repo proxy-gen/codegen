@@ -308,258 +308,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -621,10 +369,10 @@ public:
 	 float readFloat();
 	 void writeDouble(double& arg0);
 	 void writeString(AndroidCXX::java_lang_String& arg0);
-	 void writeArray(std::vector<java_lang_Object >& arg0);
+	 void writeArray(std::vector<AndroidCXX::java_lang_Object >& arg0);
 	 double readDouble();
 	 AndroidCXX::java_lang_String readString();
-	 std::vector<java_lang_Object > readArray(AndroidCXX::java_lang_ClassLoader& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > readArray(AndroidCXX::java_lang_ClassLoader& arg0);
 	 int dataSize();
 	 void writeValue(AndroidCXX::java_lang_Object& arg0);
 	 AndroidCXX::android_os_ParcelFileDescriptor readFileDescriptor();
@@ -670,16 +418,16 @@ public:
 	 void writeDoubleArray(std::vector<double>& arg0);
 	 std::vector<double> createDoubleArray();
 	 void readDoubleArray(std::vector<double>& arg0);
-	 void writeStringArray(std::vector<java_lang_String >& arg0);
-	 std::vector<java_lang_String > createStringArray();
-	 void readStringArray(std::vector<java_lang_String >& arg0);
-	 void writeBinderArray(std::vector<android_os_IBinder >& arg0);
-	 std::vector<android_os_IBinder > createBinderArray();
-	 void readBinderArray(std::vector<android_os_IBinder >& arg0);
+	 void writeStringArray(std::vector<AndroidCXX::java_lang_String >& arg0);
+	 std::vector<AndroidCXX::java_lang_String > createStringArray();
+	 void readStringArray(std::vector<AndroidCXX::java_lang_String >& arg0);
+	 void writeBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0);
+	 std::vector<AndroidCXX::android_os_IBinder > createBinderArray();
+	 void readBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0);
 	 void writeTypedList(AndroidCXX::java_util_List& arg0);
 	 void writeStringList(AndroidCXX::java_util_List& arg0);
 	 void writeBinderList(AndroidCXX::java_util_List& arg0);
-	 void writeTypedArray(std::vector<android_os_Parcelable >& arg0,int& arg1);
+	 void writeTypedArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1);
 	 void writeParcelable(AndroidCXX::android_os_Parcelable& arg0,int& arg1);
 	 void writeSerializable(AndroidCXX::java_io_Serializable& arg0);
 	 void writeException(AndroidCXX::java_lang_Exception& arg0);
@@ -703,12 +451,12 @@ public:
 	 AndroidCXX::java_util_ArrayList createBinderArrayList();
 	 void readStringList(AndroidCXX::java_util_List& arg0);
 	 void readBinderList(AndroidCXX::java_util_List& arg0);
-	 std::vector<java_lang_Object > createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0);
-	 void readTypedArray(std::vector<java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1);
-	 void writeParcelableArray(std::vector<android_os_Parcelable >& arg0,int& arg1);
+	 std::vector<AndroidCXX::java_lang_Object > createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0);
+	 void readTypedArray(std::vector<AndroidCXX::java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1);
+	 void writeParcelableArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1);
 	 AndroidCXX::java_lang_Object readValue(AndroidCXX::java_lang_ClassLoader& arg0);
 	 AndroidCXX::android_os_Parcelable readParcelable(AndroidCXX::java_lang_ClassLoader& arg0);
-	 std::vector<android_os_Parcelable > readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0);
+	 std::vector<AndroidCXX::android_os_Parcelable > readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0);
 	 AndroidCXX::java_io_Serializable readSerializable();
 };	
 

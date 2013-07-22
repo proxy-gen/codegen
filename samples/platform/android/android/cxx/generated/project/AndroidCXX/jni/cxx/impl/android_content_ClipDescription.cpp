@@ -48,6 +48,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_ClipDescription"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -174,9 +176,9 @@ android_content_ClipDescription::android_content_ClipDescription()
 	LOGV("android_content_ClipDescription::android_content_ClipDescription() exit");	
 }
 // Public Constructors
-android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1)
+android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1) enter");	
+	LOGV("android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;[Ljava/lang/String;)V";
@@ -268,7 +270,7 @@ android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::jav
 
 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1) exit");	
+	LOGV("android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");	
 }
 android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::android_content_ClipDescription& arg0)
 {
@@ -710,9 +712,9 @@ bool android_content_ClipDescription::hasMimeType(AndroidCXX::java_lang_String& 
 
 	return result;
 }
-std::vector<java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "filterMimeTypes";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
@@ -752,7 +754,7 @@ std::vector<java_lang_String > android_content_ClipDescription::filterMimeTypes(
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -788,11 +790,11 @@ std::vector<java_lang_String > android_content_ClipDescription::filterMimeTypes(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ClipDescription::filterMimeTypes(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

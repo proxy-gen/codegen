@@ -49,21 +49,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -81,7 +66,7 @@ public:
 	// Default Destructor
 	virtual ~android_os_Parcelable_Creator();
 	// Functions
-	 std::vector<java_lang_Object > newArray(int& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > newArray(int& arg0);
 	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel& arg0);
 };	
 

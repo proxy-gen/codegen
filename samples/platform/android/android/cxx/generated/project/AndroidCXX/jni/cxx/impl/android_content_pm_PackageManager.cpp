@@ -202,6 +202,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_pm_PackageManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1319,9 +1321,9 @@ AndroidCXX::android_content_pm_ResolveInfo android_content_pm_PackageManager::re
 
 	return result;
 }
-std::vector<java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<java_lang_String >& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<java_lang_String >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "currentToCanonicalPackageNames";
 	const char *methodSignature = "([Ljava/lang/String;)[Ljava/lang/String;";
@@ -1379,7 +1381,7 @@ std::vector<java_lang_String > android_content_pm_PackageManager::currentToCanon
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1415,17 +1417,17 @@ std::vector<java_lang_String > android_content_pm_PackageManager::currentToCanon
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<java_lang_String >& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 	return result;
 }
-std::vector<java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<java_lang_String >& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<java_lang_String >& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "canonicalToCurrentPackageNames";
 	const char *methodSignature = "([Ljava/lang/String;)[Ljava/lang/String;";
@@ -1483,7 +1485,7 @@ std::vector<java_lang_String > android_content_pm_PackageManager::canonicalToCur
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1519,11 +1521,11 @@ std::vector<java_lang_String > android_content_pm_PackageManager::canonicalToCur
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<java_lang_String >& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 	return result;
 }
@@ -2857,9 +2859,9 @@ int android_content_pm_PackageManager::checkSignatures(int& arg0,int& arg1)
 
 	return result;
 }
-std::vector<java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) enter");
 
 	const char *methodName = "getPackagesForUid";
 	const char *methodSignature = "(I)[Ljava/lang/String;";
@@ -2899,7 +2901,7 @@ std::vector<java_lang_String > android_content_pm_PackageManager::getPackagesFor
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2935,11 +2937,11 @@ std::vector<java_lang_String > android_content_pm_PackageManager::getPackagesFor
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getPackagesForUid(int& arg0) exit");
 
 	return result;
 }
@@ -3097,9 +3099,9 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getInstalledApplic
 
 	return result;
 }
-std::vector<java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames()
+std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames()
 {
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames() enter");
 
 	const char *methodName = "getSystemSharedLibraryNames";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -3118,7 +3120,7 @@ std::vector<java_lang_String > android_content_pm_PackageManager::getSystemShare
 	LOGV("android_content_pm_PackageManager jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3154,17 +3156,17 @@ std::vector<java_lang_String > android_content_pm_PackageManager::getSystemShare
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_pm_PackageManager::getSystemSharedLibraryNames() exit");
 
 	return result;
 }
-std::vector<android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures()
+std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures()
 {
-	LOGV("std::vector<android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures() enter");
+	LOGV("std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures() enter");
 
 	const char *methodName = "getSystemAvailableFeatures";
 	const char *methodSignature = "()[Landroid/content/pm/FeatureInfo;";
@@ -3183,7 +3185,7 @@ std::vector<android_content_pm_FeatureInfo > android_content_pm_PackageManager::
 	LOGV("android_content_pm_PackageManager jni address %d", javaObject);
 
 
-	std::vector<android_content_pm_FeatureInfo > result;
+	std::vector<AndroidCXX::android_content_pm_FeatureInfo > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3219,11 +3221,11 @@ std::vector<android_content_pm_FeatureInfo > android_content_pm_PackageManager::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_content_pm_FeatureInfo >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_content_pm_FeatureInfo >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures() exit");
+	LOGV("std::vector<AndroidCXX::android_content_pm_FeatureInfo > android_content_pm_PackageManager::getSystemAvailableFeatures() exit");
 
 	return result;
 }
@@ -3402,9 +3404,9 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 
 	return result;
 }
-AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3)
+AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3)
 {
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) enter");
 
 	const char *methodName = "queryIntentActivityOptions";
 	const char *methodSignature = "(Landroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I)Ljava/util/List;";
@@ -3565,7 +3567,7 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivit
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::java_util_List android_content_pm_PackageManager::queryIntentActivityOptions(AndroidCXX::android_content_ComponentName& arg0,std::vector<AndroidCXX::android_content_Intent >& arg1,AndroidCXX::android_content_Intent& arg2,int& arg3) exit");
 
 	return result;
 }
@@ -5720,9 +5722,9 @@ AndroidCXX::java_util_List android_content_pm_PackageManager::getPreferredPackag
 
 	return result;
 }
-void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3)
+void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3)
 {
-	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) enter");
+	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) enter");
 
 	const char *methodName = "addPreferredActivity";
 	const char *methodSignature = "(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;)V";
@@ -5847,7 +5849,7 @@ void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) exit");
+	LOGV("void android_content_pm_PackageManager::addPreferredActivity(AndroidCXX::android_content_IntentFilter& arg0,int& arg1,std::vector<AndroidCXX::android_content_ComponentName >& arg2,AndroidCXX::android_content_ComponentName& arg3) exit");
 
 }
 void android_content_pm_PackageManager::clearPackagePreferredActivities(AndroidCXX::java_lang_String& arg0)

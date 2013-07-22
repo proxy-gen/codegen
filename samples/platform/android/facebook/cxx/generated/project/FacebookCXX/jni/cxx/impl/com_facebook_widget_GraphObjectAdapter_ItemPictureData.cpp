@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectAdapter_ItemPictureData"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_widget_GraphObjectAdapter_ItemPictureData::~com_facebook_widget_Gra
 	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPictureData::~com_facebook_widget_GraphObjectAdapter_ItemPictureData() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl()
+AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl() enter");
 
 	const char *methodName = "getUrl";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -159,7 +163,7 @@ FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPicture
 	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPictureData jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -177,11 +181,11 @@ FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPicture
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureData::getUrl() exit");
 
 	return result;
 }

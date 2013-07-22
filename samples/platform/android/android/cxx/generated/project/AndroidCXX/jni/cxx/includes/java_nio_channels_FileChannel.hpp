@@ -94,66 +94,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_nio_channels_FileLock;
@@ -187,15 +127,15 @@ public:
 	 long position();
 	 AndroidCXX::java_nio_channels_FileChannel position(long& arg0);
 	 int write(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
-	 long write(std::vector<java_nio_ByteBuffer >& arg0);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
 	 int write(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1);
 	 AndroidCXX::java_nio_channels_FileChannel truncate(long& arg0);
 	 AndroidCXX::java_nio_MappedByteBuffer map(AndroidCXX::java_nio_channels_FileChannel_MapMode& arg0,long& arg1,long& arg2);
 	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
 	 int read(AndroidCXX::java_nio_ByteBuffer& arg0,long& arg1);
-	 long read(std::vector<java_nio_ByteBuffer >& arg0);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
 	 AndroidCXX::java_nio_channels_FileLock tryLock();
 	 AndroidCXX::java_nio_channels_FileLock tryLock(long& arg0,long& arg1,bool& arg2);
 	 void force(bool& arg0);

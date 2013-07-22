@@ -43,6 +43,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WebDialog_DialogWebViewClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,6 +56,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -190,9 +194,9 @@ com_facebook_widget_WebDialog_DialogWebViewClient::~com_facebook_widget_WebDialo
 	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient::~com_facebook_widget_WebDialog_DialogWebViewClient() exit");
 }
 // Functions
-bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1)
+bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1) enter");
+	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "shouldOverrideUrlLoading";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Z";
@@ -275,13 +279,13 @@ bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1) exit");
+	LOGV("bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 	return result;
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_graphics_Bitmap& arg2)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_graphics_Bitmap& arg2) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) enter");
 
 	const char *methodName = "onPageStarted";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V";
@@ -367,12 +371,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(FacebookCX
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_graphics_Bitmap& arg2) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_graphics_Bitmap& arg2) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "onPageFinished";
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
@@ -437,12 +441,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(FacebookC
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(FacebookCXX::android_webkit_WebView& arg0,int& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::java_lang_String& arg3)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(FacebookCXX::android_webkit_WebView& arg0,int& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::java_lang_String& arg3) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");
 
 	const char *methodName = "onReceivedError";
 	const char *methodSignature = "(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V";
@@ -549,12 +553,12 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(Facebook
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(FacebookCXX::android_webkit_WebView& arg0,int& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::java_lang_String& arg3) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidCXX::android_webkit_WebView& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
 
 }
-void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::android_webkit_SslErrorHandler& arg1,FacebookCXX::android_net_http_SslError& arg2)
+void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2)
 {
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::android_webkit_SslErrorHandler& arg1,FacebookCXX::android_net_http_SslError& arg2) enter");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) enter");
 
 	const char *methodName = "onReceivedSslError";
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V";
@@ -640,6 +644,6 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(Faceb
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(FacebookCXX::android_webkit_WebView& arg0,FacebookCXX::android_webkit_SslErrorHandler& arg1,FacebookCXX::android_net_http_SslError& arg2) exit");
+	LOGV("void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(AndroidCXX::android_webkit_WebView& arg0,AndroidCXX::android_webkit_SslErrorHandler& arg1,AndroidCXX::android_net_http_SslError& arg2) exit");
 
 }

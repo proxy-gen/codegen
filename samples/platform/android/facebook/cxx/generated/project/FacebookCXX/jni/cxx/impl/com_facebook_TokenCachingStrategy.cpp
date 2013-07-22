@@ -71,6 +71,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_TokenCachingStrategy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -82,6 +84,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -295,9 +299,9 @@ void com_facebook_TokenCachingStrategy::clear()
 	LOGV("void com_facebook_TokenCachingStrategy::clear() exit");
 
 }
-FacebookCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
+AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 {
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load() enter");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load() enter");
 
 	const char *methodName = "load";
 	const char *methodSignature = "()Landroid/os/Bundle;";
@@ -316,7 +320,7 @@ FacebookCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 	LOGV("com_facebook_TokenCachingStrategy jni address %d", javaObject);
 
 
-	FacebookCXX::android_os_Bundle result;
+	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -334,17 +338,17 @@ FacebookCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_os_Bundle) (FacebookCXX::android_os_Bundle((FacebookCXX::android_os_Bundle *) cxx_value));
+	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load() exit");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load() exit");
 
 	return result;
 }
-FacebookCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(FacebookCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getPermissions";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/List;";
@@ -384,7 +388,7 @@ FacebookCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(Fa
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -420,17 +424,17 @@ FacebookCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(Fa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "save";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -474,12 +478,12 @@ void com_facebook_TokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(FacebookCXX::android_os_Bundle& arg0)
+AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getToken";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/lang/String;";
@@ -519,7 +523,7 @@ FacebookCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Facebo
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -537,17 +541,17 @@ FacebookCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Facebo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(FacebookCXX::android_os_Bundle& arg0)
+COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getSource";
 	const char *methodSignature = "(Landroid/os/Bundle;)Lcom/facebook/AccessTokenSource;";
@@ -609,13 +613,13 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 		
 	jni->popLocalFrame();
 
-	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_TokenCachingStrategy::getSource(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-bool com_facebook_TokenCachingStrategy::hasTokenInformation(FacebookCXX::android_os_Bundle& arg0)
+bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "hasTokenInformation";
 	const char *methodSignature = "(Landroid/os/Bundle;)Z";
@@ -677,13 +681,13 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(FacebookCXX::android
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(FacebookCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getExpirationDate";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
@@ -723,7 +727,7 @@ FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -741,17 +745,17 @@ FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putToken(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_lang_String& arg1)
+void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putToken(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "putToken";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/lang/String;)V";
@@ -816,12 +820,12 @@ void com_facebook_TokenCachingStrategy::putToken(FacebookCXX::android_os_Bundle&
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putToken(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putExpirationDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1)
+void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) enter");
 
 	const char *methodName = "putExpirationDate";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
@@ -886,12 +890,12 @@ void com_facebook_TokenCachingStrategy::putExpirationDate(FacebookCXX::android_o
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) exit");
 
 }
-long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0)
+long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getExpirationMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
@@ -953,13 +957,13 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(FacebookCXX::a
 		
 	jni->popLocalFrame();
 
-	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1)
+void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) enter");
 
 	const char *methodName = "putExpirationMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
@@ -1024,12 +1028,12 @@ void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(FacebookCXX::a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putPermissions(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_List& arg1)
+void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_List& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1) enter");
 
 	const char *methodName = "putPermissions";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/List;)V";
@@ -1112,12 +1116,12 @@ void com_facebook_TokenCachingStrategy::putPermissions(FacebookCXX::android_os_B
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_List& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1) exit");
 
 }
-void com_facebook_TokenCachingStrategy::putSource(FacebookCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1)
+void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putSource(FacebookCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) enter");
 
 	const char *methodName = "putSource";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/AccessTokenSource;)V";
@@ -1182,12 +1186,12 @@ void com_facebook_TokenCachingStrategy::putSource(FacebookCXX::android_os_Bundle
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putSource(FacebookCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(FacebookCXX::android_os_Bundle& arg0)
+AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getLastRefreshDate";
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
@@ -1227,7 +1231,7 @@ FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDat
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1245,17 +1249,17 @@ FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putLastRefreshDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1)
+void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) enter");
 
 	const char *methodName = "putLastRefreshDate";
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
@@ -1320,12 +1324,12 @@ void com_facebook_TokenCachingStrategy::putLastRefreshDate(FacebookCXX::android_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1) exit");
 
 }
-long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0)
+long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "getLastRefreshMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
@@ -1387,13 +1391,13 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(FacebookCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0) exit");
 
 	return result;
 }
-void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1)
+void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1)
 {
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1) enter");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) enter");
 
 	const char *methodName = "putLastRefreshMilliseconds";
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
@@ -1458,6 +1462,6 @@ void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(FacebookCXX::
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1) exit");
+	LOGV("void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1) exit");
 
 }

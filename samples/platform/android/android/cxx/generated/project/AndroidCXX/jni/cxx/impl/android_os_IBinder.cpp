@@ -43,6 +43,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_os_IBinder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -178,9 +180,9 @@ android_os_IBinder::~android_os_IBinder()
 	LOGV("android_os_IBinder::~android_os_IBinder() exit");
 }
 // Functions
-void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1)
+void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/io/FileDescriptor;[Ljava/lang/String;)V";
@@ -263,7 +265,7 @@ void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vect
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 }
 AndroidCXX::java_lang_String android_os_IBinder::getInterfaceDescriptor()
@@ -475,9 +477,9 @@ AndroidCXX::android_os_IInterface android_os_IBinder::queryLocalInterface(Androi
 
 	return result;
 }
-void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1)
+void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "dumpAsync";
 	const char *methodSignature = "(Ljava/io/FileDescriptor;[Ljava/lang/String;)V";
@@ -560,7 +562,7 @@ void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std:
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 }
 bool android_os_IBinder::transact(int& arg0,AndroidCXX::android_os_Parcel& arg1,AndroidCXX::android_os_Parcel& arg2,int& arg3)

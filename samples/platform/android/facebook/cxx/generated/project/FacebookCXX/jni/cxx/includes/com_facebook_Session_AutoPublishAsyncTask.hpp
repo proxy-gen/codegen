@@ -49,28 +49,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session;
 
-class java_lang_String;
 
-class android_content_Context;
 
 class com_facebook_Session_AutoPublishAsyncTask
 {
@@ -79,7 +62,7 @@ public:
 	com_facebook_Session_AutoPublishAsyncTask(const com_facebook_Session_AutoPublishAsyncTask& cc);
 	com_facebook_Session_AutoPublishAsyncTask(void * proxy);
 	// Public Constructors
-	com_facebook_Session_AutoPublishAsyncTask(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::android_content_Context& arg2);
+	com_facebook_Session_AutoPublishAsyncTask(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Context& arg2);
 	com_facebook_Session_AutoPublishAsyncTask();
 	// Default Destructor
 	virtual ~com_facebook_Session_AutoPublishAsyncTask();

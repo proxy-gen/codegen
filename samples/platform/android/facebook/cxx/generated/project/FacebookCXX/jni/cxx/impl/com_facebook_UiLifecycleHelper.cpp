@@ -37,6 +37,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_UiLifecycleHelper"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -45,6 +47,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -145,9 +152,9 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper()
 	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper() exit");	
 }
 // Public Constructors
-com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(FacebookCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1)
+com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1)
 {
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(FacebookCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) enter");	
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/app/Activity;Lcom/facebook/Session$StatusCallback;)V";
@@ -221,7 +228,7 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(FacebookCXX::andr
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(FacebookCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) exit");	
+	LOGV("com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper()
@@ -238,9 +245,9 @@ com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper()
 	LOGV("com_facebook_UiLifecycleHelper::~com_facebook_UiLifecycleHelper() exit");
 }
 // Functions
-void com_facebook_UiLifecycleHelper::onCreate(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onCreate(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -284,7 +291,7 @@ void com_facebook_UiLifecycleHelper::onCreate(FacebookCXX::android_os_Bundle& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_UiLifecycleHelper::onCreate(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_UiLifecycleHelper::onResume()
@@ -315,9 +322,9 @@ void com_facebook_UiLifecycleHelper::onResume()
 	LOGV("void com_facebook_UiLifecycleHelper::onResume() exit");
 
 }
-void com_facebook_UiLifecycleHelper::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onSaveInstanceState";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -361,7 +368,7 @@ void com_facebook_UiLifecycleHelper::onSaveInstanceState(FacebookCXX::android_os
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_UiLifecycleHelper::onPause()
@@ -420,9 +427,9 @@ void com_facebook_UiLifecycleHelper::onDestroy()
 	LOGV("void com_facebook_UiLifecycleHelper::onDestroy() exit");
 
 }
-void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2)
+void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
 {
-	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) enter");
+	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
 
 	const char *methodName = "onActivityResult";
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
@@ -508,6 +515,6 @@ void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,Facebo
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) exit");
+	LOGV("void com_facebook_UiLifecycleHelper::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
 
 }

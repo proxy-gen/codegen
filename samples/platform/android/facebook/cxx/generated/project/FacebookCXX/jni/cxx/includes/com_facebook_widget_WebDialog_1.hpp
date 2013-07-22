@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_DialogInterface;
 
 class com_facebook_widget_WebDialog_1
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_1();
 	// Functions
-	 void onCancel(FacebookCXX::android_content_DialogInterface& arg0);
+	 void onCancel(AndroidCXX::android_content_DialogInterface& arg0);
 };	
 
 } // namespace

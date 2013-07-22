@@ -347,6 +347,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_TextView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -4703,9 +4705,9 @@ void android_widget_TextView::setGravity(int& arg0)
 	LOGV("void android_widget_TextView::setGravity(int& arg0) exit");
 
 }
-void android_widget_TextView::setFilters(std::vector<android_text_InputFilter >& arg0)
+void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0)
 {
-	LOGV("void android_widget_TextView::setFilters(std::vector<android_text_InputFilter >& arg0) enter");
+	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) enter");
 
 	const char *methodName = "setFilters";
 	const char *methodSignature = "([Landroid/text/InputFilter;)V";
@@ -4767,12 +4769,12 @@ void android_widget_TextView::setFilters(std::vector<android_text_InputFilter >&
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_widget_TextView::setFilters(std::vector<android_text_InputFilter >& arg0) exit");
+	LOGV("void android_widget_TextView::setFilters(std::vector<AndroidCXX::android_text_InputFilter >& arg0) exit");
 
 }
-std::vector<android_text_InputFilter > android_widget_TextView::getFilters()
+std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getFilters()
 {
-	LOGV("std::vector<android_text_InputFilter > android_widget_TextView::getFilters() enter");
+	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getFilters() enter");
 
 	const char *methodName = "getFilters";
 	const char *methodSignature = "()[Landroid/text/InputFilter;";
@@ -4791,7 +4793,7 @@ std::vector<android_text_InputFilter > android_widget_TextView::getFilters()
 	LOGV("android_widget_TextView jni address %d", javaObject);
 
 
-	std::vector<android_text_InputFilter > result;
+	std::vector<AndroidCXX::android_text_InputFilter > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4827,11 +4829,11 @@ std::vector<android_text_InputFilter > android_widget_TextView::getFilters()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_text_InputFilter >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_text_InputFilter >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_text_InputFilter > android_widget_TextView::getFilters() exit");
+	LOGV("std::vector<AndroidCXX::android_text_InputFilter > android_widget_TextView::getFilters() exit");
 
 	return result;
 }
@@ -6547,9 +6549,9 @@ void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(An
 	LOGV("void android_widget_TextView::setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable& arg0,AndroidCXX::android_graphics_drawable_Drawable& arg1,AndroidCXX::android_graphics_drawable_Drawable& arg2,AndroidCXX::android_graphics_drawable_Drawable& arg3) exit");
 
 }
-std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables()
+std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables()
 {
-	LOGV("std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables() enter");
+	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables() enter");
 
 	const char *methodName = "getCompoundDrawables";
 	const char *methodSignature = "()[Landroid/graphics/drawable/Drawable;";
@@ -6568,7 +6570,7 @@ std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCom
 	LOGV("android_widget_TextView jni address %d", javaObject);
 
 
-	std::vector<android_graphics_drawable_Drawable > result;
+	std::vector<AndroidCXX::android_graphics_drawable_Drawable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6604,17 +6606,17 @@ std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCom
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_graphics_drawable_Drawable >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_graphics_drawable_Drawable >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables() exit");
+	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawables() exit");
 
 	return result;
 }
-std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative()
+std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative()
 {
-	LOGV("std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative() enter");
+	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative() enter");
 
 	const char *methodName = "getCompoundDrawablesRelative";
 	const char *methodSignature = "()[Landroid/graphics/drawable/Drawable;";
@@ -6633,7 +6635,7 @@ std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCom
 	LOGV("android_widget_TextView jni address %d", javaObject);
 
 
-	std::vector<android_graphics_drawable_Drawable > result;
+	std::vector<AndroidCXX::android_graphics_drawable_Drawable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6669,11 +6671,11 @@ std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCom
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_graphics_drawable_Drawable >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_graphics_drawable_Drawable >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative() exit");
+	LOGV("std::vector<AndroidCXX::android_graphics_drawable_Drawable > android_widget_TextView::getCompoundDrawablesRelative() exit");
 
 	return result;
 }
@@ -7647,9 +7649,9 @@ bool android_widget_TextView::getLinksClickable()
 
 	return result;
 }
-std::vector<android_text_style_URLSpan > android_widget_TextView::getUrls()
+std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::getUrls()
 {
-	LOGV("std::vector<android_text_style_URLSpan > android_widget_TextView::getUrls() enter");
+	LOGV("std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::getUrls() enter");
 
 	const char *methodName = "getUrls";
 	const char *methodSignature = "()[Landroid/text/style/URLSpan;";
@@ -7668,7 +7670,7 @@ std::vector<android_text_style_URLSpan > android_widget_TextView::getUrls()
 	LOGV("android_widget_TextView jni address %d", javaObject);
 
 
-	std::vector<android_text_style_URLSpan > result;
+	std::vector<AndroidCXX::android_text_style_URLSpan > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -7704,11 +7706,11 @@ std::vector<android_text_style_URLSpan > android_widget_TextView::getUrls()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_text_style_URLSpan >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_text_style_URLSpan >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_text_style_URLSpan > android_widget_TextView::getUrls() exit");
+	LOGV("std::vector<AndroidCXX::android_text_style_URLSpan > android_widget_TextView::getUrls() exit");
 
 	return result;
 }

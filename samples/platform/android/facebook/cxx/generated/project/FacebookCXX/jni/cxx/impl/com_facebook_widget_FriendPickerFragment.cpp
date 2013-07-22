@@ -42,6 +42,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FriendPickerFragment"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -53,6 +55,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -125,9 +129,9 @@ com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragme
 	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(void * proxy) exit");
 }
 // Public Constructors
-com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(FacebookCXX::android_os_Bundle& arg0)
+com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(FacebookCXX::android_os_Bundle& arg0) enter");	
+	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -180,7 +184,7 @@ com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragme
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(FacebookCXX::android_os_Bundle& arg0) exit");	
+	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle& arg0) exit");	
 }
 com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment()
 {
@@ -233,9 +237,9 @@ com_facebook_widget_FriendPickerFragment::~com_facebook_widget_FriendPickerFragm
 	LOGV("com_facebook_widget_FriendPickerFragment::~com_facebook_widget_FriendPickerFragment() exit");
 }
 // Functions
-void com_facebook_widget_FriendPickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2)
+void com_facebook_widget_FriendPickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("void com_facebook_widget_FriendPickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2) enter");
+	LOGV("void com_facebook_widget_FriendPickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
 
 	const char *methodName = "onInflate";
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
@@ -321,12 +325,12 @@ void com_facebook_widget_FriendPickerFragment::onInflate(FacebookCXX::android_ap
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FriendPickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2) exit");
+	LOGV("void com_facebook_widget_FriendPickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId()
+AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId() enter");
 
 	const char *methodName = "getUserId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -345,7 +349,7 @@ FacebookCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserI
 	LOGV("com_facebook_widget_FriendPickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -363,17 +367,17 @@ FacebookCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserI
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId() exit");
 
 	return result;
 }
-void com_facebook_widget_FriendPickerFragment::setUserId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_widget_FriendPickerFragment::setUserId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_widget_FriendPickerFragment::setUserId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_FriendPickerFragment::setUserId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setUserId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -417,7 +421,7 @@ void com_facebook_widget_FriendPickerFragment::setUserId(FacebookCXX::java_lang_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FriendPickerFragment::setUserId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_FriendPickerFragment::setUserId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 bool com_facebook_widget_FriendPickerFragment::getMultiSelect()
@@ -516,9 +520,9 @@ void com_facebook_widget_FriendPickerFragment::setMultiSelect(bool& arg0)
 	LOGV("void com_facebook_widget_FriendPickerFragment::setMultiSelect(bool& arg0) exit");
 
 }
-FacebookCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection()
+AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection() enter");
 
 	const char *methodName = "getSelection";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -537,7 +541,7 @@ FacebookCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelecti
 	LOGV("com_facebook_widget_FriendPickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -573,17 +577,17 @@ FacebookCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelecti
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelection() exit");
 
 	return result;
 }
-void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "setSettingsFromBundle";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -627,6 +631,6 @@ void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(FacebookCXX
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_FriendPickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

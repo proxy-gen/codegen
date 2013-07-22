@@ -48,6 +48,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_QuickContactBadge"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -836,9 +838,9 @@ void android_widget_QuickContactBadge::assignContactFromPhone(AndroidCXX::java_l
 	LOGV("void android_widget_QuickContactBadge::assignContactFromPhone(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
 
 }
-void android_widget_QuickContactBadge::setExcludeMimes(std::vector<java_lang_String >& arg0)
+void android_widget_QuickContactBadge::setExcludeMimes(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("void android_widget_QuickContactBadge::setExcludeMimes(std::vector<java_lang_String >& arg0) enter");
+	LOGV("void android_widget_QuickContactBadge::setExcludeMimes(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "setExcludeMimes";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -900,6 +902,6 @@ void android_widget_QuickContactBadge::setExcludeMimes(std::vector<java_lang_Str
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_widget_QuickContactBadge::setExcludeMimes(std::vector<java_lang_String >& arg0) exit");
+	LOGV("void android_widget_QuickContactBadge::setExcludeMimes(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 }

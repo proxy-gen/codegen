@@ -124,123 +124,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -299,7 +182,7 @@ public:
 	 AndroidCXX::java_lang_String toExternalForm();
 	 AndroidCXX::java_net_URLConnection openConnection(AndroidCXX::java_net_Proxy& arg0);
 	 AndroidCXX::java_net_URLConnection openConnection();
-	 AndroidCXX::java_lang_Object getContent(std::vector<java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_Object getContent(std::vector<AndroidCXX::java_lang_Class >& arg0);
 	 AndroidCXX::java_lang_Object getContent();
 	static void setURLStreamHandlerFactory(AndroidCXX::java_net_URLStreamHandlerFactory& arg0);
 };	

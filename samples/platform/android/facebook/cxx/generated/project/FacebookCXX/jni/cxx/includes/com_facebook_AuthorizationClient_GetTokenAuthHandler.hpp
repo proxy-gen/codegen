@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_AuthorizationClient_GetTokenAuthHandler
 {
 public:
 
+	com_facebook_AuthorizationClient_GetTokenAuthHandler(const com_facebook_AuthorizationClient_GetTokenAuthHandler& cc);
+	com_facebook_AuthorizationClient_GetTokenAuthHandler(void * proxy);
+	// Public Constructors
+	com_facebook_AuthorizationClient_GetTokenAuthHandler();
+	// Default Destructor
+	virtual ~com_facebook_AuthorizationClient_GetTokenAuthHandler();
 	// Functions
 };	
 

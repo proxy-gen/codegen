@@ -60,6 +60,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_ThreadGroup"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -777,9 +779,9 @@ int java_lang_ThreadGroup::activeCount()
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;)I";
@@ -859,13 +861,13 @@ int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0) exit");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0,bool& arg1)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0,bool& arg1) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;Z)I";
@@ -966,13 +968,13 @@ int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0,b
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_ThreadGroup >& arg0,bool& arg1) exit");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0,bool& arg1)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0,bool& arg1) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/Thread;Z)I";
@@ -1073,13 +1075,13 @@ int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0,bool& 
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0,bool& arg1) exit");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1) exit");
 
 	return result;
 }
-int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0)
+int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0)
 {
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0) enter");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) enter");
 
 	const char *methodName = "enumerate";
 	const char *methodSignature = "([Ljava/lang/Thread;)I";
@@ -1159,7 +1161,7 @@ int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<java_lang_Thread >& arg0) exit");
+	LOGV("int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0) exit");
 
 	return result;
 }

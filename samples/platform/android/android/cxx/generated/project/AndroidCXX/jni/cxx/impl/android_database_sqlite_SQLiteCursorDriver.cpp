@@ -33,6 +33,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_database_sqlite_SQLiteCursorDriver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -150,9 +152,9 @@ android_database_sqlite_SQLiteCursorDriver::~android_database_sqlite_SQLiteCurso
 	LOGV("android_database_sqlite_SQLiteCursorDriver::~android_database_sqlite_SQLiteCursorDriver() exit");
 }
 // Functions
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<java_lang_String >& arg1)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;[Ljava/lang/String;)Landroid/database/Cursor;";
@@ -253,7 +255,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 	return result;
 }
@@ -362,9 +364,9 @@ void android_database_sqlite_SQLiteCursorDriver::cursorClosed()
 	LOGV("void android_database_sqlite_SQLiteCursorDriver::cursorClosed() exit");
 
 }
-void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<java_lang_String >& arg0)
+void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<java_lang_String >& arg0) enter");
+	LOGV("void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "setBindArguments";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -426,6 +428,6 @@ void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<ja
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<java_lang_String >& arg0) exit");
+	LOGV("void android_database_sqlite_SQLiteCursorDriver::setBindArguments(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 }

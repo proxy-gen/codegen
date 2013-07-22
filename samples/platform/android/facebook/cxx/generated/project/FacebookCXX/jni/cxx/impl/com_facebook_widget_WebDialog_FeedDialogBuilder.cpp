@@ -56,6 +56,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WebDialog_FeedDialogBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -64,6 +66,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -212,9 +219,9 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_F
 	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder() exit");	
 }
 // Public Constructors
-com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2)
+com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2) enter");	
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Landroid/os/Bundle;)V";
@@ -309,11 +316,11 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_F
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::android_os_Bundle& arg2) exit");	
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2) exit");	
 }
-com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1)
+com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1)
 {
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) enter");	
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;)V";
@@ -387,7 +394,7 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_F
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) exit");	
+	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_WebDialog_FeedDialogBuilder::~com_facebook_widget_WebDialog_FeedDialogBuilder()
@@ -404,9 +411,9 @@ com_facebook_widget_WebDialog_FeedDialogBuilder::~com_facebook_widget_WebDialog_
 	LOGV("com_facebook_widget_WebDialog_FeedDialogBuilder::~com_facebook_widget_WebDialog_FeedDialogBuilder() exit");
 }
 // Functions
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setName";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -468,13 +475,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setName(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setLink";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -536,13 +543,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setLink(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setFrom";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -604,13 +611,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setFrom(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setTo";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -672,13 +679,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setTo(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setPicture";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -740,13 +747,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setPicture(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setSource";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -808,13 +815,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setSource(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setCaption";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -876,13 +883,13 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setCaption(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(FacebookCXX::java_lang_String& arg0)
+FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setDescription";
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$FeedDialogBuilder;";
@@ -944,7 +951,7 @@ FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder com_facebook_widget_WebDialog_FeedDialogBuilder::setDescription(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

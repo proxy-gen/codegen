@@ -45,21 +45,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_widget_AbsListView;
 
 class com_facebook_widget_PickerFragment_1
 {
@@ -72,8 +59,8 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_1();
 	// Functions
-	 void onScrollStateChanged(FacebookCXX::android_widget_AbsListView& arg0,int& arg1);
-	 void onScroll(FacebookCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3);
+	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1);
+	 void onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3);
 };	
 
 } // namespace

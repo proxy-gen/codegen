@@ -46,21 +46,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_FacebookException;
 
@@ -75,7 +62,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_OnCompleteListener();
 	// Functions
-	 void onComplete(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1);
+	 void onComplete(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1);
 };	
 
 } // namespace

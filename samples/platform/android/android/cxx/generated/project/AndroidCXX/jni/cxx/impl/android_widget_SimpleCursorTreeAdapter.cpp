@@ -59,6 +59,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_SimpleCursorTreeAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -200,9 +202,9 @@ android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter()
 	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter() exit");	
 }
 // Public Constructors
-android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<java_lang_String >& arg7,std::vector<int>& arg8)
+android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8)
 {
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<java_lang_String >& arg7,std::vector<int>& arg8) enter");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;II[Ljava/lang/String;[II[Ljava/lang/String;[I)V";
@@ -495,11 +497,11 @@ android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<java_lang_String >& arg7,std::vector<int>& arg8) exit");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8) exit");	
 }
-android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<java_lang_String >& arg6,std::vector<int>& arg7)
+android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<AndroidCXX::java_lang_String >& arg6,std::vector<int>& arg7)
 {
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<java_lang_String >& arg6,std::vector<int>& arg7) enter");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<AndroidCXX::java_lang_String >& arg6,std::vector<int>& arg7) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;I[Ljava/lang/String;[II[Ljava/lang/String;[I)V";
@@ -771,11 +773,11 @@ android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<java_lang_String >& arg6,std::vector<int>& arg7) exit");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5,std::vector<AndroidCXX::java_lang_String >& arg6,std::vector<int>& arg7) exit");	
 }
-android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<java_lang_String >& arg8,std::vector<int>& arg9)
+android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<AndroidCXX::java_lang_String >& arg8,std::vector<int>& arg9)
 {
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<java_lang_String >& arg8,std::vector<int>& arg9) enter");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<AndroidCXX::java_lang_String >& arg8,std::vector<int>& arg9) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;II[Ljava/lang/String;[III[Ljava/lang/String;[I)V";
@@ -1089,7 +1091,7 @@ android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(A
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<java_lang_String >& arg8,std::vector<int>& arg9) exit");	
+	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,int& arg7,std::vector<AndroidCXX::java_lang_String >& arg8,std::vector<int>& arg9) exit");	
 }
 // Default Instance Destructor
 android_widget_SimpleCursorTreeAdapter::~android_widget_SimpleCursorTreeAdapter()

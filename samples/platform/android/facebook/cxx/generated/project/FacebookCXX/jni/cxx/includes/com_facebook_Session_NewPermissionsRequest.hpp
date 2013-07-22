@@ -75,61 +75,6 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session_StatusCallback;
@@ -138,13 +83,9 @@ class com_facebook_Session_NewPermissionsRequest;
 
 
 
-class android_app_Activity;
 
-class java_util_List;
 
-class java_lang_String;
 
-class android_support_v4_app_Fragment;
 
 class com_facebook_Session_NewPermissionsRequest
 {
@@ -153,8 +94,8 @@ public:
 	com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc);
 	com_facebook_Session_NewPermissionsRequest(void * proxy);
 	// Public Constructors
-	com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1);
-	com_facebook_Session_NewPermissionsRequest(FacebookCXX::android_support_v4_app_Fragment& arg0,FacebookCXX::java_util_List& arg1);
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1);
 	com_facebook_Session_NewPermissionsRequest();
 	// Default Destructor
 	virtual ~com_facebook_Session_NewPermissionsRequest();

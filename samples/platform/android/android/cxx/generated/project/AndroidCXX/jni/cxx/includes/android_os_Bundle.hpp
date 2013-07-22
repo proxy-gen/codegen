@@ -309,384 +309,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -767,7 +389,7 @@ public:
 	 AndroidCXX::android_os_Bundle getBundle(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_lang_String getString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::java_lang_String getString(AndroidCXX::java_lang_String& arg0);
-	 std::vector<java_lang_String > getStringArray(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_String > getStringArray(AndroidCXX::java_lang_String& arg0);
 	 int describeContents();
 	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
 	 void setClassLoader(AndroidCXX::java_lang_ClassLoader& arg0);
@@ -775,7 +397,7 @@ public:
 	 void putString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	 void putCharSequence(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_CharSequence& arg1);
 	 void putParcelable(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Parcelable& arg1);
-	 void putParcelableArray(AndroidCXX::java_lang_String& arg0,std::vector<android_os_Parcelable >& arg1);
+	 void putParcelableArray(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::android_os_Parcelable >& arg1);
 	 void putParcelableArrayList(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1);
 	 void putSparseParcelableArray(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_SparseArray& arg1);
 	 void putIntegerArrayList(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_ArrayList& arg1);
@@ -790,13 +412,13 @@ public:
 	 void putLongArray(AndroidCXX::java_lang_String& arg0,std::vector<long>& arg1);
 	 void putFloatArray(AndroidCXX::java_lang_String& arg0,std::vector<float>& arg1);
 	 void putDoubleArray(AndroidCXX::java_lang_String& arg0,std::vector<double>& arg1);
-	 void putStringArray(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1);
-	 void putCharSequenceArray(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_CharSequence >& arg1);
+	 void putStringArray(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
+	 void putCharSequenceArray(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_CharSequence >& arg1);
 	 void putBundle(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1);
 	 AndroidCXX::java_lang_CharSequence getCharSequence(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_lang_CharSequence getCharSequence(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_CharSequence& arg1);
 	 AndroidCXX::android_os_Parcelable getParcelable(AndroidCXX::java_lang_String& arg0);
-	 std::vector<android_os_Parcelable > getParcelableArray(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::android_os_Parcelable > getParcelableArray(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_util_ArrayList getParcelableArrayList(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::android_util_SparseArray getSparseParcelableArray(AndroidCXX::java_lang_String& arg0);
 	 AndroidCXX::java_io_Serializable getSerializable(AndroidCXX::java_lang_String& arg0);
@@ -811,7 +433,7 @@ public:
 	 std::vector<long> getLongArray(AndroidCXX::java_lang_String& arg0);
 	 std::vector<float> getFloatArray(AndroidCXX::java_lang_String& arg0);
 	 std::vector<double> getDoubleArray(AndroidCXX::java_lang_String& arg0);
-	 std::vector<java_lang_CharSequence > getCharSequenceArray(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_CharSequence > getCharSequenceArray(AndroidCXX::java_lang_String& arg0);
 	 void readFromParcel(AndroidCXX::android_os_Parcel& arg0);
 };	
 

@@ -87,57 +87,6 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Request;
@@ -146,11 +95,9 @@ class com_facebook_RequestAsyncTask;
 
 class com_facebook_RequestBatch_Callback;
 
-class java_util_List;
 
 class com_facebook_Response;
 
-class java_util_Collection;
 
 class com_facebook_RequestBatch;
 
@@ -162,8 +109,8 @@ public:
 	com_facebook_RequestBatch(void * proxy);
 	// Public Constructors
 	com_facebook_RequestBatch();
-	com_facebook_RequestBatch(FacebookCXX::java_util_Collection& arg0);
-	com_facebook_RequestBatch(std::vector<com_facebook_Request >& arg0);
+	com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0);
+	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0);
 	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch& arg0);
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch();
@@ -178,7 +125,7 @@ public:
 	 void setTimeout(int& arg0);
 	 FacebookCXX::com_facebook_RequestAsyncTask executeAsync();
 	 void addCallback(FacebookCXX::com_facebook_RequestBatch_Callback& arg0);
-	 FacebookCXX::java_util_List executeAndWait();
+	 AndroidCXX::java_util_List executeAndWait();
 	 int getTimeout();
 	 void removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback& arg0);
 };	

@@ -46,15 +46,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -70,7 +61,7 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions
-	 std::vector<java_lang_Object > getSections();
+	 std::vector<AndroidCXX::java_lang_Object > getSections();
 	 int getPositionForSection(int& arg0);
 	 int getSectionForPosition(int& arg0);
 };	

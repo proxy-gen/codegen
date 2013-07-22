@@ -55,6 +55,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_app_TaskStackBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1031,9 +1033,9 @@ AndroidCXX::android_app_PendingIntent android_app_TaskStackBuilder::getPendingIn
 
 	return result;
 }
-std::vector<android_content_Intent > android_app_TaskStackBuilder::getIntents()
+std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::getIntents()
 {
-	LOGV("std::vector<android_content_Intent > android_app_TaskStackBuilder::getIntents() enter");
+	LOGV("std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::getIntents() enter");
 
 	const char *methodName = "getIntents";
 	const char *methodSignature = "()[Landroid/content/Intent;";
@@ -1052,7 +1054,7 @@ std::vector<android_content_Intent > android_app_TaskStackBuilder::getIntents()
 	LOGV("android_app_TaskStackBuilder jni address %d", javaObject);
 
 
-	std::vector<android_content_Intent > result;
+	std::vector<AndroidCXX::android_content_Intent > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1088,11 +1090,11 @@ std::vector<android_content_Intent > android_app_TaskStackBuilder::getIntents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_content_Intent >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_content_Intent >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_content_Intent > android_app_TaskStackBuilder::getIntents() exit");
+	LOGV("std::vector<AndroidCXX::android_content_Intent > android_app_TaskStackBuilder::getIntents() exit");
 
 	return result;
 }

@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_AuthorizationClient
 {
 public:
 
+	com_facebook_AuthorizationClient(const com_facebook_AuthorizationClient& cc);
+	com_facebook_AuthorizationClient(void * proxy);
+	// Public Constructors
+	com_facebook_AuthorizationClient();
+	// Default Destructor
+	virtual ~com_facebook_AuthorizationClient();
 	// Functions
 };	
 

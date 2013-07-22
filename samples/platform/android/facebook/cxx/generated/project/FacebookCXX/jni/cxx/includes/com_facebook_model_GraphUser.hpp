@@ -79,69 +79,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_model_GraphLocation;
 
@@ -156,23 +95,23 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphUser();
 	// Functions
-	 FacebookCXX::java_lang_String getName();
+	 AndroidCXX::java_lang_String getName();
 	 FacebookCXX::com_facebook_model_GraphLocation getLocation();
-	 void setName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getId();
-	 void setId(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getFirstName();
-	 void setFirstName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getMiddleName();
-	 void setMiddleName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getLastName();
-	 void setLastName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getLink();
-	 void setLink(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getUsername();
-	 void setUsername(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getBirthday();
-	 void setBirthday(FacebookCXX::java_lang_String& arg0);
+	 void setName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getId();
+	 void setId(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getFirstName();
+	 void setFirstName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getMiddleName();
+	 void setMiddleName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getLastName();
+	 void setLastName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getLink();
+	 void setLink(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getUsername();
+	 void setUsername(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getBirthday();
+	 void setBirthday(AndroidCXX::java_lang_String& arg0);
 	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation& arg0);
 };	
 

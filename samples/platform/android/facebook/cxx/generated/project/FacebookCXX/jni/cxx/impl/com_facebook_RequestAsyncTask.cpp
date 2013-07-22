@@ -48,6 +48,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_RequestAsyncTask"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,6 +58,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -177,9 +184,9 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask()
 	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask() exit");	
 }
 // Public Constructors
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<com_facebook_Request >& arg0)
+com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request >& arg0)
 {
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<com_facebook_Request >& arg0) enter");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request >& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([Lcom/facebook/Request;)V";
@@ -250,11 +257,11 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<com_fac
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<com_facebook_Request >& arg0) exit");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request >& arg0) exit");	
 }
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_util_Collection& arg0)
+com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_util_Collection& arg0) enter");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Collection;)V";
@@ -325,7 +332,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_u
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_util_Collection& arg0) exit");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection& arg0) exit");	
 }
 com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch& arg0)
 {
@@ -384,9 +391,9 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::com_fa
 
 	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch& arg0) exit");	
 }
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,std::vector<com_facebook_Request >& arg1)
+com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,std::vector<FacebookCXX::com_facebook_Request >& arg1)
 {
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,std::vector<com_facebook_Request >& arg1) enter");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,std::vector<FacebookCXX::com_facebook_Request >& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;[Lcom/facebook/Request;)V";
@@ -478,11 +485,11 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_n
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,std::vector<com_facebook_Request >& arg1) exit");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,std::vector<FacebookCXX::com_facebook_Request >& arg1) exit");	
 }
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::java_util_Collection& arg1)
+com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1)
 {
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::java_util_Collection& arg1) enter");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Ljava/util/Collection;)V";
@@ -574,11 +581,11 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_n
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::java_util_Collection& arg1) exit");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1) exit");	
 }
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1)
+com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1)
 {
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) enter");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)V";
@@ -652,7 +659,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_n
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) exit");	
+	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_RequestAsyncTask::~com_facebook_RequestAsyncTask()
@@ -669,9 +676,9 @@ com_facebook_RequestAsyncTask::~com_facebook_RequestAsyncTask()
 	LOGV("com_facebook_RequestAsyncTask::~com_facebook_RequestAsyncTask() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
+AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_RequestAsyncTask::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -690,7 +697,7 @@ FacebookCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 	LOGV("com_facebook_RequestAsyncTask jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -708,11 +715,11 @@ FacebookCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_RequestAsyncTask::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString() exit");
 
 	return result;
 }

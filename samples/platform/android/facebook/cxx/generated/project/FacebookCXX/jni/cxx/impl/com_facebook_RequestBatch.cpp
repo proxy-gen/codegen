@@ -58,6 +58,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_RequestBatch"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -93,6 +95,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -195,9 +202,9 @@ com_facebook_RequestBatch::com_facebook_RequestBatch()
 
 	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch() exit");	
 }
-com_facebook_RequestBatch::com_facebook_RequestBatch(FacebookCXX::java_util_Collection& arg0)
+com_facebook_RequestBatch::com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(FacebookCXX::java_util_Collection& arg0) enter");	
+	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/util/Collection;)V";
@@ -268,11 +275,11 @@ com_facebook_RequestBatch::com_facebook_RequestBatch(FacebookCXX::java_util_Coll
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(FacebookCXX::java_util_Collection& arg0) exit");	
+	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0) exit");	
 }
-com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<com_facebook_Request >& arg0)
+com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0)
 {
-	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<com_facebook_Request >& arg0) enter");	
+	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([Lcom/facebook/Request;)V";
@@ -343,7 +350,7 @@ com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<com_facebook_Re
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<com_facebook_Request >& arg0) exit");	
+	LOGV("com_facebook_RequestBatch::com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0) exit");	
 }
 com_facebook_RequestBatch::com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch& arg0)
 {
@@ -1000,9 +1007,9 @@ void com_facebook_RequestBatch::addCallback(FacebookCXX::com_facebook_RequestBat
 	LOGV("void com_facebook_RequestBatch::addCallback(FacebookCXX::com_facebook_RequestBatch_Callback& arg0) exit");
 
 }
-FacebookCXX::java_util_List com_facebook_RequestBatch::executeAndWait()
+AndroidCXX::java_util_List com_facebook_RequestBatch::executeAndWait()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_RequestBatch::executeAndWait() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_RequestBatch::executeAndWait() enter");
 
 	const char *methodName = "executeAndWait";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -1021,7 +1028,7 @@ FacebookCXX::java_util_List com_facebook_RequestBatch::executeAndWait()
 	LOGV("com_facebook_RequestBatch jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1057,11 +1064,11 @@ FacebookCXX::java_util_List com_facebook_RequestBatch::executeAndWait()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_RequestBatch::executeAndWait() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_RequestBatch::executeAndWait() exit");
 
 	return result;
 }

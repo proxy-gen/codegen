@@ -53,6 +53,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_ContentProviderOperation"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -827,9 +829,9 @@ bool android_content_ContentProviderOperation::isReadOperation()
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<android_content_ContentProviderResult >& arg1,int& arg2)
+AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<AndroidCXX::android_content_ContentProviderResult >& arg1,int& arg2)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<android_content_ContentProviderResult >& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<AndroidCXX::android_content_ContentProviderResult >& arg1,int& arg2) enter");
 
 	const char *methodName = "apply";
 	const char *methodSignature = "(Landroid/content/ContentProvider;[Landroid/content/ContentProviderResult;I)Landroid/content/ContentProviderResult;";
@@ -951,13 +953,13 @@ AndroidCXX::android_content_ContentProviderResult android_content_ContentProvide
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<android_content_ContentProviderResult >& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderResult android_content_ContentProviderOperation::apply(AndroidCXX::android_content_ContentProvider& arg0,std::vector<AndroidCXX::android_content_ContentProviderResult >& arg1,int& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1)
+AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1)
 {
-	LOGV("AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1) enter");
 
 	const char *methodName = "resolveValueBackReferences";
 	const char *methodSignature = "([Landroid/content/ContentProviderResult;I)Landroid/content/ContentValues;";
@@ -1058,13 +1060,13 @@ AndroidCXX::android_content_ContentValues android_content_ContentProviderOperati
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::android_content_ContentValues android_content_ContentProviderOperation::resolveValueBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1) exit");
 
 	return result;
 }
-std::vector<java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1)
+std::vector<AndroidCXX::java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1)
 {
-	LOGV("std::vector<java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1) enter");
 
 	const char *methodName = "resolveSelectionArgsBackReferences";
 	const char *methodSignature = "([Landroid/content/ContentProviderResult;I)[Ljava/lang/String;";
@@ -1143,7 +1145,7 @@ std::vector<java_lang_String > android_content_ContentProviderOperation::resolve
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1179,11 +1181,11 @@ std::vector<java_lang_String > android_content_ContentProviderOperation::resolve
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult >& arg0,int& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentProviderOperation::resolveSelectionArgsBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult >& arg0,int& arg1) exit");
 
 	return result;
 }

@@ -33,6 +33,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_FacebookError"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -44,6 +46,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_android_FacebookError::com_facebook_android_FacebookError()
 	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError() exit");	
 }
 // Public Constructors
-com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0)
+com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0) enter");	
+	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -193,11 +197,11 @@ com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookC
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0) exit");	
+	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0) exit");	
 }
-com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1,int& arg2)
+com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2)
 {
-	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1,int& arg2) enter");	
+	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)V";
@@ -292,7 +296,7 @@ com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookC
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1,int& arg2) exit");	
+	LOGV("com_facebook_android_FacebookError::com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_android_FacebookError::~com_facebook_android_FacebookError()
@@ -356,9 +360,9 @@ int com_facebook_android_FacebookError::getErrorCode()
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_android_FacebookError::getErrorType()
+AndroidCXX::java_lang_String com_facebook_android_FacebookError::getErrorType()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_android_FacebookError::getErrorType() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_FacebookError::getErrorType() enter");
 
 	const char *methodName = "getErrorType";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -377,7 +381,7 @@ FacebookCXX::java_lang_String com_facebook_android_FacebookError::getErrorType()
 	LOGV("com_facebook_android_FacebookError jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -395,11 +399,11 @@ FacebookCXX::java_lang_String com_facebook_android_FacebookError::getErrorType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_android_FacebookError::getErrorType() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_android_FacebookError::getErrorType() exit");
 
 	return result;
 }

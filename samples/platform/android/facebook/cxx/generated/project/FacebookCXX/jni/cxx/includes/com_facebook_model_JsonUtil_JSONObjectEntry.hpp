@@ -50,29 +50,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_lang_String;
 
 class com_facebook_model_JsonUtil_JSONObjectEntry
 {
@@ -85,9 +65,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil_JSONObjectEntry();
 	// Functions
-	 FacebookCXX::java_lang_Object getValue();
-	 FacebookCXX::java_lang_String getKey();
-	 FacebookCXX::java_lang_Object setValue(FacebookCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object getValue();
+	 AndroidCXX::java_lang_String getKey();
+	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object& arg0);
 };	
 
 } // namespace

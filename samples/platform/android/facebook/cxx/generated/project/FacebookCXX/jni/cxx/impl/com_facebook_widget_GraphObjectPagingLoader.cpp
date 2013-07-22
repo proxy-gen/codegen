@@ -44,6 +44,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectPagingLoader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -70,6 +72,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -161,9 +168,9 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader() exit");	
 }
 // Public Constructors
-com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_Class& arg1)
+com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1)
 {
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_Class& arg1) enter");	
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/Class;)V";
@@ -255,7 +262,7 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_Class& arg1) exit");	
+	LOGV("com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_GraphObjectPagingLoader::~com_facebook_widget_GraphObjectPagingLoader()

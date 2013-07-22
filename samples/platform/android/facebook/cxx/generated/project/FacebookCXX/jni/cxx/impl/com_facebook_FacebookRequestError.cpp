@@ -51,6 +51,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookRequestError"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -59,6 +61,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -182,9 +189,9 @@ com_facebook_FacebookRequestError::com_facebook_FacebookRequestError()
 	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError() exit");	
 }
 // Public Constructors
-com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2)
+com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2) enter");	
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
@@ -279,7 +286,7 @@ com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,F
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2) exit");	
+	LOGV("com_facebook_FacebookRequestError::com_facebook_FacebookRequestError(int& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError()
@@ -296,9 +303,9 @@ com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError()
 	LOGV("com_facebook_FacebookRequestError::~com_facebook_FacebookRequestError() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_FacebookRequestError::toString()
+AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -317,7 +324,7 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::toString()
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -335,11 +342,11 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::toString() exit");
 
 	return result;
 }
@@ -390,9 +397,9 @@ FacebookCXX::com_facebook_FacebookException com_facebook_FacebookRequestError::g
 
 	return result;
 }
-FacebookCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection()
+AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection()
 {
-	LOGV("FacebookCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection() enter");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection() enter");
 
 	const char *methodName = "getConnection";
 	const char *methodSignature = "()Ljava/net/HttpURLConnection;";
@@ -411,7 +418,7 @@ FacebookCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getCo
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::java_net_HttpURLConnection result;
+	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -429,11 +436,11 @@ FacebookCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getCo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_net_HttpURLConnection) (FacebookCXX::java_net_HttpURLConnection((FacebookCXX::java_net_HttpURLConnection *) cxx_value));
+	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection() exit");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_FacebookRequestError::getConnection() exit");
 
 	return result;
 }
@@ -719,9 +726,9 @@ int com_facebook_FacebookRequestError::getSubErrorCode()
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
+AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType() enter");
 
 	const char *methodName = "getErrorType";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -740,7 +747,7 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -758,17 +765,17 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorType() exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage()
+AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage() enter");
 
 	const char *methodName = "getErrorMessage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -787,7 +794,7 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -805,17 +812,17 @@ FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_FacebookRequestError::getErrorMessage() exit");
 
 	return result;
 }
-FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody()
+AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody()
 {
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody() enter");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody() enter");
 
 	const char *methodName = "getRequestResultBody";
 	const char *methodSignature = "()Lorg/json/JSONObject;";
@@ -834,7 +841,7 @@ FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRe
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::org_json_JSONObject result;
+	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -852,17 +859,17 @@ FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::org_json_JSONObject) (FacebookCXX::org_json_JSONObject((FacebookCXX::org_json_JSONObject *) cxx_value));
+	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody() exit");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResultBody() exit");
 
 	return result;
 }
-FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult()
+AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult()
 {
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult() enter");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult() enter");
 
 	const char *methodName = "getRequestResult";
 	const char *methodSignature = "()Lorg/json/JSONObject;";
@@ -881,7 +888,7 @@ FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRe
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::org_json_JSONObject result;
+	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -899,17 +906,17 @@ FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestRe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::org_json_JSONObject) (FacebookCXX::org_json_JSONObject((FacebookCXX::org_json_JSONObject *) cxx_value));
+	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult() exit");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_FacebookRequestError::getRequestResult() exit");
 
 	return result;
 }
-FacebookCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult()
+AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult()
 {
-	LOGV("FacebookCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult() enter");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult() enter");
 
 	const char *methodName = "getBatchRequestResult";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -928,7 +935,7 @@ FacebookCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequest
 	LOGV("com_facebook_FacebookRequestError jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -946,11 +953,11 @@ FacebookCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequest
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_Object) (FacebookCXX::java_lang_Object((FacebookCXX::java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult() exit");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_FacebookRequestError::getBatchRequestResult() exit");
 
 	return result;
 }

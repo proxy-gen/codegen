@@ -185,6 +185,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_String"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -5983,9 +5985,9 @@ AndroidCXX::java_lang_String java_lang_String::replaceAll(AndroidCXX::java_lang_
 
 	return result;
 }
-std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0)
+std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "split";
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
@@ -6025,7 +6027,7 @@ std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_Str
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6061,17 +6063,17 @@ std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_Str
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1)
+std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1)
 {
-	LOGV("std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "split";
 	const char *methodSignature = "(Ljava/lang/String;I)[Ljava/lang/String;";
@@ -6132,7 +6134,7 @@ std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_Str
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6168,11 +6170,11 @@ std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_Str
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
 
 	return result;
 }
@@ -6518,9 +6520,9 @@ std::vector<char> java_lang_String::toCharArray()
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1)
+AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
@@ -6621,13 +6623,13 @@ AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_Stri
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
@@ -6749,7 +6751,7 @@ AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Loca
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }

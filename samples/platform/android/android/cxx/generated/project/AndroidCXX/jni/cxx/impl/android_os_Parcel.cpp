@@ -179,6 +179,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_os_Parcel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -934,9 +936,9 @@ void android_os_Parcel::writeString(AndroidCXX::java_lang_String& arg0)
 	LOGV("void android_os_Parcel::writeString(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-void android_os_Parcel::writeArray(std::vector<java_lang_Object >& arg0)
+void android_os_Parcel::writeArray(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("void android_os_Parcel::writeArray(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("void android_os_Parcel::writeArray(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "writeArray";
 	const char *methodSignature = "([Ljava/lang/Object;)V";
@@ -998,7 +1000,7 @@ void android_os_Parcel::writeArray(std::vector<java_lang_Object >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::writeArray(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("void android_os_Parcel::writeArray(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 }
 double android_os_Parcel::readDouble()
@@ -1095,9 +1097,9 @@ AndroidCXX::java_lang_String android_os_Parcel::readString()
 
 	return result;
 }
-std::vector<java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0)
+std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0)
 {
-	LOGV("std::vector<java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0) enter");
 
 	const char *methodName = "readArray";
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)[Ljava/lang/Object;";
@@ -1137,7 +1139,7 @@ std::vector<java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lan
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_lang_Object > result;
+	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1173,11 +1175,11 @@ std::vector<java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::readArray(AndroidCXX::java_lang_ClassLoader& arg0) exit");
 
 	return result;
 }
@@ -3877,9 +3879,9 @@ void android_os_Parcel::readDoubleArray(std::vector<double>& arg0)
 	LOGV("void android_os_Parcel::readDoubleArray(std::vector<double>& arg0) exit");
 
 }
-void android_os_Parcel::writeStringArray(std::vector<java_lang_String >& arg0)
+void android_os_Parcel::writeStringArray(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("void android_os_Parcel::writeStringArray(std::vector<java_lang_String >& arg0) enter");
+	LOGV("void android_os_Parcel::writeStringArray(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "writeStringArray";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -3941,12 +3943,12 @@ void android_os_Parcel::writeStringArray(std::vector<java_lang_String >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::writeStringArray(std::vector<java_lang_String >& arg0) exit");
+	LOGV("void android_os_Parcel::writeStringArray(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 }
-std::vector<java_lang_String > android_os_Parcel::createStringArray()
+std::vector<AndroidCXX::java_lang_String > android_os_Parcel::createStringArray()
 {
-	LOGV("std::vector<java_lang_String > android_os_Parcel::createStringArray() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_os_Parcel::createStringArray() enter");
 
 	const char *methodName = "createStringArray";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -3965,7 +3967,7 @@ std::vector<java_lang_String > android_os_Parcel::createStringArray()
 	LOGV("android_os_Parcel jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4001,17 +4003,17 @@ std::vector<java_lang_String > android_os_Parcel::createStringArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_os_Parcel::createStringArray() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_os_Parcel::createStringArray() exit");
 
 	return result;
 }
-void android_os_Parcel::readStringArray(std::vector<java_lang_String >& arg0)
+void android_os_Parcel::readStringArray(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("void android_os_Parcel::readStringArray(std::vector<java_lang_String >& arg0) enter");
+	LOGV("void android_os_Parcel::readStringArray(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "readStringArray";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -4073,12 +4075,12 @@ void android_os_Parcel::readStringArray(std::vector<java_lang_String >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::readStringArray(std::vector<java_lang_String >& arg0) exit");
+	LOGV("void android_os_Parcel::readStringArray(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 }
-void android_os_Parcel::writeBinderArray(std::vector<android_os_IBinder >& arg0)
+void android_os_Parcel::writeBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0)
 {
-	LOGV("void android_os_Parcel::writeBinderArray(std::vector<android_os_IBinder >& arg0) enter");
+	LOGV("void android_os_Parcel::writeBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0) enter");
 
 	const char *methodName = "writeBinderArray";
 	const char *methodSignature = "([Landroid/os/IBinder;)V";
@@ -4140,12 +4142,12 @@ void android_os_Parcel::writeBinderArray(std::vector<android_os_IBinder >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::writeBinderArray(std::vector<android_os_IBinder >& arg0) exit");
+	LOGV("void android_os_Parcel::writeBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0) exit");
 
 }
-std::vector<android_os_IBinder > android_os_Parcel::createBinderArray()
+std::vector<AndroidCXX::android_os_IBinder > android_os_Parcel::createBinderArray()
 {
-	LOGV("std::vector<android_os_IBinder > android_os_Parcel::createBinderArray() enter");
+	LOGV("std::vector<AndroidCXX::android_os_IBinder > android_os_Parcel::createBinderArray() enter");
 
 	const char *methodName = "createBinderArray";
 	const char *methodSignature = "()[Landroid/os/IBinder;";
@@ -4164,7 +4166,7 @@ std::vector<android_os_IBinder > android_os_Parcel::createBinderArray()
 	LOGV("android_os_Parcel jni address %d", javaObject);
 
 
-	std::vector<android_os_IBinder > result;
+	std::vector<AndroidCXX::android_os_IBinder > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4200,17 +4202,17 @@ std::vector<android_os_IBinder > android_os_Parcel::createBinderArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_os_IBinder >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_os_IBinder >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_os_IBinder > android_os_Parcel::createBinderArray() exit");
+	LOGV("std::vector<AndroidCXX::android_os_IBinder > android_os_Parcel::createBinderArray() exit");
 
 	return result;
 }
-void android_os_Parcel::readBinderArray(std::vector<android_os_IBinder >& arg0)
+void android_os_Parcel::readBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0)
 {
-	LOGV("void android_os_Parcel::readBinderArray(std::vector<android_os_IBinder >& arg0) enter");
+	LOGV("void android_os_Parcel::readBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0) enter");
 
 	const char *methodName = "readBinderArray";
 	const char *methodSignature = "([Landroid/os/IBinder;)V";
@@ -4272,7 +4274,7 @@ void android_os_Parcel::readBinderArray(std::vector<android_os_IBinder >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::readBinderArray(std::vector<android_os_IBinder >& arg0) exit");
+	LOGV("void android_os_Parcel::readBinderArray(std::vector<AndroidCXX::android_os_IBinder >& arg0) exit");
 
 }
 void android_os_Parcel::writeTypedList(AndroidCXX::java_util_List& arg0)
@@ -4476,9 +4478,9 @@ void android_os_Parcel::writeBinderList(AndroidCXX::java_util_List& arg0)
 	LOGV("void android_os_Parcel::writeBinderList(AndroidCXX::java_util_List& arg0) exit");
 
 }
-void android_os_Parcel::writeTypedArray(std::vector<android_os_Parcelable >& arg0,int& arg1)
+void android_os_Parcel::writeTypedArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1)
 {
-	LOGV("void android_os_Parcel::writeTypedArray(std::vector<android_os_Parcelable >& arg0,int& arg1) enter");
+	LOGV("void android_os_Parcel::writeTypedArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1) enter");
 
 	const char *methodName = "writeTypedArray";
 	const char *methodSignature = "([Landroid/os/Parcelable;I)V";
@@ -4561,7 +4563,7 @@ void android_os_Parcel::writeTypedArray(std::vector<android_os_Parcelable >& arg
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::writeTypedArray(std::vector<android_os_Parcelable >& arg0,int& arg1) exit");
+	LOGV("void android_os_Parcel::writeTypedArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1) exit");
 
 }
 void android_os_Parcel::writeParcelable(AndroidCXX::android_os_Parcelable& arg0,int& arg1)
@@ -6017,9 +6019,9 @@ void android_os_Parcel::readBinderList(AndroidCXX::java_util_List& arg0)
 	LOGV("void android_os_Parcel::readBinderList(AndroidCXX::java_util_List& arg0) exit");
 
 }
-std::vector<java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0)
+std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0)
 {
-	LOGV("std::vector<java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0) enter");
 
 	const char *methodName = "createTypedArray";
 	const char *methodSignature = "(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;";
@@ -6077,7 +6079,7 @@ std::vector<java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_lang_Object > result;
+	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6113,17 +6115,17 @@ std::vector<java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::createTypedArray(AndroidCXX::android_os_Parcelable_Creator& arg0) exit");
 
 	return result;
 }
-void android_os_Parcel::readTypedArray(std::vector<java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1)
+void android_os_Parcel::readTypedArray(std::vector<AndroidCXX::java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1)
 {
-	LOGV("void android_os_Parcel::readTypedArray(std::vector<java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1) enter");
+	LOGV("void android_os_Parcel::readTypedArray(std::vector<AndroidCXX::java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1) enter");
 
 	const char *methodName = "readTypedArray";
 	const char *methodSignature = "([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V";
@@ -6224,12 +6226,12 @@ void android_os_Parcel::readTypedArray(std::vector<java_lang_Object >& arg0,Andr
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::readTypedArray(std::vector<java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1) exit");
+	LOGV("void android_os_Parcel::readTypedArray(std::vector<AndroidCXX::java_lang_Object >& arg0,AndroidCXX::android_os_Parcelable_Creator& arg1) exit");
 
 }
-void android_os_Parcel::writeParcelableArray(std::vector<android_os_Parcelable >& arg0,int& arg1)
+void android_os_Parcel::writeParcelableArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1)
 {
-	LOGV("void android_os_Parcel::writeParcelableArray(std::vector<android_os_Parcelable >& arg0,int& arg1) enter");
+	LOGV("void android_os_Parcel::writeParcelableArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1) enter");
 
 	const char *methodName = "writeParcelableArray";
 	const char *methodSignature = "([Landroid/os/Parcelable;I)V";
@@ -6312,7 +6314,7 @@ void android_os_Parcel::writeParcelableArray(std::vector<android_os_Parcelable >
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_os_Parcel::writeParcelableArray(std::vector<android_os_Parcelable >& arg0,int& arg1) exit");
+	LOGV("void android_os_Parcel::writeParcelableArray(std::vector<AndroidCXX::android_os_Parcelable >& arg0,int& arg1) exit");
 
 }
 AndroidCXX::java_lang_Object android_os_Parcel::readValue(AndroidCXX::java_lang_ClassLoader& arg0)
@@ -6451,9 +6453,9 @@ AndroidCXX::android_os_Parcelable android_os_Parcel::readParcelable(AndroidCXX::
 
 	return result;
 }
-std::vector<android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0)
+std::vector<AndroidCXX::android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0)
 {
-	LOGV("std::vector<android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0) enter");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0) enter");
 
 	const char *methodName = "readParcelableArray";
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;";
@@ -6493,7 +6495,7 @@ std::vector<android_os_Parcelable > android_os_Parcel::readParcelableArray(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<android_os_Parcelable > result;
+	std::vector<AndroidCXX::android_os_Parcelable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -6529,11 +6531,11 @@ std::vector<android_os_Parcelable > android_os_Parcel::readParcelableArray(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_os_Parcelable >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_os_Parcelable >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0) exit");
+	LOGV("std::vector<AndroidCXX::android_os_Parcelable > android_os_Parcel::readParcelableArray(AndroidCXX::java_lang_ClassLoader& arg0) exit");
 
 	return result;
 }

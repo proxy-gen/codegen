@@ -43,18 +43,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_view_View;
 
 class com_facebook_widget_WebDialog_3
 {
@@ -67,7 +57,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_3();
 	// Functions
-	 void onClick(FacebookCXX::android_view_View& arg0);
+	 void onClick(AndroidCXX::android_view_View& arg0);
 };	
 
 } // namespace

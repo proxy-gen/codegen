@@ -76,63 +76,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -154,7 +97,7 @@ public:
 	// Default Destructor
 	virtual ~android_content_res_AssetManager();
 	// Functions
-	 std::vector<java_lang_String > list(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_lang_String& arg0);
 	 void close();
 	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0,int& arg1);
 	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0);
@@ -163,7 +106,7 @@ public:
 	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(int& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(int& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(AndroidCXX::java_lang_String& arg0);
-	 std::vector<java_lang_String > getLocales();
+	 std::vector<AndroidCXX::java_lang_String > getLocales();
 };	
 
 } // namespace

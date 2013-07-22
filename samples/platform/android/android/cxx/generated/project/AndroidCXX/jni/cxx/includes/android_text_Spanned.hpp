@@ -57,33 +57,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Class;
@@ -101,7 +74,7 @@ public:
 	// Default Destructor
 	virtual ~android_text_Spanned();
 	// Functions
-	 std::vector<java_lang_Object > getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2);
+	 std::vector<AndroidCXX::java_lang_Object > getSpans(int& arg0,int& arg1,AndroidCXX::java_lang_Class& arg2);
 	 int getSpanStart(AndroidCXX::java_lang_Object& arg0);
 	 int getSpanEnd(AndroidCXX::java_lang_Object& arg0);
 	 int getSpanFlags(AndroidCXX::java_lang_Object& arg0);

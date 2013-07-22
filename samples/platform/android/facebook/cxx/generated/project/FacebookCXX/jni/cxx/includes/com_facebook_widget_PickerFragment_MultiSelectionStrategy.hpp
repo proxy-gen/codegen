@@ -48,23 +48,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_util_Collection;
 
-class java_lang_String;
 
 class com_facebook_widget_PickerFragment_MultiSelectionStrategy
 {
@@ -78,7 +64,7 @@ public:
 	virtual ~com_facebook_widget_PickerFragment_MultiSelectionStrategy();
 	// Functions
 	 void clear();
-	 FacebookCXX::java_util_Collection getSelectedIds();
+	 AndroidCXX::java_util_Collection getSelectedIds();
 };	
 
 } // namespace

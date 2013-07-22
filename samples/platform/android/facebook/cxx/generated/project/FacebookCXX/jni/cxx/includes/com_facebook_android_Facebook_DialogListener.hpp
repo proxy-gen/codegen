@@ -52,24 +52,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_android_FacebookError;
 
@@ -86,7 +70,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_DialogListener();
 	// Functions
-	 void onComplete(FacebookCXX::android_os_Bundle& arg0);
+	 void onComplete(AndroidCXX::android_os_Bundle& arg0);
 	 void onCancel();
 	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0);
 	 void onError(FacebookCXX::com_facebook_android_DialogError& arg0);

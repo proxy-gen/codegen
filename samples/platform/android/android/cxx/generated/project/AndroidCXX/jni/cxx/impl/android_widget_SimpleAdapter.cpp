@@ -63,6 +63,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_SimpleAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -219,9 +221,9 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter()
 	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter() exit");	
 }
 // Public Constructors
-android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4)
+android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4)
 {
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4) enter");	
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V";
@@ -445,7 +447,7 @@ android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_c
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4) exit");	
+	LOGV("android_widget_SimpleAdapter::android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4) exit");	
 }
 // Default Instance Destructor
 android_widget_SimpleAdapter::~android_widget_SimpleAdapter()

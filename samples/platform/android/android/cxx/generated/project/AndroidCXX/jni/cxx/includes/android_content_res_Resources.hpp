@@ -180,168 +180,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_util_TypedValue;
@@ -397,18 +235,18 @@ public:
 	 void getValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_util_TypedValue& arg1,bool& arg2);
 	 int getInteger(int& arg0);
 	 AndroidCXX::java_lang_String getString(int& arg0);
-	 AndroidCXX::java_lang_String getString(int& arg0,std::vector<java_lang_Object >& arg1);
+	 AndroidCXX::java_lang_String getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1);
 	 int getIdentifier(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	 std::vector<java_lang_String > getStringArray(int& arg0);
+	 std::vector<AndroidCXX::java_lang_String > getStringArray(int& arg0);
 	 std::vector<int> getIntArray(int& arg0);
 	 AndroidCXX::java_lang_CharSequence getText(int& arg0,AndroidCXX::java_lang_CharSequence& arg1);
 	 AndroidCXX::java_lang_CharSequence getText(int& arg0);
 	 AndroidCXX::java_lang_String getResourceName(int& arg0);
 	static AndroidCXX::android_content_res_Resources getSystem();
 	 AndroidCXX::java_lang_CharSequence getQuantityText(int& arg0,int& arg1);
-	 AndroidCXX::java_lang_String getQuantityString(int& arg0,int& arg1,std::vector<java_lang_Object >& arg2);
+	 AndroidCXX::java_lang_String getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2);
 	 AndroidCXX::java_lang_String getQuantityString(int& arg0,int& arg1);
-	 std::vector<java_lang_CharSequence > getTextArray(int& arg0);
+	 std::vector<AndroidCXX::java_lang_CharSequence > getTextArray(int& arg0);
 	 AndroidCXX::android_content_res_TypedArray obtainTypedArray(int& arg0);
 	 float getDimension(int& arg0);
 	 int getDimensionPixelOffset(int& arg0);

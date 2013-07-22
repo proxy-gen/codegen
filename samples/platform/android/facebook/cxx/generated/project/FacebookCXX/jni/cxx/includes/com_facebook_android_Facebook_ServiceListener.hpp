@@ -51,28 +51,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
 class com_facebook_android_FacebookError;
 
-class java_lang_Error;
 
 class com_facebook_android_Facebook_ServiceListener
 {
@@ -85,9 +68,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_ServiceListener();
 	// Functions
-	 void onComplete(FacebookCXX::android_os_Bundle& arg0);
+	 void onComplete(AndroidCXX::android_os_Bundle& arg0);
 	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0);
-	 void onError(FacebookCXX::java_lang_Error& arg0);
+	 void onError(AndroidCXX::java_lang_Error& arg0);
 };	
 
 } // namespace

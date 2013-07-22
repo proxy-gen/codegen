@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_ImageResponseCache
 {
 public:
 
+	com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc);
+	com_facebook_widget_ImageResponseCache(void * proxy);
+	// Public Constructors
+	com_facebook_widget_ImageResponseCache();
+	// Default Destructor
+	virtual ~com_facebook_widget_ImageResponseCache();
 	// Functions
 };	
 

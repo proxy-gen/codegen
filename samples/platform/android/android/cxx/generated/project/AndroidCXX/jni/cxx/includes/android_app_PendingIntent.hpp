@@ -131,144 +131,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -324,8 +186,8 @@ public:
 	 AndroidCXX::java_lang_String getCreatorPackage();
 	 int getCreatorUid();
 	 AndroidCXX::android_os_UserHandle getCreatorUserHandle();
-	static AndroidCXX::android_app_PendingIntent getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4);
-	static AndroidCXX::android_app_PendingIntent getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3);
+	static AndroidCXX::android_app_PendingIntent getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4);
+	static AndroidCXX::android_app_PendingIntent getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3);
 	 AndroidCXX::android_content_IntentSender getIntentSender();
 	static void writePendingIntentOrNullToParcel(AndroidCXX::android_app_PendingIntent& arg0,AndroidCXX::android_os_Parcel& arg1);
 	static AndroidCXX::android_app_PendingIntent readPendingIntentOrNullFromParcel(AndroidCXX::android_os_Parcel& arg0);

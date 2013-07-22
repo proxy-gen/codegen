@@ -92,6 +92,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_io_PrintStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1524,9 +1526,9 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char& arg0)
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -1648,13 +1650,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_uti
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "format";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -1755,7 +1757,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lan
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 	return result;
 }
@@ -2479,9 +2481,9 @@ bool java_io_PrintStream::checkError()
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "printf";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -2582,13 +2584,13 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lan
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 	return result;
 }
-AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "printf";
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
@@ -2710,7 +2712,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_uti
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_util_Locale& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }

@@ -63,6 +63,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_AsyncFacebookRunner"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -71,6 +73,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -312,9 +319,9 @@ com_facebook_android_AsyncFacebookRunner::~com_facebook_android_AsyncFacebookRun
 	LOGV("com_facebook_android_AsyncFacebookRunner::~com_facebook_android_AsyncFacebookRunner() exit");
 }
 // Functions
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,FacebookCXX::java_lang_Object& arg4)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,FacebookCXX::java_lang_Object& arg4) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -442,12 +449,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,FacebookCXX::java_lang_Object& arg4) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::java_lang_String& arg2,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg3,AndroidCXX::java_lang_Object& arg4) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,FacebookCXX::java_lang_Object& arg3)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,FacebookCXX::java_lang_Object& arg3) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -554,12 +561,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,FacebookCXX::java_lang_Object& arg3) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2,AndroidCXX::java_lang_Object& arg3) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -645,12 +652,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_os_Bundle& arg1,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -736,12 +743,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_B
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -806,12 +813,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_B
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -897,12 +904,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
 
 	const char *methodName = "request";
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -967,12 +974,12 @@ void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::request(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
+void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) enter");
 
 	const char *methodName = "logout";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
@@ -1037,12 +1044,12 @@ void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_conte
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1) exit");
 
 }
-void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2)
+void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2)
 {
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) enter");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) enter");
 
 	const char *methodName = "logout";
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
@@ -1128,6 +1135,6 @@ void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_conte
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,FacebookCXX::java_lang_Object& arg2) exit");
+	LOGV("void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener& arg1,AndroidCXX::java_lang_Object& arg2) exit");
 
 }

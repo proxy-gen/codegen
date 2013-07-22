@@ -51,6 +51,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_reflect_Constructor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -439,9 +441,9 @@ AndroidCXX::java_lang_String java_lang_reflect_Constructor::getName()
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<java_lang_Object >& arg0)
+AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "newInstance";
 	const char *methodSignature = "([Ljava/lang/Object;)Ljava/lang/Object;";
@@ -521,7 +523,7 @@ AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vec
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 	return result;
 }
@@ -572,9 +574,9 @@ bool java_lang_reflect_Constructor::isSynthetic()
 
 	return result;
 }
-std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters()
+std::vector<AndroidCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters()
 {
-	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters() enter");
 
 	const char *methodName = "getTypeParameters";
 	const char *methodSignature = "()[Ljava/lang/reflect/TypeVariable;";
@@ -593,7 +595,7 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getT
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_reflect_TypeVariable > result;
+	std::vector<AndroidCXX::java_lang_reflect_TypeVariable > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -665,11 +667,11 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getT
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_TypeVariable >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_reflect_TypeVariable >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Constructor::getTypeParameters() exit");
 
 	return result;
 }
@@ -824,9 +826,9 @@ AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Constructor::getAn
 
 	return result;
 }
-std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations()
+std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations()
 {
-	LOGV("std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations() enter");
 
 	const char *methodName = "getDeclaredAnnotations";
 	const char *methodSignature = "()[Ljava/lang/annotation/Annotation;";
@@ -845,7 +847,7 @@ std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::get
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_annotation_Annotation > result;
+	std::vector<AndroidCXX::java_lang_annotation_Annotation > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -881,17 +883,17 @@ std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::get
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_annotation_Annotation >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_annotation_Annotation >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_annotation_Annotation > java_lang_reflect_Constructor::getDeclaredAnnotations() exit");
 
 	return result;
 }
-std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes()
+std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getParameterTypes()
 {
-	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getParameterTypes() enter");
 
 	const char *methodName = "getParameterTypes";
 	const char *methodSignature = "()[Ljava/lang/Class;";
@@ -910,7 +912,7 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes()
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_Class > result;
+	std::vector<AndroidCXX::java_lang_Class > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -964,11 +966,11 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Class >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Class >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getParameterTypes() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getParameterTypes() exit");
 
 	return result;
 }
@@ -1019,9 +1021,9 @@ AndroidCXX::java_lang_String java_lang_reflect_Constructor::toGenericString()
 
 	return result;
 }
-std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes()
+std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes()
 {
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes() enter");
 
 	const char *methodName = "getGenericParameterTypes";
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
@@ -1040,7 +1042,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericPa
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_reflect_Type > result;
+	std::vector<AndroidCXX::java_lang_reflect_Type > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1076,17 +1078,17 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericPa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_Type >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_reflect_Type >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericParameterTypes() exit");
 
 	return result;
 }
-std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes()
+std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes()
 {
-	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes() enter");
 
 	const char *methodName = "getExceptionTypes";
 	const char *methodSignature = "()[Ljava/lang/Class;";
@@ -1105,7 +1107,7 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes()
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_Class > result;
+	std::vector<AndroidCXX::java_lang_Class > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1159,17 +1161,17 @@ std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Class >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Class >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Class > java_lang_reflect_Constructor::getExceptionTypes() exit");
 
 	return result;
 }
-std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes()
+std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes()
 {
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes() enter");
 
 	const char *methodName = "getGenericExceptionTypes";
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
@@ -1188,7 +1190,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericEx
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<java_lang_reflect_Type > result;
+	std::vector<AndroidCXX::java_lang_reflect_Type > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1224,11 +1226,11 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericEx
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_Type >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_reflect_Type >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getGenericExceptionTypes() exit");
 
 	return result;
 }
@@ -1279,9 +1281,9 @@ bool java_lang_reflect_Constructor::isVarArgs()
 
 	return result;
 }
-std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations()
+std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations()
 {
-	LOGV("std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations() enter");
+	LOGV("std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations() enter");
 
 	const char *methodName = "getParameterAnnotations";
 	const char *methodSignature = "()[[Ljava/lang/annotation/Annotation;";
@@ -1300,7 +1302,7 @@ std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Co
 	LOGV("java_lang_reflect_Constructor jni address %d", javaObject);
 
 
-	std::vector<std::vector<java_lang_annotation_Annotation > > result;
+	std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1354,11 +1356,11 @@ std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Co
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<std::vector<java_lang_annotation_Annotation > >) (cxx_value);
+	result = (std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<std::vector<java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations() exit");
+	LOGV("std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation > > java_lang_reflect_Constructor::getParameterAnnotations() exit");
 
 	return result;
 }

@@ -200,6 +200,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_math_BigDecimal"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -4523,9 +4525,9 @@ AndroidCXX::java_math_BigDecimal java_math_BigDecimal::remainder(AndroidCXX::jav
 
 	return result;
 }
-std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
+std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1)
 {
-	LOGV("std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) enter");
 
 	const char *methodName = "divideAndRemainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/math/MathContext;)[Ljava/math/BigDecimal;";
@@ -4586,7 +4588,7 @@ std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(Andr
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_math_BigDecimal > result;
+	std::vector<AndroidCXX::java_math_BigDecimal > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4622,17 +4624,17 @@ std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(Andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_math_BigDecimal >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_math_BigDecimal >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0,AndroidCXX::java_math_MathContext& arg1) exit");
 
 	return result;
 }
-std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0)
+std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0)
 {
-	LOGV("std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) enter");
 
 	const char *methodName = "divideAndRemainder";
 	const char *methodSignature = "(Ljava/math/BigDecimal;)[Ljava/math/BigDecimal;";
@@ -4672,7 +4674,7 @@ std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(Andr
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_math_BigDecimal > result;
+	std::vector<AndroidCXX::java_math_BigDecimal > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -4708,11 +4710,11 @@ std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(Andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_math_BigDecimal >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_math_BigDecimal >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_math_BigDecimal > java_math_BigDecimal::divideAndRemainder(AndroidCXX::java_math_BigDecimal& arg0) exit");
 
 	return result;
 }

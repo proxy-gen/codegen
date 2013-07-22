@@ -50,6 +50,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_TestSession"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -58,6 +60,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -206,9 +213,9 @@ com_facebook_TestSession::~com_facebook_TestSession()
 	LOGV("com_facebook_TestSession::~com_facebook_TestSession() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_TestSession::toString()
+AndroidCXX::java_lang_String com_facebook_TestSession::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -227,7 +234,7 @@ FacebookCXX::java_lang_String com_facebook_TestSession::toString()
 	LOGV("com_facebook_TestSession jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -245,17 +252,17 @@ FacebookCXX::java_lang_String com_facebook_TestSession::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::toString() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1)
+FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) enter");
 
 	const char *methodName = "createSessionWithPrivateUser";
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)Lcom/facebook/TestSession;";
@@ -356,13 +363,13 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithPrivateUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1)
+FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1)
 {
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) enter");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) enter");
 
 	const char *methodName = "createSessionWithSharedUser";
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)Lcom/facebook/TestSession;";
@@ -463,13 +470,13 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1) exit");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1) exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1,FacebookCXX::java_lang_String& arg2)
+FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1,FacebookCXX::java_lang_String& arg2) enter");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2) enter");
 
 	const char *methodName = "createSessionWithSharedUser";
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;Ljava/lang/String;)Lcom/facebook/TestSession;";
@@ -591,13 +598,13 @@ FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWit
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1,FacebookCXX::java_lang_String& arg2) exit");
+	LOGV("FacebookCXX::com_facebook_TestSession com_facebook_TestSession::createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2) exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationId()
+AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationId() enter");
 
 	const char *methodName = "getTestApplicationId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -616,7 +623,7 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationId()
 	LOGV("com_facebook_TestSession jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -634,17 +641,17 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationId() exit");
 
 	return result;
 }
-void com_facebook_TestSession::setTestApplicationId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_TestSession::setTestApplicationId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_TestSession::setTestApplicationId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_TestSession::setTestApplicationId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setTestApplicationId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -688,12 +695,12 @@ void com_facebook_TestSession::setTestApplicationId(FacebookCXX::java_lang_Strin
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TestSession::setTestApplicationId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_TestSession::setTestApplicationId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret()
+AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret() enter");
 
 	const char *methodName = "getTestApplicationSecret";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -712,7 +719,7 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret
 	LOGV("com_facebook_TestSession jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -730,17 +737,17 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestApplicationSecret() exit");
 
 	return result;
 }
-void com_facebook_TestSession::setTestApplicationSecret(FacebookCXX::java_lang_String& arg0)
+void com_facebook_TestSession::setTestApplicationSecret(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_TestSession::setTestApplicationSecret(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_TestSession::setTestApplicationSecret(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setTestApplicationSecret";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -784,12 +791,12 @@ void com_facebook_TestSession::setTestApplicationSecret(FacebookCXX::java_lang_S
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_TestSession::setTestApplicationSecret(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_TestSession::setTestApplicationSecret(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_TestSession::getTestUserId()
+AndroidCXX::java_lang_String com_facebook_TestSession::getTestUserId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestUserId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestUserId() enter");
 
 	const char *methodName = "getTestUserId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -808,7 +815,7 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestUserId()
 	LOGV("com_facebook_TestSession jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -826,11 +833,11 @@ FacebookCXX::java_lang_String com_facebook_TestSession::getTestUserId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_TestSession::getTestUserId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_TestSession::getTestUserId() exit");
 
 	return result;
 }

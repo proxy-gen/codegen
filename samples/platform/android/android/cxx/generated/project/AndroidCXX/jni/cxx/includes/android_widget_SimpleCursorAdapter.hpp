@@ -100,81 +100,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_database_Cursor;
@@ -202,8 +127,8 @@ public:
 	android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc);
 	android_widget_SimpleCursorAdapter(void * proxy);
 	// Public Constructors
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4);
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<java_lang_String >& arg3,std::vector<int>& arg4,int& arg5);
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4);
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5);
 	android_widget_SimpleCursorAdapter();
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter();
@@ -219,7 +144,7 @@ public:
 	 void setStringConversionColumn(int& arg0);
 	 AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter getCursorToStringConverter();
 	 void setCursorToStringConverter(AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter& arg0);
-	 void changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<java_lang_String >& arg1,std::vector<int>& arg2);
+	 void changeCursorAndColumns(AndroidCXX::android_database_Cursor& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,std::vector<int>& arg2);
 };	
 
 } // namespace

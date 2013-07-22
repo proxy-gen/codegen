@@ -89,51 +89,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Thread;
@@ -168,10 +123,10 @@ public:
 	 void suspend();
 	 void resume();
 	 int activeCount();
-	 int enumerate(std::vector<java_lang_ThreadGroup >& arg0);
-	 int enumerate(std::vector<java_lang_ThreadGroup >& arg0,bool& arg1);
-	 int enumerate(std::vector<java_lang_Thread >& arg0,bool& arg1);
-	 int enumerate(std::vector<java_lang_Thread >& arg0);
+	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0);
+	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup >& arg0,bool& arg1);
+	 int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0,bool& arg1);
+	 int enumerate(std::vector<AndroidCXX::java_lang_Thread >& arg0);
 	 bool isDaemon();
 	 void checkAccess();
 	 int getMaxPriority();

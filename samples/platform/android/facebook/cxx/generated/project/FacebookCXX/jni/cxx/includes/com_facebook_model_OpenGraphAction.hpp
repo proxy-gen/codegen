@@ -121,127 +121,15 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_model_GraphObject;
 
-class java_util_Date;
 
 class com_facebook_model_GraphPlace;
 
-class java_util_List;
 
-class org_json_JSONObject;
 
 class com_facebook_model_GraphUser;
 
@@ -256,36 +144,36 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_OpenGraphAction();
 	// Functions
-	 FacebookCXX::java_lang_String getMessage();
-	 FacebookCXX::java_lang_String getId();
-	 FacebookCXX::java_lang_String getRef();
+	 AndroidCXX::java_lang_String getMessage();
+	 AndroidCXX::java_lang_String getId();
+	 AndroidCXX::java_lang_String getRef();
 	 FacebookCXX::com_facebook_model_GraphObject getApplication();
-	 void setId(FacebookCXX::java_lang_String& arg0);
-	 void setMessage(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_util_Date getStartTime();
-	 void setStartTime(FacebookCXX::java_util_Date& arg0);
-	 FacebookCXX::java_util_Date getEndTime();
-	 void setEndTime(FacebookCXX::java_util_Date& arg0);
-	 FacebookCXX::java_util_Date getPublishTime();
-	 void setPublishTime(FacebookCXX::java_util_Date& arg0);
-	 FacebookCXX::java_util_Date getCreatedTime();
-	 void setCreatedTime(FacebookCXX::java_util_Date& arg0);
-	 FacebookCXX::java_util_Date getExpiresTime();
-	 void setExpiresTime(FacebookCXX::java_util_Date& arg0);
-	 void setRef(FacebookCXX::java_lang_String& arg0);
+	 void setId(AndroidCXX::java_lang_String& arg0);
+	 void setMessage(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_util_Date getStartTime();
+	 void setStartTime(AndroidCXX::java_util_Date& arg0);
+	 AndroidCXX::java_util_Date getEndTime();
+	 void setEndTime(AndroidCXX::java_util_Date& arg0);
+	 AndroidCXX::java_util_Date getPublishTime();
+	 void setPublishTime(AndroidCXX::java_util_Date& arg0);
+	 AndroidCXX::java_util_Date getCreatedTime();
+	 void setCreatedTime(AndroidCXX::java_util_Date& arg0);
+	 AndroidCXX::java_util_Date getExpiresTime();
+	 void setExpiresTime(AndroidCXX::java_util_Date& arg0);
+	 void setRef(AndroidCXX::java_lang_String& arg0);
 	 FacebookCXX::com_facebook_model_GraphPlace getPlace();
 	 void setPlace(FacebookCXX::com_facebook_model_GraphPlace& arg0);
-	 FacebookCXX::java_util_List getTags();
-	 void setTags(FacebookCXX::java_util_List& arg0);
-	 FacebookCXX::java_util_List getImage();
-	 void setImage(FacebookCXX::java_util_List& arg0);
+	 AndroidCXX::java_util_List getTags();
+	 void setTags(AndroidCXX::java_util_List& arg0);
+	 AndroidCXX::java_util_List getImage();
+	 void setImage(AndroidCXX::java_util_List& arg0);
 	 FacebookCXX::com_facebook_model_GraphUser getFrom();
 	 void setFrom(FacebookCXX::com_facebook_model_GraphUser& arg0);
-	 FacebookCXX::org_json_JSONObject getLikes();
-	 void setLikes(FacebookCXX::org_json_JSONObject& arg0);
+	 AndroidCXX::org_json_JSONObject getLikes();
+	 void setLikes(AndroidCXX::org_json_JSONObject& arg0);
 	 void setApplication(FacebookCXX::com_facebook_model_GraphObject& arg0);
-	 FacebookCXX::org_json_JSONObject getComments();
-	 void setComments(FacebookCXX::org_json_JSONObject& arg0);
+	 AndroidCXX::org_json_JSONObject getComments();
+	 void setComments(AndroidCXX::org_json_JSONObject& arg0);
 };	
 
 } // namespace

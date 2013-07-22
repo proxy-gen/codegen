@@ -30,6 +30,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_lang_reflect_TypeVariable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -191,9 +193,9 @@ AndroidCXX::java_lang_String java_lang_reflect_TypeVariable::getName()
 
 	return result;
 }
-std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
+std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 {
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds() enter");
 
 	const char *methodName = "getBounds";
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
@@ -212,7 +214,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	std::vector<java_lang_reflect_Type > result;
+	std::vector<AndroidCXX::java_lang_reflect_Type > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -248,11 +250,11 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_reflect_Type >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_reflect_Type >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds() exit");
 
 	return result;
 }

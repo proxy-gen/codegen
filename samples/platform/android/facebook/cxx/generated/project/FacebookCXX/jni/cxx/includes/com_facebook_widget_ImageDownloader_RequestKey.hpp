@@ -44,18 +44,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Object;
 
 class com_facebook_widget_ImageDownloader_RequestKey
 {
@@ -68,7 +58,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_RequestKey();
 	// Functions
-	 bool equals(FacebookCXX::java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
 	 int hashCode();
 };	
 

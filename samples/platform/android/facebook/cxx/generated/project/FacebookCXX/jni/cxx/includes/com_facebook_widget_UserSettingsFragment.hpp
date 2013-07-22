@@ -97,85 +97,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
-class android_view_LayoutInflater;
 
-class android_view_ViewGroup;
 
-class android_view_View;
 
 
 class com_facebook_Session;
@@ -183,9 +109,7 @@ class com_facebook_Session;
 
 class com_facebook_widget_LoginButton_OnErrorListener;
 
-class java_util_List;
 
-class java_lang_String;
 
 class com_facebook_Session_StatusCallback;
 
@@ -200,9 +124,9 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment();
 	// Functions
-	 void onCreate(FacebookCXX::android_os_Bundle& arg0);
+	 void onCreate(AndroidCXX::android_os_Bundle& arg0);
 	 void onResume();
-	 FacebookCXX::android_view_View onCreateView(FacebookCXX::android_view_LayoutInflater& arg0,FacebookCXX::android_view_ViewGroup& arg1,FacebookCXX::android_os_Bundle& arg2);
+	 AndroidCXX::android_view_View onCreateView(AndroidCXX::android_view_LayoutInflater& arg0,AndroidCXX::android_view_ViewGroup& arg1,AndroidCXX::android_os_Bundle& arg2);
 	 COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior getLoginBehavior();
 	 void setSession(FacebookCXX::com_facebook_Session& arg0);
 	 void setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0);
@@ -210,8 +134,8 @@ public:
 	 COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience getDefaultAudience();
 	 FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener getOnErrorListener();
 	 void setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0);
-	 void setReadPermissions(FacebookCXX::java_util_List& arg0);
-	 void setPublishPermissions(FacebookCXX::java_util_List& arg0);
+	 void setReadPermissions(AndroidCXX::java_util_List& arg0);
+	 void setPublishPermissions(AndroidCXX::java_util_List& arg0);
 	 void clearPermissions();
 	 void setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
 	 FacebookCXX::com_facebook_Session_StatusCallback getSessionStatusCallback();

@@ -73,48 +73,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -137,7 +95,7 @@ public:
 	java_security_ProtectionDomain(void * proxy);
 	// Public Constructors
 	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1);
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3);
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3);
 	java_security_ProtectionDomain();
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
@@ -145,7 +103,7 @@ public:
 	 AndroidCXX::java_lang_String toString();
 	 AndroidCXX::java_lang_ClassLoader getClassLoader();
 	 AndroidCXX::java_security_CodeSource getCodeSource();
-	 std::vector<java_security_Principal > getPrincipals();
+	 std::vector<AndroidCXX::java_security_Principal > getPrincipals();
 	 AndroidCXX::java_security_PermissionCollection getPermissions();
 	 bool implies(AndroidCXX::java_security_Permission& arg0);
 };	

@@ -68,6 +68,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_NumberPicker"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1665,9 +1667,9 @@ void android_widget_NumberPicker::setMaxValue(int& arg0)
 	LOGV("void android_widget_NumberPicker::setMaxValue(int& arg0) exit");
 
 }
-std::vector<java_lang_String > android_widget_NumberPicker::getDisplayedValues()
+std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDisplayedValues()
 {
-	LOGV("std::vector<java_lang_String > android_widget_NumberPicker::getDisplayedValues() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDisplayedValues() enter");
 
 	const char *methodName = "getDisplayedValues";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -1686,7 +1688,7 @@ std::vector<java_lang_String > android_widget_NumberPicker::getDisplayedValues()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1722,17 +1724,17 @@ std::vector<java_lang_String > android_widget_NumberPicker::getDisplayedValues()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_widget_NumberPicker::getDisplayedValues() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDisplayedValues() exit");
 
 	return result;
 }
-void android_widget_NumberPicker::setDisplayedValues(std::vector<java_lang_String >& arg0)
+void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0)
 {
-	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<java_lang_String >& arg0) enter");
+	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0) enter");
 
 	const char *methodName = "setDisplayedValues";
 	const char *methodSignature = "([Ljava/lang/String;)V";
@@ -1794,6 +1796,6 @@ void android_widget_NumberPicker::setDisplayedValues(std::vector<java_lang_Strin
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<java_lang_String >& arg0) exit");
+	LOGV("void android_widget_NumberPicker::setDisplayedValues(std::vector<AndroidCXX::java_lang_String >& arg0) exit");
 
 }

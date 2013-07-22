@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_GetTokenClient_CompletedListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_GetTokenClient_CompletedListener::~com_facebook_GetTokenClient_Comp
 	LOGV("com_facebook_GetTokenClient_CompletedListener::~com_facebook_GetTokenClient_CompletedListener() exit");
 }
 // Functions
-void com_facebook_GetTokenClient_CompletedListener::completed(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_GetTokenClient_CompletedListener::completed(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_GetTokenClient_CompletedListener::completed(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_GetTokenClient_CompletedListener::completed(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "completed";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -184,6 +188,6 @@ void com_facebook_GetTokenClient_CompletedListener::completed(FacebookCXX::andro
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_GetTokenClient_CompletedListener::completed(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_GetTokenClient_CompletedListener::completed(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

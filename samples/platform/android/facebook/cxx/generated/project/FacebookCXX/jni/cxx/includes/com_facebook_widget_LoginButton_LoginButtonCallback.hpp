@@ -49,28 +49,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session;
 
-class com_facebook_SessionState;
 
-class java_lang_Exception;
 
 class com_facebook_widget_LoginButton_LoginButtonCallback
 {
@@ -83,7 +66,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonCallback();
 	// Functions
-	 void call(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::com_facebook_SessionState& arg1,FacebookCXX::java_lang_Exception& arg2);
+	 void call(FacebookCXX::com_facebook_Session& arg0,COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState& arg1,AndroidCXX::java_lang_Exception& arg2);
 };	
 
 } // namespace

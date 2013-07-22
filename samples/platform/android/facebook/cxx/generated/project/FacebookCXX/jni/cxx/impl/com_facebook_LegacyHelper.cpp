@@ -29,6 +29,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_LegacyHelper"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -43,6 +45,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -145,9 +152,9 @@ com_facebook_LegacyHelper::~com_facebook_LegacyHelper()
 	LOGV("com_facebook_LegacyHelper::~com_facebook_LegacyHelper() exit");
 }
 // Functions
-void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1)
+void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1)
 {
-	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1) enter");
+	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
 
 	const char *methodName = "extendTokenCompleted";
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/os/Bundle;)V";
@@ -212,6 +219,6 @@ void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_S
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1) exit");
+	LOGV("void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
 
 }

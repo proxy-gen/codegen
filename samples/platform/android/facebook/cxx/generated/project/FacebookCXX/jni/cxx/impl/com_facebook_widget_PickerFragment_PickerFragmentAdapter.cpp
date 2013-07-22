@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_PickerFragmentAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,6 +44,11 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -127,9 +134,9 @@ com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_Pi
 	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter() exit");	
 }
 // Public Constructors
-com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,FacebookCXX::android_content_Context& arg1)
+com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,AndroidCXX::android_content_Context& arg1)
 {
-	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,FacebookCXX::android_content_Context& arg1) enter");	
+	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,AndroidCXX::android_content_Context& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment;Landroid/content/Context;)V";
@@ -203,7 +210,7 @@ com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_Pi
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,FacebookCXX::android_content_Context& arg1) exit");	
+	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,AndroidCXX::android_content_Context& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_PickerFragmentAdapter::~com_facebook_widget_PickerFragment_PickerFragmentAdapter()

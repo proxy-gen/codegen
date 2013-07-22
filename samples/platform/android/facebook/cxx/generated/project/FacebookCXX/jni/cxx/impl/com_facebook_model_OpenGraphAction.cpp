@@ -85,6 +85,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_OpenGraphAction"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -93,6 +95,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -283,9 +290,9 @@ com_facebook_model_OpenGraphAction::~com_facebook_model_OpenGraphAction()
 	LOGV("com_facebook_model_OpenGraphAction::~com_facebook_model_OpenGraphAction() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage()
+AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage() enter");
 
 	const char *methodName = "getMessage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -304,7 +311,7 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -322,17 +329,17 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getMessage() exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getId()
+AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getId()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getId() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getId() enter");
 
 	const char *methodName = "getId";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -351,7 +358,7 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getId()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -369,17 +376,17 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getId() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getId() exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef()
+AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef() enter");
 
 	const char *methodName = "getRef";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -398,7 +405,7 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -416,11 +423,11 @@ FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_OpenGraphAction::getRef() exit");
 
 	return result;
 }
@@ -471,9 +478,9 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_OpenGraphAction::
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_OpenGraphAction::setId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -517,12 +524,12 @@ void com_facebook_model_OpenGraphAction::setId(FacebookCXX::java_lang_String& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-void com_facebook_model_OpenGraphAction::setMessage(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_OpenGraphAction::setMessage(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setMessage(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setMessage(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setMessage";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -566,12 +573,12 @@ void com_facebook_model_OpenGraphAction::setMessage(FacebookCXX::java_lang_Strin
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setMessage(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setMessage(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime()
+AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime() enter");
 
 	const char *methodName = "getStartTime";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -590,7 +597,7 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -608,17 +615,17 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getStartTime() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setStartTime(FacebookCXX::java_util_Date& arg0)
+void com_facebook_model_OpenGraphAction::setStartTime(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setStartTime(FacebookCXX::java_util_Date& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setStartTime(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "setStartTime";
 	const char *methodSignature = "(Ljava/util/Date;)V";
@@ -662,12 +669,12 @@ void com_facebook_model_OpenGraphAction::setStartTime(FacebookCXX::java_util_Dat
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setStartTime(FacebookCXX::java_util_Date& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setStartTime(AndroidCXX::java_util_Date& arg0) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime()
+AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime() enter");
 
 	const char *methodName = "getEndTime";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -686,7 +693,7 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -704,17 +711,17 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getEndTime() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setEndTime(FacebookCXX::java_util_Date& arg0)
+void com_facebook_model_OpenGraphAction::setEndTime(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setEndTime(FacebookCXX::java_util_Date& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setEndTime(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "setEndTime";
 	const char *methodSignature = "(Ljava/util/Date;)V";
@@ -758,12 +765,12 @@ void com_facebook_model_OpenGraphAction::setEndTime(FacebookCXX::java_util_Date&
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setEndTime(FacebookCXX::java_util_Date& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setEndTime(AndroidCXX::java_util_Date& arg0) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime()
+AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime() enter");
 
 	const char *methodName = "getPublishTime";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -782,7 +789,7 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -800,17 +807,17 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getPublishTime() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setPublishTime(FacebookCXX::java_util_Date& arg0)
+void com_facebook_model_OpenGraphAction::setPublishTime(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setPublishTime(FacebookCXX::java_util_Date& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setPublishTime(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "setPublishTime";
 	const char *methodSignature = "(Ljava/util/Date;)V";
@@ -854,12 +861,12 @@ void com_facebook_model_OpenGraphAction::setPublishTime(FacebookCXX::java_util_D
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setPublishTime(FacebookCXX::java_util_Date& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setPublishTime(AndroidCXX::java_util_Date& arg0) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime()
+AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime() enter");
 
 	const char *methodName = "getCreatedTime";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -878,7 +885,7 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -896,17 +903,17 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getCreatedTime() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setCreatedTime(FacebookCXX::java_util_Date& arg0)
+void com_facebook_model_OpenGraphAction::setCreatedTime(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setCreatedTime(FacebookCXX::java_util_Date& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setCreatedTime(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "setCreatedTime";
 	const char *methodSignature = "(Ljava/util/Date;)V";
@@ -950,12 +957,12 @@ void com_facebook_model_OpenGraphAction::setCreatedTime(FacebookCXX::java_util_D
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setCreatedTime(FacebookCXX::java_util_Date& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setCreatedTime(AndroidCXX::java_util_Date& arg0) exit");
 
 }
-FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime()
+AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime()
 {
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime() enter");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime() enter");
 
 	const char *methodName = "getExpiresTime";
 	const char *methodSignature = "()Ljava/util/Date;";
@@ -974,7 +981,7 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_Date result;
+	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -992,17 +999,17 @@ FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_Date) (FacebookCXX::java_util_Date((FacebookCXX::java_util_Date *) cxx_value));
+	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime() exit");
+	LOGV("AndroidCXX::java_util_Date com_facebook_model_OpenGraphAction::getExpiresTime() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setExpiresTime(FacebookCXX::java_util_Date& arg0)
+void com_facebook_model_OpenGraphAction::setExpiresTime(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setExpiresTime(FacebookCXX::java_util_Date& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setExpiresTime(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "setExpiresTime";
 	const char *methodSignature = "(Ljava/util/Date;)V";
@@ -1046,12 +1053,12 @@ void com_facebook_model_OpenGraphAction::setExpiresTime(FacebookCXX::java_util_D
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setExpiresTime(FacebookCXX::java_util_Date& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setExpiresTime(AndroidCXX::java_util_Date& arg0) exit");
 
 }
-void com_facebook_model_OpenGraphAction::setRef(FacebookCXX::java_lang_String& arg0)
+void com_facebook_model_OpenGraphAction::setRef(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setRef(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setRef(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setRef";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -1095,7 +1102,7 @@ void com_facebook_model_OpenGraphAction::setRef(FacebookCXX::java_lang_String& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setRef(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setRef(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 FacebookCXX::com_facebook_model_GraphPlace com_facebook_model_OpenGraphAction::getPlace()
@@ -1194,9 +1201,9 @@ void com_facebook_model_OpenGraphAction::setPlace(FacebookCXX::com_facebook_mode
 	LOGV("void com_facebook_model_OpenGraphAction::setPlace(FacebookCXX::com_facebook_model_GraphPlace& arg0) exit");
 
 }
-FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getTags()
+AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getTags()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getTags() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getTags() enter");
 
 	const char *methodName = "getTags";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -1215,7 +1222,7 @@ FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getTags()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1251,17 +1258,17 @@ FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getTags()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getTags() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getTags() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setTags(FacebookCXX::java_util_List& arg0)
+void com_facebook_model_OpenGraphAction::setTags(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setTags(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setTags(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setTags";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -1323,12 +1330,12 @@ void com_facebook_model_OpenGraphAction::setTags(FacebookCXX::java_util_List& ar
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setTags(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setTags(AndroidCXX::java_util_List& arg0) exit");
 
 }
-FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getImage()
+AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getImage()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getImage() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getImage() enter");
 
 	const char *methodName = "getImage";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -1347,7 +1354,7 @@ FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getImage()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1383,17 +1390,17 @@ FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getImage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_model_OpenGraphAction::getImage() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_model_OpenGraphAction::getImage() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setImage(FacebookCXX::java_util_List& arg0)
+void com_facebook_model_OpenGraphAction::setImage(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setImage(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setImage(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setImage";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -1455,7 +1462,7 @@ void com_facebook_model_OpenGraphAction::setImage(FacebookCXX::java_util_List& a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setImage(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setImage(AndroidCXX::java_util_List& arg0) exit");
 
 }
 FacebookCXX::com_facebook_model_GraphUser com_facebook_model_OpenGraphAction::getFrom()
@@ -1554,9 +1561,9 @@ void com_facebook_model_OpenGraphAction::setFrom(FacebookCXX::com_facebook_model
 	LOGV("void com_facebook_model_OpenGraphAction::setFrom(FacebookCXX::com_facebook_model_GraphUser& arg0) exit");
 
 }
-FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes()
+AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes()
 {
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes() enter");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes() enter");
 
 	const char *methodName = "getLikes";
 	const char *methodSignature = "()Lorg/json/JSONObject;";
@@ -1575,7 +1582,7 @@ FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes()
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::org_json_JSONObject result;
+	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1593,17 +1600,17 @@ FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::org_json_JSONObject) (FacebookCXX::org_json_JSONObject((FacebookCXX::org_json_JSONObject *) cxx_value));
+	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes() exit");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getLikes() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setLikes(FacebookCXX::org_json_JSONObject& arg0)
+void com_facebook_model_OpenGraphAction::setLikes(AndroidCXX::org_json_JSONObject& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setLikes(FacebookCXX::org_json_JSONObject& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setLikes(AndroidCXX::org_json_JSONObject& arg0) enter");
 
 	const char *methodName = "setLikes";
 	const char *methodSignature = "(Lorg/json/JSONObject;)V";
@@ -1647,7 +1654,7 @@ void com_facebook_model_OpenGraphAction::setLikes(FacebookCXX::org_json_JSONObje
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setLikes(FacebookCXX::org_json_JSONObject& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setLikes(AndroidCXX::org_json_JSONObject& arg0) exit");
 
 }
 void com_facebook_model_OpenGraphAction::setApplication(FacebookCXX::com_facebook_model_GraphObject& arg0)
@@ -1699,9 +1706,9 @@ void com_facebook_model_OpenGraphAction::setApplication(FacebookCXX::com_faceboo
 	LOGV("void com_facebook_model_OpenGraphAction::setApplication(FacebookCXX::com_facebook_model_GraphObject& arg0) exit");
 
 }
-FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments()
+AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments()
 {
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments() enter");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments() enter");
 
 	const char *methodName = "getComments";
 	const char *methodSignature = "()Lorg/json/JSONObject;";
@@ -1720,7 +1727,7 @@ FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments
 	LOGV("com_facebook_model_OpenGraphAction jni address %d", javaObject);
 
 
-	FacebookCXX::org_json_JSONObject result;
+	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1738,17 +1745,17 @@ FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::org_json_JSONObject) (FacebookCXX::org_json_JSONObject((FacebookCXX::org_json_JSONObject *) cxx_value));
+	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments() exit");
+	LOGV("AndroidCXX::org_json_JSONObject com_facebook_model_OpenGraphAction::getComments() exit");
 
 	return result;
 }
-void com_facebook_model_OpenGraphAction::setComments(FacebookCXX::org_json_JSONObject& arg0)
+void com_facebook_model_OpenGraphAction::setComments(AndroidCXX::org_json_JSONObject& arg0)
 {
-	LOGV("void com_facebook_model_OpenGraphAction::setComments(FacebookCXX::org_json_JSONObject& arg0) enter");
+	LOGV("void com_facebook_model_OpenGraphAction::setComments(AndroidCXX::org_json_JSONObject& arg0) enter");
 
 	const char *methodName = "setComments";
 	const char *methodSignature = "(Lorg/json/JSONObject;)V";
@@ -1792,6 +1799,6 @@ void com_facebook_model_OpenGraphAction::setComments(FacebookCXX::org_json_JSONO
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_model_OpenGraphAction::setComments(FacebookCXX::org_json_JSONObject& arg0) exit");
+	LOGV("void com_facebook_model_OpenGraphAction::setComments(AndroidCXX::org_json_JSONObject& arg0) exit");
 
 }

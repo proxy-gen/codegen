@@ -32,6 +32,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FacebookFragment"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,6 +42,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -177,9 +184,9 @@ void com_facebook_widget_FacebookFragment::onDestroy()
 	LOGV("void com_facebook_widget_FacebookFragment::onDestroy() exit");
 
 }
-void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2)
+void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
 {
-	LOGV("void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) enter");
+	LOGV("void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
 
 	const char *methodName = "onActivityResult";
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
@@ -265,7 +272,7 @@ void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) exit");
+	LOGV("void com_facebook_widget_FacebookFragment::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
 
 }
 void com_facebook_widget_FacebookFragment::setSession(FacebookCXX::com_facebook_Session& arg0)
@@ -317,9 +324,9 @@ void com_facebook_widget_FacebookFragment::setSession(FacebookCXX::com_facebook_
 	LOGV("void com_facebook_widget_FacebookFragment::setSession(FacebookCXX::com_facebook_Session& arg0) exit");
 
 }
-void com_facebook_widget_FacebookFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_widget_FacebookFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_widget_FacebookFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_FacebookFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onActivityCreated";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -363,6 +370,6 @@ void com_facebook_widget_FacebookFragment::onActivityCreated(FacebookCXX::androi
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_FacebookFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_FacebookFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

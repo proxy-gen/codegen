@@ -92,6 +92,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_app_PendingIntent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1912,9 +1914,9 @@ AndroidCXX::android_os_UserHandle android_app_PendingIntent::getCreatorUserHandl
 
 	return result;
 }
-AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4)
+AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4)
 {
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4) enter");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4) enter");
 
 	const char *methodName = "getActivities";
 	const char *methodSignature = "(Landroid/content/Context;I[Landroid/content/Intent;ILandroid/os/Bundle;)Landroid/app/PendingIntent;";
@@ -2078,13 +2080,13 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(A
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4) exit");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3,AndroidCXX::android_os_Bundle& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3)
+AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3)
 {
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3) enter");
 
 	const char *methodName = "getActivities";
 	const char *methodSignature = "(Landroid/content/Context;I[Landroid/content/Intent;I)Landroid/app/PendingIntent;";
@@ -2227,7 +2229,7 @@ AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(A
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<android_content_Intent >& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::android_app_PendingIntent android_app_PendingIntent::getActivities(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::android_content_Intent >& arg2,int& arg3) exit");
 
 	return result;
 }

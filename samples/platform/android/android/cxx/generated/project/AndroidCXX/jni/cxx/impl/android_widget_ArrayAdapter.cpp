@@ -83,6 +83,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_widget_ArrayAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -440,9 +442,9 @@ android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_con
 
 	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2) exit");	
 }
-android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<java_lang_Object >& arg2)
+android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<java_lang_Object >& arg2) enter");	
+	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;I[Ljava/lang/Object;)V";
@@ -555,11 +557,11 @@ android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<java_lang_Object >& arg2) exit");	
+	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");	
 }
-android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<java_lang_Object >& arg3)
+android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3)
 {
-	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<java_lang_Object >& arg3) enter");	
+	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;II[Ljava/lang/Object;)V";
@@ -693,7 +695,7 @@ android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_con
 
 	jni->popLocalFrame();
 
-	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<java_lang_Object >& arg3) exit");	
+	LOGV("android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3) exit");	
 }
 android_widget_ArrayAdapter::android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::java_util_List& arg2)
 {
@@ -1109,9 +1111,9 @@ void android_widget_ArrayAdapter::addAll(AndroidCXX::java_util_Collection& arg0)
 	LOGV("void android_widget_ArrayAdapter::addAll(AndroidCXX::java_util_Collection& arg0) exit");
 
 }
-void android_widget_ArrayAdapter::addAll(std::vector<java_lang_Object >& arg0)
+void android_widget_ArrayAdapter::addAll(std::vector<AndroidCXX::java_lang_Object >& arg0)
 {
-	LOGV("void android_widget_ArrayAdapter::addAll(std::vector<java_lang_Object >& arg0) enter");
+	LOGV("void android_widget_ArrayAdapter::addAll(std::vector<AndroidCXX::java_lang_Object >& arg0) enter");
 
 	const char *methodName = "addAll";
 	const char *methodSignature = "([Ljava/lang/Object;)V";
@@ -1173,7 +1175,7 @@ void android_widget_ArrayAdapter::addAll(std::vector<java_lang_Object >& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_widget_ArrayAdapter::addAll(std::vector<java_lang_Object >& arg0) exit");
+	LOGV("void android_widget_ArrayAdapter::addAll(std::vector<AndroidCXX::java_lang_Object >& arg0) exit");
 
 }
 void android_widget_ArrayAdapter::remove(AndroidCXX::java_lang_Object& arg0)

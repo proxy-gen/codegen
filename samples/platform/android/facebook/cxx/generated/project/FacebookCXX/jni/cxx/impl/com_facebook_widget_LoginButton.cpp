@@ -67,6 +67,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -79,6 +81,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// using namespace AndroidCXX;
+// 
 // 
 // 
 // 
@@ -86,6 +90,9 @@ using namespace FacebookCXX;
 // 
 // 
 // using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
+// 
+// 
+// 
 // 
 // 
 // 
@@ -233,9 +240,9 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton()
 	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton() exit");	
 }
 // Public Constructors
-com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1,int& arg2)
+com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
 {
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
@@ -330,11 +337,11 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::an
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2) exit");	
 }
-com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0)
+com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0)
 {
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0) enter");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -387,11 +394,11 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::an
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0) exit");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0) exit");	
 }
-com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1)
+com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
 {
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1) enter");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
@@ -465,7 +472,7 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::an
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_util_AttributeSet& arg1) exit");	
+	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_LoginButton::~com_facebook_widget_LoginButton()
@@ -482,9 +489,9 @@ com_facebook_widget_LoginButton::~com_facebook_widget_LoginButton()
 	LOGV("com_facebook_widget_LoginButton::~com_facebook_widget_LoginButton() exit");
 }
 // Functions
-bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2)
+bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2)
 {
-	LOGV("bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) enter");
+	LOGV("bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) enter");
 
 	const char *methodName = "onActivityResult";
 	const char *methodSignature = "(IILandroid/content/Intent;)Z";
@@ -588,7 +595,7 @@ bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,Faceb
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2) exit");
+	LOGV("bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2) exit");
 
 	return result;
 }
@@ -688,9 +695,9 @@ void com_facebook_widget_LoginButton::setSession(FacebookCXX::com_facebook_Sessi
 	LOGV("void com_facebook_widget_LoginButton::setSession(FacebookCXX::com_facebook_Session& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton::setApplicationId(FacebookCXX::java_lang_String& arg0)
+void com_facebook_widget_LoginButton::setApplicationId(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton::setApplicationId(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton::setApplicationId(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setApplicationId";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -734,7 +741,7 @@ void com_facebook_widget_LoginButton::setApplicationId(FacebookCXX::java_lang_St
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton::setApplicationId(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton::setApplicationId(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 void com_facebook_widget_LoginButton::setLoginBehavior(COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior& arg0)
@@ -1006,9 +1013,9 @@ void com_facebook_widget_LoginButton::setOnErrorListener(FacebookCXX::com_facebo
 	LOGV("void com_facebook_widget_LoginButton::setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton::setReadPermissions(FacebookCXX::java_util_List& arg0)
+void com_facebook_widget_LoginButton::setReadPermissions(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton::setReadPermissions(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton::setReadPermissions(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setReadPermissions";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -1070,12 +1077,12 @@ void com_facebook_widget_LoginButton::setReadPermissions(FacebookCXX::java_util_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton::setReadPermissions(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton::setReadPermissions(AndroidCXX::java_util_List& arg0) exit");
 
 }
-void com_facebook_widget_LoginButton::setPublishPermissions(FacebookCXX::java_util_List& arg0)
+void com_facebook_widget_LoginButton::setPublishPermissions(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton::setPublishPermissions(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton::setPublishPermissions(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setPublishPermissions";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -1137,7 +1144,7 @@ void com_facebook_widget_LoginButton::setPublishPermissions(FacebookCXX::java_ut
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton::setPublishPermissions(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton::setPublishPermissions(AndroidCXX::java_util_List& arg0) exit");
 
 }
 void com_facebook_widget_LoginButton::clearPermissions()
@@ -1360,9 +1367,9 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 
 	return result;
 }
-void com_facebook_widget_LoginButton::setFragment(FacebookCXX::android_support_v4_app_Fragment& arg0)
+void com_facebook_widget_LoginButton::setFragment(AndroidCXX::android_support_v4_app_Fragment& arg0)
 {
-	LOGV("void com_facebook_widget_LoginButton::setFragment(FacebookCXX::android_support_v4_app_Fragment& arg0) enter");
+	LOGV("void com_facebook_widget_LoginButton::setFragment(AndroidCXX::android_support_v4_app_Fragment& arg0) enter");
 
 	const char *methodName = "setFragment";
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;)V";
@@ -1406,6 +1413,6 @@ void com_facebook_widget_LoginButton::setFragment(FacebookCXX::android_support_v
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_LoginButton::setFragment(FacebookCXX::android_support_v4_app_Fragment& arg0) exit");
+	LOGV("void com_facebook_widget_LoginButton::setFragment(AndroidCXX::android_support_v4_app_Fragment& arg0) exit");
 
 }

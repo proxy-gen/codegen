@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Request_5"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +146,9 @@ com_facebook_Request_5::~com_facebook_Request_5()
 	LOGV("com_facebook_Request_5::~com_facebook_Request_5() exit");
 }
 // Functions
-void com_facebook_Request_5::writeString(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1)
+void com_facebook_Request_5::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("void com_facebook_Request_5::writeString(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1) enter");
+	LOGV("void com_facebook_Request_5::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "writeString";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -209,6 +213,6 @@ void com_facebook_Request_5::writeString(FacebookCXX::java_lang_String& arg0,Fac
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Request_5::writeString(FacebookCXX::java_lang_String& arg0,FacebookCXX::java_lang_String& arg1) exit");
+	LOGV("void com_facebook_Request_5::writeString(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 }

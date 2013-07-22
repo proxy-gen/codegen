@@ -216,6 +216,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_webkit_WebView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -3572,9 +3574,9 @@ void android_webkit_WebView::setHttpAuthUsernamePassword(AndroidCXX::java_lang_S
 	LOGV("void android_webkit_WebView::setHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");
 
 }
-std::vector<java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
+std::vector<AndroidCXX::java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("std::vector<java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "getHttpAuthUsernamePassword";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;";
@@ -3635,7 +3637,7 @@ std::vector<java_lang_String > android_webkit_WebView::getHttpAuthUsernamePasswo
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3671,11 +3673,11 @@ std::vector<java_lang_String > android_webkit_WebView::getHttpAuthUsernamePasswo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_webkit_WebView::getHttpAuthUsernamePassword(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 	return result;
 }

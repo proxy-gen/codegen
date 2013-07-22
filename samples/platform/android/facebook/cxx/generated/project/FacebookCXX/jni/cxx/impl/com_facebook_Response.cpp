@@ -47,6 +47,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Response"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -55,6 +57,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -196,9 +203,9 @@ com_facebook_Response::~com_facebook_Response()
 	LOGV("com_facebook_Response::~com_facebook_Response() exit");
 }
 // Functions
-FacebookCXX::java_lang_String com_facebook_Response::toString()
+AndroidCXX::java_lang_String com_facebook_Response::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_Response::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Response::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -217,7 +224,7 @@ FacebookCXX::java_lang_String com_facebook_Response::toString()
 	LOGV("com_facebook_Response jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -235,17 +242,17 @@ FacebookCXX::java_lang_String com_facebook_Response::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_Response::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_Response::toString() exit");
 
 	return result;
 }
-FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(FacebookCXX::java_lang_Class& arg0)
+FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(FacebookCXX::java_lang_Class& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0) enter");
 
 	const char *methodName = "getGraphObjectAs";
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObject;";
@@ -325,7 +332,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjec
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(FacebookCXX::java_lang_Class& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_model_GraphObject com_facebook_Response::getGraphObjectAs(AndroidCXX::java_lang_Class& arg0) exit");
 
 	return result;
 }
@@ -488,9 +495,9 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 
 	return result;
 }
-FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(FacebookCXX::java_lang_Class& arg0)
+FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(FacebookCXX::java_lang_Class& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0) enter");
 
 	const char *methodName = "getGraphObjectListAs";
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
@@ -588,13 +595,13 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphO
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(FacebookCXX::java_lang_Class& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response::getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0) exit");
 
 	return result;
 }
-FacebookCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
+AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 {
-	LOGV("FacebookCXX::java_net_HttpURLConnection com_facebook_Response::getConnection() enter");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection() enter");
 
 	const char *methodName = "getConnection";
 	const char *methodSignature = "()Ljava/net/HttpURLConnection;";
@@ -613,7 +620,7 @@ FacebookCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 	LOGV("com_facebook_Response jni address %d", javaObject);
 
 
-	FacebookCXX::java_net_HttpURLConnection result;
+	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -631,11 +638,11 @@ FacebookCXX::java_net_HttpURLConnection com_facebook_Response::getConnection()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_net_HttpURLConnection) (FacebookCXX::java_net_HttpURLConnection((FacebookCXX::java_net_HttpURLConnection *) cxx_value));
+	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_net_HttpURLConnection com_facebook_Response::getConnection() exit");
+	LOGV("AndroidCXX::java_net_HttpURLConnection com_facebook_Response::getConnection() exit");
 
 	return result;
 }

@@ -108,6 +108,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_net_URLConnection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -412,9 +414,9 @@ AndroidCXX::java_net_URL java_net_URLConnection::getURL()
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<java_lang_Class >& arg0)
+AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<AndroidCXX::java_lang_Class >& arg0)
 {
-	LOGV("AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<java_lang_Class >& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<AndroidCXX::java_lang_Class >& arg0) enter");
 
 	const char *methodName = "getContent";
 	const char *methodSignature = "([Ljava/lang/Class;)Ljava/lang/Object;";
@@ -494,7 +496,7 @@ AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<java
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<java_lang_Class >& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<AndroidCXX::java_lang_Class >& arg0) exit");
 
 	return result;
 }

@@ -50,27 +50,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_FacebookRequestError;
 
@@ -81,12 +62,12 @@ public:
 	com_facebook_FacebookServiceException(const com_facebook_FacebookServiceException& cc);
 	com_facebook_FacebookServiceException(void * proxy);
 	// Public Constructors
-	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError& arg0,FacebookCXX::java_lang_String& arg1);
+	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError& arg0,AndroidCXX::java_lang_String& arg1);
 	com_facebook_FacebookServiceException();
 	// Default Destructor
 	virtual ~com_facebook_FacebookServiceException();
 	// Functions
-	 FacebookCXX::java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 	 FacebookCXX::com_facebook_FacebookRequestError getRequestError();
 };	
 

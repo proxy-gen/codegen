@@ -78,6 +78,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_util_Locale"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -856,9 +858,9 @@ void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0)
 	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0) exit");
 
 }
-std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
+std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales()
 {
-	LOGV("std::vector<java_util_Locale > java_util_Locale::getAvailableLocales() enter");
+	LOGV("std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales() enter");
 
 	const char *methodName = "getAvailableLocales";
 	const char *methodSignature = "()[Ljava/util/Locale;";
@@ -877,7 +879,7 @@ std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	std::vector<java_util_Locale > result;
+	std::vector<AndroidCXX::java_util_Locale > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -913,17 +915,17 @@ std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_util_Locale >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_util_Locale >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_util_Locale > java_util_Locale::getAvailableLocales() exit");
+	LOGV("std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales() exit");
 
 	return result;
 }
-std::vector<java_lang_String > java_util_Locale::getISOCountries()
+std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries()
 {
-	LOGV("std::vector<java_lang_String > java_util_Locale::getISOCountries() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries() enter");
 
 	const char *methodName = "getISOCountries";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -942,7 +944,7 @@ std::vector<java_lang_String > java_util_Locale::getISOCountries()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -978,17 +980,17 @@ std::vector<java_lang_String > java_util_Locale::getISOCountries()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_util_Locale::getISOCountries() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries() exit");
 
 	return result;
 }
-std::vector<java_lang_String > java_util_Locale::getISOLanguages()
+std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages()
 {
-	LOGV("std::vector<java_lang_String > java_util_Locale::getISOLanguages() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages() enter");
 
 	const char *methodName = "getISOLanguages";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -1007,7 +1009,7 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1043,11 +1045,11 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_util_Locale::getISOLanguages() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages() exit");
 
 	return result;
 }

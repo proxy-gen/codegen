@@ -85,70 +85,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_RESPONSE_PAGINGDIRECTION;
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class java_lang_Class;
 
 class com_facebook_model_GraphObject;
 
@@ -156,7 +95,6 @@ class com_facebook_FacebookRequestError;
 
 class com_facebook_model_GraphObjectList;
 
-class java_net_HttpURLConnection;
 
 class com_facebook_Request;
 
@@ -172,13 +110,13 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Response();
 	// Functions
-	 FacebookCXX::java_lang_String toString();
-	 FacebookCXX::com_facebook_model_GraphObject getGraphObjectAs(FacebookCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 FacebookCXX::com_facebook_model_GraphObject getGraphObjectAs(AndroidCXX::java_lang_Class& arg0);
 	 FacebookCXX::com_facebook_FacebookRequestError getError();
 	 FacebookCXX::com_facebook_model_GraphObject getGraphObject();
 	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectList();
-	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectListAs(FacebookCXX::java_lang_Class& arg0);
-	 FacebookCXX::java_net_HttpURLConnection getConnection();
+	 FacebookCXX::com_facebook_model_GraphObjectList getGraphObjectListAs(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_net_HttpURLConnection getConnection();
 	 FacebookCXX::com_facebook_Request getRequest();
 	 FacebookCXX::com_facebook_Request getRequestForPagedResults(COM_FACEBOOK_RESPONSE_PAGINGDIRECTION::com_facebook_Response_PagingDirection& arg0);
 	 bool getIsFromCache();

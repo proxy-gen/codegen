@@ -85,100 +85,33 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class org_json_JSONObject;
 
 class com_facebook_model_GraphObject;
 
-class java_lang_Class;
 
-class org_json_JSONArray;
 
 class com_facebook_model_GraphObjectList;
 
-class java_lang_Object;
 
 class com_facebook_model_GraphObject_Factory
 {
 public:
 
+	com_facebook_model_GraphObject_Factory(const com_facebook_model_GraphObject_Factory& cc);
+	com_facebook_model_GraphObject_Factory(void * proxy);
+	// Public Constructors
+	com_facebook_model_GraphObject_Factory();
+	// Default Destructor
+	virtual ~com_facebook_model_GraphObject_Factory();
 	// Functions
-	static FacebookCXX::com_facebook_model_GraphObject create(FacebookCXX::org_json_JSONObject& arg0);
-	static FacebookCXX::com_facebook_model_GraphObject create(FacebookCXX::org_json_JSONObject& arg0,FacebookCXX::java_lang_Class& arg1);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject& arg0);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1);
 	static FacebookCXX::com_facebook_model_GraphObject create();
-	static FacebookCXX::com_facebook_model_GraphObject create(FacebookCXX::java_lang_Class& arg0);
-	static FacebookCXX::com_facebook_model_GraphObjectList createList(FacebookCXX::org_json_JSONArray& arg0,FacebookCXX::java_lang_Class& arg1);
-	static FacebookCXX::com_facebook_model_GraphObjectList createList(FacebookCXX::java_lang_Class& arg0);
+	static FacebookCXX::com_facebook_model_GraphObject create(AndroidCXX::java_lang_Class& arg0);
+	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::org_json_JSONArray& arg0,AndroidCXX::java_lang_Class& arg1);
+	static FacebookCXX::com_facebook_model_GraphObjectList createList(AndroidCXX::java_lang_Class& arg0);
 	static bool hasSameId(FacebookCXX::com_facebook_model_GraphObject& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
 };	
 

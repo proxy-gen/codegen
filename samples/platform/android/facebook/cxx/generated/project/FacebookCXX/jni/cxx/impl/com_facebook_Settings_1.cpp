@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Settings_1"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +146,9 @@ com_facebook_Settings_1::~com_facebook_Settings_1()
 	LOGV("com_facebook_Settings_1::~com_facebook_Settings_1() exit");
 }
 // Functions
-FacebookCXX::java_lang_Thread com_facebook_Settings_1::newThread(FacebookCXX::java_lang_Runnable& arg0)
+AndroidCXX::java_lang_Thread com_facebook_Settings_1::newThread(AndroidCXX::java_lang_Runnable& arg0)
 {
-	LOGV("FacebookCXX::java_lang_Thread com_facebook_Settings_1::newThread(FacebookCXX::java_lang_Runnable& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Thread com_facebook_Settings_1::newThread(AndroidCXX::java_lang_Runnable& arg0) enter");
 
 	const char *methodName = "newThread";
 	const char *methodSignature = "(Ljava/lang/Runnable;)Ljava/lang/Thread;";
@@ -184,7 +188,7 @@ FacebookCXX::java_lang_Thread com_facebook_Settings_1::newThread(FacebookCXX::ja
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_lang_Thread result;
+	AndroidCXX::java_lang_Thread result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -202,11 +206,11 @@ FacebookCXX::java_lang_Thread com_facebook_Settings_1::newThread(FacebookCXX::ja
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Thread(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_Thread) (FacebookCXX::java_lang_Thread((FacebookCXX::java_lang_Thread *) cxx_value));
+	result = (AndroidCXX::java_lang_Thread) (AndroidCXX::java_lang_Thread((AndroidCXX::java_lang_Thread *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_Thread com_facebook_Settings_1::newThread(FacebookCXX::java_lang_Runnable& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Thread com_facebook_Settings_1::newThread(AndroidCXX::java_lang_Runnable& arg0) exit");
 
 	return result;
 }

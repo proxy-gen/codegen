@@ -58,39 +58,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_ComponentName;
 
-class android_os_IBinder;
 
 class com_facebook_android_Facebook;
 
-class android_content_Context;
 
 class com_facebook_android_Facebook_ServiceListener;
 
@@ -101,13 +74,13 @@ public:
 	com_facebook_android_Facebook_TokenRefreshServiceConnection(const com_facebook_android_Facebook_TokenRefreshServiceConnection& cc);
 	com_facebook_android_Facebook_TokenRefreshServiceConnection(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,FacebookCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2);
+	com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2);
 	com_facebook_android_Facebook_TokenRefreshServiceConnection();
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshServiceConnection();
 	// Functions
-	 void onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1);
-	 void onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0);
+	 void onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1);
+	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0);
 };	
 
 } // namespace

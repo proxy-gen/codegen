@@ -85,63 +85,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -169,8 +112,8 @@ public:
 	 bool contains(AndroidCXX::java_lang_Object& arg0);
 	 bool addAll(AndroidCXX::java_util_Collection& arg0);
 	 int size();
-	 std::vector<java_lang_Object > toArray(std::vector<java_lang_Object >& arg0);
-	 std::vector<java_lang_Object > toArray();
+	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > toArray();
 	 AndroidCXX::java_util_Iterator iterator();
 	 bool remove(AndroidCXX::java_lang_Object& arg0);
 	 bool removeAll(AndroidCXX::java_util_Collection& arg0);

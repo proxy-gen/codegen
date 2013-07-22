@@ -34,6 +34,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_TokenRefreshServiceConnection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,6 +44,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -145,9 +152,9 @@ com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_androi
 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection() exit");	
 }
 // Public Constructors
-com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,FacebookCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2)
+com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2)
 {
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,FacebookCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2) enter");	
+	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lcom/facebook/android/Facebook;Landroid/content/Context;Lcom/facebook/android/Facebook$ServiceListener;)V";
@@ -242,7 +249,7 @@ com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_androi
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,FacebookCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2) exit");	
+	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2) exit");	
 }
 // Default Instance Destructor
 com_facebook_android_Facebook_TokenRefreshServiceConnection::~com_facebook_android_Facebook_TokenRefreshServiceConnection()
@@ -259,9 +266,9 @@ com_facebook_android_Facebook_TokenRefreshServiceConnection::~com_facebook_andro
 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::~com_facebook_android_Facebook_TokenRefreshServiceConnection() exit");
 }
 // Functions
-void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1)
+void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1)
 {
-	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) enter");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) enter");
 
 	const char *methodName = "onServiceConnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
@@ -326,12 +333,12 @@ void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConne
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) exit");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) exit");
 
 }
-void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0)
+void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) enter");
 
 	const char *methodName = "onServiceDisconnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
@@ -375,6 +382,6 @@ void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisco
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_TokenRefreshServiceConnection::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) exit");
 
 }

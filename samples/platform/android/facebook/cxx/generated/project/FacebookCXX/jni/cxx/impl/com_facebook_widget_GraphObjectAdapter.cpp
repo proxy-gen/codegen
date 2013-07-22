@@ -73,6 +73,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -81,6 +83,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -217,9 +224,9 @@ com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter()
 	LOGV("com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter() exit");	
 }
 // Public Constructors
-com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(FacebookCXX::android_content_Context& arg0)
+com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context& arg0)
 {
-	LOGV("com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(FacebookCXX::android_content_Context& arg0) enter");	
+	LOGV("com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -272,7 +279,7 @@ com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(F
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(FacebookCXX::android_content_Context& arg0) exit");	
+	LOGV("com_facebook_widget_GraphObjectAdapter::com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_GraphObjectAdapter::~com_facebook_widget_GraphObjectAdapter()
@@ -336,9 +343,9 @@ bool com_facebook_widget_GraphObjectAdapter::isEmpty()
 
 	return result;
 }
-FacebookCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,FacebookCXX::android_view_View& arg1,FacebookCXX::android_view_ViewGroup& arg2)
+AndroidCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2)
 {
-	LOGV("FacebookCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,FacebookCXX::android_view_View& arg1,FacebookCXX::android_view_ViewGroup& arg2) enter");
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) enter");
 
 	const char *methodName = "getView";
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
@@ -420,7 +427,7 @@ FacebookCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(i
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::android_view_View result;
+	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -438,11 +445,11 @@ FacebookCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_view_View) (FacebookCXX::android_view_View((FacebookCXX::android_view_View *) cxx_value));
+	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,FacebookCXX::android_view_View& arg1,FacebookCXX::android_view_ViewGroup& arg2) exit");
+	LOGV("AndroidCXX::android_view_View com_facebook_widget_GraphObjectAdapter::getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2) exit");
 
 	return result;
 }
@@ -514,9 +521,9 @@ bool com_facebook_widget_GraphObjectAdapter::isEnabled(int& arg0)
 
 	return result;
 }
-FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields()
+AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields()
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields() enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields() enter");
 
 	const char *methodName = "getSortFields";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -535,7 +542,7 @@ FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortField
 	LOGV("com_facebook_widget_GraphObjectAdapter jni address %d", javaObject);
 
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -571,17 +578,17 @@ FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortField
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields() exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getSortFields() exit");
 
 	return result;
 }
-void com_facebook_widget_GraphObjectAdapter::setSortFields(FacebookCXX::java_util_List& arg0)
+void com_facebook_widget_GraphObjectAdapter::setSortFields(AndroidCXX::java_util_List& arg0)
 {
-	LOGV("void com_facebook_widget_GraphObjectAdapter::setSortFields(FacebookCXX::java_util_List& arg0) enter");
+	LOGV("void com_facebook_widget_GraphObjectAdapter::setSortFields(AndroidCXX::java_util_List& arg0) enter");
 
 	const char *methodName = "setSortFields";
 	const char *methodSignature = "(Ljava/util/List;)V";
@@ -643,12 +650,12 @@ void com_facebook_widget_GraphObjectAdapter::setSortFields(FacebookCXX::java_uti
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_GraphObjectAdapter::setSortFields(FacebookCXX::java_util_List& arg0) exit");
+	LOGV("void com_facebook_widget_GraphObjectAdapter::setSortFields(AndroidCXX::java_util_List& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField()
+AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField() enter");
 
 	const char *methodName = "getGroupByField";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -667,7 +674,7 @@ FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupBy
 	LOGV("com_facebook_widget_GraphObjectAdapter jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -685,17 +692,17 @@ FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupBy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter::getGroupByField() exit");
 
 	return result;
 }
-void com_facebook_widget_GraphObjectAdapter::setGroupByField(FacebookCXX::java_lang_String& arg0)
+void com_facebook_widget_GraphObjectAdapter::setGroupByField(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_widget_GraphObjectAdapter::setGroupByField(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_GraphObjectAdapter::setGroupByField(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setGroupByField";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -739,7 +746,7 @@ void com_facebook_widget_GraphObjectAdapter::setGroupByField(FacebookCXX::java_l
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_GraphObjectAdapter::setGroupByField(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_GraphObjectAdapter::setGroupByField(AndroidCXX::java_lang_String& arg0) exit");
 
 }
 bool com_facebook_widget_GraphObjectAdapter::getShowPicture()
@@ -1537,9 +1544,9 @@ bool com_facebook_widget_GraphObjectAdapter::hasStableIds()
 
 	return result;
 }
-FacebookCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0)
+AndroidCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0)
 {
-	LOGV("FacebookCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0) enter");
 
 	const char *methodName = "getItem";
 	const char *methodSignature = "(I)Ljava/lang/Object;";
@@ -1579,7 +1586,7 @@ FacebookCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	FacebookCXX::java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1597,11 +1604,11 @@ FacebookCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_Object) (FacebookCXX::java_lang_Object((FacebookCXX::java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_widget_GraphObjectAdapter::getItem(int& arg0) exit");
 
 	return result;
 }
@@ -1788,9 +1795,9 @@ int com_facebook_widget_GraphObjectAdapter::getItemViewType(int& arg0)
 
 	return result;
 }
-std::vector<java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections()
+std::vector<AndroidCXX::java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections()
 {
-	LOGV("std::vector<java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections() enter");
 
 	const char *methodName = "getSections";
 	const char *methodSignature = "()[Ljava/lang/Object;";
@@ -1809,7 +1816,7 @@ std::vector<java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSectio
 	LOGV("com_facebook_widget_GraphObjectAdapter jni address %d", javaObject);
 
 
-	std::vector<java_lang_Object > result;
+	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1845,11 +1852,11 @@ std::vector<java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSectio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_Object >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_Object > com_facebook_widget_GraphObjectAdapter::getSections() exit");
 
 	return result;
 }
@@ -1989,9 +1996,9 @@ int com_facebook_widget_GraphObjectAdapter::getSectionForPosition(int& arg0)
 
 	return result;
 }
-FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(FacebookCXX::java_util_Collection& arg0)
+AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(FacebookCXX::java_util_Collection& arg0) enter");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(AndroidCXX::java_util_Collection& arg0) enter");
 
 	const char *methodName = "getGraphObjectsById";
 	const char *methodSignature = "(Ljava/util/Collection;)Ljava/util/List;";
@@ -2049,7 +2056,7 @@ FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObje
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2085,11 +2092,11 @@ FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObje
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_util_List) (FacebookCXX::java_util_List((FacebookCXX::java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(FacebookCXX::java_util_Collection& arg0) exit");
+	LOGV("AndroidCXX::java_util_List com_facebook_widget_GraphObjectAdapter::getGraphObjectsById(AndroidCXX::java_util_Collection& arg0) exit");
 
 	return result;
 }

@@ -52,28 +52,11 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_Intent;
 
 class com_facebook_Session;
 
-class android_os_Bundle;
 
 class com_facebook_widget_FacebookFragment
 {
@@ -87,9 +70,9 @@ public:
 	virtual ~com_facebook_widget_FacebookFragment();
 	// Functions
 	 void onDestroy();
-	 void onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2);
+	 void onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2);
 	 void setSession(FacebookCXX::com_facebook_Session& arg0);
-	 void onActivityCreated(FacebookCXX::android_os_Bundle& arg0);
+	 void onActivityCreated(AndroidCXX::android_os_Bundle& arg0);
 };	
 
 } // namespace

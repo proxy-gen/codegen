@@ -29,6 +29,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_1"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -40,6 +42,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -143,9 +147,9 @@ com_facebook_widget_PickerFragment_1::~com_facebook_widget_PickerFragment_1()
 	LOGV("com_facebook_widget_PickerFragment_1::~com_facebook_widget_PickerFragment_1() exit");
 }
 // Functions
-void com_facebook_widget_PickerFragment_1::onScrollStateChanged(FacebookCXX::android_widget_AbsListView& arg0,int& arg1)
+void com_facebook_widget_PickerFragment_1::onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1)
 {
-	LOGV("void com_facebook_widget_PickerFragment_1::onScrollStateChanged(FacebookCXX::android_widget_AbsListView& arg0,int& arg1) enter");
+	LOGV("void com_facebook_widget_PickerFragment_1::onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1) enter");
 
 	const char *methodName = "onScrollStateChanged";
 	const char *methodSignature = "(Landroid/widget/AbsListView;I)V";
@@ -210,12 +214,12 @@ void com_facebook_widget_PickerFragment_1::onScrollStateChanged(FacebookCXX::and
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PickerFragment_1::onScrollStateChanged(FacebookCXX::android_widget_AbsListView& arg0,int& arg1) exit");
+	LOGV("void com_facebook_widget_PickerFragment_1::onScrollStateChanged(AndroidCXX::android_widget_AbsListView& arg0,int& arg1) exit");
 
 }
-void com_facebook_widget_PickerFragment_1::onScroll(FacebookCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3)
+void com_facebook_widget_PickerFragment_1::onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3)
 {
-	LOGV("void com_facebook_widget_PickerFragment_1::onScroll(FacebookCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3) enter");
+	LOGV("void com_facebook_widget_PickerFragment_1::onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "onScroll";
 	const char *methodSignature = "(Landroid/widget/AbsListView;III)V";
@@ -322,6 +326,6 @@ void com_facebook_widget_PickerFragment_1::onScroll(FacebookCXX::android_widget_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PickerFragment_1::onScroll(FacebookCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3) exit");
+	LOGV("void com_facebook_widget_PickerFragment_1::onScroll(AndroidCXX::android_widget_AbsListView& arg0,int& arg1,int& arg2,int& arg3) exit");
 
 }

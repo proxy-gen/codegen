@@ -59,34 +59,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
 
-class android_content_Intent;
 
-class android_app_Activity;
 
 class com_facebook_Session_StatusCallback;
 
@@ -97,17 +73,17 @@ public:
 	com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc);
 	com_facebook_UiLifecycleHelper(void * proxy);
 	// Public Constructors
-	com_facebook_UiLifecycleHelper(FacebookCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1);
+	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1);
 	com_facebook_UiLifecycleHelper();
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper();
 	// Functions
-	 void onCreate(FacebookCXX::android_os_Bundle& arg0);
+	 void onCreate(AndroidCXX::android_os_Bundle& arg0);
 	 void onResume();
-	 void onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0);
+	 void onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0);
 	 void onPause();
 	 void onDestroy();
-	 void onActivityResult(int& arg0,int& arg1,FacebookCXX::android_content_Intent& arg2);
+	 void onActivityResult(int& arg0,int& arg1,AndroidCXX::android_content_Intent& arg2);
 };	
 
 } // namespace

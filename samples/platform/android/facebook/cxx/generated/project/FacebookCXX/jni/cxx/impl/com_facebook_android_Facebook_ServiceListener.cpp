@@ -31,6 +31,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_ServiceListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,6 +41,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -148,9 +155,9 @@ com_facebook_android_Facebook_ServiceListener::~com_facebook_android_Facebook_Se
 	LOGV("com_facebook_android_Facebook_ServiceListener::~com_facebook_android_Facebook_ServiceListener() exit");
 }
 // Functions
-void com_facebook_android_Facebook_ServiceListener::onComplete(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onComplete";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -194,7 +201,7 @@ void com_facebook_android_Facebook_ServiceListener::onComplete(FacebookCXX::andr
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0)
@@ -246,9 +253,9 @@ void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX:
 	LOGV("void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX::com_facebook_android_FacebookError& arg0) exit");
 
 }
-void com_facebook_android_Facebook_ServiceListener::onError(FacebookCXX::java_lang_Error& arg0)
+void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0)
 {
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(FacebookCXX::java_lang_Error& arg0) enter");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0) enter");
 
 	const char *methodName = "onError";
 	const char *methodSignature = "(Ljava/lang/Error;)V";
@@ -292,6 +299,6 @@ void com_facebook_android_Facebook_ServiceListener::onError(FacebookCXX::java_la
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(FacebookCXX::java_lang_Error& arg0) exit");
+	LOGV("void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lang_Error& arg0) exit");
 
 }

@@ -39,15 +39,18 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_AuthorizationClient_WebViewAuthHandler
 {
 public:
 
+	com_facebook_AuthorizationClient_WebViewAuthHandler(const com_facebook_AuthorizationClient_WebViewAuthHandler& cc);
+	com_facebook_AuthorizationClient_WebViewAuthHandler(void * proxy);
+	// Public Constructors
+	com_facebook_AuthorizationClient_WebViewAuthHandler();
+	// Default Destructor
+	virtual ~com_facebook_AuthorizationClient_WebViewAuthHandler();
 	// Functions
 };	
 

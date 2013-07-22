@@ -77,76 +77,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
-class android_app_Activity;
 
-class java_util_List;
 
 class com_facebook_TestSession;
 
@@ -161,15 +95,15 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_TestSession();
 	// Functions
-	 FacebookCXX::java_lang_String toString();
-	static FacebookCXX::com_facebook_TestSession createSessionWithPrivateUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1);
-	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1);
-	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(FacebookCXX::android_app_Activity& arg0,FacebookCXX::java_util_List& arg1,FacebookCXX::java_lang_String& arg2);
-	static FacebookCXX::java_lang_String getTestApplicationId();
-	static void setTestApplicationId(FacebookCXX::java_lang_String& arg0);
-	static FacebookCXX::java_lang_String getTestApplicationSecret();
-	static void setTestApplicationSecret(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getTestUserId();
+	 AndroidCXX::java_lang_String toString();
+	static FacebookCXX::com_facebook_TestSession createSessionWithPrivateUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
+	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
+	static FacebookCXX::com_facebook_TestSession createSessionWithSharedUser(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1,AndroidCXX::java_lang_String& arg2);
+	static AndroidCXX::java_lang_String getTestApplicationId();
+	static void setTestApplicationId(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_String getTestApplicationSecret();
+	static void setTestApplicationSecret(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getTestUserId();
 };	
 
 } // namespace

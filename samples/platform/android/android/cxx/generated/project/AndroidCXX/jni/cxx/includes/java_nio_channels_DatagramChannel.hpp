@@ -79,57 +79,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_nio_ByteBuffer;
@@ -151,13 +100,13 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_DatagramChannel();
 	// Functions
-	 long write(std::vector<java_nio_ByteBuffer >& arg0);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
 	 int write(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long write(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
+	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
 	 int send(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_net_SocketAddress& arg1);
-	 long read(std::vector<java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0,int& arg1,int& arg2);
 	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
-	 long read(std::vector<java_nio_ByteBuffer >& arg0);
+	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer >& arg0);
 	static AndroidCXX::java_nio_channels_DatagramChannel open();
 	 AndroidCXX::java_nio_channels_DatagramChannel connect(AndroidCXX::java_net_SocketAddress& arg0);
 	 AndroidCXX::java_nio_channels_DatagramChannel disconnect();

@@ -50,30 +50,9 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_WIDGET_GRAPHOBJECTADAPTER_SECTIONANDITEM_TYPE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 
-class java_lang_String;
 
 class com_facebook_model_GraphObject;
 
@@ -84,7 +63,7 @@ public:
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc);
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_SectionAndItem(FacebookCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
+	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem();
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_SectionAndItem();

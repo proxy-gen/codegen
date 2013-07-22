@@ -32,6 +32,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_LoginActivity"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -43,6 +45,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -148,9 +152,9 @@ com_facebook_LoginActivity::~com_facebook_LoginActivity()
 	LOGV("com_facebook_LoginActivity::~com_facebook_LoginActivity() exit");
 }
 // Functions
-void com_facebook_LoginActivity::onCreate(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_LoginActivity::onCreate(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onCreate";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -194,7 +198,7 @@ void com_facebook_LoginActivity::onCreate(FacebookCXX::android_os_Bundle& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_LoginActivity::onCreate(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_LoginActivity::onResume()
@@ -225,9 +229,9 @@ void com_facebook_LoginActivity::onResume()
 	LOGV("void com_facebook_LoginActivity::onResume() exit");
 
 }
-void com_facebook_LoginActivity::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onSaveInstanceState";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -271,7 +275,7 @@ void com_facebook_LoginActivity::onSaveInstanceState(FacebookCXX::android_os_Bun
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_LoginActivity::onPause()

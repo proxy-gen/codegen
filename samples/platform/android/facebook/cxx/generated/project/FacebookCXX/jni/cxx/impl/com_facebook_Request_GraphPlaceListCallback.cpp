@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Request_GraphPlaceListCallback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -36,6 +38,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +149,9 @@ com_facebook_Request_GraphPlaceListCallback::~com_facebook_Request_GraphPlaceLis
 	LOGV("com_facebook_Request_GraphPlaceListCallback::~com_facebook_Request_GraphPlaceListCallback() exit");
 }
 // Functions
-void com_facebook_Request_GraphPlaceListCallback::onCompleted(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1)
+void com_facebook_Request_GraphPlaceListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1)
 {
-	LOGV("void com_facebook_Request_GraphPlaceListCallback::onCompleted(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) enter");
+	LOGV("void com_facebook_Request_GraphPlaceListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) enter");
 
 	const char *methodName = "onCompleted";
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Response;)V";
@@ -227,6 +234,6 @@ void com_facebook_Request_GraphPlaceListCallback::onCompleted(FacebookCXX::java_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_Request_GraphPlaceListCallback::onCompleted(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) exit");
+	LOGV("void com_facebook_Request_GraphPlaceListCallback::onCompleted(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Response& arg1) exit");
 
 }

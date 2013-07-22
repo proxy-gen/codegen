@@ -339,6 +339,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_app_Activity"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1030,9 +1032,9 @@ void android_app_Activity::finish()
 	LOGV("void android_app_Activity::finish() exit");
 
 }
-void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3)
+void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
 {
-	LOGV("void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3) enter");
+	LOGV("void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
 
 	const char *methodName = "dump";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
@@ -1157,7 +1159,7 @@ void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::j
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<java_lang_String >& arg3) exit");
+	LOGV("void android_app_Activity::dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
 
 }
 AndroidCXX::android_app_FragmentManager android_app_Activity::getFragmentManager()
@@ -2823,9 +2825,9 @@ bool android_app_Activity::isFinishing()
 
 	return result;
 }
-void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1)
+void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1)
 {
-	LOGV("void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
+	LOGV("void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) enter");
 
 	const char *methodName = "startActivities";
 	const char *methodSignature = "([Landroid/content/Intent;Landroid/os/Bundle;)V";
@@ -2908,12 +2910,12 @@ void android_app_Activity::startActivities(std::vector<android_content_Intent >&
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
+	LOGV("void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0,AndroidCXX::android_os_Bundle& arg1) exit");
 
 }
-void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0)
+void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0)
 {
-	LOGV("void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0) enter");
+	LOGV("void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0) enter");
 
 	const char *methodName = "startActivities";
 	const char *methodSignature = "([Landroid/content/Intent;)V";
@@ -2975,7 +2977,7 @@ void android_app_Activity::startActivities(std::vector<android_content_Intent >&
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_app_Activity::startActivities(std::vector<android_content_Intent >& arg0) exit");
+	LOGV("void android_app_Activity::startActivities(std::vector<AndroidCXX::android_content_Intent >& arg0) exit");
 
 }
 void android_app_Activity::startIntentSender(AndroidCXX::android_content_IntentSender& arg0,AndroidCXX::android_content_Intent& arg1,int& arg2,int& arg3,int& arg4,AndroidCXX::android_os_Bundle& arg5)
@@ -4493,9 +4495,9 @@ void android_app_Activity::onTrimMemory(int& arg0)
 	LOGV("void android_app_Activity::onTrimMemory(int& arg0) exit");
 
 }
-AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4)
+AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) enter");
 
 	const char *methodName = "managedQuery";
 	const char *methodSignature = "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -4677,7 +4679,7 @@ AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCX
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) exit");
 
 	return result;
 }

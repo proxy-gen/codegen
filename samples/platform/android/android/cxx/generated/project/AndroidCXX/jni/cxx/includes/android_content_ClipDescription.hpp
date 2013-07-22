@@ -71,48 +71,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_String;
@@ -130,7 +88,7 @@ public:
 	android_content_ClipDescription(const android_content_ClipDescription& cc);
 	android_content_ClipDescription(void * proxy);
 	// Public Constructors
-	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<java_lang_String >& arg1);
+	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
 	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription& arg0);
 	android_content_ClipDescription();
 	// Default Destructor
@@ -142,7 +100,7 @@ public:
 	static bool compareMimeTypes(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::java_lang_CharSequence getLabel();
 	 bool hasMimeType(AndroidCXX::java_lang_String& arg0);
-	 std::vector<java_lang_String > filterMimeTypes(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_String > filterMimeTypes(AndroidCXX::java_lang_String& arg0);
 	 int getMimeTypeCount();
 	 AndroidCXX::java_lang_String getMimeType(int& arg0);
 };	

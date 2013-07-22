@@ -67,6 +67,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_view_Menu"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1175,9 +1177,9 @@ AndroidCXX::android_view_SubMenu android_view_Menu::addSubMenu(AndroidCXX::java_
 
 	return result;
 }
-int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<android_view_MenuItem >& arg7)
+int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<AndroidCXX::android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<AndroidCXX::android_view_MenuItem >& arg7)
 {
-	LOGV("int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<android_view_MenuItem >& arg7) enter");
+	LOGV("int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<AndroidCXX::android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<AndroidCXX::android_view_MenuItem >& arg7) enter");
 
 	const char *methodName = "addIntentOptions";
 	const char *methodSignature = "(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I";
@@ -1422,7 +1424,7 @@ int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<android_view_MenuItem >& arg7) exit");
+	LOGV("int android_view_Menu::addIntentOptions(int& arg0,int& arg1,int& arg2,AndroidCXX::android_content_ComponentName& arg3,std::vector<AndroidCXX::android_content_Intent >& arg4,AndroidCXX::android_content_Intent& arg5,int& arg6,std::vector<AndroidCXX::android_view_MenuItem >& arg7) exit");
 
 	return result;
 }

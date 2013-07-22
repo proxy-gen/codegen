@@ -27,6 +27,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_4"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -138,9 +142,9 @@ com_facebook_widget_PickerFragment_4::~com_facebook_widget_PickerFragment_4()
 	LOGV("com_facebook_widget_PickerFragment_4::~com_facebook_widget_PickerFragment_4() exit");
 }
 // Functions
-bool com_facebook_widget_PickerFragment_4::onLongClick(FacebookCXX::android_view_View& arg0)
+bool com_facebook_widget_PickerFragment_4::onLongClick(AndroidCXX::android_view_View& arg0)
 {
-	LOGV("bool com_facebook_widget_PickerFragment_4::onLongClick(FacebookCXX::android_view_View& arg0) enter");
+	LOGV("bool com_facebook_widget_PickerFragment_4::onLongClick(AndroidCXX::android_view_View& arg0) enter");
 
 	const char *methodName = "onLongClick";
 	const char *methodSignature = "(Landroid/view/View;)Z";
@@ -202,7 +206,7 @@ bool com_facebook_widget_PickerFragment_4::onLongClick(FacebookCXX::android_view
 		
 	jni->popLocalFrame();
 
-	LOGV("bool com_facebook_widget_PickerFragment_4::onLongClick(FacebookCXX::android_view_View& arg0) exit");
+	LOGV("bool com_facebook_widget_PickerFragment_4::onLongClick(AndroidCXX::android_view_View& arg0) exit");
 
 	return result;
 }

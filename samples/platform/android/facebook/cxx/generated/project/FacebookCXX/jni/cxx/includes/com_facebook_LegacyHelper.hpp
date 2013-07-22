@@ -47,23 +47,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_Session;
 
-class android_os_Bundle;
 
 class com_facebook_LegacyHelper
 {
@@ -76,7 +63,7 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_LegacyHelper();
 	// Functions
-	static void extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1);
+	static void extendTokenCompleted(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1);
 };	
 
 } // namespace

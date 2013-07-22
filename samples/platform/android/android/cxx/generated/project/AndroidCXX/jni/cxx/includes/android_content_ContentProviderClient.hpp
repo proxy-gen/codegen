@@ -136,156 +136,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_net_Uri;
@@ -324,16 +174,16 @@ public:
 	virtual ~android_content_ContentProviderClient();
 	// Functions
 	 AndroidCXX::java_lang_String getType(AndroidCXX::android_net_Uri& arg0);
-	 int _delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2);
+	 int _delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2);
 	 AndroidCXX::android_net_Uri insert(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1);
 	 bool release();
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5);
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4);
-	 int update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3);
-	 std::vector<java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5);
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4);
+	 int update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
+	 std::vector<AndroidCXX::java_lang_String > getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::android_content_res_AssetFileDescriptor openTypedAssetFileDescriptor(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 std::vector<android_content_ContentProviderResult > applyBatch(AndroidCXX::java_util_ArrayList& arg0);
-	 int bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<android_content_ContentValues >& arg1);
+	 std::vector<AndroidCXX::android_content_ContentProviderResult > applyBatch(AndroidCXX::java_util_ArrayList& arg0);
+	 int bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1);
 	 AndroidCXX::android_os_Bundle call(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
 	 AndroidCXX::android_os_ParcelFileDescriptor openFile(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);
 	 AndroidCXX::android_content_res_AssetFileDescriptor openAssetFile(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1);

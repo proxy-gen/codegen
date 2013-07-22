@@ -35,6 +35,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_SharedPreferencesTokenCachingStrategy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,6 +48,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -143,9 +147,9 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy() exit");	
 }
 // Public Constructors
-com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0)
+com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0)
 {
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0) enter");	
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;)V";
@@ -198,11 +202,11 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0) exit");	
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0) exit");	
 }
-com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1)
+com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) enter");	
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)V";
@@ -276,7 +280,7 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) exit");	
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_SharedPreferencesTokenCachingStrategy::~com_facebook_SharedPreferencesTokenCachingStrategy()
@@ -321,9 +325,9 @@ void com_facebook_SharedPreferencesTokenCachingStrategy::clear()
 	LOGV("void com_facebook_SharedPreferencesTokenCachingStrategy::clear() exit");
 
 }
-FacebookCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load()
+AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load()
 {
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load() enter");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load() enter");
 
 	const char *methodName = "load";
 	const char *methodSignature = "()Landroid/os/Bundle;";
@@ -342,7 +346,7 @@ FacebookCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrateg
 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy jni address %d", javaObject);
 
 
-	FacebookCXX::android_os_Bundle result;
+	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -360,17 +364,17 @@ FacebookCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrateg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_os_Bundle) (FacebookCXX::android_os_Bundle((FacebookCXX::android_os_Bundle *) cxx_value));
+	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load() exit");
+	LOGV("AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy::load() exit");
 
 	return result;
 }
-void com_facebook_SharedPreferencesTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_SharedPreferencesTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_SharedPreferencesTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_SharedPreferencesTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "save";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -414,6 +418,6 @@ void com_facebook_SharedPreferencesTokenCachingStrategy::save(FacebookCXX::andro
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_SharedPreferencesTokenCachingStrategy::save(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_SharedPreferencesTokenCachingStrategy::save(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }

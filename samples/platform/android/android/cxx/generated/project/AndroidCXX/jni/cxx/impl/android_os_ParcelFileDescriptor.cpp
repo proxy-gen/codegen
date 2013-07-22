@@ -57,6 +57,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_os_ParcelFileDescriptor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -935,9 +937,9 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_ParcelFileDescriptor::fro
 
 	return result;
 }
-std::vector<android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe()
+std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe()
 {
-	LOGV("std::vector<android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe() enter");
+	LOGV("std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe() enter");
 
 	const char *methodName = "createPipe";
 	const char *methodSignature = "()[Landroid/os/ParcelFileDescriptor;";
@@ -956,7 +958,7 @@ std::vector<android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::c
 	LOGV("android_os_ParcelFileDescriptor jni address %d", javaObject);
 
 
-	std::vector<android_os_ParcelFileDescriptor > result;
+	std::vector<AndroidCXX::android_os_ParcelFileDescriptor > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -992,11 +994,11 @@ std::vector<android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::c
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_os_ParcelFileDescriptor >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_os_ParcelFileDescriptor >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe() exit");
+	LOGV("std::vector<AndroidCXX::android_os_ParcelFileDescriptor > android_os_ParcelFileDescriptor::createPipe() exit");
 
 	return result;
 }

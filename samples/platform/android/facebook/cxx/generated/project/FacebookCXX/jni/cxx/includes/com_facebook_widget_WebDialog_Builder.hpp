@@ -57,45 +57,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_content_Context;
 
 class com_facebook_Session;
 
-class java_lang_String;
 
-class android_os_Bundle;
 
 class com_facebook_widget_WebDialog_Builder
 {
@@ -104,8 +71,8 @@ public:
 	com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc);
 	com_facebook_widget_WebDialog_Builder(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_Builder(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::android_os_Bundle& arg3);
-	com_facebook_widget_WebDialog_Builder(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::java_lang_String& arg2,FacebookCXX::android_os_Bundle& arg3);
+	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3);
+	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_os_Bundle& arg3);
 	com_facebook_widget_WebDialog_Builder();
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_Builder();

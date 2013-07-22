@@ -47,23 +47,10 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class com_facebook_widget_PickerFragment;
 
-class java_lang_Object;
 
 class com_facebook_widget_PickerFragment_OnDoneButtonClickedListener
 {

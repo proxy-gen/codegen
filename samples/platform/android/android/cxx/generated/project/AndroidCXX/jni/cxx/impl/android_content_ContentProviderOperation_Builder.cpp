@@ -49,6 +49,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_ContentProviderOperation_Builder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -652,9 +654,9 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 
 	return result;
 }
-AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1)
+AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "withSelection";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;";
@@ -755,7 +757,7 @@ AndroidCXX::android_content_ContentProviderOperation_Builder android_content_Con
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("AndroidCXX::android_content_ContentProviderOperation_Builder android_content_ContentProviderOperation_Builder::withSelection(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 	return result;
 }

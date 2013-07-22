@@ -40,9 +40,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-
 // Forward Declarations
 
 class android_support_v4_app_FragmentManager_OnBackStackChangedListener

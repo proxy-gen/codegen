@@ -67,6 +67,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_util_AttributeSet"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -622,9 +624,9 @@ int android_util_AttributeSet::getAttributeNameResource(int& arg0)
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,int& arg3)
+int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3)
 {
-	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,int& arg3) enter");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3) enter");
 
 	const char *methodName = "getAttributeListValue";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)I";
@@ -767,13 +769,13 @@ int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_Strin
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,int& arg3) exit");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,int& arg3) exit");
 
 	return result;
 }
-int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<java_lang_String >& arg1,int& arg2)
+int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2)
 {
-	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<java_lang_String >& arg1,int& arg2) enter");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2) enter");
 
 	const char *methodName = "getAttributeListValue";
 	const char *methodSignature = "(I[Ljava/lang/String;I)I";
@@ -895,7 +897,7 @@ int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<java_
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<java_lang_String >& arg1,int& arg2) exit");
+	LOGV("int android_util_AttributeSet::getAttributeListValue(int& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,int& arg2) exit");
 
 	return result;
 }

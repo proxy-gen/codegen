@@ -45,6 +45,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_security_ProtectionDomain"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -249,9 +251,9 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 
 	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1) exit");	
 }
-java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3)
+java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3)
 {
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3) enter");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V";
@@ -385,7 +387,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3) exit");	
+	LOGV("java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3) exit");	
 }
 // Default Instance Destructor
 java_security_ProtectionDomain::~java_security_ProtectionDomain()
@@ -543,9 +545,9 @@ AndroidCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSour
 
 	return result;
 }
-std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincipals()
+std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain::getPrincipals()
 {
-	LOGV("std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincipals() enter");
+	LOGV("std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain::getPrincipals() enter");
 
 	const char *methodName = "getPrincipals";
 	const char *methodSignature = "()[Ljava/security/Principal;";
@@ -564,7 +566,7 @@ std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincip
 	LOGV("java_security_ProtectionDomain jni address %d", javaObject);
 
 
-	std::vector<java_security_Principal > result;
+	std::vector<AndroidCXX::java_security_Principal > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -600,11 +602,11 @@ std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincip
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_security_Principal >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_security_Principal >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_security_Principal > java_security_ProtectionDomain::getPrincipals() exit");
+	LOGV("std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain::getPrincipals() exit");
 
 	return result;
 }

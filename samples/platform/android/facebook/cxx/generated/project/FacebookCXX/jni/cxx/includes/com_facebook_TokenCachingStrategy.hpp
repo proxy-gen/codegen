@@ -99,114 +99,12 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_ACCESSTOKENSOURCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class android_os_Bundle;
-
-class java_util_List;
-
-class java_lang_String;
 
 
-class java_util_Date;
+
+
 
 class com_facebook_TokenCachingStrategy
 {
@@ -220,23 +118,23 @@ public:
 	virtual ~com_facebook_TokenCachingStrategy();
 	// Functions
 	 void clear();
-	 FacebookCXX::android_os_Bundle load();
-	static FacebookCXX::java_util_List getPermissions(FacebookCXX::android_os_Bundle& arg0);
-	 void save(FacebookCXX::android_os_Bundle& arg0);
-	static FacebookCXX::java_lang_String getToken(FacebookCXX::android_os_Bundle& arg0);
-	static COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource getSource(FacebookCXX::android_os_Bundle& arg0);
-	static bool hasTokenInformation(FacebookCXX::android_os_Bundle& arg0);
-	static FacebookCXX::java_util_Date getExpirationDate(FacebookCXX::android_os_Bundle& arg0);
-	static void putToken(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_lang_String& arg1);
-	static void putExpirationDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1);
-	static long getExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0);
-	static void putExpirationMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1);
-	static void putPermissions(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_List& arg1);
-	static void putSource(FacebookCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1);
-	static FacebookCXX::java_util_Date getLastRefreshDate(FacebookCXX::android_os_Bundle& arg0);
-	static void putLastRefreshDate(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::java_util_Date& arg1);
-	static long getLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0);
-	static void putLastRefreshMilliseconds(FacebookCXX::android_os_Bundle& arg0,long& arg1);
+	 AndroidCXX::android_os_Bundle load();
+	static AndroidCXX::java_util_List getPermissions(AndroidCXX::android_os_Bundle& arg0);
+	 void save(AndroidCXX::android_os_Bundle& arg0);
+	static AndroidCXX::java_lang_String getToken(AndroidCXX::android_os_Bundle& arg0);
+	static COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource getSource(AndroidCXX::android_os_Bundle& arg0);
+	static bool hasTokenInformation(AndroidCXX::android_os_Bundle& arg0);
+	static AndroidCXX::java_util_Date getExpirationDate(AndroidCXX::android_os_Bundle& arg0);
+	static void putToken(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_lang_String& arg1);
+	static void putExpirationDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1);
+	static long getExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0);
+	static void putExpirationMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1);
+	static void putPermissions(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_List& arg1);
+	static void putSource(AndroidCXX::android_os_Bundle& arg0,COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource& arg1);
+	static AndroidCXX::java_util_Date getLastRefreshDate(AndroidCXX::android_os_Bundle& arg0);
+	static void putLastRefreshDate(AndroidCXX::android_os_Bundle& arg0,AndroidCXX::java_util_Date& arg1);
+	static long getLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0);
+	static void putLastRefreshMilliseconds(AndroidCXX::android_os_Bundle& arg0,long& arg1);
 };	
 
 } // namespace

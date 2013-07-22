@@ -28,6 +28,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_WebDialog_OnCompleteListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -36,6 +38,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -142,9 +149,9 @@ com_facebook_widget_WebDialog_OnCompleteListener::~com_facebook_widget_WebDialog
 	LOGV("com_facebook_widget_WebDialog_OnCompleteListener::~com_facebook_widget_WebDialog_OnCompleteListener() exit");
 }
 // Functions
-void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1)
+void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1)
 {
-	LOGV("void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1) enter");
+	LOGV("void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1) enter");
 
 	const char *methodName = "onComplete";
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/FacebookException;)V";
@@ -209,6 +216,6 @@ void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(FacebookCXX::a
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(FacebookCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1) exit");
+	LOGV("void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(AndroidCXX::android_os_Bundle& arg0,FacebookCXX::com_facebook_FacebookException& arg1) exit");
 
 }

@@ -30,6 +30,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_GetTokenClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -41,6 +43,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -147,9 +151,9 @@ com_facebook_GetTokenClient::~com_facebook_GetTokenClient()
 	LOGV("com_facebook_GetTokenClient::~com_facebook_GetTokenClient() exit");
 }
 // Functions
-void com_facebook_GetTokenClient::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1)
+void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1)
 {
-	LOGV("void com_facebook_GetTokenClient::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) enter");
+	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) enter");
 
 	const char *methodName = "onServiceConnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
@@ -214,12 +218,12 @@ void com_facebook_GetTokenClient::onServiceConnected(FacebookCXX::android_conten
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_GetTokenClient::onServiceConnected(FacebookCXX::android_content_ComponentName& arg0,FacebookCXX::android_os_IBinder& arg1) exit");
+	LOGV("void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content_ComponentName& arg0,AndroidCXX::android_os_IBinder& arg1) exit");
 
 }
-void com_facebook_GetTokenClient::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0)
+void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0)
 {
-	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) enter");
+	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) enter");
 
 	const char *methodName = "onServiceDisconnected";
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
@@ -263,6 +267,6 @@ void com_facebook_GetTokenClient::onServiceDisconnected(FacebookCXX::android_con
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(FacebookCXX::android_content_ComponentName& arg0) exit");
+	LOGV("void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_content_ComponentName& arg0) exit");
 
 }

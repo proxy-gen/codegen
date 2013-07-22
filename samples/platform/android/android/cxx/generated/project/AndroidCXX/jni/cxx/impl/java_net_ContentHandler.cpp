@@ -32,6 +32,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_net_ContentHandler"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -222,9 +224,9 @@ AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::jav
 
 	return result;
 }
-AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1)
+AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1)
 {
-	LOGV("AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1) enter");
+	LOGV("AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1) enter");
 
 	const char *methodName = "getContent";
 	const char *methodSignature = "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;";
@@ -325,7 +327,7 @@ AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::jav
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1) exit");
+	LOGV("AndroidCXX::java_lang_Object java_net_ContentHandler::getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1) exit");
 
 	return result;
 }

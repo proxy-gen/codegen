@@ -99,6 +99,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_ContentProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -499,9 +501,9 @@ AndroidCXX::java_lang_String android_content_ContentProvider::getType(AndroidCXX
 
 	return result;
 }
-int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2)
+int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2)
 {
-	LOGV("int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2) enter");
+	LOGV("int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -623,7 +625,7 @@ int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,A
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2) exit");
+	LOGV("int android_content_ContentProvider::_delete(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) exit");
 
 	return result;
 }
@@ -716,9 +718,9 @@ AndroidCXX::android_net_Uri android_content_ContentProvider::insert(AndroidCXX::
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4)
+AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -900,13 +902,13 @@ AndroidCXX::android_database_Cursor android_content_ContentProvider::query(Andro
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5)
+AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -1109,13 +1111,13 @@ AndroidCXX::android_database_Cursor android_content_ContentProvider::query(Andro
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_content_ContentProvider::query(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::android_os_CancellationSignal& arg5) exit");
 
 	return result;
 }
-int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3)
+int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
 {
-	LOGV("int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3) enter");
+	LOGV("int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
 
 	const char *methodName = "update";
 	const char *methodSignature = "(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -1258,7 +1260,7 @@ int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,An
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3) exit");
+	LOGV("int android_content_ContentProvider::update(AndroidCXX::android_net_Uri& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
 
 	return result;
 }
@@ -1435,9 +1437,9 @@ void android_content_ContentProvider::onTrimMemory(int& arg0)
 	LOGV("void android_content_ContentProvider::onTrimMemory(int& arg0) exit");
 
 }
-std::vector<java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
+std::vector<AndroidCXX::java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("std::vector<java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "getStreamTypes";
 	const char *methodSignature = "(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;";
@@ -1498,7 +1500,7 @@ std::vector<java_lang_String > android_content_ContentProvider::getStreamTypes(A
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1534,17 +1536,17 @@ std::vector<java_lang_String > android_content_ContentProvider::getStreamTypes(A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_ContentProvider::getStreamTypes(AndroidCXX::android_net_Uri& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 	return result;
 }
-std::vector<android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0)
+std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0)
 {
-	LOGV("std::vector<android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0) enter");
+	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0) enter");
 
 	const char *methodName = "applyBatch";
 	const char *methodSignature = "(Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;";
@@ -1602,7 +1604,7 @@ std::vector<android_content_ContentProviderResult > android_content_ContentProvi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<android_content_ContentProviderResult > result;
+	std::vector<AndroidCXX::android_content_ContentProviderResult > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1638,17 +1640,17 @@ std::vector<android_content_ContentProviderResult > android_content_ContentProvi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_content_ContentProviderResult >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_content_ContentProviderResult >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0) exit");
+	LOGV("std::vector<AndroidCXX::android_content_ContentProviderResult > android_content_ContentProvider::applyBatch(AndroidCXX::java_util_ArrayList& arg0) exit");
 
 	return result;
 }
-int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<android_content_ContentValues >& arg1)
+int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1)
 {
-	LOGV("int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<android_content_ContentValues >& arg1) enter");
+	LOGV("int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1) enter");
 
 	const char *methodName = "bulkInsert";
 	const char *methodSignature = "(Landroid/net/Uri;[Landroid/content/ContentValues;)I";
@@ -1749,7 +1751,7 @@ int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<android_content_ContentValues >& arg1) exit");
+	LOGV("int android_content_ContentProvider::bulkInsert(AndroidCXX::android_net_Uri& arg0,std::vector<AndroidCXX::android_content_ContentValues >& arg1) exit");
 
 	return result;
 }
@@ -2135,9 +2137,9 @@ AndroidCXX::java_lang_String android_content_ContentProvider::getWritePermission
 
 	return result;
 }
-std::vector<android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions()
+std::vector<AndroidCXX::android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions()
 {
-	LOGV("std::vector<android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions() enter");
+	LOGV("std::vector<AndroidCXX::android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions() enter");
 
 	const char *methodName = "getPathPermissions";
 	const char *methodSignature = "()[Landroid/content/pm/PathPermission;";
@@ -2156,7 +2158,7 @@ std::vector<android_content_pm_PathPermission > android_content_ContentProvider:
 	LOGV("android_content_ContentProvider jni address %d", javaObject);
 
 
-	std::vector<android_content_pm_PathPermission > result;
+	std::vector<AndroidCXX::android_content_pm_PathPermission > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2192,11 +2194,11 @@ std::vector<android_content_pm_PathPermission > android_content_ContentProvider:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<android_content_pm_PathPermission >) (cxx_value);
+	result = (std::vector<AndroidCXX::android_content_pm_PathPermission >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions() exit");
+	LOGV("std::vector<AndroidCXX::android_content_pm_PathPermission > android_content_ContentProvider::getPathPermissions() exit");
 
 	return result;
 }

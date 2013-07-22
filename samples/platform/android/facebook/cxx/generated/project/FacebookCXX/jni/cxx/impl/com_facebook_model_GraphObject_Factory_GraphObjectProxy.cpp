@@ -36,6 +36,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphObject_Factory_GraphObjectProxy"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,6 +49,8 @@ using namespace FacebookCXX;
 // 
 // 
 // 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -150,9 +154,9 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy() exit");	
 }
 // Public Constructors
-com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(FacebookCXX::org_json_JSONObject& arg0,FacebookCXX::java_lang_Class& arg1)
+com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1)
 {
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(FacebookCXX::org_json_JSONObject& arg0,FacebookCXX::java_lang_Class& arg1) enter");	
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Lorg/json/JSONObject;Ljava/lang/Class;)V";
@@ -244,7 +248,7 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(FacebookCXX::org_json_JSONObject& arg0,FacebookCXX::java_lang_Class& arg1) exit");	
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1) exit");	
 }
 // Default Instance Destructor
 com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_GraphObject_Factory_GraphObjectProxy()
@@ -261,9 +265,9 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_Gra
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy::~com_facebook_model_GraphObject_Factory_GraphObjectProxy() exit");
 }
 // Functions
-FacebookCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(FacebookCXX::java_lang_Object& arg0,FacebookCXX::java_lang_reflect_Method& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("FacebookCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(FacebookCXX::java_lang_Object& arg0,FacebookCXX::java_lang_reflect_Method& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "invoke";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;";
@@ -363,7 +367,7 @@ FacebookCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObject
 		jarg2 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	FacebookCXX::java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -381,17 +385,17 @@ FacebookCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObject
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_Object) (FacebookCXX::java_lang_Object((FacebookCXX::java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(FacebookCXX::java_lang_Object& arg0,FacebookCXX::java_lang_reflect_Method& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectProxy::invoke(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_reflect_Method& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }
-FacebookCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString()
+AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -410,7 +414,7 @@ FacebookCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObject
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -428,11 +432,11 @@ FacebookCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObject
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectProxy::toString() exit");
 
 	return result;
 }

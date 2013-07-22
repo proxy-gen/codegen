@@ -80,75 +80,15 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONLOGINBEHAVIOR;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// using namespace COM_FACEBOOK_SESSIONDEFAULTAUDIENCE;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 
 
 class com_facebook_widget_LoginButton_OnErrorListener;
 
-class java_util_List;
 
 class com_facebook_Session;
 
-class java_lang_String;
 
 class com_facebook_Session_StatusCallback;
 
@@ -169,8 +109,8 @@ public:
 	 COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience getDefaultAudience();
 	 FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener getOnErrorListener();
 	 void setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener& arg0);
-	 void setReadPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1);
-	 void setPublishPermissions(FacebookCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1);
+	 void setReadPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1);
+	 void setPublishPermissions(AndroidCXX::java_util_List& arg0,FacebookCXX::com_facebook_Session& arg1);
 	 void clearPermissions();
 	 void setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
 	 FacebookCXX::com_facebook_Session_StatusCallback getSessionStatusCallback();

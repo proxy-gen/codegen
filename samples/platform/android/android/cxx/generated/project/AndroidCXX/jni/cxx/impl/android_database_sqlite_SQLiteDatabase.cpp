@@ -210,6 +210,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_database_sqlite_SQLiteDatabase"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -835,9 +837,9 @@ long android_database_sqlite_SQLiteDatabase::replace(AndroidCXX::java_lang_Strin
 
 	return result;
 }
-int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2)
+int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2)
 {
-	LOGV("int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2) enter");
+	LOGV("int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -959,7 +961,7 @@ int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2) exit");
+	LOGV("int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2) exit");
 
 	return result;
 }
@@ -1167,9 +1169,9 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::getPath()
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -1435,13 +1437,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -1686,13 +1688,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -1916,13 +1918,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9) enter");
 
 	const char *methodName = "query";
 	const char *methodSignature = "(ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -2209,7 +2211,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::query(bool& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::android_os_CancellationSignal& arg9) exit");
 
 	return result;
 }
@@ -2328,9 +2330,9 @@ bool android_database_sqlite_SQLiteDatabase::isOpen()
 
 	return result;
 }
-int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3)
+int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3)
 {
-	LOGV("int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3) enter");
+	LOGV("int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) enter");
 
 	const char *methodName = "update";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I";
@@ -2473,7 +2475,7 @@ int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String&
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3) exit");
+	LOGV("int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3) exit");
 
 	return result;
 }
@@ -4416,9 +4418,9 @@ AndroidCXX::android_database_sqlite_SQLiteStatement android_database_sqlite_SQLi
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10) enter");
 
 	const char *methodName = "queryWithFactory";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -4726,13 +4728,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9,AndroidCXX::android_os_CancellationSignal& arg10) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9) enter");
 
 	const char *methodName = "queryWithFactory";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -5019,13 +5021,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::queryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,bool& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,AndroidCXX::java_lang_String& arg4,std::vector<AndroidCXX::java_lang_String >& arg5,AndroidCXX::java_lang_String& arg6,AndroidCXX::java_lang_String& arg7,AndroidCXX::java_lang_String& arg8,AndroidCXX::java_lang_String& arg9) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2) enter");
 
 	const char *methodName = "rawQuery";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -5147,13 +5149,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_os_CancellationSignal& arg2) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) enter");
 
 	const char *methodName = "rawQuery";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;";
@@ -5254,13 +5256,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_String >& arg1) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQuery(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_String >& arg1) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3) enter");
 
 	const char *methodName = "rawQueryWithFactory";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
@@ -5403,13 +5405,13 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3) exit");
 
 	return result;
 }
-AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4)
+AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4)
 {
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4) enter");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4) enter");
 
 	const char *methodName = "rawQueryWithFactory";
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
@@ -5573,7 +5575,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4) exit");
+	LOGV("AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQueryWithFactory(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,AndroidCXX::java_lang_String& arg1,std::vector<AndroidCXX::java_lang_String >& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::android_os_CancellationSignal& arg4) exit");
 
 	return result;
 }
@@ -5928,9 +5930,9 @@ long android_database_sqlite_SQLiteDatabase::insertWithOnConflict(AndroidCXX::ja
 
 	return result;
 }
-int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,int& arg4)
+int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,int& arg4)
 {
-	LOGV("int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,int& arg4) enter");
+	LOGV("int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,int& arg4) enter");
 
 	const char *methodName = "updateWithOnConflict";
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;I)I";
@@ -6094,13 +6096,13 @@ int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::jav
 		
 	jni->popLocalFrame();
 
-	LOGV("int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<java_lang_String >& arg3,int& arg4) exit");
+	LOGV("int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_content_ContentValues& arg1,AndroidCXX::java_lang_String& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,int& arg4) exit");
 
 	return result;
 }
-void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1)
+void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "execSQL";
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)V";
@@ -6183,7 +6185,7 @@ void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_Strin
 		
 	jni->popLocalFrame();
 
-	LOGV("void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 }
 void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_String& arg0)

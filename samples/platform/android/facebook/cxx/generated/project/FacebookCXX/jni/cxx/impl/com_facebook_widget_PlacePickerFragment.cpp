@@ -55,6 +55,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PlacePickerFragment"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -63,6 +65,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -189,9 +196,9 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 
 	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment() exit");	
 }
-com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(FacebookCXX::android_os_Bundle& arg0)
+com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(FacebookCXX::android_os_Bundle& arg0) enter");	
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -244,7 +251,7 @@ com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment
 
 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(FacebookCXX::android_os_Bundle& arg0) exit");	
+	LOGV("com_facebook_widget_PlacePickerFragment::com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0) exit");	
 }
 // Default Instance Destructor
 com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragment()
@@ -261,9 +268,9 @@ com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragmen
 	LOGV("com_facebook_widget_PlacePickerFragment::~com_facebook_widget_PlacePickerFragment() exit");
 }
 // Functions
-FacebookCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation()
+AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation()
 {
-	LOGV("FacebookCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation() enter");
+	LOGV("AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation() enter");
 
 	const char *methodName = "getLocation";
 	const char *methodSignature = "()Landroid/location/Location;";
@@ -282,7 +289,7 @@ FacebookCXX::android_location_Location com_facebook_widget_PlacePickerFragment::
 	LOGV("com_facebook_widget_PlacePickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::android_location_Location result;
+	AndroidCXX::android_location_Location result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -300,17 +307,17 @@ FacebookCXX::android_location_Location com_facebook_widget_PlacePickerFragment::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_location_Location(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::android_location_Location) (FacebookCXX::android_location_Location((FacebookCXX::android_location_Location *) cxx_value));
+	result = (AndroidCXX::android_location_Location) (AndroidCXX::android_location_Location((AndroidCXX::android_location_Location *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation() exit");
+	LOGV("AndroidCXX::android_location_Location com_facebook_widget_PlacePickerFragment::getLocation() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2)
+void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) enter");
 
 	const char *methodName = "onInflate";
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
@@ -396,12 +403,12 @@ void com_facebook_widget_PlacePickerFragment::onInflate(FacebookCXX::android_app
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(FacebookCXX::android_app_Activity& arg0,FacebookCXX::android_util_AttributeSet& arg1,FacebookCXX::android_os_Bundle& arg2) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onInflate(AndroidCXX::android_app_Activity& arg0,AndroidCXX::android_util_AttributeSet& arg1,AndroidCXX::android_os_Bundle& arg2) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onAttach(FacebookCXX::android_app_Activity& arg0)
+void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(FacebookCXX::android_app_Activity& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0) enter");
 
 	const char *methodName = "onAttach";
 	const char *methodSignature = "(Landroid/app/Activity;)V";
@@ -445,12 +452,12 @@ void com_facebook_widget_PlacePickerFragment::onAttach(FacebookCXX::android_app_
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(FacebookCXX::android_app_Activity& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onAttach(AndroidCXX::android_app_Activity& arg0) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "onActivityCreated";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -494,7 +501,7 @@ void com_facebook_widget_PlacePickerFragment::onActivityCreated(FacebookCXX::and
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onActivityCreated(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 void com_facebook_widget_PlacePickerFragment::onDetach()
@@ -525,9 +532,9 @@ void com_facebook_widget_PlacePickerFragment::onDetach()
 	LOGV("void com_facebook_widget_PlacePickerFragment::onDetach() exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::setLocation(FacebookCXX::android_location_Location& arg0)
+void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(FacebookCXX::android_location_Location& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0) enter");
 
 	const char *methodName = "setLocation";
 	const char *methodSignature = "(Landroid/location/Location;)V";
@@ -571,7 +578,7 @@ void com_facebook_widget_PlacePickerFragment::setLocation(FacebookCXX::android_l
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(FacebookCXX::android_location_Location& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setLocation(AndroidCXX::android_location_Location& arg0) exit");
 
 }
 FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragment::getSelection()
@@ -621,9 +628,9 @@ FacebookCXX::com_facebook_model_GraphPlace com_facebook_widget_PlacePickerFragme
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0)
+void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) enter");
 
 	const char *methodName = "setSettingsFromBundle";
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
@@ -667,7 +674,7 @@ void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(FacebookCXX:
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(FacebookCXX::android_os_Bundle& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSettingsFromBundle(AndroidCXX::android_os_Bundle& arg0) exit");
 
 }
 int com_facebook_widget_PlacePickerFragment::getRadiusInMeters()
@@ -862,9 +869,9 @@ void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0)
 	LOGV("void com_facebook_widget_PlacePickerFragment::setResultsLimit(int& arg0) exit");
 
 }
-FacebookCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText()
+AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText()
 {
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText() enter");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText() enter");
 
 	const char *methodName = "getSearchText";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -883,7 +890,7 @@ FacebookCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearch
 	LOGV("com_facebook_widget_PlacePickerFragment jni address %d", javaObject);
 
 
-	FacebookCXX::java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -901,17 +908,17 @@ FacebookCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearch
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText() exit");
+	LOGV("AndroidCXX::java_lang_String com_facebook_widget_PlacePickerFragment::getSearchText() exit");
 
 	return result;
 }
-void com_facebook_widget_PlacePickerFragment::setSearchText(FacebookCXX::java_lang_String& arg0)
+void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(FacebookCXX::java_lang_String& arg0) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "setSearchText";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -955,12 +962,12 @@ void com_facebook_widget_PlacePickerFragment::setSearchText(FacebookCXX::java_la
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(FacebookCXX::java_lang_String& arg0) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::setSearchText(AndroidCXX::java_lang_String& arg0) exit");
 
 }
-void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(FacebookCXX::java_lang_String& arg0,bool& arg1)
+void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1)
 {
-	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(FacebookCXX::java_lang_String& arg0,bool& arg1) enter");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1) enter");
 
 	const char *methodName = "onSearchBoxTextChanged";
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
@@ -1025,6 +1032,6 @@ void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(FacebookCXX
 		
 	jni->popLocalFrame();
 
-	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(FacebookCXX::java_lang_String& arg0,bool& arg1) exit");
+	LOGV("void com_facebook_widget_PlacePickerFragment::onSearchBoxTextChanged(AndroidCXX::java_lang_String& arg0,bool& arg1) exit");
 
 }

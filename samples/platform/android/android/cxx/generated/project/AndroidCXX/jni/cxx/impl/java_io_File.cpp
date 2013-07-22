@@ -108,6 +108,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "java_io_File"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -1088,9 +1090,9 @@ bool java_io_File::setReadOnly()
 
 	return result;
 }
-std::vector<java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0)
+std::vector<AndroidCXX::java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0)
 {
-	LOGV("std::vector<java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0) enter");
 
 	const char *methodName = "list";
 	const char *methodSignature = "(Ljava/io/FilenameFilter;)[Ljava/lang/String;";
@@ -1130,7 +1132,7 @@ std::vector<java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1166,17 +1168,17 @@ std::vector<java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_io_File::list(AndroidCXX::java_io_FilenameFilter& arg0) exit");
 
 	return result;
 }
-std::vector<java_lang_String > java_io_File::list()
+std::vector<AndroidCXX::java_lang_String > java_io_File::list()
 {
-	LOGV("std::vector<java_lang_String > java_io_File::list() enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_io_File::list() enter");
 
 	const char *methodName = "list";
 	const char *methodSignature = "()[Ljava/lang/String;";
@@ -1195,7 +1197,7 @@ std::vector<java_lang_String > java_io_File::list()
 	LOGV("java_io_File jni address %d", javaObject);
 
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1231,11 +1233,11 @@ std::vector<java_lang_String > java_io_File::list()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > java_io_File::list() exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > java_io_File::list() exit");
 
 	return result;
 }
@@ -2019,9 +2021,9 @@ void java_io_File::deleteOnExit()
 	LOGV("void java_io_File::deleteOnExit() exit");
 
 }
-std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0)
+std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0)
 {
-	LOGV("std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0) enter");
 
 	const char *methodName = "listFiles";
 	const char *methodSignature = "(Ljava/io/FileFilter;)[Ljava/io/File;";
@@ -2061,7 +2063,7 @@ std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilte
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_io_File > result;
+	std::vector<AndroidCXX::java_io_File > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2097,17 +2099,17 @@ std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilte
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_io_File >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_io_File >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FileFilter& arg0) exit");
 
 	return result;
 }
-std::vector<java_io_File > java_io_File::listFiles()
+std::vector<AndroidCXX::java_io_File > java_io_File::listFiles()
 {
-	LOGV("std::vector<java_io_File > java_io_File::listFiles() enter");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles() enter");
 
 	const char *methodName = "listFiles";
 	const char *methodSignature = "()[Ljava/io/File;";
@@ -2126,7 +2128,7 @@ std::vector<java_io_File > java_io_File::listFiles()
 	LOGV("java_io_File jni address %d", javaObject);
 
 
-	std::vector<java_io_File > result;
+	std::vector<AndroidCXX::java_io_File > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2162,17 +2164,17 @@ std::vector<java_io_File > java_io_File::listFiles()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_io_File >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_io_File >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_io_File > java_io_File::listFiles() exit");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles() exit");
 
 	return result;
 }
-std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0)
+std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0)
 {
-	LOGV("std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0) enter");
 
 	const char *methodName = "listFiles";
 	const char *methodSignature = "(Ljava/io/FilenameFilter;)[Ljava/io/File;";
@@ -2212,7 +2214,7 @@ std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameF
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<java_io_File > result;
+	std::vector<AndroidCXX::java_io_File > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2248,11 +2250,11 @@ std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameF
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_io_File >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_io_File >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_io_FilenameFilter& arg0) exit");
 
 	return result;
 }
@@ -3004,9 +3006,9 @@ bool java_io_File::canExecute()
 
 	return result;
 }
-std::vector<java_io_File > java_io_File::listRoots()
+std::vector<AndroidCXX::java_io_File > java_io_File::listRoots()
 {
-	LOGV("std::vector<java_io_File > java_io_File::listRoots() enter");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listRoots() enter");
 
 	const char *methodName = "listRoots";
 	const char *methodSignature = "()[Ljava/io/File;";
@@ -3025,7 +3027,7 @@ std::vector<java_io_File > java_io_File::listRoots()
 	LOGV("java_io_File jni address %d", javaObject);
 
 
-	std::vector<java_io_File > result;
+	std::vector<AndroidCXX::java_io_File > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -3061,11 +3063,11 @@ std::vector<java_io_File > java_io_File::listRoots()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_io_File >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_io_File >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_io_File > java_io_File::listRoots() exit");
+	LOGV("std::vector<AndroidCXX::java_io_File > java_io_File::listRoots() exit");
 
 	return result;
 }

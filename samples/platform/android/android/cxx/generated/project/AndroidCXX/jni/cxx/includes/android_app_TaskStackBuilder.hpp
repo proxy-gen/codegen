@@ -90,69 +90,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class android_content_Context;
@@ -196,7 +133,7 @@ public:
 	 AndroidCXX::android_content_Intent editIntentAt(int& arg0);
 	 AndroidCXX::android_app_PendingIntent getPendingIntent(int& arg0,int& arg1);
 	 AndroidCXX::android_app_PendingIntent getPendingIntent(int& arg0,int& arg1,AndroidCXX::android_os_Bundle& arg2);
-	 std::vector<android_content_Intent > getIntents();
+	 std::vector<AndroidCXX::android_content_Intent > getIntents();
 };	
 
 } // namespace

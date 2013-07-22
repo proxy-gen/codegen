@@ -30,6 +30,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphObjectList"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -38,6 +40,11 @@ using namespace FacebookCXX;
 
 // 
 // 
+// 
+// 
+// 
+// 
+// using namespace AndroidCXX;
 // 
 // 
 // 
@@ -147,9 +154,9 @@ com_facebook_model_GraphObjectList::~com_facebook_model_GraphObjectList()
 	LOGV("com_facebook_model_GraphObjectList::~com_facebook_model_GraphObjectList() exit");
 }
 // Functions
-FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(FacebookCXX::java_lang_Class& arg0)
+FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(AndroidCXX::java_lang_Class& arg0)
 {
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(FacebookCXX::java_lang_Class& arg0) enter");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(AndroidCXX::java_lang_Class& arg0) enter");
 
 	const char *methodName = "castToListOf";
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
@@ -247,13 +254,13 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectLi
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(FacebookCXX::java_lang_Class& arg0) exit");
+	LOGV("FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObjectList::castToListOf(AndroidCXX::java_lang_Class& arg0) exit");
 
 	return result;
 }
-FacebookCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray()
+AndroidCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray()
 {
-	LOGV("FacebookCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray() enter");
+	LOGV("AndroidCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray() enter");
 
 	const char *methodName = "getInnerJSONArray";
 	const char *methodSignature = "()Lorg/json/JSONArray;";
@@ -272,7 +279,7 @@ FacebookCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSON
 	LOGV("com_facebook_model_GraphObjectList jni address %d", javaObject);
 
 
-	FacebookCXX::org_json_JSONArray result;
+	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -290,11 +297,11 @@ FacebookCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSON
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::org_json_JSONArray) (FacebookCXX::org_json_JSONArray((FacebookCXX::org_json_JSONArray *) cxx_value));
+	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("FacebookCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray() exit");
+	LOGV("AndroidCXX::org_json_JSONArray com_facebook_model_GraphObjectList::getInnerJSONArray() exit");
 
 	return result;
 }

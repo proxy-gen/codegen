@@ -57,24 +57,6 @@ extern "C" {
 
 namespace AndroidCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
 class java_lang_Object;
@@ -97,7 +79,7 @@ public:
 	// Functions
 	 void onChanged();
 	 void onInvalidated();
-	 std::vector<java_lang_Object > getSections();
+	 std::vector<AndroidCXX::java_lang_Object > getSections();
 	 int getPositionForSection(int& arg0);
 	 int getSectionForPosition(int& arg0);
 	 void setCursor(AndroidCXX::android_database_Cursor& arg0);

@@ -121,6 +121,8 @@
 // TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
+// TODO: FIXME: add include package
+#include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "android_content_res_Resources"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -858,9 +860,9 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0)
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<java_lang_Object >& arg1)
+AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<java_lang_Object >& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) enter");
 
 	const char *methodName = "getString";
 	const char *methodSignature = "(I[Ljava/lang/Object;)Ljava/lang/String;";
@@ -961,7 +963,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<java_lang_Object >& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getString(int& arg0,std::vector<AndroidCXX::java_lang_Object >& arg1) exit");
 
 	return result;
 }
@@ -1075,9 +1077,9 @@ int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String& a
 
 	return result;
 }
-std::vector<java_lang_String > android_content_res_Resources::getStringArray(int& arg0)
+std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0)
 {
-	LOGV("std::vector<java_lang_String > android_content_res_Resources::getStringArray(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0) enter");
 
 	const char *methodName = "getStringArray";
 	const char *methodSignature = "(I)[Ljava/lang/String;";
@@ -1117,7 +1119,7 @@ std::vector<java_lang_String > android_content_res_Resources::getStringArray(int
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	std::vector<java_lang_String > result;
+	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1153,11 +1155,11 @@ std::vector<java_lang_String > android_content_res_Resources::getStringArray(int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_String >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_String > android_content_res_Resources::getStringArray(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStringArray(int& arg0) exit");
 
 	return result;
 }
@@ -1608,9 +1610,9 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityTex
 
 	return result;
 }
-AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<java_lang_Object >& arg2)
+AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2)
 {
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<java_lang_Object >& arg2) enter");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) enter");
 
 	const char *methodName = "getQuantityString";
 	const char *methodSignature = "(II[Ljava/lang/Object;)Ljava/lang/String;";
@@ -1732,7 +1734,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 		
 	jni->popLocalFrame();
 
-	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<java_lang_Object >& arg2) exit");
+	LOGV("AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(int& arg0,int& arg1,std::vector<AndroidCXX::java_lang_Object >& arg2) exit");
 
 	return result;
 }
@@ -1825,9 +1827,9 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 
 	return result;
 }
-std::vector<java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0)
+std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0)
 {
-	LOGV("std::vector<java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) enter");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) enter");
 
 	const char *methodName = "getTextArray";
 	const char *methodSignature = "(I)[Ljava/lang/CharSequence;";
@@ -1867,7 +1869,7 @@ std::vector<java_lang_CharSequence > android_content_res_Resources::getTextArray
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	std::vector<java_lang_CharSequence > result;
+	std::vector<AndroidCXX::java_lang_CharSequence > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1903,11 +1905,11 @@ std::vector<java_lang_CharSequence > android_content_res_Resources::getTextArray
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<java_lang_CharSequence >) (cxx_value);
+	result = (std::vector<AndroidCXX::java_lang_CharSequence >) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) exit");
+	LOGV("std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::getTextArray(int& arg0) exit");
 
 	return result;
 }

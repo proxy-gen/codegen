@@ -143,159 +143,19 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_lang_String;
 
-class java_util_List;
 
-class com_facebook_SessionState;
 
 class com_facebook_AccessToken;
 
 class com_facebook_Session_StatusCallback;
 
-class android_app_Activity;
 
-class android_content_Intent;
 
-class android_os_Bundle;
 
-class java_util_Date;
 
 class com_facebook_Session_OpenRequest;
 
@@ -303,11 +163,9 @@ class com_facebook_Session_NewPermissionsRequest;
 
 class com_facebook_Session;
 
-class android_content_Context;
 
 class com_facebook_TokenCachingStrategy;
 
-class android_support_v4_app_Fragment;
 
 class com_facebook_Session
 {
@@ -316,40 +174,40 @@ public:
 	com_facebook_Session(const com_facebook_Session& cc);
 	com_facebook_Session(void * proxy);
 	// Public Constructors
-	com_facebook_Session(FacebookCXX::android_content_Context& arg0);
+	com_facebook_Session(AndroidCXX::android_content_Context& arg0);
 	com_facebook_Session();
 	// Default Destructor
 	virtual ~com_facebook_Session();
 	// Functions
-	 bool equals(FacebookCXX::java_lang_Object& arg0);
-	 FacebookCXX::java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 FacebookCXX::java_util_List getPermissions();
-	 FacebookCXX::com_facebook_SessionState getState();
+	 AndroidCXX::java_util_List getPermissions();
+	 COM_FACEBOOK_SESSIONSTATE::com_facebook_SessionState getState();
 	 void close();
 	 void open(FacebookCXX::com_facebook_AccessToken& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1);
 	 bool isClosed();
-	 bool onActivityResult(FacebookCXX::android_app_Activity& arg0,int& arg1,int& arg2,FacebookCXX::android_content_Intent& arg3);
-	 FacebookCXX::java_lang_String getApplicationId();
+	 bool onActivityResult(AndroidCXX::android_app_Activity& arg0,int& arg1,int& arg2,AndroidCXX::android_content_Intent& arg3);
+	 AndroidCXX::java_lang_String getApplicationId();
 	 void addCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
 	 void closeAndClearTokenInformation();
 	 bool isOpened();
-	 FacebookCXX::java_lang_String getAccessToken();
+	 AndroidCXX::java_lang_String getAccessToken();
 	 void removeCallback(FacebookCXX::com_facebook_Session_StatusCallback& arg0);
-	 FacebookCXX::android_os_Bundle getAuthorizationBundle();
-	 FacebookCXX::java_util_Date getExpirationDate();
+	 AndroidCXX::android_os_Bundle getAuthorizationBundle();
+	 AndroidCXX::java_util_Date getExpirationDate();
 	 void openForRead(FacebookCXX::com_facebook_Session_OpenRequest& arg0);
 	 void openForPublish(FacebookCXX::com_facebook_Session_OpenRequest& arg0);
 	 void requestNewReadPermissions(FacebookCXX::com_facebook_Session_NewPermissionsRequest& arg0);
 	 void requestNewPublishPermissions(FacebookCXX::com_facebook_Session_NewPermissionsRequest& arg0);
-	static void saveSession(FacebookCXX::com_facebook_Session& arg0,FacebookCXX::android_os_Bundle& arg1);
-	static FacebookCXX::com_facebook_Session restoreSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,FacebookCXX::android_os_Bundle& arg3);
+	static void saveSession(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::android_os_Bundle& arg1);
+	static FacebookCXX::com_facebook_Session restoreSession(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_TokenCachingStrategy& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2,AndroidCXX::android_os_Bundle& arg3);
 	static FacebookCXX::com_facebook_Session getActiveSession();
 	static void setActiveSession(FacebookCXX::com_facebook_Session& arg0);
-	static FacebookCXX::com_facebook_Session openActiveSessionFromCache(FacebookCXX::android_content_Context& arg0);
-	static FacebookCXX::com_facebook_Session openActiveSession(FacebookCXX::android_content_Context& arg0,FacebookCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3);
-	static FacebookCXX::com_facebook_Session openActiveSession(FacebookCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2);
-	static FacebookCXX::com_facebook_Session openActiveSessionWithAccessToken(FacebookCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2);
+	static FacebookCXX::com_facebook_Session openActiveSessionFromCache(AndroidCXX::android_content_Context& arg0);
+	static FacebookCXX::com_facebook_Session openActiveSession(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_support_v4_app_Fragment& arg1,bool& arg2,FacebookCXX::com_facebook_Session_StatusCallback& arg3);
+	static FacebookCXX::com_facebook_Session openActiveSession(AndroidCXX::android_app_Activity& arg0,bool& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2);
+	static FacebookCXX::com_facebook_Session openActiveSessionWithAccessToken(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_AccessToken& arg1,FacebookCXX::com_facebook_Session_StatusCallback& arg2);
 };	
 
 } // namespace

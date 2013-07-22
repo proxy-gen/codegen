@@ -49,27 +49,8 @@ extern "C" {
 
 namespace FacebookCXX {
 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
 // Forward Declarations
 
-class java_lang_String;
 
 class com_facebook_TestSession_TestAccount
 {
@@ -82,10 +63,10 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_TestSession_TestAccount();
 	// Functions
-	 FacebookCXX::java_lang_String getName();
-	 void setName(FacebookCXX::java_lang_String& arg0);
-	 FacebookCXX::java_lang_String getId();
-	 FacebookCXX::java_lang_String getAccessToken();
+	 AndroidCXX::java_lang_String getName();
+	 void setName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getId();
+	 AndroidCXX::java_lang_String getAccessToken();
 };	
 
 } // namespace
