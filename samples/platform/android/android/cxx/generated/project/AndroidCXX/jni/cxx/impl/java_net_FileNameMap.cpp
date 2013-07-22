@@ -34,8 +34,21 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_net_FileNameMap::java_net_FileNameMap(const java_net_FileNameMap& cc)
@@ -85,7 +98,7 @@ java_net_FileNameMap::java_net_FileNameMap()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_FileNameMap";
+	const char *className = "java/net/FileNameMap";
 
 	LOGV("java_net_FileNameMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -134,8 +147,8 @@ java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
 	LOGV("java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0) enter");
 
 	const char *methodName = "getContentTypeFor";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
-	const char *className = "java_net_FileNameMap";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *className = "java/net/FileNameMap";
 
 	LOGV("java_net_FileNameMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

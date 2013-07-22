@@ -34,8 +34,18 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_Enumeration::java_util_Enumeration(const java_util_Enumeration& cc)
@@ -85,7 +95,7 @@ java_util_Enumeration::java_util_Enumeration()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Enumeration";
+	const char *className = "java/util/Enumeration";
 
 	LOGV("java_util_Enumeration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -135,7 +145,7 @@ bool java_util_Enumeration::hasMoreElements()
 
 	const char *methodName = "hasMoreElements";
 	const char *methodSignature = "()Z";
-	const char *className = "java_util_Enumeration";
+	const char *className = "java/util/Enumeration";
 
 	LOGV("java_util_Enumeration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -182,7 +192,7 @@ java_lang_Object java_util_Enumeration::nextElement()
 
 	const char *methodName = "nextElement";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_Enumeration";
+	const char *className = "java/util/Enumeration";
 
 	LOGV("java_util_Enumeration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

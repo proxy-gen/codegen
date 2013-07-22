@@ -13,6 +13,7 @@
 #set $config_module = $CONFIG.config_module
 #set $config_data = $config_module.config_data
 #set $package = $config_data['package']
+#set $namespace = $config_data['namespace']
 #set $enum_class_name = $CONFIG.enum_class_name
 #set $class_name = $CONFIG.class_name
 #set $enum_config = $CONFIG.enum_class
@@ -114,7 +115,7 @@ $include_files.extend(function['include_file_list'])
 extern "C" {
 #endif //__cplusplus
 
-namespace ${enum_info['namespace']} {
+namespace ${namespace} {
 
 enum $enum_class_name
 {

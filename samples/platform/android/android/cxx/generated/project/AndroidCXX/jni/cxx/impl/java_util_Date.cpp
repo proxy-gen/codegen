@@ -74,8 +74,45 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_Date::java_util_Date(const java_util_Date& cc)
@@ -620,7 +657,7 @@ java_util_Date::java_util_Date(java_lang_String& arg0)
 	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava_lang_String;)V";
 	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -760,7 +797,7 @@ java_lang_String java_util_Date::toString()
 	LOGV("java_lang_String java_util_Date::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1105,7 +1142,7 @@ long java_util_Date::parse(java_lang_String& arg0)
 	LOGV("long java_util_Date::parse(java_lang_String& arg0) enter");
 
 	const char *methodName = "parse";
-	const char *methodSignature = "(Ljava/lang/String;)J";
+	const char *methodSignature = "(Ljava_lang_String;)J";
 	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2065,7 +2102,7 @@ java_lang_String java_util_Date::toLocaleString()
 	LOGV("java_lang_String java_util_Date::toLocaleString() enter");
 
 	const char *methodName = "toLocaleString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2112,7 +2149,7 @@ java_lang_String java_util_Date::toGMTString()
 	LOGV("java_lang_String java_util_Date::toGMTString() enter");
 
 	const char *methodName = "toGMTString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/util/Date";
 
 	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);

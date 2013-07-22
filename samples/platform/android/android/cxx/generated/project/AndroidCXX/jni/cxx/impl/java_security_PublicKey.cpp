@@ -31,8 +31,12 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_PublicKey::java_security_PublicKey(const java_security_PublicKey& cc)
@@ -82,7 +86,7 @@ java_security_PublicKey::java_security_PublicKey()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_security_PublicKey";
+	const char *className = "java/security/PublicKey";
 
 	LOGV("java_security_PublicKey className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

@@ -65,8 +65,51 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_reflect_Method::java_lang_reflect_Method(const java_lang_reflect_Method& cc)
@@ -340,7 +383,7 @@ java_lang_String java_lang_reflect_Method::toString()
 	LOGV("java_lang_String java_lang_reflect_Method::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/lang/reflect/Method";
 
 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -481,7 +524,7 @@ java_lang_String java_lang_reflect_Method::getName()
 	LOGV("java_lang_String java_lang_reflect_Method::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/lang/reflect/Method";
 
 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -723,7 +766,7 @@ java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(java_lan
 	LOGV("java_lang_annotation_Annotation java_lang_reflect_Method::getAnnotation(java_lang_Class& arg0) enter");
 
 	const char *methodName = "getAnnotation";
-	const char *methodSignature = "(Ljava/lang/Class;)Ljava_lang_annotation_Annotation;";
+	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
 	const char *className = "java/lang/reflect/Method";
 
 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1022,7 +1065,7 @@ java_lang_String java_lang_reflect_Method::toGenericString()
 	LOGV("java_lang_String java_lang_reflect_Method::toGenericString() enter");
 
 	const char *methodName = "toGenericString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/lang/reflect/Method";
 
 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1069,7 +1112,7 @@ java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnType()
 	LOGV("java_lang_reflect_Type java_lang_reflect_Method::getGenericReturnType() enter");
 
 	const char *methodName = "getGenericReturnType";
-	const char *methodSignature = "()Ljava_lang_reflect_Type;";
+	const char *methodSignature = "()Ljava/lang/reflect/Type;";
 	const char *className = "java/lang/reflect/Method";
 
 	LOGV("java_lang_reflect_Method className %d methodName %s methodSignature %s", className, methodName, methodSignature);

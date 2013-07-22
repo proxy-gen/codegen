@@ -34,8 +34,21 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_net_ContentHandlerFactory::java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc)
@@ -85,7 +98,7 @@ java_net_ContentHandlerFactory::java_net_ContentHandlerFactory()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_ContentHandlerFactory";
+	const char *className = "java/net/ContentHandlerFactory";
 
 	LOGV("java_net_ContentHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -134,8 +147,8 @@ java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(jav
 	LOGV("java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) enter");
 
 	const char *methodName = "createContentHandler";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/ContentHandler;";
-	const char *className = "java_net_ContentHandlerFactory";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/ContentHandler;";
+	const char *className = "java/net/ContentHandlerFactory";
 
 	LOGV("java_net_ContentHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

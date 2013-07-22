@@ -31,7 +31,7 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace JAVA_NET_PROXY_TYPE {
+namespace AndroidCXX {
 
 enum java_net_Proxy_Type
 {

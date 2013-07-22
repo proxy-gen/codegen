@@ -32,8 +32,12 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc)
@@ -83,7 +87,7 @@ java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_reflect_GenericDeclaration";
+	const char *className = "java/lang/reflect/GenericDeclaration";
 
 	LOGV("java_lang_reflect_GenericDeclaration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -133,7 +137,7 @@ std::vector<java_lang_reflect_TypeVariable > java_lang_reflect_GenericDeclaratio
 
 	const char *methodName = "getTypeParameters";
 	const char *methodSignature = "()[Ljava/lang/reflect/TypeVariable;";
-	const char *className = "java_lang_reflect_GenericDeclaration";
+	const char *className = "java/lang/reflect/GenericDeclaration";
 
 	LOGV("java_lang_reflect_GenericDeclaration className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

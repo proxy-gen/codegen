@@ -45,8 +45,33 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_cert_CertPath::java_security_cert_CertPath(const java_security_cert_CertPath& cc)
@@ -213,7 +238,7 @@ java_lang_String java_security_cert_CertPath::toString()
 	LOGV("java_lang_String java_security_cert_CertPath::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/cert/CertPath";
 
 	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -307,7 +332,7 @@ java_util_List java_security_cert_CertPath::getCertificates()
 	LOGV("java_util_List java_security_cert_CertPath::getCertificates() enter");
 
 	const char *methodName = "getCertificates";
-	const char *methodSignature = "()Ljava_util_List;";
+	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "java/security/cert/CertPath";
 
 	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -372,7 +397,7 @@ java_lang_String java_security_cert_CertPath::getType()
 	LOGV("java_lang_String java_security_cert_CertPath::getType() enter");
 
 	const char *methodName = "getType";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/cert/CertPath";
 
 	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -484,7 +509,7 @@ std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0
 	LOGV("std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0) enter");
 
 	const char *methodName = "getEncoded";
-	const char *methodSignature = "(Ljava/lang/String;)[B";
+	const char *methodSignature = "(Ljava_lang_String;)[B";
 	const char *className = "java/security/cert/CertPath";
 
 	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -570,7 +595,7 @@ java_util_Iterator java_security_cert_CertPath::getEncodings()
 	LOGV("java_util_Iterator java_security_cert_CertPath::getEncodings() enter");
 
 	const char *methodName = "getEncodings";
-	const char *methodSignature = "()Ljava_util_Iterator;";
+	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "java/security/cert/CertPath";
 
 	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);

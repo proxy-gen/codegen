@@ -52,16 +52,41 @@
 #include <list>
 #include <CXXTypes.hpp>
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif //__cplusplus
 
 namespace AndroidCXX {
 
-
-using namespace JAVA_NET_PROXY_TYPE;
-
-using namespace AndroidCXX;
+// 
+// 
+// 
+// 
+// 
+// 
+// using namespace JAVA_NET_PROXY_TYPE;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
 // Forward Declarations
 

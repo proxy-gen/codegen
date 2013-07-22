@@ -42,8 +42,27 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_PermissionCollection::java_security_PermissionCollection(const java_security_PermissionCollection& cc)
@@ -193,7 +212,7 @@ java_lang_String java_security_PermissionCollection::toString()
 	LOGV("java_lang_String java_security_PermissionCollection::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -336,7 +355,7 @@ java_util_Enumeration java_security_PermissionCollection::elements()
 	LOGV("java_util_Enumeration java_security_PermissionCollection::elements() enter");
 
 	const char *methodName = "elements";
-	const char *methodSignature = "()Ljava_util_Enumeration;";
+	const char *methodSignature = "()Ljava/util/Enumeration;";
 	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);

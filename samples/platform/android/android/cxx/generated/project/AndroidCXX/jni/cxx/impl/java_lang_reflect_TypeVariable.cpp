@@ -36,8 +36,21 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc)
@@ -87,7 +100,7 @@ java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_reflect_TypeVariable";
+	const char *className = "java/lang/reflect/TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -136,8 +149,8 @@ java_lang_String java_lang_reflect_TypeVariable::getName()
 	LOGV("java_lang_String java_lang_reflect_TypeVariable::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_reflect_TypeVariable";
+	const char *methodSignature = "()Ljava_lang_String;";
+	const char *className = "java/lang/reflect/TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -184,7 +197,7 @@ std::vector<java_lang_reflect_Type > java_lang_reflect_TypeVariable::getBounds()
 
 	const char *methodName = "getBounds";
 	const char *methodSignature = "()[Ljava/lang/reflect/Type;";
-	const char *className = "java_lang_reflect_TypeVariable";
+	const char *className = "java/lang/reflect/TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -248,8 +261,8 @@ java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericD
 	LOGV("java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::getGenericDeclaration() enter");
 
 	const char *methodName = "getGenericDeclaration";
-	const char *methodSignature = "()Ljava_lang_reflect_GenericDeclaration;";
-	const char *className = "java_lang_reflect_TypeVariable";
+	const char *methodSignature = "()Ljava/lang/reflect/GenericDeclaration;";
+	const char *className = "java/lang/reflect/TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

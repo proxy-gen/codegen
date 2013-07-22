@@ -64,8 +64,66 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_nio_charset_CharsetEncoder::java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc)
@@ -572,7 +630,7 @@ bool java_nio_charset_CharsetEncoder::canEncode(java_lang_CharSequence& arg0)
 	LOGV("bool java_nio_charset_CharsetEncoder::canEncode(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "canEncode";
-	const char *methodSignature = "(Ljava_lang_CharSequence;)Z";
+	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
 	const char *className = "java/nio/charset/CharsetEncoder";
 
 	LOGV("java_nio_charset_CharsetEncoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);

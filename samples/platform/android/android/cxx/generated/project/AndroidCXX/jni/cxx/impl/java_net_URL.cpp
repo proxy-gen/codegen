@@ -95,8 +95,123 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_net_URL::java_net_URL(const java_net_URL& cc)
@@ -180,7 +295,7 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& ar
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V";
+	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;ILjava_lang_String;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -300,7 +415,7 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_la
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;Ljava_lang_String;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -399,7 +514,7 @@ java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& ar
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3,java_net_URLStreamHandler& arg4) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/net/URLStreamHandler;)V";
+	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;ILjava_lang_String;Ljava/net/URLStreamHandler;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -540,7 +655,7 @@ java_net_URL::java_net_URL(java_lang_String& arg0)
 	LOGV("java_net_URL::java_net_URL(java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava_lang_String;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -597,7 +712,7 @@ java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1)
 	LOGV("java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/net/URL;Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava/net/URL;Ljava_lang_String;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -675,7 +790,7 @@ java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_UR
 	LOGV("java_net_URL::java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_URLStreamHandler& arg2) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V";
+	const char *methodSignature = "(Ljava/net/URL;Ljava_lang_String;Ljava/net/URLStreamHandler;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -857,7 +972,7 @@ java_lang_String java_net_URL::toString()
 	LOGV("java_lang_String java_net_URL::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -998,7 +1113,7 @@ java_lang_String java_net_URL::getPath()
 	LOGV("java_lang_String java_net_URL::getPath() enter");
 
 	const char *methodName = "getPath";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1092,7 +1207,7 @@ java_lang_String java_net_URL::getAuthority()
 	LOGV("java_lang_String java_net_URL::getAuthority() enter");
 
 	const char *methodName = "getAuthority";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1139,7 +1254,7 @@ java_lang_String java_net_URL::getQuery()
 	LOGV("java_lang_String java_net_URL::getQuery() enter");
 
 	const char *methodName = "getQuery";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1186,7 +1301,7 @@ java_lang_String java_net_URL::getUserInfo()
 	LOGV("java_lang_String java_net_URL::getUserInfo() enter");
 
 	const char *methodName = "getUserInfo";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1327,7 +1442,7 @@ java_lang_String java_net_URL::getProtocol()
 	LOGV("java_lang_String java_net_URL::getProtocol() enter");
 
 	const char *methodName = "getProtocol";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1374,7 +1489,7 @@ java_lang_String java_net_URL::getHost()
 	LOGV("java_lang_String java_net_URL::getHost() enter");
 
 	const char *methodName = "getHost";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1421,7 +1536,7 @@ java_lang_String java_net_URL::getFile()
 	LOGV("java_lang_String java_net_URL::getFile() enter");
 
 	const char *methodName = "getFile";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1468,7 +1583,7 @@ java_lang_String java_net_URL::getRef()
 	LOGV("java_lang_String java_net_URL::getRef() enter");
 
 	const char *methodName = "getRef";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1583,7 +1698,7 @@ java_lang_String java_net_URL::toExternalForm()
 	LOGV("java_lang_String java_net_URL::toExternalForm() enter");
 
 	const char *methodName = "toExternalForm";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1878,7 +1993,7 @@ void java_net_URL::setURLStreamHandlerFactory(java_net_URLStreamHandlerFactory& 
 	LOGV("void java_net_URL::setURLStreamHandlerFactory(java_net_URLStreamHandlerFactory& arg0) enter");
 
 	const char *methodName = "setURLStreamHandlerFactory";
-	const char *methodSignature = "(Ljava_net_URLStreamHandlerFactory;)V";
+	const char *methodSignature = "(Ljava/net/URLStreamHandlerFactory;)V";
 	const char *className = "java/net/URL";
 
 	LOGV("java_net_URL className %d methodName %s methodSignature %s", className, methodName, methodSignature);

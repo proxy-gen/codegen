@@ -36,8 +36,24 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)
@@ -87,7 +103,7 @@ java_util_Comparator::java_util_Comparator()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Comparator";
+	const char *className = "java/util/Comparator";
 
 	LOGV("java_util_Comparator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -137,7 +153,7 @@ bool java_util_Comparator::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Comparator";
+	const char *className = "java/util/Comparator";
 
 	LOGV("java_util_Comparator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -205,7 +221,7 @@ int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1)
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)I";
-	const char *className = "java_util_Comparator";
+	const char *className = "java/util/Comparator";
 
 	LOGV("java_util_Comparator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

@@ -768,7 +768,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'java.lang.String',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_callback', '_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CASE_INSENSITIVE_ORDER',
@@ -5802,7 +5802,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Enumeration',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5836,7 +5836,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.FileNameMap',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5862,7 +5862,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6076,7 +6076,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Collection',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6310,7 +6310,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Iterator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6356,7 +6356,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Set',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6590,7 +6590,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map$Entry',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6668,7 +6668,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.List',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7078,7 +7078,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.ListIterator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7302,7 +7302,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.ContentHandlerFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7381,7 +7381,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLStreamHandlerFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7407,7 +7407,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.TypeVariable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7454,7 +7454,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Type',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7464,7 +7464,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.GenericDeclaration',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7738,7 +7738,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.annotation.Annotation',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9439,7 +9439,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.PublicKey',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'serialVersionUID',
@@ -10052,7 +10052,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Principal',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11648,7 +11648,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.CharSequence',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13703,7 +13703,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.SortedMap',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13844,7 +13844,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Comparator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [

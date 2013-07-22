@@ -75,8 +75,72 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_nio_ShortBuffer::java_nio_ShortBuffer(const java_nio_ShortBuffer& cc)
@@ -1011,7 +1075,7 @@ java_lang_String java_nio_ShortBuffer::toString()
 	LOGV("java_lang_String java_nio_ShortBuffer::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/nio/ShortBuffer";
 
 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);

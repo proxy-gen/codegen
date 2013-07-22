@@ -62,8 +62,69 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_ClassLoader::java_lang_ClassLoader(const java_lang_ClassLoader& cc)
@@ -162,7 +223,7 @@ java_lang_Class java_lang_ClassLoader::loadClass(java_lang_String& arg0)
 	LOGV("java_lang_Class java_lang_ClassLoader::loadClass(java_lang_String& arg0) enter");
 
 	const char *methodName = "loadClass";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/Class;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -295,7 +356,7 @@ java_io_InputStream java_lang_ClassLoader::getResourceAsStream(java_lang_String&
 	LOGV("java_io_InputStream java_lang_ClassLoader::getResourceAsStream(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResourceAsStream";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/io/InputStream;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -363,7 +424,7 @@ java_net_URL java_lang_ClassLoader::getResource(java_lang_String& arg0)
 	LOGV("java_net_URL java_lang_ClassLoader::getResource(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResource";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/URL;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -431,7 +492,7 @@ java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(java_lang_S
 	LOGV("java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResourceAsStream";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/io/InputStream;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -499,7 +560,7 @@ java_net_URL java_lang_ClassLoader::getSystemResource(java_lang_String& arg0)
 	LOGV("java_net_URL java_lang_ClassLoader::getSystemResource(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResource";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/URL;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -567,7 +628,7 @@ java_util_Enumeration java_lang_ClassLoader::getResources(java_lang_String& arg0
 	LOGV("java_util_Enumeration java_lang_ClassLoader::getResources(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResources";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava_util_Enumeration;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/util/Enumeration;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -653,7 +714,7 @@ java_util_Enumeration java_lang_ClassLoader::getSystemResources(java_lang_String
 	LOGV("java_util_Enumeration java_lang_ClassLoader::getSystemResources(java_lang_String& arg0) enter");
 
 	const char *methodName = "getSystemResources";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava_util_Enumeration;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/util/Enumeration;";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -835,7 +896,7 @@ void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,boo
 	LOGV("void java_lang_ClassLoader::setPackageAssertionStatus(java_lang_String& arg0,bool& arg1) enter");
 
 	const char *methodName = "setPackageAssertionStatus";
-	const char *methodSignature = "(Ljava/lang/String;Z)V";
+	const char *methodSignature = "(Ljava_lang_String;Z)V";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -905,7 +966,7 @@ void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool&
 	LOGV("void java_lang_ClassLoader::setClassAssertionStatus(java_lang_String& arg0,bool& arg1) enter");
 
 	const char *methodName = "setClassAssertionStatus";
-	const char *methodSignature = "(Ljava/lang/String;Z)V";
+	const char *methodSignature = "(Ljava_lang_String;Z)V";
 	const char *className = "java/lang/ClassLoader";
 
 	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);

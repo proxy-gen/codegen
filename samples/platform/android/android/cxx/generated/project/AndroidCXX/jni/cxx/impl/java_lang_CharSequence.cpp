@@ -37,8 +37,21 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_CharSequence::java_lang_CharSequence(const java_lang_CharSequence& cc)
@@ -88,7 +101,7 @@ java_lang_CharSequence::java_lang_CharSequence()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_CharSequence";
+	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -137,8 +150,8 @@ java_lang_String java_lang_CharSequence::toString()
 	LOGV("java_lang_String java_lang_CharSequence::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_CharSequence";
+	const char *methodSignature = "()Ljava_lang_String;";
+	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -185,7 +198,7 @@ int java_lang_CharSequence::length()
 
 	const char *methodName = "length";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_CharSequence";
+	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -232,7 +245,7 @@ char java_lang_CharSequence::charAt(int& arg0)
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
-	const char *className = "java_lang_CharSequence";
+	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -299,8 +312,8 @@ java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1)
 	LOGV("java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
-	const char *methodSignature = "(II)Ljava_lang_CharSequence;";
-	const char *className = "java_lang_CharSequence";
+	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
+	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

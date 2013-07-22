@@ -53,6 +53,6 @@ public class $callback_class_name extends $base_class
 		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
 		#set $param_idx = $param_idx + 1
 	#end for
-	public native ${function['returns'][0]['type']} ${function['name']}($param_str);
+	public native ${function['returns'][0]['type']} ${config_module.to_safe_cxx_name(function['name'])}($param_str);
 #end for
 }

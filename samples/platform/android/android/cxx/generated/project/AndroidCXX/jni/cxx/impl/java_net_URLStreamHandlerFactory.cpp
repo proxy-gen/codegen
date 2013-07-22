@@ -34,8 +34,21 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_net_URLStreamHandlerFactory::java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc)
@@ -85,7 +98,7 @@ java_net_URLStreamHandlerFactory::java_net_URLStreamHandlerFactory()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_net_URLStreamHandlerFactory";
+	const char *className = "java/net/URLStreamHandlerFactory";
 
 	LOGV("java_net_URLStreamHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -134,8 +147,8 @@ java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandl
 	LOGV("java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(java_lang_String& arg0) enter");
 
 	const char *methodName = "createURLStreamHandler";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URLStreamHandler;";
-	const char *className = "java_net_URLStreamHandlerFactory";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/URLStreamHandler;";
+	const char *className = "java/net/URLStreamHandlerFactory";
 
 	LOGV("java_net_URLStreamHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

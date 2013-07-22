@@ -37,8 +37,12 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_io_OutputStream::java_io_OutputStream(const java_io_OutputStream& cc)

@@ -38,8 +38,24 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc)
@@ -89,7 +105,7 @@ java_lang_annotation_Annotation::java_lang_annotation_Annotation()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_annotation_Annotation";
+	const char *className = "java/lang/annotation/Annotation";
 
 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -139,7 +155,7 @@ bool java_lang_annotation_Annotation::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_annotation_Annotation";
+	const char *className = "java/lang/annotation/Annotation";
 
 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -206,8 +222,8 @@ java_lang_String java_lang_annotation_Annotation::toString()
 	LOGV("java_lang_String java_lang_annotation_Annotation::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_lang_annotation_Annotation";
+	const char *methodSignature = "()Ljava_lang_String;";
+	const char *className = "java/lang/annotation/Annotation";
 
 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -254,7 +270,7 @@ int java_lang_annotation_Annotation::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_annotation_Annotation";
+	const char *className = "java/lang/annotation/Annotation";
 
 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -301,7 +317,7 @@ java_lang_Class java_lang_annotation_Annotation::annotationType()
 
 	const char *methodName = "annotationType";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java_lang_annotation_Annotation";
+	const char *className = "java/lang/annotation/Annotation";
 
 	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

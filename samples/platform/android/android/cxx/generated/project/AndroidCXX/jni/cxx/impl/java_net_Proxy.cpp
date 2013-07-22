@@ -43,8 +43,38 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// using namespace JAVA_NET_PROXY_TYPE;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_net_Proxy::java_net_Proxy(const java_net_Proxy& cc)
@@ -336,7 +366,7 @@ java_lang_String java_net_Proxy::toString()
 	LOGV("java_lang_String java_net_Proxy::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);

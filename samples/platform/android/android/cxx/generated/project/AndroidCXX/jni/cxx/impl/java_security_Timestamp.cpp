@@ -43,8 +43,33 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_Timestamp::java_security_Timestamp(const java_security_Timestamp& cc)
@@ -289,7 +314,7 @@ java_lang_String java_security_Timestamp::toString()
 	LOGV("java_lang_String java_security_Timestamp::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/Timestamp";
 
 	LOGV("java_security_Timestamp className %d methodName %s methodSignature %s", className, methodName, methodSignature);

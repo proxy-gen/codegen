@@ -46,8 +46,36 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_cert_Certificate::java_security_cert_Certificate(const java_security_cert_Certificate& cc)
@@ -214,7 +242,7 @@ java_lang_String java_security_cert_Certificate::toString()
 	LOGV("java_lang_String java_security_cert_Certificate::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -308,7 +336,7 @@ java_lang_String java_security_cert_Certificate::getType()
 	LOGV("java_lang_String java_security_cert_Certificate::getType() enter");
 
 	const char *methodName = "getType";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -420,7 +448,7 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0)
 	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0) enter");
 
 	const char *methodName = "verify";
-	const char *methodSignature = "(Ljava_security_PublicKey;)V";
+	const char *methodSignature = "(Ljava/security/PublicKey;)V";
 	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -469,7 +497,7 @@ void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_l
 	LOGV("void java_security_cert_Certificate::verify(java_security_PublicKey& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "verify";
-	const char *methodSignature = "(Ljava_security_PublicKey;Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava/security/PublicKey;Ljava_lang_String;)V";
 	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -539,7 +567,7 @@ java_security_PublicKey java_security_cert_Certificate::getPublicKey()
 	LOGV("java_security_PublicKey java_security_cert_Certificate::getPublicKey() enter");
 
 	const char *methodName = "getPublicKey";
-	const char *methodSignature = "()Ljava_security_PublicKey;";
+	const char *methodSignature = "()Ljava/security/PublicKey;";
 	const char *className = "java/security/cert/Certificate";
 
 	LOGV("java_security_cert_Certificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);

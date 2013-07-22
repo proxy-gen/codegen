@@ -66,8 +66,72 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_nio_charset_CharsetDecoder::java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc)
@@ -642,7 +706,7 @@ java_lang_String java_nio_charset_CharsetDecoder::replacement()
 	LOGV("java_lang_String java_nio_charset_CharsetDecoder::replacement() enter");
 
 	const char *methodName = "replacement";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/nio/charset/CharsetDecoder";
 
 	LOGV("java_nio_charset_CharsetDecoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -783,7 +847,7 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(jav
 	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0) enter");
 
 	const char *methodName = "replaceWith";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/nio/charset/CharsetDecoder;";
 	const char *className = "java/nio/charset/CharsetDecoder";
 
 	LOGV("java_nio_charset_CharsetDecoder className %d methodName %s methodSignature %s", className, methodName, methodSignature);

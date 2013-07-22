@@ -44,8 +44,27 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_ListIterator::java_util_ListIterator(const java_util_ListIterator& cc)
@@ -95,7 +114,7 @@ java_util_ListIterator::java_util_ListIterator()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -145,7 +164,7 @@ void java_util_ListIterator::add(java_lang_Object& arg0)
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -194,7 +213,7 @@ bool java_util_ListIterator::hasNext()
 
 	const char *methodName = "hasNext";
 	const char *methodSignature = "()Z";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -241,7 +260,7 @@ java_lang_Object java_util_ListIterator::next()
 
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -288,7 +307,7 @@ void java_util_ListIterator::remove()
 
 	const char *methodName = "remove";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -316,7 +335,7 @@ void java_util_ListIterator::set(java_lang_Object& arg0)
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -365,7 +384,7 @@ int java_util_ListIterator::nextIndex()
 
 	const char *methodName = "nextIndex";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -412,7 +431,7 @@ java_lang_Object java_util_ListIterator::previous()
 
 	const char *methodName = "previous";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -459,7 +478,7 @@ int java_util_ListIterator::previousIndex()
 
 	const char *methodName = "previousIndex";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -506,7 +525,7 @@ bool java_util_ListIterator::hasPrevious()
 
 	const char *methodName = "hasPrevious";
 	const char *methodSignature = "()Z";
-	const char *className = "java_util_ListIterator";
+	const char *className = "java/util/ListIterator";
 
 	LOGV("java_util_ListIterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

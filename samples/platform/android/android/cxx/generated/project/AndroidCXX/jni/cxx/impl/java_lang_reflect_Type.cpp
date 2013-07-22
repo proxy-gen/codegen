@@ -31,8 +31,12 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_reflect_Type::java_lang_reflect_Type(const java_lang_reflect_Type& cc)
@@ -82,7 +86,7 @@ java_lang_reflect_Type::java_lang_reflect_Type()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_reflect_Type";
+	const char *className = "java/lang/reflect/Type";
 
 	LOGV("java_lang_reflect_Type className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

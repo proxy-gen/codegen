@@ -818,7 +818,6 @@ class TranslationUnit(JavaObject):
 			elif type_kind == TypeKind.JAVA_INTERFACE:
 				tags[:] = list()
 				tags.append("_interface")
-				tags.append("_callback")
 			elif type_kind == TypeKind.JAVA_ABSTRACT:
 				if "callback" in tags:
 					tags[:] = list()

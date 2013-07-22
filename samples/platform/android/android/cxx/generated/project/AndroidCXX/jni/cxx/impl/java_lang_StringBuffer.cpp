@@ -135,8 +135,165 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc)
@@ -279,7 +436,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0)
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *methodSignature = "(Ljava_lang_String;)V";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -336,7 +493,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0)
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava_lang_CharSequence;)V";
+	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -408,7 +565,7 @@ java_lang_String java_lang_StringBuffer::toString()
 	LOGV("java_lang_String java_lang_StringBuffer::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -651,7 +808,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0)
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0) enter");
 
 	const char *methodName = "append";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -787,7 +944,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "append";
-	const char *methodSignature = "(Ljava_lang_CharSequence;)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -855,7 +1012,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
-	const char *methodSignature = "(Ljava_lang_CharSequence;II)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1459,7 +1616,7 @@ int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1)
 	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "indexOf";
-	const char *methodSignature = "(Ljava/lang/String;I)I";
+	const char *methodSignature = "(Ljava_lang_String;I)I";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1548,7 +1705,7 @@ int java_lang_StringBuffer::indexOf(java_lang_String& arg0)
 	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0) enter");
 
 	const char *methodName = "indexOf";
-	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *methodSignature = "(Ljava_lang_String;)I";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2175,7 +2332,7 @@ int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0)
 	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0) enter");
 
 	const char *methodName = "lastIndexOf";
-	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *methodSignature = "(Ljava_lang_String;)I";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2243,7 +2400,7 @@ int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1)
 	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "lastIndexOf";
-	const char *methodSignature = "(Ljava/lang/String;I)I";
+	const char *methodSignature = "(Ljava_lang_String;I)I";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2332,7 +2489,7 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0)
 	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0) enter");
 
 	const char *methodName = "substring";
-	const char *methodSignature = "(I)Ljava/lang/String;";
+	const char *methodSignature = "(I)Ljava_lang_String;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2400,7 +2557,7 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) enter");
 
 	const char *methodName = "substring";
-	const char *methodSignature = "(II)Ljava/lang/String;";
+	const char *methodSignature = "(II)Ljava_lang_String;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2489,7 +2646,7 @@ java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
 	LOGV("java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
-	const char *methodSignature = "(II)Ljava_lang_CharSequence;";
+	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2578,7 +2735,7 @@ java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_lang_String& arg2) enter");
 
 	const char *methodName = "replace";
-	const char *methodSignature = "(IILjava/lang/String;)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(IILjava_lang_String;)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3512,7 +3669,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "insert";
-	const char *methodSignature = "(ILjava_lang_CharSequence;II)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3643,7 +3800,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1) enter");
 
 	const char *methodName = "insert";
-	const char *methodSignature = "(ILjava_lang_CharSequence;)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -4166,7 +4323,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String
 	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "insert";
-	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/StringBuffer;";
+	const char *methodSignature = "(ILjava_lang_String;)Ljava/lang/StringBuffer;";
 	const char *className = "java/lang/StringBuffer";
 
 	LOGV("java_lang_StringBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);

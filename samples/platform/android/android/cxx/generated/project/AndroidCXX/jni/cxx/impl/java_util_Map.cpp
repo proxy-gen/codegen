@@ -59,8 +59,57 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_Map::java_util_Map(const java_util_Map& cc)
@@ -110,7 +159,7 @@ java_util_Map::java_util_Map()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -160,7 +209,7 @@ java_lang_Object java_util_Map::get(java_lang_Object& arg0)
 
 	const char *methodName = "get";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -228,7 +277,7 @@ java_lang_Object java_util_Map::put(java_lang_Object& arg0,java_lang_Object& arg
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -317,7 +366,7 @@ bool java_util_Map::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -384,8 +433,8 @@ java_util_Collection java_util_Map::values()
 	LOGV("java_util_Collection java_util_Map::values() enter");
 
 	const char *methodName = "values";
-	const char *methodSignature = "()Ljava_util_Collection;";
-	const char *className = "java_util_Map";
+	const char *methodSignature = "()Ljava/util/Collection;";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -450,7 +499,7 @@ int java_util_Map::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -497,7 +546,7 @@ void java_util_Map::clear()
 
 	const char *methodName = "clear";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -525,7 +574,7 @@ bool java_util_Map::isEmpty()
 
 	const char *methodName = "isEmpty";
 	const char *methodSignature = "()Z";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -572,7 +621,7 @@ int java_util_Map::size()
 
 	const char *methodName = "size";
 	const char *methodSignature = "()I";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -618,8 +667,8 @@ java_util_Set java_util_Map::entrySet()
 	LOGV("java_util_Set java_util_Map::entrySet() enter");
 
 	const char *methodName = "entrySet";
-	const char *methodSignature = "()Ljava_util_Set;";
-	const char *className = "java_util_Map";
+	const char *methodSignature = "()Ljava/util/Set;";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -716,8 +765,8 @@ void java_util_Map::putAll(java_util_Map& arg0)
 	LOGV("void java_util_Map::putAll(java_util_Map& arg0) enter");
 
 	const char *methodName = "putAll";
-	const char *methodSignature = "(Ljava_util_Map;)V";
-	const char *className = "java_util_Map";
+	const char *methodSignature = "(Ljava/util/Map;)V";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -799,7 +848,7 @@ java_lang_Object java_util_Map::remove(java_lang_Object& arg0)
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -866,8 +915,8 @@ java_util_Set java_util_Map::keySet()
 	LOGV("java_util_Set java_util_Map::keySet() enter");
 
 	const char *methodName = "keySet";
-	const char *methodSignature = "()Ljava_util_Set;";
-	const char *className = "java_util_Map";
+	const char *methodSignature = "()Ljava/util/Set;";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -932,7 +981,7 @@ bool java_util_Map::containsValue(java_lang_Object& arg0)
 
 	const char *methodName = "containsValue";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -1000,7 +1049,7 @@ bool java_util_Map::containsKey(java_lang_Object& arg0)
 
 	const char *methodName = "containsKey";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_util_Map";
+	const char *className = "java/util/Map";
 
 	LOGV("java_util_Map className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

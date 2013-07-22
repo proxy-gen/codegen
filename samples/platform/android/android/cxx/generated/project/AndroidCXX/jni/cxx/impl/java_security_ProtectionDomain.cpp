@@ -51,8 +51,48 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_ProtectionDomain::java_security_ProtectionDomain(const java_security_ProtectionDomain& cc)
@@ -367,7 +407,7 @@ java_lang_String java_security_ProtectionDomain::toString()
 	LOGV("java_lang_String java_security_ProtectionDomain::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);

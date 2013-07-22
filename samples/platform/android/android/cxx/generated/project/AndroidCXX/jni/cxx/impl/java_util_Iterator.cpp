@@ -35,8 +35,18 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_util_Iterator::java_util_Iterator(const java_util_Iterator& cc)
@@ -86,7 +96,7 @@ java_util_Iterator::java_util_Iterator()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Iterator";
+	const char *className = "java/util/Iterator";
 
 	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -136,7 +146,7 @@ bool java_util_Iterator::hasNext()
 
 	const char *methodName = "hasNext";
 	const char *methodSignature = "()Z";
-	const char *className = "java_util_Iterator";
+	const char *className = "java/util/Iterator";
 
 	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -183,7 +193,7 @@ java_lang_Object java_util_Iterator::next()
 
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
-	const char *className = "java_util_Iterator";
+	const char *className = "java/util/Iterator";
 
 	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -230,7 +240,7 @@ void java_util_Iterator::remove()
 
 	const char *methodName = "remove";
 	const char *methodSignature = "()V";
-	const char *className = "java_util_Iterator";
+	const char *className = "java/util/Iterator";
 
 	LOGV("java_util_Iterator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

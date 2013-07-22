@@ -44,8 +44,24 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_nio_charset_CoderResult::java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc)
@@ -144,7 +160,7 @@ java_lang_String java_nio_charset_CoderResult::toString()
 	LOGV("java_lang_String java_nio_charset_CoderResult::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
+	const char *methodSignature = "()Ljava_lang_String;";
 	const char *className = "java/nio/charset/CoderResult";
 
 	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);

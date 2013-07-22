@@ -38,8 +38,24 @@
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 static long static_obj;
 static long static_address = (long) &static_obj;
+
 
 // Default Instance Constructors
 java_security_Principal::java_security_Principal(const java_security_Principal& cc)
@@ -89,7 +105,7 @@ java_security_Principal::java_security_Principal()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_security_Principal";
+	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -139,7 +155,7 @@ bool java_security_Principal::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_security_Principal";
+	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -206,8 +222,8 @@ java_lang_String java_security_Principal::toString()
 	LOGV("java_lang_String java_security_Principal::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Principal";
+	const char *methodSignature = "()Ljava_lang_String;";
+	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -254,7 +270,7 @@ int java_security_Principal::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_security_Principal";
+	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -300,8 +316,8 @@ java_lang_String java_security_Principal::getName()
 	LOGV("java_lang_String java_security_Principal::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java_security_Principal";
+	const char *methodSignature = "()Ljava_lang_String;";
+	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
