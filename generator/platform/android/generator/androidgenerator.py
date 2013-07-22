@@ -1149,6 +1149,7 @@ class ConfigModule(object):
 		targetdata = deriveddata['targetdata']
 		if 'typeinfo' not in targetdata:
 			typeinfo = targetdata['typeinfo'] = dict()
+			typeinfo['isenum'] = False
 			typeinfo['namespace'] = config_data['namespace']
 			if type_config['converter'] == 'convert_proxy':
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=type_config['type'])

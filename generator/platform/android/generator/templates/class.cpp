@@ -145,7 +145,10 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
+#if $package == "FacebookCXX"
 \#include <AndroidCXXConverter.hpp>
+#end if
 
 \#define LOG_TAG "${entity_class_name}"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -193,7 +196,6 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 	#set $jarg = "jarg" + str($param_idx)
 	#set $param_jnidata = $param['deriveddata']['jnidata']
 	#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
-	${param_typeinfo['typename']} $arg;
 	{
 		long cxx_value = (long) 0;
 		long java_value = ${param_jnidata['jniconverter']}_to_java($jarg);
@@ -248,14 +250,12 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 			${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 		}
 
-		#if 'isproxied' in $param_typeinfo
 		#if $param_typeinfo['isenum'] == True
-		$arg = (${param_typeinfo['typename']}) (cxx_value);
+		${param_typeinfo['typename']} $arg = (${param_typeinfo['typename']}) (cxx_value);
+		#else if 'isproxied' in $param_typeinfo
+		${param_typeinfo['typename']} ${arg}((${param_typeinfo['typename']}) (${param_typeinfo['typename']}((${param_typeinfo['typename']} *) cxx_value)));
 		#else
-		$arg = (${param_typeinfo['typename']}) (${param_typeinfo['typename']}((${param_typeinfo['typename']} *) cxx_value));
-		#end if
-		#else
-		$arg = (${param_typeinfo['typename']}) (cxx_value);
+		${param_typeinfo['typename']} $arg = (${param_typeinfo['typename']}) (${param_typeinfo['typename']}((${param_typeinfo['typename']} *) cxx_value));
 		#end if
 
 		#if $param_idx > 0
@@ -390,44 +390,45 @@ ${entity_class_name}::${entity_class_name}(void * proxy)
 	LOGV("${entity_class_name}::${entity_class_name}(void * proxy) exit");
 }
 #end if
-#if not '_static' in $entity_class_config['tags']
-#if $no_arg_constructor
-${entity_class_name}::${entity_class_name}()
-{
-	LOGV("${entity_class_name}::${entity_class_name}() enter");	
+// TODO: remove
+// #if not '_static' in $entity_class_config['tags']
+// #if $no_arg_constructor
+// ${entity_class_name}::${entity_class_name}()
+// {
+// 	LOGV("${entity_class_name}::${entity_class_name}() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "$class_jnidata['jnisignature']";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("${entity_class_name} jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("${entity_class_name}::${entity_class_name}() exit");	
-}
-#end if
-#end if
+// 	LOGV("${entity_class_name}::${entity_class_name}() exit");	
+// }
+// #end if
+// #end if
 #if not '_static' in $entity_class_config['tags']
 // Public Constructors
 #for $constructor in $constructors
@@ -652,7 +653,6 @@ $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(fu
 	#set $retrn  = $function['returns'][0]
 	#set $retrn_typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
 	#if $function['retrn_type'] != "void"   
-	$function['retrn_type'] result;
 	#set $retrn_jnidata = $retrn['deriveddata']['jnidata']
 	$retrn_jnidata['jnitypename'] jni_result = ($retrn_jnidata['jnitypename']) jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);
 	long cxx_value = (long) 0;
@@ -707,14 +707,13 @@ $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(fu
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		${retrn_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	#if 'isproxied' in $retrn_typeinfo
+
 	#if $retrn_typeinfo['isenum'] == True
-	result = (${function['retrn_type']}) (cxx_value);
+	$function['retrn_type'] result = (${function['retrn_type']}) (cxx_value);
+	#else if 'isproxied' in $retrn_typeinfo
+	$function['retrn_type'] result((${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value));
 	#else
-	result = (${function['retrn_type']}) (${function['retrn_type']}((${function['retrn_type']} *) cxx_value));
-	#end if
-	#else
-	result = ($function['retrn_type']) (cxx_value);
+	$function['retrn_type'] result = (${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value);
 	#end if
 	#else
 	jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);

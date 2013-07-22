@@ -16,6 +16,9 @@
 
 \#include <${package}Converter.hpp>
 
+\#define LOG_TAG "${package}Converter"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+
 // Proxy Converter Types
 #for $class_config in $classes
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']

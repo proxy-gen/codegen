@@ -209,9 +209,10 @@ public:
 	#for $constructor in $constructors
 	${entity_class_name}($constructor['param_str']);
 	#end for
-	#if $no_arg_constructor
-	${entity_class_name}();
-	#end if
+	// TODO: remove
+	// #if $no_arg_constructor
+	// ${entity_class_name}();
+	// #end if
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor
