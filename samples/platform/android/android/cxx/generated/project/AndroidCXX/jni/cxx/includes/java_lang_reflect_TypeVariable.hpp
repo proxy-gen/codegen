@@ -69,11 +69,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_lang_reflect_Type;
+class java_lang_reflect_Type;
 
-class AndroidCXX::java_lang_reflect_GenericDeclaration;
+class java_lang_reflect_GenericDeclaration;
 
 class java_lang_reflect_TypeVariable
 {

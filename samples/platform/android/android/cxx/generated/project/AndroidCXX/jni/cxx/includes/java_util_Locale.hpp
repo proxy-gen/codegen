@@ -204,11 +204,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_util_Locale;
+class java_util_Locale;
 
 class java_util_Locale
 {

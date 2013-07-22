@@ -77,11 +77,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_net_URLConnection;
+class java_net_URLConnection;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_Class;
+class java_lang_Class;
 
 class java_net_ContentHandler
 {

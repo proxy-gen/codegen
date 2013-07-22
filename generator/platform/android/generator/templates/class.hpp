@@ -42,6 +42,9 @@
 		#set $param_str = $param_str + $COMMA 
 		#set $jni_param_str = $jni_param_str + $COMMA
 	#end if
+ 	#if 'isproxied' in $typeinfo
+	#set $param_str = $param_str + $typeinfo['namespace'] + '::'
+ 	#end if
 	#set $param_str = $param_str + $typeinfo['typename'] + $REF
 	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
  	#set $jni_param_str = $jni_param_str + $jnidata['jnitypename'] + $REF
@@ -57,7 +60,11 @@
 #for $retrn in $returns
 	#set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
 	#set $jnidata = $retrn['deriveddata']['jnidata']
+ 	#if 'isproxied' in $typeinfo
+ 	#set $function['retrn_type'] = $typeinfo['namespace'] + '::' + $typeinfo['typename']
+ 	#else
  	#set $function['retrn_type'] = $typeinfo['typename']
+ 	#end if
  	#set $function['jni_retrn_type'] = $jnidata['jnitypename']
  	#if 'isproxied' in $typeinfo
 	$proxied_typeinfo_list.append(typeinfo)
@@ -97,6 +104,9 @@
 	#if $param_idx > 0
 		#set $param_str = $param_str + $COMMA 
 	#end if
+ 	#if 'isproxied' in $typeinfo
+	#set $param_str = $param_str + $typeinfo['namespace'] + '::'
+ 	#end if
 	#set $param_str = $param_str + $typeinfo['typename'] + $REF
 	#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
 	#set $param_idx = $param_idx + 1

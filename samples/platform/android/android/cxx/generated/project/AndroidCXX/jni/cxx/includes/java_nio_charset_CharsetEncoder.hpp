@@ -147,19 +147,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_nio_charset_Charset;
+class java_nio_charset_Charset;
 
-class AndroidCXX::java_nio_CharBuffer;
+class java_nio_CharBuffer;
 
-class AndroidCXX::java_nio_ByteBuffer;
+class java_nio_ByteBuffer;
 
-class AndroidCXX::java_nio_charset_CoderResult;
+class java_nio_charset_CoderResult;
 
-class AndroidCXX::java_nio_charset_CharsetEncoder;
+class java_nio_charset_CharsetEncoder;
 
-class AndroidCXX::java_lang_CharSequence;
+class java_lang_CharSequence;
 
-class AndroidCXX::java_nio_charset_CodingErrorAction;
+class java_nio_charset_CodingErrorAction;
 
 class java_nio_charset_CharsetEncoder
 {

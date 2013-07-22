@@ -290,25 +290,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_nio_ByteBuffer;
+class java_nio_ByteBuffer;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_nio_ByteOrder;
+class java_nio_ByteOrder;
 
-class AndroidCXX::java_nio_CharBuffer;
+class java_nio_CharBuffer;
 
-class AndroidCXX::java_nio_ShortBuffer;
+class java_nio_ShortBuffer;
 
-class AndroidCXX::java_nio_IntBuffer;
+class java_nio_IntBuffer;
 
-class AndroidCXX::java_nio_LongBuffer;
+class java_nio_LongBuffer;
 
-class AndroidCXX::java_nio_FloatBuffer;
+class java_nio_FloatBuffer;
 
-class AndroidCXX::java_nio_DoubleBuffer;
+class java_nio_DoubleBuffer;
 
 class java_nio_ByteBuffer
 {

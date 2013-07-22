@@ -60,9 +60,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_net_URLStreamHandler;
+class java_net_URLStreamHandler;
 
 class java_net_URLStreamHandlerFactory
 {

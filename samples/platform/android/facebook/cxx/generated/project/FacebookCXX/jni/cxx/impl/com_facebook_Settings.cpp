@@ -1,0 +1,1191 @@
+/*
+ * Implementation (Instance CXX)
+ * Author: cxx-bindings-generator
+ */
+
+//
+// Scroll Down 
+//
+
+
+
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
+
+#include <com_facebook_Settings.hpp>
+#include <jni.h>
+#include <CXXContext.hpp>
+#include <JNIContext.hpp>
+// TODO: integrate with custom converters
+#include <CXXConverter.hpp>
+#include <FacebookCXXConverter.hpp>
+
+#define LOG_TAG "com_facebook_Settings"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+
+using namespace FacebookCXX;
+
+// 
+// 
+// 
+// 
+// 
+// 
+// using namespace COM_FACEBOOK_LOGGINGBEHAVIOR;
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+static long static_obj;
+static long static_address = (long) &static_obj;
+
+
+// Default Instance Constructors
+com_facebook_Settings::com_facebook_Settings(const com_facebook_Settings& cc)
+{
+	LOGV("com_facebook_Settings::com_facebook_Settings(const com_facebook_Settings& cc) enter");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long ccaddress = (long) &cc;
+	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
+	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
+	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
+	long address = (long) this;
+	LOGV("registerProxyComponent address %ld", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = proxiedCCComponent;
+		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+
+	LOGV("com_facebook_Settings::com_facebook_Settings(const com_facebook_Settings& cc) exit");
+}
+com_facebook_Settings::com_facebook_Settings(void * proxy)
+{
+	LOGV("com_facebook_Settings::com_facebook_Settings(void * proxy) enter");
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	LOGV("registerProxyComponent address %d", address);
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	if (proxiedComponent == 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		proxiedComponent = jni->localToGlobalRef((jobject) proxy);
+		ctx->registerProxyComponent(address, proxiedComponent);
+	}
+
+	LOGV("com_facebook_Settings::com_facebook_Settings(void * proxy) exit");
+}
+// Public Constructors
+com_facebook_Settings::com_facebook_Settings()
+{
+	LOGV("com_facebook_Settings::com_facebook_Settings() enter");	
+
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature));
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("com_facebook_Settings::com_facebook_Settings() exit");	
+}
+// Default Instance Destructor
+com_facebook_Settings::~com_facebook_Settings()
+{
+	LOGV("com_facebook_Settings::~com_facebook_Settings() enter");
+	CXXContext *ctx = CXXContext::sharedInstance();
+	long address = (long) this;
+	jobject proxiedComponent = ctx->findProxyComponent(address);
+	if (proxiedComponent != 0)
+	{
+		JNIContext *jni = JNIContext::sharedInstance();
+		ctx->deregisterProxyComponent(address);
+	}		
+	LOGV("com_facebook_Settings::~com_facebook_Settings() exit");
+}
+// Functions
+bool com_facebook_Settings::isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0)
+{
+	LOGV("bool com_facebook_Settings::isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) enter");
+
+	const char *methodName = "isLoggingBehaviorEnabled";
+	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)Z";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.LoggingBehavior");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_com_facebook_LoggingBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (cxx_value);
+		
+	jni->popLocalFrame();
+
+	LOGV("bool com_facebook_Settings::isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) exit");
+
+	return result;
+}
+FacebookCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor()
+{
+	LOGV("FacebookCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor() enter");
+
+	const char *methodName = "getExecutor";
+	const char *methodSignature = "()Ljava/util/concurrent/Executor;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	FacebookCXX::java_util_concurrent_Executor result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.util.concurrent.Executor");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_util_concurrent_Executor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::java_util_concurrent_Executor) (FacebookCXX::java_util_concurrent_Executor((FacebookCXX::java_util_concurrent_Executor *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor() exit");
+
+	return result;
+}
+bool com_facebook_Settings::getShouldAutoPublishInstall()
+{
+	LOGV("bool com_facebook_Settings::getShouldAutoPublishInstall() enter");
+
+	const char *methodName = "getShouldAutoPublishInstall";
+	const char *methodSignature = "()Z";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (cxx_value);
+		
+	jni->popLocalFrame();
+
+	LOGV("bool com_facebook_Settings::getShouldAutoPublishInstall() exit");
+
+	return result;
+}
+bool com_facebook_Settings::publishInstallAndWait(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1)
+{
+	LOGV("bool com_facebook_Settings::publishInstallAndWait(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) enter");
+
+	const char *methodName = "publishInstallAndWait";
+	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Z";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jstring jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_string_to_jni(java_value);
+	}
+
+	bool result;
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (bool) (cxx_value);
+		
+	jni->popLocalFrame();
+
+	LOGV("bool com_facebook_Settings::publishInstallAndWait(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) exit");
+
+	return result;
+}
+FacebookCXX::java_lang_String com_facebook_Settings::getAttributionId(FacebookCXX::android_content_ContentResolver& arg0)
+{
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getAttributionId(FacebookCXX::android_content_ContentResolver& arg0) enter");
+
+	const char *methodName = "getAttributionId";
+	const char *methodSignature = "(Landroid/content/ContentResolver;)Ljava/lang/String;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.ContentResolver");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_ContentResolver(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	FacebookCXX::java_lang_String result;
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_string_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getAttributionId(FacebookCXX::android_content_ContentResolver& arg0) exit");
+
+	return result;
+}
+FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitForResponse(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1)
+{
+	LOGV("FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitForResponse(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) enter");
+
+	const char *methodName = "publishInstallAndWaitForResponse";
+	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/Response;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jstring jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_string_to_jni(java_value);
+	}
+
+	FacebookCXX::com_facebook_Response result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.Response");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_com_facebook_Response(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::com_facebook_Response) (FacebookCXX::com_facebook_Response((FacebookCXX::com_facebook_Response *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitForResponse(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) exit");
+
+	return result;
+}
+void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1)
+{
+	LOGV("void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) enter");
+
+	const char *methodName = "publishInstallAsync";
+	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jstring jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_string_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1) exit");
+
+}
+void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2)
+{
+	LOGV("void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) enter");
+
+	const char *methodName = "publishInstallAsync";
+	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/Request$Callback;)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jstring jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_string_to_jni(java_value);
+	}
+	jobject jarg2;
+	{
+		long cxx_value = (long) & arg2;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.Request$Callback");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_com_facebook_Request_Callback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::publishInstallAsync(FacebookCXX::android_content_Context& arg0,FacebookCXX::java_lang_String& arg1,FacebookCXX::com_facebook_Request_Callback& arg2) exit");
+
+}
+FacebookCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors()
+{
+	LOGV("FacebookCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors() enter");
+
+	const char *methodName = "getLoggingBehaviors";
+	const char *methodSignature = "()Ljava/util/Set;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	FacebookCXX::java_util_Set result;
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.util.Set");
+			{
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				
+			}
+		}
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.LoggingBehavior");
+		}
+		std::stack<long> converter_stack;
+		
+		{
+			{
+				converter_stack.push((long) &convert_com_facebook_LoggingBehavior);				
+
+			}
+		}
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::java_util_Set) (FacebookCXX::java_util_Set((FacebookCXX::java_util_Set *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors() exit");
+
+	return result;
+}
+void com_facebook_Settings::addLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0)
+{
+	LOGV("void com_facebook_Settings::addLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) enter");
+
+	const char *methodName = "addLoggingBehavior";
+	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.LoggingBehavior");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_com_facebook_LoggingBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::addLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) exit");
+
+}
+void com_facebook_Settings::removeLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0)
+{
+	LOGV("void com_facebook_Settings::removeLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) enter");
+
+	const char *methodName = "removeLoggingBehavior";
+	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("com.facebook.LoggingBehavior");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_com_facebook_LoggingBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::removeLoggingBehavior(COM_FACEBOOK_LOGGINGBEHAVIOR::com_facebook_LoggingBehavior& arg0) exit");
+
+}
+void com_facebook_Settings::clearLoggingBehaviors()
+{
+	LOGV("void com_facebook_Settings::clearLoggingBehaviors() enter");
+
+	const char *methodName = "clearLoggingBehaviors";
+	const char *methodSignature = "()V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::clearLoggingBehaviors() exit");
+
+}
+void com_facebook_Settings::setExecutor(FacebookCXX::java_util_concurrent_Executor& arg0)
+{
+	LOGV("void com_facebook_Settings::setExecutor(FacebookCXX::java_util_concurrent_Executor& arg0) enter");
+
+	const char *methodName = "setExecutor";
+	const char *methodSignature = "(Ljava/util/concurrent/Executor;)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.util.concurrent.Executor");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_util_concurrent_Executor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::setExecutor(FacebookCXX::java_util_concurrent_Executor& arg0) exit");
+
+}
+void com_facebook_Settings::setShouldAutoPublishInstall(bool& arg0)
+{
+	LOGV("void com_facebook_Settings::setShouldAutoPublishInstall(bool& arg0) enter");
+
+	const char *methodName = "setShouldAutoPublishInstall";
+	const char *methodSignature = "(Z)V";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+	jboolean jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_boolean_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	jni->popLocalFrame();
+
+	LOGV("void com_facebook_Settings::setShouldAutoPublishInstall(bool& arg0) exit");
+
+}
+FacebookCXX::java_lang_String com_facebook_Settings::getSdkVersion()
+{
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getSdkVersion() enter");
+
+	const char *methodName = "getSdkVersion";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	FacebookCXX::java_lang_String result;
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_string_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getSdkVersion() exit");
+
+	return result;
+}
+FacebookCXX::java_lang_String com_facebook_Settings::getMigrationBundle()
+{
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getMigrationBundle() enter");
+
+	const char *methodName = "getMigrationBundle";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "com/facebook/Settings";
+
+	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("com_facebook_Settings cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("com_facebook_Settings jni address %d", javaObject);
+
+
+	FacebookCXX::java_lang_String result;
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_string_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = (FacebookCXX::java_lang_String) (FacebookCXX::java_lang_String((FacebookCXX::java_lang_String *) cxx_value));
+		
+	jni->popLocalFrame();
+
+	LOGV("FacebookCXX::java_lang_String com_facebook_Settings::getMigrationBundle() exit");
+
+	return result;
+}

@@ -175,17 +175,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_util_Collection;
+class java_util_Collection;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_util_Set;
+class java_util_Set;
 
-class AndroidCXX::java_util_Map_Entry;
+class java_util_Map_Entry;
 
-class AndroidCXX::java_util_Comparator;
+class java_util_Comparator;
 
-class AndroidCXX::java_util_SortedMap;
+class java_util_SortedMap;
 
 class java_util_SortedMap
 {

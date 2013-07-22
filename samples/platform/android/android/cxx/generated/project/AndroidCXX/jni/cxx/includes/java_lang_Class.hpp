@@ -523,33 +523,33 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_lang_Class;
+class java_lang_Class;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_ClassLoader;
+class java_lang_ClassLoader;
 
-class AndroidCXX::java_lang_reflect_TypeVariable;
+class java_lang_reflect_TypeVariable;
 
-class AndroidCXX::java_lang_reflect_Type;
+class java_lang_reflect_Type;
 
-class AndroidCXX::java_lang_Package;
+class java_lang_Package;
 
-class AndroidCXX::java_lang_reflect_Method;
+class java_lang_reflect_Method;
 
-class AndroidCXX::java_lang_reflect_Constructor;
+class java_lang_reflect_Constructor;
 
-class AndroidCXX::java_lang_reflect_Field;
+class java_lang_reflect_Field;
 
-class AndroidCXX::java_io_InputStream;
+class java_io_InputStream;
 
-class AndroidCXX::java_net_URL;
+class java_net_URL;
 
-class AndroidCXX::java_security_ProtectionDomain;
+class java_security_ProtectionDomain;
 
-class AndroidCXX::java_lang_annotation_Annotation;
+class java_lang_annotation_Annotation;
 
 class java_lang_Class
 {

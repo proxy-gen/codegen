@@ -117,17 +117,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_lang_ClassLoader;
+class java_lang_ClassLoader;
 
-class AndroidCXX::java_security_CodeSource;
+class java_security_CodeSource;
 
-class AndroidCXX::java_security_Principal;
+class java_security_Principal;
 
-class AndroidCXX::java_security_PermissionCollection;
+class java_security_PermissionCollection;
 
-class AndroidCXX::java_security_Permission;
+class java_security_Permission;
 
 class java_security_ProtectionDomain
 {

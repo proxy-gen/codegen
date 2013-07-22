@@ -162,13 +162,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_nio_IntBuffer;
+class java_nio_IntBuffer;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_nio_ByteOrder;
+class java_nio_ByteOrder;
 
 class java_nio_IntBuffer
 {

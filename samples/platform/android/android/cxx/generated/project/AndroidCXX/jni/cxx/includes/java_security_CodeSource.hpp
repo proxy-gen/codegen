@@ -111,17 +111,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_net_URL;
+class java_net_URL;
 
-class AndroidCXX::java_security_cert_Certificate;
+class java_security_cert_Certificate;
 
-class AndroidCXX::java_security_CodeSource;
+class java_security_CodeSource;
 
-class AndroidCXX::java_security_CodeSigner;
+class java_security_CodeSigner;
 
 class java_security_CodeSource
 {

@@ -221,15 +221,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_util_Collection;
+class java_util_Collection;
 
-class AndroidCXX::java_util_Iterator;
+class java_util_Iterator;
 
-class AndroidCXX::java_util_ListIterator;
+class java_util_ListIterator;
 
-class AndroidCXX::java_util_List;
+class java_util_List;
 
 class java_util_List
 {

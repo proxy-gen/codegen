@@ -539,12 +539,12 @@ int find_class_type(jclass clazz)
 	}
 	else
 	{
-		bool onlyStaticPublicMethods = true;
 		jstring jclassName = jni->invokeStringMethod(clazz, "java/lang/Class", "getName", "()Ljava/lang/String;");
 		const char * className = jni->getUTFString(jclassName).c_str();
 		jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
 		jsize jmethodCount = jni->getArrayLength(jmethods);
 		int methodCount = (int) jmethodCount;
+		bool onlyStaticPublicMethods = constructorCount == 0 && methodCount > 0;
 		for (int i = 0; i < methodCount; i++)
 		{
 			jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);

@@ -74,7 +74,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
 class java_util_Map_Entry
 {

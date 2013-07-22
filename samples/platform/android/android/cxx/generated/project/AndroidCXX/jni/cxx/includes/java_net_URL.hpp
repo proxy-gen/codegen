@@ -243,25 +243,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_io_InputStream;
+class java_io_InputStream;
 
-class AndroidCXX::java_net_URI;
+class java_net_URI;
 
-class AndroidCXX::java_net_URL;
+class java_net_URL;
 
-class AndroidCXX::java_net_Proxy;
+class java_net_Proxy;
 
-class AndroidCXX::java_net_URLConnection;
+class java_net_URLConnection;
 
-class AndroidCXX::java_lang_Class;
+class java_lang_Class;
 
-class AndroidCXX::java_net_URLStreamHandlerFactory;
+class java_net_URLStreamHandlerFactory;
 
-class AndroidCXX::java_net_URLStreamHandler;
+class java_net_URLStreamHandler;
 
 class java_net_URL
 {

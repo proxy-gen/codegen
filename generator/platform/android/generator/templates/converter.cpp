@@ -35,7 +35,7 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		do
 		{
 			#for $enum_config in $enum_configs
-			if ($enum_config['name'] == cxx_value)
+			if (${class_classinfo['namespace']}::${enum_config['name']} == cxx_value)
 			{
 				enum_string = "$enum_config['name']";
 				break;
@@ -60,7 +60,7 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 			#for $enum_config in $enum_configs
 				if (strcmp("${enum_config['name']}", enum_string) == 0)
 				{
-					cxx_value = ${enum_config['name']};
+					cxx_value = ${class_classinfo['namespace']}::${enum_config['name']};
 					break;
 				}
 			#end for

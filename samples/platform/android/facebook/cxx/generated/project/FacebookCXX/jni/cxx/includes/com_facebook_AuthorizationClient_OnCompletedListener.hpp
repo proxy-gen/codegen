@@ -1,12 +1,41 @@
 /*
- * Header (CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
+//
+// Scroll Down 
+//
+
+
+
+ 		 
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _com_facebook_AuthorizationClient_OnCompletedListener
 #define _com_facebook_AuthorizationClient_OnCompletedListener
+//
+// Scroll Down 
+//
 
-//includes go here
+
+#include <com_facebook_AuthorizationClient_Result.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,14 +43,32 @@ extern "C" {
 
 namespace FacebookCXX {
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+// Forward Declarations
+
+class com_facebook_AuthorizationClient_Result;
+
 class com_facebook_AuthorizationClient_OnCompletedListener
 {
 public:
 
-	void onCompleted(com_facebook_AuthorizationClient_Result& arg0);
-
-
-};
+	com_facebook_AuthorizationClient_OnCompletedListener(const com_facebook_AuthorizationClient_OnCompletedListener& cc);
+	com_facebook_AuthorizationClient_OnCompletedListener(void * proxy);
+	// Public Constructors
+	com_facebook_AuthorizationClient_OnCompletedListener();
+	// Default Destructor
+	virtual ~com_facebook_AuthorizationClient_OnCompletedListener();
+	// Functions
+	 void onCompleted(FacebookCXX::com_facebook_AuthorizationClient_Result& arg0);
+};	
 
 } // namespace
 

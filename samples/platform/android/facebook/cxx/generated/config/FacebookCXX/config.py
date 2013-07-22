@@ -41,6 +41,11 @@ config = {
 	],
 	'converters' : [
 		{
+			'jni' : {'type': 'void'},
+			'java' : {'type': 'void'},
+			'name' : 'convert_jni_void',
+		},
+		{
 			'jni' : {'type': 'jboolean'},
 			'java' : {'type': 'boolean'},
 			'name' : 'convert_jni_boolean',
@@ -81,9 +86,9 @@ config = {
 			'name' : 'convert_jni_double',
 		},
 		{
-			'jni' : {'type': 'void'},
-			'java' : {'type': 'void'},
-			'name' : 'convert_jni_void',
+			'jni' : {'type': 'jobject'},
+			'java' : {'type': 'java.lang.Object'},
+			'name' : 'convert_jni_java_lang_Object',
 		},
 		{
 			'jni' : {'type': 'jstring'},
@@ -93,7 +98,7 @@ config = {
 		{
 			'jni' : {'type': 'jobjectArray'},
 			'java' : {'type': '_object_array_type'},
-			'name' : 'convert_jni___object_array_type',
+			'name' : 'convert_jni__object_array_type',
 		},
 		{
 			'jni' : {'type': 'jbyteArray'},
@@ -136,11 +141,6 @@ config = {
 			'name' : 'convert_jni__char_array_type',
 		},
 		{
-			'jni' : {'type': 'jobject'},
-			'java' : {'type': 'java.lang.Object'},
-			'name' : 'convert_jni_java_lang_Object',
-		},
-		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
 			'name' : 'convert_void',
@@ -151,7 +151,7 @@ config = {
 			'name' : 'convert_boolean',
 		},
 		{
-			'cxx' : {'type': 'unsigned char'},
+			'cxx' : {'type': 'byte'},
 			'java' : {'type': 'byte'},
 			'name' : 'convert_byte',
 		},
@@ -186,82 +186,12 @@ config = {
 			'name' : 'convert_double',
 		},
 		{
-			'cxx' : {'type': 'std::string'},
-			'java' : {'type': 'java.lang.String'},
-			'name' : 'convert_java_lang_String',
-		},
-		{
-			'cxx' : {'type': 'bool'},
-			'java' : {'type': 'java.lang.Boolean'},
-			'name' : 'convert_java_lang_Boolean',
-		},
-		{
-			'cxx' : {'type': 'int'},
-			'java' : {'type': 'java.lang.Byte'},
-			'name' : 'convert_java_lang_Byte',
-		},
-		{
-			'cxx' : {'type': 'char'},
-			'java' : {'type': 'java.lang.Character'},
-			'name' : 'convert_java_lang_Character',
-		},
-		{
-			'cxx' : {'type': 'short'},
-			'java' : {'type': 'java.lang.Short'},
-			'name' : 'convert_java_lang_Short',
-		},
-		{
-			'cxx' : {'type': 'int'},
-			'java' : {'type': 'java.lang.Integer'},
-			'name' : 'convert_java_lang_Integer',
-		},
-		{
-			'cxx' : {'type': 'long'},
-			'java' : {'type': 'java.lang.Long'},
-			'name' : 'convert_java_lang_Long',
-		},
-		{
-			'cxx' : {'type': 'float'},
-			'java' : {'type': 'java.lang.Float'},
-			'name' : 'convert_java_lang_Float',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.lang.Double'},
-			'name' : 'convert_java_lang_Double',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.math.BigInteger'},
-			'name' : 'convert_java_lang_BigInteger',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.math.BigDecimal'},
-			'name' : 'convert_java_math_BigDecimal',
-		},
-		{
-			'cxx' : {'type': 'long'},
-			'java' : {'type': 'java.util.Date'},
-			'name' : 'convert_java_util_Date',
-		},
-		{
-			'cxx' : {'type': 'std::map'},
-			'java' : {'type': 'java.util.Map'},
-			'name' : 'convert_java_util_Map',
-		},
-		{
-			'cxx' : {'type': 'std::vector<long>'},
-			'java' : {'type': 'java.util.List'},
-			'name' : 'convert_java_util_List',
-		},
-		{
 			'cxx' : {'type': 'std::vector<long>'},
 			'java' : {'type': '_object_array_type'},
 			'name' : 'convert__object_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector<char>'},
+			'cxx' : {'type': 'std::vector<byte>'},
 			'java' : {'type': '_byte_array_type'},
 			'name' : 'convert__byte_array_type',
 		},
@@ -411,6 +341,10 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.Date',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -740,6 +674,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.AuthorizationClient$AuthDialogBuilder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -779,7 +714,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$BackgroundProcessingListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -879,7 +814,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$OnCompletedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -981,7 +916,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AuthorizationClient$StartActivityDelegate',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1073,7 +1008,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookAuthorizationException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1081,11 +1016,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookAuthorizationException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookAuthorizationException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookAuthorizationException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookAuthorizationException',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
 								'converter' : 'convert_proxy',
@@ -1128,6 +1090,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookDialogException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1137,13 +1100,17 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 				},
 			],
 		},
 		{
 			'name' : 'com.facebook.FacebookException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1151,11 +1118,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookException',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
 								'converter' : 'convert_proxy',
@@ -1166,7 +1160,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookGraphObjectException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1174,6 +1168,23 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookGraphObjectException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookGraphObjectException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookGraphObjectException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1185,11 +1196,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'com.facebook.FacebookGraphObjectException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'com.facebook.FacebookOperationCanceledException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1197,11 +1218,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookOperationCanceledException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookOperationCanceledException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookOperationCanceledException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.FacebookOperationCanceledException',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
 								'converter' : 'convert_proxy',
@@ -1527,10 +1575,15 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookRequestError',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
@@ -1542,7 +1595,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookSdkVersion',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'BUILD',
@@ -1602,6 +1655,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookServiceException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.FacebookRequestError',
@@ -1643,7 +1697,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.GetTokenClient$CompletedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1820,7 +1874,55 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.InsightsLogger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'newLogger',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.InsightsLogger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'newLogger',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -1837,7 +1939,7 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.math.BigDecimal',
-								'converter' : 'convert_java_math_BigDecimal',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Currency',
@@ -1845,6 +1947,26 @@ config = {
 						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'logPurchase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.Currency',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -1881,7 +2003,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.LegacyHelper',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1909,6 +2031,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.LegacyHelper',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -2124,6 +2247,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.LoginActivity',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -2207,6 +2331,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.NonCachingTokenCachingStrategy',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -2326,6 +2451,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -2340,7 +2469,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2366,7 +2495,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2397,7 +2526,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2427,7 +2556,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2458,7 +2587,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$KeyValueSerializer',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2466,6 +2595,10 @@ config = {
 					'name' : 'writeString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -2733,8 +2866,28 @@ config = {
 								'type' : 'com.facebook.Request$Callback',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Request',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'newUploadPhotoRequest',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.Request$Callback',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -2804,6 +2957,10 @@ config = {
 						{
 								'type' : 'android.location.Location',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -3169,8 +3326,28 @@ config = {
 								'type' : 'com.facebook.Request$Callback',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.RequestAsyncTask',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeUploadPhotoRequestAsync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.Request$Callback',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -3222,6 +3399,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
@@ -3263,12 +3444,24 @@ config = {
 				},
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Response',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeAndWait',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -3285,11 +3478,35 @@ config = {
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.RequestAsyncTask',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeBatchAsync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.RequestAsyncTask',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeBatchAsync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
@@ -3311,11 +3528,35 @@ config = {
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toHttpConnection',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toHttpConnection',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
@@ -3338,10 +3579,36 @@ config = {
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeBatchAndWait',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeBatchAndWait',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
@@ -3366,6 +3633,23 @@ config = {
 						},
 						{
 								'type' : 'com.facebook.RequestBatch',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeConnectionAndWait',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.net.HttpURLConnection',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -3394,8 +3678,28 @@ config = {
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.RequestAsyncTask',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'executeConnectionAsync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -3410,6 +3714,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Request',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3431,6 +3736,48 @@ config = {
 								'type' : 'com.facebook.Request$Callback',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.Request',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.Request',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.HttpMethod',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.Request',
+					'tags' : ['_proxy'],
+					'params' : [
 					],
 				},
 			],
@@ -3457,23 +3804,76 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestAsyncTask',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.HttpURLConnection',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -3482,7 +3882,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3520,16 +3920,28 @@ config = {
 								'type' : 'com.facebook.Request',
 								'converter' : 'convert_proxy',
 						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'com.facebook.Request',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
@@ -3701,17 +4113,36 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.RequestBatch',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestBatch',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestBatch',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.RequestBatch',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
 								'converter' : 'convert_proxy',
@@ -3722,7 +4153,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagedResults',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -3814,7 +4245,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingInfo',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4003,7 +4434,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$1',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4287,7 +4718,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AutoPublishAsyncTask',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4295,6 +4726,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$AutoPublishAsyncTask',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -4366,6 +4798,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$Builder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -4449,6 +4882,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -4459,8 +4893,19 @@ config = {
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.Session$NewPermissionsRequest',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.support.v4.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -4558,11 +5003,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$OpenRequest',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.Session$OpenRequest',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.support.v4.app.Fragment',
 								'converter' : 'convert_proxy',
@@ -4583,7 +5035,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StartActivityDelegate',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4625,7 +5077,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -4950,6 +5402,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
@@ -5241,8 +5697,28 @@ config = {
 								'type' : 'com.facebook.Session$StatusCallback',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openActiveSession',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'com.facebook.Session$StatusCallback',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -5281,6 +5757,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -5695,7 +6172,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Settings',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -5792,6 +6269,26 @@ config = {
 						{
 								'type' : 'com.facebook.Response',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'publishInstallAsync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -5936,6 +6433,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Settings',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -5991,6 +6489,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -6006,7 +6515,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResponse',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6029,7 +6538,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$FqlResult',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6109,7 +6618,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$TestAccount',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6221,7 +6730,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TestSession$UserAccount',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -6289,6 +6798,27 @@ config = {
 				},
 				{
 					'name' : 'createSessionWithPrivateUser',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.TestSession',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createSessionWithSharedUser',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
@@ -6779,6 +7309,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.TokenCachingStrategy',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -6897,6 +7428,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
@@ -6912,6 +7447,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.UiLifecycleHelper',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -6971,7 +7507,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7098,11 +7634,175 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'logout',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.AsyncFacebookRunner$RequestListener',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -7141,6 +7841,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.AsyncFacebookRunner',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.android.Facebook',
@@ -7184,6 +7885,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.DialogError',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -7192,6 +7894,10 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7233,7 +7939,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$DialogListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7303,7 +8009,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Facebook$ServiceListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -7481,6 +8187,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.Facebook$TokenRefreshServiceConnection',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.android.Facebook',
@@ -7614,6 +8321,30 @@ config = {
 					],
 				},
 				{
+					'name' : 'dialog',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'authorize',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -7643,6 +8374,51 @@ config = {
 					],
 				},
 				{
+					'name' : 'authorize',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'authorize',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'request',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -7650,6 +8426,62 @@ config = {
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'request',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -7823,6 +8655,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
@@ -7877,6 +8713,10 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 						{
 								'type' : 'long',
@@ -7986,6 +8826,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.Facebook',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -8029,7 +8870,22 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.FacebookError',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.android.FacebookError',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -8074,7 +8930,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.FbDialog',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8082,6 +8938,25 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.FbDialog',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.android.FbDialog',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -8099,9 +8974,53 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.android.FbDialog',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.android.FbDialog',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.android.Facebook$DialogListener',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -8109,7 +9028,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.android.Util',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8138,6 +9057,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
@@ -8155,6 +9078,10 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -8241,6 +9168,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.android.Util',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -8248,7 +9176,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphLocation',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8454,7 +9382,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphMultiResult',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8685,6 +9613,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectListImpl',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONArray',
@@ -8746,6 +9675,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.model.GraphObject$Factory$GraphObjectProxy',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
@@ -8784,6 +9714,51 @@ config = {
 								'type' : 'org.json.JSONObject',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.model.GraphObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Class',
+								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.model.GraphObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.model.GraphObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.Class',
 								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
@@ -8820,9 +9795,31 @@ config = {
 					],
 				},
 				{
+					'name' : 'createList',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.Class',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'com.facebook.model.GraphObjectList',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'hasSameId',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'com.facebook.model.GraphObject',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
 								'converter' : 'convert_proxy',
@@ -8841,7 +9838,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8945,7 +9942,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObjectList',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -8985,7 +9982,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphPlace',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9107,7 +10104,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphUser',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9429,7 +10426,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.OpenGraphAction',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9863,7 +10860,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.PropertyName',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9939,6 +10936,10 @@ config = {
 					'name' : 'onActivityResult',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -10148,11 +11149,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.FriendPickerFragment',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.FriendPickerFragment',
+					'tags' : ['_proxy'],
+					'params' : [
 					],
 				},
 			],
@@ -10167,6 +11175,10 @@ config = {
 					'name' : 'compare',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'com.facebook.model.GraphObject',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
 								'converter' : 'convert_proxy',
@@ -10211,7 +11223,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$DataNeededListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10233,7 +11245,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$Filter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10259,7 +11271,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPicture',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10281,7 +11293,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$ItemPictureData',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10303,7 +11315,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectAdapter$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10438,6 +11450,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.GraphObjectAdapter$SectionAndItem',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -10729,6 +11742,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -10900,6 +11921,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.GraphObjectAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -10911,7 +11933,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectCursor',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11207,7 +12229,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11238,7 +12260,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.GraphObjectPagingLoader$PagedResults',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11399,6 +12421,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.GraphObjectPagingLoader',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -11481,7 +12504,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageDownloader$DownloaderContext',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11549,7 +12572,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ImageRequest$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11923,7 +12946,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11949,7 +12972,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.LoginButton$UserInfoChangedCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11983,6 +13006,10 @@ config = {
 					'name' : 'onActivityResult',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -12249,6 +13276,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.LoginButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -12261,6 +13289,30 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.LoginButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.LoginButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -12299,6 +13351,14 @@ config = {
 						{
 								'type' : 'android.widget.AbsListView',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -12469,7 +13529,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$GraphObjectFilter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12741,7 +13801,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDataChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12768,7 +13828,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnDoneButtonClickedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12795,7 +13855,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12826,7 +13886,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.PickerFragment$OnSelectionChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12861,6 +13921,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.PickerFragment$PickerFragmentAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.widget.PickerFragment',
@@ -13563,6 +14624,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -13578,6 +14647,14 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -13912,6 +14989,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.PlacePickerFragment',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.PlacePickerFragment',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
@@ -13949,7 +15033,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.ProfilePictureView$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14140,6 +15224,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.ProfilePictureView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.ProfilePictureView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.ProfilePictureView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -14734,6 +15843,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.UserSettingsFragment',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -14819,7 +15929,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$Builder',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -14827,6 +15937,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.WebDialog$Builder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -14834,6 +15945,28 @@ config = {
 						},
 						{
 								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.WebDialog$Builder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -14985,6 +16118,10 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
@@ -15164,6 +16301,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.WebDialog$FeedDialogBuilder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15179,11 +16317,25 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'com.facebook.widget.WebDialog$FeedDialogBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'com.facebook.widget.WebDialog$OnCompleteListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15285,6 +16437,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.WebDialog$RequestsDialogBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'com.facebook.Session',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.WebDialog$RequestsDialogBuilder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15385,6 +16552,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.widget.WebDialog',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15398,12 +16566,44 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.WebDialog',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'com.facebook.widget.WebDialog$OnCompleteListener',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'com.facebook.widget.WebDialog',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -15434,7 +16634,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.widget.WorkQueue$WorkItem',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [

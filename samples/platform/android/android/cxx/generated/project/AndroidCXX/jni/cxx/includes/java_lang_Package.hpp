@@ -159,15 +159,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_lang_Package;
+class java_lang_Package;
 
-class AndroidCXX::java_lang_Class;
+class java_lang_Class;
 
-class AndroidCXX::java_lang_annotation_Annotation;
+class java_lang_annotation_Annotation;
 
-class AndroidCXX::java_net_URL;
+class java_net_URL;
 
 class java_lang_Package
 {

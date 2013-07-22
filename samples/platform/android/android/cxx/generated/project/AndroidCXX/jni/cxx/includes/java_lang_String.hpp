@@ -457,19 +457,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_nio_charset_Charset;
+class java_nio_charset_Charset;
 
-class AndroidCXX::java_lang_StringBuffer;
+class java_lang_StringBuffer;
 
-class AndroidCXX::java_lang_CharSequence;
+class java_lang_CharSequence;
 
-class AndroidCXX::java_util_Locale;
+class java_util_Locale;
 
-class AndroidCXX::java_lang_StringBuilder;
+class java_lang_StringBuilder;
 
 class java_lang_String
 {

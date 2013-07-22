@@ -81,11 +81,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_security_Permission;
+class java_security_Permission;
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_util_Enumeration;
+class java_util_Enumeration;
 
 class java_security_PermissionCollection
 {

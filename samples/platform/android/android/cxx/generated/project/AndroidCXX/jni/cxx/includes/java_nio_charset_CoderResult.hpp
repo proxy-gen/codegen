@@ -72,9 +72,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_nio_charset_CoderResult;
+class java_nio_charset_CoderResult;
 
 class java_nio_charset_CoderResult
 {

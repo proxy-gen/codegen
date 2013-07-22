@@ -160,19 +160,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class AndroidCXX::java_lang_String;
+class java_lang_String;
 
-class AndroidCXX::java_lang_Class;
+class java_lang_Class;
 
-class AndroidCXX::java_lang_Object;
+class java_lang_Object;
 
-class AndroidCXX::java_lang_ClassLoader;
+class java_lang_ClassLoader;
 
-class AndroidCXX::java_io_InputStream;
+class java_io_InputStream;
 
-class AndroidCXX::java_net_URL;
+class java_net_URL;
 
-class AndroidCXX::java_util_Enumeration;
+class java_util_Enumeration;
 
 class java_lang_ClassLoader
 {

@@ -61,7 +61,7 @@ class Generator(BaseGenerator):
 	def generate_projects(self):
 		self._generate_internal_project()
 		# TODO: add export support
-		# self._generate_exported_project()
+		self._generate_exported_project()
 
 	def generate_wrapper_code(self):
 		self._generate_wrapper_cxx_code()
@@ -981,8 +981,7 @@ class Generator(BaseGenerator):
 					is_callback = True if '_callback' in clazz['tags'] else False
 					typeinfo['iscallback'] = is_callback
 					typeinfo['isproxied'] = True
-					typeinfo['basetypename'] = type_name
-					typeinfo['typename'] = Utils.to_namespace_name(typeinfo['namespace'],typeinfo['basetypename'])
+					typeinfo['typename'] = type_name
 					break
 			elif type_config['converter'] == 'convert__object_array_type':
 				type_name_stack = list()	
@@ -1067,7 +1066,7 @@ class Generator(BaseGenerator):
 			type_ = type_config['type']
 			if 'iscallback' in typeinfo:
 				if typeinfo['iscallback']:
-					type_ = typeinfo['basetypename']
+					type_ = typeinfo['typename']
 			type_config['type'] = type_
 			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
 		logging.debug("_attach_derived_jni_type_signature exit")
