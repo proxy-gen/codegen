@@ -149,7 +149,7 @@ java_lang_String java_lang_reflect_TypeVariable::getName()
 	LOGV("java_lang_String java_lang_reflect_TypeVariable::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/TypeVariable";
 
 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);

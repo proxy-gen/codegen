@@ -216,7 +216,7 @@ java_lang_String java_lang_Package::toString()
 	LOGV("java_lang_String java_lang_Package::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -310,7 +310,7 @@ java_lang_String java_lang_Package::getName()
 	LOGV("java_lang_String java_lang_Package::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -357,7 +357,7 @@ java_lang_Package java_lang_Package::getPackage(java_lang_String& arg0)
 	LOGV("java_lang_Package java_lang_Package::getPackage(java_lang_String& arg0) enter");
 
 	const char *methodName = "getPackage";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/Package;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Package;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -907,7 +907,7 @@ java_lang_String java_lang_Package::getSpecificationTitle()
 	LOGV("java_lang_String java_lang_Package::getSpecificationTitle() enter");
 
 	const char *methodName = "getSpecificationTitle";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -954,7 +954,7 @@ java_lang_String java_lang_Package::getSpecificationVersion()
 	LOGV("java_lang_String java_lang_Package::getSpecificationVersion() enter");
 
 	const char *methodName = "getSpecificationVersion";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1001,7 +1001,7 @@ java_lang_String java_lang_Package::getSpecificationVendor()
 	LOGV("java_lang_String java_lang_Package::getSpecificationVendor() enter");
 
 	const char *methodName = "getSpecificationVendor";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1048,7 +1048,7 @@ java_lang_String java_lang_Package::getImplementationTitle()
 	LOGV("java_lang_String java_lang_Package::getImplementationTitle() enter");
 
 	const char *methodName = "getImplementationTitle";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1095,7 +1095,7 @@ java_lang_String java_lang_Package::getImplementationVersion()
 	LOGV("java_lang_String java_lang_Package::getImplementationVersion() enter");
 
 	const char *methodName = "getImplementationVersion";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1142,7 +1142,7 @@ java_lang_String java_lang_Package::getImplementationVendor()
 	LOGV("java_lang_String java_lang_Package::getImplementationVendor() enter");
 
 	const char *methodName = "getImplementationVendor";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1189,7 +1189,7 @@ bool java_lang_Package::isCompatibleWith(java_lang_String& arg0)
 	LOGV("bool java_lang_Package::isCompatibleWith(java_lang_String& arg0) enter");
 
 	const char *methodName = "isCompatibleWith";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/Package";
 
 	LOGV("java_lang_Package className %d methodName %s methodSignature %s", className, methodName, methodSignature);

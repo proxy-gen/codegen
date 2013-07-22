@@ -147,7 +147,7 @@ java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandl
 	LOGV("java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(java_lang_String& arg0) enter");
 
 	const char *methodName = "createURLStreamHandler";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/URLStreamHandler;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URLStreamHandler;";
 	const char *className = "java/net/URLStreamHandlerFactory";
 
 	LOGV("java_net_URLStreamHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);

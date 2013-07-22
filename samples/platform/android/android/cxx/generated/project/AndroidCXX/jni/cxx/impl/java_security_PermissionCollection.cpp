@@ -212,7 +212,7 @@ java_lang_String java_security_PermissionCollection::toString()
 	LOGV("java_lang_String java_security_PermissionCollection::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/PermissionCollection";
 
 	LOGV("java_security_PermissionCollection className %d methodName %s methodSignature %s", className, methodName, methodSignature);

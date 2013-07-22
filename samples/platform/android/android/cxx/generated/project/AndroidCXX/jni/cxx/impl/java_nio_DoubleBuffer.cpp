@@ -1075,7 +1075,7 @@ java_lang_String java_nio_DoubleBuffer::toString()
 	LOGV("java_lang_String java_nio_DoubleBuffer::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/DoubleBuffer";
 
 	LOGV("java_nio_DoubleBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);

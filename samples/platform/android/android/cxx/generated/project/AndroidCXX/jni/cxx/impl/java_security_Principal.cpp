@@ -222,7 +222,7 @@ java_lang_String java_security_Principal::toString()
 	LOGV("java_lang_String java_security_Principal::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -316,7 +316,7 @@ java_lang_String java_security_Principal::getName()
 	LOGV("java_lang_String java_security_Principal::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Principal";
 
 	LOGV("java_security_Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);

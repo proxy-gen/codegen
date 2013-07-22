@@ -421,7 +421,7 @@ java_lang_String java_lang_reflect_Field::toString()
 	LOGV("java_lang_String java_lang_reflect_Field::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1106,7 +1106,7 @@ java_lang_String java_lang_reflect_Field::getName()
 	LOGV("java_lang_String java_lang_reflect_Field::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1575,7 +1575,7 @@ java_lang_String java_lang_reflect_Field::toGenericString()
 	LOGV("java_lang_String java_lang_reflect_Field::toGenericString() enter");
 
 	const char *methodName = "toGenericString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Field";
 
 	LOGV("java_lang_reflect_Field className %d methodName %s methodSignature %s", className, methodName, methodSignature);

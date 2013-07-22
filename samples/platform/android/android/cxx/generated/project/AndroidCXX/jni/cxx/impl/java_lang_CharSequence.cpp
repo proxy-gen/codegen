@@ -150,7 +150,7 @@ java_lang_String java_lang_CharSequence::toString()
 	LOGV("java_lang_String java_lang_CharSequence::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/CharSequence";
 
 	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);

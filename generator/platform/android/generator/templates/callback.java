@@ -2,6 +2,7 @@
  * Implementation (Java)
  * Author: cxx-bindings-generator
  */
+#set $config_module = $CONFIG.config_module
 #set $config_data = $CONFIG.config_module.config_data
 #set $package = $config_data['package']
 #set $callback_class = $CONFIG.callback_class
@@ -34,10 +35,31 @@ public class $callback_class_name extends $base_class
 		#set $invoke_str = $invoke_str + $param['type']
 		#set $param_idx = $param_idx + 1
 	#end for
-	//TODO constructor here
-	public $callback_class_name($param_str)
+	public ${callback_class_name}(${param_str})
 	{
 		super($invoke_str);
+	}
+#end for
+#set $functions = $callback_class['functions']
+#for $function in $functions
+	#set $param_str = ""
+	#set $params = $function['params']
+	#set $param_idx = 0
+	#for $param in $params
+		#if $param_idx > 0
+			#set $param_str = $param_str + $COMMA 
+		#end if
+		#set $param_str = $param_str + $param['type']
+		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+		#set $param_idx = $param_idx + 1
+	#end for
+	public ${function['returns'][0]['type']} ${function['name']}($param_str)
+	{
+		#if ${function['returns'][0]['type']} != "void"
+			return ${config_module.to_safe_cxx_name(function['name'])}($param_str);
+		#else
+			${config_module.to_safe_cxx_name(function['name'])}($param_str);
+		#end if
 	}
 #end for
 #set $functions = $callback_class['functions']

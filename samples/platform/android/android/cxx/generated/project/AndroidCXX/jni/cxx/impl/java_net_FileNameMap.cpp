@@ -147,7 +147,7 @@ java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
 	LOGV("java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0) enter");
 
 	const char *methodName = "getContentTypeFor";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/net/FileNameMap";
 
 	LOGV("java_net_FileNameMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);

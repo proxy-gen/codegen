@@ -377,7 +377,7 @@ java_lang_String java_lang_Object::toString()
 	LOGV("java_lang_String java_lang_Object::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);

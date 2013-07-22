@@ -256,7 +256,7 @@ java_lang_String java_lang_reflect_Constructor::toString()
 	LOGV("java_lang_String java_lang_reflect_Constructor::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -397,7 +397,7 @@ java_lang_String java_lang_reflect_Constructor::getName()
 	LOGV("java_lang_String java_lang_reflect_Constructor::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -977,7 +977,7 @@ java_lang_String java_lang_reflect_Constructor::toGenericString()
 	LOGV("java_lang_String java_lang_reflect_Constructor::toGenericString() enter");
 
 	const char *methodName = "toGenericString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/reflect/Constructor";
 
 	LOGV("java_lang_reflect_Constructor className %d methodName %s methodSignature %s", className, methodName, methodSignature);

@@ -366,7 +366,7 @@ java_lang_String java_net_Proxy::toString()
 	LOGV("java_lang_String java_net_Proxy::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/Proxy";
 
 	LOGV("java_net_Proxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);

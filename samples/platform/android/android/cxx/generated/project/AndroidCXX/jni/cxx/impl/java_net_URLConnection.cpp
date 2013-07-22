@@ -323,7 +323,7 @@ java_lang_String java_net_URLConnection::toString()
 	LOGV("java_lang_String java_net_URLConnection::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -672,7 +672,7 @@ void java_net_URLConnection::setRequestProperty(java_lang_String& arg0,java_lang
 	LOGV("void java_net_URLConnection::setRequestProperty(java_lang_String& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "setRequestProperty";
-	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;)V";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -789,7 +789,7 @@ java_lang_String java_net_URLConnection::getContentType()
 	LOGV("java_lang_String java_net_URLConnection::getContentType() enter");
 
 	const char *methodName = "getContentType";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -883,7 +883,7 @@ java_lang_String java_net_URLConnection::getHeaderField(java_lang_String& arg0)
 	LOGV("java_lang_String java_net_URLConnection::getHeaderField(java_lang_String& arg0) enter");
 
 	const char *methodName = "getHeaderField";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -951,7 +951,7 @@ java_lang_String java_net_URLConnection::getHeaderField(int& arg0)
 	LOGV("java_lang_String java_net_URLConnection::getHeaderField(int& arg0) enter");
 
 	const char *methodName = "getHeaderField";
-	const char *methodSignature = "(I)Ljava_lang_String;";
+	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1019,7 +1019,7 @@ java_lang_String java_net_URLConnection::getHeaderFieldKey(int& arg0)
 	LOGV("java_lang_String java_net_URLConnection::getHeaderFieldKey(int& arg0) enter");
 
 	const char *methodName = "getHeaderFieldKey";
-	const char *methodSignature = "(I)Ljava_lang_String;";
+	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1181,7 +1181,7 @@ void java_net_URLConnection::addRequestProperty(java_lang_String& arg0,java_lang
 	LOGV("void java_net_URLConnection::addRequestProperty(java_lang_String& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "addRequestProperty";
-	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;)V";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1251,7 +1251,7 @@ java_lang_String java_net_URLConnection::getRequestProperty(java_lang_String& ar
 	LOGV("java_lang_String java_net_URLConnection::getRequestProperty(java_lang_String& arg0) enter");
 
 	const char *methodName = "getRequestProperty";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1417,7 +1417,7 @@ java_lang_String java_net_URLConnection::guessContentTypeFromStream(java_io_Inpu
 	LOGV("java_lang_String java_net_URLConnection::guessContentTypeFromStream(java_io_InputStream& arg0) enter");
 
 	const char *methodName = "guessContentTypeFromStream";
-	const char *methodSignature = "(Ljava/io/InputStream;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/io/InputStream;)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1485,7 +1485,7 @@ java_lang_String java_net_URLConnection::guessContentTypeFromName(java_lang_Stri
 	LOGV("java_lang_String java_net_URLConnection::guessContentTypeFromName(java_lang_String& arg0) enter");
 
 	const char *methodName = "guessContentTypeFromName";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1794,7 +1794,7 @@ java_lang_String java_net_URLConnection::getContentEncoding()
 	LOGV("java_lang_String java_net_URLConnection::getContentEncoding() enter");
 
 	const char *methodName = "getContentEncoding";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1986,7 +1986,7 @@ int java_net_URLConnection::getHeaderFieldInt(java_lang_String& arg0,int& arg1)
 	LOGV("int java_net_URLConnection::getHeaderFieldInt(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "getHeaderFieldInt";
-	const char *methodSignature = "(Ljava_lang_String;I)I";
+	const char *methodSignature = "(Ljava/lang/String;I)I";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2075,7 +2075,7 @@ long java_net_URLConnection::getHeaderFieldDate(java_lang_String& arg0,long& arg
 	LOGV("long java_net_URLConnection::getHeaderFieldDate(java_lang_String& arg0,long& arg1) enter");
 
 	const char *methodName = "getHeaderFieldDate";
-	const char *methodSignature = "(Ljava_lang_String;J)J";
+	const char *methodSignature = "(Ljava/lang/String;J)J";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2883,7 +2883,7 @@ void java_net_URLConnection::setDefaultRequestProperty(java_lang_String& arg0,ja
 	LOGV("void java_net_URLConnection::setDefaultRequestProperty(java_lang_String& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "setDefaultRequestProperty";
-	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;)V";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2953,7 +2953,7 @@ java_lang_String java_net_URLConnection::getDefaultRequestProperty(java_lang_Str
 	LOGV("java_lang_String java_net_URLConnection::getDefaultRequestProperty(java_lang_String& arg0) enter");
 
 	const char *methodName = "getDefaultRequestProperty";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/net/URLConnection";
 
 	LOGV("java_net_URLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);

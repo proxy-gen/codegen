@@ -246,7 +246,7 @@ java_lang_String java_nio_charset_Charset::name()
 	LOGV("java_lang_String java_nio_charset_Charset::name() enter");
 
 	const char *methodName = "name";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -293,7 +293,7 @@ java_nio_charset_Charset java_nio_charset_Charset::forName(java_lang_String& arg
 	LOGV("java_nio_charset_Charset java_nio_charset_Charset::forName(java_lang_String& arg0) enter");
 
 	const char *methodName = "forName";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/nio/charset/Charset;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/Charset;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -429,7 +429,7 @@ java_lang_String java_nio_charset_Charset::toString()
 	LOGV("java_lang_String java_nio_charset_Charset::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -795,7 +795,7 @@ java_nio_ByteBuffer java_nio_charset_Charset::encode(java_lang_String& arg0)
 	LOGV("java_nio_ByteBuffer java_nio_charset_Charset::encode(java_lang_String& arg0) enter");
 
 	const char *methodName = "encode";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/nio/ByteBuffer;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/ByteBuffer;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -863,7 +863,7 @@ bool java_nio_charset_Charset::isSupported(java_lang_String& arg0)
 	LOGV("bool java_nio_charset_Charset::isSupported(java_lang_String& arg0) enter");
 
 	const char *methodName = "isSupported";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1123,7 +1123,7 @@ java_lang_String java_nio_charset_Charset::displayName()
 	LOGV("java_lang_String java_nio_charset_Charset::displayName() enter");
 
 	const char *methodName = "displayName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1170,7 +1170,7 @@ java_lang_String java_nio_charset_Charset::displayName(java_util_Locale& arg0)
 	LOGV("java_lang_String java_nio_charset_Charset::displayName(java_util_Locale& arg0) enter");
 
 	const char *methodName = "displayName";
-	const char *methodSignature = "(Ljava/util/Locale;)Ljava_lang_String;";
+	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/nio/charset/Charset";
 
 	LOGV("java_nio_charset_Charset className %d methodName %s methodSignature %s", className, methodName, methodSignature);

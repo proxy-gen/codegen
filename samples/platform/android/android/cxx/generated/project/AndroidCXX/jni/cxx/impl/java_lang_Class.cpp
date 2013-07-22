@@ -367,7 +367,7 @@ java_lang_Class java_lang_Class::forName(java_lang_String& arg0)
 	LOGV("java_lang_Class java_lang_Class::forName(java_lang_String& arg0) enter");
 
 	const char *methodName = "forName";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/Class;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -453,7 +453,7 @@ java_lang_Class java_lang_Class::forName(java_lang_String& arg0,bool& arg1,java_
 	LOGV("java_lang_Class java_lang_Class::forName(java_lang_String& arg0,bool& arg1,java_lang_ClassLoader& arg2) enter");
 
 	const char *methodName = "forName";
-	const char *methodSignature = "(Ljava_lang_String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;";
+	const char *methodSignature = "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -581,7 +581,7 @@ java_lang_String java_lang_Class::toString()
 	LOGV("java_lang_String java_lang_Class::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1100,7 +1100,7 @@ java_lang_String java_lang_Class::getName()
 	LOGV("java_lang_String java_lang_Class::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -1985,7 +1985,7 @@ java_lang_String java_lang_Class::getSimpleName()
 	LOGV("java_lang_String java_lang_Class::getSimpleName() enter");
 
 	const char *methodName = "getSimpleName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2032,7 +2032,7 @@ java_lang_String java_lang_Class::getCanonicalName()
 	LOGV("java_lang_String java_lang_Class::getCanonicalName() enter");
 
 	const char *methodName = "getCanonicalName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2516,7 +2516,7 @@ java_lang_reflect_Field java_lang_Class::getField(java_lang_String& arg0)
 	LOGV("java_lang_reflect_Field java_lang_Class::getField(java_lang_String& arg0) enter");
 
 	const char *methodName = "getField";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/reflect/Field;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/reflect/Field;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -2584,7 +2584,7 @@ java_lang_reflect_Method java_lang_Class::getMethod(java_lang_String& arg0,std::
 	LOGV("java_lang_reflect_Method java_lang_Class::getMethod(java_lang_String& arg0,std::vector<java_lang_Class >& arg1) enter");
 
 	const char *methodName = "getMethod";
-	const char *methodSignature = "(Ljava_lang_String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;";
+	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3127,7 +3127,7 @@ java_lang_reflect_Field java_lang_Class::getDeclaredField(java_lang_String& arg0
 	LOGV("java_lang_reflect_Field java_lang_Class::getDeclaredField(java_lang_String& arg0) enter");
 
 	const char *methodName = "getDeclaredField";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/lang/reflect/Field;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/reflect/Field;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3195,7 +3195,7 @@ java_lang_reflect_Method java_lang_Class::getDeclaredMethod(java_lang_String& ar
 	LOGV("java_lang_reflect_Method java_lang_Class::getDeclaredMethod(java_lang_String& arg0,std::vector<java_lang_Class >& arg1) enter");
 
 	const char *methodName = "getDeclaredMethod";
-	const char *methodSignature = "(Ljava_lang_String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;";
+	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3442,7 +3442,7 @@ java_io_InputStream java_lang_Class::getResourceAsStream(java_lang_String& arg0)
 	LOGV("java_io_InputStream java_lang_Class::getResourceAsStream(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResourceAsStream";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/io/InputStream;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -3510,7 +3510,7 @@ java_net_URL java_lang_Class::getResource(java_lang_String& arg0)
 	LOGV("java_net_URL java_lang_Class::getResource(java_lang_String& arg0) enter");
 
 	const char *methodName = "getResource";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/URL;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
 	const char *className = "java/lang/Class";
 
 	LOGV("java_lang_Class className %d methodName %s methodSignature %s", className, methodName, methodSignature);

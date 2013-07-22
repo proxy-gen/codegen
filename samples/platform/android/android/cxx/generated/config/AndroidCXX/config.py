@@ -768,7 +768,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'java.lang.String',
-			'tags' : ['_callback', '_instance', '_proxy'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'CASE_INSENSITIVE_ORDER',

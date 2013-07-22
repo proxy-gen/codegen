@@ -147,7 +147,7 @@ java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(jav
 	LOGV("java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) enter");
 
 	const char *methodName = "createContentHandler";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava/net/ContentHandler;";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/ContentHandler;";
 	const char *className = "java/net/ContentHandlerFactory";
 
 	LOGV("java_net_ContentHandlerFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);

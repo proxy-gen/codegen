@@ -314,7 +314,7 @@ java_lang_String java_security_CodeSigner::toString()
 	LOGV("java_lang_String java_security_CodeSigner::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/CodeSigner";
 
 	LOGV("java_security_CodeSigner className %d methodName %s methodSignature %s", className, methodName, methodSignature);

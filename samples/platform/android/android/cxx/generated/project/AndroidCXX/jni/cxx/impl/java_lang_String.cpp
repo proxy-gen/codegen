@@ -178,7 +178,6 @@
 
 // Generated Code 
 
-#include <java_lang_String_JNI.hpp>
 #include <java_lang_String.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
@@ -408,4777 +407,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-// JNI callbacks
-jboolean equals(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jboolean equals(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_Object arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.Object");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) equals(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean equals(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jstring toString(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jstring toString(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) toString();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring toString(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jint hashCode(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jint hashCode(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jint result;
-
-	int cxx_result = (int) hashCode();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint hashCode(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jint compareTo(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jint compareTo(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) compareTo(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint compareTo(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) indexOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) indexOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1)
-{
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) indexOf(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) indexOf(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint indexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_Object arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.Object");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jdouble& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jdouble& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	double arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_double_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("double");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (double) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_double_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jdouble& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jfloat& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jfloat& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	float arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_float_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("float");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (float) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_float_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jfloat& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jlong& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jlong& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	long arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_long_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("long");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (long) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_long_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jlong& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jchar& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jchar& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	char arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_char_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (char) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_char_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jchar& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jboolean& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jboolean& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	bool arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_boolean_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("boolean");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (bool) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_boolean_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jboolean& jarg0) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	std::vector<char> arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__char_array_type_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_char_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_char);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<char>) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0,arg1,arg2);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2) exit");
-
-	return result;
-}
-jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0)
-{
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	std::vector<char> arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__char_array_type_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_char_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_char);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<char>) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) valueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__char_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring valueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0) exit");
-
-	return result;
-}
-jint length(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jint length(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jint result;
-
-	int cxx_result = (int) length();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__char_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint length(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jboolean isEmpty(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jboolean isEmpty(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jboolean result;
-
-	bool cxx_result = (bool) isEmpty();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__char_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean isEmpty(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jchar charAt(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jchar charAt(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jchar result;
-
-	char cxx_result = (char) charAt(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("char");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jchar charAt(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jint codePointAt(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jint codePointAt(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) codePointAt(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint codePointAt(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jint codePointBefore(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jint codePointBefore(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) codePointBefore(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint codePointBefore(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jint codePointCount(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jint codePointCount(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) codePointCount(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint codePointCount(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jint offsetByCodePoints(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jint offsetByCodePoints(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) offsetByCodePoints(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint offsetByCodePoints(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-void getChars(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jcharArray& jarg2,jint& jarg3)
-{
-	LOGV("void getChars(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jcharArray& jarg2,jint& jarg3) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	std::vector<char> arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__char_array_type_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_char_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_char);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<char>) (cxx_value);
-
-	}
-	int arg3;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg3);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	getChars(,arg0,arg1,arg2,arg3);
-		
-	jni->popLocalFrame();
-
-	LOGV("void getChars(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jcharArray& jarg2,jint& jarg3) exit");
-
-}
-jbyteArray getBytes(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jbyteArray result;
-
-	std::vector<byte> cxx_result = (std::vector<byte>) getBytes(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_byte_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("byte");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_byte);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-void getBytes(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jbyteArray& jarg2,jint& jarg3)
-{
-	LOGV("void getBytes(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jbyteArray& jarg2,jint& jarg3) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	std::vector<byte> arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__byte_array_type_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_byte_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("byte");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_byte);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<byte>) (cxx_value);
-
-	}
-	int arg3;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg3);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	getBytes(,arg0,arg1,arg2,arg3);
-		
-	jni->popLocalFrame();
-
-	LOGV("void getBytes(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1,jbyteArray& jarg2,jint& jarg3) exit");
-
-}
-jbyteArray getBytes(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_nio_charset_Charset arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.nio.charset.Charset");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_nio_charset_Charset) (java_nio_charset_Charset((java_nio_charset_Charset *) cxx_value));
-
-	}
-
-	jbyteArray result;
-
-	std::vector<byte> cxx_result = (std::vector<byte>) getBytes(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_byte_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("byte");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_byte);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jbyteArray getBytes(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jbyteArray result;
-
-	std::vector<byte> cxx_result = (std::vector<byte>) getBytes();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_byte_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("byte");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_byte);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jbyteArray getBytes(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_StringBuffer arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.StringBuffer");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) contentEquals(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_CharSequence arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) contentEquals(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean contentEquals(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jboolean equalsIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jboolean equalsIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) equalsIgnoreCase(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean equalsIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jint compareToIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jint compareToIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) compareToIgnoreCase(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint compareToIgnoreCase(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jboolean regionMatches(JNIEnv *env, jobject objectRef,jint& jarg0,jstring& jarg1,jint& jarg2,jint& jarg3)
-{
-	LOGV("jboolean regionMatches(JNIEnv *env, jobject objectRef,jint& jarg0,jstring& jarg1,jint& jarg2,jint& jarg3) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	java_lang_String arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg3;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg3);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) regionMatches(,arg0,arg1,arg2,arg3);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean regionMatches(JNIEnv *env, jobject objectRef,jint& jarg0,jstring& jarg1,jint& jarg2,jint& jarg3) exit");
-
-	return result;
-}
-jboolean regionMatches(JNIEnv *env, jobject objectRef,jboolean& jarg0,jint& jarg1,jstring& jarg2,jint& jarg3,jint& jarg4)
-{
-	LOGV("jboolean regionMatches(JNIEnv *env, jobject objectRef,jboolean& jarg0,jint& jarg1,jstring& jarg2,jint& jarg3,jint& jarg4) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	bool arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_boolean_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("boolean");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (bool) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	java_lang_String arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg3;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg3);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg4;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg4);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) regionMatches(,arg0,arg1,arg2,arg3,arg4);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean regionMatches(JNIEnv *env, jobject objectRef,jboolean& jarg0,jint& jarg1,jstring& jarg2,jint& jarg3,jint& jarg4) exit");
-
-	return result;
-}
-jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1)
-{
-	LOGV("jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) startsWith(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) startsWith(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean startsWith(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jboolean endsWith(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jboolean endsWith(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) endsWith(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean endsWith(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1)
-{
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) lastIndexOf(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) lastIndexOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) lastIndexOf(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jint result;
-
-	int cxx_result = (int) lastIndexOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jint lastIndexOf(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) substring(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0)
-{
-	LOGV("jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) substring(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring substring(JNIEnv *env, jobject objectRef,jint& jarg0) exit");
-
-	return result;
-}
-jobject subSequence(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1)
-{
-	LOGV("jobject subSequence(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	int arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jobject result;
-
-	java_lang_CharSequence cxx_result = (java_lang_CharSequence) subSequence(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jobject subSequence(JNIEnv *env, jobject objectRef,jint& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jstring concat(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jstring concat(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) concat(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring concat(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jstring replace(JNIEnv *env, jobject objectRef,jobject& jarg0,jobject& jarg1)
-{
-	LOGV("jstring replace(JNIEnv *env, jobject objectRef,jobject& jarg0,jobject& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_CharSequence arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
-
-	}
-	java_lang_CharSequence arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) replace(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring replace(JNIEnv *env, jobject objectRef,jobject& jarg0,jobject& jarg1) exit");
-
-	return result;
-}
-jstring replace(JNIEnv *env, jobject objectRef,jchar& jarg0,jchar& jarg1)
-{
-	LOGV("jstring replace(JNIEnv *env, jobject objectRef,jchar& jarg0,jchar& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	char arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_char_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (char) (cxx_value);
-
-	}
-	char arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_char_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (char) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) replace(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_char_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring replace(JNIEnv *env, jobject objectRef,jchar& jarg0,jchar& jarg1) exit");
-
-	return result;
-}
-jboolean matches(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jboolean matches(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) matches(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean matches(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jboolean contains(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jboolean contains(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_CharSequence arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.CharSequence");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
-
-	}
-
-	jboolean result;
-
-	bool cxx_result = (bool) contains(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jboolean contains(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jstring replaceFirst(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1)
-{
-	LOGV("jstring replaceFirst(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	java_lang_String arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) replaceFirst(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring replaceFirst(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1) exit");
-
-	return result;
-}
-jstring replaceAll(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1)
-{
-	LOGV("jstring replaceAll(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	java_lang_String arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) replaceAll(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring replaceAll(JNIEnv *env, jobject objectRef,jstring& jarg0,jstring& jarg1) exit");
-
-	return result;
-}
-jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0)
-{
-	LOGV("jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-
-	jobjectArray result;
-
-	std::vector<java_lang_String > cxx_result = (std::vector<java_lang_String >) split(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_object_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_java_lang_String);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_string_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0) exit");
-
-	return result;
-}
-jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1)
-{
-	LOGV("jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jobjectArray result;
-
-	std::vector<java_lang_String > cxx_result = (std::vector<java_lang_String >) split(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_object_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_java_lang_String);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jobjectArray split(JNIEnv *env, jobject objectRef,jstring& jarg0,jint& jarg1) exit");
-
-	return result;
-}
-jstring toLowerCase(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jstring toLowerCase(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) toLowerCase();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring toLowerCase(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jstring toLowerCase(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jstring toLowerCase(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_util_Locale arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.util.Locale");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_util_Locale) (java_util_Locale((java_util_Locale *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) toLowerCase(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring toLowerCase(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jstring toUpperCase(JNIEnv *env, jobject objectRef,jobject& jarg0)
-{
-	LOGV("jstring toUpperCase(JNIEnv *env, jobject objectRef,jobject& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_util_Locale arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.util.Locale");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_util_Locale) (java_util_Locale((java_util_Locale *) cxx_value));
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) toUpperCase(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring toUpperCase(JNIEnv *env, jobject objectRef,jobject& jarg0) exit");
-
-	return result;
-}
-jstring toUpperCase(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jstring toUpperCase(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) toUpperCase();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring toUpperCase(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jstring trim(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jstring trim(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) trim();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring trim(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jcharArray toCharArray(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jcharArray toCharArray(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jcharArray result;
-
-	std::vector<char> cxx_result = (std::vector<char>) toCharArray();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("_char_array_type");
-			{
-				CXXTypeHierarchy child_cxx_type_hierarchy;
-				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-				
-			}
-		}
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("char");
-		}
-		std::stack<long> converter_stack;
-		
-		{
-			{
-				converter_stack.push((long) &convert_char);				
-
-			}
-		}
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_java_lang_Object_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jcharArray toCharArray(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
-jstring format(JNIEnv *env, jobject objectRef,jstring& jarg0,jobjectArray& jarg1)
-{
-	LOGV("jstring format(JNIEnv *env, jobject objectRef,jstring& jarg0,jobjectArray& jarg1) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_lang_String arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	std::vector<java_lang_Object > arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__object_array_type_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_object_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.Object");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_java_lang_Object);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<java_lang_Object >) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) format(,arg0,arg1);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__object_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring format(JNIEnv *env, jobject objectRef,jstring& jarg0,jobjectArray& jarg1) exit");
-
-	return result;
-}
-jstring format(JNIEnv *env, jobject objectRef,jobject& jarg0,jstring& jarg1,jobjectArray& jarg2)
-{
-	LOGV("jstring format(JNIEnv *env, jobject objectRef,jobject& jarg0,jstring& jarg1,jobjectArray& jarg2) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	java_util_Locale arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_java_lang_Object_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.util.Locale");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_util_Locale) (java_util_Locale((java_util_Locale *) cxx_value));
-
-	}
-	java_lang_String arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_string_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
-
-	}
-	std::vector<java_lang_Object > arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__object_array_type_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_object_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.Object");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_java_lang_Object);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<java_lang_Object >) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) format(,arg0,arg1,arg2);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__object_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring format(JNIEnv *env, jobject objectRef,jobject& jarg0,jstring& jarg1,jobjectArray& jarg2) exit");
-
-	return result;
-}
-jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0)
-{
-	LOGV("jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	std::vector<char> arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__char_array_type_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_char_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_char);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<char>) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) copyValueOf(,arg0);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni__char_array_type_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0) exit");
-
-	return result;
-}
-jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2)
-{
-	LOGV("jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-	std::vector<char> arg0;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni__char_array_type_to_java(jarg0);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("_char_array_type");
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					
-				}
-			}
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("char");
-			}
-			std::stack<long> converter_stack;
-			
-			{
-				{
-					converter_stack.push((long) &convert_char);				
-
-				}
-			}
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert__char_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (std::vector<char>) (cxx_value);
-
-	}
-	int arg1;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg1);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-	int arg2;
-	{
-		long cxx_value = (long) 0;
-		long java_value = convert_jni_int_to_java(jarg2);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("int");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-			convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-		}
-
-		arg = (int) (cxx_value);
-
-	}
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) copyValueOf(,arg0,arg1,arg2);
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring copyValueOf(JNIEnv *env, jobject objectRef,jcharArray& jarg0,jint& jarg1,jint& jarg2) exit");
-
-	return result;
-}
-jstring intern(JNIEnv *env, jobject objectRef)
-{
-	LOGV("jstring intern(JNIEnv *env, jobject objectRef) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	jobject javaObject = objectRef;
-	LOGV("callback javaObject address %ld", (long) javaObject);
-
-
-	jstring result;
-
-	java_lang_String cxx_result = (java_lang_String) intern();
-	long cxx_value = (long) &cxx_result;
-	long java_value = 0;
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-	result = convert_jni_int_to_jni(java_value);
-		
-	jni->popLocalFrame();
-
-	LOGV("jstring intern(JNIEnv *env, jobject objectRef) exit");
-
-	return result;
-}
 
 // Default Instance Constructors
 java_lang_String::java_lang_String(const java_lang_String& cc)
@@ -5229,7 +457,7 @@ java_lang_String::java_lang_String()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5264,8 +492,8 @@ java_lang_String::java_lang_String(java_lang_String& arg0)
 	LOGV("java_lang_String::java_lang_String(java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava_lang_String;)V";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5322,7 +550,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([C)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5397,7 +625,7 @@ java_lang_String::java_lang_String(std::vector<char>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([CII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5514,7 +742,7 @@ java_lang_String::java_lang_String(std::vector<int>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([III)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5631,7 +859,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,i
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([BIII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5769,7 +997,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([BI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -5864,8 +1092,8 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,java_lang_String& arg3) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "([BIILjava_lang_String;)V";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([BIILjava/lang/String;)V";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6003,7 +1231,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2,j
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([BIILjava/nio/charset/Charset;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6140,8 +1368,8 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg
 	LOGV("java_lang_String::java_lang_String(std::vector<byte>& arg0,java_lang_String& arg1) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "([BLjava_lang_String;)V";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([BLjava/lang/String;)V";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6237,7 +1465,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,java_nio_charset_Char
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([BLjava/nio/charset/Charset;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6333,7 +1561,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0,int& arg1,int& arg2)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([BII)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6450,7 +1678,7 @@ java_lang_String::java_lang_String(std::vector<byte>& arg0)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "([B)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6525,7 +1753,7 @@ java_lang_String::java_lang_String(java_lang_StringBuffer& arg0)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6582,7 +1810,7 @@ java_lang_String::java_lang_String(java_lang_StringBuilder& arg0)
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/StringBuilder;)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6654,7 +1882,7 @@ bool java_lang_String::equals(java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6721,8 +1949,8 @@ java_lang_String java_lang_String::toString()
 	LOGV("java_lang_String java_lang_String::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6769,7 +1997,7 @@ int java_lang_String::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6815,8 +2043,8 @@ int java_lang_String::compareTo(java_lang_String& arg0)
 	LOGV("int java_lang_String::compareTo(java_lang_String& arg0) enter");
 
 	const char *methodName = "compareTo";
-	const char *methodSignature = "(Ljava_lang_String;)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6884,7 +2112,7 @@ int java_lang_String::indexOf(int& arg0)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -6951,8 +2179,8 @@ int java_lang_String::indexOf(java_lang_String& arg0)
 	LOGV("int java_lang_String::indexOf(java_lang_String& arg0) enter");
 
 	const char *methodName = "indexOf";
-	const char *methodSignature = "(Ljava_lang_String;)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7019,8 +2247,8 @@ int java_lang_String::indexOf(java_lang_String& arg0,int& arg1)
 	LOGV("int java_lang_String::indexOf(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "indexOf";
-	const char *methodSignature = "(Ljava_lang_String;I)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;I)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7109,7 +2337,7 @@ int java_lang_String::indexOf(int& arg0,int& arg1)
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7197,8 +2425,8 @@ java_lang_String java_lang_String::valueOf(java_lang_Object& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(java_lang_Object& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(Ljava/lang/Object;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7265,8 +2493,8 @@ java_lang_String java_lang_String::valueOf(double& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(double& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(D)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(D)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7333,8 +2561,8 @@ java_lang_String java_lang_String::valueOf(float& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(float& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(F)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(F)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7401,8 +2629,8 @@ java_lang_String java_lang_String::valueOf(long& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(long& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(J)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(J)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7469,8 +2697,8 @@ java_lang_String java_lang_String::valueOf(int& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(int& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(I)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(I)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7537,8 +2765,8 @@ java_lang_String java_lang_String::valueOf(char& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(char& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(C)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(C)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7605,8 +2833,8 @@ java_lang_String java_lang_String::valueOf(bool& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(bool& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "(Z)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Z)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7673,8 +2901,8 @@ java_lang_String java_lang_String::valueOf(std::vector<char>& arg0,int& arg1,int
 	LOGV("java_lang_String java_lang_String::valueOf(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "([CII)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([CII)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7801,8 +3029,8 @@ java_lang_String java_lang_String::valueOf(std::vector<char>& arg0)
 	LOGV("java_lang_String java_lang_String::valueOf(std::vector<char>& arg0) enter");
 
 	const char *methodName = "valueOf";
-	const char *methodSignature = "([C)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([C)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7888,7 +3116,7 @@ int java_lang_String::length()
 
 	const char *methodName = "length";
 	const char *methodSignature = "()I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7935,7 +3163,7 @@ bool java_lang_String::isEmpty()
 
 	const char *methodName = "isEmpty";
 	const char *methodSignature = "()Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -7982,7 +3210,7 @@ char java_lang_String::charAt(int& arg0)
 
 	const char *methodName = "charAt";
 	const char *methodSignature = "(I)C";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8050,7 +3278,7 @@ int java_lang_String::codePointAt(int& arg0)
 
 	const char *methodName = "codePointAt";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8118,7 +3346,7 @@ int java_lang_String::codePointBefore(int& arg0)
 
 	const char *methodName = "codePointBefore";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8186,7 +3414,7 @@ int java_lang_String::codePointCount(int& arg0,int& arg1)
 
 	const char *methodName = "codePointCount";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8275,7 +3503,7 @@ int java_lang_String::offsetByCodePoints(int& arg0,int& arg1)
 
 	const char *methodName = "offsetByCodePoints";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8364,7 +3592,7 @@ void java_lang_String::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int&
 
 	const char *methodName = "getChars";
 	const char *methodSignature = "(II[CI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8493,8 +3721,8 @@ std::vector<byte> java_lang_String::getBytes(java_lang_String& arg0)
 	LOGV("std::vector<byte> java_lang_String::getBytes(java_lang_String& arg0) enter");
 
 	const char *methodName = "getBytes";
-	const char *methodSignature = "(Ljava_lang_String;)[B";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)[B";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8580,7 +3808,7 @@ void java_lang_String::getBytes(int& arg0,int& arg1,std::vector<byte>& arg2,int&
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "(II[BI)V";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8710,7 +3938,7 @@ std::vector<byte> java_lang_String::getBytes(java_nio_charset_Charset& arg0)
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "(Ljava/nio/charset/Charset;)[B";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8796,7 +4024,7 @@ std::vector<byte> java_lang_String::getBytes()
 
 	const char *methodName = "getBytes";
 	const char *methodSignature = "()[B";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8861,7 +4089,7 @@ bool java_lang_String::contentEquals(java_lang_StringBuffer& arg0)
 
 	const char *methodName = "contentEquals";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8929,7 +4157,7 @@ bool java_lang_String::contentEquals(java_lang_CharSequence& arg0)
 
 	const char *methodName = "contentEquals";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -8996,8 +4224,8 @@ bool java_lang_String::equalsIgnoreCase(java_lang_String& arg0)
 	LOGV("bool java_lang_String::equalsIgnoreCase(java_lang_String& arg0) enter");
 
 	const char *methodName = "equalsIgnoreCase";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9064,8 +4292,8 @@ int java_lang_String::compareToIgnoreCase(java_lang_String& arg0)
 	LOGV("int java_lang_String::compareToIgnoreCase(java_lang_String& arg0) enter");
 
 	const char *methodName = "compareToIgnoreCase";
-	const char *methodSignature = "(Ljava_lang_String;)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9132,8 +4360,8 @@ bool java_lang_String::regionMatches(int& arg0,java_lang_String& arg1,int& arg2,
 	LOGV("bool java_lang_String::regionMatches(int& arg0,java_lang_String& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "regionMatches";
-	const char *methodSignature = "(ILjava_lang_String;II)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(ILjava/lang/String;II)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9263,8 +4491,8 @@ bool java_lang_String::regionMatches(bool& arg0,int& arg1,java_lang_String& arg2
 	LOGV("bool java_lang_String::regionMatches(bool& arg0,int& arg1,java_lang_String& arg2,int& arg3,int& arg4) enter");
 
 	const char *methodName = "regionMatches";
-	const char *methodSignature = "(ZILjava_lang_String;II)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(ZILjava/lang/String;II)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9415,8 +4643,8 @@ bool java_lang_String::startsWith(java_lang_String& arg0,int& arg1)
 	LOGV("bool java_lang_String::startsWith(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "startsWith";
-	const char *methodSignature = "(Ljava_lang_String;I)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;I)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9504,8 +4732,8 @@ bool java_lang_String::startsWith(java_lang_String& arg0)
 	LOGV("bool java_lang_String::startsWith(java_lang_String& arg0) enter");
 
 	const char *methodName = "startsWith";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9572,8 +4800,8 @@ bool java_lang_String::endsWith(java_lang_String& arg0)
 	LOGV("bool java_lang_String::endsWith(java_lang_String& arg0) enter");
 
 	const char *methodName = "endsWith";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9640,8 +4868,8 @@ int java_lang_String::lastIndexOf(java_lang_String& arg0,int& arg1)
 	LOGV("int java_lang_String::lastIndexOf(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "lastIndexOf";
-	const char *methodSignature = "(Ljava_lang_String;I)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;I)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9730,7 +4958,7 @@ int java_lang_String::lastIndexOf(int& arg0)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(I)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9798,7 +5026,7 @@ int java_lang_String::lastIndexOf(int& arg0,int& arg1)
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(II)I";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9886,8 +5114,8 @@ int java_lang_String::lastIndexOf(java_lang_String& arg0)
 	LOGV("int java_lang_String::lastIndexOf(java_lang_String& arg0) enter");
 
 	const char *methodName = "lastIndexOf";
-	const char *methodSignature = "(Ljava_lang_String;)I";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)I";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -9954,8 +5182,8 @@ java_lang_String java_lang_String::substring(int& arg0,int& arg1)
 	LOGV("java_lang_String java_lang_String::substring(int& arg0,int& arg1) enter");
 
 	const char *methodName = "substring";
-	const char *methodSignature = "(II)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(II)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10043,8 +5271,8 @@ java_lang_String java_lang_String::substring(int& arg0)
 	LOGV("java_lang_String java_lang_String::substring(int& arg0) enter");
 
 	const char *methodName = "substring";
-	const char *methodSignature = "(I)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(I)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10112,7 +5340,7 @@ java_lang_CharSequence java_lang_String::subSequence(int& arg0,int& arg1)
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10200,8 +5428,8 @@ java_lang_String java_lang_String::concat(java_lang_String& arg0)
 	LOGV("java_lang_String java_lang_String::concat(java_lang_String& arg0) enter");
 
 	const char *methodName = "concat";
-	const char *methodSignature = "(Ljava_lang_String;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10268,8 +5496,8 @@ java_lang_String java_lang_String::replace(java_lang_CharSequence& arg0,java_lan
 	LOGV("java_lang_String java_lang_String::replace(java_lang_CharSequence& arg0,java_lang_CharSequence& arg1) enter");
 
 	const char *methodName = "replace";
-	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10357,8 +5585,8 @@ java_lang_String java_lang_String::replace(char& arg0,char& arg1)
 	LOGV("java_lang_String java_lang_String::replace(char& arg0,char& arg1) enter");
 
 	const char *methodName = "replace";
-	const char *methodSignature = "(CC)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(CC)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10446,8 +5674,8 @@ bool java_lang_String::matches(java_lang_String& arg0)
 	LOGV("bool java_lang_String::matches(java_lang_String& arg0) enter");
 
 	const char *methodName = "matches";
-	const char *methodSignature = "(Ljava_lang_String;)Z";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10515,7 +5743,7 @@ bool java_lang_String::contains(java_lang_CharSequence& arg0)
 
 	const char *methodName = "contains";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10582,8 +5810,8 @@ java_lang_String java_lang_String::replaceFirst(java_lang_String& arg0,java_lang
 	LOGV("java_lang_String java_lang_String::replaceFirst(java_lang_String& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "replaceFirst";
-	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10671,8 +5899,8 @@ java_lang_String java_lang_String::replaceAll(java_lang_String& arg0,java_lang_S
 	LOGV("java_lang_String java_lang_String::replaceAll(java_lang_String& arg0,java_lang_String& arg1) enter");
 
 	const char *methodName = "replaceAll";
-	const char *methodSignature = "(Ljava_lang_String;Ljava_lang_String;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10760,8 +5988,8 @@ std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0)
 	LOGV("std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0) enter");
 
 	const char *methodName = "split";
-	const char *methodSignature = "(Ljava_lang_String;)[Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10846,8 +6074,8 @@ std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0,in
 	LOGV("std::vector<java_lang_String > java_lang_String::split(java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "split";
-	const char *methodSignature = "(Ljava_lang_String;I)[Ljava/lang/String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;I)[Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -10953,8 +6181,8 @@ java_lang_String java_lang_String::toLowerCase()
 	LOGV("java_lang_String java_lang_String::toLowerCase() enter");
 
 	const char *methodName = "toLowerCase";
-	const char *methodSignature = "()Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11000,8 +6228,8 @@ java_lang_String java_lang_String::toLowerCase(java_util_Locale& arg0)
 	LOGV("java_lang_String java_lang_String::toLowerCase(java_util_Locale& arg0) enter");
 
 	const char *methodName = "toLowerCase";
-	const char *methodSignature = "(Ljava/util/Locale;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11068,8 +6296,8 @@ java_lang_String java_lang_String::toUpperCase(java_util_Locale& arg0)
 	LOGV("java_lang_String java_lang_String::toUpperCase(java_util_Locale& arg0) enter");
 
 	const char *methodName = "toUpperCase";
-	const char *methodSignature = "(Ljava/util/Locale;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11136,8 +6364,8 @@ java_lang_String java_lang_String::toUpperCase()
 	LOGV("java_lang_String java_lang_String::toUpperCase() enter");
 
 	const char *methodName = "toUpperCase";
-	const char *methodSignature = "()Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11183,8 +6411,8 @@ java_lang_String java_lang_String::trim()
 	LOGV("java_lang_String java_lang_String::trim() enter");
 
 	const char *methodName = "trim";
-	const char *methodSignature = "()Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11231,7 +6459,7 @@ std::vector<char> java_lang_String::toCharArray()
 
 	const char *methodName = "toCharArray";
 	const char *methodSignature = "()[C";
-	const char *className = "java_lang_String";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11295,8 +6523,8 @@ java_lang_String java_lang_String::format(java_lang_String& arg0,std::vector<jav
 	LOGV("java_lang_String java_lang_String::format(java_lang_String& arg0,std::vector<java_lang_Object >& arg1) enter");
 
 	const char *methodName = "format";
-	const char *methodSignature = "(Ljava_lang_String;[Ljava/lang/Object;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11402,8 +6630,8 @@ java_lang_String java_lang_String::format(java_util_Locale& arg0,java_lang_Strin
 	LOGV("java_lang_String java_lang_String::format(java_util_Locale& arg0,java_lang_String& arg1,std::vector<java_lang_Object >& arg2) enter");
 
 	const char *methodName = "format";
-	const char *methodSignature = "(Ljava/util/Locale;Ljava_lang_String;[Ljava/lang/Object;)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11530,8 +6758,8 @@ java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0)
 	LOGV("java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0) enter");
 
 	const char *methodName = "copyValueOf";
-	const char *methodSignature = "([C)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([C)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11616,8 +6844,8 @@ java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0,int& arg1
 	LOGV("java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "copyValueOf";
-	const char *methodSignature = "([CII)Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "([CII)Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -11744,8 +6972,8 @@ java_lang_String java_lang_String::intern()
 	LOGV("java_lang_String java_lang_String::intern() enter");
 
 	const char *methodName = "intern";
-	const char *methodSignature = "()Ljava_lang_String;";
-	const char *className = "java_lang_String";
+	const char *methodSignature = "()Ljava/lang/String;";
+	const char *className = "java/lang/String";
 
 	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

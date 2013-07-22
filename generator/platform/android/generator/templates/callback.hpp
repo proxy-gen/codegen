@@ -19,7 +19,7 @@
 #set $class_name = $CONFIG.class_name
 #set $entity_jni_name = $CONFIG.entity_jni_name
 
-#set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
+#set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_callback','_proxy'],function_xtags=None,function_name=None)	
 
 #for $function in $functions
 #set $jni_param_str = ""

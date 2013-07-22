@@ -164,7 +164,7 @@ java_security_Permission::java_security_Permission(java_lang_String& arg0)
 	LOGV("java_security_Permission::java_security_Permission(java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava_lang_String;)V";
+	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -304,7 +304,7 @@ java_lang_String java_security_Permission::toString()
 	LOGV("java_lang_String java_security_Permission::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -398,7 +398,7 @@ java_lang_String java_security_Permission::getName()
 	LOGV("java_lang_String java_security_Permission::getName() enter");
 
 	const char *methodName = "getName";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
@@ -513,7 +513,7 @@ java_lang_String java_security_Permission::getActions()
 	LOGV("java_lang_String java_security_Permission::getActions() enter");
 
 	const char *methodName = "getActions";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
 	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);

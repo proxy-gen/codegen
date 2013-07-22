@@ -155,8 +155,9 @@ static long static_obj;
 static long static_address = (long) &static_obj;
 
 #if '_callback' in $entity_class_config['tags']
+#set $callback_functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_callback','_proxy'],function_xtags=None,function_name=None)	
 // JNI callbacks
-#for $function in $functions
+#for $function in $callback_functions
 $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JNIEnv *env, jobject objectRef$function['jni_param_str'])
 {
 	LOGV("$function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JNIEnv *env, jobject objectRef$function['jni_param_str']) enter");
@@ -168,6 +169,10 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 
 	jobject javaObject = objectRef;
 	LOGV("callback javaObject address %ld", (long) javaObject);
+
+	long contextAddress = ctx->findProxiedComponent(javaObject);
+	LOGV("contextAddress for ${entity_class_name} %ld", contextAddress);
+	${entity_class_name} *callback = (${entity_class_name} *) reinterpret_cast<${entity_class_name} *>(contextAddress);
 
 	#set methodvararg = ""
 	#set $param_idx = 0
@@ -233,15 +238,18 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 
 		#if 'isproxied' in $param_typeinfo
 		#if $param_typeinfo['isenum'] == True
-		arg = (${param_typeinfo['typename']}) (cxx_value);
+		$arg = (${param_typeinfo['typename']}) (cxx_value);
 		#else
-		arg = (${param_typeinfo['typename']}) (${param_typeinfo['typename']}((${param_typeinfo['typename']} *) cxx_value));
+		$arg = (${param_typeinfo['typename']}) (${param_typeinfo['typename']}((${param_typeinfo['typename']} *) cxx_value));
 		#end if
 		#else
-		arg = (${param_typeinfo['typename']}) (cxx_value);
+		$arg = (${param_typeinfo['typename']}) (cxx_value);
 		#end if
 
-		#set $methodvararg = $methodvararg + "," + $arg
+		#if $param_idx > 0
+			#set $methodvararg = $methodvararg + ","
+		#end if
+		#set $methodvararg = $methodvararg + $arg
 	}
 	#set $param_idx = $param_idx + 1
 	#end for
@@ -253,7 +261,7 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 	$function['jni_retrn_type'] result;
 	#set $retrn_jnidata = $retrn['deriveddata']['jnidata']
 
-	${retrn_typeinfo['typename']} cxx_result = (${retrn_typeinfo['typename']}) $config_module.to_safe_cxx_name(function['name'])($methodvararg);
+	${retrn_typeinfo['typename']} cxx_result = (${retrn_typeinfo['typename']}) callback->$config_module.to_safe_cxx_name(function['name'])($methodvararg);
 	long cxx_value = (long) &cxx_result;
 	long java_value = 0;
 	{
@@ -306,9 +314,9 @@ $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JN
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		${retrn_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = ${param_jnidata['jniconverter']}_to_jni(java_value);
+	result = ${retrn_jnidata['jniconverter']}_to_jni(java_value);
 	#else
-	$config_module.to_safe_cxx_name(function['name'])($methodvararg);
+	callback->$config_module.to_safe_cxx_name(function['name'])($methodvararg);
 	#end if
 	#break
 	#end while

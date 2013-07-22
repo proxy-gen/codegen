@@ -407,7 +407,7 @@ java_lang_String java_security_ProtectionDomain::toString()
 	LOGV("java_lang_String java_security_ProtectionDomain::toString() enter");
 
 	const char *methodName = "toString";
-	const char *methodSignature = "()Ljava_lang_String;";
+	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/ProtectionDomain";
 
 	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
