@@ -344,9 +344,9 @@ java_net_URI::java_net_URI()
 	LOGV("java_net_URI::java_net_URI() exit");	
 }
 // Public Constructors
-java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6)
+java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6) enter");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -525,11 +525,11 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,int& arg3,java_lang_String& arg4,java_lang_String& arg5,java_lang_String& arg6) exit");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6) exit");	
 }
-java_net_URI::java_net_URI(java_lang_String& arg0)
+java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0) enter");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -582,11 +582,11 @@ java_net_URI::java_net_URI(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0) exit");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0) exit");	
 }
-java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4)
+java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_lang_String& arg4)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4) enter");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_lang_String& arg4) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -723,11 +723,11 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3,java_lang_String& arg4) exit");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_lang_String& arg4) exit");	
 }
-java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3)
+java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3) enter");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -843,11 +843,11 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2,java_lang_String& arg3) exit");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3) exit");	
 }
-java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2)
+java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) enter");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -942,7 +942,7 @@ java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_la
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI::java_net_URI(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) exit");	
+	LOGV("java_net_URI::java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");	
 }
 // Default Instance Destructor
 java_net_URI::~java_net_URI()
@@ -959,9 +959,9 @@ java_net_URI::~java_net_URI()
 	LOGV("java_net_URI::~java_net_URI() exit");
 }
 // Functions
-bool java_net_URI::equals(java_lang_Object& arg0)
+bool java_net_URI::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_net_URI::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_net_URI::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1023,13 +1023,13 @@ bool java_net_URI::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_net_URI::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_net_URI::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_net_URI::toString()
+AndroidCXX::java_lang_String java_net_URI::toString()
 {
-	LOGV("java_lang_String java_net_URI::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1048,7 +1048,7 @@ java_lang_String java_net_URI::toString()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1066,11 +1066,11 @@ java_lang_String java_net_URI::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::toString() exit");
 
 	return result;
 }
@@ -1121,9 +1121,9 @@ int java_net_URI::hashCode()
 
 	return result;
 }
-int java_net_URI::compareTo(java_net_URI& arg0)
+int java_net_URI::compareTo(AndroidCXX::java_net_URI& arg0)
 {
-	LOGV("int java_net_URI::compareTo(java_net_URI& arg0) enter");
+	LOGV("int java_net_URI::compareTo(AndroidCXX::java_net_URI& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/net/URI;)I";
@@ -1185,7 +1185,7 @@ int java_net_URI::compareTo(java_net_URI& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_net_URI::compareTo(java_net_URI& arg0) exit");
+	LOGV("int java_net_URI::compareTo(AndroidCXX::java_net_URI& arg0) exit");
 
 	return result;
 }
@@ -1236,9 +1236,9 @@ bool java_net_URI::isAbsolute()
 
 	return result;
 }
-java_lang_String java_net_URI::getPath()
+AndroidCXX::java_lang_String java_net_URI::getPath()
 {
-	LOGV("java_lang_String java_net_URI::getPath() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getPath() enter");
 
 	const char *methodName = "getPath";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1257,7 +1257,7 @@ java_lang_String java_net_URI::getPath()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1275,17 +1275,17 @@ java_lang_String java_net_URI::getPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getPath() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getPath() exit");
 
 	return result;
 }
-java_net_URL java_net_URI::toURL()
+AndroidCXX::java_net_URL java_net_URI::toURL()
 {
-	LOGV("java_net_URL java_net_URI::toURL() enter");
+	LOGV("AndroidCXX::java_net_URL java_net_URI::toURL() enter");
 
 	const char *methodName = "toURL";
 	const char *methodSignature = "()Ljava/net/URL;";
@@ -1304,7 +1304,7 @@ java_net_URL java_net_URI::toURL()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_net_URL result;
+	AndroidCXX::java_net_URL result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1322,17 +1322,17 @@ java_net_URL java_net_URI::toURL()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URL(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URL) (java_net_URL((java_net_URL *) cxx_value));
+	result = (AndroidCXX::java_net_URL) (AndroidCXX::java_net_URL((AndroidCXX::java_net_URL *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URL java_net_URI::toURL() exit");
+	LOGV("AndroidCXX::java_net_URL java_net_URI::toURL() exit");
 
 	return result;
 }
-java_net_URI java_net_URI::resolve(java_lang_String& arg0)
+AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_net_URI java_net_URI::resolve(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "resolve";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URI;";
@@ -1372,7 +1372,7 @@ java_net_URI java_net_URI::resolve(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1390,17 +1390,17 @@ java_net_URI java_net_URI::resolve(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::resolve(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-java_net_URI java_net_URI::resolve(java_net_URI& arg0)
+AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_net_URI& arg0)
 {
-	LOGV("java_net_URI java_net_URI::resolve(java_net_URI& arg0) enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_net_URI& arg0) enter");
 
 	const char *methodName = "resolve";
 	const char *methodSignature = "(Ljava/net/URI;)Ljava/net/URI;";
@@ -1440,7 +1440,7 @@ java_net_URI java_net_URI::resolve(java_net_URI& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1458,17 +1458,17 @@ java_net_URI java_net_URI::resolve(java_net_URI& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::resolve(java_net_URI& arg0) exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::resolve(AndroidCXX::java_net_URI& arg0) exit");
 
 	return result;
 }
-java_net_URI java_net_URI::normalize()
+AndroidCXX::java_net_URI java_net_URI::normalize()
 {
-	LOGV("java_net_URI java_net_URI::normalize() enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::normalize() enter");
 
 	const char *methodName = "normalize";
 	const char *methodSignature = "()Ljava/net/URI;";
@@ -1487,7 +1487,7 @@ java_net_URI java_net_URI::normalize()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1505,11 +1505,11 @@ java_net_URI java_net_URI::normalize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::normalize() exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::normalize() exit");
 
 	return result;
 }
@@ -1560,9 +1560,9 @@ bool java_net_URI::isOpaque()
 
 	return result;
 }
-java_lang_String java_net_URI::getScheme()
+AndroidCXX::java_lang_String java_net_URI::getScheme()
 {
-	LOGV("java_lang_String java_net_URI::getScheme() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getScheme() enter");
 
 	const char *methodName = "getScheme";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1581,7 +1581,7 @@ java_lang_String java_net_URI::getScheme()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1599,17 +1599,17 @@ java_lang_String java_net_URI::getScheme()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getScheme() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getScheme() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getAuthority()
+AndroidCXX::java_lang_String java_net_URI::getAuthority()
 {
-	LOGV("java_lang_String java_net_URI::getAuthority() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getAuthority() enter");
 
 	const char *methodName = "getAuthority";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1628,7 +1628,7 @@ java_lang_String java_net_URI::getAuthority()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1646,17 +1646,17 @@ java_lang_String java_net_URI::getAuthority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getAuthority() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getAuthority() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getFragment()
+AndroidCXX::java_lang_String java_net_URI::getFragment()
 {
-	LOGV("java_lang_String java_net_URI::getFragment() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getFragment() enter");
 
 	const char *methodName = "getFragment";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1675,7 +1675,7 @@ java_lang_String java_net_URI::getFragment()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1693,17 +1693,17 @@ java_lang_String java_net_URI::getFragment()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getFragment() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getFragment() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getQuery()
+AndroidCXX::java_lang_String java_net_URI::getQuery()
 {
-	LOGV("java_lang_String java_net_URI::getQuery() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getQuery() enter");
 
 	const char *methodName = "getQuery";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1722,7 +1722,7 @@ java_lang_String java_net_URI::getQuery()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1740,17 +1740,17 @@ java_lang_String java_net_URI::getQuery()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getQuery() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getQuery() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getUserInfo()
+AndroidCXX::java_lang_String java_net_URI::getUserInfo()
 {
-	LOGV("java_lang_String java_net_URI::getUserInfo() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getUserInfo() enter");
 
 	const char *methodName = "getUserInfo";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1769,7 +1769,7 @@ java_lang_String java_net_URI::getUserInfo()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1787,11 +1787,11 @@ java_lang_String java_net_URI::getUserInfo()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getUserInfo() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getUserInfo() exit");
 
 	return result;
 }
@@ -1842,9 +1842,9 @@ int java_net_URI::getPort()
 
 	return result;
 }
-java_lang_String java_net_URI::getHost()
+AndroidCXX::java_lang_String java_net_URI::getHost()
 {
-	LOGV("java_lang_String java_net_URI::getHost() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getHost() enter");
 
 	const char *methodName = "getHost";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1863,7 +1863,7 @@ java_lang_String java_net_URI::getHost()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1881,17 +1881,17 @@ java_lang_String java_net_URI::getHost()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getHost() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getHost() exit");
 
 	return result;
 }
-java_net_URI java_net_URI::create(java_lang_String& arg0)
+AndroidCXX::java_net_URI java_net_URI::create(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_net_URI java_net_URI::create(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::create(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "create";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URI;";
@@ -1931,7 +1931,7 @@ java_net_URI java_net_URI::create(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1949,17 +1949,17 @@ java_net_URI java_net_URI::create(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::create(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::create(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-java_net_URI java_net_URI::parseServerAuthority()
+AndroidCXX::java_net_URI java_net_URI::parseServerAuthority()
 {
-	LOGV("java_net_URI java_net_URI::parseServerAuthority() enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::parseServerAuthority() enter");
 
 	const char *methodName = "parseServerAuthority";
 	const char *methodSignature = "()Ljava/net/URI;";
@@ -1978,7 +1978,7 @@ java_net_URI java_net_URI::parseServerAuthority()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1996,17 +1996,17 @@ java_net_URI java_net_URI::parseServerAuthority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::parseServerAuthority() exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::parseServerAuthority() exit");
 
 	return result;
 }
-java_net_URI java_net_URI::relativize(java_net_URI& arg0)
+AndroidCXX::java_net_URI java_net_URI::relativize(AndroidCXX::java_net_URI& arg0)
 {
-	LOGV("java_net_URI java_net_URI::relativize(java_net_URI& arg0) enter");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::relativize(AndroidCXX::java_net_URI& arg0) enter");
 
 	const char *methodName = "relativize";
 	const char *methodSignature = "(Ljava/net/URI;)Ljava/net/URI;";
@@ -2046,7 +2046,7 @@ java_net_URI java_net_URI::relativize(java_net_URI& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_net_URI result;
+	AndroidCXX::java_net_URI result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2064,17 +2064,17 @@ java_net_URI java_net_URI::relativize(java_net_URI& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URI(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URI) (java_net_URI((java_net_URI *) cxx_value));
+	result = (AndroidCXX::java_net_URI) (AndroidCXX::java_net_URI((AndroidCXX::java_net_URI *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URI java_net_URI::relativize(java_net_URI& arg0) exit");
+	LOGV("AndroidCXX::java_net_URI java_net_URI::relativize(AndroidCXX::java_net_URI& arg0) exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawSchemeSpecificPart()
+AndroidCXX::java_lang_String java_net_URI::getRawSchemeSpecificPart()
 {
-	LOGV("java_lang_String java_net_URI::getRawSchemeSpecificPart() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawSchemeSpecificPart() enter");
 
 	const char *methodName = "getRawSchemeSpecificPart";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2093,7 +2093,7 @@ java_lang_String java_net_URI::getRawSchemeSpecificPart()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2111,17 +2111,17 @@ java_lang_String java_net_URI::getRawSchemeSpecificPart()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawSchemeSpecificPart() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawSchemeSpecificPart() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getSchemeSpecificPart()
+AndroidCXX::java_lang_String java_net_URI::getSchemeSpecificPart()
 {
-	LOGV("java_lang_String java_net_URI::getSchemeSpecificPart() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getSchemeSpecificPart() enter");
 
 	const char *methodName = "getSchemeSpecificPart";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2140,7 +2140,7 @@ java_lang_String java_net_URI::getSchemeSpecificPart()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2158,17 +2158,17 @@ java_lang_String java_net_URI::getSchemeSpecificPart()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getSchemeSpecificPart() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getSchemeSpecificPart() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawAuthority()
+AndroidCXX::java_lang_String java_net_URI::getRawAuthority()
 {
-	LOGV("java_lang_String java_net_URI::getRawAuthority() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawAuthority() enter");
 
 	const char *methodName = "getRawAuthority";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2187,7 +2187,7 @@ java_lang_String java_net_URI::getRawAuthority()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2205,17 +2205,17 @@ java_lang_String java_net_URI::getRawAuthority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawAuthority() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawAuthority() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawUserInfo()
+AndroidCXX::java_lang_String java_net_URI::getRawUserInfo()
 {
-	LOGV("java_lang_String java_net_URI::getRawUserInfo() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawUserInfo() enter");
 
 	const char *methodName = "getRawUserInfo";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2234,7 +2234,7 @@ java_lang_String java_net_URI::getRawUserInfo()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2252,17 +2252,17 @@ java_lang_String java_net_URI::getRawUserInfo()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawUserInfo() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawUserInfo() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawPath()
+AndroidCXX::java_lang_String java_net_URI::getRawPath()
 {
-	LOGV("java_lang_String java_net_URI::getRawPath() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawPath() enter");
 
 	const char *methodName = "getRawPath";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2281,7 +2281,7 @@ java_lang_String java_net_URI::getRawPath()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2299,17 +2299,17 @@ java_lang_String java_net_URI::getRawPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawPath() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawPath() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawQuery()
+AndroidCXX::java_lang_String java_net_URI::getRawQuery()
 {
-	LOGV("java_lang_String java_net_URI::getRawQuery() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawQuery() enter");
 
 	const char *methodName = "getRawQuery";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2328,7 +2328,7 @@ java_lang_String java_net_URI::getRawQuery()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2346,17 +2346,17 @@ java_lang_String java_net_URI::getRawQuery()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawQuery() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawQuery() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::getRawFragment()
+AndroidCXX::java_lang_String java_net_URI::getRawFragment()
 {
-	LOGV("java_lang_String java_net_URI::getRawFragment() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawFragment() enter");
 
 	const char *methodName = "getRawFragment";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2375,7 +2375,7 @@ java_lang_String java_net_URI::getRawFragment()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2393,17 +2393,17 @@ java_lang_String java_net_URI::getRawFragment()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::getRawFragment() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::getRawFragment() exit");
 
 	return result;
 }
-java_lang_String java_net_URI::toASCIIString()
+AndroidCXX::java_lang_String java_net_URI::toASCIIString()
 {
-	LOGV("java_lang_String java_net_URI::toASCIIString() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::toASCIIString() enter");
 
 	const char *methodName = "toASCIIString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2422,7 +2422,7 @@ java_lang_String java_net_URI::toASCIIString()
 	LOGV("java_net_URI jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2440,11 +2440,11 @@ java_lang_String java_net_URI::toASCIIString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_URI::toASCIIString() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_URI::toASCIIString() exit");
 
 	return result;
 }

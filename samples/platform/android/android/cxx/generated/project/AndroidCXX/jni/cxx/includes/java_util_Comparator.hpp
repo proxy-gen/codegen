@@ -63,7 +63,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
 class java_util_Comparator
 {
@@ -76,8 +76,8 @@ public:
 	// Default Destructor
 	virtual ~java_util_Comparator();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 int compare(java_lang_Object& arg0,java_lang_Object& arg1);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 int compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
 };	
 
 } // namespace

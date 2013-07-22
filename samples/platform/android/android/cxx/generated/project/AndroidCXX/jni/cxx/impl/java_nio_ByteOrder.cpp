@@ -143,9 +143,9 @@ java_nio_ByteOrder::~java_nio_ByteOrder()
 	LOGV("java_nio_ByteOrder::~java_nio_ByteOrder() exit");
 }
 // Functions
-java_lang_String java_nio_ByteOrder::toString()
+AndroidCXX::java_lang_String java_nio_ByteOrder::toString()
 {
-	LOGV("java_lang_String java_nio_ByteOrder::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_nio_ByteOrder::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -164,7 +164,7 @@ java_lang_String java_nio_ByteOrder::toString()
 	LOGV("java_nio_ByteOrder jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -182,17 +182,17 @@ java_lang_String java_nio_ByteOrder::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_nio_ByteOrder::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_nio_ByteOrder::toString() exit");
 
 	return result;
 }
-java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
+AndroidCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 {
-	LOGV("java_nio_ByteOrder java_nio_ByteOrder::nativeOrder() enter");
+	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder() enter");
 
 	const char *methodName = "nativeOrder";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
@@ -211,7 +211,7 @@ java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 	LOGV("java_nio_ByteOrder jni address %d", javaObject);
 
 
-	java_nio_ByteOrder result;
+	AndroidCXX::java_nio_ByteOrder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -229,11 +229,11 @@ java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteOrder) (java_nio_ByteOrder((java_nio_ByteOrder *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteOrder) (AndroidCXX::java_nio_ByteOrder((AndroidCXX::java_nio_ByteOrder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteOrder java_nio_ByteOrder::nativeOrder() exit");
+	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder() exit");
 
 	return result;
 }

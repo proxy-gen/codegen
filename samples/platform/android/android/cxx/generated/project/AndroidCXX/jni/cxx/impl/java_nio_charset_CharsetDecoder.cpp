@@ -225,9 +225,9 @@ java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder()
 	LOGV("java_nio_charset_CharsetDecoder::~java_nio_charset_CharsetDecoder() exit");
 }
 // Functions
-java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
+AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 {
-	LOGV("java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset() enter");
+	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset() enter");
 
 	const char *methodName = "charset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
@@ -246,7 +246,7 @@ java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_nio_charset_Charset result;
+	AndroidCXX::java_nio_charset_Charset result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -264,17 +264,17 @@ java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_Charset) (java_nio_charset_Charset((java_nio_charset_Charset *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_Charset) (AndroidCXX::java_nio_charset_Charset((AndroidCXX::java_nio_charset_Charset *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset() exit");
+	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset() exit");
 
 	return result;
 }
-java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2)
 {
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;";
@@ -356,7 +356,7 @@ java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(java_nio_By
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult result;
+	AndroidCXX::java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -374,17 +374,17 @@ java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(java_nio_By
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CoderResult) (AndroidCXX::java_nio_charset_CoderResult((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2) exit");
 
 	return result;
 }
-java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0)
+AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0)
 {
-	LOGV("java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
 
 	const char *methodName = "decode";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;";
@@ -424,7 +424,7 @@ java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_CharBuffer result;
+	AndroidCXX::java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -442,17 +442,17 @@ java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_CharBuffer) (AndroidCXX::java_nio_CharBuffer((AndroidCXX::java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(java_nio_ByteBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
 
 	return result;
 }
-java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0)
 {
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0) enter");
 
 	const char *methodName = "flush";
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;";
@@ -492,7 +492,7 @@ java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(java_nio_Cha
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult result;
+	AndroidCXX::java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -510,17 +510,17 @@ java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(java_nio_Cha
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CoderResult) (AndroidCXX::java_nio_charset_CoderResult((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(java_nio_CharBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(AndroidCXX::java_nio_CharBuffer& arg0) exit");
 
 	return result;
 }
-java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset()
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset()
 {
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset() enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset() enter");
 
 	const char *methodName = "reset";
 	const char *methodSignature = "()Ljava/nio/charset/CharsetDecoder;";
@@ -539,7 +539,7 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset()
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_nio_charset_CharsetDecoder result;
+	AndroidCXX::java_nio_charset_CharsetDecoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -557,17 +557,17 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetDecoder) (java_nio_charset_CharsetDecoder((java_nio_charset_CharsetDecoder *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CharsetDecoder) (AndroidCXX::java_nio_charset_CharsetDecoder((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset() exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset() exit");
 
 	return result;
 }
-java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0)
 {
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) enter");
 
 	const char *methodName = "onMalformedInput";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
@@ -607,7 +607,7 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInpu
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_charset_CharsetDecoder result;
+	AndroidCXX::java_nio_charset_CharsetDecoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -625,17 +625,17 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInpu
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetDecoder) (java_nio_charset_CharsetDecoder((java_nio_charset_CharsetDecoder *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CharsetDecoder) (AndroidCXX::java_nio_charset_CharsetDecoder((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) exit");
 
 	return result;
 }
-java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0)
 {
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) enter");
 
 	const char *methodName = "onUnmappableCharacter";
 	const char *methodSignature = "(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;";
@@ -675,7 +675,7 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCha
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_charset_CharsetDecoder result;
+	AndroidCXX::java_nio_charset_CharsetDecoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -693,17 +693,17 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCha
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetDecoder) (java_nio_charset_CharsetDecoder((java_nio_charset_CharsetDecoder *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CharsetDecoder) (AndroidCXX::java_nio_charset_CharsetDecoder((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0) exit");
 
 	return result;
 }
-java_lang_String java_nio_charset_CharsetDecoder::replacement()
+AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement()
 {
-	LOGV("java_lang_String java_nio_charset_CharsetDecoder::replacement() enter");
+	LOGV("AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement() enter");
 
 	const char *methodName = "replacement";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -722,7 +722,7 @@ java_lang_String java_nio_charset_CharsetDecoder::replacement()
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -740,17 +740,17 @@ java_lang_String java_nio_charset_CharsetDecoder::replacement()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_nio_charset_CharsetDecoder::replacement() exit");
+	LOGV("AndroidCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement() exit");
 
 	return result;
 }
-java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction()
+AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction()
 {
-	LOGV("java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction() enter");
+	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction() enter");
 
 	const char *methodName = "malformedInputAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
@@ -769,7 +769,7 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInp
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_nio_charset_CodingErrorAction result;
+	AndroidCXX::java_nio_charset_CodingErrorAction result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -787,17 +787,17 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInp
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CodingErrorAction) (java_nio_charset_CodingErrorAction((java_nio_charset_CodingErrorAction *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CodingErrorAction) (AndroidCXX::java_nio_charset_CodingErrorAction((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction() exit");
+	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malformedInputAction() exit");
 
 	return result;
 }
-java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction()
+AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction()
 {
-	LOGV("java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction() enter");
+	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction() enter");
 
 	const char *methodName = "unmappableCharacterAction";
 	const char *methodSignature = "()Ljava/nio/charset/CodingErrorAction;";
@@ -816,7 +816,7 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCh
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_nio_charset_CodingErrorAction result;
+	AndroidCXX::java_nio_charset_CodingErrorAction result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -834,17 +834,17 @@ java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCh
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CodingErrorAction(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CodingErrorAction) (java_nio_charset_CodingErrorAction((java_nio_charset_CodingErrorAction *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CodingErrorAction) (AndroidCXX::java_nio_charset_CodingErrorAction((AndroidCXX::java_nio_charset_CodingErrorAction *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction() exit");
+	LOGV("AndroidCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unmappableCharacterAction() exit");
 
 	return result;
 }
-java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0)
+AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "replaceWith";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/nio/charset/CharsetDecoder;";
@@ -884,7 +884,7 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(jav
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_nio_charset_CharsetDecoder result;
+	AndroidCXX::java_nio_charset_CharsetDecoder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -902,11 +902,11 @@ java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CharsetDecoder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CharsetDecoder) (java_nio_charset_CharsetDecoder((java_nio_charset_CharsetDecoder *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CharsetDecoder) (AndroidCXX::java_nio_charset_CharsetDecoder((AndroidCXX::java_nio_charset_CharsetDecoder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replaceWith(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -1098,9 +1098,9 @@ bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 
 	return result;
 }
-java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset()
+AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset()
 {
-	LOGV("java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset() enter");
+	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset() enter");
 
 	const char *methodName = "detectedCharset";
 	const char *methodSignature = "()Ljava/nio/charset/Charset;";
@@ -1119,7 +1119,7 @@ java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset()
 	LOGV("java_nio_charset_CharsetDecoder jni address %d", javaObject);
 
 
-	java_nio_charset_Charset result;
+	AndroidCXX::java_nio_charset_Charset result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1137,11 +1137,11 @@ java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_Charset(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_Charset) (java_nio_charset_Charset((java_nio_charset_Charset *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_Charset) (AndroidCXX::java_nio_charset_Charset((AndroidCXX::java_nio_charset_Charset *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset() exit");
+	LOGV("AndroidCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharset() exit");
 
 	return result;
 }

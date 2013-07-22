@@ -152,19 +152,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_charset_Charset;
+class AndroidCXX::java_nio_charset_Charset;
 
-class java_nio_ByteBuffer;
+class AndroidCXX::java_nio_ByteBuffer;
 
-class java_nio_CharBuffer;
+class AndroidCXX::java_nio_CharBuffer;
 
-class java_nio_charset_CoderResult;
+class AndroidCXX::java_nio_charset_CoderResult;
 
-class java_nio_charset_CharsetDecoder;
+class AndroidCXX::java_nio_charset_CharsetDecoder;
 
-class java_nio_charset_CodingErrorAction;
+class AndroidCXX::java_nio_charset_CodingErrorAction;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
 class java_nio_charset_CharsetDecoder
 {
@@ -177,22 +177,22 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
-	 java_nio_charset_Charset charset();
-	 java_nio_charset_CoderResult decode(java_nio_ByteBuffer& arg0,java_nio_CharBuffer& arg1,bool& arg2);
-	 java_nio_CharBuffer decode(java_nio_ByteBuffer& arg0);
-	 java_nio_charset_CoderResult flush(java_nio_CharBuffer& arg0);
-	 java_nio_charset_CharsetDecoder reset();
-	 java_nio_charset_CharsetDecoder onMalformedInput(java_nio_charset_CodingErrorAction& arg0);
-	 java_nio_charset_CharsetDecoder onUnmappableCharacter(java_nio_charset_CodingErrorAction& arg0);
-	 java_lang_String replacement();
-	 java_nio_charset_CodingErrorAction malformedInputAction();
-	 java_nio_charset_CodingErrorAction unmappableCharacterAction();
-	 java_nio_charset_CharsetDecoder replaceWith(java_lang_String& arg0);
+	 AndroidCXX::java_nio_charset_Charset charset();
+	 AndroidCXX::java_nio_charset_CoderResult decode(AndroidCXX::java_nio_ByteBuffer& arg0,AndroidCXX::java_nio_CharBuffer& arg1,bool& arg2);
+	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer& arg0);
+	 AndroidCXX::java_nio_charset_CoderResult flush(AndroidCXX::java_nio_CharBuffer& arg0);
+	 AndroidCXX::java_nio_charset_CharsetDecoder reset();
+	 AndroidCXX::java_nio_charset_CharsetDecoder onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
+	 AndroidCXX::java_nio_charset_CharsetDecoder onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction& arg0);
+	 AndroidCXX::java_lang_String replacement();
+	 AndroidCXX::java_nio_charset_CodingErrorAction malformedInputAction();
+	 AndroidCXX::java_nio_charset_CodingErrorAction unmappableCharacterAction();
+	 AndroidCXX::java_nio_charset_CharsetDecoder replaceWith(AndroidCXX::java_lang_String& arg0);
 	 float maxCharsPerByte();
 	 float averageCharsPerByte();
 	 bool isAutoDetecting();
 	 bool isCharsetDetected();
-	 java_nio_charset_Charset detectedCharset();
+	 AndroidCXX::java_nio_charset_Charset detectedCharset();
 };	
 
 } // namespace

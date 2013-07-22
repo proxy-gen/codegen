@@ -162,13 +162,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_FloatBuffer;
+class AndroidCXX::java_nio_FloatBuffer;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_ByteOrder;
+class AndroidCXX::java_nio_ByteOrder;
 
 class java_nio_FloatBuffer
 {
@@ -182,30 +182,30 @@ public:
 	virtual ~java_nio_FloatBuffer();
 	// Functions
 	 float get();
-	 java_nio_FloatBuffer get(std::vector<float>& arg0);
-	 java_nio_FloatBuffer get(std::vector<float>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float>& arg0);
+	 AndroidCXX::java_nio_FloatBuffer get(std::vector<float>& arg0,int& arg1,int& arg2);
 	 float get(int& arg0);
-	 java_nio_FloatBuffer put(java_nio_FloatBuffer& arg0);
-	 java_nio_FloatBuffer put(float& arg0);
-	 java_nio_FloatBuffer put(int& arg0,float& arg1);
-	 java_nio_FloatBuffer put(std::vector<float>& arg0,int& arg1,int& arg2);
-	 java_nio_FloatBuffer put(std::vector<float>& arg0);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 AndroidCXX::java_nio_FloatBuffer put(AndroidCXX::java_nio_FloatBuffer& arg0);
+	 AndroidCXX::java_nio_FloatBuffer put(float& arg0);
+	 AndroidCXX::java_nio_FloatBuffer put(int& arg0,float& arg1);
+	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_FloatBuffer put(std::vector<float>& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(java_nio_FloatBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_FloatBuffer& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<float> array();
 	 int arrayOffset();
-	static java_nio_FloatBuffer wrap(std::vector<float>& arg0,int& arg1,int& arg2);
-	static java_nio_FloatBuffer wrap(std::vector<float>& arg0);
-	static java_nio_FloatBuffer allocate(int& arg0);
-	 java_nio_FloatBuffer duplicate();
-	 java_nio_FloatBuffer slice();
-	 java_nio_FloatBuffer asReadOnlyBuffer();
-	 java_nio_FloatBuffer compact();
-	 java_nio_ByteOrder order();
+	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0,int& arg1,int& arg2);
+	static AndroidCXX::java_nio_FloatBuffer wrap(std::vector<float>& arg0);
+	static AndroidCXX::java_nio_FloatBuffer allocate(int& arg0);
+	 AndroidCXX::java_nio_FloatBuffer duplicate();
+	 AndroidCXX::java_nio_FloatBuffer slice();
+	 AndroidCXX::java_nio_FloatBuffer asReadOnlyBuffer();
+	 AndroidCXX::java_nio_FloatBuffer compact();
+	 AndroidCXX::java_nio_ByteOrder order();
 };	
 
 } // namespace

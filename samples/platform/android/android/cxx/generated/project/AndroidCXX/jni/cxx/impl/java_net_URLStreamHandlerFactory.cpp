@@ -142,9 +142,9 @@ java_net_URLStreamHandlerFactory::~java_net_URLStreamHandlerFactory()
 	LOGV("java_net_URLStreamHandlerFactory::~java_net_URLStreamHandlerFactory() exit");
 }
 // Functions
-java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(java_lang_String& arg0)
+AndroidCXX::java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "createURLStreamHandler";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URLStreamHandler;";
@@ -184,7 +184,7 @@ java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandl
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_URLStreamHandler result;
+	AndroidCXX::java_net_URLStreamHandler result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -202,11 +202,11 @@ java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_URLStreamHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_URLStreamHandler) (java_net_URLStreamHandler((java_net_URLStreamHandler *) cxx_value));
+	result = (AndroidCXX::java_net_URLStreamHandler) (AndroidCXX::java_net_URLStreamHandler((AndroidCXX::java_net_URLStreamHandler *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStreamHandler(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

@@ -60,9 +60,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_ByteOrder;
+class AndroidCXX::java_nio_ByteOrder;
 
 class java_nio_ByteOrder
 {
@@ -75,8 +75,8 @@ public:
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
-	 java_lang_String toString();
-	static java_nio_ByteOrder nativeOrder();
+	 AndroidCXX::java_lang_String toString();
+	static AndroidCXX::java_nio_ByteOrder nativeOrder();
 };	
 
 } // namespace

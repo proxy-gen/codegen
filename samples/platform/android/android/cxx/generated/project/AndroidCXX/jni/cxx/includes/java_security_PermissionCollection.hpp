@@ -81,11 +81,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_security_Permission;
+class AndroidCXX::java_security_Permission;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_util_Enumeration;
+class AndroidCXX::java_util_Enumeration;
 
 class java_security_PermissionCollection
 {
@@ -98,11 +98,11 @@ public:
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions
-	 void add(java_security_Permission& arg0);
-	 java_lang_String toString();
-	 bool implies(java_security_Permission& arg0);
+	 void add(AndroidCXX::java_security_Permission& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 bool implies(AndroidCXX::java_security_Permission& arg0);
 	 void setReadOnly();
-	 java_util_Enumeration elements();
+	 AndroidCXX::java_util_Enumeration elements();
 	 bool isReadOnly();
 };	
 

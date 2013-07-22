@@ -162,13 +162,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_LongBuffer;
+class AndroidCXX::java_nio_LongBuffer;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_ByteOrder;
+class AndroidCXX::java_nio_ByteOrder;
 
 class java_nio_LongBuffer
 {
@@ -182,30 +182,30 @@ public:
 	virtual ~java_nio_LongBuffer();
 	// Functions
 	 long get();
-	 java_nio_LongBuffer get(std::vector<long>& arg0);
-	 java_nio_LongBuffer get(std::vector<long>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_LongBuffer get(std::vector<long>& arg0);
+	 AndroidCXX::java_nio_LongBuffer get(std::vector<long>& arg0,int& arg1,int& arg2);
 	 long get(int& arg0);
-	 java_nio_LongBuffer put(java_nio_LongBuffer& arg0);
-	 java_nio_LongBuffer put(long& arg0);
-	 java_nio_LongBuffer put(int& arg0,long& arg1);
-	 java_nio_LongBuffer put(std::vector<long>& arg0,int& arg1,int& arg2);
-	 java_nio_LongBuffer put(std::vector<long>& arg0);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 AndroidCXX::java_nio_LongBuffer put(AndroidCXX::java_nio_LongBuffer& arg0);
+	 AndroidCXX::java_nio_LongBuffer put(long& arg0);
+	 AndroidCXX::java_nio_LongBuffer put(int& arg0,long& arg1);
+	 AndroidCXX::java_nio_LongBuffer put(std::vector<long>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_LongBuffer put(std::vector<long>& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(java_nio_LongBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_LongBuffer& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<long> array();
 	 int arrayOffset();
-	static java_nio_LongBuffer wrap(std::vector<long>& arg0,int& arg1,int& arg2);
-	static java_nio_LongBuffer wrap(std::vector<long>& arg0);
-	static java_nio_LongBuffer allocate(int& arg0);
-	 java_nio_LongBuffer duplicate();
-	 java_nio_LongBuffer slice();
-	 java_nio_LongBuffer asReadOnlyBuffer();
-	 java_nio_LongBuffer compact();
-	 java_nio_ByteOrder order();
+	static AndroidCXX::java_nio_LongBuffer wrap(std::vector<long>& arg0,int& arg1,int& arg2);
+	static AndroidCXX::java_nio_LongBuffer wrap(std::vector<long>& arg0);
+	static AndroidCXX::java_nio_LongBuffer allocate(int& arg0);
+	 AndroidCXX::java_nio_LongBuffer duplicate();
+	 AndroidCXX::java_nio_LongBuffer slice();
+	 AndroidCXX::java_nio_LongBuffer asReadOnlyBuffer();
+	 AndroidCXX::java_nio_LongBuffer compact();
+	 AndroidCXX::java_nio_ByteOrder order();
 };	
 
 } // namespace

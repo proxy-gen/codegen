@@ -75,13 +75,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
-class java_lang_annotation_Annotation;
+class AndroidCXX::java_lang_annotation_Annotation;
 
 class java_lang_annotation_Annotation
 {
@@ -94,10 +94,10 @@ public:
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_Class annotationType();
+	 AndroidCXX::java_lang_Class annotationType();
 };	
 
 } // namespace

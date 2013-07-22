@@ -74,7 +74,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
 class java_util_Map_Entry
 {
@@ -87,11 +87,11 @@ public:
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
 	 int hashCode();
-	 java_lang_Object getValue();
-	 java_lang_Object getKey();
-	 java_lang_Object setValue(java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object getValue();
+	 AndroidCXX::java_lang_Object getKey();
+	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object& arg0);
 };	
 
 } // namespace

@@ -397,9 +397,9 @@ byte java_nio_ByteBuffer::get()
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([B)Ljava/nio/ByteBuffer;";
@@ -457,7 +457,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0)
 		jarg0 = convert_jni__byte_array_type_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -475,17 +475,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "([BII)Ljava/nio/ByteBuffer;";
@@ -585,7 +585,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,i
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -603,11 +603,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
@@ -679,9 +679,9 @@ byte java_nio_ByteBuffer::get(int& arg0)
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::put(java_nio_ByteBuffer& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(AndroidCXX::java_nio_ByteBuffer& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(java_nio_ByteBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;";
@@ -721,7 +721,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(java_nio_ByteBuffer& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -739,17 +739,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(java_nio_ByteBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(java_nio_ByteBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([B)Ljava/nio/ByteBuffer;";
@@ -807,7 +807,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0)
 		jarg0 = convert_jni__byte_array_type_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -825,17 +825,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(B)Ljava/nio/ByteBuffer;";
@@ -875,7 +875,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0)
 		jarg0 = convert_jni_byte_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -893,17 +893,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "(IB)Ljava/nio/ByteBuffer;";
@@ -964,7 +964,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1)
 		jarg1 = convert_jni_byte_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -982,17 +982,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "put";
 	const char *methodSignature = "([BII)Ljava/nio/ByteBuffer;";
@@ -1092,7 +1092,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,i
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1110,17 +1110,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-bool java_nio_ByteBuffer::equals(java_lang_Object& arg0)
+bool java_nio_ByteBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_nio_ByteBuffer::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_nio_ByteBuffer::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -1182,13 +1182,13 @@ bool java_nio_ByteBuffer::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_nio_ByteBuffer::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_nio_ByteBuffer::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_nio_ByteBuffer::toString()
+AndroidCXX::java_lang_String java_nio_ByteBuffer::toString()
 {
-	LOGV("java_lang_String java_nio_ByteBuffer::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_nio_ByteBuffer::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1207,7 +1207,7 @@ java_lang_String java_nio_ByteBuffer::toString()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1225,11 +1225,11 @@ java_lang_String java_nio_ByteBuffer::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_nio_ByteBuffer::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_nio_ByteBuffer::toString() exit");
 
 	return result;
 }
@@ -1280,9 +1280,9 @@ int java_nio_ByteBuffer::hashCode()
 
 	return result;
 }
-int java_nio_ByteBuffer::compareTo(java_nio_ByteBuffer& arg0)
+int java_nio_ByteBuffer::compareTo(AndroidCXX::java_nio_ByteBuffer& arg0)
 {
-	LOGV("int java_nio_ByteBuffer::compareTo(java_nio_ByteBuffer& arg0) enter");
+	LOGV("int java_nio_ByteBuffer::compareTo(AndroidCXX::java_nio_ByteBuffer& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
@@ -1344,7 +1344,7 @@ int java_nio_ByteBuffer::compareTo(java_nio_ByteBuffer& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_nio_ByteBuffer::compareTo(java_nio_ByteBuffer& arg0) exit");
+	LOGV("int java_nio_ByteBuffer::compareTo(AndroidCXX::java_nio_ByteBuffer& arg0) exit");
 
 	return result;
 }
@@ -1463,9 +1463,9 @@ short java_nio_ByteBuffer::getShort()
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1) enter");
 
 	const char *methodName = "putShort";
 	const char *methodSignature = "(IS)Ljava/nio/ByteBuffer;";
@@ -1526,7 +1526,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1)
 		jarg1 = convert_jni_short_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1544,17 +1544,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0) enter");
 
 	const char *methodName = "putShort";
 	const char *methodSignature = "(S)Ljava/nio/ByteBuffer;";
@@ -1594,7 +1594,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0)
 		jarg0 = convert_jni_short_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1612,11 +1612,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0) exit");
 
 	return result;
 }
@@ -1735,9 +1735,9 @@ char java_nio_ByteBuffer::getChar(int& arg0)
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1) enter");
 
 	const char *methodName = "putChar";
 	const char *methodSignature = "(IC)Ljava/nio/ByteBuffer;";
@@ -1798,7 +1798,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1)
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1816,17 +1816,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0) enter");
 
 	const char *methodName = "putChar";
 	const char *methodSignature = "(C)Ljava/nio/ByteBuffer;";
@@ -1866,7 +1866,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1884,11 +1884,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0) exit");
 
 	return result;
 }
@@ -2007,9 +2007,9 @@ int java_nio_ByteBuffer::getInt(int& arg0)
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1) enter");
 
 	const char *methodName = "putInt";
 	const char *methodSignature = "(II)Ljava/nio/ByteBuffer;";
@@ -2070,7 +2070,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2088,17 +2088,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0) enter");
 
 	const char *methodName = "putInt";
 	const char *methodSignature = "(I)Ljava/nio/ByteBuffer;";
@@ -2138,7 +2138,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2156,11 +2156,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0) exit");
 
 	return result;
 }
@@ -2279,9 +2279,9 @@ long java_nio_ByteBuffer::getLong()
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0) enter");
 
 	const char *methodName = "putLong";
 	const char *methodSignature = "(J)Ljava/nio/ByteBuffer;";
@@ -2321,7 +2321,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2339,17 +2339,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1) enter");
 
 	const char *methodName = "putLong";
 	const char *methodSignature = "(IJ)Ljava/nio/ByteBuffer;";
@@ -2410,7 +2410,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1)
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2428,11 +2428,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1) exit");
 
 	return result;
 }
@@ -2551,9 +2551,9 @@ float java_nio_ByteBuffer::getFloat(int& arg0)
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0) enter");
 
 	const char *methodName = "putFloat";
 	const char *methodSignature = "(F)Ljava/nio/ByteBuffer;";
@@ -2593,7 +2593,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2611,17 +2611,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1) enter");
 
 	const char *methodName = "putFloat";
 	const char *methodSignature = "(IF)Ljava/nio/ByteBuffer;";
@@ -2682,7 +2682,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2700,11 +2700,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1) exit");
 
 	return result;
 }
@@ -2823,9 +2823,9 @@ double java_nio_ByteBuffer::getDouble(int& arg0)
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1) enter");
 
 	const char *methodName = "putDouble";
 	const char *methodSignature = "(ID)Ljava/nio/ByteBuffer;";
@@ -2886,7 +2886,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1)
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2904,17 +2904,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg1) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0) enter");
 
 	const char *methodName = "putDouble";
 	const char *methodSignature = "(D)Ljava/nio/ByteBuffer;";
@@ -2954,7 +2954,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2972,11 +2972,11 @@ java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0) exit");
 
 	return result;
 }
@@ -3186,9 +3186,9 @@ int java_nio_ByteBuffer::arrayOffset()
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([B)Ljava/nio/ByteBuffer;";
@@ -3246,7 +3246,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0)
 		jarg0 = convert_jni__byte_array_type_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3264,17 +3264,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "wrap";
 	const char *methodSignature = "([BII)Ljava/nio/ByteBuffer;";
@@ -3374,7 +3374,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3392,17 +3392,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0) enter");
 
 	const char *methodName = "allocate";
 	const char *methodSignature = "(I)Ljava/nio/ByteBuffer;";
@@ -3442,7 +3442,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3460,17 +3460,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::duplicate()
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::duplicate()
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::duplicate() enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::duplicate() enter");
 
 	const char *methodName = "duplicate";
 	const char *methodSignature = "()Ljava/nio/ByteBuffer;";
@@ -3489,7 +3489,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::duplicate()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3507,17 +3507,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::duplicate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::duplicate() exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::duplicate() exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0) enter");
 
 	const char *methodName = "allocateDirect";
 	const char *methodSignature = "(I)Ljava/nio/ByteBuffer;";
@@ -3557,7 +3557,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3575,17 +3575,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0) exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::slice()
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::slice()
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::slice() enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::slice() enter");
 
 	const char *methodName = "slice";
 	const char *methodSignature = "()Ljava/nio/ByteBuffer;";
@@ -3604,7 +3604,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::slice()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3622,17 +3622,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::slice()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::slice() exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::slice() exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer()
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer()
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer() enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer() enter");
 
 	const char *methodName = "asReadOnlyBuffer";
 	const char *methodSignature = "()Ljava/nio/ByteBuffer;";
@@ -3651,7 +3651,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3669,17 +3669,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer() exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer() exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::compact()
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::compact()
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::compact() enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::compact() enter");
 
 	const char *methodName = "compact";
 	const char *methodSignature = "()Ljava/nio/ByteBuffer;";
@@ -3698,7 +3698,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::compact()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3716,17 +3716,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::compact()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::compact() exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::compact() exit");
 
 	return result;
 }
-java_nio_ByteBuffer java_nio_ByteBuffer::order(java_nio_ByteOrder& arg0)
+AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::order(AndroidCXX::java_nio_ByteOrder& arg0)
 {
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::order(java_nio_ByteOrder& arg0) enter");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::order(AndroidCXX::java_nio_ByteOrder& arg0) enter");
 
 	const char *methodName = "order";
 	const char *methodSignature = "(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;";
@@ -3766,7 +3766,7 @@ java_nio_ByteBuffer java_nio_ByteBuffer::order(java_nio_ByteOrder& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_nio_ByteBuffer result;
+	AndroidCXX::java_nio_ByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3784,17 +3784,17 @@ java_nio_ByteBuffer java_nio_ByteBuffer::order(java_nio_ByteOrder& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteBuffer) (java_nio_ByteBuffer((java_nio_ByteBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteBuffer) (AndroidCXX::java_nio_ByteBuffer((AndroidCXX::java_nio_ByteBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteBuffer java_nio_ByteBuffer::order(java_nio_ByteOrder& arg0) exit");
+	LOGV("AndroidCXX::java_nio_ByteBuffer java_nio_ByteBuffer::order(AndroidCXX::java_nio_ByteOrder& arg0) exit");
 
 	return result;
 }
-java_nio_ByteOrder java_nio_ByteBuffer::order()
+AndroidCXX::java_nio_ByteOrder java_nio_ByteBuffer::order()
 {
-	LOGV("java_nio_ByteOrder java_nio_ByteBuffer::order() enter");
+	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_ByteBuffer::order() enter");
 
 	const char *methodName = "order";
 	const char *methodSignature = "()Ljava/nio/ByteOrder;";
@@ -3813,7 +3813,7 @@ java_nio_ByteOrder java_nio_ByteBuffer::order()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ByteOrder result;
+	AndroidCXX::java_nio_ByteOrder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3831,17 +3831,17 @@ java_nio_ByteOrder java_nio_ByteBuffer::order()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ByteOrder) (java_nio_ByteOrder((java_nio_ByteOrder *) cxx_value));
+	result = (AndroidCXX::java_nio_ByteOrder) (AndroidCXX::java_nio_ByteOrder((AndroidCXX::java_nio_ByteOrder *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ByteOrder java_nio_ByteBuffer::order() exit");
+	LOGV("AndroidCXX::java_nio_ByteOrder java_nio_ByteBuffer::order() exit");
 
 	return result;
 }
-java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer()
+AndroidCXX::java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer()
 {
-	LOGV("java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer() enter");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer() enter");
 
 	const char *methodName = "asCharBuffer";
 	const char *methodSignature = "()Ljava/nio/CharBuffer;";
@@ -3860,7 +3860,7 @@ java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_CharBuffer result;
+	AndroidCXX::java_nio_CharBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3878,17 +3878,17 @@ java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_CharBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_CharBuffer) (java_nio_CharBuffer((java_nio_CharBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_CharBuffer) (AndroidCXX::java_nio_CharBuffer((AndroidCXX::java_nio_CharBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer() exit");
+	LOGV("AndroidCXX::java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer() exit");
 
 	return result;
 }
-java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer()
+AndroidCXX::java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer()
 {
-	LOGV("java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer() enter");
+	LOGV("AndroidCXX::java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer() enter");
 
 	const char *methodName = "asShortBuffer";
 	const char *methodSignature = "()Ljava/nio/ShortBuffer;";
@@ -3907,7 +3907,7 @@ java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_ShortBuffer result;
+	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3925,17 +3925,17 @@ java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_ShortBuffer) (java_nio_ShortBuffer((java_nio_ShortBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer() exit");
+	LOGV("AndroidCXX::java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer() exit");
 
 	return result;
 }
-java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer()
+AndroidCXX::java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer()
 {
-	LOGV("java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer() enter");
+	LOGV("AndroidCXX::java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer() enter");
 
 	const char *methodName = "asIntBuffer";
 	const char *methodSignature = "()Ljava/nio/IntBuffer;";
@@ -3954,7 +3954,7 @@ java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_IntBuffer result;
+	AndroidCXX::java_nio_IntBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3972,17 +3972,17 @@ java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_IntBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_IntBuffer) (java_nio_IntBuffer((java_nio_IntBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_IntBuffer) (AndroidCXX::java_nio_IntBuffer((AndroidCXX::java_nio_IntBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer() exit");
+	LOGV("AndroidCXX::java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer() exit");
 
 	return result;
 }
-java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer()
+AndroidCXX::java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer()
 {
-	LOGV("java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer() enter");
+	LOGV("AndroidCXX::java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer() enter");
 
 	const char *methodName = "asLongBuffer";
 	const char *methodSignature = "()Ljava/nio/LongBuffer;";
@@ -4001,7 +4001,7 @@ java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_LongBuffer result;
+	AndroidCXX::java_nio_LongBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4019,17 +4019,17 @@ java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_LongBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_LongBuffer) (java_nio_LongBuffer((java_nio_LongBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_LongBuffer) (AndroidCXX::java_nio_LongBuffer((AndroidCXX::java_nio_LongBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer() exit");
+	LOGV("AndroidCXX::java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer() exit");
 
 	return result;
 }
-java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer()
+AndroidCXX::java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer()
 {
-	LOGV("java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer() enter");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer() enter");
 
 	const char *methodName = "asFloatBuffer";
 	const char *methodSignature = "()Ljava/nio/FloatBuffer;";
@@ -4048,7 +4048,7 @@ java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_FloatBuffer result;
+	AndroidCXX::java_nio_FloatBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4066,17 +4066,17 @@ java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_FloatBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_FloatBuffer) (java_nio_FloatBuffer((java_nio_FloatBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_FloatBuffer) (AndroidCXX::java_nio_FloatBuffer((AndroidCXX::java_nio_FloatBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer() exit");
+	LOGV("AndroidCXX::java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer() exit");
 
 	return result;
 }
-java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer()
+AndroidCXX::java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer()
 {
-	LOGV("java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer() enter");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer() enter");
 
 	const char *methodName = "asDoubleBuffer";
 	const char *methodSignature = "()Ljava/nio/DoubleBuffer;";
@@ -4095,7 +4095,7 @@ java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer()
 	LOGV("java_nio_ByteBuffer jni address %d", javaObject);
 
 
-	java_nio_DoubleBuffer result;
+	AndroidCXX::java_nio_DoubleBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4113,11 +4113,11 @@ java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_DoubleBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_DoubleBuffer) (java_nio_DoubleBuffer((java_nio_DoubleBuffer *) cxx_value));
+	result = (AndroidCXX::java_nio_DoubleBuffer) (AndroidCXX::java_nio_DoubleBuffer((AndroidCXX::java_nio_DoubleBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer() exit");
+	LOGV("AndroidCXX::java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer() exit");
 
 	return result;
 }

@@ -165,9 +165,9 @@ java_security_cert_CertPath::~java_security_cert_CertPath()
 	LOGV("java_security_cert_CertPath::~java_security_cert_CertPath() exit");
 }
 // Functions
-bool java_security_cert_CertPath::equals(java_lang_Object& arg0)
+bool java_security_cert_CertPath::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_security_cert_CertPath::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_security_cert_CertPath::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -229,13 +229,13 @@ bool java_security_cert_CertPath::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_security_cert_CertPath::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_security_cert_CertPath::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_security_cert_CertPath::toString()
+AndroidCXX::java_lang_String java_security_cert_CertPath::toString()
 {
-	LOGV("java_lang_String java_security_cert_CertPath::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_security_cert_CertPath::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -254,7 +254,7 @@ java_lang_String java_security_cert_CertPath::toString()
 	LOGV("java_security_cert_CertPath jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -272,11 +272,11 @@ java_lang_String java_security_cert_CertPath::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_security_cert_CertPath::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_security_cert_CertPath::toString() exit");
 
 	return result;
 }
@@ -327,9 +327,9 @@ int java_security_cert_CertPath::hashCode()
 
 	return result;
 }
-java_util_List java_security_cert_CertPath::getCertificates()
+AndroidCXX::java_util_List java_security_cert_CertPath::getCertificates()
 {
-	LOGV("java_util_List java_security_cert_CertPath::getCertificates() enter");
+	LOGV("AndroidCXX::java_util_List java_security_cert_CertPath::getCertificates() enter");
 
 	const char *methodName = "getCertificates";
 	const char *methodSignature = "()Ljava/util/List;";
@@ -348,7 +348,7 @@ java_util_List java_security_cert_CertPath::getCertificates()
 	LOGV("java_security_cert_CertPath jni address %d", javaObject);
 
 
-	java_util_List result;
+	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -384,17 +384,17 @@ java_util_List java_security_cert_CertPath::getCertificates()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_List) (java_util_List((java_util_List *) cxx_value));
+	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_List java_security_cert_CertPath::getCertificates() exit");
+	LOGV("AndroidCXX::java_util_List java_security_cert_CertPath::getCertificates() exit");
 
 	return result;
 }
-java_lang_String java_security_cert_CertPath::getType()
+AndroidCXX::java_lang_String java_security_cert_CertPath::getType()
 {
-	LOGV("java_lang_String java_security_cert_CertPath::getType() enter");
+	LOGV("AndroidCXX::java_lang_String java_security_cert_CertPath::getType() enter");
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -413,7 +413,7 @@ java_lang_String java_security_cert_CertPath::getType()
 	LOGV("java_security_cert_CertPath jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -431,11 +431,11 @@ java_lang_String java_security_cert_CertPath::getType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_security_cert_CertPath::getType() exit");
+	LOGV("AndroidCXX::java_lang_String java_security_cert_CertPath::getType() exit");
 
 	return result;
 }
@@ -504,9 +504,9 @@ std::vector<byte> java_security_cert_CertPath::getEncoded()
 
 	return result;
 }
-std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0)
+std::vector<byte> java_security_cert_CertPath::getEncoded(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0) enter");
+	LOGV("std::vector<byte> java_security_cert_CertPath::getEncoded(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getEncoded";
 	const char *methodSignature = "(Ljava/lang/String;)[B";
@@ -586,13 +586,13 @@ std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0
 		
 	jni->popLocalFrame();
 
-	LOGV("std::vector<byte> java_security_cert_CertPath::getEncoded(java_lang_String& arg0) exit");
+	LOGV("std::vector<byte> java_security_cert_CertPath::getEncoded(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-java_util_Iterator java_security_cert_CertPath::getEncodings()
+AndroidCXX::java_util_Iterator java_security_cert_CertPath::getEncodings()
 {
-	LOGV("java_util_Iterator java_security_cert_CertPath::getEncodings() enter");
+	LOGV("AndroidCXX::java_util_Iterator java_security_cert_CertPath::getEncodings() enter");
 
 	const char *methodName = "getEncodings";
 	const char *methodSignature = "()Ljava/util/Iterator;";
@@ -611,7 +611,7 @@ java_util_Iterator java_security_cert_CertPath::getEncodings()
 	LOGV("java_security_cert_CertPath jni address %d", javaObject);
 
 
-	java_util_Iterator result;
+	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -647,11 +647,11 @@ java_util_Iterator java_security_cert_CertPath::getEncodings()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Iterator) (java_util_Iterator((java_util_Iterator *) cxx_value));
+	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Iterator java_security_cert_CertPath::getEncodings() exit");
+	LOGV("AndroidCXX::java_util_Iterator java_security_cert_CertPath::getEncodings() exit");
 
 	return result;
 }

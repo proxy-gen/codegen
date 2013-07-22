@@ -148,9 +148,9 @@ java_security_CodeSigner::java_security_CodeSigner()
 	LOGV("java_security_CodeSigner::java_security_CodeSigner() exit");	
 }
 // Public Constructors
-java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1)
+java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1)
 {
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1) enter");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/security/cert/CertPath;Ljava/security/Timestamp;)V";
@@ -224,7 +224,7 @@ java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& 
 
 	jni->popLocalFrame();
 
-	LOGV("java_security_CodeSigner::java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1) exit");	
+	LOGV("java_security_CodeSigner::java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1) exit");	
 }
 // Default Instance Destructor
 java_security_CodeSigner::~java_security_CodeSigner()
@@ -241,9 +241,9 @@ java_security_CodeSigner::~java_security_CodeSigner()
 	LOGV("java_security_CodeSigner::~java_security_CodeSigner() exit");
 }
 // Functions
-bool java_security_CodeSigner::equals(java_lang_Object& arg0)
+bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_security_CodeSigner::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -305,13 +305,13 @@ bool java_security_CodeSigner::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_security_CodeSigner::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_security_CodeSigner::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_security_CodeSigner::toString()
+AndroidCXX::java_lang_String java_security_CodeSigner::toString()
 {
-	LOGV("java_lang_String java_security_CodeSigner::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_security_CodeSigner::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -330,7 +330,7 @@ java_lang_String java_security_CodeSigner::toString()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -348,11 +348,11 @@ java_lang_String java_security_CodeSigner::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_security_CodeSigner::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_security_CodeSigner::toString() exit");
 
 	return result;
 }
@@ -403,9 +403,9 @@ int java_security_CodeSigner::hashCode()
 
 	return result;
 }
-java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
+AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
 {
-	LOGV("java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() enter");
+	LOGV("AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() enter");
 
 	const char *methodName = "getSignerCertPath";
 	const char *methodSignature = "()Ljava/security/cert/CertPath;";
@@ -424,7 +424,7 @@ java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_security_cert_CertPath result;
+	AndroidCXX::java_security_cert_CertPath result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -442,17 +442,17 @@ java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_cert_CertPath(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_cert_CertPath) (java_security_cert_CertPath((java_security_cert_CertPath *) cxx_value));
+	result = (AndroidCXX::java_security_cert_CertPath) (AndroidCXX::java_security_cert_CertPath((AndroidCXX::java_security_cert_CertPath *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() exit");
+	LOGV("AndroidCXX::java_security_cert_CertPath java_security_CodeSigner::getSignerCertPath() exit");
 
 	return result;
 }
-java_security_Timestamp java_security_CodeSigner::getTimestamp()
+AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp()
 {
-	LOGV("java_security_Timestamp java_security_CodeSigner::getTimestamp() enter");
+	LOGV("AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp() enter");
 
 	const char *methodName = "getTimestamp";
 	const char *methodSignature = "()Ljava/security/Timestamp;";
@@ -471,7 +471,7 @@ java_security_Timestamp java_security_CodeSigner::getTimestamp()
 	LOGV("java_security_CodeSigner jni address %d", javaObject);
 
 
-	java_security_Timestamp result;
+	AndroidCXX::java_security_Timestamp result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -489,11 +489,11 @@ java_security_Timestamp java_security_CodeSigner::getTimestamp()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_security_Timestamp(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_security_Timestamp) (java_security_Timestamp((java_security_Timestamp *) cxx_value));
+	result = (AndroidCXX::java_security_Timestamp) (AndroidCXX::java_security_Timestamp((AndroidCXX::java_security_Timestamp *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_security_Timestamp java_security_CodeSigner::getTimestamp() exit");
+	LOGV("AndroidCXX::java_security_Timestamp java_security_CodeSigner::getTimestamp() exit");
 
 	return result;
 }

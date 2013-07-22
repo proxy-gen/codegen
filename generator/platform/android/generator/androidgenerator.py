@@ -971,7 +971,6 @@ class Generator(BaseGenerator):
 				for clazz in classes:
 					type_name = clazz['name']
 					type_name = Utils.to_class_name(type_name)					
-					typeinfo['typename'] = type_name
 					typeinfo['typeconverter'] = "convert_" + type_name
 					file_name = Utils.to_file_name(type_name,"hpp")
 					typeinfo['filename'] = file_name
@@ -982,6 +981,8 @@ class Generator(BaseGenerator):
 					is_callback = True if '_callback' in clazz['tags'] else False
 					typeinfo['iscallback'] = is_callback
 					typeinfo['isproxied'] = True
+					typeinfo['basetypename'] = type_name
+					typeinfo['typename'] = Utils.to_namespace_name(typeinfo['namespace'],typeinfo['basetypename'])
 					break
 			elif type_config['converter'] == 'convert__object_array_type':
 				type_name_stack = list()	
@@ -1066,7 +1067,7 @@ class Generator(BaseGenerator):
 			type_ = type_config['type']
 			if 'iscallback' in typeinfo:
 				if typeinfo['iscallback']:
-					type_ = typeinfo['typename']
+					type_ = typeinfo['basetypename']
 			type_config['type'] = type_
 			jnidata['jnisignature'] = Utils.to_jni_type_signature(type_config)
 		logging.debug("_attach_derived_jni_type_signature exit")
@@ -1465,6 +1466,11 @@ class Utils(object):
 	def to_file_name(cls, base_name, extension):
 		file_name = ".".join([base_name, extension])
 		return file_name
+
+	@classmethod
+	def to_namespace_name(cls, namespace_name, class_name):
+		namespaced_name = namespace_name + "::" + class_name
+		return namespaced_name
 
 	@classmethod
 	def to_jni_type_signature(cls, type_config):

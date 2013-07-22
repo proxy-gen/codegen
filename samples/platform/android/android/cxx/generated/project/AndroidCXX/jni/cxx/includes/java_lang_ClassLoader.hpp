@@ -160,19 +160,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_ClassLoader;
+class AndroidCXX::java_lang_ClassLoader;
 
-class java_io_InputStream;
+class AndroidCXX::java_io_InputStream;
 
-class java_net_URL;
+class AndroidCXX::java_net_URL;
 
-class java_util_Enumeration;
+class AndroidCXX::java_util_Enumeration;
 
 class java_lang_ClassLoader
 {
@@ -185,18 +185,18 @@ public:
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions
-	 java_lang_Class loadClass(java_lang_String& arg0);
-	static java_lang_ClassLoader getSystemClassLoader();
-	 java_io_InputStream getResourceAsStream(java_lang_String& arg0);
-	 java_net_URL getResource(java_lang_String& arg0);
-	static java_io_InputStream getSystemResourceAsStream(java_lang_String& arg0);
-	static java_net_URL getSystemResource(java_lang_String& arg0);
-	 java_util_Enumeration getResources(java_lang_String& arg0);
-	static java_util_Enumeration getSystemResources(java_lang_String& arg0);
-	 java_lang_ClassLoader getParent();
+	 AndroidCXX::java_lang_Class loadClass(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_ClassLoader getSystemClassLoader();
+	 AndroidCXX::java_io_InputStream getResourceAsStream(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_net_URL getResource(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_io_InputStream getSystemResourceAsStream(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_net_URL getSystemResource(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_util_Enumeration getResources(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_util_Enumeration getSystemResources(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_ClassLoader getParent();
 	 void setDefaultAssertionStatus(bool& arg0);
-	 void setPackageAssertionStatus(java_lang_String& arg0,bool& arg1);
-	 void setClassAssertionStatus(java_lang_String& arg0,bool& arg1);
+	 void setPackageAssertionStatus(AndroidCXX::java_lang_String& arg0,bool& arg1);
+	 void setClassAssertionStatus(AndroidCXX::java_lang_String& arg0,bool& arg1);
 	 void clearAssertionStatus();
 };	
 

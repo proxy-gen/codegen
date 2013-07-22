@@ -91,11 +91,11 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_net_SocketAddress;
+class AndroidCXX::java_net_SocketAddress;
 
 class java_net_Proxy
 {
@@ -104,16 +104,16 @@ public:
 	java_net_Proxy(const java_net_Proxy& cc);
 	java_net_Proxy(void * proxy);
 	// Public Constructors
-	java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1);
+	java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,AndroidCXX::java_net_SocketAddress& arg1);
 	java_net_Proxy();
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	 java_net_Proxy_Type type();
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 JAVA_NET_PROXY_TYPE::java_net_Proxy_Type type();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_net_SocketAddress address();
+	 AndroidCXX::java_net_SocketAddress address();
 };	
 
 } // namespace

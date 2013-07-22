@@ -54,7 +54,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
 class java_nio_charset_CodingErrorAction
 {
@@ -67,7 +67,7 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CodingErrorAction();
 	// Functions
-	 java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 };	
 
 } // namespace

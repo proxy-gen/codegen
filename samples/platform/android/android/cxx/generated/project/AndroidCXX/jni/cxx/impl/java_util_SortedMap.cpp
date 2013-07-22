@@ -194,9 +194,9 @@ java_util_SortedMap::~java_util_SortedMap()
 	LOGV("java_util_SortedMap::~java_util_SortedMap() exit");
 }
 // Functions
-java_util_Collection java_util_SortedMap::values()
+AndroidCXX::java_util_Collection java_util_SortedMap::values()
 {
-	LOGV("java_util_Collection java_util_SortedMap::values() enter");
+	LOGV("AndroidCXX::java_util_Collection java_util_SortedMap::values() enter");
 
 	const char *methodName = "values";
 	const char *methodSignature = "()Ljava/util/Collection;";
@@ -215,7 +215,7 @@ java_util_Collection java_util_SortedMap::values()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_util_Collection result;
+	AndroidCXX::java_util_Collection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -251,17 +251,17 @@ java_util_Collection java_util_SortedMap::values()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Collection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Collection) (java_util_Collection((java_util_Collection *) cxx_value));
+	result = (AndroidCXX::java_util_Collection) (AndroidCXX::java_util_Collection((AndroidCXX::java_util_Collection *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Collection java_util_SortedMap::values() exit");
+	LOGV("AndroidCXX::java_util_Collection java_util_SortedMap::values() exit");
 
 	return result;
 }
-java_util_Set java_util_SortedMap::entrySet()
+AndroidCXX::java_util_Set java_util_SortedMap::entrySet()
 {
-	LOGV("java_util_Set java_util_SortedMap::entrySet() enter");
+	LOGV("AndroidCXX::java_util_Set java_util_SortedMap::entrySet() enter");
 
 	const char *methodName = "entrySet";
 	const char *methodSignature = "()Ljava/util/Set;";
@@ -280,7 +280,7 @@ java_util_Set java_util_SortedMap::entrySet()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_util_Set result;
+	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -349,17 +349,17 @@ java_util_Set java_util_SortedMap::entrySet()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Set) (java_util_Set((java_util_Set *) cxx_value));
+	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Set java_util_SortedMap::entrySet() exit");
+	LOGV("AndroidCXX::java_util_Set java_util_SortedMap::entrySet() exit");
 
 	return result;
 }
-java_util_Set java_util_SortedMap::keySet()
+AndroidCXX::java_util_Set java_util_SortedMap::keySet()
 {
-	LOGV("java_util_Set java_util_SortedMap::keySet() enter");
+	LOGV("AndroidCXX::java_util_Set java_util_SortedMap::keySet() enter");
 
 	const char *methodName = "keySet";
 	const char *methodSignature = "()Ljava/util/Set;";
@@ -378,7 +378,7 @@ java_util_Set java_util_SortedMap::keySet()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_util_Set result;
+	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -414,17 +414,17 @@ java_util_Set java_util_SortedMap::keySet()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Set) (java_util_Set((java_util_Set *) cxx_value));
+	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Set java_util_SortedMap::keySet() exit");
+	LOGV("AndroidCXX::java_util_Set java_util_SortedMap::keySet() exit");
 
 	return result;
 }
-java_util_Comparator java_util_SortedMap::comparator()
+AndroidCXX::java_util_Comparator java_util_SortedMap::comparator()
 {
-	LOGV("java_util_Comparator java_util_SortedMap::comparator() enter");
+	LOGV("AndroidCXX::java_util_Comparator java_util_SortedMap::comparator() enter");
 
 	const char *methodName = "comparator";
 	const char *methodSignature = "()Ljava/util/Comparator;";
@@ -443,7 +443,7 @@ java_util_Comparator java_util_SortedMap::comparator()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_util_Comparator result;
+	AndroidCXX::java_util_Comparator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -479,17 +479,17 @@ java_util_Comparator java_util_SortedMap::comparator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Comparator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Comparator) (java_util_Comparator((java_util_Comparator *) cxx_value));
+	result = (AndroidCXX::java_util_Comparator) (AndroidCXX::java_util_Comparator((AndroidCXX::java_util_Comparator *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Comparator java_util_SortedMap::comparator() exit");
+	LOGV("AndroidCXX::java_util_Comparator java_util_SortedMap::comparator() exit");
 
 	return result;
 }
-java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang_Object& arg1)
+AndroidCXX::java_util_SortedMap java_util_SortedMap::subMap(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang_Object& arg1) enter");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::subMap(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "subMap";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -550,7 +550,7 @@ java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_util_SortedMap result;
+	AndroidCXX::java_util_SortedMap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -601,17 +601,17 @@ java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_SortedMap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_SortedMap) (java_util_SortedMap((java_util_SortedMap *) cxx_value));
+	result = (AndroidCXX::java_util_SortedMap) (AndroidCXX::java_util_SortedMap((AndroidCXX::java_util_SortedMap *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_SortedMap java_util_SortedMap::subMap(java_lang_Object& arg0,java_lang_Object& arg1) exit");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::subMap(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 	return result;
 }
-java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0)
+AndroidCXX::java_util_SortedMap java_util_SortedMap::headMap(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::headMap(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "headMap";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -651,7 +651,7 @@ java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_util_SortedMap result;
+	AndroidCXX::java_util_SortedMap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -702,17 +702,17 @@ java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_SortedMap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_SortedMap) (java_util_SortedMap((java_util_SortedMap *) cxx_value));
+	result = (AndroidCXX::java_util_SortedMap) (AndroidCXX::java_util_SortedMap((AndroidCXX::java_util_SortedMap *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_SortedMap java_util_SortedMap::headMap(java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::headMap(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0)
+AndroidCXX::java_util_SortedMap java_util_SortedMap::tailMap(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::tailMap(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "tailMap";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/util/SortedMap;";
@@ -752,7 +752,7 @@ java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_util_SortedMap result;
+	AndroidCXX::java_util_SortedMap result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -803,17 +803,17 @@ java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_SortedMap(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_SortedMap) (java_util_SortedMap((java_util_SortedMap *) cxx_value));
+	result = (AndroidCXX::java_util_SortedMap) (AndroidCXX::java_util_SortedMap((AndroidCXX::java_util_SortedMap *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_SortedMap java_util_SortedMap::tailMap(java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_util_SortedMap java_util_SortedMap::tailMap(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_Object java_util_SortedMap::firstKey()
+AndroidCXX::java_lang_Object java_util_SortedMap::firstKey()
 {
-	LOGV("java_lang_Object java_util_SortedMap::firstKey() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_SortedMap::firstKey() enter");
 
 	const char *methodName = "firstKey";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -832,7 +832,7 @@ java_lang_Object java_util_SortedMap::firstKey()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -850,17 +850,17 @@ java_lang_Object java_util_SortedMap::firstKey()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_SortedMap::firstKey() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_SortedMap::firstKey() exit");
 
 	return result;
 }
-java_lang_Object java_util_SortedMap::lastKey()
+AndroidCXX::java_lang_Object java_util_SortedMap::lastKey()
 {
-	LOGV("java_lang_Object java_util_SortedMap::lastKey() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_SortedMap::lastKey() enter");
 
 	const char *methodName = "lastKey";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -879,7 +879,7 @@ java_lang_Object java_util_SortedMap::lastKey()
 	LOGV("java_util_SortedMap jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -897,11 +897,11 @@ java_lang_Object java_util_SortedMap::lastKey()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_SortedMap::lastKey() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_SortedMap::lastKey() exit");
 
 	return result;
 }

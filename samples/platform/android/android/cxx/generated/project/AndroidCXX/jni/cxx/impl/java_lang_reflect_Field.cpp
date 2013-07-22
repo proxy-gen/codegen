@@ -280,9 +280,9 @@ java_lang_reflect_Field::~java_lang_reflect_Field()
 	LOGV("java_lang_reflect_Field::~java_lang_reflect_Field() exit");
 }
 // Functions
-java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0)
+AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "get";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
@@ -322,7 +322,7 @@ java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -340,17 +340,17 @@ java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_lang_reflect_Field::get(java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_Object java_lang_reflect_Field::get(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-bool java_lang_reflect_Field::equals(java_lang_Object& arg0)
+bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_lang_reflect_Field::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -412,13 +412,13 @@ bool java_lang_reflect_Field::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_lang_reflect_Field::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_reflect_Field::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_lang_reflect_Field::toString()
+AndroidCXX::java_lang_String java_lang_reflect_Field::toString()
 {
-	LOGV("java_lang_String java_lang_reflect_Field::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -437,7 +437,7 @@ java_lang_String java_lang_reflect_Field::toString()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -455,11 +455,11 @@ java_lang_String java_lang_reflect_Field::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_reflect_Field::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toString() exit");
 
 	return result;
 }
@@ -557,9 +557,9 @@ int java_lang_reflect_Field::getModifiers()
 
 	return result;
 }
-bool java_lang_reflect_Field::getBoolean(java_lang_Object& arg0)
+bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_lang_reflect_Field::getBoolean(java_lang_Object& arg0) enter");
+	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -621,13 +621,13 @@ bool java_lang_reflect_Field::getBoolean(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_lang_reflect_Field::getBoolean(java_lang_Object& arg0) exit");
+	LOGV("bool java_lang_reflect_Field::getBoolean(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-byte java_lang_reflect_Field::getByte(java_lang_Object& arg0)
+byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("byte java_lang_reflect_Field::getByte(java_lang_Object& arg0) enter");
+	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getByte";
 	const char *methodSignature = "(Ljava/lang/Object;)B";
@@ -689,13 +689,13 @@ byte java_lang_reflect_Field::getByte(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("byte java_lang_reflect_Field::getByte(java_lang_Object& arg0) exit");
+	LOGV("byte java_lang_reflect_Field::getByte(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-short java_lang_reflect_Field::getShort(java_lang_Object& arg0)
+short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("short java_lang_reflect_Field::getShort(java_lang_Object& arg0) enter");
+	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getShort";
 	const char *methodSignature = "(Ljava/lang/Object;)S";
@@ -757,13 +757,13 @@ short java_lang_reflect_Field::getShort(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("short java_lang_reflect_Field::getShort(java_lang_Object& arg0) exit");
+	LOGV("short java_lang_reflect_Field::getShort(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-char java_lang_reflect_Field::getChar(java_lang_Object& arg0)
+char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("char java_lang_reflect_Field::getChar(java_lang_Object& arg0) enter");
+	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getChar";
 	const char *methodSignature = "(Ljava/lang/Object;)C";
@@ -825,13 +825,13 @@ char java_lang_reflect_Field::getChar(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("char java_lang_reflect_Field::getChar(java_lang_Object& arg0) exit");
+	LOGV("char java_lang_reflect_Field::getChar(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-int java_lang_reflect_Field::getInt(java_lang_Object& arg0)
+int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("int java_lang_reflect_Field::getInt(java_lang_Object& arg0) enter");
+	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getInt";
 	const char *methodSignature = "(Ljava/lang/Object;)I";
@@ -893,13 +893,13 @@ int java_lang_reflect_Field::getInt(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_reflect_Field::getInt(java_lang_Object& arg0) exit");
+	LOGV("int java_lang_reflect_Field::getInt(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-long java_lang_reflect_Field::getLong(java_lang_Object& arg0)
+long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("long java_lang_reflect_Field::getLong(java_lang_Object& arg0) enter");
+	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getLong";
 	const char *methodSignature = "(Ljava/lang/Object;)J";
@@ -961,13 +961,13 @@ long java_lang_reflect_Field::getLong(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_lang_reflect_Field::getLong(java_lang_Object& arg0) exit");
+	LOGV("long java_lang_reflect_Field::getLong(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-float java_lang_reflect_Field::getFloat(java_lang_Object& arg0)
+float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("float java_lang_reflect_Field::getFloat(java_lang_Object& arg0) enter");
+	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getFloat";
 	const char *methodSignature = "(Ljava/lang/Object;)F";
@@ -1029,13 +1029,13 @@ float java_lang_reflect_Field::getFloat(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("float java_lang_reflect_Field::getFloat(java_lang_Object& arg0) exit");
+	LOGV("float java_lang_reflect_Field::getFloat(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-double java_lang_reflect_Field::getDouble(java_lang_Object& arg0)
+double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("double java_lang_reflect_Field::getDouble(java_lang_Object& arg0) enter");
+	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "getDouble";
 	const char *methodSignature = "(Ljava/lang/Object;)D";
@@ -1097,13 +1097,13 @@ double java_lang_reflect_Field::getDouble(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("double java_lang_reflect_Field::getDouble(java_lang_Object& arg0) exit");
+	LOGV("double java_lang_reflect_Field::getDouble(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_lang_reflect_Field::getName()
+AndroidCXX::java_lang_String java_lang_reflect_Field::getName()
 {
-	LOGV("java_lang_String java_lang_reflect_Field::getName() enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::getName() enter");
 
 	const char *methodName = "getName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1122,7 +1122,7 @@ java_lang_String java_lang_reflect_Field::getName()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1140,11 +1140,11 @@ java_lang_String java_lang_reflect_Field::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_reflect_Field::getName() exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::getName() exit");
 
 	return result;
 }
@@ -1195,9 +1195,9 @@ bool java_lang_reflect_Field::isSynthetic()
 
 	return result;
 }
-java_lang_Class java_lang_reflect_Field::getDeclaringClass()
+AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 {
-	LOGV("java_lang_Class java_lang_reflect_Field::getDeclaringClass() enter");
+	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass() enter");
 
 	const char *methodName = "getDeclaringClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
@@ -1216,7 +1216,7 @@ java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_Class result;
+	AndroidCXX::java_lang_Class result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1252,17 +1252,17 @@ java_lang_Class java_lang_reflect_Field::getDeclaringClass()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Class) (java_lang_Class((java_lang_Class *) cxx_value));
+	result = (AndroidCXX::java_lang_Class) (AndroidCXX::java_lang_Class((AndroidCXX::java_lang_Class *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Class java_lang_reflect_Field::getDeclaringClass() exit");
+	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getDeclaringClass() exit");
 
 	return result;
 }
-java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang_Class& arg0)
+AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0)
 {
-	LOGV("java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang_Class& arg0) enter");
+	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0) enter");
 
 	const char *methodName = "getAnnotation";
 	const char *methodSignature = "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;";
@@ -1320,7 +1320,7 @@ java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_annotation_Annotation result;
+	AndroidCXX::java_lang_annotation_Annotation result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1338,11 +1338,11 @@ java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_annotation_Annotation(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_annotation_Annotation) (java_lang_annotation_Annotation((java_lang_annotation_Annotation *) cxx_value));
+	result = (AndroidCXX::java_lang_annotation_Annotation) (AndroidCXX::java_lang_annotation_Annotation((AndroidCXX::java_lang_annotation_Annotation *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(java_lang_Class& arg0) exit");
+	LOGV("AndroidCXX::java_lang_annotation_Annotation java_lang_reflect_Field::getAnnotation(AndroidCXX::java_lang_Class& arg0) exit");
 
 	return result;
 }
@@ -1458,9 +1458,9 @@ bool java_lang_reflect_Field::isEnumConstant()
 
 	return result;
 }
-java_lang_Class java_lang_reflect_Field::getType()
+AndroidCXX::java_lang_Class java_lang_reflect_Field::getType()
 {
-	LOGV("java_lang_Class java_lang_reflect_Field::getType() enter");
+	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getType() enter");
 
 	const char *methodName = "getType";
 	const char *methodSignature = "()Ljava/lang/Class;";
@@ -1479,7 +1479,7 @@ java_lang_Class java_lang_reflect_Field::getType()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_Class result;
+	AndroidCXX::java_lang_Class result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1515,17 +1515,17 @@ java_lang_Class java_lang_reflect_Field::getType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Class(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Class) (java_lang_Class((java_lang_Class *) cxx_value));
+	result = (AndroidCXX::java_lang_Class) (AndroidCXX::java_lang_Class((AndroidCXX::java_lang_Class *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Class java_lang_reflect_Field::getType() exit");
+	LOGV("AndroidCXX::java_lang_Class java_lang_reflect_Field::getType() exit");
 
 	return result;
 }
-java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
+AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 {
-	LOGV("java_lang_reflect_Type java_lang_reflect_Field::getGenericType() enter");
+	LOGV("AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType() enter");
 
 	const char *methodName = "getGenericType";
 	const char *methodSignature = "()Ljava/lang/reflect/Type;";
@@ -1544,7 +1544,7 @@ java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_reflect_Type result;
+	AndroidCXX::java_lang_reflect_Type result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1562,17 +1562,17 @@ java_lang_reflect_Type java_lang_reflect_Field::getGenericType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_reflect_Type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_reflect_Type) (java_lang_reflect_Type((java_lang_reflect_Type *) cxx_value));
+	result = (AndroidCXX::java_lang_reflect_Type) (AndroidCXX::java_lang_reflect_Type((AndroidCXX::java_lang_reflect_Type *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_reflect_Type java_lang_reflect_Field::getGenericType() exit");
+	LOGV("AndroidCXX::java_lang_reflect_Type java_lang_reflect_Field::getGenericType() exit");
 
 	return result;
 }
-java_lang_String java_lang_reflect_Field::toGenericString()
+AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString()
 {
-	LOGV("java_lang_String java_lang_reflect_Field::toGenericString() enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString() enter");
 
 	const char *methodName = "toGenericString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1591,7 +1591,7 @@ java_lang_String java_lang_reflect_Field::toGenericString()
 	LOGV("java_lang_reflect_Field jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1609,17 +1609,17 @@ java_lang_String java_lang_reflect_Field::toGenericString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_reflect_Field::toGenericString() exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_reflect_Field::toGenericString() exit");
 
 	return result;
 }
-void java_lang_reflect_Field::set(java_lang_Object& arg0,java_lang_Object& arg1)
+void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("void java_lang_reflect_Field::set(java_lang_Object& arg0,java_lang_Object& arg1) enter");
+	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)V";
@@ -1684,12 +1684,12 @@ void java_lang_reflect_Field::set(java_lang_Object& arg0,java_lang_Object& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::set(java_lang_Object& arg0,java_lang_Object& arg1) exit");
+	LOGV("void java_lang_reflect_Field::set(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 }
-void java_lang_reflect_Field::setBoolean(java_lang_Object& arg0,bool& arg1)
+void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setBoolean(java_lang_Object& arg0,bool& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1) enter");
 
 	const char *methodName = "setBoolean";
 	const char *methodSignature = "(Ljava/lang/Object;Z)V";
@@ -1754,12 +1754,12 @@ void java_lang_reflect_Field::setBoolean(java_lang_Object& arg0,bool& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setBoolean(java_lang_Object& arg0,bool& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setBoolean(AndroidCXX::java_lang_Object& arg0,bool& arg1) exit");
 
 }
-void java_lang_reflect_Field::setByte(java_lang_Object& arg0,byte& arg1)
+void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setByte(java_lang_Object& arg0,byte& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1) enter");
 
 	const char *methodName = "setByte";
 	const char *methodSignature = "(Ljava/lang/Object;B)V";
@@ -1824,12 +1824,12 @@ void java_lang_reflect_Field::setByte(java_lang_Object& arg0,byte& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setByte(java_lang_Object& arg0,byte& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setByte(AndroidCXX::java_lang_Object& arg0,byte& arg1) exit");
 
 }
-void java_lang_reflect_Field::setChar(java_lang_Object& arg0,char& arg1)
+void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setChar(java_lang_Object& arg0,char& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1) enter");
 
 	const char *methodName = "setChar";
 	const char *methodSignature = "(Ljava/lang/Object;C)V";
@@ -1894,12 +1894,12 @@ void java_lang_reflect_Field::setChar(java_lang_Object& arg0,char& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setChar(java_lang_Object& arg0,char& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setChar(AndroidCXX::java_lang_Object& arg0,char& arg1) exit");
 
 }
-void java_lang_reflect_Field::setShort(java_lang_Object& arg0,short& arg1)
+void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setShort(java_lang_Object& arg0,short& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1) enter");
 
 	const char *methodName = "setShort";
 	const char *methodSignature = "(Ljava/lang/Object;S)V";
@@ -1964,12 +1964,12 @@ void java_lang_reflect_Field::setShort(java_lang_Object& arg0,short& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setShort(java_lang_Object& arg0,short& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setShort(AndroidCXX::java_lang_Object& arg0,short& arg1) exit");
 
 }
-void java_lang_reflect_Field::setInt(java_lang_Object& arg0,int& arg1)
+void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setInt(java_lang_Object& arg0,int& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1) enter");
 
 	const char *methodName = "setInt";
 	const char *methodSignature = "(Ljava/lang/Object;I)V";
@@ -2034,12 +2034,12 @@ void java_lang_reflect_Field::setInt(java_lang_Object& arg0,int& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setInt(java_lang_Object& arg0,int& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setInt(AndroidCXX::java_lang_Object& arg0,int& arg1) exit");
 
 }
-void java_lang_reflect_Field::setLong(java_lang_Object& arg0,long& arg1)
+void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setLong(java_lang_Object& arg0,long& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1) enter");
 
 	const char *methodName = "setLong";
 	const char *methodSignature = "(Ljava/lang/Object;J)V";
@@ -2104,12 +2104,12 @@ void java_lang_reflect_Field::setLong(java_lang_Object& arg0,long& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setLong(java_lang_Object& arg0,long& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setLong(AndroidCXX::java_lang_Object& arg0,long& arg1) exit");
 
 }
-void java_lang_reflect_Field::setFloat(java_lang_Object& arg0,float& arg1)
+void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setFloat(java_lang_Object& arg0,float& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1) enter");
 
 	const char *methodName = "setFloat";
 	const char *methodSignature = "(Ljava/lang/Object;F)V";
@@ -2174,12 +2174,12 @@ void java_lang_reflect_Field::setFloat(java_lang_Object& arg0,float& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setFloat(java_lang_Object& arg0,float& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setFloat(AndroidCXX::java_lang_Object& arg0,float& arg1) exit");
 
 }
-void java_lang_reflect_Field::setDouble(java_lang_Object& arg0,double& arg1)
+void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1)
 {
-	LOGV("void java_lang_reflect_Field::setDouble(java_lang_Object& arg0,double& arg1) enter");
+	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1) enter");
 
 	const char *methodName = "setDouble";
 	const char *methodSignature = "(Ljava/lang/Object;D)V";
@@ -2244,6 +2244,6 @@ void java_lang_reflect_Field::setDouble(java_lang_Object& arg0,double& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_lang_reflect_Field::setDouble(java_lang_Object& arg0,double& arg1) exit");
+	LOGV("void java_lang_reflect_Field::setDouble(AndroidCXX::java_lang_Object& arg0,double& arg1) exit");
 
 }

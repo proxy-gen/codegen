@@ -62,9 +62,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_CharSequence;
+class AndroidCXX::java_lang_CharSequence;
 
 class java_lang_CharSequence
 {
@@ -77,10 +77,10 @@ public:
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
-	 java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 	 int length();
 	 char charAt(int& arg0);
-	 java_lang_CharSequence subSequence(int& arg0,int& arg1);
+	 AndroidCXX::java_lang_CharSequence subSequence(int& arg0,int& arg1);
 };	
 
 } // namespace

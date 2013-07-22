@@ -159,15 +159,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_Package;
+class AndroidCXX::java_lang_Package;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
-class java_lang_annotation_Annotation;
+class AndroidCXX::java_lang_annotation_Annotation;
 
-class java_net_URL;
+class AndroidCXX::java_net_URL;
 
 class java_lang_Package
 {
@@ -180,24 +180,24 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
-	 java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_String getName();
-	static java_lang_Package getPackage(java_lang_String& arg0);
-	 java_lang_annotation_Annotation getAnnotation(java_lang_Class& arg0);
-	 bool isAnnotationPresent(java_lang_Class& arg0);
+	 AndroidCXX::java_lang_String getName();
+	static AndroidCXX::java_lang_Package getPackage(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
+	 bool isAnnotationPresent(AndroidCXX::java_lang_Class& arg0);
 	 std::vector<java_lang_annotation_Annotation > getAnnotations();
 	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	static std::vector<java_lang_Package > getPackages();
 	 bool isSealed();
-	 bool isSealed(java_net_URL& arg0);
-	 java_lang_String getSpecificationTitle();
-	 java_lang_String getSpecificationVersion();
-	 java_lang_String getSpecificationVendor();
-	 java_lang_String getImplementationTitle();
-	 java_lang_String getImplementationVersion();
-	 java_lang_String getImplementationVendor();
-	 bool isCompatibleWith(java_lang_String& arg0);
+	 bool isSealed(AndroidCXX::java_net_URL& arg0);
+	 AndroidCXX::java_lang_String getSpecificationTitle();
+	 AndroidCXX::java_lang_String getSpecificationVersion();
+	 AndroidCXX::java_lang_String getSpecificationVendor();
+	 AndroidCXX::java_lang_String getImplementationTitle();
+	 AndroidCXX::java_lang_String getImplementationVersion();
+	 AndroidCXX::java_lang_String getImplementationVendor();
+	 bool isCompatibleWith(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

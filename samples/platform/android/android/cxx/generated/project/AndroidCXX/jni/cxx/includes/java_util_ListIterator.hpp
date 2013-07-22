@@ -74,7 +74,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
 class java_util_ListIterator
 {
@@ -87,13 +87,13 @@ public:
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
-	 void add(java_lang_Object& arg0);
+	 void add(AndroidCXX::java_lang_Object& arg0);
 	 bool hasNext();
-	 java_lang_Object next();
+	 AndroidCXX::java_lang_Object next();
 	 void remove();
-	 void set(java_lang_Object& arg0);
+	 void set(AndroidCXX::java_lang_Object& arg0);
 	 int nextIndex();
-	 java_lang_Object previous();
+	 AndroidCXX::java_lang_Object previous();
 	 int previousIndex();
 	 bool hasPrevious();
 };	

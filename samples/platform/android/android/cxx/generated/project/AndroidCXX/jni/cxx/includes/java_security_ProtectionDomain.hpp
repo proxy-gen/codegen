@@ -117,17 +117,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_ClassLoader;
+class AndroidCXX::java_lang_ClassLoader;
 
-class java_security_CodeSource;
+class AndroidCXX::java_security_CodeSource;
 
-class java_security_Principal;
+class AndroidCXX::java_security_Principal;
 
-class java_security_PermissionCollection;
+class AndroidCXX::java_security_PermissionCollection;
 
-class java_security_Permission;
+class AndroidCXX::java_security_Permission;
 
 class java_security_ProtectionDomain
 {
@@ -136,18 +136,18 @@ public:
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
 	java_security_ProtectionDomain(void * proxy);
 	// Public Constructors
-	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1);
-	java_security_ProtectionDomain(java_security_CodeSource& arg0,java_security_PermissionCollection& arg1,java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3);
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1);
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<java_security_Principal >& arg3);
 	java_security_ProtectionDomain();
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions
-	 java_lang_String toString();
-	 java_lang_ClassLoader getClassLoader();
-	 java_security_CodeSource getCodeSource();
+	 AndroidCXX::java_lang_String toString();
+	 AndroidCXX::java_lang_ClassLoader getClassLoader();
+	 AndroidCXX::java_security_CodeSource getCodeSource();
 	 std::vector<java_security_Principal > getPrincipals();
-	 java_security_PermissionCollection getPermissions();
-	 bool implies(java_security_Permission& arg0);
+	 AndroidCXX::java_security_PermissionCollection getPermissions();
+	 bool implies(AndroidCXX::java_security_Permission& arg0);
 };	
 
 } // namespace

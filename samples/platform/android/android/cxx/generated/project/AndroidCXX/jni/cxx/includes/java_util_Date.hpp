@@ -125,11 +125,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_util_Date;
+class AndroidCXX::java_util_Date;
 
 class java_util_Date
 {
@@ -143,18 +143,18 @@ public:
 	java_util_Date(int& arg0,int& arg1,int& arg2);
 	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
 	java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5);
-	java_util_Date(java_lang_String& arg0);
+	java_util_Date(AndroidCXX::java_lang_String& arg0);
 	// Default Destructor
 	virtual ~java_util_Date();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_Object clone();
-	 int compareTo(java_util_Date& arg0);
-	 bool after(java_util_Date& arg0);
-	 bool before(java_util_Date& arg0);
-	static long parse(java_lang_String& arg0);
+	 AndroidCXX::java_lang_Object clone();
+	 int compareTo(AndroidCXX::java_util_Date& arg0);
+	 bool after(AndroidCXX::java_util_Date& arg0);
+	 bool before(AndroidCXX::java_util_Date& arg0);
+	static long parse(AndroidCXX::java_lang_String& arg0);
 	 void setTime(long& arg0);
 	 long getTime();
 	 int getYear();
@@ -171,8 +171,8 @@ public:
 	 void setSeconds(int& arg0);
 	 void setYear(int& arg0);
 	 int getDay();
-	 java_lang_String toLocaleString();
-	 java_lang_String toGMTString();
+	 AndroidCXX::java_lang_String toLocaleString();
+	 AndroidCXX::java_lang_String toGMTString();
 	 int getTimezoneOffset();
 };	
 

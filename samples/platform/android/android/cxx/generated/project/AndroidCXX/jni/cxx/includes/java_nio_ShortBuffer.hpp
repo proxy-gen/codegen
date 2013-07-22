@@ -162,13 +162,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_ShortBuffer;
+class AndroidCXX::java_nio_ShortBuffer;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_ByteOrder;
+class AndroidCXX::java_nio_ByteOrder;
 
 class java_nio_ShortBuffer
 {
@@ -182,30 +182,30 @@ public:
 	virtual ~java_nio_ShortBuffer();
 	// Functions
 	 short get();
-	 java_nio_ShortBuffer get(std::vector<short>& arg0);
-	 java_nio_ShortBuffer get(std::vector<short>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short>& arg0);
+	 AndroidCXX::java_nio_ShortBuffer get(std::vector<short>& arg0,int& arg1,int& arg2);
 	 short get(int& arg0);
-	 java_nio_ShortBuffer put(java_nio_ShortBuffer& arg0);
-	 java_nio_ShortBuffer put(short& arg0);
-	 java_nio_ShortBuffer put(int& arg0,short& arg1);
-	 java_nio_ShortBuffer put(std::vector<short>& arg0,int& arg1,int& arg2);
-	 java_nio_ShortBuffer put(std::vector<short>& arg0);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 AndroidCXX::java_nio_ShortBuffer put(AndroidCXX::java_nio_ShortBuffer& arg0);
+	 AndroidCXX::java_nio_ShortBuffer put(short& arg0);
+	 AndroidCXX::java_nio_ShortBuffer put(int& arg0,short& arg1);
+	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_ShortBuffer put(std::vector<short>& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(java_nio_ShortBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_ShortBuffer& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<short> array();
 	 int arrayOffset();
-	static java_nio_ShortBuffer wrap(std::vector<short>& arg0,int& arg1,int& arg2);
-	static java_nio_ShortBuffer wrap(std::vector<short>& arg0);
-	static java_nio_ShortBuffer allocate(int& arg0);
-	 java_nio_ShortBuffer duplicate();
-	 java_nio_ShortBuffer slice();
-	 java_nio_ShortBuffer asReadOnlyBuffer();
-	 java_nio_ShortBuffer compact();
-	 java_nio_ByteOrder order();
+	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short>& arg0,int& arg1,int& arg2);
+	static AndroidCXX::java_nio_ShortBuffer wrap(std::vector<short>& arg0);
+	static AndroidCXX::java_nio_ShortBuffer allocate(int& arg0);
+	 AndroidCXX::java_nio_ShortBuffer duplicate();
+	 AndroidCXX::java_nio_ShortBuffer slice();
+	 AndroidCXX::java_nio_ShortBuffer asReadOnlyBuffer();
+	 AndroidCXX::java_nio_ShortBuffer compact();
+	 AndroidCXX::java_nio_ByteOrder order();
 };	
 
 } // namespace

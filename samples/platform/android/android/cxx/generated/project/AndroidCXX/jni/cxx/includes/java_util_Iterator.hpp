@@ -56,7 +56,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
 class java_util_Iterator
 {
@@ -70,7 +70,7 @@ public:
 	virtual ~java_util_Iterator();
 	// Functions
 	 bool hasNext();
-	 java_lang_Object next();
+	 AndroidCXX::java_lang_Object next();
 	 void remove();
 };	
 

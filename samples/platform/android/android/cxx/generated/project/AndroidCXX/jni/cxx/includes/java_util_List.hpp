@@ -221,15 +221,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_util_Collection;
+class AndroidCXX::java_util_Collection;
 
-class java_util_Iterator;
+class AndroidCXX::java_util_Iterator;
 
-class java_util_ListIterator;
+class AndroidCXX::java_util_ListIterator;
 
-class java_util_List;
+class AndroidCXX::java_util_List;
 
 class java_util_List
 {
@@ -242,31 +242,31 @@ public:
 	// Default Destructor
 	virtual ~java_util_List();
 	// Functions
-	 void add(int& arg0,java_lang_Object& arg1);
-	 bool add(java_lang_Object& arg0);
-	 java_lang_Object get(int& arg0);
-	 bool equals(java_lang_Object& arg0);
+	 void add(int& arg0,AndroidCXX::java_lang_Object& arg1);
+	 bool add(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(int& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
 	 int hashCode();
-	 int indexOf(java_lang_Object& arg0);
+	 int indexOf(AndroidCXX::java_lang_Object& arg0);
 	 void clear();
 	 bool isEmpty();
-	 int lastIndexOf(java_lang_Object& arg0);
-	 bool contains(java_lang_Object& arg0);
-	 bool addAll(int& arg0,java_util_Collection& arg1);
-	 bool addAll(java_util_Collection& arg0);
+	 int lastIndexOf(AndroidCXX::java_lang_Object& arg0);
+	 bool contains(AndroidCXX::java_lang_Object& arg0);
+	 bool addAll(int& arg0,AndroidCXX::java_util_Collection& arg1);
+	 bool addAll(AndroidCXX::java_util_Collection& arg0);
 	 int size();
 	 std::vector<java_lang_Object > toArray(std::vector<java_lang_Object >& arg0);
 	 std::vector<java_lang_Object > toArray();
-	 java_util_Iterator iterator();
-	 java_lang_Object remove(int& arg0);
-	 bool remove(java_lang_Object& arg0);
-	 java_lang_Object set(int& arg0,java_lang_Object& arg1);
-	 java_util_ListIterator listIterator(int& arg0);
-	 java_util_ListIterator listIterator();
-	 java_util_List subList(int& arg0,int& arg1);
-	 bool removeAll(java_util_Collection& arg0);
-	 bool containsAll(java_util_Collection& arg0);
-	 bool retainAll(java_util_Collection& arg0);
+	 AndroidCXX::java_util_Iterator iterator();
+	 AndroidCXX::java_lang_Object remove(int& arg0);
+	 bool remove(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object set(int& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_util_ListIterator listIterator(int& arg0);
+	 AndroidCXX::java_util_ListIterator listIterator();
+	 AndroidCXX::java_util_List subList(int& arg0,int& arg1);
+	 bool removeAll(AndroidCXX::java_util_Collection& arg0);
+	 bool containsAll(AndroidCXX::java_util_Collection& arg0);
+	 bool retainAll(AndroidCXX::java_util_Collection& arg0);
 };	
 
 } // namespace

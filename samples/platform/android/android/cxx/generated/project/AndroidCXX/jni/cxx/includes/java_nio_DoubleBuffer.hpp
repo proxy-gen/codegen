@@ -162,13 +162,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_DoubleBuffer;
+class AndroidCXX::java_nio_DoubleBuffer;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_ByteOrder;
+class AndroidCXX::java_nio_ByteOrder;
 
 class java_nio_DoubleBuffer
 {
@@ -182,30 +182,30 @@ public:
 	virtual ~java_nio_DoubleBuffer();
 	// Functions
 	 double get();
-	 java_nio_DoubleBuffer get(std::vector<double>& arg0);
-	 java_nio_DoubleBuffer get(std::vector<double>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_DoubleBuffer get(std::vector<double>& arg0);
+	 AndroidCXX::java_nio_DoubleBuffer get(std::vector<double>& arg0,int& arg1,int& arg2);
 	 double get(int& arg0);
-	 java_nio_DoubleBuffer put(java_nio_DoubleBuffer& arg0);
-	 java_nio_DoubleBuffer put(double& arg0);
-	 java_nio_DoubleBuffer put(int& arg0,double& arg1);
-	 java_nio_DoubleBuffer put(std::vector<double>& arg0,int& arg1,int& arg2);
-	 java_nio_DoubleBuffer put(std::vector<double>& arg0);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 AndroidCXX::java_nio_DoubleBuffer put(AndroidCXX::java_nio_DoubleBuffer& arg0);
+	 AndroidCXX::java_nio_DoubleBuffer put(double& arg0);
+	 AndroidCXX::java_nio_DoubleBuffer put(int& arg0,double& arg1);
+	 AndroidCXX::java_nio_DoubleBuffer put(std::vector<double>& arg0,int& arg1,int& arg2);
+	 AndroidCXX::java_nio_DoubleBuffer put(std::vector<double>& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(java_nio_DoubleBuffer& arg0);
+	 int compareTo(AndroidCXX::java_nio_DoubleBuffer& arg0);
 	 bool isDirect();
 	 bool hasArray();
 	 std::vector<double> array();
 	 int arrayOffset();
-	static java_nio_DoubleBuffer wrap(std::vector<double>& arg0,int& arg1,int& arg2);
-	static java_nio_DoubleBuffer wrap(std::vector<double>& arg0);
-	static java_nio_DoubleBuffer allocate(int& arg0);
-	 java_nio_DoubleBuffer duplicate();
-	 java_nio_DoubleBuffer slice();
-	 java_nio_DoubleBuffer asReadOnlyBuffer();
-	 java_nio_DoubleBuffer compact();
-	 java_nio_ByteOrder order();
+	static AndroidCXX::java_nio_DoubleBuffer wrap(std::vector<double>& arg0,int& arg1,int& arg2);
+	static AndroidCXX::java_nio_DoubleBuffer wrap(std::vector<double>& arg0);
+	static AndroidCXX::java_nio_DoubleBuffer allocate(int& arg0);
+	 AndroidCXX::java_nio_DoubleBuffer duplicate();
+	 AndroidCXX::java_nio_DoubleBuffer slice();
+	 AndroidCXX::java_nio_DoubleBuffer asReadOnlyBuffer();
+	 AndroidCXX::java_nio_DoubleBuffer compact();
+	 AndroidCXX::java_nio_ByteOrder order();
 };	
 
 } // namespace

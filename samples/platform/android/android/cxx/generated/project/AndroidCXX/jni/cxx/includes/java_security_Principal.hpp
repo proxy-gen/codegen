@@ -67,9 +67,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
 class java_security_Principal
 {
@@ -82,10 +82,10 @@ public:
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_String getName();
+	 AndroidCXX::java_lang_String getName();
 };	
 
 } // namespace

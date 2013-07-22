@@ -142,9 +142,9 @@ java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory()
 	LOGV("java_net_ContentHandlerFactory::~java_net_ContentHandlerFactory() exit");
 }
 // Functions
-java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0)
+AndroidCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "createContentHandler";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/ContentHandler;";
@@ -184,7 +184,7 @@ java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(jav
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_net_ContentHandler result;
+	AndroidCXX::java_net_ContentHandler result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -202,11 +202,11 @@ java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_ContentHandler(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_ContentHandler) (java_net_ContentHandler((java_net_ContentHandler *) cxx_value));
+	result = (AndroidCXX::java_net_ContentHandler) (AndroidCXX::java_net_ContentHandler((AndroidCXX::java_net_ContentHandler *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHandler(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

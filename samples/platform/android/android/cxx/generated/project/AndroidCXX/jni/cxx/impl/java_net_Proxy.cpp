@@ -153,9 +153,9 @@ java_net_Proxy::java_net_Proxy()
 	LOGV("java_net_Proxy::java_net_Proxy() exit");	
 }
 // Public Constructors
-java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1)
+java_net_Proxy::java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,AndroidCXX::java_net_SocketAddress& arg1)
 {
-	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1) enter");	
+	LOGV("java_net_Proxy::java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,AndroidCXX::java_net_SocketAddress& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V";
@@ -229,7 +229,7 @@ java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress&
 
 	jni->popLocalFrame();
 
-	LOGV("java_net_Proxy::java_net_Proxy(java_net_Proxy_Type& arg0,java_net_SocketAddress& arg1) exit");	
+	LOGV("java_net_Proxy::java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,AndroidCXX::java_net_SocketAddress& arg1) exit");	
 }
 // Default Instance Destructor
 java_net_Proxy::~java_net_Proxy()
@@ -246,9 +246,9 @@ java_net_Proxy::~java_net_Proxy()
 	LOGV("java_net_Proxy::~java_net_Proxy() exit");
 }
 // Functions
-java_net_Proxy_Type java_net_Proxy::type()
+JAVA_NET_PROXY_TYPE::java_net_Proxy_Type java_net_Proxy::type()
 {
-	LOGV("java_net_Proxy_Type java_net_Proxy::type() enter");
+	LOGV("JAVA_NET_PROXY_TYPE::java_net_Proxy_Type java_net_Proxy::type() enter");
 
 	const char *methodName = "type";
 	const char *methodSignature = "()Ljava/net/Proxy$Type;";
@@ -267,7 +267,7 @@ java_net_Proxy_Type java_net_Proxy::type()
 	LOGV("java_net_Proxy jni address %d", javaObject);
 
 
-	java_net_Proxy_Type result;
+	JAVA_NET_PROXY_TYPE::java_net_Proxy_Type result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -285,17 +285,17 @@ java_net_Proxy_Type java_net_Proxy::type()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_Proxy_Type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_Proxy_Type) (cxx_value);
+	result = (JAVA_NET_PROXY_TYPE::java_net_Proxy_Type) (cxx_value);
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_Proxy_Type java_net_Proxy::type() exit");
+	LOGV("JAVA_NET_PROXY_TYPE::java_net_Proxy_Type java_net_Proxy::type() exit");
 
 	return result;
 }
-bool java_net_Proxy::equals(java_lang_Object& arg0)
+bool java_net_Proxy::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_net_Proxy::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_net_Proxy::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -357,13 +357,13 @@ bool java_net_Proxy::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_net_Proxy::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_net_Proxy::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_net_Proxy::toString()
+AndroidCXX::java_lang_String java_net_Proxy::toString()
 {
-	LOGV("java_lang_String java_net_Proxy::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_net_Proxy::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -382,7 +382,7 @@ java_lang_String java_net_Proxy::toString()
 	LOGV("java_net_Proxy jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -400,11 +400,11 @@ java_lang_String java_net_Proxy::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_Proxy::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_net_Proxy::toString() exit");
 
 	return result;
 }
@@ -455,9 +455,9 @@ int java_net_Proxy::hashCode()
 
 	return result;
 }
-java_net_SocketAddress java_net_Proxy::address()
+AndroidCXX::java_net_SocketAddress java_net_Proxy::address()
 {
-	LOGV("java_net_SocketAddress java_net_Proxy::address() enter");
+	LOGV("AndroidCXX::java_net_SocketAddress java_net_Proxy::address() enter");
 
 	const char *methodName = "address";
 	const char *methodSignature = "()Ljava/net/SocketAddress;";
@@ -476,7 +476,7 @@ java_net_SocketAddress java_net_Proxy::address()
 	LOGV("java_net_Proxy jni address %d", javaObject);
 
 
-	java_net_SocketAddress result;
+	AndroidCXX::java_net_SocketAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -494,11 +494,11 @@ java_net_SocketAddress java_net_Proxy::address()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_net_SocketAddress) (java_net_SocketAddress((java_net_SocketAddress *) cxx_value));
+	result = (AndroidCXX::java_net_SocketAddress) (AndroidCXX::java_net_SocketAddress((AndroidCXX::java_net_SocketAddress *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_net_SocketAddress java_net_Proxy::address() exit");
+	LOGV("AndroidCXX::java_net_SocketAddress java_net_Proxy::address() exit");
 
 	return result;
 }

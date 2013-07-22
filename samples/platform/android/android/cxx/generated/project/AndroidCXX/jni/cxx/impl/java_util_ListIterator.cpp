@@ -158,9 +158,9 @@ java_util_ListIterator::~java_util_ListIterator()
 	LOGV("java_util_ListIterator::~java_util_ListIterator() exit");
 }
 // Functions
-void java_util_ListIterator::add(java_lang_Object& arg0)
+void java_util_ListIterator::add(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("void java_util_ListIterator::add(java_lang_Object& arg0) enter");
+	LOGV("void java_util_ListIterator::add(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -204,7 +204,7 @@ void java_util_ListIterator::add(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_util_ListIterator::add(java_lang_Object& arg0) exit");
+	LOGV("void java_util_ListIterator::add(AndroidCXX::java_lang_Object& arg0) exit");
 
 }
 bool java_util_ListIterator::hasNext()
@@ -254,9 +254,9 @@ bool java_util_ListIterator::hasNext()
 
 	return result;
 }
-java_lang_Object java_util_ListIterator::next()
+AndroidCXX::java_lang_Object java_util_ListIterator::next()
 {
-	LOGV("java_lang_Object java_util_ListIterator::next() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_ListIterator::next() enter");
 
 	const char *methodName = "next";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -275,7 +275,7 @@ java_lang_Object java_util_ListIterator::next()
 	LOGV("java_util_ListIterator jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -293,11 +293,11 @@ java_lang_Object java_util_ListIterator::next()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_ListIterator::next() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_ListIterator::next() exit");
 
 	return result;
 }
@@ -329,9 +329,9 @@ void java_util_ListIterator::remove()
 	LOGV("void java_util_ListIterator::remove() exit");
 
 }
-void java_util_ListIterator::set(java_lang_Object& arg0)
+void java_util_ListIterator::set(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("void java_util_ListIterator::set(java_lang_Object& arg0) enter");
+	LOGV("void java_util_ListIterator::set(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "set";
 	const char *methodSignature = "(Ljava/lang/Object;)V";
@@ -375,7 +375,7 @@ void java_util_ListIterator::set(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_util_ListIterator::set(java_lang_Object& arg0) exit");
+	LOGV("void java_util_ListIterator::set(AndroidCXX::java_lang_Object& arg0) exit");
 
 }
 int java_util_ListIterator::nextIndex()
@@ -425,9 +425,9 @@ int java_util_ListIterator::nextIndex()
 
 	return result;
 }
-java_lang_Object java_util_ListIterator::previous()
+AndroidCXX::java_lang_Object java_util_ListIterator::previous()
 {
-	LOGV("java_lang_Object java_util_ListIterator::previous() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_ListIterator::previous() enter");
 
 	const char *methodName = "previous";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -446,7 +446,7 @@ java_lang_Object java_util_ListIterator::previous()
 	LOGV("java_util_ListIterator jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -464,11 +464,11 @@ java_lang_Object java_util_ListIterator::previous()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_ListIterator::previous() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_ListIterator::previous() exit");
 
 	return result;
 }

@@ -90,11 +90,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_security_PublicKey;
+class AndroidCXX::java_security_PublicKey;
 
 class java_security_cert_Certificate
 {
@@ -107,14 +107,14 @@ public:
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_String getType();
+	 AndroidCXX::java_lang_String getType();
 	 std::vector<byte> getEncoded();
-	 void verify(java_security_PublicKey& arg0);
-	 void verify(java_security_PublicKey& arg0,java_lang_String& arg1);
-	 java_security_PublicKey getPublicKey();
+	 void verify(AndroidCXX::java_security_PublicKey& arg0);
+	 void verify(AndroidCXX::java_security_PublicKey& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::java_security_PublicKey getPublicKey();
 };	
 
 } // namespace

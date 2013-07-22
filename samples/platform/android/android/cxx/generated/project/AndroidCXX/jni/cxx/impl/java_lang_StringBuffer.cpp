@@ -431,9 +431,9 @@ java_lang_StringBuffer::java_lang_StringBuffer(int& arg0)
 
 	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(int& arg0) exit");	
 }
-java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0)
+java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0) enter");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -486,11 +486,11 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_String& arg0) exit");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_String& arg0) exit");	
 }
-java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0)
+java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence& arg0)
 {
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0) enter");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
@@ -543,7 +543,7 @@ java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(java_lang_CharSequence& arg0) exit");	
+	LOGV("java_lang_StringBuffer::java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence& arg0) exit");	
 }
 // Default Instance Destructor
 java_lang_StringBuffer::~java_lang_StringBuffer()
@@ -560,9 +560,9 @@ java_lang_StringBuffer::~java_lang_StringBuffer()
 	LOGV("java_lang_StringBuffer::~java_lang_StringBuffer() exit");
 }
 // Functions
-java_lang_String java_lang_StringBuffer::toString()
+AndroidCXX::java_lang_String java_lang_StringBuffer::toString()
 {
-	LOGV("java_lang_String java_lang_StringBuffer::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -581,7 +581,7 @@ java_lang_String java_lang_StringBuffer::toString()
 	LOGV("java_lang_StringBuffer jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -599,17 +599,17 @@ java_lang_String java_lang_StringBuffer::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_StringBuffer::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::toString() exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([CII)Ljava/lang/StringBuffer;";
@@ -709,7 +709,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,in
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -727,17 +727,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_Object& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_Object& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/StringBuffer;";
@@ -777,7 +777,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -795,17 +795,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_Object& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/StringBuffer;";
@@ -845,7 +845,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -863,17 +863,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_StringBuffer& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_StringBuffer& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_StringBuffer& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_StringBuffer& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;";
@@ -913,7 +913,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_StringBuffer& ar
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -931,17 +931,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_StringBuffer& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_StringBuffer& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_StringBuffer& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;";
@@ -981,7 +981,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -999,17 +999,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
@@ -1091,7 +1091,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1109,17 +1109,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(AndroidCXX::java_lang_CharSequence& arg0,int& arg1,int& arg2) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "([C)Ljava/lang/StringBuffer;";
@@ -1177,7 +1177,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0)
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1195,17 +1195,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(std::vector<char>& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(Z)Ljava/lang/StringBuffer;";
@@ -1245,7 +1245,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1263,17 +1263,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(bool& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(C)Ljava/lang/StringBuffer;";
@@ -1313,7 +1313,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1331,17 +1331,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(char& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -1381,7 +1381,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1399,17 +1399,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(J)Ljava/lang/StringBuffer;";
@@ -1449,7 +1449,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1467,17 +1467,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(long& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(F)Ljava/lang/StringBuffer;";
@@ -1517,7 +1517,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1535,17 +1535,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(float& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) enter");
 
 	const char *methodName = "append";
 	const char *methodSignature = "(D)Ljava/lang/StringBuffer;";
@@ -1585,7 +1585,7 @@ java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1603,17 +1603,17 @@ java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::append(double& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1)
+int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0,int& arg1)
 {
-	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -1696,13 +1696,13 @@ int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::indexOf(java_lang_String& arg0)
+int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0) enter");
+	LOGV("int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "indexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
@@ -1764,7 +1764,7 @@ int java_lang_StringBuffer::indexOf(java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_StringBuffer::indexOf(java_lang_String& arg0) exit");
+	LOGV("int java_lang_StringBuffer::indexOf(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -2327,9 +2327,9 @@ void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg
 	LOGV("void java_lang_StringBuffer::getChars(int& arg0,int& arg1,std::vector<char>& arg2,int& arg3) exit");
 
 }
-int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0)
+int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0) enter");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;)I";
@@ -2391,13 +2391,13 @@ int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0) exit");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
-int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1)
+int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0,int& arg1)
 {
-	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1) enter");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0,int& arg1) enter");
 
 	const char *methodName = "lastIndexOf";
 	const char *methodSignature = "(Ljava/lang/String;I)I";
@@ -2480,13 +2480,13 @@ int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_lang_StringBuffer::lastIndexOf(java_lang_String& arg0,int& arg1) exit");
+	LOGV("int java_lang_StringBuffer::lastIndexOf(AndroidCXX::java_lang_String& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_String java_lang_StringBuffer::substring(int& arg0)
+AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0)
 {
-	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0) enter");
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(I)Ljava/lang/String;";
@@ -2526,7 +2526,7 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2544,17 +2544,17 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0) exit");
 
 	return result;
 }
-java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
+AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 {
-	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) enter");
 
 	const char *methodName = "substring";
 	const char *methodSignature = "(II)Ljava/lang/String;";
@@ -2615,7 +2615,7 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2633,17 +2633,17 @@ java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_String java_lang_StringBuffer::substring(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
+AndroidCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
 {
-	LOGV("java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) enter");
 
 	const char *methodName = "subSequence";
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
@@ -2704,7 +2704,7 @@ java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_CharSequence result;
+	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2722,17 +2722,17 @@ java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_CharSequence) (java_lang_CharSequence((java_lang_CharSequence *) cxx_value));
+	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_CharSequence java_lang_StringBuffer::subSequence(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_lang_String& arg2)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_lang_String& arg2) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) enter");
 
 	const char *methodName = "replace";
 	const char *methodSignature = "(IILjava/lang/String;)Ljava/lang/StringBuffer;";
@@ -2814,7 +2814,7 @@ java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2832,11 +2832,11 @@ java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,java_lang_String& arg2) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::replace(int& arg0,int& arg1,AndroidCXX::java_lang_String& arg2) exit");
 
 	return result;
 }
@@ -3083,9 +3083,9 @@ void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1)
 	LOGV("void java_lang_StringBuffer::setCharAt(int& arg0,char& arg1) exit");
 
 }
-java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) enter");
 
 	const char *methodName = "appendCodePoint";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -3125,7 +3125,7 @@ java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3143,17 +3143,17 @@ java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::appendCodePoint(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) enter");
 
 	const char *methodName = "delete";
 	const char *methodSignature = "(II)Ljava/lang/StringBuffer;";
@@ -3214,7 +3214,7 @@ java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3232,17 +3232,17 @@ java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::_delete(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) enter");
 
 	const char *methodName = "deleteCharAt";
 	const char *methodSignature = "(I)Ljava/lang/StringBuffer;";
@@ -3282,7 +3282,7 @@ java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3300,17 +3300,17 @@ java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::deleteCharAt(int& arg0) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IJ)Ljava/lang/StringBuffer;";
@@ -3371,7 +3371,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1)
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3389,17 +3389,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,long& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(II)Ljava/lang/StringBuffer;";
@@ -3460,7 +3460,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3478,17 +3478,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,int& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IC)Ljava/lang/StringBuffer;";
@@ -3549,7 +3549,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1)
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3567,17 +3567,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,char& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IZ)Ljava/lang/StringBuffer;";
@@ -3638,7 +3638,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1)
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3656,17 +3656,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,bool& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;II)Ljava/lang/StringBuffer;";
@@ -3769,7 +3769,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3787,17 +3787,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,int& arg2,int& arg3) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/StringBuffer;";
@@ -3858,7 +3858,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3876,17 +3876,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_CharSequence& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_CharSequence& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[C)Ljava/lang/StringBuffer;";
@@ -3965,7 +3965,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char
 		jarg1 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3983,17 +3983,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(I[CII)Ljava/lang/StringBuffer;";
@@ -4114,7 +4114,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4132,17 +4132,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,std::vector<char>& arg1,int& arg2,int& arg3) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ID)Ljava/lang/StringBuffer;";
@@ -4203,7 +4203,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1)
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4221,17 +4221,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,double& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(IF)Ljava/lang/StringBuffer;";
@@ -4292,7 +4292,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4310,17 +4310,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,float& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_String& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/String;)Ljava/lang/StringBuffer;";
@@ -4381,7 +4381,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4399,17 +4399,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_String& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_String& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_Object& arg1)
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_Object& arg1) enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "insert";
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/StringBuffer;";
@@ -4470,7 +4470,7 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_Object
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4488,17 +4488,17 @@ java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_Object
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,java_lang_Object& arg1) exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::insert(int& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 	return result;
 }
-java_lang_StringBuffer java_lang_StringBuffer::reverse()
+AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse()
 {
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::reverse() enter");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse() enter");
 
 	const char *methodName = "reverse";
 	const char *methodSignature = "()Ljava/lang/StringBuffer;";
@@ -4517,7 +4517,7 @@ java_lang_StringBuffer java_lang_StringBuffer::reverse()
 	LOGV("java_lang_StringBuffer jni address %d", javaObject);
 
 
-	java_lang_StringBuffer result;
+	AndroidCXX::java_lang_StringBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4535,11 +4535,11 @@ java_lang_StringBuffer java_lang_StringBuffer::reverse()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_StringBuffer) (java_lang_StringBuffer((java_lang_StringBuffer *) cxx_value));
+	result = (AndroidCXX::java_lang_StringBuffer) (AndroidCXX::java_lang_StringBuffer((AndroidCXX::java_lang_StringBuffer *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_StringBuffer java_lang_StringBuffer::reverse() exit");
+	LOGV("AndroidCXX::java_lang_StringBuffer java_lang_StringBuffer::reverse() exit");
 
 	return result;
 }

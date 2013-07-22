@@ -255,9 +255,9 @@ java_util_Locale::java_util_Locale()
 	LOGV("java_util_Locale::java_util_Locale() exit");	
 }
 // Public Constructors
-java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2)
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
@@ -352,11 +352,11 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2) exit");	
 }
-java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1)
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
@@ -430,11 +430,11 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0,java_lang_String& arg1) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1) exit");	
 }
-java_util_Locale::java_util_Locale(java_lang_String& arg0)
+java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0) enter");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -487,7 +487,7 @@ java_util_Locale::java_util_Locale(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale::java_util_Locale(java_lang_String& arg0) exit");	
+	LOGV("java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Locale::~java_util_Locale()
@@ -504,9 +504,9 @@ java_util_Locale::~java_util_Locale()
 	LOGV("java_util_Locale::~java_util_Locale() exit");
 }
 // Functions
-bool java_util_Locale::equals(java_lang_Object& arg0)
+bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Locale::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -568,13 +568,13 @@ bool java_util_Locale::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Locale::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Locale::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::toString()
+AndroidCXX::java_lang_String java_util_Locale::toString()
 {
-	LOGV("java_lang_String java_util_Locale::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -593,7 +593,7 @@ java_lang_String java_util_Locale::toString()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -611,11 +611,11 @@ java_lang_String java_util_Locale::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::toString() exit");
 
 	return result;
 }
@@ -666,9 +666,9 @@ int java_util_Locale::hashCode()
 
 	return result;
 }
-java_lang_Object java_util_Locale::clone()
+AndroidCXX::java_lang_Object java_util_Locale::clone()
 {
-	LOGV("java_lang_Object java_util_Locale::clone() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_Locale::clone() enter");
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -687,7 +687,7 @@ java_lang_Object java_util_Locale::clone()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -705,17 +705,17 @@ java_lang_Object java_util_Locale::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_Locale::clone() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_Locale::clone() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getLanguage()
+AndroidCXX::java_lang_String java_util_Locale::getLanguage()
 {
-	LOGV("java_lang_String java_util_Locale::getLanguage() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getLanguage() enter");
 
 	const char *methodName = "getLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -734,7 +734,7 @@ java_lang_String java_util_Locale::getLanguage()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -752,17 +752,17 @@ java_lang_String java_util_Locale::getLanguage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getLanguage() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getLanguage() exit");
 
 	return result;
 }
-java_util_Locale java_util_Locale::getDefault()
+AndroidCXX::java_util_Locale java_util_Locale::getDefault()
 {
-	LOGV("java_util_Locale java_util_Locale::getDefault() enter");
+	LOGV("AndroidCXX::java_util_Locale java_util_Locale::getDefault() enter");
 
 	const char *methodName = "getDefault";
 	const char *methodSignature = "()Ljava/util/Locale;";
@@ -781,7 +781,7 @@ java_util_Locale java_util_Locale::getDefault()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_util_Locale result;
+	AndroidCXX::java_util_Locale result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -799,17 +799,17 @@ java_util_Locale java_util_Locale::getDefault()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Locale(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Locale) (java_util_Locale((java_util_Locale *) cxx_value));
+	result = (AndroidCXX::java_util_Locale) (AndroidCXX::java_util_Locale((AndroidCXX::java_util_Locale *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Locale java_util_Locale::getDefault() exit");
+	LOGV("AndroidCXX::java_util_Locale java_util_Locale::getDefault() exit");
 
 	return result;
 }
-void java_util_Locale::setDefault(java_util_Locale& arg0)
+void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0)
 {
-	LOGV("void java_util_Locale::setDefault(java_util_Locale& arg0) enter");
+	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0) enter");
 
 	const char *methodName = "setDefault";
 	const char *methodSignature = "(Ljava/util/Locale;)V";
@@ -853,7 +853,7 @@ void java_util_Locale::setDefault(java_util_Locale& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("void java_util_Locale::setDefault(java_util_Locale& arg0) exit");
+	LOGV("void java_util_Locale::setDefault(AndroidCXX::java_util_Locale& arg0) exit");
 
 }
 std::vector<java_util_Locale > java_util_Locale::getAvailableLocales()
@@ -1051,9 +1051,9 @@ std::vector<java_lang_String > java_util_Locale::getISOLanguages()
 
 	return result;
 }
-java_lang_String java_util_Locale::getCountry()
+AndroidCXX::java_lang_String java_util_Locale::getCountry()
 {
-	LOGV("java_lang_String java_util_Locale::getCountry() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getCountry() enter");
 
 	const char *methodName = "getCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1072,7 +1072,7 @@ java_lang_String java_util_Locale::getCountry()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1090,17 +1090,17 @@ java_lang_String java_util_Locale::getCountry()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getCountry() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getCountry() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getVariant()
+AndroidCXX::java_lang_String java_util_Locale::getVariant()
 {
-	LOGV("java_lang_String java_util_Locale::getVariant() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getVariant() enter");
 
 	const char *methodName = "getVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1119,7 +1119,7 @@ java_lang_String java_util_Locale::getVariant()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1137,17 +1137,17 @@ java_lang_String java_util_Locale::getVariant()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getVariant() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getVariant() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getISO3Language()
+AndroidCXX::java_lang_String java_util_Locale::getISO3Language()
 {
-	LOGV("java_lang_String java_util_Locale::getISO3Language() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Language() enter");
 
 	const char *methodName = "getISO3Language";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1166,7 +1166,7 @@ java_lang_String java_util_Locale::getISO3Language()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1184,17 +1184,17 @@ java_lang_String java_util_Locale::getISO3Language()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getISO3Language() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Language() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getISO3Country()
+AndroidCXX::java_lang_String java_util_Locale::getISO3Country()
 {
-	LOGV("java_lang_String java_util_Locale::getISO3Country() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Country() enter");
 
 	const char *methodName = "getISO3Country";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1213,7 +1213,7 @@ java_lang_String java_util_Locale::getISO3Country()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1231,17 +1231,17 @@ java_lang_String java_util_Locale::getISO3Country()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getISO3Country() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getISO3Country() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0)
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1281,7 +1281,7 @@ java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1299,17 +1299,17 @@ java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayLanguage(java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayLanguage()
+AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage()
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayLanguage() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage() enter");
 
 	const char *methodName = "getDisplayLanguage";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1328,7 +1328,7 @@ java_lang_String java_util_Locale::getDisplayLanguage()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1346,17 +1346,17 @@ java_lang_String java_util_Locale::getDisplayLanguage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayLanguage() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0)
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1396,7 +1396,7 @@ java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1414,17 +1414,17 @@ java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayCountry(java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayCountry()
+AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry()
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayCountry() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry() enter");
 
 	const char *methodName = "getDisplayCountry";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1443,7 +1443,7 @@ java_lang_String java_util_Locale::getDisplayCountry()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1461,17 +1461,17 @@ java_lang_String java_util_Locale::getDisplayCountry()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayCountry() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayVariant()
+AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant()
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayVariant() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant() enter");
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1490,7 +1490,7 @@ java_lang_String java_util_Locale::getDisplayVariant()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1508,17 +1508,17 @@ java_lang_String java_util_Locale::getDisplayVariant()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayVariant() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant() exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0)
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayVariant";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1558,7 +1558,7 @@ java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1576,17 +1576,17 @@ java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayVariant(java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0)
+AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0)
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0) enter");
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
@@ -1626,7 +1626,7 @@ java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1644,17 +1644,17 @@ java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayName(java_util_Locale& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_util_Locale& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Locale::getDisplayName()
+AndroidCXX::java_lang_String java_util_Locale::getDisplayName()
 {
-	LOGV("java_lang_String java_util_Locale::getDisplayName() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName() enter");
 
 	const char *methodName = "getDisplayName";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -1673,7 +1673,7 @@ java_lang_String java_util_Locale::getDisplayName()
 	LOGV("java_util_Locale jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1691,11 +1691,11 @@ java_lang_String java_util_Locale::getDisplayName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Locale::getDisplayName() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Locale::getDisplayName() exit");
 
 	return result;
 }

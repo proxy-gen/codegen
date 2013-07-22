@@ -77,11 +77,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_URLConnection;
+class AndroidCXX::java_net_URLConnection;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
 class java_net_ContentHandler
 {
@@ -94,8 +94,8 @@ public:
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
-	 java_lang_Object getContent(java_net_URLConnection& arg0);
-	 java_lang_Object getContent(java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
+	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0);
+	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection& arg0,std::vector<java_lang_Class >& arg1);
 };	
 
 } // namespace

@@ -72,9 +72,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_charset_CoderResult;
+class AndroidCXX::java_nio_charset_CoderResult;
 
 class java_nio_charset_CoderResult
 {
@@ -87,16 +87,16 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
-	 java_lang_String toString();
+	 AndroidCXX::java_lang_String toString();
 	 int length();
 	 void throwException();
 	 bool isUnderflow();
 	 bool isError();
 	 bool isOverflow();
-	static java_nio_charset_CoderResult malformedForLength(int& arg0);
+	static AndroidCXX::java_nio_charset_CoderResult malformedForLength(int& arg0);
 	 bool isMalformed();
 	 bool isUnmappable();
-	static java_nio_charset_CoderResult unmappableForLength(int& arg0);
+	static AndroidCXX::java_nio_charset_CoderResult unmappableForLength(int& arg0);
 };	
 
 } // namespace

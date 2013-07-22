@@ -101,15 +101,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_util_List;
+class AndroidCXX::java_util_List;
 
-class java_security_cert_Certificate;
+class AndroidCXX::java_security_cert_Certificate;
 
-class java_util_Iterator;
+class AndroidCXX::java_util_Iterator;
 
 class java_security_cert_CertPath
 {
@@ -122,14 +122,14 @@ public:
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_util_List getCertificates();
-	 java_lang_String getType();
+	 AndroidCXX::java_util_List getCertificates();
+	 AndroidCXX::java_lang_String getType();
 	 std::vector<byte> getEncoded();
-	 std::vector<byte> getEncoded(java_lang_String& arg0);
-	 java_util_Iterator getEncodings();
+	 std::vector<byte> getEncoded(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_util_Iterator getEncodings();
 };	
 
 } // namespace

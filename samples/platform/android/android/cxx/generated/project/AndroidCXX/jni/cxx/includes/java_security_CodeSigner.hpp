@@ -85,13 +85,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_security_cert_CertPath;
+class AndroidCXX::java_security_cert_CertPath;
 
-class java_security_Timestamp;
+class AndroidCXX::java_security_Timestamp;
 
 class java_security_CodeSigner
 {
@@ -100,16 +100,16 @@ public:
 	java_security_CodeSigner(const java_security_CodeSigner& cc);
 	java_security_CodeSigner(void * proxy);
 	// Public Constructors
-	java_security_CodeSigner(java_security_cert_CertPath& arg0,java_security_Timestamp& arg1);
+	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1);
 	java_security_CodeSigner();
 	// Default Destructor
 	virtual ~java_security_CodeSigner();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_security_cert_CertPath getSignerCertPath();
-	 java_security_Timestamp getTimestamp();
+	 AndroidCXX::java_security_cert_CertPath getSignerCertPath();
+	 AndroidCXX::java_security_Timestamp getTimestamp();
 };	
 
 } // namespace

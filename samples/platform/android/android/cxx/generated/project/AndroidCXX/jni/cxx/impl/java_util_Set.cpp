@@ -184,9 +184,9 @@ java_util_Set::~java_util_Set()
 	LOGV("java_util_Set::~java_util_Set() exit");
 }
 // Functions
-bool java_util_Set::add(java_lang_Object& arg0)
+bool java_util_Set::add(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Set::add(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Set::add(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "add";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -248,13 +248,13 @@ bool java_util_Set::add(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::add(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Set::add(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-bool java_util_Set::equals(java_lang_Object& arg0)
+bool java_util_Set::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Set::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Set::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -316,7 +316,7 @@ bool java_util_Set::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Set::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
@@ -442,9 +442,9 @@ bool java_util_Set::isEmpty()
 
 	return result;
 }
-bool java_util_Set::contains(java_lang_Object& arg0)
+bool java_util_Set::contains(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Set::contains(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Set::contains(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "contains";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -506,13 +506,13 @@ bool java_util_Set::contains(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::contains(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Set::contains(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-bool java_util_Set::addAll(java_util_Collection& arg0)
+bool java_util_Set::addAll(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("bool java_util_Set::addAll(java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Set::addAll(AndroidCXX::java_util_Collection& arg0) enter");
 
 	const char *methodName = "addAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -592,7 +592,7 @@ bool java_util_Set::addAll(java_util_Collection& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::addAll(java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Set::addAll(AndroidCXX::java_util_Collection& arg0) exit");
 
 	return result;
 }
@@ -812,9 +812,9 @@ std::vector<java_lang_Object > java_util_Set::toArray()
 
 	return result;
 }
-java_util_Iterator java_util_Set::iterator()
+AndroidCXX::java_util_Iterator java_util_Set::iterator()
 {
-	LOGV("java_util_Iterator java_util_Set::iterator() enter");
+	LOGV("AndroidCXX::java_util_Iterator java_util_Set::iterator() enter");
 
 	const char *methodName = "iterator";
 	const char *methodSignature = "()Ljava/util/Iterator;";
@@ -833,7 +833,7 @@ java_util_Iterator java_util_Set::iterator()
 	LOGV("java_util_Set jni address %d", javaObject);
 
 
-	java_util_Iterator result;
+	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -869,17 +869,17 @@ java_util_Iterator java_util_Set::iterator()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_util_Iterator) (java_util_Iterator((java_util_Iterator *) cxx_value));
+	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_util_Iterator java_util_Set::iterator() exit");
+	LOGV("AndroidCXX::java_util_Iterator java_util_Set::iterator() exit");
 
 	return result;
 }
-bool java_util_Set::remove(java_lang_Object& arg0)
+bool java_util_Set::remove(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Set::remove(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Set::remove(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "remove";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -941,13 +941,13 @@ bool java_util_Set::remove(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::remove(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Set::remove(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-bool java_util_Set::removeAll(java_util_Collection& arg0)
+bool java_util_Set::removeAll(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("bool java_util_Set::removeAll(java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Set::removeAll(AndroidCXX::java_util_Collection& arg0) enter");
 
 	const char *methodName = "removeAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -1027,13 +1027,13 @@ bool java_util_Set::removeAll(java_util_Collection& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::removeAll(java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Set::removeAll(AndroidCXX::java_util_Collection& arg0) exit");
 
 	return result;
 }
-bool java_util_Set::containsAll(java_util_Collection& arg0)
+bool java_util_Set::containsAll(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("bool java_util_Set::containsAll(java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Set::containsAll(AndroidCXX::java_util_Collection& arg0) enter");
 
 	const char *methodName = "containsAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -1113,13 +1113,13 @@ bool java_util_Set::containsAll(java_util_Collection& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::containsAll(java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Set::containsAll(AndroidCXX::java_util_Collection& arg0) exit");
 
 	return result;
 }
-bool java_util_Set::retainAll(java_util_Collection& arg0)
+bool java_util_Set::retainAll(AndroidCXX::java_util_Collection& arg0)
 {
-	LOGV("bool java_util_Set::retainAll(java_util_Collection& arg0) enter");
+	LOGV("bool java_util_Set::retainAll(AndroidCXX::java_util_Collection& arg0) enter");
 
 	const char *methodName = "retainAll";
 	const char *methodSignature = "(Ljava/util/Collection;)Z";
@@ -1199,7 +1199,7 @@ bool java_util_Set::retainAll(java_util_Collection& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Set::retainAll(java_util_Collection& arg0) exit");
+	LOGV("bool java_util_Set::retainAll(AndroidCXX::java_util_Collection& arg0) exit");
 
 	return result;
 }

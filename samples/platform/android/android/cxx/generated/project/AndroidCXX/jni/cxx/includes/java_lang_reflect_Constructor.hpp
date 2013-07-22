@@ -181,19 +181,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_reflect_TypeVariable;
+class AndroidCXX::java_lang_reflect_TypeVariable;
 
-class java_lang_reflect_Constructor;
+class AndroidCXX::java_lang_reflect_Constructor;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
-class java_lang_annotation_Annotation;
+class AndroidCXX::java_lang_annotation_Annotation;
 
-class java_lang_reflect_Type;
+class AndroidCXX::java_lang_reflect_Type;
 
 class java_lang_reflect_Constructor
 {
@@ -206,19 +206,19 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_Constructor();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
 	 int getModifiers();
-	 java_lang_String getName();
-	 java_lang_Object newInstance(std::vector<java_lang_Object >& arg0);
+	 AndroidCXX::java_lang_String getName();
+	 AndroidCXX::java_lang_Object newInstance(std::vector<java_lang_Object >& arg0);
 	 bool isSynthetic();
 	 std::vector<java_lang_reflect_TypeVariable > getTypeParameters();
-	 java_lang_Class getDeclaringClass();
-	 java_lang_annotation_Annotation getAnnotation(java_lang_Class& arg0);
+	 AndroidCXX::java_lang_Class getDeclaringClass();
+	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
 	 std::vector<java_lang_annotation_Annotation > getDeclaredAnnotations();
 	 std::vector<java_lang_Class > getParameterTypes();
-	 java_lang_String toGenericString();
+	 AndroidCXX::java_lang_String toGenericString();
 	 std::vector<java_lang_reflect_Type > getGenericParameterTypes();
 	 std::vector<java_lang_Class > getExceptionTypes();
 	 std::vector<java_lang_reflect_Type > getGenericExceptionTypes();

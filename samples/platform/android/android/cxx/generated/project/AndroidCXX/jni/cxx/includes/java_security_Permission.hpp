@@ -95,13 +95,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_security_Permission;
+class AndroidCXX::java_security_Permission;
 
-class java_security_PermissionCollection;
+class AndroidCXX::java_security_PermissionCollection;
 
 class java_security_Permission
 {
@@ -110,19 +110,19 @@ public:
 	java_security_Permission(const java_security_Permission& cc);
 	java_security_Permission(void * proxy);
 	// Public Constructors
-	java_security_Permission(java_lang_String& arg0);
+	java_security_Permission(AndroidCXX::java_lang_String& arg0);
 	java_security_Permission();
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_String getName();
-	 bool implies(java_security_Permission& arg0);
-	 java_lang_String getActions();
-	 java_security_PermissionCollection newPermissionCollection();
-	 void checkGuard(java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String getName();
+	 bool implies(AndroidCXX::java_security_Permission& arg0);
+	 AndroidCXX::java_lang_String getActions();
+	 AndroidCXX::java_security_PermissionCollection newPermissionCollection();
+	 void checkGuard(AndroidCXX::java_lang_Object& arg0);
 };	
 
 } // namespace

@@ -111,17 +111,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_net_URL;
+class AndroidCXX::java_net_URL;
 
-class java_security_cert_Certificate;
+class AndroidCXX::java_security_cert_Certificate;
 
-class java_security_CodeSource;
+class AndroidCXX::java_security_CodeSource;
 
-class java_security_CodeSigner;
+class AndroidCXX::java_security_CodeSigner;
 
 class java_security_CodeSource
 {
@@ -130,18 +130,18 @@ public:
 	java_security_CodeSource(const java_security_CodeSource& cc);
 	java_security_CodeSource(void * proxy);
 	// Public Constructors
-	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1);
-	java_security_CodeSource(java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<java_security_CodeSigner >& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<java_security_cert_Certificate >& arg1);
 	java_security_CodeSource();
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_net_URL getLocation();
+	 AndroidCXX::java_net_URL getLocation();
 	 std::vector<java_security_cert_Certificate > getCertificates();
-	 bool implies(java_security_CodeSource& arg0);
+	 bool implies(AndroidCXX::java_security_CodeSource& arg0);
 	 std::vector<java_security_CodeSigner > getCodeSigners();
 };	
 

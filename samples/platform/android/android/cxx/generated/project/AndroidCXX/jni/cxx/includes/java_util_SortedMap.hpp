@@ -175,17 +175,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_util_Collection;
+class AndroidCXX::java_util_Collection;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_util_Set;
+class AndroidCXX::java_util_Set;
 
-class java_util_Map_Entry;
+class AndroidCXX::java_util_Map_Entry;
 
-class java_util_Comparator;
+class AndroidCXX::java_util_Comparator;
 
-class java_util_SortedMap;
+class AndroidCXX::java_util_SortedMap;
 
 class java_util_SortedMap
 {
@@ -198,15 +198,15 @@ public:
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions
-	 java_util_Collection values();
-	 java_util_Set entrySet();
-	 java_util_Set keySet();
-	 java_util_Comparator comparator();
-	 java_util_SortedMap subMap(java_lang_Object& arg0,java_lang_Object& arg1);
-	 java_util_SortedMap headMap(java_lang_Object& arg0);
-	 java_util_SortedMap tailMap(java_lang_Object& arg0);
-	 java_lang_Object firstKey();
-	 java_lang_Object lastKey();
+	 AndroidCXX::java_util_Collection values();
+	 AndroidCXX::java_util_Set entrySet();
+	 AndroidCXX::java_util_Set keySet();
+	 AndroidCXX::java_util_Comparator comparator();
+	 AndroidCXX::java_util_SortedMap subMap(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_util_SortedMap headMap(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_util_SortedMap tailMap(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object firstKey();
+	 AndroidCXX::java_lang_Object lastKey();
 };	
 
 } // namespace

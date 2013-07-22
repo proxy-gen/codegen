@@ -60,9 +60,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_net_ContentHandler;
+class AndroidCXX::java_net_ContentHandler;
 
 class java_net_ContentHandlerFactory
 {
@@ -75,7 +75,7 @@ public:
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions
-	 java_net_ContentHandler createContentHandler(java_lang_String& arg0);
+	 AndroidCXX::java_net_ContentHandler createContentHandler(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

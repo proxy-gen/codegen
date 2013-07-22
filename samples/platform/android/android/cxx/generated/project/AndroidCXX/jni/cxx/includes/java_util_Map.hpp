@@ -159,15 +159,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_util_Collection;
+class AndroidCXX::java_util_Collection;
 
-class java_util_Set;
+class AndroidCXX::java_util_Set;
 
-class java_util_Map_Entry;
+class AndroidCXX::java_util_Map_Entry;
 
-class java_util_Map;
+class AndroidCXX::java_util_Map;
 
 class java_util_Map
 {
@@ -180,20 +180,20 @@ public:
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	 java_lang_Object get(java_lang_Object& arg0);
-	 java_lang_Object put(java_lang_Object& arg0,java_lang_Object& arg1);
-	 bool equals(java_lang_Object& arg0);
-	 java_util_Collection values();
+	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object put(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_util_Collection values();
 	 int hashCode();
 	 void clear();
 	 bool isEmpty();
 	 int size();
-	 java_util_Set entrySet();
-	 void putAll(java_util_Map& arg0);
-	 java_lang_Object remove(java_lang_Object& arg0);
-	 java_util_Set keySet();
-	 bool containsValue(java_lang_Object& arg0);
-	 bool containsKey(java_lang_Object& arg0);
+	 AndroidCXX::java_util_Set entrySet();
+	 void putAll(AndroidCXX::java_util_Map& arg0);
+	 AndroidCXX::java_lang_Object remove(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_util_Set keySet();
+	 bool containsValue(AndroidCXX::java_lang_Object& arg0);
+	 bool containsKey(AndroidCXX::java_lang_Object& arg0);
 };	
 
 } // namespace

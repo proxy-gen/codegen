@@ -58,7 +58,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
 class java_net_FileNameMap
 {
@@ -71,7 +71,7 @@ public:
 	// Default Destructor
 	virtual ~java_net_FileNameMap();
 	// Functions
-	 java_lang_String getContentTypeFor(java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getContentTypeFor(AndroidCXX::java_lang_String& arg0);
 };	
 
 } // namespace

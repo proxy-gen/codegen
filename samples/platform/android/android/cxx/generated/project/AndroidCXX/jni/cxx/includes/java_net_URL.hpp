@@ -243,25 +243,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_io_InputStream;
+class AndroidCXX::java_io_InputStream;
 
-class java_net_URI;
+class AndroidCXX::java_net_URI;
 
-class java_net_URL;
+class AndroidCXX::java_net_URL;
 
-class java_net_Proxy;
+class AndroidCXX::java_net_Proxy;
 
-class java_net_URLConnection;
+class AndroidCXX::java_net_URLConnection;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
-class java_net_URLStreamHandlerFactory;
+class AndroidCXX::java_net_URLStreamHandlerFactory;
 
-class java_net_URLStreamHandler;
+class AndroidCXX::java_net_URLStreamHandler;
 
 class java_net_URL
 {
@@ -270,38 +270,38 @@ public:
 	java_net_URL(const java_net_URL& cc);
 	java_net_URL(void * proxy);
 	// Public Constructors
-	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3);
-	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,java_lang_String& arg2);
-	java_net_URL(java_lang_String& arg0,java_lang_String& arg1,int& arg2,java_lang_String& arg3,java_net_URLStreamHandler& arg4);
-	java_net_URL(java_lang_String& arg0);
-	java_net_URL(java_net_URL& arg0,java_lang_String& arg1);
-	java_net_URL(java_net_URL& arg0,java_lang_String& arg1,java_net_URLStreamHandler& arg2);
+	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,AndroidCXX::java_lang_String& arg3);
+	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	java_net_URL(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_net_URLStreamHandler& arg4);
+	java_net_URL(AndroidCXX::java_lang_String& arg0);
+	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1);
+	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_net_URLStreamHandler& arg2);
 	java_net_URL();
 	// Default Destructor
 	virtual ~java_net_URL();
 	// Functions
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_io_InputStream openStream();
-	 java_lang_String getPath();
-	 java_net_URI toURI();
-	 java_lang_String getAuthority();
-	 java_lang_String getQuery();
-	 java_lang_String getUserInfo();
+	 AndroidCXX::java_io_InputStream openStream();
+	 AndroidCXX::java_lang_String getPath();
+	 AndroidCXX::java_net_URI toURI();
+	 AndroidCXX::java_lang_String getAuthority();
+	 AndroidCXX::java_lang_String getQuery();
+	 AndroidCXX::java_lang_String getUserInfo();
 	 int getPort();
 	 int getDefaultPort();
-	 java_lang_String getProtocol();
-	 java_lang_String getHost();
-	 java_lang_String getFile();
-	 java_lang_String getRef();
-	 bool sameFile(java_net_URL& arg0);
-	 java_lang_String toExternalForm();
-	 java_net_URLConnection openConnection(java_net_Proxy& arg0);
-	 java_net_URLConnection openConnection();
-	 java_lang_Object getContent(std::vector<java_lang_Class >& arg0);
-	 java_lang_Object getContent();
-	static void setURLStreamHandlerFactory(java_net_URLStreamHandlerFactory& arg0);
+	 AndroidCXX::java_lang_String getProtocol();
+	 AndroidCXX::java_lang_String getHost();
+	 AndroidCXX::java_lang_String getFile();
+	 AndroidCXX::java_lang_String getRef();
+	 bool sameFile(AndroidCXX::java_net_URL& arg0);
+	 AndroidCXX::java_lang_String toExternalForm();
+	 AndroidCXX::java_net_URLConnection openConnection(AndroidCXX::java_net_Proxy& arg0);
+	 AndroidCXX::java_net_URLConnection openConnection();
+	 AndroidCXX::java_lang_Object getContent(std::vector<java_lang_Class >& arg0);
+	 AndroidCXX::java_lang_Object getContent();
+	static void setURLStreamHandlerFactory(AndroidCXX::java_net_URLStreamHandlerFactory& arg0);
 };	
 
 } // namespace

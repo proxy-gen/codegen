@@ -79,11 +79,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_lang_Class;
+class AndroidCXX::java_lang_Class;
 
 class java_lang_Object
 {
@@ -99,10 +99,10 @@ public:
 	 void wait();
 	 void wait(long& arg0);
 	 void wait(long& arg0,int& arg1);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 java_lang_Class getClass();
+	 AndroidCXX::java_lang_Class getClass();
 	 void notify();
 	 void notifyAll();
 };	

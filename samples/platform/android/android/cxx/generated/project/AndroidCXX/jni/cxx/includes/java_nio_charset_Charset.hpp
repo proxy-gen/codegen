@@ -188,25 +188,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class AndroidCXX::java_lang_String;
 
-class java_nio_charset_Charset;
+class AndroidCXX::java_nio_charset_Charset;
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
-class java_nio_ByteBuffer;
+class AndroidCXX::java_nio_ByteBuffer;
 
-class java_nio_CharBuffer;
+class AndroidCXX::java_nio_CharBuffer;
 
-class java_util_Set;
+class AndroidCXX::java_util_Set;
 
-class java_util_SortedMap;
+class AndroidCXX::java_util_SortedMap;
 
-class java_util_Locale;
+class AndroidCXX::java_util_Locale;
 
-class java_nio_charset_CharsetDecoder;
+class AndroidCXX::java_nio_charset_CharsetDecoder;
 
-class java_nio_charset_CharsetEncoder;
+class AndroidCXX::java_nio_charset_CharsetEncoder;
 
 class java_nio_charset_Charset
 {
@@ -219,25 +219,25 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions
-	 java_lang_String name();
-	static java_nio_charset_Charset forName(java_lang_String& arg0);
-	 bool equals(java_lang_Object& arg0);
-	 java_lang_String toString();
+	 AndroidCXX::java_lang_String name();
+	static AndroidCXX::java_nio_charset_Charset forName(AndroidCXX::java_lang_String& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
 	 int hashCode();
-	 int compareTo(java_nio_charset_Charset& arg0);
-	 bool contains(java_nio_charset_Charset& arg0);
-	 java_nio_CharBuffer decode(java_nio_ByteBuffer& arg0);
-	 java_nio_ByteBuffer encode(java_nio_CharBuffer& arg0);
-	 java_nio_ByteBuffer encode(java_lang_String& arg0);
-	static bool isSupported(java_lang_String& arg0);
-	static java_nio_charset_Charset defaultCharset();
-	 java_util_Set aliases();
-	static java_util_SortedMap availableCharsets();
-	 java_lang_String displayName();
-	 java_lang_String displayName(java_util_Locale& arg0);
+	 int compareTo(AndroidCXX::java_nio_charset_Charset& arg0);
+	 bool contains(AndroidCXX::java_nio_charset_Charset& arg0);
+	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer& arg0);
+	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer& arg0);
+	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_lang_String& arg0);
+	static bool isSupported(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_nio_charset_Charset defaultCharset();
+	 AndroidCXX::java_util_Set aliases();
+	static AndroidCXX::java_util_SortedMap availableCharsets();
+	 AndroidCXX::java_lang_String displayName();
+	 AndroidCXX::java_lang_String displayName(AndroidCXX::java_util_Locale& arg0);
 	 bool isRegistered();
-	 java_nio_charset_CharsetDecoder newDecoder();
-	 java_nio_charset_CharsetEncoder newEncoder();
+	 AndroidCXX::java_nio_charset_CharsetDecoder newDecoder();
+	 AndroidCXX::java_nio_charset_CharsetEncoder newEncoder();
 	 bool canEncode();
 };	
 

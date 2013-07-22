@@ -155,9 +155,9 @@ java_nio_charset_CoderResult::~java_nio_charset_CoderResult()
 	LOGV("java_nio_charset_CoderResult::~java_nio_charset_CoderResult() exit");
 }
 // Functions
-java_lang_String java_nio_charset_CoderResult::toString()
+AndroidCXX::java_lang_String java_nio_charset_CoderResult::toString()
 {
-	LOGV("java_lang_String java_nio_charset_CoderResult::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_nio_charset_CoderResult::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -176,7 +176,7 @@ java_lang_String java_nio_charset_CoderResult::toString()
 	LOGV("java_nio_charset_CoderResult jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -194,11 +194,11 @@ java_lang_String java_nio_charset_CoderResult::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_nio_charset_CoderResult::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_nio_charset_CoderResult::toString() exit");
 
 	return result;
 }
@@ -418,9 +418,9 @@ bool java_nio_charset_CoderResult::isOverflow()
 
 	return result;
 }
-java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0)
 {
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) enter");
 
 	const char *methodName = "malformedForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
@@ -460,7 +460,7 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult result;
+	AndroidCXX::java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -478,11 +478,11 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CoderResult) (AndroidCXX::java_nio_charset_CoderResult((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForLength(int& arg0) exit");
 
 	return result;
 }
@@ -580,9 +580,9 @@ bool java_nio_charset_CoderResult::isUnmappable()
 
 	return result;
 }
-java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0)
+AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0)
 {
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) enter");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) enter");
 
 	const char *methodName = "unmappableForLength";
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
@@ -622,7 +622,7 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(i
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	java_nio_charset_CoderResult result;
+	AndroidCXX::java_nio_charset_CoderResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -640,11 +640,11 @@ java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_charset_CoderResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_nio_charset_CoderResult) (java_nio_charset_CoderResult((java_nio_charset_CoderResult *) cxx_value));
+	result = (AndroidCXX::java_nio_charset_CoderResult) (AndroidCXX::java_nio_charset_CoderResult((AndroidCXX::java_nio_charset_CoderResult *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) exit");
+	LOGV("AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableForLength(int& arg0) exit");
 
 	return result;
 }

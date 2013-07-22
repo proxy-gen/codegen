@@ -142,9 +142,9 @@ java_net_FileNameMap::~java_net_FileNameMap()
 	LOGV("java_net_FileNameMap::~java_net_FileNameMap() exit");
 }
 // Functions
-java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
+AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0) enter");
+	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "getContentTypeFor";
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
@@ -184,7 +184,7 @@ java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -202,11 +202,11 @@ java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_net_FileNameMap::getContentTypeFor(java_lang_String& arg0) exit");
+	LOGV("AndroidCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }

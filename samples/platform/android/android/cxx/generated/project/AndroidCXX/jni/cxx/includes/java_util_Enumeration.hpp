@@ -55,7 +55,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class AndroidCXX::java_lang_Object;
 
 class java_util_Enumeration
 {
@@ -69,7 +69,7 @@ public:
 	virtual ~java_util_Enumeration();
 	// Functions
 	 bool hasMoreElements();
-	 java_lang_Object nextElement();
+	 AndroidCXX::java_lang_Object nextElement();
 };	
 
 } // namespace

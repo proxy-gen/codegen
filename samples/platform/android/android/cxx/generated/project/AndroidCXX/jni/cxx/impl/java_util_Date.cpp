@@ -652,9 +652,9 @@ java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4
 
 	LOGV("java_util_Date::java_util_Date(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5) exit");	
 }
-java_util_Date::java_util_Date(java_lang_String& arg0)
+java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0) enter");	
+	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0) enter");	
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "(Ljava/lang/String;)V";
@@ -707,7 +707,7 @@ java_util_Date::java_util_Date(java_lang_String& arg0)
 
 	jni->popLocalFrame();
 
-	LOGV("java_util_Date::java_util_Date(java_lang_String& arg0) exit");	
+	LOGV("java_util_Date::java_util_Date(AndroidCXX::java_lang_String& arg0) exit");	
 }
 // Default Instance Destructor
 java_util_Date::~java_util_Date()
@@ -724,9 +724,9 @@ java_util_Date::~java_util_Date()
 	LOGV("java_util_Date::~java_util_Date() exit");
 }
 // Functions
-bool java_util_Date::equals(java_lang_Object& arg0)
+bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Date::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -788,13 +788,13 @@ bool java_util_Date::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Date::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-java_lang_String java_util_Date::toString()
+AndroidCXX::java_lang_String java_util_Date::toString()
 {
-	LOGV("java_lang_String java_util_Date::toString() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toString() enter");
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -813,7 +813,7 @@ java_lang_String java_util_Date::toString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -831,11 +831,11 @@ java_lang_String java_util_Date::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Date::toString() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toString() exit");
 
 	return result;
 }
@@ -886,9 +886,9 @@ int java_util_Date::hashCode()
 
 	return result;
 }
-java_lang_Object java_util_Date::clone()
+AndroidCXX::java_lang_Object java_util_Date::clone()
 {
-	LOGV("java_lang_Object java_util_Date::clone() enter");
+	LOGV("AndroidCXX::java_lang_Object java_util_Date::clone() enter");
 
 	const char *methodName = "clone";
 	const char *methodSignature = "()Ljava/lang/Object;";
@@ -907,7 +907,7 @@ java_lang_Object java_util_Date::clone()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_Object result;
+	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -925,17 +925,17 @@ java_lang_Object java_util_Date::clone()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_Object) (java_lang_Object((java_lang_Object *) cxx_value));
+	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_Object java_util_Date::clone() exit");
+	LOGV("AndroidCXX::java_lang_Object java_util_Date::clone() exit");
 
 	return result;
 }
-int java_util_Date::compareTo(java_util_Date& arg0)
+int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("int java_util_Date::compareTo(java_util_Date& arg0) enter");
+	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "compareTo";
 	const char *methodSignature = "(Ljava/util/Date;)I";
@@ -997,13 +997,13 @@ int java_util_Date::compareTo(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_util_Date::compareTo(java_util_Date& arg0) exit");
+	LOGV("int java_util_Date::compareTo(AndroidCXX::java_util_Date& arg0) exit");
 
 	return result;
 }
-bool java_util_Date::after(java_util_Date& arg0)
+bool java_util_Date::after(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("bool java_util_Date::after(java_util_Date& arg0) enter");
+	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "after";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
@@ -1065,13 +1065,13 @@ bool java_util_Date::after(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::after(java_util_Date& arg0) exit");
+	LOGV("bool java_util_Date::after(AndroidCXX::java_util_Date& arg0) exit");
 
 	return result;
 }
-bool java_util_Date::before(java_util_Date& arg0)
+bool java_util_Date::before(AndroidCXX::java_util_Date& arg0)
 {
-	LOGV("bool java_util_Date::before(java_util_Date& arg0) enter");
+	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date& arg0) enter");
 
 	const char *methodName = "before";
 	const char *methodSignature = "(Ljava/util/Date;)Z";
@@ -1133,13 +1133,13 @@ bool java_util_Date::before(java_util_Date& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Date::before(java_util_Date& arg0) exit");
+	LOGV("bool java_util_Date::before(AndroidCXX::java_util_Date& arg0) exit");
 
 	return result;
 }
-long java_util_Date::parse(java_lang_String& arg0)
+long java_util_Date::parse(AndroidCXX::java_lang_String& arg0)
 {
-	LOGV("long java_util_Date::parse(java_lang_String& arg0) enter");
+	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String& arg0) enter");
 
 	const char *methodName = "parse";
 	const char *methodSignature = "(Ljava/lang/String;)J";
@@ -1201,7 +1201,7 @@ long java_util_Date::parse(java_lang_String& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("long java_util_Date::parse(java_lang_String& arg0) exit");
+	LOGV("long java_util_Date::parse(AndroidCXX::java_lang_String& arg0) exit");
 
 	return result;
 }
@@ -2097,9 +2097,9 @@ int java_util_Date::getDay()
 
 	return result;
 }
-java_lang_String java_util_Date::toLocaleString()
+AndroidCXX::java_lang_String java_util_Date::toLocaleString()
 {
-	LOGV("java_lang_String java_util_Date::toLocaleString() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toLocaleString() enter");
 
 	const char *methodName = "toLocaleString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2118,7 +2118,7 @@ java_lang_String java_util_Date::toLocaleString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2136,17 +2136,17 @@ java_lang_String java_util_Date::toLocaleString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Date::toLocaleString() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toLocaleString() exit");
 
 	return result;
 }
-java_lang_String java_util_Date::toGMTString()
+AndroidCXX::java_lang_String java_util_Date::toGMTString()
 {
-	LOGV("java_lang_String java_util_Date::toGMTString() enter");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toGMTString() enter");
 
 	const char *methodName = "toGMTString";
 	const char *methodSignature = "()Ljava/lang/String;";
@@ -2165,7 +2165,7 @@ java_lang_String java_util_Date::toGMTString()
 	LOGV("java_util_Date jni address %d", javaObject);
 
 
-	java_lang_String result;
+	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2183,11 +2183,11 @@ java_lang_String java_util_Date::toGMTString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (java_lang_String) (java_lang_String((java_lang_String *) cxx_value));
+	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
 		
 	jni->popLocalFrame();
 
-	LOGV("java_lang_String java_util_Date::toGMTString() exit");
+	LOGV("AndroidCXX::java_lang_String java_util_Date::toGMTString() exit");
 
 	return result;
 }

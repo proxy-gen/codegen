@@ -147,9 +147,9 @@ java_util_Comparator::~java_util_Comparator()
 	LOGV("java_util_Comparator::~java_util_Comparator() exit");
 }
 // Functions
-bool java_util_Comparator::equals(java_lang_Object& arg0)
+bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0)
 {
-	LOGV("bool java_util_Comparator::equals(java_lang_Object& arg0) enter");
+	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0) enter");
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
@@ -211,13 +211,13 @@ bool java_util_Comparator::equals(java_lang_Object& arg0)
 		
 	jni->popLocalFrame();
 
-	LOGV("bool java_util_Comparator::equals(java_lang_Object& arg0) exit");
+	LOGV("bool java_util_Comparator::equals(AndroidCXX::java_lang_Object& arg0) exit");
 
 	return result;
 }
-int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1)
+int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
 {
-	LOGV("int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1) enter");
+	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) enter");
 
 	const char *methodName = "compare";
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)I";
@@ -300,7 +300,7 @@ int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1)
 		
 	jni->popLocalFrame();
 
-	LOGV("int java_util_Comparator::compare(java_lang_Object& arg0,java_lang_Object& arg1) exit");
+	LOGV("int java_util_Comparator::compare(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1) exit");
 
 	return result;
 }
