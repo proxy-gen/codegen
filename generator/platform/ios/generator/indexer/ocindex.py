@@ -26,9 +26,9 @@ _ASSERT_INTERFACES_CRITERIA_ = "When generating a config file, \"interfaces\" mu
 _ASSERT_INTERFACES_NAME_CRITERIA_ = "When generating a config file, each object in \"interfaces\" must have a \"name\" key."
 _ASSERT_METADATA_CRITERIA_ = "Unable to generate the Objective C metadata."
 
-class Inspect(object):
+class Index(object):
 
-	# Initialize the inspector with options for clocxml
+	# Initialize the indexer with options for clocxml
 	def __init__(self, clocxml_opts=None):
 		import os.path as osp
 
