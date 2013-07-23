@@ -187,6 +187,25 @@ jobject CXXContext::findProxyComponent(long contextAddress)
 	return value;
 }
 
+long CXXContext::findProxiedComponent(jobject javaObject)
+{
+	LOGV("findProxiedComponent javaObject address %ld", (long) javaObject);
+	pthread_mutex_lock(&proxyComponentMapMutex);
+	JNIContext *jniContext = JNIContext::sharedInstance();
+	std::map<long,jobject>::const_iterator iter;
+	for (iter = proxyComponentMap.begin(); iter != proxyComponentMap.end(); iter++)
+	{
+		if (jniContext->isSameInstance((*iter).second, javaObject))
+		{
+			long contextAddress = (long) (*iter).first;
+			LOGV("findProxiedComponent contextAddress %ld", contextAddress);
+			return contextAddress;
+		}
+	}
+	pthread_mutex_unlock(&proxyComponentMapMutex);
+	return 0;
+}
+
 void CXXContext::registerContextID(long contextAddress, std::string& contextID)
 {
 	LOGV("registerContextID contextAddress: %ld contextID %s", contextAddress, contextID.c_str());

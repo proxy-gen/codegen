@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,26 +9,44 @@
 
 
 
- 			
+ 	
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_io_Reader
 #define _java_io_Reader
-
-
-
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_nio_CharBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,19 +54,32 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_nio_CharBuffer;
+
 class java_io_Reader
 {
 public:
- void close();
- void mark(int& arg0);
- void reset();
- int read(std::vector<char>& arg0,int& arg1,java_nio_CharBuffer& arg2);
- long skip(long& arg0);
- bool markSupported();
- bool ready();
 
-
-};
+	java_io_Reader(const java_io_Reader& cc);
+	java_io_Reader(void * proxy);
+	// Public Constructors
+	java_io_Reader();
+	// Default Destructor
+	virtual ~java_io_Reader();
+	// Functions
+	 void close();
+	 void mark(int& arg0);
+	 void reset();
+	 int read(std::vector<char>& arg0,int& arg1,int& arg2);
+	 int read();
+	 int read(std::vector<char>& arg0);
+	 int read(AndroidCXX::java_nio_CharBuffer& arg0);
+	 long skip(long& arg0);
+	 bool markSupported();
+	 bool ready();
+};	
 
 } // namespace
 

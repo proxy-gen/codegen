@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,14 +9,25 @@
 
 
 
-		
-		
+	
+	
 
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_nio_MappedByteBuffer
 #define _java_nio_MappedByteBuffer
-
-
+//
+// Scroll Down 
+//
 
 
 
@@ -25,6 +36,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,15 +45,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_nio_MappedByteBuffer;
+
 class java_nio_MappedByteBuffer
 {
 public:
- java_nio_MappedByteBuffer load();
- bool isLoaded();
- java_nio_MappedByteBuffer force();
 
-
-};
+	java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc);
+	java_nio_MappedByteBuffer(void * proxy);
+	// Public Constructors
+	java_nio_MappedByteBuffer();
+	// Default Destructor
+	virtual ~java_nio_MappedByteBuffer();
+	// Functions
+	 AndroidCXX::java_nio_MappedByteBuffer load();
+	 bool isLoaded();
+	 AndroidCXX::java_nio_MappedByteBuffer force();
+};	
 
 } // namespace
 

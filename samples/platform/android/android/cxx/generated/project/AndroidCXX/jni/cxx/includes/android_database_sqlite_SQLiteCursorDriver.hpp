@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,27 +9,47 @@
 
 
 
- 			
-		
- 			
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteCursorDriver
 #define _android_database_sqlite_SQLiteCursorDriver
-
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
+
 #include <android_database_Cursor.hpp>
+
+#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -37,17 +57,31 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_database_sqlite_SQLiteDatabase_CursorFactory;
+
+class android_database_Cursor;
+
+class java_lang_String;
+
 class android_database_sqlite_SQLiteCursorDriver
 {
 public:
-	android_database_Cursor query(android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<long>& arg1);
-	void cursorDeactivated();
-	void cursorRequeried(android_database_Cursor& arg0);
-	void cursorClosed();
-	void setBindArguments(std::vector<long>& arg0);
 
-
-};
+	android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc);
+	android_database_sqlite_SQLiteCursorDriver(void * proxy);
+	// Public Constructors
+	android_database_sqlite_SQLiteCursorDriver();
+	// Default Destructor
+	virtual ~android_database_sqlite_SQLiteCursorDriver();
+	// Functions
+	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
+	 void cursorDeactivated();
+	 void cursorRequeried(AndroidCXX::android_database_Cursor& arg0);
+	 void cursorClosed();
+	 void setBindArguments(std::vector<AndroidCXX::java_lang_String >& arg0);
+};	
 
 } // namespace
 

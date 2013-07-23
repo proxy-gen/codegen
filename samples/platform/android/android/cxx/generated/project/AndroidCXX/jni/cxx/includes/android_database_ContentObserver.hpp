@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,23 +9,42 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_database_ContentObserver
 #define _android_database_ContentObserver
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <android_net_Uri.hpp>
+
+#include <android_os_Handler.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,15 +52,30 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_net_Uri;
+
+class android_os_Handler;
+
 class android_database_ContentObserver
 {
 public:
- bool deliverSelfNotifications();
- void onChange(bool& arg0,android_net_Uri& arg1);
- void dispatchChange(bool& arg0,android_net_Uri& arg1);
 
-
-};
+	android_database_ContentObserver(const android_database_ContentObserver& cc);
+	android_database_ContentObserver(void * proxy);
+	// Public Constructors
+	android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0);
+	android_database_ContentObserver();
+	// Default Destructor
+	virtual ~android_database_ContentObserver();
+	// Functions
+	 bool deliverSelfNotifications();
+	 void onChange(bool& arg0);
+	 void onChange(bool& arg0,AndroidCXX::android_net_Uri& arg1);
+	 void dispatchChange(bool& arg0);
+	 void dispatchChange(bool& arg0,AndroidCXX::android_net_Uri& arg1);
+};	
 
 } // namespace
 

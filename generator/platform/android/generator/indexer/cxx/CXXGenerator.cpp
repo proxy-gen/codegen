@@ -537,45 +537,25 @@ int find_class_type(jclass clazz)
 	{
 		type = TYPE_JAVA_ABSTRACT;
 	}
+	else if (isEnum)
+	{
+		type = TYPE_JAVA_ENUM;
+	}
 	else
 	{
-		bool onlyStaticPublicMethods = true;
 		jstring jclassName = jni->invokeStringMethod(clazz, "java/lang/Class", "getName", "()Ljava/lang/String;");
 		const char * className = jni->getUTFString(jclassName).c_str();
 		jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
 		jsize jmethodCount = jni->getArrayLength(jmethods);
 		int methodCount = (int) jmethodCount;
-		for (int i = 0; i < methodCount; i++)
+		jarray jdeclaredconstructors = (jarray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
+		jsize declaredconstructorCount = jni->getArrayLength(jdeclaredconstructors);
+		bool isClassNotInstantiable = declaredconstructorCount == 0;
+		if (isClassNotInstantiable)
 		{
-			jobject jmethodObj = jni->getObjectArrayElement(jmethods, i);
-			jboolean jisBridge = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isBridge", "()Z");
-			bool isBridge = (bool) jisBridge;
-			if (isBridge) continue;
-			jboolean jisSynthetic = jni->invokeBooleanMethod(jmethodObj, "java/lang/reflect/Method", "isSynthetic", "()Z");
-			bool isSynthetic = (bool) jisSynthetic;
-			if (isSynthetic) continue;
-			jint jmethodmodifiers = (jint) jni->invokeIntMethod(jmethodObj, "java/lang/reflect/Method", "getModifiers", "()I");
-			int methodModifiers = (int) jmethodmodifiers;
-			bool isMethodStatic = (methodModifiers & MODIFIER_JAVA_STATIC) == MODIFIER_JAVA_STATIC;
-			bool isMethodPublic = (methodModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
-			if (isMethodPublic && !isMethodStatic)
-			{
-				onlyStaticPublicMethods = false;
-				break;
-			}
+			type = TYPE_JAVA_STATIC_METHODS;
 		}
-		if (onlyStaticPublicMethods)
-		{
-			if (isEnum)
-			{
-				type = TYPE_JAVA_ENUM;
-			}
-			else
-			{
-				type = TYPE_JAVA_STATIC_METHODS;
-			}
-		}
-		else if (constructorCount == 0)
+		else if (constructorCount == 0) // no public constructors
 		{
 			// search for a public static method that takes no arg and returns this type
 			bool isSingletonInstance = false;
@@ -1184,6 +1164,7 @@ int visitEnumValues(CXXCursor cursor, CXXType type, VisitEnumValuesCallback call
 	return 1;
 }
 
+// Deprecated
 CXXType getCursorType(CXXCursor cursor)
 {
 	const char * cursor_name = getCursorDisplayName(cursor);

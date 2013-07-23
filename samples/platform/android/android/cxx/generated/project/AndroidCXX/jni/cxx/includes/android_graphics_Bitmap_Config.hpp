@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,14 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_BITMAP_CONFIG {
 
 enum android_graphics_Bitmap_Config
 {
-
+	ALPHA_8,
+	ARGB_4444,
+	ARGB_8888,
+	RGB_565,
 };
 
 } // namespace

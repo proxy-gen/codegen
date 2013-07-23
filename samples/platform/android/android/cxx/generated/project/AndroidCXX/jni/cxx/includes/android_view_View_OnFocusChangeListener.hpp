@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_View_OnFocusChangeListener
 #define _android_view_View_OnFocusChangeListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
 class android_view_View_OnFocusChangeListener
 {
 public:
-	void onFocusChange(android_view_View& arg0,bool& arg1);
 
-
-};
+	android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc);
+	android_view_View_OnFocusChangeListener(void * proxy);
+	// Public Constructors
+	android_view_View_OnFocusChangeListener();
+	// Default Destructor
+	virtual ~android_view_View_OnFocusChangeListener();
+	// Functions
+	 void onFocusChange(AndroidCXX::android_view_View& arg0,bool& arg1);
+};	
 
 } // namespace
 

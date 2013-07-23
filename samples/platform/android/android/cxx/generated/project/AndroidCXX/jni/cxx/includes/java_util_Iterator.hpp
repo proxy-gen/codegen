@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,22 +9,35 @@
 
 
 
-		
+	
 
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_util_Iterator
 #define _java_util_Iterator
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,15 +45,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
 class java_util_Iterator
 {
 public:
-	bool hasNext();
-	java_lang_Object next();
-	void remove();
 
-
-};
+	java_util_Iterator(const java_util_Iterator& cc);
+	java_util_Iterator(void * proxy);
+	// Public Constructors
+	java_util_Iterator();
+	// Default Destructor
+	virtual ~java_util_Iterator();
+	// Functions
+	 bool hasNext();
+	 AndroidCXX::java_lang_Object next();
+	 void remove();
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,58 +9,107 @@
 
 
 
- 			
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
-		
- 			
-		
-		
-		
- 			
- 			
- 			
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 	
+ 		 
+	
+ 		 
+ 		 
+	
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_util_List
 #define _java_util_List
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_Object.hpp>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include <java_util_Collection.hpp>
 
 #include <java_util_Iterator.hpp>
+
 #include <java_util_ListIterator.hpp>
-#include <java_util_Collection.hpp>
-#include <java_lang_Object.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -68,32 +117,55 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_util_Collection;
+
+class java_util_Iterator;
+
+class java_util_ListIterator;
+
+class java_util_List;
+
 class java_util_List
 {
 public:
-	void add(int& arg0,java_lang_Object& arg1);
-	java_lang_Object get(int& arg0);
-	bool equals(java_lang_Object& arg0);
-	int hashCode();
-	int indexOf(java_lang_Object& arg0);
-	void clear();
-	bool isEmpty();
-	int lastIndexOf(java_lang_Object& arg0);
-	bool contains(java_lang_Object& arg0);
-	bool addAll(int& arg0,java_util_Collection& arg1);
-	int size();
-	std::vector<long> toArray(std::vector<long>& arg0);
-	java_util_Iterator iterator();
-	java_lang_Object remove(int& arg0,java_lang_Object& arg1);
-	java_lang_Object set(int& arg0,java_lang_Object& arg1);
-	java_util_ListIterator listIterator(int& arg0);
-	java_util_List subList(int& arg0);
-	bool removeAll(java_util_Collection& arg0);
-	bool containsAll(java_util_Collection& arg0);
-	bool retainAll(java_util_Collection& arg0);
 
-
-};
+	java_util_List(const java_util_List& cc);
+	java_util_List(void * proxy);
+	// Public Constructors
+	java_util_List();
+	// Default Destructor
+	virtual ~java_util_List();
+	// Functions
+	 void add(int& arg0,AndroidCXX::java_lang_Object& arg1);
+	 bool add(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object get(int& arg0);
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 int hashCode();
+	 int indexOf(AndroidCXX::java_lang_Object& arg0);
+	 void clear();
+	 bool isEmpty();
+	 int lastIndexOf(AndroidCXX::java_lang_Object& arg0);
+	 bool contains(AndroidCXX::java_lang_Object& arg0);
+	 bool addAll(int& arg0,AndroidCXX::java_util_Collection& arg1);
+	 bool addAll(AndroidCXX::java_util_Collection& arg0);
+	 int size();
+	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object >& arg0);
+	 std::vector<AndroidCXX::java_lang_Object > toArray();
+	 AndroidCXX::java_util_Iterator iterator();
+	 AndroidCXX::java_lang_Object remove(int& arg0);
+	 bool remove(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Object set(int& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_util_ListIterator listIterator(int& arg0);
+	 AndroidCXX::java_util_ListIterator listIterator();
+	 AndroidCXX::java_util_List subList(int& arg0,int& arg1);
+	 bool removeAll(AndroidCXX::java_util_Collection& arg0);
+	 bool containsAll(AndroidCXX::java_util_Collection& arg0);
+	 bool retainAll(AndroidCXX::java_util_Collection& arg0);
+};	
 
 } // namespace
 

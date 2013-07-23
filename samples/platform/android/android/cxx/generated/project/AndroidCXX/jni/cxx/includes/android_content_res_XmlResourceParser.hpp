@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_content_res_XmlResourceParser
 #define _android_content_res_XmlResourceParser
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_content_res_XmlResourceParser
 {
 public:
-	void close();
 
-
-};
+	android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc);
+	android_content_res_XmlResourceParser(void * proxy);
+	// Public Constructors
+	android_content_res_XmlResourceParser();
+	// Default Destructor
+	virtual ~android_content_res_XmlResourceParser();
+	// Functions
+	 void close();
+};	
 
 } // namespace
 

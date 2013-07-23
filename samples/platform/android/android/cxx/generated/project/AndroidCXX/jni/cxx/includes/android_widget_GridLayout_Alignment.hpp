@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,8 +11,18 @@
 
 
 
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_GridLayout_Alignment
 #define _android_widget_GridLayout_Alignment
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -20,6 +30,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,12 +39,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_GridLayout_Alignment
 {
 public:
 
-
-};
+	android_widget_GridLayout_Alignment(const android_widget_GridLayout_Alignment& cc);
+	android_widget_GridLayout_Alignment(void * proxy);
+	// Public Constructors
+	android_widget_GridLayout_Alignment();
+	// Default Destructor
+	virtual ~android_widget_GridLayout_Alignment();
+	// Functions
+};	
 
 } // namespace
 

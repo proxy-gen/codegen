@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_widget_DatePicker_OnDateChangedListener
 #define _android_widget_DatePicker_OnDateChangedListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_widget_DatePicker.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_DatePicker;
+
 class android_widget_DatePicker_OnDateChangedListener
 {
 public:
-	void onDateChanged(android_widget_DatePicker& arg0,int& arg1);
 
-
-};
+	android_widget_DatePicker_OnDateChangedListener(const android_widget_DatePicker_OnDateChangedListener& cc);
+	android_widget_DatePicker_OnDateChangedListener(void * proxy);
+	// Public Constructors
+	android_widget_DatePicker_OnDateChangedListener();
+	// Default Destructor
+	virtual ~android_widget_DatePicker_OnDateChangedListener();
+	// Functions
+	 void onDateChanged(AndroidCXX::android_widget_DatePicker& arg0,int& arg1,int& arg2,int& arg3);
+};	
 
 } // namespace
 

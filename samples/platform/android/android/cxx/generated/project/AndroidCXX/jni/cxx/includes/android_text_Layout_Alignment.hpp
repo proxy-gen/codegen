@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_TEXT_LAYOUT_ALIGNMENT {
 
 enum android_text_Layout_Alignment
 {
-
+	ALIGN_CENTER,
+	ALIGN_NORMAL,
+	ALIGN_OPPOSITE,
 };
 
 } // namespace

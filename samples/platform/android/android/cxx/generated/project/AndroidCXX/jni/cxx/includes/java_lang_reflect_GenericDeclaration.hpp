@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,18 +9,38 @@
 
 
 
+ 	
+ 		 
+ 	
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_lang_reflect_GenericDeclaration
 #define _java_lang_reflect_GenericDeclaration
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_reflect_TypeVariable.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +48,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_reflect_TypeVariable;
+
+class java_lang_Object;
+
 class java_lang_reflect_GenericDeclaration
 {
 public:
-	std::vector<long> getTypeParameters();
 
-
-};
+	java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc);
+	java_lang_reflect_GenericDeclaration(void * proxy);
+	// Public Constructors
+	java_lang_reflect_GenericDeclaration();
+	// Default Destructor
+	virtual ~java_lang_reflect_GenericDeclaration();
+	// Functions
+	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
+};	
 
 } // namespace
 

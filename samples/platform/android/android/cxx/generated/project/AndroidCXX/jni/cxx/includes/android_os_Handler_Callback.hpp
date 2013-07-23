@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_os_Handler_Callback
 #define _android_os_Handler_Callback
-
+//
+// Scroll Down 
+//
 
 
 #include <android_os_Message.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_os_Message;
+
 class android_os_Handler_Callback
 {
 public:
-	bool handleMessage(android_os_Message& arg0);
 
-
-};
+	android_os_Handler_Callback(const android_os_Handler_Callback& cc);
+	android_os_Handler_Callback(void * proxy);
+	// Public Constructors
+	android_os_Handler_Callback();
+	// Default Destructor
+	virtual ~android_os_Handler_Callback();
+	// Functions
+	 bool handleMessage(AndroidCXX::android_os_Message& arg0);
+};	
 
 } // namespace
 

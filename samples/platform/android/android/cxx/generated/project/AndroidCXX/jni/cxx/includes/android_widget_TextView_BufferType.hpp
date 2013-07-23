@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_WIDGET_TEXTVIEW_BUFFERTYPE {
 
 enum android_widget_TextView_BufferType
 {
-
+	EDITABLE,
+	NORMAL,
+	SPANNABLE,
 };
 
 } // namespace

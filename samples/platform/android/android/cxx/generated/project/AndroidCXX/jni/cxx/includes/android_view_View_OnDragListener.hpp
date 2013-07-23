@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,22 +9,36 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_View_OnDragListener
 #define _android_view_View_OnDragListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_view_View.hpp>
+
 #include <android_view_DragEvent.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,13 +46,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_DragEvent;
+
 class android_view_View_OnDragListener
 {
 public:
-	bool onDrag(android_view_View& arg0,android_view_DragEvent& arg1);
 
-
-};
+	android_view_View_OnDragListener(const android_view_View_OnDragListener& cc);
+	android_view_View_OnDragListener(void * proxy);
+	// Public Constructors
+	android_view_View_OnDragListener();
+	// Default Destructor
+	virtual ~android_view_View_OnDragListener();
+	// Functions
+	 bool onDrag(AndroidCXX::android_view_View& arg0,AndroidCXX::android_view_DragEvent& arg1);
+};	
 
 } // namespace
 

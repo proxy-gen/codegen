@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,16 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace JAVA_LANG_THREAD_STATE {
 
 enum java_lang_Thread_State
 {
-
+	NEW,
+	RUNNABLE,
+	BLOCKED,
+	WAITING,
+	TIMED_WAITING,
+	TERMINATED,
 };
 
 } // namespace

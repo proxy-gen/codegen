@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,12 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_CANVAS_EDGETYPE {
 
 enum android_graphics_Canvas_EdgeType
 {
-
+	AA,
+	BW,
 };
 
 } // namespace

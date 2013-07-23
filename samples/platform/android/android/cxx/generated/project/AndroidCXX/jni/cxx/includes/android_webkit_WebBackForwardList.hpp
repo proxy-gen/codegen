@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,24 +9,37 @@
 
 
 
-		
-		
+	
+	
 
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_webkit_WebBackForwardList
 #define _android_webkit_WebBackForwardList
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <android_webkit_WebHistoryItem.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,16 +47,26 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_webkit_WebHistoryItem;
+
 class android_webkit_WebBackForwardList
 {
 public:
- int getSize();
- android_webkit_WebHistoryItem getCurrentItem();
- int getCurrentIndex();
- android_webkit_WebHistoryItem getItemAtIndex(int& arg0);
 
-
-};
+	android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc);
+	android_webkit_WebBackForwardList(void * proxy);
+	// Public Constructors
+	android_webkit_WebBackForwardList();
+	// Default Destructor
+	virtual ~android_webkit_WebBackForwardList();
+	// Functions
+	 int getSize();
+	 AndroidCXX::android_webkit_WebHistoryItem getCurrentItem();
+	 int getCurrentIndex();
+	 AndroidCXX::android_webkit_WebHistoryItem getItemAtIndex(int& arg0);
+};	
 
 } // namespace
 

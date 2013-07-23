@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,8 +11,18 @@
 
 
 
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_io_Serializable
 #define _java_io_Serializable
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -20,6 +30,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,12 +39,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_io_Serializable
 {
 public:
 
-
-};
+	java_io_Serializable(const java_io_Serializable& cc);
+	java_io_Serializable(void * proxy);
+	// Public Constructors
+	java_io_Serializable();
+	// Default Destructor
+	virtual ~java_io_Serializable();
+	// Functions
+};	
 
 } // namespace
 

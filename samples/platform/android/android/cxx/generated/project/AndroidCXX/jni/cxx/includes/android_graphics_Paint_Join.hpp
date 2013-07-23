@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_PAINT_JOIN {
 
 enum android_graphics_Paint_Join
 {
-
+	BEVEL,
+	MITER,
+	ROUND,
 };
 
 } // namespace

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,29 +9,43 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteStatement
 #define _android_database_sqlite_SQLiteStatement
+//
+// Scroll Down 
+//
 
 
-
-
-
-
-
-
+#include <java_lang_String.hpp>
 
 #include <android_os_ParcelFileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -39,19 +53,31 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class android_os_ParcelFileDescriptor;
+
 class android_database_sqlite_SQLiteStatement
 {
 public:
- java_lang_String toString();
- void execute();
- int executeUpdateDelete();
- long executeInsert();
- long simpleQueryForLong();
- java_lang_String simpleQueryForString();
- android_os_ParcelFileDescriptor simpleQueryForBlobFileDescriptor();
 
-
-};
+	android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc);
+	android_database_sqlite_SQLiteStatement(void * proxy);
+	// Public Constructors
+	android_database_sqlite_SQLiteStatement();
+	// Default Destructor
+	virtual ~android_database_sqlite_SQLiteStatement();
+	// Functions
+	 AndroidCXX::java_lang_String toString();
+	 void execute();
+	 int executeUpdateDelete();
+	 long executeInsert();
+	 long simpleQueryForLong();
+	 AndroidCXX::java_lang_String simpleQueryForString();
+	 AndroidCXX::android_os_ParcelFileDescriptor simpleQueryForBlobFileDescriptor();
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_webkit_WebStorage_QuotaUpdater
 #define _android_webkit_WebStorage_QuotaUpdater
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_webkit_WebStorage_QuotaUpdater
 {
 public:
-	void updateQuota(long& arg0);
 
-
-};
+	android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc);
+	android_webkit_WebStorage_QuotaUpdater(void * proxy);
+	// Public Constructors
+	android_webkit_WebStorage_QuotaUpdater();
+	// Default Destructor
+	virtual ~android_webkit_WebStorage_QuotaUpdater();
+	// Functions
+	 void updateQuota(long& arg0);
+};	
 
 } // namespace
 

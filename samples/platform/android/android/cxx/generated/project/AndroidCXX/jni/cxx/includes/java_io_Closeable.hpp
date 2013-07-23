@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_io_Closeable
 #define _java_io_Closeable
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_io_Closeable
 {
 public:
-	void close();
 
-
-};
+	java_io_Closeable(const java_io_Closeable& cc);
+	java_io_Closeable(void * proxy);
+	// Public Constructors
+	java_io_Closeable();
+	// Default Destructor
+	virtual ~java_io_Closeable();
+	// Functions
+	 void close();
+};	
 
 } // namespace
 

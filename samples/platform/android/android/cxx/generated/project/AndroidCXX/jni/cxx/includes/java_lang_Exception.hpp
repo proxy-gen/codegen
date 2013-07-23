@@ -1,5 +1,5 @@
 /*
- * Header (Static CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,38 @@
 
 
 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_lang_Exception
 #define _java_lang_Exception
+//
+// Scroll Down 
+//
 
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Throwable.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
 
 
 #ifdef __cplusplus
@@ -22,12 +51,27 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Throwable;
+
 class java_lang_Exception
 {
 public:
 
-
-};
+	java_lang_Exception(const java_lang_Exception& cc);
+	java_lang_Exception(void * proxy);
+	// Public Constructors
+	java_lang_Exception();
+	java_lang_Exception(AndroidCXX::java_lang_String& arg0);
+	java_lang_Exception(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
+	java_lang_Exception(AndroidCXX::java_lang_Throwable& arg0);
+	// Default Destructor
+	virtual ~java_lang_Exception();
+	// Functions
+};	
 
 } // namespace
 

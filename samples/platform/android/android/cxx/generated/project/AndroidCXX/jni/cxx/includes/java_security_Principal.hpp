@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,26 +9,40 @@
 
 
 
- 			
-		
-		
+ 		 
+	
+	
 
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_security_Principal
 #define _java_security_Principal
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_Object.hpp>
+
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -36,16 +50,28 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
 class java_security_Principal
 {
 public:
-	bool equals(java_lang_Object& arg0);
-	java_lang_String toString();
-	int hashCode();
-	java_lang_String getName();
 
-
-};
+	java_security_Principal(const java_security_Principal& cc);
+	java_security_Principal(void * proxy);
+	// Public Constructors
+	java_security_Principal();
+	// Default Destructor
+	virtual ~java_security_Principal();
+	// Functions
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 int hashCode();
+	 AndroidCXX::java_lang_String getName();
+};	
 
 } // namespace
 

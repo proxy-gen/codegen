@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_app_ActionBar_OnMenuVisibilityListener
 #define _android_app_ActionBar_OnMenuVisibilityListener
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_app_ActionBar_OnMenuVisibilityListener
 {
 public:
-	void onMenuVisibilityChanged(bool& arg0);
 
-
-};
+	android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc);
+	android_app_ActionBar_OnMenuVisibilityListener(void * proxy);
+	// Public Constructors
+	android_app_ActionBar_OnMenuVisibilityListener();
+	// Default Destructor
+	virtual ~android_app_ActionBar_OnMenuVisibilityListener();
+	// Functions
+	 void onMenuVisibilityChanged(bool& arg0);
+};	
 
 } // namespace
 

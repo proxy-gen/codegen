@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,18 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_WIDGET_IMAGEVIEW_SCALETYPE {
 
 enum android_widget_ImageView_ScaleType
 {
-
+	CENTER,
+	CENTER_CROP,
+	CENTER_INSIDE,
+	FIT_CENTER,
+	FIT_END,
+	FIT_START,
+	FIT_XY,
+	MATRIX,
 };
 
 } // namespace

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,22 +9,36 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_media_MediaPlayer_OnTimedTextListener
 #define _android_media_MediaPlayer_OnTimedTextListener
+//
+// Scroll Down 
+//
 
 
+#include <android_media_MediaPlayer.hpp>
 
 #include <android_media_TimedText.hpp>
-#include <android_media_MediaPlayer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,13 +46,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_media_MediaPlayer;
+
+class android_media_TimedText;
+
 class android_media_MediaPlayer_OnTimedTextListener
 {
 public:
-	void onTimedText(android_media_MediaPlayer& arg0,android_media_TimedText& arg1);
 
-
-};
+	android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc);
+	android_media_MediaPlayer_OnTimedTextListener(void * proxy);
+	// Public Constructors
+	android_media_MediaPlayer_OnTimedTextListener();
+	// Default Destructor
+	virtual ~android_media_MediaPlayer_OnTimedTextListener();
+	// Functions
+	 void onTimedText(AndroidCXX::android_media_MediaPlayer& arg0,AndroidCXX::android_media_TimedText& arg1);
+};	
 
 } // namespace
 

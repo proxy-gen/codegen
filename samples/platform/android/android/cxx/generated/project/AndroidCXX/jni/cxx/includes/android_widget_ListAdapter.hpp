@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,10 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_ListAdapter
 #define _android_widget_ListAdapter
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +32,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +41,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_ListAdapter
 {
 public:
-	bool isEnabled(int& arg0);
-	bool areAllItemsEnabled();
 
-
-};
+	android_widget_ListAdapter(const android_widget_ListAdapter& cc);
+	android_widget_ListAdapter(void * proxy);
+	// Public Constructors
+	android_widget_ListAdapter();
+	// Default Destructor
+	virtual ~android_widget_ListAdapter();
+	// Functions
+	 bool isEnabled(int& arg0);
+	 bool areAllItemsEnabled();
+};	
 
 } // namespace
 

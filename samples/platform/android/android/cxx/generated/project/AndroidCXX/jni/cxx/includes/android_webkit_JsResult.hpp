@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,10 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_webkit_JsResult
 #define _android_webkit_JsResult
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +32,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +41,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_webkit_JsResult
 {
 public:
- void cancel();
- void confirm();
 
-
-};
+	android_webkit_JsResult(const android_webkit_JsResult& cc);
+	android_webkit_JsResult(void * proxy);
+	// Public Constructors
+	android_webkit_JsResult();
+	// Default Destructor
+	virtual ~android_webkit_JsResult();
+	// Functions
+	 void cancel();
+	 void confirm();
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_nio_channels_ReadableByteChannel
 #define _java_nio_channels_ReadableByteChannel
-
+//
+// Scroll Down 
+//
 
 
 #include <java_nio_ByteBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_nio_ByteBuffer;
+
 class java_nio_channels_ReadableByteChannel
 {
 public:
-	int read(java_nio_ByteBuffer& arg0);
 
-
-};
+	java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc);
+	java_nio_channels_ReadableByteChannel(void * proxy);
+	// Public Constructors
+	java_nio_channels_ReadableByteChannel();
+	// Default Destructor
+	virtual ~java_nio_channels_ReadableByteChannel();
+	// Functions
+	 int read(AndroidCXX::java_nio_ByteBuffer& arg0);
+};	
 
 } // namespace
 

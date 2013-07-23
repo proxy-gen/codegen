@@ -540,6 +540,15 @@ config = {
 	],
 	"classes" : [ 
 		{
+			"name" : "java.math.BigDecimal",
+		},
+		{
+			"name" : "java.lang.String",
+		},
+		{
+			"name" : "java.net.Proxy$Type",
+		},
+		{
 			"name" : "org.json.JSONObject",
 		},
 		{

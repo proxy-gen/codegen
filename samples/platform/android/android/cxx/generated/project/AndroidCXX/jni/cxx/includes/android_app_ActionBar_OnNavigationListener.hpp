@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_app_ActionBar_OnNavigationListener
 #define _android_app_ActionBar_OnNavigationListener
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_app_ActionBar_OnNavigationListener
 {
 public:
-	bool onNavigationItemSelected(int& arg0,long& arg1);
 
-
-};
+	android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc);
+	android_app_ActionBar_OnNavigationListener(void * proxy);
+	// Public Constructors
+	android_app_ActionBar_OnNavigationListener();
+	// Default Destructor
+	virtual ~android_app_ActionBar_OnNavigationListener();
+	// Functions
+	 bool onNavigationItemSelected(int& arg0,long& arg1);
+};	
 
 } // namespace
 

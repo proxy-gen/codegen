@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,34 +9,59 @@
 
 
 
- 			
-		
-		
-		
- 			
-		
+ 		 
+	
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+ 	
+	
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_security_cert_CertPath
 #define _java_security_cert_CertPath
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_Object.hpp>
 
-
-
-
-
-
+#include <java_lang_String.hpp>
 
 #include <java_util_List.hpp>
+
+#include <java_security_cert_Certificate.hpp>
+
 #include <java_util_Iterator.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -44,19 +69,38 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_util_List;
+
+class java_security_cert_Certificate;
+
+class java_util_Iterator;
+
 class java_security_cert_CertPath
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- java_util_List getCertificates();
- java_lang_String getType();
- std::vector<char> getEncoded(java_lang_String& arg0);
- java_util_Iterator getEncodings();
 
-
-};
+	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
+	java_security_cert_CertPath(void * proxy);
+	// Public Constructors
+	java_security_cert_CertPath();
+	// Default Destructor
+	virtual ~java_security_cert_CertPath();
+	// Functions
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 int hashCode();
+	 AndroidCXX::java_util_List getCertificates();
+	 AndroidCXX::java_lang_String getType();
+	 std::vector<byte> getEncoded();
+	 std::vector<byte> getEncoded(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_util_Iterator getEncodings();
+};	
 
 } // namespace
 

@@ -9,37 +9,57 @@
 
 
 
-		
- 			
- 			
- 			
-		
- 			
- 			
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_Surface
 #define _android_view_Surface
+//
+// Scroll Down 
+//
 
 
-
-
-
-
-
-
-
-
+#include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
+
 #include <android_graphics_Rect.hpp>
+
 #include <android_graphics_Canvas.hpp>
-#include <java_lang_String.hpp>
+
+#include <android_graphics_SurfaceTexture.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,21 +67,40 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class android_os_Parcel;
+
+class android_graphics_Rect;
+
+class android_graphics_Canvas;
+
+class android_graphics_SurfaceTexture;
+
 class android_view_Surface
 {
 public:
- java_lang_String toString();
- void release();
- bool isValid();
- int describeContents();
- void writeToParcel(android_os_Parcel& arg0,int& arg1);
- void readFromParcel(android_os_Parcel& arg0);
- android_graphics_Canvas lockCanvas(android_graphics_Rect& arg0);
- void unlockCanvasAndPost(android_graphics_Canvas& arg0);
- void unlockCanvas(android_graphics_Canvas& arg0);
 
-
-};
+	android_view_Surface(const android_view_Surface& cc);
+	android_view_Surface(void * proxy);
+	// Public Constructors
+	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture& arg0);
+	android_view_Surface();
+	// Default Destructor
+	virtual ~android_view_Surface();
+	// Functions
+	 AndroidCXX::java_lang_String toString();
+	 void release();
+	 bool isValid();
+	 int describeContents();
+	 void writeToParcel(AndroidCXX::android_os_Parcel& arg0,int& arg1);
+	 void readFromParcel(AndroidCXX::android_os_Parcel& arg0);
+	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect& arg0);
+	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas& arg0);
+	 void unlockCanvas(AndroidCXX::android_graphics_Canvas& arg0);
+};	
 
 } // namespace
 

@@ -9,76 +9,118 @@
 
 
 
- 			
-		
- 			
-		
-		
- 			
- 			
-		
-		
-		
-		
-		
-		
-		
-		
- 			
-		
-		
- 			
-		
-		
-		
-		
-		
-		
-		
-		
-		
+ 		 
+	
+ 		 
+	
+	
+ 		 
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
+	
+ 		 
+	
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
+
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_net_URI
 #define _java_net_URI
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_Object.hpp>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include <java_lang_String.hpp>
 
 
 #include <java_net_URL.hpp>
-#include <java_lang_Object.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -86,40 +128,62 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_net_URI;
+
+class java_net_URL;
+
 class java_net_URI
 {
 public:
- bool equals(java_lang_Object& arg0);
- java_lang_String toString();
- int hashCode();
- int compareTo(java_net_URI& arg0);
- bool isAbsolute();
- java_lang_String getPath();
- java_net_URL toURL();
- java_net_URI resolve(java_lang_String& arg0,java_net_URI& arg1);
- java_net_URI normalize();
- bool isOpaque();
- java_lang_String getScheme();
- java_lang_String getAuthority();
- java_lang_String getFragment();
- java_lang_String getQuery();
- java_lang_String getUserInfo();
- int getPort();
- java_lang_String getHost();
-static java_net_URI create(java_lang_String& arg0);
- java_net_URI parseServerAuthority();
- java_net_URI relativize(java_net_URI& arg0);
- java_lang_String getRawSchemeSpecificPart();
- java_lang_String getSchemeSpecificPart();
- java_lang_String getRawAuthority();
- java_lang_String getRawUserInfo();
- java_lang_String getRawPath();
- java_lang_String getRawQuery();
- java_lang_String getRawFragment();
- java_lang_String toASCIIString();
 
-
-};
+	java_net_URI(const java_net_URI& cc);
+	java_net_URI(void * proxy);
+	// Public Constructors
+	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3,AndroidCXX::java_lang_String& arg4,AndroidCXX::java_lang_String& arg5,AndroidCXX::java_lang_String& arg6);
+	java_net_URI(AndroidCXX::java_lang_String& arg0);
+	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_lang_String& arg4);
+	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
+	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
+	java_net_URI();
+	// Default Destructor
+	virtual ~java_net_URI();
+	// Functions
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 int hashCode();
+	 int compareTo(AndroidCXX::java_net_URI& arg0);
+	 bool isAbsolute();
+	 AndroidCXX::java_lang_String getPath();
+	 AndroidCXX::java_net_URL toURL();
+	 AndroidCXX::java_net_URI resolve(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_net_URI resolve(AndroidCXX::java_net_URI& arg0);
+	 AndroidCXX::java_net_URI normalize();
+	 bool isOpaque();
+	 AndroidCXX::java_lang_String getScheme();
+	 AndroidCXX::java_lang_String getAuthority();
+	 AndroidCXX::java_lang_String getFragment();
+	 AndroidCXX::java_lang_String getQuery();
+	 AndroidCXX::java_lang_String getUserInfo();
+	 int getPort();
+	 AndroidCXX::java_lang_String getHost();
+	static AndroidCXX::java_net_URI create(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_net_URI parseServerAuthority();
+	 AndroidCXX::java_net_URI relativize(AndroidCXX::java_net_URI& arg0);
+	 AndroidCXX::java_lang_String getRawSchemeSpecificPart();
+	 AndroidCXX::java_lang_String getSchemeSpecificPart();
+	 AndroidCXX::java_lang_String getRawAuthority();
+	 AndroidCXX::java_lang_String getRawUserInfo();
+	 AndroidCXX::java_lang_String getRawPath();
+	 AndroidCXX::java_lang_String getRawQuery();
+	 AndroidCXX::java_lang_String getRawFragment();
+	 AndroidCXX::java_lang_String toASCIIString();
+};	
 
 } // namespace
 

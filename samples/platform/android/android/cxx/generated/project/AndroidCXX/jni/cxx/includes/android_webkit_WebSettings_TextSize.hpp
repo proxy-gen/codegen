@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,15 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE {
 
 enum android_webkit_WebSettings_TextSize
 {
-
+	LARGER,
+	LARGEST,
+	NORMAL,
+	SMALLER,
+	SMALLEST,
 };
 
 } // namespace

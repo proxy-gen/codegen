@@ -12,10 +12,12 @@
 #set $REF = "&"
 #set $config_module = $CONFIG.config_module
 #set $config_data = $config_module.config_data
-#set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
 #set $enum_class_name = $CONFIG.enum_class_name
 #set $class_name = $CONFIG.class_name
+#set $enum_config = $CONFIG.enum_class
+#set $enum_info = $enum_config['deriveddata']['targetdata']['classinfo']
+
 #set $enum_head_file_name = $CONFIG.enum_head_file_name
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
@@ -112,11 +114,13 @@ $include_files.extend(function['include_file_list'])
 extern "C" {
 #endif //__cplusplus
 
-namespace ${namespace} {
+namespace ${enum_info['namespace']} {
 
 enum $enum_class_name
 {
-
+	#for $field in $enum_config['fields']
+	${field['name']},
+	#end for
 };
 
 } // namespace

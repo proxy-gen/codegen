@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,40 +9,73 @@
 
 
 
-		
- 			
- 			
- 			
- 			
- 			
-		
- 			
- 			
-		
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_support_v4_app_LoaderManager
 #define _android_support_v4_app_LoaderManager
+//
+// Scroll Down 
+//
 
 
+#include <android_support_v4_content_Loader.hpp>
 
+#include <java_lang_Object.hpp>
 
+#include <java_lang_String.hpp>
 
-
-
-
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
+
 #include <android_os_Bundle.hpp>
+
 #include <android_support_v4_app_LoaderManager_LoaderCallbacks.hpp>
-#include <android_support_v4_content_Loader.hpp>
-#include <java_io_FileDescriptor.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,19 +83,41 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_support_v4_content_Loader;
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_io_FileDescriptor;
+
+class java_io_PrintWriter;
+
+class android_os_Bundle;
+
+class android_support_v4_app_LoaderManager_LoaderCallbacks;
+
 class android_support_v4_app_LoaderManager
 {
 public:
- android_support_v4_content_Loader getLoader(int& arg0);
- void dump(java_lang_String& arg0,java_io_FileDescriptor& arg1,java_io_PrintWriter& arg2,std::vector<long>& arg3);
- android_support_v4_content_Loader initLoader(int& arg0,android_os_Bundle& arg1,android_support_v4_app_LoaderManager_LoaderCallbacks& arg2);
- android_support_v4_content_Loader restartLoader(int& arg0,android_os_Bundle& arg1,android_support_v4_app_LoaderManager_LoaderCallbacks& arg2);
- void destroyLoader(int& arg0);
-static void enableDebugLogging(bool& arg0);
- bool hasRunningLoaders();
 
-
-};
+	android_support_v4_app_LoaderManager(const android_support_v4_app_LoaderManager& cc);
+	android_support_v4_app_LoaderManager(void * proxy);
+	// Public Constructors
+	android_support_v4_app_LoaderManager();
+	// Default Destructor
+	virtual ~android_support_v4_app_LoaderManager();
+	// Functions
+	 AndroidCXX::android_support_v4_content_Loader getLoader(int& arg0);
+	 void dump(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_io_FileDescriptor& arg1,AndroidCXX::java_io_PrintWriter& arg2,std::vector<AndroidCXX::java_lang_String >& arg3);
+	 AndroidCXX::android_support_v4_content_Loader initLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2);
+	 AndroidCXX::android_support_v4_content_Loader restartLoader(int& arg0,AndroidCXX::android_os_Bundle& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks& arg2);
+	 void destroyLoader(int& arg0);
+	static void enableDebugLogging(bool& arg0);
+	 bool hasRunningLoaders();
+};	
 
 } // namespace
 

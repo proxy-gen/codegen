@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,10 +11,21 @@
 
 
 
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_database_DataSetObserver
 #define _android_database_DataSetObserver
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +33,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +42,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_database_DataSetObserver
 {
 public:
- void onChanged();
- void onInvalidated();
 
-
-};
+	android_database_DataSetObserver(const android_database_DataSetObserver& cc);
+	android_database_DataSetObserver(void * proxy);
+	// Public Constructors
+	android_database_DataSetObserver();
+	// Default Destructor
+	virtual ~android_database_DataSetObserver();
+	// Functions
+	 void onChanged();
+	 void onInvalidated();
+};	
 
 } // namespace
 

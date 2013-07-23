@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_CANVAS_VERTEXMODE {
 
 enum android_graphics_Canvas_VertexMode
 {
-
+	TRIANGLES,
+	TRIANGLE_FAN,
+	TRIANGLE_STRIP,
 };
 
 } // namespace

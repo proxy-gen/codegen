@@ -1,12 +1,45 @@
 /*
- * Header (CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
+//
+// Scroll Down 
+//
+
+
+
+	
+ 	
+ 		 
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _com_facebook_TestSession_FqlResult
 #define _com_facebook_TestSession_FqlResult
+//
+// Scroll Down 
+//
 
-//includes go here
+
+#include <com_facebook_model_GraphObjectList.hpp>
+
+#include <com_facebook_model_GraphObject.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,15 +47,25 @@ extern "C" {
 
 namespace FacebookCXX {
 
+// Forward Declarations
+
+class com_facebook_model_GraphObjectList;
+
+class com_facebook_model_GraphObject;
+
 class com_facebook_TestSession_FqlResult
 {
 public:
 
-	
-    "//TODO: add CONVERTER for com.facebook.model.GraphObjectList"
-
-
-};
+	com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc);
+	com_facebook_TestSession_FqlResult(void * proxy);
+	// Public Constructors
+	com_facebook_TestSession_FqlResult();
+	// Default Destructor
+	virtual ~com_facebook_TestSession_FqlResult();
+	// Functions
+	 FacebookCXX::com_facebook_model_GraphObjectList getFqlResultSet();
+};	
 
 } // namespace
 

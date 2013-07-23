@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_webkit_WebChromeClient_CustomViewCallback
 #define _android_webkit_WebChromeClient_CustomViewCallback
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_webkit_WebChromeClient_CustomViewCallback
 {
 public:
-	void onCustomViewHidden();
 
-
-};
+	android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc);
+	android_webkit_WebChromeClient_CustomViewCallback(void * proxy);
+	// Public Constructors
+	android_webkit_WebChromeClient_CustomViewCallback();
+	// Default Destructor
+	virtual ~android_webkit_WebChromeClient_CustomViewCallback();
+	// Functions
+	 void onCustomViewHidden();
+};	
 
 } // namespace
 

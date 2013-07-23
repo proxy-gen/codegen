@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_MenuItem_OnMenuItemClickListener
 #define _android_view_MenuItem_OnMenuItemClickListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_view_MenuItem.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_MenuItem;
+
 class android_view_MenuItem_OnMenuItemClickListener
 {
 public:
-	bool onMenuItemClick(android_view_MenuItem& arg0);
 
-
-};
+	android_view_MenuItem_OnMenuItemClickListener(const android_view_MenuItem_OnMenuItemClickListener& cc);
+	android_view_MenuItem_OnMenuItemClickListener(void * proxy);
+	// Public Constructors
+	android_view_MenuItem_OnMenuItemClickListener();
+	// Default Destructor
+	virtual ~android_view_MenuItem_OnMenuItemClickListener();
+	// Functions
+	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem& arg0);
+};	
 
 } // namespace
 

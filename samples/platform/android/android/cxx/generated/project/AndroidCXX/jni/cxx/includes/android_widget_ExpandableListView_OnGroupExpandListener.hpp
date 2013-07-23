@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_ExpandableListView_OnGroupExpandListener
 #define _android_widget_ExpandableListView_OnGroupExpandListener
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_ExpandableListView_OnGroupExpandListener
 {
 public:
-	void onGroupExpand(int& arg0);
 
-
-};
+	android_widget_ExpandableListView_OnGroupExpandListener(const android_widget_ExpandableListView_OnGroupExpandListener& cc);
+	android_widget_ExpandableListView_OnGroupExpandListener(void * proxy);
+	// Public Constructors
+	android_widget_ExpandableListView_OnGroupExpandListener();
+	// Default Destructor
+	virtual ~android_widget_ExpandableListView_OnGroupExpandListener();
+	// Functions
+	 void onGroupExpand(int& arg0);
+};	
 
 } // namespace
 

@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_PAINT_STYLE {
 
 enum android_graphics_Paint_Style
 {
-
+	FILL,
+	FILL_AND_STROKE,
+	STROKE,
 };
 
 } // namespace

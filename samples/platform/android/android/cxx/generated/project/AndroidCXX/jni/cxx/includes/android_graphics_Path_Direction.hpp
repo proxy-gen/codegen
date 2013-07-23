@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,12 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_PATH_DIRECTION {
 
 enum android_graphics_Path_Direction
 {
-
+	CCW,
+	CW,
 };
 
 } // namespace

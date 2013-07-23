@@ -9,14 +9,28 @@
 
 
 
- 			
+ 		 
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_MotionEvent_PointerCoords
 #define _android_view_MotionEvent_PointerCoords
-
-
-
+//
+// Scroll Down 
+//
 
 
 
@@ -25,6 +39,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,16 +48,27 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_MotionEvent_PointerCoords;
+
 class android_view_MotionEvent_PointerCoords
 {
 public:
- void clear();
- void copyFrom(android_view_MotionEvent_PointerCoords& arg0);
- float getAxisValue(int& arg0);
- void setAxisValue(int& arg0,float& arg1);
 
-
-};
+	android_view_MotionEvent_PointerCoords(const android_view_MotionEvent_PointerCoords& cc);
+	android_view_MotionEvent_PointerCoords(void * proxy);
+	// Public Constructors
+	android_view_MotionEvent_PointerCoords();
+	android_view_MotionEvent_PointerCoords(AndroidCXX::android_view_MotionEvent_PointerCoords& arg0);
+	// Default Destructor
+	virtual ~android_view_MotionEvent_PointerCoords();
+	// Functions
+	 void clear();
+	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerCoords& arg0);
+	 float getAxisValue(int& arg0);
+	 void setAxisValue(int& arg0,float& arg1);
+};	
 
 } // namespace
 

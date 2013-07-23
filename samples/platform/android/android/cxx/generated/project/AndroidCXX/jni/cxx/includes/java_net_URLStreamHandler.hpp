@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,8 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_net_URLStreamHandler
 #define _java_net_URLStreamHandler
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -20,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,12 +40,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_net_URLStreamHandler
 {
 public:
 
-
-};
+	java_net_URLStreamHandler(const java_net_URLStreamHandler& cc);
+	java_net_URLStreamHandler(void * proxy);
+	// Public Constructors
+	java_net_URLStreamHandler();
+	// Default Destructor
+	virtual ~java_net_URLStreamHandler();
+	// Functions
+};	
 
 } // namespace
 

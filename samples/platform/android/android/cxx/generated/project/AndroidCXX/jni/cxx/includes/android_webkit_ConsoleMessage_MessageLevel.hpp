@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,15 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL {
 
 enum android_webkit_ConsoleMessage_MessageLevel
 {
-
+	DEBUG,
+	ERROR,
+	LOG,
+	TIP,
+	WARNING,
 };
 
 } // namespace

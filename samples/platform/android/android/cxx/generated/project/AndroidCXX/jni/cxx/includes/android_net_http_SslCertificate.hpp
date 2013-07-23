@@ -9,41 +9,72 @@
 
 
 
-		
- 			
-		
- 			
-		
-		
-		
-		
-		
-		
-		
+	
+ 		 
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
 
+
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_net_http_SslCertificate
 #define _android_net_http_SslCertificate
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_String.hpp>
 
 
-
-
-
-
-
-
+#include <android_os_Bundle.hpp>
 
 #include <java_util_Date.hpp>
+
 #include <android_net_http_SslCertificate_DName.hpp>
-#include <android_os_Bundle.hpp>
-#include <java_lang_String.hpp>
+
+#include <java_security_cert_X509Certificate.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -51,21 +82,44 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class android_net_http_SslCertificate;
+
+class android_os_Bundle;
+
+class java_util_Date;
+
+class android_net_http_SslCertificate_DName;
+
+class java_security_cert_X509Certificate;
+
 class android_net_http_SslCertificate
 {
 public:
- java_lang_String toString();
-static android_os_Bundle saveState(android_net_http_SslCertificate& arg0);
-static android_net_http_SslCertificate restoreState(android_os_Bundle& arg0);
- java_util_Date getValidNotBeforeDate();
- java_lang_String getValidNotBefore();
- java_util_Date getValidNotAfterDate();
- java_lang_String getValidNotAfter();
- android_net_http_SslCertificate_DName getIssuedTo();
- android_net_http_SslCertificate_DName getIssuedBy();
 
-
-};
+	android_net_http_SslCertificate(const android_net_http_SslCertificate& cc);
+	android_net_http_SslCertificate(void * proxy);
+	// Public Constructors
+	android_net_http_SslCertificate(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
+	android_net_http_SslCertificate(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_util_Date& arg2,AndroidCXX::java_util_Date& arg3);
+	android_net_http_SslCertificate(AndroidCXX::java_security_cert_X509Certificate& arg0);
+	android_net_http_SslCertificate();
+	// Default Destructor
+	virtual ~android_net_http_SslCertificate();
+	// Functions
+	 AndroidCXX::java_lang_String toString();
+	static AndroidCXX::android_os_Bundle saveState(AndroidCXX::android_net_http_SslCertificate& arg0);
+	static AndroidCXX::android_net_http_SslCertificate restoreState(AndroidCXX::android_os_Bundle& arg0);
+	 AndroidCXX::java_util_Date getValidNotBeforeDate();
+	 AndroidCXX::java_lang_String getValidNotBefore();
+	 AndroidCXX::java_util_Date getValidNotAfterDate();
+	 AndroidCXX::java_lang_String getValidNotAfter();
+	 AndroidCXX::android_net_http_SslCertificate_DName getIssuedTo();
+	 AndroidCXX::android_net_http_SslCertificate_DName getIssuedBy();
+};	
 
 } // namespace
 

@@ -1,12 +1,68 @@
 /*
- * Header (CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
+//
+// Scroll Down 
+//
+
+
+
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 		 
+	
+ 	
+ 		 
+ 		 
+	
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _com_facebook_model_GraphObject
 #define _com_facebook_model_GraphObject
+//
+// Scroll Down 
+//
 
-//includes go here
+
+#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_Class.hpp>
+
+
+#include <java_util_Map.hpp>
+
+#include <org_json_JSONObject.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,23 +70,33 @@ extern "C" {
 
 namespace FacebookCXX {
 
+// Forward Declarations
+
+
+
+
+class com_facebook_model_GraphObject;
+
+
+
 class com_facebook_model_GraphObject
 {
 public:
 
-	void setProperty(java_lang_String& arg0,java_lang_Object& arg1);
-	
-    "//TODO: add CONVERTER for java.lang.Object"
-	
-    "//TODO: add CONVERTER for com.facebook.model.GraphObject"
-	
-    "//TODO: add CONVERTER for java.util.Map"
-	
-    "//TODO: add CONVERTER for org.json.JSONObject"
-	void removeProperty(java_lang_String& arg0);
-
-
-};
+	com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc);
+	com_facebook_model_GraphObject(void * proxy);
+	// Public Constructors
+	com_facebook_model_GraphObject();
+	// Default Destructor
+	virtual ~com_facebook_model_GraphObject();
+	// Functions
+	 void setProperty(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Object& arg1);
+	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String& arg0);
+	 FacebookCXX::com_facebook_model_GraphObject cast(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_util_Map asMap();
+	 AndroidCXX::org_json_JSONObject getInnerJSONObject();
+	 void removeProperty(AndroidCXX::java_lang_String& arg0);
+};	
 
 } // namespace
 

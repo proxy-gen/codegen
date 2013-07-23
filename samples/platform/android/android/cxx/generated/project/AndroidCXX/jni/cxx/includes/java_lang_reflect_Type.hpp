@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,8 +11,18 @@
 
 
 
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_lang_reflect_Type
 #define _java_lang_reflect_Type
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -20,6 +30,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,12 +39,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_lang_reflect_Type
 {
 public:
 
-
-};
+	java_lang_reflect_Type(const java_lang_reflect_Type& cc);
+	java_lang_reflect_Type(void * proxy);
+	// Public Constructors
+	java_lang_reflect_Type();
+	// Default Destructor
+	virtual ~java_lang_reflect_Type();
+	// Functions
+};	
 
 } // namespace
 

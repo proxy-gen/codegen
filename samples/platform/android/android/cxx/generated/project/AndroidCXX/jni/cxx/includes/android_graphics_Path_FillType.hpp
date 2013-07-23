@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,14 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_PATH_FILLTYPE {
 
 enum android_graphics_Path_FillType
 {
-
+	EVEN_ODD,
+	INVERSE_EVEN_ODD,
+	INVERSE_WINDING,
+	WINDING,
 };
 
 } // namespace

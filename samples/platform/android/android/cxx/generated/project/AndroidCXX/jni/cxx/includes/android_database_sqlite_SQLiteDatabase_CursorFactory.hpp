@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,28 +9,45 @@
 
 
 
- 			
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteDatabase_CursorFactory
 #define _android_database_sqlite_SQLiteDatabase_CursorFactory
+//
+// Scroll Down 
+//
 
 
+#include <android_database_sqlite_SQLiteDatabase.hpp>
+
+#include <android_database_sqlite_SQLiteCursorDriver.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_database_sqlite_SQLiteQuery.hpp>
+
 #include <android_database_Cursor.hpp>
-#include <android_database_sqlite_SQLiteCursorDriver.hpp>
-#include <android_database_sqlite_SQLiteDatabase.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,13 +55,31 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_database_sqlite_SQLiteDatabase;
+
+class android_database_sqlite_SQLiteCursorDriver;
+
+class java_lang_String;
+
+class android_database_sqlite_SQLiteQuery;
+
+class android_database_Cursor;
+
 class android_database_sqlite_SQLiteDatabase_CursorFactory
 {
 public:
-	android_database_Cursor newCursor(android_database_sqlite_SQLiteDatabase& arg0,android_database_sqlite_SQLiteCursorDriver& arg1,java_lang_String& arg2,android_database_sqlite_SQLiteQuery& arg3);
 
-
-};
+	android_database_sqlite_SQLiteDatabase_CursorFactory(const android_database_sqlite_SQLiteDatabase_CursorFactory& cc);
+	android_database_sqlite_SQLiteDatabase_CursorFactory(void * proxy);
+	// Public Constructors
+	android_database_sqlite_SQLiteDatabase_CursorFactory();
+	// Default Destructor
+	virtual ~android_database_sqlite_SQLiteDatabase_CursorFactory();
+	// Functions
+	 AndroidCXX::android_database_Cursor newCursor(AndroidCXX::android_database_sqlite_SQLiteDatabase& arg0,AndroidCXX::android_database_sqlite_SQLiteCursorDriver& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::android_database_sqlite_SQLiteQuery& arg3);
+};	
 
 } // namespace
 

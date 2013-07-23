@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,10 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_content_DialogInterface
 #define _android_content_DialogInterface
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +32,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +41,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_content_DialogInterface
 {
 public:
-	void cancel();
-	void dismiss();
 
-
-};
+	android_content_DialogInterface(const android_content_DialogInterface& cc);
+	android_content_DialogInterface(void * proxy);
+	// Public Constructors
+	android_content_DialogInterface();
+	// Default Destructor
+	virtual ~android_content_DialogInterface();
+	// Functions
+	 void cancel();
+	 void dismiss();
+};	
 
 } // namespace
 

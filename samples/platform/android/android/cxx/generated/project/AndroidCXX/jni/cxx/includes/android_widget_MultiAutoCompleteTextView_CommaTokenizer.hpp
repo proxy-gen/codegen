@@ -9,25 +9,39 @@
 
 
 
- 			
- 			
- 			
-		
+ 		 
+ 		 
+ 		 
+	
 
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_widget_MultiAutoCompleteTextView_CommaTokenizer
 #define _android_widget_MultiAutoCompleteTextView_CommaTokenizer
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_CharSequence.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,15 +49,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_CharSequence;
+
 class android_widget_MultiAutoCompleteTextView_CommaTokenizer
 {
 public:
- int findTokenStart(java_lang_CharSequence& arg0,int& arg1);
- int findTokenEnd(java_lang_CharSequence& arg0,int& arg1);
- java_lang_CharSequence terminateToken(java_lang_CharSequence& arg0);
 
-
-};
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc);
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(void * proxy);
+	// Public Constructors
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer();
+	// Default Destructor
+	virtual ~android_widget_MultiAutoCompleteTextView_CommaTokenizer();
+	// Functions
+	 int findTokenStart(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
+	 int findTokenEnd(AndroidCXX::java_lang_CharSequence& arg0,int& arg1);
+	 AndroidCXX::java_lang_CharSequence terminateToken(AndroidCXX::java_lang_CharSequence& arg0);
+};	
 
 } // namespace
 

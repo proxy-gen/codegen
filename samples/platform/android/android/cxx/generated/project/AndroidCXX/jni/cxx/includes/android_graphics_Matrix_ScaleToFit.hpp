@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,14 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_MATRIX_SCALETOFIT {
 
 enum android_graphics_Matrix_ScaleToFit
 {
-
+	CENTER,
+	END,
+	FILL,
+	START,
 };
 
 } // namespace

@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM {
 
 enum android_webkit_WebSettings_LayoutAlgorithm
 {
-
+	NARROW_COLUMNS,
+	NORMAL,
+	SINGLE_COLUMN,
 };
 
 } // namespace

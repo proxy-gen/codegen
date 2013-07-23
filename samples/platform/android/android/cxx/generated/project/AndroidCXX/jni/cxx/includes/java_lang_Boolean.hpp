@@ -9,34 +9,56 @@
 
 
 
- 			
-		
- 			
- 			
- 			
-		
- 			
+ 		 
+	
+	
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
 
+
+ 		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_lang_Boolean
 #define _java_lang_Boolean
-
-
-
-
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_Object.hpp>
+
 #include <java_lang_String.hpp>
+
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -44,20 +66,38 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class java_lang_String;
+
+class java_lang_Boolean;
+
 class java_lang_Boolean
 {
 public:
- bool equals(java_lang_Object& arg0);
-static java_lang_String toString(bool& arg0);
- int hashCode();
- int compareTo(java_lang_Boolean& arg0);
-static bool getBoolean(java_lang_String& arg0);
- bool booleanValue();
-static java_lang_Boolean valueOf(java_lang_String& arg0,bool& arg1);
-static bool parseBoolean(java_lang_String& arg0);
 
-
-};
+	java_lang_Boolean(const java_lang_Boolean& cc);
+	java_lang_Boolean(void * proxy);
+	// Public Constructors
+	java_lang_Boolean(bool& arg0);
+	java_lang_Boolean(AndroidCXX::java_lang_String& arg0);
+	java_lang_Boolean();
+	// Default Destructor
+	virtual ~java_lang_Boolean();
+	// Functions
+	 bool equals(AndroidCXX::java_lang_Object& arg0);
+	static AndroidCXX::java_lang_String toString(bool& arg0);
+	 AndroidCXX::java_lang_String toString();
+	 int hashCode();
+	 int compareTo(AndroidCXX::java_lang_Boolean& arg0);
+	static bool getBoolean(AndroidCXX::java_lang_String& arg0);
+	 bool booleanValue();
+	static AndroidCXX::java_lang_Boolean valueOf(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_Boolean valueOf(bool& arg0);
+	static bool parseBoolean(AndroidCXX::java_lang_String& arg0);
+};	
 
 } // namespace
 

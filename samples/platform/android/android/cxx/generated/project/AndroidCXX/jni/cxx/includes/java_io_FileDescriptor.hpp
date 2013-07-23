@@ -11,10 +11,21 @@
 
 
 
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_io_FileDescriptor
 #define _java_io_FileDescriptor
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +33,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +42,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_io_FileDescriptor
 {
 public:
- bool valid();
- void sync();
 
-
-};
+	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
+	java_io_FileDescriptor(void * proxy);
+	// Public Constructors
+	java_io_FileDescriptor();
+	// Default Destructor
+	virtual ~java_io_FileDescriptor();
+	// Functions
+	 bool valid();
+	 void sync();
+};	
 
 } // namespace
 

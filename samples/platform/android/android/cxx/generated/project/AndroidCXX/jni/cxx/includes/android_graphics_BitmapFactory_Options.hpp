@@ -11,9 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_graphics_BitmapFactory_Options
 #define _android_graphics_BitmapFactory_Options
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +32,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +41,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_graphics_BitmapFactory_Options
 {
 public:
- void requestCancelDecode();
 
-
-};
+	android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc);
+	android_graphics_BitmapFactory_Options(void * proxy);
+	// Public Constructors
+	android_graphics_BitmapFactory_Options();
+	// Default Destructor
+	virtual ~android_graphics_BitmapFactory_Options();
+	// Functions
+	 void requestCancelDecode();
+};	
 
 } // namespace
 

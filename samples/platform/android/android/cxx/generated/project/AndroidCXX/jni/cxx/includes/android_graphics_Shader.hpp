@@ -9,22 +9,36 @@
 
 
 
- 			
- 			
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_graphics_Shader
 #define _android_graphics_Shader
-
-
+//
+// Scroll Down 
+//
 
 
 #include <android_graphics_Matrix.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,14 +46,24 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_graphics_Matrix;
+
 class android_graphics_Shader
 {
 public:
- bool getLocalMatrix(android_graphics_Matrix& arg0);
- void setLocalMatrix(android_graphics_Matrix& arg0);
 
-
-};
+	android_graphics_Shader(const android_graphics_Shader& cc);
+	android_graphics_Shader(void * proxy);
+	// Public Constructors
+	android_graphics_Shader();
+	// Default Destructor
+	virtual ~android_graphics_Shader();
+	// Functions
+	 bool getLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0);
+	 void setLocalMatrix(AndroidCXX::android_graphics_Matrix& arg0);
+};	
 
 } // namespace
 

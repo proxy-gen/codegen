@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_view_ActionProvider_VisibilityListener
 #define _android_view_ActionProvider_VisibilityListener
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_view_ActionProvider_VisibilityListener
 {
 public:
-	void onActionProviderVisibilityChanged(bool& arg0);
 
-
-};
+	android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc);
+	android_view_ActionProvider_VisibilityListener(void * proxy);
+	// Public Constructors
+	android_view_ActionProvider_VisibilityListener();
+	// Default Destructor
+	virtual ~android_view_ActionProvider_VisibilityListener();
+	// Functions
+	 void onActionProviderVisibilityChanged(bool& arg0);
+};	
 
 } // namespace
 

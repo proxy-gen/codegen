@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,13 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_GRAPHICS_PAINT_ALIGN {
 
 enum android_graphics_Paint_Align
 {
-
+	CENTER,
+	LEFT,
+	RIGHT,
 };
 
 } // namespace

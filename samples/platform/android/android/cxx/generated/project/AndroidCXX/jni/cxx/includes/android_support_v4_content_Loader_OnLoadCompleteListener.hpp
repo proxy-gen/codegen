@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,22 +9,38 @@
 
 
 
- 			
- 			
+ 		 
+ 	
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_support_v4_content_Loader_OnLoadCompleteListener
 #define _android_support_v4_content_Loader_OnLoadCompleteListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_support_v4_content_Loader.hpp>
+
 #include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,13 +48,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_support_v4_content_Loader;
+
+class java_lang_Object;
+
 class android_support_v4_content_Loader_OnLoadCompleteListener
 {
 public:
-	void onLoadComplete(android_support_v4_content_Loader& arg0,java_lang_Object& arg1);
 
-
-};
+	android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc);
+	android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy);
+	// Public Constructors
+	android_support_v4_content_Loader_OnLoadCompleteListener();
+	// Default Destructor
+	virtual ~android_support_v4_content_Loader_OnLoadCompleteListener();
+	// Functions
+	 void onLoadComplete(AndroidCXX::android_support_v4_content_Loader& arg0,AndroidCXX::java_lang_Object& arg1);
+};	
 
 } // namespace
 

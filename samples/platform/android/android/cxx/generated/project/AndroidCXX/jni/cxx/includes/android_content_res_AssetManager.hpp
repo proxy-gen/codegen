@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,37 +9,66 @@
 
 
 
- 			
- 			
-		
- 			
-		
- 			
-		
- 			
-		
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_content_res_AssetManager
 #define _android_content_res_AssetManager
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_String.hpp>
 
-
-
-
-
-
+#include <java_io_InputStream.hpp>
 
 #include <android_content_res_AssetFileDescriptor.hpp>
-#include <java_io_InputStream.hpp>
+
 #include <android_content_res_XmlResourceParser.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,19 +76,38 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_io_InputStream;
+
+class android_content_res_AssetFileDescriptor;
+
+class android_content_res_XmlResourceParser;
+
 class android_content_res_AssetManager
 {
 public:
- std::vector<long> list(java_lang_String& arg0);
- void close();
- java_io_InputStream open(java_lang_String& arg0,int& arg1);
- android_content_res_AssetFileDescriptor openFd(java_lang_String& arg0);
- android_content_res_AssetFileDescriptor openNonAssetFd(java_lang_String& arg0,int& arg1);
- android_content_res_XmlResourceParser openXmlResourceParser(int& arg0,java_lang_String& arg1);
- std::vector<long> getLocales();
 
-
-};
+	android_content_res_AssetManager(const android_content_res_AssetManager& cc);
+	android_content_res_AssetManager(void * proxy);
+	// Public Constructors
+	android_content_res_AssetManager();
+	// Default Destructor
+	virtual ~android_content_res_AssetManager();
+	// Functions
+	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_lang_String& arg0);
+	 void close();
+	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0,int& arg1);
+	 AndroidCXX::java_io_InputStream open(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openFd(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::android_content_res_AssetFileDescriptor openNonAssetFd(int& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(int& arg0,AndroidCXX::java_lang_String& arg1);
+	 AndroidCXX::android_content_res_XmlResourceParser openXmlResourceParser(AndroidCXX::java_lang_String& arg0);
+	 std::vector<AndroidCXX::java_lang_String > getLocales();
+};	
 
 } // namespace
 

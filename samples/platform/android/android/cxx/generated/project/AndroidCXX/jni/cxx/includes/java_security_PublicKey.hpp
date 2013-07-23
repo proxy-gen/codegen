@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,8 +11,18 @@
 
 
 
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_security_PublicKey
 #define _java_security_PublicKey
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -20,6 +30,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,12 +39,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_security_PublicKey
 {
 public:
 
-
-};
+	java_security_PublicKey(const java_security_PublicKey& cc);
+	java_security_PublicKey(void * proxy);
+	// Public Constructors
+	java_security_PublicKey();
+	// Default Destructor
+	virtual ~java_security_PublicKey();
+	// Functions
+};	
 
 } // namespace
 

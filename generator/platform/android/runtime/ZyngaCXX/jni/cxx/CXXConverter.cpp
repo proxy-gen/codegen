@@ -1,14 +1,23 @@
 /*
  * CXXConverter.cpp
+ * ZyngaCXX
  *
- *  Created on: June 30, 2013
- *      Author: rvergis
+ * Created on: June 29, 2013
+ * Author: rvergis
+ *
+ * Copyright (c) 2013 Zynga. All rights reserved.
  */
 
 #include <CXXConverter.hpp>
 #include <CXXTypeHierarchy.hpp>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
+#include <jni.h>
+#include <cstdarg>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
 
 #define LOG_ENABLED 1
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
@@ -25,141 +34,95 @@ void convert_boolean(long& java_value, long& cxx_value, const CXXTypeHierarchy c
 {
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		java_value = (jboolean) cxx_value;
+		java_value = cxx_value;
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx_value = (bool) java_value;
+		cxx_value = java_value;
 	}
 }
 
-void convert_java_util_Date(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert_byte(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
-	JNIContext *jni = JNIContext::sharedInstance();
-
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		java_value = (long) jni->createNewObjectRef("java/util/Date");
-		jni->invokeVoidMethod((jobject) java_value, "java/util/Date", "setTime", "(J)V", (jlong) cxx_value);	
+		java_value = cxx_value;
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		cxx_value = (long) jni->invokeLongMethod((jobject) java_value, "java/util/Date", "getTime", "()J");
+		cxx_value = java_value;
 	}
 }
 
-void convert_java_util_List(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert_char(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
-	JNIContext *jni = JNIContext::sharedInstance();
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		jni->pushLocalFrame();
-
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		CXXTypeHierarchy item_type = child_types.at(0);
-
-		cxx_converter item_converter = get_converter(converter_stack);
-		java_value = (long) jni->createNewObjectRef("java/util/ArrayList");
-
-		std::vector<long> *cxx_vector = (std::vector<long> *) cxx_value;
-		for(std::vector<long>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
-		{
-			long cxx_item_ptr = (long) *it;
-			long java_item_ptr = 0;
-			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			jni->invokeBooleanMethod((jobject) java_value, "java/util/ArrayList", "add", "(Ljava/lang/Object;)Z", (jobject) java_item_ptr);
-		}
-
-		java_value = (long) jni->popLocalFrame((jobject) java_value);
+		java_value = cxx_value;
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		jni->pushLocalFrame();
-
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		CXXTypeHierarchy item_type = child_types.at(0);
-
-		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<long> *cxx_vector = (std::vector<long> *) cxx_value;
-		int size = (int) jni->invokeIntMethod((jobject) java_value, "java/util/List", "size", "()I");
-		for (int idx = 0 ; idx < size; idx++)
-		{
-			long java_item_ptr = (long) jni->invokeObjectMethod((jobject) java_value, "java/util/List", "get", "(I)Ljava/lang/Object;", idx);
-			long cxx_item_ptr = 0;
-			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			cxx_vector->push_back(cxx_item_ptr);
-		}
-
-		jni->popLocalFrame();
+		cxx_value = java_value;
 	}
 }
 
-void convert_java_util_Map(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert_short(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
-	JNIContext *jni = JNIContext::sharedInstance();
-
 	if (converter_type == CONVERT_TO_JAVA)
 	{
-		jni->pushLocalFrame();
-
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		CXXTypeHierarchy key_type = child_types.at(0);
-		CXXTypeHierarchy value_type = child_types.at(1);
-
-		cxx_converter key_converter = get_converter(converter_stack);
-		cxx_converter value_converter = get_converter(converter_stack);
-
-		java_value = (long) jni->createNewObjectRef("java/util/HashMap");
-		std::map<long,long> *cxx_map = (std::map<long,long> *) cxx_value;
-
-		for(std::map<long,long>::iterator it = cxx_map->begin(); it != cxx_map->end(); ++it)
-		{
-			long cxx_key = (long) (*it).first;
-			long java_key = 0;
-			key_converter(java_key, cxx_key, key_type, converter_type, converter_stack);
-
-			long cxx_value = (long) (*it).second;
-			long java_value = 0;
-			value_converter(java_value, cxx_value, value_type, converter_type, converter_stack);
-
-			jni->invokeObjectMethod((jobject) java_value, "java/util/Map", "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", (jobject) java_key, (jobject) java_value);
-		}
-
-		java_value = (long) jni->popLocalFrame((jobject) java_value);
+		java_value = cxx_value;
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		jni->pushLocalFrame();
+		cxx_value = java_value;
+	}
+}
 
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		CXXTypeHierarchy key_type = child_types.at(0);
-		CXXTypeHierarchy value_type = child_types.at(1);
+void convert_int(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = cxx_value;
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = java_value;
+	}
+}
 
-		cxx_converter key_converter = get_converter(converter_stack);
-		cxx_converter value_converter = get_converter(converter_stack);
+void convert_long(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = cxx_value;
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = java_value;
+	}
+}
 
-		std::map<long,long> *cxx_map = (std::map<long,long> *) cxx_value;
-		jobject java_set = (jobject) jni->invokeObjectMethod((jobject) java_value, "java/util/Map", "entrySet", "()Ljava/util/Set;");
-		jobject java_iterator = (jobject) jni->invokeObjectMethod((jobject) java_set, "java/util/Set", "iterator", "()Ljava/util/Iterator;");
+void convert_float(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = cxx_value;
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = java_value;
+	}
+}
 
-		int size = (int) jni->invokeIntMethod((jobject) java_value, "java/util/Map", "size", "()I");
-
-		for (int idx = 0; idx < size; idx++)
-		{
-			jobject java_entry = (jobject) jni->invokeObjectMethod((jobject) java_iterator, "java/util/Iterator", "next", "()Ljava/lang/Object;");
-			long java_key = (long) jni->invokeObjectMethod((jobject) java_entry, "java/util/Map$Entry", "getKey", "()Ljava/lang/Object;");
-			long java_value = (long) jni->invokeObjectMethod((jobject) java_entry, "java/util/Map$Entry", "getValue", "()Ljava/lang/Object;");
-
-			long cxx_key = 0;
-			key_converter(java_key, cxx_key, key_type, converter_type, converter_stack);
-			
-			long cxx_value = 0;
-			value_converter(java_value, cxx_value, value_type, converter_type, converter_stack);
-
-			cxx_map->insert(std::pair<long,long>(cxx_key, cxx_value));
-		}
-
-		jni->popLocalFrame();
+void convert_double(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = cxx_value;
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		cxx_value = java_value;
 	}
 }
 
@@ -236,13 +199,13 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<char> *cxx_vector = (std::vector<char> *) cxx_value;
+		std::vector<byte> *cxx_vector = (std::vector<byte> *) cxx_value;
 		int count = cxx_vector->size();
 		char java_array[count];
 		int item_idx = 0;
-		for(std::vector<char>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
+		for(std::vector<byte>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
 		{
-			char item = (char) *it;
+			byte item = (byte) *it;
 			java_array[item_idx++] = item;
 		}
 		java_value = (long) jni->createByteArray(*java_array, count);
@@ -252,13 +215,13 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<char> *cxx_vector = (std::vector<char> *) cxx_value;
+		std::vector<byte> *cxx_vector = (std::vector<byte> *) cxx_value;
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		char * java_array = jni->getByteArray((jbyteArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
 		{
 			char item = (char) java_array[idx];
-			cxx_vector->push_back(item);
+			cxx_vector->push_back((byte) item);
 		}
 		jni->popLocalFrame();
 	}
@@ -515,6 +478,4 @@ void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTyp
 		jni->popLocalFrame();
 	}
 }
-
-
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_io_FileFilter
 #define _java_io_FileFilter
-
+//
+// Scroll Down 
+//
 
 
 #include <java_io_File.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_io_File;
+
 class java_io_FileFilter
 {
 public:
-	bool accept(java_io_File& arg0);
 
-
-};
+	java_io_FileFilter(const java_io_FileFilter& cc);
+	java_io_FileFilter(void * proxy);
+	// Public Constructors
+	java_io_FileFilter();
+	// Default Destructor
+	virtual ~java_io_FileFilter();
+	// Functions
+	 bool accept(AndroidCXX::java_io_File& arg0);
+};	
 
 } // namespace
 

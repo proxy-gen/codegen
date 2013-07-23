@@ -36,6 +36,11 @@ config = {
 	'package'	: 'AndroidCXX',
 	'converters' : [
 		{
+			'jni' : {'type': 'void'},
+			'java' : {'type': 'void'},
+			'name' : 'convert_jni_void',
+		},
+		{
 			'jni' : {'type': 'jboolean'},
 			'java' : {'type': 'boolean'},
 			'name' : 'convert_jni_boolean',
@@ -76,9 +81,9 @@ config = {
 			'name' : 'convert_jni_double',
 		},
 		{
-			'jni' : {'type': 'void'},
-			'java' : {'type': 'void'},
-			'name' : 'convert_jni_void',
+			'jni' : {'type': 'jobject'},
+			'java' : {'type': 'java.lang.Object'},
+			'name' : 'convert_jni_java_lang_Object',
 		},
 		{
 			'jni' : {'type': 'jstring'},
@@ -88,7 +93,7 @@ config = {
 		{
 			'jni' : {'type': 'jobjectArray'},
 			'java' : {'type': '_object_array_type'},
-			'name' : 'convert_jni___object_array_type',
+			'name' : 'convert_jni__object_array_type',
 		},
 		{
 			'jni' : {'type': 'jbyteArray'},
@@ -131,11 +136,6 @@ config = {
 			'name' : 'convert_jni__char_array_type',
 		},
 		{
-			'jni' : {'type': 'jobject'},
-			'java' : {'type': 'java.lang.Object'},
-			'name' : 'convert_jni_java_lang_Object',
-		},
-		{
 			'cxx' : {'type': 'void'},
 			'java' : {'type': 'void'},
 			'name' : 'convert_void',
@@ -146,7 +146,7 @@ config = {
 			'name' : 'convert_boolean',
 		},
 		{
-			'cxx' : {'type': 'unsigned char'},
+			'cxx' : {'type': 'byte'},
 			'java' : {'type': 'byte'},
 			'name' : 'convert_byte',
 		},
@@ -181,82 +181,12 @@ config = {
 			'name' : 'convert_double',
 		},
 		{
-			'cxx' : {'type': 'std::string'},
-			'java' : {'type': 'java.lang.String'},
-			'name' : 'convert_java_lang_String',
-		},
-		{
-			'cxx' : {'type': 'bool'},
-			'java' : {'type': 'java.lang.Boolean'},
-			'name' : 'convert_java_lang_Boolean',
-		},
-		{
-			'cxx' : {'type': 'int'},
-			'java' : {'type': 'java.lang.Byte'},
-			'name' : 'convert_java_lang_Byte',
-		},
-		{
-			'cxx' : {'type': 'char'},
-			'java' : {'type': 'java.lang.Character'},
-			'name' : 'convert_java_lang_Character',
-		},
-		{
-			'cxx' : {'type': 'short'},
-			'java' : {'type': 'java.lang.Short'},
-			'name' : 'convert_java_lang_Short',
-		},
-		{
-			'cxx' : {'type': 'int'},
-			'java' : {'type': 'java.lang.Integer'},
-			'name' : 'convert_java_lang_Integer',
-		},
-		{
-			'cxx' : {'type': 'long'},
-			'java' : {'type': 'java.lang.Long'},
-			'name' : 'convert_java_lang_Long',
-		},
-		{
-			'cxx' : {'type': 'float'},
-			'java' : {'type': 'java.lang.Float'},
-			'name' : 'convert_java_lang_Float',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.lang.Double'},
-			'name' : 'convert_java_lang_Double',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.math.BigInteger'},
-			'name' : 'convert_java_lang_BigInteger',
-		},
-		{
-			'cxx' : {'type': 'double'},
-			'java' : {'type': 'java.math.BigDecimal'},
-			'name' : 'convert_java_math_BigDecimal',
-		},
-		{
-			'cxx' : {'type': 'long'},
-			'java' : {'type': 'java.util.Date'},
-			'name' : 'convert_java_util_Date',
-		},
-		{
-			'cxx' : {'type': 'std::map'},
-			'java' : {'type': 'java.util.Map'},
-			'name' : 'convert_java_util_Map',
-		},
-		{
-			'cxx' : {'type': 'std::vector<long>'},
-			'java' : {'type': 'java.util.List'},
-			'name' : 'convert_java_util_List',
-		},
-		{
 			'cxx' : {'type': 'std::vector<long>'},
 			'java' : {'type': '_object_array_type'},
 			'name' : 'convert__object_array_type',
 		},
 		{
-			'cxx' : {'type': 'std::vector<char>'},
+			'cxx' : {'type': 'std::vector<byte>'},
 			'java' : {'type': '_byte_array_type'},
 			'name' : 'convert__byte_array_type',
 		},
@@ -837,6 +767,2738 @@ config = {
 	],
 	'classes' : [
 		{
+			'name' : 'java.math.BigDecimal',
+			'tags' : ['_instance', '_proxy'],
+			'fields' : [
+				{
+					'name' : 'ZERO',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigDecimal',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'ONE',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigDecimal',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'TEN',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigDecimal',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'ROUND_UP',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_DOWN',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_CEILING',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_FLOOR',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_HALF_UP',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_HALF_DOWN',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_HALF_EVEN',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+				{
+					'name' : 'ROUND_UNNECESSARY',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'int',
+							'converter' : 'convert_int',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'abs',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'abs',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'pow',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'pow',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'min',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'max',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'compareTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'intValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'longValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'floatValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'doubleValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'signum',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'round',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ulp',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'scale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'precision',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'subtract',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'subtract',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'multiply',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'multiply',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.RoundingMode',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.RoundingMode',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divideToIntegralValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divideToIntegralValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'remainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'remainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divideAndRemainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.math.BigDecimal', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'divideAndRemainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.math.BigDecimal', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'negate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'negate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'plus',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'plus',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'unscaledValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.RoundingMode',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'movePointLeft',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'movePointRight',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'scaleByPowerOfTen',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'stripTrailingZeros',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigDecimal',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toEngineeringString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toPlainString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toBigInteger',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toBigIntegerExact',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'longValueExact',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'intValueExact',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'shortValueExact',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
+				{
+					'name' : 'byteValueExact',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigDecimal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'java.math.MathContext',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'java.lang.String',
+			'tags' : ['_instance', '_proxy'],
+			'fields' : [
+				{
+					'name' : 'CASE_INSENSITIVE_ORDER',
+					'tags' : ['_proxy', '_static'],
+					'type' : 
+					{
+							'type' : 'java.util.Comparator',
+							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+							'converter' : 'convert_proxy',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'compareTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'length',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'isEmpty',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'charAt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'codePointAt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'codePointBefore',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'codePointCount',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'offsetByCodePoints',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getChars',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getBytes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'getBytes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getBytes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.charset.Charset',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'getBytes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'contentEquals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contentEquals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'equalsIgnoreCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'compareToIgnoreCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'regionMatches',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'regionMatches',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'startsWith',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'startsWith',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'endsWith',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'substring',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'substring',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'subSequence',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'concat',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'matches',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'replaceFirst',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replaceAll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'split',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'split',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'toLowerCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toLowerCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Locale',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toUpperCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Locale',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toUpperCase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'trim',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toCharArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'format',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'format',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.util.Locale',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'copyValueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'copyValueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'intern',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.nio.charset.Charset',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'java.nio.charset.Charset',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.String',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'java.net.Proxy$Type',
+			'tags' : ['_enum', '_proxy'],
+			'fields' : [
+				{
+					'name' : 'DIRECT',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.net.Proxy$Type',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'HTTP',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.net.Proxy$Type',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'SOCKS',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.net.Proxy$Type',
+							'converter' : 'convert_proxy',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'values',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.net.Proxy$Type', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.Proxy$Type',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+			],
+		},
+		{
 			'name' : 'org.json.JSONObject',
 			'tags' : ['_instance', '_proxy'],
 			'fields' : [
@@ -879,17 +3541,81 @@ config = {
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -911,6 +3637,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -1163,6 +3901,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'optBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -1183,6 +3937,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'optDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -1192,6 +3962,22 @@ config = {
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'optInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -1236,9 +4022,45 @@ config = {
 					],
 				},
 				{
+					'name' : 'optLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
 					'name' : 'optString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -1351,6 +4173,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'org.json.JSONObject',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONObject',
@@ -1361,14 +4184,38 @@ config = {
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+				},
+				{
+					'name' : 'org.json.JSONObject',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'org.json.JSONTokener',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'org.json.JSONObject',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'org.json.JSONObject',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'org.json.JSONObject',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Map',
 								'converter' : 'convert_proxy',
@@ -1407,6 +4254,18 @@ config = {
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -1415,13 +4274,149 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.json.JSONArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 					'returns' : [
@@ -1444,6 +4439,18 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1636,6 +4643,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'optBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'optDouble',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -1656,9 +4679,45 @@ config = {
 					],
 				},
 				{
+					'name' : 'optDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
 					'name' : 'optInt',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'optInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -1692,6 +4751,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'optLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
 					'name' : 'optString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -1702,6 +4777,22 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'optString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -1795,15 +4886,34 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'org.json.JSONArray',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'org.json.JSONTokener',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'org.json.JSONArray',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'org.json.JSONArray',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'org.json.JSONArray',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'converter' : 'convert_proxy',
@@ -1814,7 +4924,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Error',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1822,6 +4932,23 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Error',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.Error',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Error',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1833,11 +4960,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'java.lang.Error',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'java.util.concurrent.Executor',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1875,10 +5012,30 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -1904,6 +5061,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.BufferedOutputStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.OutputStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.BufferedOutputStream',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.OutputStream',
@@ -1919,7 +5087,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileNotFoundException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1927,6 +5095,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.FileNotFoundException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.io.FileNotFoundException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1938,7 +5113,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.IOException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -1946,6 +5121,23 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.IOException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.io.IOException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.IOException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -1957,11 +5149,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'java.io.IOException',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'java.io.Closeable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2557,7 +5759,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.MalformedURLException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -2565,6 +5767,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.MalformedURLException',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.net.MalformedURLException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -2600,6 +5809,18 @@ config = {
 								'type' : 'java.util.Locale',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Currency',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getInstance',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -2632,6 +5853,18 @@ config = {
 								'type' : 'java.util.Locale',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getSymbol',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -2791,16 +6024,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'convert',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -2811,6 +6052,18 @@ config = {
 					'name' : 'distanceBetween',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -3252,11 +6505,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.location.Location',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.location.Location',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.location.Location',
 								'converter' : 'convert_proxy',
@@ -3418,6 +6678,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.net.http.SslError',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -3426,6 +6687,48 @@ config = {
 						{
 								'type' : 'android.net.http.SslCertificate',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.net.http.SslError',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.security.cert.X509Certificate',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.net.http.SslError',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.net.http.SslCertificate',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.net.http.SslError',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.security.cert.X509Certificate',
@@ -3568,6 +6871,55 @@ config = {
 					],
 				},
 				{
+					'name' : 'writeDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'writeString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'writeArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'readDouble',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -3588,6 +6940,23 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'readArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.ClassLoader',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 				},
@@ -3616,72 +6985,6 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeDouble',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'writeArray',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'readArray',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.ClassLoader',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
 						},
 					],
 				},
@@ -3859,6 +7162,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -3874,6 +7181,10 @@ config = {
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -3927,6 +7238,27 @@ config = {
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'writeByteArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -4569,6 +7901,18 @@ config = {
 					'name' : 'readException',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'readException',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -4649,6 +7993,18 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.util.HashMap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'readBundle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -5073,6 +8429,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -5127,6 +8499,26 @@ config = {
 						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'instantiate',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -5522,6 +8914,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
@@ -5600,6 +8996,10 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -5997,6 +9397,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.app.Fragment',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -6199,6 +9600,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -6563,6 +9968,10 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -6579,6 +9988,10 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -6591,6 +10004,10 @@ config = {
 					'name' : 'onGlobalFocusChanged',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -6695,6 +10112,14 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -6711,6 +10136,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -6723,6 +10160,10 @@ config = {
 					'name' : 'getHttpAuthUsernamePassword',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -6774,6 +10215,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'loadUrl',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'postUrl',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -6802,6 +10259,14 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -6814,6 +10279,22 @@ config = {
 					'name' : 'loadDataWithBaseURL',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -6841,6 +10322,22 @@ config = {
 						{
 								'type' : 'android.webkit.ValueCallback',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'saveWebArchive',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -7479,6 +10976,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -7539,6 +11040,39 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.webkit.WebView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.webkit.WebView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.webkit.WebView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -7555,6 +11089,16 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.webkit.WebView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -7799,6 +11343,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSelector',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -8625,6 +12181,10 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -8641,6 +12201,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -8653,6 +12217,10 @@ config = {
 					'name' : 'pointToRowId',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -8705,6 +12273,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'smoothScrollToPosition',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -8721,6 +12309,34 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'smoothScrollToPositionFromTop',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -8733,6 +12349,10 @@ config = {
 					'name' : 'smoothScrollBy',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -8793,6 +12413,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -8808,6 +12436,14 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -8998,6 +12634,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsListView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -9013,11 +12664,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.AbsListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.AbsListView$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9025,6 +12686,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsListView$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -9034,10 +12696,44 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsListView$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsListView$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsListView$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
@@ -9048,7 +12744,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$MultiChoiceModeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9086,7 +12782,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$OnScrollListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
@@ -9149,6 +12845,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -9163,7 +12867,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$RecyclerListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9189,7 +12893,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AbsListView$SelectionBoundsAdjuster',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9215,7 +12919,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Adapter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'IGNORE_ITEM_VIEW_TYPE',
@@ -9395,7 +13099,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9434,7 +13138,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemLongClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9473,7 +13177,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$OnItemSelectedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9529,7 +13233,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Advanceable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9563,7 +13267,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$OnDismissListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9585,7 +13289,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AutoCompleteTextView$Validator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9627,7 +13331,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CalendarView$OnDateChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9638,6 +13342,14 @@ config = {
 						{
 								'type' : 'android.widget.CalendarView',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -9657,7 +13369,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Checkable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9707,7 +13419,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Chronometer$OnChronometerTickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9733,7 +13445,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.CompoundButton$OnCheckedChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9763,7 +13475,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.DatePicker$OnDateChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9774,6 +13486,14 @@ config = {
 						{
 								'type' : 'android.widget.DatePicker',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -9793,7 +13513,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListAdapter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -9861,6 +13581,10 @@ config = {
 					'name' : 'getChild',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -9949,6 +13673,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -9994,6 +13722,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -10017,6 +13749,10 @@ config = {
 					'name' : 'isChildSelectable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -10069,6 +13805,10 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 					],
 					'returns' : [
 						{
@@ -10099,7 +13839,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnChildClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10114,6 +13854,10 @@ config = {
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -10137,7 +13881,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10175,7 +13919,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupCollapseListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10201,7 +13945,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$OnGroupExpandListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10227,7 +13971,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10253,7 +13997,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filterable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10275,7 +14019,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.FilterQueryProvider',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10301,7 +14045,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.HeterogeneousExpandableList',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10325,6 +14069,10 @@ config = {
 					'name' : 'getChildType',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -10367,7 +14115,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ListAdapter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10405,7 +14153,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MediaController$MediaPlayerControl',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10539,7 +14287,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView$Tokenizer',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10605,7 +14353,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$Formatter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10631,7 +14379,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnScrollListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SCROLL_STATE_IDLE',
@@ -10688,7 +14436,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.NumberPicker$OnValueChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10699,6 +14447,10 @@ config = {
 						{
 								'type' : 'android.widget.NumberPicker',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -10718,7 +14470,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnDismissListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10744,7 +14496,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupMenu$OnMenuItemClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10770,7 +14522,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.PopupWindow$OnDismissListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10792,7 +14544,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RadioGroup$OnCheckedChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10822,7 +14574,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RatingBar$OnRatingBarChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10856,7 +14608,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViewsService$RemoteViewsFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10982,7 +14734,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnCloseListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11004,7 +14756,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnQueryTextListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11046,7 +14798,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SearchView$OnSuggestionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11088,7 +14840,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SectionIndexer',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11143,7 +14895,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SeekBar$OnSeekBarChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11209,7 +14961,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ShareActionProvider$OnShareTargetSelectedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11239,7 +14991,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11273,7 +15025,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$CursorToStringConverter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11299,7 +15051,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11333,7 +15085,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SimpleCursorTreeAdapter$ViewBinder',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11367,7 +15119,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerCloseListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11389,7 +15141,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerOpenListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11411,7 +15163,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SlidingDrawer$OnDrawerScrollListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11445,7 +15197,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.SpinnerAdapter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11479,7 +15231,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$OnTabChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11505,7 +15257,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TabHost$TabContentFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11531,7 +15283,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView$OnEditorActionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11565,7 +15317,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TimePicker$OnTimeChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11576,6 +15328,10 @@ config = {
 						{
 								'type' : 'android.widget.TimePicker',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -11595,7 +15351,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ViewSwitcher$ViewFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11617,7 +15373,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.WrapperListAdapter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11639,7 +15395,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ZoomButtonsController$OnZoomListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -11717,6 +15473,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsoluteLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsoluteLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsoluteLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -11778,11 +15559,30 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsoluteLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsoluteLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -11791,6 +15591,12 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsoluteLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
@@ -12025,6 +15831,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsSeekBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsSeekBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsSeekBar',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -12140,6 +15971,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSelection',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -12188,6 +16035,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -12212,6 +16063,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AbsSpinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsSpinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AbsSpinner',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -12283,8 +16159,64 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -12771,6 +16703,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AdapterView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AdapterView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AdapterView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -12790,7 +16747,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AdapterView$AdapterContextMenuInfo',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'targetView',
@@ -12825,6 +16782,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AdapterView$AdapterContextMenuInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -13152,6 +17110,18 @@ config = {
 								'type' : 'android.animation.ObjectAnimator',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -13188,6 +17158,18 @@ config = {
 								'type' : 'android.animation.ObjectAnimator',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setOutAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -13224,6 +17206,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AdapterViewAnimator',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AdapterViewAnimator',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AdapterViewAnimator',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -13427,6 +17434,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AdapterViewFlipper',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -13434,6 +17442,16 @@ config = {
 						},
 						{
 								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AdapterViewFlipper',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -13535,6 +17553,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AlphabetIndexer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.database.Cursor',
@@ -13554,7 +17573,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.AnalogClock',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13562,6 +17581,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AnalogClock',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AnalogClock',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AnalogClock',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -13622,6 +17666,18 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addAll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
@@ -13876,6 +17932,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -13889,6 +17949,39 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -13902,6 +17995,66 @@ config = {
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ArrayAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.util.List',
@@ -14582,6 +18735,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.AutoCompleteTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AutoCompleteTextView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -14594,6 +18758,20 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.AutoCompleteTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -14769,6 +18947,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.BaseAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -14876,6 +19055,10 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 					],
 					'returns' : [
 						{
@@ -14920,6 +19103,10 @@ config = {
 					'name' : 'getChildType',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -14984,6 +19171,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.BaseExpandableListAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -15031,6 +19219,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Button',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Button',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Button',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15077,6 +19290,26 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 					'returns' : [
@@ -15322,6 +19555,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSelectedDateVerticalBar',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -15534,6 +19779,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CalendarView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CalendarView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15546,6 +19806,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CalendarView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15593,6 +19863,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CheckBox',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CheckBox',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CheckBox',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15712,6 +20007,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setCheckMarkDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -15740,6 +20047,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CheckedTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CheckedTextView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15752,6 +20074,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CheckedTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -15907,6 +20239,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Chronometer',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Chronometer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -15919,6 +20266,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Chronometer',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -16102,6 +20459,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setButtonDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -16118,6 +20487,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CompoundButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CompoundButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -16130,6 +20514,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CompoundButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -16455,6 +20849,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CursorAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -16468,9 +20863,37 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.CursorAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CursorAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -16514,6 +20937,10 @@ config = {
 					'name' : 'getChild',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -16590,6 +21017,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -16635,6 +21066,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -16658,6 +21093,10 @@ config = {
 					'name' : 'isChildSelectable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -16699,6 +21138,18 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'notifyDataSetChanged',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -16842,6 +21293,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.CursorTreeAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.CursorTreeAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.database.Cursor',
@@ -16869,6 +21335,14 @@ config = {
 					'name' : 'init',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -17145,6 +21619,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -17157,6 +21639,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.DatePicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.DatePicker',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -17169,6 +21666,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.DatePicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -17437,6 +21944,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.DialerFilter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.DialerFilter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -17492,6 +22010,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.DigitalClock',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.DigitalClock',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -17515,6 +22044,10 @@ config = {
 					'name' : 'setSize',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -17615,6 +22148,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.EdgeEffect',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -17702,6 +22236,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSelection',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -17758,6 +22312,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.EditText',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.EditText',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -17770,6 +22339,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.EditText',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -17894,6 +22473,18 @@ config = {
 								'type' : 'android.widget.ExpandableListAdapter',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setAdapter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.widget.ListAdapter',
 								'converter' : 'convert_proxy',
@@ -17983,6 +22574,22 @@ config = {
 						{
 								'type' : 'android.widget.ExpandableListAdapter',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'expandGroup',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -18167,6 +22774,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -18250,6 +22861,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -18298,6 +22913,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -18330,6 +22949,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -18342,6 +22965,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ExpandableListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ExpandableListView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -18357,11 +22991,25 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.ExpandableListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.ExpandableListView$ExpandableListContextMenuInfo',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'targetView',
@@ -18396,10 +23044,15 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ExpandableListView$ExpandableListContextMenuInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 						{
 								'type' : 'long',
@@ -18415,6 +23068,22 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'filter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'filter',
 					'tags' : ['_instance', '_proxy'],
@@ -18455,6 +23124,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Filter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -18462,7 +23132,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterResults',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'values',
@@ -18488,6 +23158,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Filter$FilterResults',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -18703,6 +23374,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.FrameLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.FrameLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -18718,11 +23404,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.FrameLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.FrameLayout$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'gravity',
@@ -18739,6 +23435,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.FrameLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -18748,14 +23445,54 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.FrameLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.FrameLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.FrameLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.FrameLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -18979,6 +23716,14 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
@@ -19079,6 +23824,14 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
@@ -19142,6 +23895,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Gallery',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Gallery',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -19157,11 +23925,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.Gallery',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.Gallery$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -19169,6 +23947,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Gallery$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -19178,10 +23957,26 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.Gallery$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Gallery$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
@@ -19346,9 +24141,69 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.GridLayout$Spec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'spec',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'android.widget.GridLayout$Alignment',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.GridLayout$Spec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'spec',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.widget.GridLayout$Alignment',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.GridLayout$Spec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'spec',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -19602,6 +24457,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.GridLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -19614,6 +24470,30 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -19701,23 +24581,58 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.widget.GridLayout$Spec',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.widget.GridLayout$Spec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.widget.GridLayout$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -19863,6 +24778,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -20199,6 +25118,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.GridView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -20211,6 +25141,20 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.GridView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -20486,7 +25430,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.HeaderViewListAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.util.ArrayList',
+								'children' : [{'type': 'android.widget.ListView$FixedViewInfo', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.util.ArrayList',
 								'children' : [{'type': 'android.widget.ListView$FixedViewInfo', 'converter': 'convert_proxy'}],
@@ -20506,6 +25456,62 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'addView',
 					'tags' : ['_instance', '_proxy'],
@@ -20582,6 +25588,10 @@ config = {
 					'name' : 'requestChildFocus',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -20734,6 +25744,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -20790,6 +25804,10 @@ config = {
 					'name' : 'smoothScrollBy',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -20958,6 +25976,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -20970,6 +25992,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.HorizontalScrollView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.HorizontalScrollView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.HorizontalScrollView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -21029,6 +26076,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ImageButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ImageButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ImageButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -21136,6 +26208,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ImageSwitcher',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ImageSwitcher',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -21344,6 +26427,34 @@ config = {
 								'type' : 'android.graphics.PorterDuff$Mode',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setColorFilter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setColorFilter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.ColorFilter',
 								'converter' : 'convert_proxy',
@@ -21725,6 +26836,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ImageView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ImageView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -21737,6 +26863,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ImageView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -22150,6 +27286,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.LinearLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -22162,6 +27313,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -22211,6 +27372,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.LinearLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -22220,6 +27382,30 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -22228,10 +27414,22 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.LinearLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -22957,6 +28155,53 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ListPopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ListPopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ListPopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ListPopupWindow',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -23036,6 +28281,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -23253,6 +28502,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'addHeaderView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'getHeaderViewsCount',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -23277,6 +28542,22 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'addFooterView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -23352,6 +28633,10 @@ config = {
 					'name' : 'setSelectionFromTop',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -23565,6 +28850,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ListView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -23580,11 +28880,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.ListView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.ListView$FixedViewInfo',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'view',
@@ -23619,6 +28929,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ListView$FixedViewInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.widget.ListView',
@@ -23634,6 +28945,18 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'show',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'show',
 					'tags' : ['_instance', '_proxy'],
@@ -23822,6 +29145,10 @@ config = {
 								'type' : 'android.view.View$OnClickListener',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.view.View$OnClickListener',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -23834,6 +29161,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.MediaController',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -23842,6 +29170,26 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.MediaController',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.MediaController',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.util.AttributeSet',
@@ -23933,6 +29281,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.MultiAutoCompleteTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.MultiAutoCompleteTextView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -23945,6 +29308,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.MultiAutoCompleteTextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -24016,6 +29389,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.MultiAutoCompleteTextView$CommaTokenizer',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -24183,6 +29557,10 @@ config = {
 					'name' : 'scrollBy',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -24401,6 +29779,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.NumberPicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.NumberPicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.NumberPicker',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -24572,6 +29975,50 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startScroll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -24584,6 +30031,86 @@ config = {
 					'name' : 'fling',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'fling',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -24616,6 +30143,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -24632,6 +30179,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -24644,6 +30199,14 @@ config = {
 					'name' : 'notifyVerticalEdgeReached',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -24672,6 +30235,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.OverScroller',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.OverScroller',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -24680,6 +30254,46 @@ config = {
 						{
 								'type' : 'android.view.animation.Interpolator',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.OverScroller',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.animation.Interpolator',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.OverScroller',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.animation.Interpolator',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -24799,6 +30413,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.PopupMenu',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -24854,12 +30469,136 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'update',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'update',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'update',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'update',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'update',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -25281,6 +31020,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -25301,6 +31044,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -25316,6 +31067,26 @@ config = {
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'showAsDropDown',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -25361,10 +31132,27 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'getMaxAvailableHeight',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -25375,15 +31163,123 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.PopupWindow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -25416,6 +31312,18 @@ config = {
 								'type' : 'android.view.animation.Interpolator',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInterpolator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -25752,6 +31660,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ProgressBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ProgressBar',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -25764,6 +31687,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ProgressBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -25928,6 +31861,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.QuickContactBadge',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.QuickContactBadge',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -25940,6 +31888,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.QuickContactBadge',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -25999,6 +31957,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RadioButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26170,6 +32153,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RadioGroup',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26181,11 +32165,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.RadioGroup',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.RadioGroup$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26193,6 +32187,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RadioGroup$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26202,6 +32197,30 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -26210,10 +32229,22 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RadioGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -26420,6 +32451,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RatingBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RatingBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RatingBar',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26830,6 +32886,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RelativeLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RelativeLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26842,6 +32913,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RelativeLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -26882,6 +32963,26 @@ config = {
 					'name' : 'resolveLayoutDirection',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addRule',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -26943,6 +33044,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RelativeLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -26952,14 +33054,36 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RelativeLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RelativeLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RelativeLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -27115,6 +33239,10 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -27316,6 +33444,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -27392,6 +33524,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -27404,6 +33540,10 @@ config = {
 					'name' : 'setTextColor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27468,6 +33608,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -27480,6 +33624,10 @@ config = {
 					'name' : 'setViewVisibility',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27521,6 +33669,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
@@ -27536,6 +33688,22 @@ config = {
 					'name' : 'setTextViewCompoundDrawables',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27556,6 +33724,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -27568,6 +33752,10 @@ config = {
 					'name' : 'setImageViewResource',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27657,6 +33845,14 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -27737,6 +33933,30 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setRemoteAdapter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
@@ -27752,6 +33972,10 @@ config = {
 					'name' : 'setScrollPosition',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27772,6 +33996,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -27784,6 +34012,22 @@ config = {
 					'name' : 'setViewPadding',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -27803,6 +34047,10 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
@@ -27912,6 +34160,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RemoteViews',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -27921,8 +34170,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RemoteViews',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.RemoteViews',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.widget.RemoteViews',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -27975,6 +34240,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RemoteViewsService',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -28070,6 +34336,25 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ResourceCursorAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ResourceCursorAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -28086,6 +34371,28 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ResourceCursorAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -28157,6 +34464,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ResourceCursorTreeAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -28165,6 +34473,66 @@ config = {
 						{
 								'type' : 'android.database.Cursor',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ResourceCursorTreeAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ResourceCursorTreeAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -28340,6 +34708,50 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startScroll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -28352,6 +34764,34 @@ config = {
 					'name' : 'fling',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -28440,6 +34880,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Scroller',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Scroller',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.animation.Interpolator',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Scroller',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -28463,6 +34928,62 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'addView',
 					'tags' : ['_instance', '_proxy'],
@@ -28539,6 +35060,10 @@ config = {
 					'name' : 'requestChildFocus',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -28691,6 +35216,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -28747,6 +35276,10 @@ config = {
 					'name' : 'smoothScrollBy',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -28915,6 +35448,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -28927,6 +35464,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ScrollView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ScrollView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ScrollView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -29442,6 +36004,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SearchView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -29449,6 +36012,16 @@ config = {
 						},
 						{
 								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SearchView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -29513,6 +36086,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SeekBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SeekBar',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SeekBar',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -29637,6 +36235,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ShareActionProvider',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -29812,6 +36411,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setViewImage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.widget.ImageView',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -29848,6 +36463,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SimpleAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30092,6 +36708,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SimpleCursorAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30114,6 +36731,38 @@ config = {
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SimpleCursorAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -30177,6 +36826,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SimpleCursorTreeAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30185,6 +36835,116 @@ config = {
 						{
 								'type' : 'android.database.Cursor',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SimpleCursorTreeAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SimpleCursorTreeAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -30230,6 +36990,10 @@ config = {
 					'name' : 'getChild',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -30306,6 +37070,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -30351,6 +37119,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -30374,6 +37146,10 @@ config = {
 					'name' : 'isChildSelectable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -30430,6 +37206,115 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SimpleExpandableListAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SimpleExpandableListAdapter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SimpleExpandableListAdapter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30458,6 +37343,20 @@ config = {
 								'type' : 'java.util.List',
 								'children' : [{'type': 'java.util.List', 'children': [{'type': 'java.util.Map', 'children': [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
 						},
 					],
 				},
@@ -30747,6 +37646,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.SlidingDrawer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30759,6 +37659,20 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.SlidingDrawer',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -30790,6 +37704,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Space',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -30802,6 +37717,30 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Space',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Space',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -31159,6 +38098,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Spinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Spinner',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -31168,9 +38118,59 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.Spinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Spinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Spinner',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -31322,6 +38322,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.StackView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.StackView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -31334,6 +38349,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.StackView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -31429,6 +38454,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -31508,6 +38537,22 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSwitchTypeface',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Typeface',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -31749,6 +38794,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Switch',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.Switch',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -31764,6 +38824,16 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.Switch',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
@@ -31772,6 +38842,18 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'setup',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'setup',
 					'tags' : ['_instance', '_proxy'],
@@ -32052,6 +39134,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TabHost',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TabHost',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -32095,8 +39188,36 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.TabHost$TabSpec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setIndicator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.TabHost$TabSpec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setIndicator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -32115,10 +39236,34 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.TabHost$TabSpec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setContent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.widget.TabHost$TabContentFactory',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.TabHost$TabSpec',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setContent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
@@ -32141,6 +39286,62 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'addView',
 					'tags' : ['_instance', '_proxy'],
@@ -32409,6 +39610,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TableLayout',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -32424,7 +39636,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TableLayout$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -32432,6 +39644,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -32441,6 +39654,30 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -32449,10 +39686,28 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableLayout$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -32563,6 +39818,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TableRow',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -32574,11 +39830,21 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.widget.TableRow',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.widget.TableRow$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'column',
@@ -32604,6 +39870,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -32613,6 +39880,30 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -32621,10 +39912,38 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.TableRow$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
@@ -32819,6 +40138,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDividerDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -32871,6 +40202,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setLeftStripDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -32891,6 +40234,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setRightStripDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -32951,6 +40306,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TabWidget',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TabWidget',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TabWidget',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -33092,6 +40472,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TextClock',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TextClock',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TextClock',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -33207,6 +40612,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TextSwitcher',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TextSwitcher',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -33233,6 +40649,26 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -33282,6 +40718,22 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setError',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -33306,6 +40758,34 @@ config = {
 								'type' : 'android.widget.TextView$BufferType',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
@@ -33314,6 +40794,46 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.widget.TextView$BufferType',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -33419,6 +40939,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -33828,6 +41352,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -33840,6 +41376,18 @@ config = {
 					'name' : 'setPaddingRelative',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -33929,9 +41477,33 @@ config = {
 					],
 				},
 				{
+					'name' : 'setTypeface',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Typeface',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'setShadowLayer',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -33996,6 +41568,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setTextSize',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -34402,6 +41990,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -34417,6 +42017,42 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setCompoundDrawablesWithIntrinsicBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.drawable.Drawable',
@@ -34438,6 +42074,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -34453,6 +42101,42 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setCompoundDrawablesRelativeWithIntrinsicBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.drawable.Drawable',
@@ -34560,6 +42244,18 @@ config = {
 								'type' : 'android.content.res.ColorStateList',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setTextColor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -34574,7 +42270,7 @@ config = {
 				},
 				{
 					'name' : 'getTextColors',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -34584,6 +42280,18 @@ config = {
 								'type' : 'android.content.res.TypedArray',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.ColorStateList',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getTextColors',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -34757,6 +42465,18 @@ config = {
 								'type' : 'android.content.res.ColorStateList',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setHintTextColor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -34801,6 +42521,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setLinkTextColor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.res.ColorStateList',
 								'converter' : 'convert_proxy',
@@ -35177,6 +42909,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -35290,6 +43026,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'setTextKeepState',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'setHint',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -35297,6 +43049,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setHint',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -35809,6 +43573,18 @@ config = {
 					'name' : 'setSingleLine',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSingleLine',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -36109,6 +43885,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -36121,6 +43901,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TextView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TextView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36404,6 +44209,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TimePicker',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36416,6 +44222,30 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TimePicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TimePicker',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -36453,6 +44283,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -36537,6 +44379,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -36577,6 +44427,10 @@ config = {
 					'name' : 'setMargin',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -36661,10 +44515,35 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'makeText',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.widget.Toast',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'android.widget.Toast',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36804,6 +44683,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ToggleButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ToggleButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ToggleButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36887,6 +44791,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.TwoLineListItem',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TwoLineListItem',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -36899,6 +44818,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.TwoLineListItem',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37150,6 +45079,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -37286,6 +45219,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.VideoView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.VideoView',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -37298,6 +45246,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.VideoView',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -37373,6 +45331,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -37401,6 +45363,10 @@ config = {
 					'name' : 'removeViews',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -37553,6 +45519,18 @@ config = {
 								'type' : 'android.view.animation.Animation',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -37593,6 +45571,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setOutAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.animation.Animation',
 								'converter' : 'convert_proxy',
@@ -37637,6 +45627,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ViewAnimator',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -37644,6 +45635,16 @@ config = {
 						},
 						{
 								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ViewAnimator',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -37772,6 +45773,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ViewFlipper',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ViewFlipper',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -37891,6 +45903,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ViewSwitcher',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ViewSwitcher',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -38050,6 +46073,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ZoomButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ZoomButton',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ZoomButton',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -38257,6 +46305,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ZoomButtonsController',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
@@ -38440,6 +46489,17 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.ZoomControls',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.widget.ZoomControls',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -38632,7 +46692,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.RemoteViews$ActionException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -38640,11 +46700,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.widget.RemoteViews$ActionException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Exception',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.widget.RemoteViews$ActionException',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -38654,16 +46721,42 @@ config = {
 			],
 		},
 		{
-			'name' : 'java.lang.String',
+			'name' : 'java.math.MathContext',
 			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
-					'name' : 'CASE_INSENSITIVE_ORDER',
-					'tags' : ['_proxy', '_static'],
+					'name' : 'UNLIMITED',
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'type' : 
 					{
-							'type' : 'java.util.Comparator',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+							'type' : 'java.math.MathContext',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'DECIMAL32',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.MathContext',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'DECIMAL64',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.MathContext',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'DECIMAL128',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.MathContext',
 							'converter' : 'convert_proxy',
 					},
 				},
@@ -38710,13 +46803,9 @@ config = {
 					],
 				},
 				{
-					'name' : 'compareTo',
+					'name' : 'getPrecision',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
@@ -38726,22 +46815,143 @@ config = {
 					],
 				},
 				{
-					'name' : 'indexOf',
+					'name' : 'getRoundingMode',
 					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.RoundingMode',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.math.MathContext',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.MathContext',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'java.math.RoundingMode',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.MathContext',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
+				},
+			],
+		},
+		{
+			'name' : 'java.math.RoundingMode',
+			'tags' : ['_enum', '_proxy'],
+			'fields' : [
+				{
+					'name' : 'UP',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'DOWN',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'CEILING',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'FLOOR',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'HALF_UP',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'HALF_DOWN',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'HALF_EVEN',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'UNNECESSARY',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.RoundingMode',
+							'converter' : 'convert_proxy',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'values',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+					],
 					'returns' : [
 						{
-								'type' : 'int',
-								'converter' : 'convert_int',
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.math.RoundingMode', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 				},
@@ -38750,647 +46960,35 @@ config = {
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
-						{
-								'type' : 'float',
-								'converter' : 'convert_float',
-						},
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'char',
-								'converter' : 'convert_char',
-						},
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-						{
-								'type' : '_char_array_type',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'length',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'isEmpty',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'charAt',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'char',
-								'converter' : 'convert_char',
-						},
-					],
-				},
-				{
-					'name' : 'codePointAt',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'codePointBefore',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'codePointCount',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'offsetByCodePoints',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'getChars',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : '_char_array_type',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'getBytes',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'java.nio.charset.Charset',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'contentEquals',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.StringBuffer',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'equalsIgnoreCase',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'compareToIgnoreCase',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'regionMatches',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'startsWith',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'endsWith',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'lastIndexOf',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'substring',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
+								'type' : 'java.math.RoundingMode',
 								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
-					'name' : 'subSequence',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'concat',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'replace',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'char',
-								'converter' : 'convert_char',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'matches',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'contains',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'replaceFirst',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'replaceAll',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'split',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'toLowerCase',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Locale',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'toUpperCase',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.util.Locale',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'trim',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'toCharArray',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : '_char_array_type',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'format',
+					'name' : 'valueOf',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-						{
-								'type' : 'java.util.Locale',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'copyValueOf',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'params' : [
-						{
-								'type' : '_char_array_type',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array_type',
-						},
-						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
 						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'intern',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
+								'type' : 'java.math.RoundingMode',
 								'converter' : 'convert_proxy',
 						},
 					],
 				},
 			],	
 			'constructors' : [	
-				{
-					'name' : 'java.lang.String',
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : '_char_array_type',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array_type',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : '_int_array_type',
-								'children' : [{'type': 'int', 'converter': 'convert_int'}],
-								'converter' : 'convert__int_array_type',
-						},
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'java.nio.charset.Charset',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.StringBuffer',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.lang.StringBuilder',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
 			],
 		},
 		{
@@ -39523,6 +47121,18 @@ config = {
 								'type' : 'java.nio.CharBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'encode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -39585,6 +47195,18 @@ config = {
 						{
 								'type' : 'java.util.SortedMap',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.nio.charset.Charset', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'displayName',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -39663,6 +47285,34 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'wait',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'wait',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'wait',
 					'tags' : ['_instance', '_proxy'],
@@ -39764,6 +47414,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Object',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -39775,6 +47426,23 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'forName',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Class',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 				{
 					'name' : 'forName',
 					'tags' : ['_proxy', '_static'],
@@ -40835,6 +48503,39 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -40887,6 +48588,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.InputStream',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -41127,6 +48829,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'openConnection',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.URLConnection',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getContent',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -41135,6 +48849,18 @@ config = {
 								'children' : [{'type': 'java.lang.Class', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getContent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -41163,7 +48889,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -41173,11 +48904,93 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'java.net.URLStreamHandler',
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.net.URLStreamHandler',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'java.net.URL',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URL',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.URL',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.net.URLStreamHandler',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -41194,6 +49007,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.URLStreamHandler',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -41305,6 +49119,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.URI',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'resolve',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.net.URI',
 								'converter' : 'convert_proxy',
@@ -41569,7 +49395,16 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.URI',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -41577,6 +49412,94 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URI',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URI',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URI',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.URI',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -41665,6 +49588,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.Proxy',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.Proxy$Type',
@@ -41679,72 +49603,6 @@ config = {
 			],
 		},
 		{
-			'name' : 'java.net.Proxy$Type',
-			'tags' : ['_enum', '_proxy'],
-			'fields' : [
-				{
-					'name' : 'DIRECT',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.net.Proxy$Type',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'HTTP',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.net.Proxy$Type',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'SOCKS',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.net.Proxy$Type',
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
-			'functions' : [
-				{
-					'name' : 'values',
-					'tags' : ['_proxy', '_static'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.net.Proxy$Type', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'valueOf',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'params' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.net.Proxy$Type',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
 			'name' : 'java.net.SocketAddress',
 			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
@@ -41754,6 +49612,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.SocketAddress',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -41807,6 +49666,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'getContent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getInputStream',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -41846,6 +49717,10 @@ config = {
 					'name' : 'setRequestProperty',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -41902,6 +49777,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getHeaderField',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -41958,6 +49845,10 @@ config = {
 					'name' : 'addRequestProperty',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -42396,6 +50287,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -42558,6 +50453,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.Permission',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -42658,6 +50554,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.PermissionCollection',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -42665,7 +50562,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Enumeration',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42699,7 +50596,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.FileNameMap',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42725,7 +50622,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -42749,6 +50646,10 @@ config = {
 					'name' : 'put',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -42935,7 +50836,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Collection',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43061,6 +50962,19 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -43156,7 +51070,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Iterator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43202,7 +51116,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Set',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43338,6 +51252,19 @@ config = {
 					],
 				},
 				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
 					'name' : 'iterator',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -43423,7 +51350,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Map$Entry',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43501,7 +51428,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.List',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43523,6 +51450,18 @@ config = {
 								'type' : 'void',
 								'converter' : 'convert_void',
 						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -43667,6 +51606,23 @@ config = {
 					],
 				},
 				{
+					'name' : 'addAll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'size',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -43697,6 +51653,19 @@ config = {
 					],
 				},
 				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
 					'name' : 'iterator',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -43717,16 +51686,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'remove',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -43771,9 +51748,26 @@ config = {
 					],
 				},
 				{
+					'name' : 'listIterator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.ListIterator',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'subList',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -43844,7 +51838,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.ListIterator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43982,10 +51976,47 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -44023,6 +52054,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.OutputStream',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -44030,7 +52062,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.ContentHandlerFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44068,6 +52100,22 @@ config = {
 								'type' : 'java.net.URLConnection',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getContent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.URLConnection',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Class', 'converter': 'convert_proxy'}],
@@ -44085,6 +52133,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.ContentHandler',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -44092,7 +52141,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.URLStreamHandlerFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44118,7 +52167,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.TypeVariable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44165,7 +52214,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Type',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44175,7 +52224,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.GenericDeclaration',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44331,6 +52380,18 @@ config = {
 					'name' : 'isSealed',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'isSealed',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.net.URL',
 								'converter' : 'convert_proxy',
@@ -44437,7 +52498,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.annotation.Annotation',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -45373,6 +53434,10 @@ config = {
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -45632,6 +53697,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.ProtectionDomain',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.security.CodeSource',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.security.PermissionCollection',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.security.ProtectionDomain',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.security.CodeSource',
@@ -45758,6 +53838,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.CodeSource',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.URL',
@@ -45767,6 +53848,16 @@ config = {
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.security.CodeSigner', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.security.CodeSource',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.URL',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
@@ -45851,6 +53942,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.CodeSigner',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.security.cert.CertPath',
@@ -45932,6 +54024,19 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getEncoded',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
 						},
 					],
 				},
@@ -46048,6 +54153,22 @@ config = {
 								'type' : 'java.security.PublicKey',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'verify',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.security.PublicKey',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -46078,7 +54199,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.PublicKey',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'serialVersionUID',
@@ -46169,6 +54290,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.security.Timestamp',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Date',
@@ -46412,6 +54534,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -46568,15 +54710,98 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+				},
+				{
+					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.Date',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -46587,7 +54812,7 @@ config = {
 		},
 		{
 			'name' : 'java.security.Principal',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -46657,6 +54882,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
@@ -46666,15 +54920,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
-						},
-						{
-								'type' : 'java.nio.ByteBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46686,14 +54956,79 @@ config = {
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
 						{
-								'type' : 'byte',
-								'converter' : 'convert_byte',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -46780,6 +55115,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'getShort',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
+				{
 					'name' : 'putShort',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -46796,6 +55143,34 @@ config = {
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putShort',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getChar',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
 						},
 					],
 				},
@@ -46836,6 +55211,34 @@ config = {
 					],
 				},
 				{
+					'name' : 'putChar',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
 					'name' : 'getInt',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -46848,6 +55251,26 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'putInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -46884,6 +55307,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'getLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
 					'name' : 'putLong',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -46891,15 +55326,43 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getFloat',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 				},
@@ -46927,15 +55390,43 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putFloat',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
 						},
 					],
 				},
@@ -46963,6 +55454,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -47032,6 +55539,27 @@ config = {
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -47139,6 +55667,14 @@ config = {
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'order',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
 						{
 								'type' : 'java.nio.ByteOrder',
 								'converter' : 'convert_proxy',
@@ -47288,6 +55824,27 @@ config = {
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -47298,6 +55855,30 @@ config = {
 								'type' : 'java.nio.CharBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -47316,15 +55897,116 @@ config = {
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.nio.CharBuffer',
 								'converter' : 'convert_proxy',
@@ -47378,8 +56060,40 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'char',
 								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -47449,6 +56163,10 @@ config = {
 					'name' : 'subSequence',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -47523,9 +56241,66 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -47633,7 +56408,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.CharSequence',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47685,6 +56460,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -47707,6 +56486,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_short_array_type',
+								'children' : [{'type': 'short', 'converter': 'convert_short'}],
+								'converter' : 'convert__short_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_short_array_type',
 								'children' : [{'type': 'short', 'converter': 'convert_short'}],
@@ -47716,15 +56524,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
-						},
-						{
-								'type' : 'java.nio.ShortBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -47736,14 +56560,79 @@ config = {
 								'type' : 'java.nio.ShortBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_short_array_type',
+								'children' : [{'type': 'short', 'converter': 'convert_short'}],
+								'converter' : 'convert__short_array_type',
 						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_short_array_type',
 								'children' : [{'type': 'short', 'converter': 'convert_short'}],
@@ -47874,6 +56763,27 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.ShortBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_short_array_type',
+								'children' : [{'type': 'short', 'converter': 'convert_short'}],
+								'converter' : 'convert__short_array_type',
 						},
 					],
 					'returns' : [
@@ -47973,6 +56883,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
@@ -47982,15 +56921,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'java.nio.IntBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48002,10 +56957,79 @@ config = {
 								'type' : 'java.nio.IntBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
@@ -48136,6 +57160,27 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.IntBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
 						},
 					],
 					'returns' : [
@@ -48235,6 +57280,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_long_array_type',
+								'children' : [{'type': 'long', 'converter': 'convert_long'}],
+								'converter' : 'convert__long_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_long_array_type',
 								'children' : [{'type': 'long', 'converter': 'convert_long'}],
@@ -48244,15 +57318,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
-						},
-						{
-								'type' : 'java.nio.LongBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48264,14 +57354,79 @@ config = {
 								'type' : 'java.nio.LongBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_long_array_type',
+								'children' : [{'type': 'long', 'converter': 'convert_long'}],
+								'converter' : 'convert__long_array_type',
 						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_long_array_type',
 								'children' : [{'type': 'long', 'converter': 'convert_long'}],
@@ -48402,6 +57557,27 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.LongBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_long_array_type',
+								'children' : [{'type': 'long', 'converter': 'convert_long'}],
+								'converter' : 'convert__long_array_type',
 						},
 					],
 					'returns' : [
@@ -48501,6 +57677,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
@@ -48510,15 +57715,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
-						},
-						{
-								'type' : 'java.nio.FloatBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48530,14 +57751,79 @@ config = {
 								'type' : 'java.nio.FloatBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
@@ -48668,6 +57954,27 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.FloatBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 					],
 					'returns' : [
@@ -48767,6 +58074,35 @@ config = {
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_double_array_type',
+								'children' : [{'type': 'double', 'converter': 'convert_double'}],
+								'converter' : 'convert__double_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_double_array_type',
 								'children' : [{'type': 'double', 'converter': 'convert_double'}],
@@ -48776,15 +58112,31 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
-						},
-						{
-								'type' : 'java.nio.DoubleBuffer',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -48796,14 +58148,79 @@ config = {
 								'type' : 'java.nio.DoubleBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_double_array_type',
+								'children' : [{'type': 'double', 'converter': 'convert_double'}],
+								'converter' : 'convert__double_array_type',
 						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_double_array_type',
 								'children' : [{'type': 'double', 'converter': 'convert_double'}],
@@ -48935,6 +58352,27 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.DoubleBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'wrap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_double_array_type',
+								'children' : [{'type': 'double', 'converter': 'convert_double'}],
+								'converter' : 'convert__double_array_type',
+						},
 					],
 					'returns' : [
 						{
@@ -49025,7 +58463,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.SortedMap',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49085,6 +58523,10 @@ config = {
 					'name' : 'subMap',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -49162,7 +58604,7 @@ config = {
 		},
 		{
 			'name' : 'java.util.Comparator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -49186,6 +58628,10 @@ config = {
 					'name' : 'compare',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -49602,6 +59048,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'getDisplayLanguage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getDisplayCountry',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -49609,6 +59067,30 @@ config = {
 								'type' : 'java.util.Locale',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getDisplayCountry',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getDisplayVariant',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -49649,10 +59131,55 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'getDisplayName',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'java.util.Locale',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.Locale',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.Locale',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -49702,6 +59229,18 @@ config = {
 								'type' : 'java.nio.charset.CoderResult',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'decode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.nio.CharBuffer',
 								'converter' : 'convert_proxy',
@@ -50129,6 +59668,18 @@ config = {
 								'type' : 'java.nio.charset.CoderResult',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'encode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.CharBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
@@ -50171,6 +59722,18 @@ config = {
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'canEncode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -50346,37 +59909,206 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.lang.StringBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -50400,6 +60132,22 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -50477,6 +60225,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -50489,6 +60241,10 @@ config = {
 					'name' : 'offsetByCodePoints',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -50510,15 +60266,39 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -50559,9 +60339,33 @@ config = {
 					],
 				},
 				{
+					'name' : 'substring',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'subSequence',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -50578,6 +60382,10 @@ config = {
 					'name' : 'replace',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -50694,6 +60502,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -50730,17 +60542,150 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : '_char_array_type',
@@ -50748,16 +60693,88 @@ config = {
 								'converter' : 'convert__char_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -50787,15 +60804,34 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.StringBuffer',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuffer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuffer',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuffer',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -50830,43 +60866,212 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
 						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'char',
-								'converter' : 'convert_char',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
 						{
-								'type' : 'long',
-								'converter' : 'convert_long',
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
 						},
-						{
-								'type' : 'float',
-								'converter' : 'convert_float',
-						},
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.StringBuffer',
 								'converter' : 'convert_proxy',
@@ -50876,6 +61081,22 @@ config = {
 						{
 								'type' : 'java.lang.StringBuilder',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'indexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -50920,9 +61141,29 @@ config = {
 					],
 				},
 				{
+					'name' : 'lastIndexOf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
 					'name' : 'replace',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -50963,6 +61204,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -50999,9 +61244,41 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : '_char_array_type',
@@ -51009,24 +61286,197 @@ config = {
 								'converter' : 'convert__char_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.StringBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'long',
@@ -51056,18 +61506,957 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.StringBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.StringBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'java.math.BigInteger',
+			'tags' : ['_instance', '_proxy'],
+			'fields' : [
+				{
+					'name' : 'ZERO',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigInteger',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'ONE',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigInteger',
+							'converter' : 'convert_proxy',
+					},
+				},
+				{
+					'name' : 'TEN',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'type' : 
+					{
+							'type' : 'java.math.BigInteger',
+							'converter' : 'convert_proxy',
+					},
+				},
+			],	
+			'functions' : [
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'bitCount',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'abs',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'pow',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'min',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'max',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'compareTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'intValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'longValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'floatValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'doubleValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'signum',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'toByteArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'and',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'or',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'xor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'andNot',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'subtract',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'multiply',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divide',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'remainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'divideAndRemainder',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.math.BigInteger', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'negate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'bitLength',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'testBit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'probablePrime',
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'java.util.Random',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'nextProbablePrime',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'gcd',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'mod',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'modPow',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'modInverse',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'shiftLeft',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'shiftRight',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'not',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setBit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'clearBit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'flipBit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.math.BigInteger',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getLowestSetBit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'isProbablePrime',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
-								'type' : 'java.lang.CharSequence',
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.util.Random',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.math.BigInteger',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.util.Random',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
+			'name' : 'java.util.Random',
+			'tags' : ['_instance', '_proxy'],
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'nextInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'nextInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'nextDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+				{
+					'name' : 'nextLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'nextBytes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSeed',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'nextBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'nextFloat',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'nextGaussian',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.util.Random',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.util.Random',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 				},
@@ -51099,16 +62488,36 @@ config = {
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+				},
+				{
+					'name' : 'next',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'next',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -51191,6 +62600,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'nextTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -51267,6 +62688,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'org.json.JSONTokener',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -51278,7 +62700,7 @@ config = {
 		},
 		{
 			'name' : 'org.json.JSONException',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51286,6 +62708,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'org.json.JSONException',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -51377,6 +62800,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Number',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -51396,6 +62820,30 @@ config = {
 								'type' : 'java.io.PrintStream',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'printStackTrace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'printStackTrace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.PrintWriter',
 								'converter' : 'convert_proxy',
@@ -51518,11 +62966,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Throwable',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.Throwable',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Throwable',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Throwable',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
 								'converter' : 'convert_proxy',
@@ -51545,35 +63020,143 @@ config = {
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -51594,10 +63177,42 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -51636,6 +63251,27 @@ config = {
 					],
 				},
 				{
+					'name' : 'format',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'write',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -51644,6 +63280,26 @@ config = {
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -51664,35 +63320,131 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -51754,9 +63506,30 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'printf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Locale',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
@@ -51770,6 +63543,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.OutputStream',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.OutputStream',
@@ -51783,8 +63571,62 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.OutputStream',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -51969,6 +63811,19 @@ config = {
 								'type' : 'java.io.FilenameFilter',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'list',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -52190,6 +64045,32 @@ config = {
 								'type' : 'java.io.FileFilter',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.io.File', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'listFiles',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.io.File', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'listFiles',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.FilenameFilter',
 								'converter' : 'convert_proxy',
@@ -52267,6 +64148,26 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'setWritable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
 					],
 					'returns' : [
 						{
@@ -52279,6 +64180,46 @@ config = {
 					'name' : 'setReadable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'setReadable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'setExecutable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -52377,6 +64318,30 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createTempFile',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'java.io.File',
 								'converter' : 'convert_proxy',
 						},
@@ -52392,17 +64357,48 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.File',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.URI',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.File',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.File',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.File',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -52411,7 +64407,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FilenameFilter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -52441,7 +64437,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileFilter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -52479,35 +64475,143 @@ config = {
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'println',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -52528,10 +64632,42 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintWriter',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintWriter',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -52570,6 +64706,44 @@ config = {
 					],
 				},
 				{
+					'name' : 'format',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintWriter',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'write',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -52582,6 +64756,62 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -52602,34 +64832,130 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'print',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
@@ -52692,9 +65018,30 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.PrintWriter',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'printf',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Locale',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
@@ -52708,6 +65055,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.Writer',
@@ -52717,16 +65065,86 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.OutputStream',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.Writer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.PrintWriter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.OutputStream',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -52747,10 +65165,42 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.Writer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.Writer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -52777,8 +65227,81 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -52926,7 +65449,16 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.StackTraceElement',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -52941,7 +65473,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Runnable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -53034,6 +65566,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getBoolean',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -53084,6 +65632,18 @@ config = {
 								'type' : 'java.lang.Byte',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'getByte',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
@@ -53121,6 +65681,22 @@ config = {
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
+				{
+					'name' : 'getShort',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -53171,6 +65747,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getChar',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
 					'name' : 'putChar',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -53187,6 +65779,22 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -53251,6 +65859,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getLong',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
 					'name' : 'putLong',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -53291,6 +65915,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getFloat',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'putFloat',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -53307,6 +65947,22 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getDouble',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
 						},
 					],
 				},
@@ -53483,6 +66139,26 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -53572,6 +66248,10 @@ config = {
 					'name' : 'putString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -54008,6 +66688,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getCharSequence',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -54327,15 +67023,34 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.Bundle',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.os.Bundle',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ClassLoader',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.os.Bundle',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.os.Bundle',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
@@ -54405,12 +67120,24 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -54527,10 +67254,38 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Byte',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Byte',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
@@ -54567,6 +67322,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'byte',
+								'converter' : 'convert_byte',
+						},
+					],
+				},
+				{
+					'name' : 'parseByte',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -54583,11 +67354,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Byte',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Byte',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -54730,12 +67508,24 @@ config = {
 				},
 				{
 					'name' : 'dup',
-					'tags' : ['_instance', '_proxy', '_singleton', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.ParcelFileDescriptor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'dup',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -54905,6 +67695,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.ParcelFileDescriptor',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.ParcelFileDescriptor',
@@ -54975,6 +67766,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.FileDescriptor',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -55043,6 +67835,22 @@ config = {
 						{
 								'type' : 'java.nio.channels.SocketChannel',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'connect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.SocketAddress',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -55534,6 +68342,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -55546,11 +68362,52 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.Proxy',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -55562,6 +68419,64 @@ config = {
 						{
 								'type' : 'java.net.InetAddress',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.Socket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'boolean',
@@ -55802,6 +68717,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'isReachable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -55831,9 +68766,26 @@ config = {
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getByAddress',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
 						},
 					],
 					'returns' : [
@@ -56232,9 +69184,42 @@ config = {
 								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -56245,10 +69230,6 @@ config = {
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -56266,8 +69247,8 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'java.nio.ByteBuffer',
-								'converter' : 'convert_proxy',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -56275,6 +69256,35 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -56289,6 +69299,18 @@ config = {
 								'type' : 'java.net.SocketAddress',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.channels.SocketChannel',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'open',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -56379,7 +69401,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.SocketImplFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56421,6 +69443,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.SocketImpl',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -56492,6 +69515,18 @@ config = {
 								'type' : 'java.net.SocketAddress',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'connect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.net.InetAddress',
 								'converter' : 'convert_proxy',
@@ -56836,6 +69871,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.DatagramSocket',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -56845,9 +69881,31 @@ config = {
 								'type' : 'java.net.InetAddress',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramSocket',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.net.DatagramSocket',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.net.SocketAddress',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramSocket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -56977,6 +70035,27 @@ config = {
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setData',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -57021,6 +70100,91 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.net.InetAddress',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.net.SocketAddress',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
@@ -57034,6 +70198,25 @@ config = {
 						{
 								'type' : 'java.net.InetAddress',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.net.DatagramPacket',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.net.SocketAddress',
@@ -57058,9 +70241,42 @@ config = {
 								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -57071,10 +70287,6 @@ config = {
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -57112,8 +70324,8 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'java.nio.ByteBuffer',
-								'converter' : 'convert_proxy',
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -57121,9 +70333,38 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 				},
@@ -57225,7 +70466,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramSocketImplFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57255,6 +70496,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.net.DatagramSocketImpl',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -57262,7 +70504,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$Creator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57305,7 +70547,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FIRST_CALL_TRANSACTION',
@@ -57487,6 +70729,14 @@ config = {
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.os.Parcel',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -57541,7 +70791,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IInterface',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57563,7 +70813,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.IBinder$DeathRecipient',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57589,6 +70839,22 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
 				{
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
@@ -57822,11 +71088,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.SparseArray',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.util.SparseArray',
+					'tags' : ['_proxy'],
+					'params' : [
 					],
 				},
 			],
@@ -57837,6 +71110,22 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
 				{
 					'name' : 'get',
 					'tags' : ['_instance', '_proxy'],
@@ -58017,6 +71306,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.SparseBooleanArray',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58024,11 +71314,17 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.util.SparseBooleanArray',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.os.Parcelable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'PARCELABLE_WRITE_RETURN_VALUE',
@@ -58088,7 +71384,7 @@ config = {
 		},
 		{
 			'name' : 'java.io.Serializable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -58098,7 +71394,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Exception',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -58106,11 +71402,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Exception',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.Exception',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Exception',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Throwable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Exception',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
 								'converter' : 'convert_proxy',
@@ -58145,6 +71468,10 @@ config = {
 					'name' : 'put',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -58313,6 +71640,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -58322,6 +71650,28 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
@@ -58355,6 +71705,18 @@ config = {
 								'type' : 'void',
 								'converter' : 'convert_void',
 						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -58470,9 +71832,26 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'addAll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -58513,6 +71892,19 @@ config = {
 					],
 				},
 				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+				},
+				{
 					'name' : 'remove',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -58520,16 +71912,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'remove',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -58588,11 +71988,24 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.util.ArrayList',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'java.util.ArrayList',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.util.ArrayList',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.util.Collection',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
@@ -58711,12 +72124,44 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -58862,6 +72307,38 @@ config = {
 					],
 				},
 				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Integer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Integer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'toHexString',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
@@ -58900,6 +72377,22 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'parseInt',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -58973,6 +72466,38 @@ config = {
 								'type' : 'java.lang.Integer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Integer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getInteger',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Integer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getInteger',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -59025,6 +72550,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -59037,6 +72566,10 @@ config = {
 					'name' : 'rotateRight',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -59069,11 +72602,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Integer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Integer',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -59084,7 +72624,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.Printer',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -59234,7 +72774,34 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.net.http.SslCertificate',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.net.http.SslCertificate',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -59243,6 +72810,16 @@ config = {
 								'type' : 'java.util.Date',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.util.Date',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.net.http.SslCertificate',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.security.cert.X509Certificate',
 								'converter' : 'convert_proxy',
@@ -59328,6 +72905,18 @@ config = {
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+					],
+				},
+				{
+					'name' : 'checkValidity',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -59527,831 +73116,6 @@ config = {
 			],
 		},
 		{
-			'name' : 'java.math.BigInteger',
-			'tags' : ['_instance', '_proxy'],
-			'fields' : [
-				{
-					'name' : 'ZERO',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'ONE',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'TEN',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'java.math.BigInteger',
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
-			'functions' : [
-				{
-					'name' : 'add',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'bitCount',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'abs',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'pow',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'min',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'max',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'compareTo',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'intValue',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'longValue',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-				},
-				{
-					'name' : 'floatValue',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'float',
-								'converter' : 'convert_float',
-						},
-					],
-				},
-				{
-					'name' : 'doubleValue',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
-					],
-				},
-				{
-					'name' : 'valueOf',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'params' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'signum',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'toByteArray',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'and',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'or',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'xor',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'andNot',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'bitLength',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'probablePrime',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'java.util.Random',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'nextProbablePrime',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'subtract',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'multiply',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'divide',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'divideAndRemainder',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : '_object_array_type',
-								'children' : [{'type': 'java.math.BigInteger', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array_type',
-						},
-					],
-				},
-				{
-					'name' : 'remainder',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'gcd',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'negate',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'mod',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'modPow',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'modInverse',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'shiftLeft',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'shiftRight',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'not',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'testBit',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'setBit',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'clearBit',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'flipBit',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.math.BigInteger',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'getLowestSetBit',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'isProbablePrime',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'java.math.BigInteger',
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : 'java.util.Random',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],
-		},
-		{
-			'name' : 'java.util.Random',
-			'tags' : ['_instance', '_proxy'],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'nextInt',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'nextDouble',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
-					],
-				},
-				{
-					'name' : 'nextLong',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-				},
-				{
-					'name' : 'nextBytes',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : '_byte_array_type',
-								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
-								'converter' : 'convert__byte_array_type',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'setSeed',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'nextBoolean',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'boolean',
-								'converter' : 'convert_boolean',
-						},
-					],
-				},
-				{
-					'name' : 'nextFloat',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'float',
-								'converter' : 'convert_float',
-						},
-					],
-				},
-				{
-					'name' : 'nextGaussian',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'double',
-								'converter' : 'convert_double',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-				{
-					'name' : 'java.util.Random',
-					'params' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
-					],
-				},
-			],
-		},
-		{
 			'name' : 'javax.security.auth.x500.X500Principal',
 			'tags' : ['_instance', '_proxy'],
 			'fields' : [
@@ -60446,6 +73210,34 @@ config = {
 					],
 				},
 				{
+					'name' : 'getName',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getName',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getEncoded',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -60462,11 +73254,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'javax.security.auth.x500.X500Principal',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.InputStream',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'javax.security.auth.x500.X500Principal',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'javax.security.auth.x500.X500Principal',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -60476,6 +73285,12 @@ config = {
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'javax.security.auth.x500.X500Principal',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
@@ -60543,6 +73358,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.net.http.SslCertificate$DName',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.http.SslCertificate',
@@ -60594,9 +73410,29 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.TypedValue',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
@@ -60630,6 +73466,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
@@ -60647,6 +73499,14 @@ config = {
 					'name' : 'getIdentifier',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -60714,6 +73574,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getResourceName',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -60749,6 +73625,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -60766,9 +73646,33 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getQuantityString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -60867,6 +73771,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -60895,6 +73807,10 @@ config = {
 					'name' : 'getDrawableForDensity',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -61024,6 +73940,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'openRawResource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.InputStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'openRawResourceFd',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -61043,6 +73975,10 @@ config = {
 					'name' : 'getValueForDensity',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -61272,6 +74208,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.res.Resources',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.res.AssetManager',
@@ -61381,6 +74318,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'open',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.InputStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'openFd',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -61404,9 +74357,25 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.AssetFileDescriptor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openNonAssetFd',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -61424,6 +74393,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.XmlResourceParser',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openXmlResourceParser',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -61622,10 +74607,15 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.res.AssetFileDescriptor',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.ParcelFileDescriptor',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 						{
 								'type' : 'long',
@@ -61662,10 +74652,43 @@ config = {
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+					],
+					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -61730,15 +74753,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.FileInputStream',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.FileInputStream',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.File',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.FileInputStream',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
 								'converter' : 'convert_proxy',
@@ -61757,6 +74793,22 @@ config = {
 					'name' : 'lock',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.channels.FileLock',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'lock',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -61789,16 +74841,24 @@ config = {
 					'name' : 'position',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+				},
+				{
+					'name' : 'position',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.nio.channels.FileChannel',
 								'converter' : 'convert_proxy',
@@ -61813,6 +74873,18 @@ config = {
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
@@ -61823,6 +74895,43 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
@@ -61831,10 +74940,6 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'long',
-								'converter' : 'convert_long',
 						},
 					],
 				},
@@ -61866,6 +74971,10 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 					],
 					'returns' : [
 						{
@@ -61882,6 +74991,18 @@ config = {
 								'type' : 'java.nio.ByteBuffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
@@ -61890,6 +75011,26 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.nio.ByteBuffer',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
@@ -61901,6 +75042,19 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.nio.ByteBuffer', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -61911,6 +75065,22 @@ config = {
 					'name' : 'tryLock',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.nio.channels.FileLock',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'tryLock',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -61952,6 +75122,10 @@ config = {
 								'converter' : 'convert_long',
 						},
 						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
 								'type' : 'java.nio.channels.WritableByteChannel',
 								'converter' : 'convert_proxy',
 						},
@@ -61970,6 +75144,10 @@ config = {
 						{
 								'type' : 'java.nio.channels.ReadableByteChannel',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 						{
 								'type' : 'long',
@@ -62085,6 +75263,10 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 					],
 					'returns' : [
 						{
@@ -62194,7 +75376,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.WritableByteChannel',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62220,7 +75402,7 @@ config = {
 		},
 		{
 			'name' : 'java.nio.channels.ReadableByteChannel',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62262,6 +75444,43 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'write',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_byte_array_type',
+								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
+								'converter' : 'convert__byte_array_type',
 						},
 					],
 					'returns' : [
@@ -62311,11 +75530,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.io.FileOutputStream',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.io.File',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.FileOutputStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.FileOutputStream',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -62324,6 +75560,26 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'java.io.FileOutputStream',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.File',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'java.io.FileOutputStream',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
 								'converter' : 'convert_proxy',
@@ -62334,7 +75590,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.XmlResourceParser',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -62494,6 +75750,18 @@ config = {
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.util.DisplayMetrics',
 								'converter' : 'convert_proxy',
@@ -62562,6 +75830,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.DisplayMetrics',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -63257,6 +76526,18 @@ config = {
 								'type' : 'android.content.res.Configuration',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -63485,6 +76766,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -63497,6 +76782,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.res.Configuration',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.res.Configuration',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.res.Configuration',
@@ -63965,6 +77257,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -64121,6 +77417,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -64131,18 +77431,30 @@ config = {
 				},
 				{
 					'name' : 'coerceToString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'coerceToString',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -64153,6 +77465,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.TypedValue',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -64200,6 +77513,10 @@ config = {
 					'name' : 'getInt',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -64280,6 +77597,10 @@ config = {
 					'name' : 'getInteger',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -64397,6 +77718,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -64413,6 +77738,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -64425,6 +77754,14 @@ config = {
 					'name' : 'getFraction',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -64465,6 +77802,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -64493,6 +77834,10 @@ config = {
 					'name' : 'getResourceId',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -64542,6 +77887,26 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getLayoutDimension',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -64705,6 +78070,10 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
 					],
 					'returns' : [
 						{
@@ -64778,6 +78147,30 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
@@ -64803,6 +78196,14 @@ config = {
 								'type' : 'void',
 								'converter' : 'convert_void',
 						},
+					],
+				},
+				{
+					'name' : 'copyBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -64941,6 +78342,18 @@ config = {
 								'type' : 'android.graphics.ColorFilter',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setColorFilter',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -65053,6 +78466,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -65129,6 +78546,34 @@ config = {
 					'name' : 'createFromStream',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
+						{
+								'type' : 'java.io.InputStream',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createFromResourceStream',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.res.Resources',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.TypedValue',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.io.InputStream',
 								'converter' : 'convert_proxy',
@@ -65253,6 +78698,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.drawable.Drawable',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -65260,7 +78706,7 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlPullParser',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NO_NAMESPACE',
@@ -65526,6 +78972,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInput',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.Reader',
 								'converter' : 'convert_proxy',
@@ -65558,6 +79016,22 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -65678,6 +79152,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -65742,6 +79220,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getNamespace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -65892,6 +79382,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -65988,6 +79482,51 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'read',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.nio.CharBuffer',
 								'converter' : 'convert_proxy',
 						},
@@ -66045,7 +79584,7 @@ config = {
 		},
 		{
 			'name' : 'android.util.AttributeSet',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -66056,6 +79595,22 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
@@ -66134,6 +79689,35 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeListValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
@@ -66159,12 +79743,32 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeBooleanValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
@@ -66181,6 +79785,30 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeResourceValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -66203,8 +79831,32 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeIntValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -66221,6 +79873,30 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeUnsignedIntValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -66243,12 +79919,32 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getAttributeFloatValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 					'returns' : [
@@ -66414,6 +80110,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -66442,6 +80142,50 @@ config = {
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -66462,6 +80206,30 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'set',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -66488,11 +80256,39 @@ config = {
 				},
 				{
 					'name' : 'intersects',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'intersects',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Rect',
@@ -66514,6 +80310,50 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'union',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'union',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -66706,6 +80546,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -66718,6 +80562,10 @@ config = {
 					'name' : 'inset',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -66737,6 +80585,30 @@ config = {
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'intersect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -66758,6 +80630,10 @@ config = {
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -66770,11 +80646,36 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Rect',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Rect',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.graphics.Rect',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -66876,6 +80777,42 @@ config = {
 					],
 				},
 				{
+					'name' : 'save',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'rotate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'rotate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -66907,6 +80844,38 @@ config = {
 					'name' : 'scale',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'scale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -66947,16 +80916,24 @@ config = {
 					'name' : 'getMatrix',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'android.graphics.Matrix',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'android.graphics.Matrix',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'getMatrix',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Matrix',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
@@ -67052,6 +81029,18 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
@@ -67059,9 +81048,29 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'saveLayer',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -67084,8 +81093,44 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'saveLayerAlpha',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -67143,6 +81188,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -67155,6 +81204,10 @@ config = {
 					'name' : 'skew',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -67195,13 +81248,141 @@ config = {
 								'type' : 'android.graphics.Region$Op',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -67236,6 +81417,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'clipPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'clipRegion',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -67245,6 +81442,22 @@ config = {
 						},
 						{
 								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clipRegion',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Region',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -67295,13 +81508,57 @@ config = {
 								'type' : 'android.graphics.Canvas$EdgeType',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'quickReject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.graphics.Canvas$EdgeType',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'quickReject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Canvas$EdgeType',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -67325,6 +81582,14 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'getClipBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -67339,6 +81604,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -67349,6 +81622,34 @@ config = {
 				},
 				{
 					'name' : 'drawARGB',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawColor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
@@ -67413,6 +81714,31 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawPoints',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
@@ -67433,6 +81759,10 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
@@ -67448,6 +81778,18 @@ config = {
 					'name' : 'drawLine',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -67478,6 +81820,31 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawLines',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
@@ -67501,13 +81868,57 @@ config = {
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -67546,6 +81957,14 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
@@ -67564,6 +81983,10 @@ config = {
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -67592,6 +82015,10 @@ config = {
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -67642,7 +82069,27 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawBitmap',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -67654,9 +82101,73 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawBitmap',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawBitmap',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -67667,7 +82178,80 @@ config = {
 								'converter' : 'convert_boolean',
 						},
 						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawBitmap',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawBitmap',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.graphics.Matrix',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -67691,14 +82275,26 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.graphics.Paint',
@@ -67730,14 +82326,39 @@ config = {
 								'converter' : 'convert__float_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_short_array_type',
 								'children' : [{'type': 'short', 'converter': 'convert_short'}],
 								'converter' : 'convert__short_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.graphics.Paint',
@@ -67765,6 +82386,14 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
@@ -67772,12 +82401,104 @@ config = {
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -67802,6 +82523,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
@@ -67810,8 +82535,29 @@ config = {
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawPosText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -67836,8 +82582,16 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -67847,8 +82601,52 @@ config = {
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawTextOnPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Paint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawPicture',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Picture',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -67871,6 +82669,22 @@ config = {
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'drawPicture',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Picture',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -67887,6 +82701,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Canvas',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Canvas',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Bitmap',
@@ -68130,6 +82951,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -68155,16 +82980,207 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.graphics.Bitmap$Config',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.util.DisplayMetrics',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Bitmap$Config',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
 								'type' : 'android.graphics.Bitmap',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.util.DisplayMetrics',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Bitmap$Config',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Bitmap$Config',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.util.DisplayMetrics',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Bitmap$Config',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Bitmap$Config',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.graphics.Matrix',
@@ -68173,6 +83189,54 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createBitmap',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -68239,10 +83303,34 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getScaledWidth',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.util.DisplayMetrics',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getScaledWidth',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Canvas',
 								'converter' : 'convert_proxy',
@@ -68263,10 +83351,34 @@ config = {
 								'type' : 'android.graphics.Canvas',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getScaledHeight',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.util.DisplayMetrics',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getScaledHeight',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -68383,6 +83495,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -68404,6 +83520,26 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -68416,6 +83552,14 @@ config = {
 					'name' : 'setPixel',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -68441,11 +83585,43 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'extractAlpha',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -68587,16 +83763,24 @@ config = {
 					'name' : 'limit',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'limit',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'java.nio.Buffer',
 								'converter' : 'convert_proxy',
@@ -68677,6 +83861,14 @@ config = {
 								'type' : 'java.nio.Buffer',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'position',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -68927,6 +84119,54 @@ config = {
 					],
 				},
 				{
+					'name' : 'setScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'toShortString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -68970,6 +84210,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -68979,9 +84223,17 @@ config = {
 					],
 				},
 				{
-					'name' : 'setScale',
+					'name' : 'setRotate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69018,6 +84270,38 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSinCos',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -69030,6 +84314,38 @@ config = {
 					'name' : 'setSkew',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSkew',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69050,6 +84366,10 @@ config = {
 								'type' : 'android.graphics.Matrix',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.Matrix',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -69066,6 +84386,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -69078,6 +84402,38 @@ config = {
 					'name' : 'preScale',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'preScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69107,9 +84463,65 @@ config = {
 					],
 				},
 				{
+					'name' : 'preRotate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'preSkew',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'preSkew',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69146,6 +84558,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -69158,6 +84574,38 @@ config = {
 					'name' : 'postScale',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'postScale',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69187,9 +84635,65 @@ config = {
 					],
 				},
 				{
+					'name' : 'postRotate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'postSkew',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'postSkew',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69227,6 +84731,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.graphics.Matrix$ScaleToFit',
 								'converter' : 'convert_proxy',
 						},
@@ -69246,6 +84754,19 @@ config = {
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -69288,6 +84809,58 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'mapPoints',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'mapPoints',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
 					],
 					'returns' : [
 						{
@@ -69309,6 +84882,58 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'mapVectors',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'mapVectors',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
 					],
 					'returns' : [
 						{
@@ -69321,6 +84946,26 @@ config = {
 					'name' : 'mapRect',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'mapRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
@@ -69387,6 +85032,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Matrix',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Matrix',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Matrix',
@@ -69496,6 +85148,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -69525,6 +85181,50 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
@@ -69545,9 +85245,45 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'set',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'set',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -69590,11 +85326,39 @@ config = {
 				},
 				{
 					'name' : 'intersects',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'intersects',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -69616,6 +85380,50 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'union',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'union',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
@@ -69756,6 +85564,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -69768,6 +85580,10 @@ config = {
 					'name' : 'inset',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -69789,6 +85605,30 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'intersect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
@@ -69804,6 +85644,10 @@ config = {
 					'name' : 'setIntersect',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
@@ -69836,15 +85680,46 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.RectF',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.RectF',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'android.graphics.RectF',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.graphics.RectF',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -70515,6 +86390,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -70639,6 +86526,10 @@ config = {
 					'name' : 'getFillPath',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
@@ -70840,6 +86731,14 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
@@ -71031,6 +86930,18 @@ config = {
 					'name' : 'getFontMetrics',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Paint$FontMetrics',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getFontMetrics',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Paint$FontMetrics',
 								'converter' : 'convert_proxy',
@@ -71038,12 +86949,20 @@ config = {
 					],
 					'returns' : [
 						{
-								'type' : 'android.graphics.Paint$FontMetrics',
-								'converter' : 'convert_proxy',
-						},
-						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getFontMetricsInt',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Paint$FontMetricsInt',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -71057,10 +86976,6 @@ config = {
 						},
 					],
 					'returns' : [
-						{
-								'type' : 'android.graphics.Paint$FontMetricsInt',
-								'converter' : 'convert_proxy',
-						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -71092,13 +87007,73 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'measureText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'measureText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'measureText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -71121,6 +87096,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
@@ -71133,14 +87112,68 @@ config = {
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'breakText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'breakText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 					],
 					'returns' : [
@@ -71163,18 +87196,93 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getTextWidths',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getTextWidths',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getTextWidths',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 					],
 					'returns' : [
@@ -71197,6 +87305,14 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
@@ -71204,10 +87320,42 @@ config = {
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getTextPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71230,13 +87378,41 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'getTextBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71250,11 +87426,24 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Paint',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Paint',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.graphics.Paint',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
@@ -71265,7 +87454,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.ColorFilter',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -71273,6 +87462,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.ColorFilter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -71491,8 +87681,32 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'offset',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 					'returns' : [
@@ -71524,6 +87738,22 @@ config = {
 						},
 						{
 								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'transform',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Matrix',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -71698,6 +87928,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -71710,6 +87944,10 @@ config = {
 					'name' : 'rMoveTo',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -71730,6 +87968,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -71742,6 +87984,10 @@ config = {
 					'name' : 'rLineTo',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -71762,6 +88008,18 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -71774,6 +88032,18 @@ config = {
 					'name' : 'rQuadTo',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -71794,6 +88064,26 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -71806,6 +88096,26 @@ config = {
 					'name' : 'rCubicTo',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -71831,8 +88141,36 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'arcTo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 					'returns' : [
@@ -71851,11 +88189,39 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Path$Direction',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.RectF',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Path$Direction',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -71895,6 +88261,14 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Path$Direction',
 								'converter' : 'convert_proxy',
 						},
@@ -71913,6 +88287,10 @@ config = {
 						{
 								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 						{
 								'type' : 'float',
@@ -71939,13 +88317,53 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Path$Direction',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addRoundRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.RectF',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
+						},
+						{
+								'type' : 'android.graphics.Path$Direction',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -71967,6 +88385,26 @@ config = {
 								'type' : 'android.graphics.Matrix',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -71987,6 +88425,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -71999,6 +88441,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Path',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Path',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Path',
@@ -72182,6 +88631,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Shader',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72189,7 +88639,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Xfermode',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72197,6 +88647,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Xfermode',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72204,7 +88655,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.PathEffect',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72212,6 +88663,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.PathEffect',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72219,7 +88671,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.MaskFilter',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72227,6 +88679,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.MaskFilter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72359,9 +88812,25 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
 						{
 								'type' : 'android.graphics.Typeface',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Typeface',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -72451,6 +88920,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Typeface',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'createFromFile',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.io.File',
 								'converter' : 'convert_proxy',
@@ -72469,7 +88950,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Rasterizer',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -72477,6 +88958,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Rasterizer',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72550,7 +89032,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$FontMetrics',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'top',
@@ -72603,6 +89085,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Paint$FontMetrics',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72675,6 +89158,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Paint$FontMetricsInt',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -72837,6 +89321,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -72854,9 +89342,45 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'set',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'set',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Region',
 								'converter' : 'convert_proxy',
@@ -72899,6 +89423,14 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'getBounds',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -72958,6 +89490,30 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'translate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.graphics.Region',
 								'converter' : 'convert_proxy',
 						},
@@ -72985,9 +89541,101 @@ config = {
 								'type' : 'android.graphics.Region$Op',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'op',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'op',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'op',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Region',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Region',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'op',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Region',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.graphics.Region$Op',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -73005,10 +89653,46 @@ config = {
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'quickReject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'quickReject',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Region',
 								'converter' : 'convert_proxy',
@@ -73069,16 +89753,24 @@ config = {
 					'name' : 'getBoundaryPath',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
-						{
-								'type' : 'android.graphics.Path',
-								'converter' : 'convert_proxy',
-						},
 					],
 					'returns' : [
 						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'getBoundaryPath',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Path',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -73093,6 +89785,30 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'quickContains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -73109,14 +89825,45 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Region',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Region',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Region',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.graphics.Region',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.graphics.Region',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -73128,7 +89875,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.DrawFilter',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -73136,6 +89883,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.DrawFilter',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -73535,6 +90283,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -73575,6 +90327,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Picture',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Picture',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Picture',
@@ -73586,7 +90345,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.drawable.Drawable$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -73839,6 +90598,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.BitmapFactory$Options',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -73866,6 +90626,18 @@ config = {
 					'name' : 'newDrawable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'newDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.res.Resources',
 								'converter' : 'convert_proxy',
@@ -73882,6 +90654,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.drawable.Drawable$ConstantState',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -74048,6 +90821,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.res.ColorStateList',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array_type',
@@ -74134,8 +90908,36 @@ config = {
 								'converter' : 'convert_float',
 						},
 						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'draw',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Canvas',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
 						},
 					],
 					'returns' : [
@@ -74181,6 +90983,10 @@ config = {
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -74232,6 +91038,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -74249,13 +91059,55 @@ config = {
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.TypedArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainStyledAttributes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.TypedArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainStyledAttributes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -74818,6 +91670,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -74842,6 +91698,22 @@ config = {
 					'name' : 'getPackageName',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -74897,6 +91769,22 @@ config = {
 						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startActivity',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -75036,13 +91924,76 @@ config = {
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.TypedArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainStyledAttributes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.TypedArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainStyledAttributes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.TypedArray',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainStyledAttributes',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -75302,6 +92253,30 @@ config = {
 					],
 				},
 				{
+					'name' : 'openOrCreateDatabase',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'deleteDatabase',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -75402,6 +92377,18 @@ config = {
 								'type' : 'java.io.InputStream',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setWallpaper',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Bitmap',
 								'converter' : 'convert_proxy',
@@ -75448,6 +92435,23 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivities',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'android.content.Intent', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'startIntentSender',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -75464,8 +92468,48 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startIntentSender',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.IntentSender',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -75485,6 +92529,22 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'sendBroadcast',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -75520,7 +92580,31 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'sendOrderedBroadcast',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -75545,6 +92629,26 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'sendBroadcastAsUser',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.UserHandle',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -75582,6 +92686,10 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -75772,6 +92880,26 @@ config = {
 					],
 				},
 				{
+					'name' : 'registerReceiver',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.BroadcastReceiver',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.IntentFilter',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'unregisterReceiver',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -75943,6 +93071,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -75959,6 +93095,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -75971,6 +93111,10 @@ config = {
 					'name' : 'enforceCallingOrSelfPermission',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -76040,8 +93184,48 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'checkUriPermission',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -76104,8 +93288,56 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'enforceUriPermission',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -76231,6 +93463,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.Context',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -78434,6 +95667,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -78526,6 +95763,18 @@ config = {
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'resolveType',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
 								'converter' : 'convert_proxy',
@@ -79374,8 +96623,40 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.os.Parcelable',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -79383,8 +96664,40 @@ config = {
 								'children' : [{'type': 'android.os.Parcelable', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.io.Serializable',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -79392,48 +96705,208 @@ config = {
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_short_array_type',
 								'children' : [{'type': 'short', 'converter': 'convert_short'}],
 								'converter' : 'convert__short_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_int_array_type',
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_long_array_type',
 								'children' : [{'type': 'long', 'converter': 'convert_long'}],
 								'converter' : 'convert__long_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_float_array_type',
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_double_array_type',
 								'children' : [{'type': 'double', 'converter': 'convert_double'}],
 								'converter' : 'convert__double_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.CharSequence', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -79441,37 +96914,185 @@ config = {
 								'children' : [{'type': 'boolean', 'converter': 'convert_boolean'}],
 								'converter' : 'convert__boolean_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'byte',
 								'converter' : 'convert_byte',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtra',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -79573,6 +97194,18 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putExtras',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
@@ -79593,6 +97226,18 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replaceExtras',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
@@ -79691,6 +97336,26 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setClassName',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -79850,11 +97515,63 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Class',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.Intent',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -79958,6 +97675,26 @@ config = {
 					'name' : 'encode',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'encode',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -80275,6 +98012,14 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -80519,7 +98264,7 @@ config = {
 				},
 				{
 					'name' : 'writeToParcel',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -80529,8 +98274,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'writeToParcel',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -80625,11 +98386,36 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ComponentName',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ComponentName',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ComponentName',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -80639,6 +98425,12 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ComponentName',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -80903,7 +98695,50 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -80976,6 +98811,22 @@ config = {
 					'returns' : [
 						{
 								'type' : 'java.io.InputStream',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openOutputStream',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.io.OutputStream',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -81120,6 +98971,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
@@ -81139,6 +98994,18 @@ config = {
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.ContentProviderClient',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'acquireContentProviderClient',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -81159,6 +99026,18 @@ config = {
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.ContentProviderClient',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'acquireUnstableContentProviderClient',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -81199,6 +99078,26 @@ config = {
 					'name' : 'unregisterContentObserver',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.database.ContentObserver',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'notifyChange',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.database.ContentObserver',
 								'converter' : 'convert_proxy',
@@ -81297,12 +99196,24 @@ config = {
 				},
 				{
 					'name' : 'cancelSync',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'cancelSync',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'android.accounts.Account',
 								'converter' : 'convert_proxy',
@@ -81626,6 +99537,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ContentResolver',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -81685,33 +99597,165 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'java.lang.Byte',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Short',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Integer',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Long',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Float',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Double',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Boolean',
@@ -82060,11 +100104,24 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ContentValues',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.ContentValues',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ContentValues',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ContentValues',
 								'converter' : 'convert_proxy',
@@ -82134,12 +100191,24 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -82272,6 +100341,34 @@ config = {
 								'type' : 'short',
 								'converter' : 'convert_short',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Short',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Short',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -82324,15 +100421,38 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'parseShort',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'short',
+								'converter' : 'convert_short',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Short',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'short',
 								'converter' : 'convert_short',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Short',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -82450,7 +100570,35 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -82520,9 +100668,41 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Long',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getLong',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Long',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getLong',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Long',
@@ -82616,10 +100796,38 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Long',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Long',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -82820,15 +101028,38 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'parseLong',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Long',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Long',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -82952,12 +101183,24 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -83122,6 +101365,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Float',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -83158,6 +101413,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -83168,12 +101427,24 @@ config = {
 				},
 				{
 					'name' : 'isNaN',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'isNaN',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -83200,7 +101471,19 @@ config = {
 				},
 				{
 					'name' : 'isInfinite',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'isInfinite',
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'float',
@@ -83218,15 +101501,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Float',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Float',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Float',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -83350,12 +101646,24 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -83520,6 +101828,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Double',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
@@ -83556,6 +101876,10 @@ config = {
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+						{
+								'type' : 'double',
+								'converter' : 'convert_double',
+						},
 					],
 					'returns' : [
 						{
@@ -83566,7 +101890,7 @@ config = {
 				},
 				{
 					'name' : 'isNaN',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -83581,8 +101905,32 @@ config = {
 					],
 				},
 				{
+					'name' : 'isNaN',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'isInfinite',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'isInfinite',
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'double',
@@ -83616,11 +101964,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Double',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'double',
 								'converter' : 'convert_double',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Double',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -83681,12 +102036,24 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_proxy', '_static'],
 					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -83759,6 +102126,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Boolean',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'valueOf',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -83791,11 +102170,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Boolean',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.Boolean',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -83866,6 +102252,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.CancellationSignal',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -83873,7 +102260,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.CancellationSignal$OnCancelListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -83895,7 +102282,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.Cursor',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'FIELD_TYPE_NULL',
@@ -84536,9 +102923,41 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'onChange',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
 						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'dispatchChange',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
@@ -84572,6 +102991,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.database.ContentObserver',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Handler',
@@ -84609,6 +103029,22 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'removeCallbacks',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Runnable',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -84675,6 +103111,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'hasMessages',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -84698,6 +103150,22 @@ config = {
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'removeMessages',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -84800,9 +103268,89 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainMessage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainMessage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainMessage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtainMessage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -84821,6 +103369,26 @@ config = {
 						},
 						{
 								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'postAtTime',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Runnable',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -85019,6 +103587,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Looper',
@@ -85031,6 +103600,70 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler$Callback',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler$Callback',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Looper',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.os.Handler',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.os.Looper',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Handler$Callback',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85234,7 +103867,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.MessageQueue$IdleHandler',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -85448,10 +104081,38 @@ config = {
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'sleep',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'stop',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -85621,6 +104282,18 @@ config = {
 					'name' : 'join',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'join',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -85628,6 +104301,22 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'join',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 					'returns' : [
@@ -85802,6 +104491,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.ThreadGroup',
@@ -85818,6 +104508,92 @@ config = {
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Runnable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.ThreadGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Runnable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.ThreadGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Runnable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'java.lang.Thread',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.ThreadGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Runnable',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -85982,10 +104758,60 @@ config = {
 								'children' : [{'type': 'java.lang.ThreadGroup', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'enumerate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.ThreadGroup', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'enumerate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Thread', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'enumerate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Thread', 'converter': 'convert_proxy'}],
@@ -86123,13 +104949,24 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'java.lang.ThreadGroup',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'java.lang.ThreadGroup',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.ThreadGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -86231,7 +105068,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread$UncaughtExceptionHandler',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86261,7 +105098,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Handler$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86431,17 +105268,153 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'java.lang.Object',
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
 								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Runnable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -86558,6 +105531,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.Message',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -86707,11 +105681,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.Messenger',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Handler',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.os.Messenger',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.IBinder',
 								'converter' : 'convert_proxy',
@@ -86722,7 +105703,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.CharArrayBuffer',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'data',
@@ -86749,11 +105730,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.database.CharArrayBuffer',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.database.CharArrayBuffer',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
@@ -86797,6 +105785,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.database.DataSetObserver',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -87108,6 +106097,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -87318,6 +106311,49 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
 								'converter' : 'convert_proxy',
 						},
@@ -87478,6 +106514,10 @@ config = {
 					'name' : 'call',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -87652,6 +106692,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ContentProvider',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -87739,15 +106780,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ContentProviderResult',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ContentProviderResult',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ContentProviderResult',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -87820,6 +106874,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.PathPermission',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -87830,6 +106885,20 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.pm.PathPermission',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
 						},
@@ -87839,7 +106908,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentProvider$PipeDataWriter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -88044,6 +107113,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ProviderInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ProviderInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ProviderInfo',
@@ -88184,6 +107260,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.PatternMatcher',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -88193,6 +107270,12 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.os.PatternMatcher',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -88298,7 +107381,50 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -88426,6 +107552,10 @@ config = {
 					'name' : 'call',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -88608,11 +107738,22 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.accounts.Account',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.accounts.Account',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -88804,6 +107945,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -88816,7 +107961,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.SyncAdapterType',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -88825,6 +107975,16 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.SyncAdapterType',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -88937,6 +108097,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.PeriodicSync',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.accounts.Account',
@@ -89029,7 +108190,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SyncStatusObserver',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89141,6 +108302,10 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -89153,6 +108318,10 @@ config = {
 					'name' : 'newHtmlText',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -89273,6 +108442,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ClipData',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -89287,10 +108457,26 @@ config = {
 								'type' : 'android.content.ClipData$Item',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ClipDescription',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.content.ClipData$Item',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ClipData',
 								'converter' : 'convert_proxy',
@@ -89417,6 +108603,69 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.net.Uri',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipData$Item',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -89542,6 +108791,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -89627,6 +108880,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.ClipDescription',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
@@ -89637,6 +108891,12 @@ config = {
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.ClipDescription',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ClipDescription',
 								'converter' : 'convert_proxy',
@@ -90316,6 +109576,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -90757,6 +110021,26 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'checkSignatures',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
@@ -91005,6 +110289,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -91063,6 +110351,18 @@ config = {
 								'type' : 'android.content.ComponentName',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getActivityIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
@@ -91095,6 +110395,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getApplicationIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.pm.ApplicationInfo',
 								'converter' : 'convert_proxy',
@@ -91115,6 +110427,18 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getActivityLogo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
 								'converter' : 'convert_proxy',
@@ -91135,6 +110459,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getApplicationLogo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.pm.ApplicationInfo',
 								'converter' : 'convert_proxy',
@@ -91187,6 +110523,18 @@ config = {
 								'type' : 'android.content.pm.ApplicationInfo',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.content.res.Resources',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getResourcesForApplication',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -91227,6 +110575,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -91239,6 +110591,10 @@ config = {
 					'name' : 'extendVerificationTimeout',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -91259,6 +110615,10 @@ config = {
 					'name' : 'setInstallerPackageName',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -91419,6 +110779,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -91450,6 +110814,10 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -91495,6 +110863,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.PackageManager',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -91774,6 +111143,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.PackageInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -92294,6 +111664,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ApplicationInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ApplicationInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ApplicationInfo',
@@ -92885,6 +112262,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ActivityInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ActivityInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ActivityInfo',
@@ -93023,6 +112407,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ServiceInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ServiceInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ServiceInfo',
@@ -93150,6 +112541,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.InstrumentationInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.InstrumentationInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.InstrumentationInfo',
@@ -93365,6 +112763,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.PermissionInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.PermissionInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.PermissionInfo',
@@ -93415,6 +112820,19 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'toChars',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
 						},
 					],
 				},
@@ -93502,12 +112920,19 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.Signature',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : '_byte_array_type',
 								'children' : [{'type': 'byte', 'converter': 'convert_byte'}],
 								'converter' : 'convert__byte_array_type',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.pm.Signature',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -93664,6 +113089,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ConfigurationInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ConfigurationInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ConfigurationInfo',
@@ -93794,6 +113226,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.FeatureInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.FeatureInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.FeatureInfo',
@@ -94039,6 +113478,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.ResolveInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.ResolveInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.ResolveInfo',
@@ -94235,6 +113681,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -94252,6 +113702,14 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
@@ -94260,6 +113718,22 @@ config = {
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'match',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ContentResolver',
 								'converter' : 'convert_proxy',
@@ -94271,6 +113745,10 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -94607,6 +114085,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -94774,6 +114256,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
@@ -94879,11 +114365,38 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.IntentFilter',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.IntentFilter',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.content.IntentFilter',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.content.IntentFilter',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.IntentFilter',
 								'converter' : 'convert_proxy',
@@ -94942,7 +114455,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.IntentFilter$AuthorityEntry',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -94953,7 +114471,7 @@ config = {
 		},
 		{
 			'name' : 'org.xmlpull.v1.XmlSerializer',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95061,10 +114579,26 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'org.xmlpull.v1.XmlSerializer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'text',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -95150,6 +114684,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setOutput',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.Writer',
 								'converter' : 'convert_proxy',
@@ -95202,6 +114748,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -95214,6 +114764,10 @@ config = {
 					'name' : 'startTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -95234,6 +114788,14 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -95246,6 +114808,10 @@ config = {
 					'name' : 'endTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -95467,6 +115033,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.pm.PermissionGroupInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.content.pm.PermissionGroupInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.pm.PermissionGroupInfo',
@@ -95478,7 +115051,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ComponentCallbacks',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95516,7 +115089,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95624,6 +115197,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -95717,7 +115294,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$Editor',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95837,6 +115414,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -95896,7 +115477,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.SharedPreferences$OnSharedPreferenceChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -95926,7 +115507,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96106,6 +115687,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.content.ContentValues',
 								'converter' : 'convert_proxy',
 						},
@@ -96121,6 +115706,10 @@ config = {
 					'name' : 'delete',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -96142,6 +115731,10 @@ config = {
 					'name' : 'insert',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -96200,6 +115793,169 @@ config = {
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'query',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
 								'converter' : 'convert_proxy',
 						},
@@ -96249,6 +116005,10 @@ config = {
 						},
 						{
 								'type' : 'android.content.ContentValues',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -96332,8 +116092,44 @@ config = {
 								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openOrCreateDatabase',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openOrCreateDatabase',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -96525,6 +116321,18 @@ config = {
 					],
 				},
 				{
+					'name' : 'yieldIfContendedSafely',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'getSyncedTables',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -96556,6 +116364,30 @@ config = {
 						{
 								'type' : 'android.database.DatabaseErrorHandler',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'openDatabase',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -96629,6 +116461,34 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'markTableSyncable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -96691,7 +116551,86 @@ config = {
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'queryWithFactory',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -96728,6 +116667,27 @@ config = {
 					],
 				},
 				{
+					'name' : 'rawQuery',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'rawQueryWithFactory',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -96745,6 +116705,39 @@ config = {
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.database.Cursor',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'rawQueryWithFactory',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.database.sqlite.SQLiteDatabase$CursorFactory',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.os.CancellationSignal',
 								'converter' : 'convert_proxy',
 						},
@@ -96760,6 +116753,10 @@ config = {
 					'name' : 'insertOrThrow',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -96785,6 +116782,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.content.ContentValues',
 								'converter' : 'convert_proxy',
 						},
@@ -96800,6 +116801,10 @@ config = {
 					'name' : 'insertWithOnConflict',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -96833,6 +116838,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
@@ -96861,6 +116870,22 @@ config = {
 								'type' : '_object_array_type',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'execSQL',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -96985,7 +117010,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.DatabaseErrorHandler',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97011,7 +117036,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteTransactionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97209,6 +117234,10 @@ config = {
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -97222,7 +117251,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.Pair',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
@@ -97233,7 +117267,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteCursorDriver',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97453,6 +117487,38 @@ config = {
 								'type' : 'android.os.Handler',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'sendIntent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.IntentSender$OnFinished',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -97555,7 +117621,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentSender$OnFinished',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -97665,7 +117731,7 @@ config = {
 				},
 				{
 					'name' : 'writeToParcel',
-					'tags' : ['_instance', '_proxy', '_static'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -97675,8 +117741,24 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'writeToParcel',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
 						{
 								'type' : 'android.os.UserHandle',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -97707,6 +117789,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.os.UserHandle',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Parcel',
@@ -97994,6 +118077,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.BroadcastReceiver',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -98171,7 +118255,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.ServiceConnection',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -98384,6 +118468,10 @@ config = {
 								'type' : 'android.graphics.Point',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.Point',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -98523,6 +118611,22 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
@@ -98566,6 +118670,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -98578,6 +118686,10 @@ config = {
 					'name' : 'set',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -98654,11 +118766,28 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.Point',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.graphics.Point',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.graphics.Point',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Point',
 								'converter' : 'convert_proxy',
@@ -99058,6 +119187,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.app.FragmentActivity',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -99902,6 +120032,18 @@ config = {
 					'name' : 'getTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getTag',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -99918,10 +120060,46 @@ config = {
 					'name' : 'invalidate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'invalidate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'invalidate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
@@ -100209,6 +120387,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'setTag',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'isFocusable',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -100420,6 +120614,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -100680,6 +120878,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -100768,6 +120970,31 @@ config = {
 								'type' : 'java.util.ArrayList',
 								'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addFocusables',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.ArrayList',
+								'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -100956,6 +121183,18 @@ config = {
 					'name' : 'requestFocus',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'requestFocus',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -100963,6 +121202,22 @@ config = {
 						{
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'requestFocus',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -100988,6 +121243,18 @@ config = {
 					'name' : 'layout',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -101431,6 +121698,22 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'requestRectangleOnScreen',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -103238,6 +123521,22 @@ config = {
 								'type' : 'android.graphics.Rect',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getGlobalVisibleRect',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Rect',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.graphics.Point',
 								'converter' : 'convert_proxy',
@@ -103334,6 +123633,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -103346,6 +123649,10 @@ config = {
 					'name' : 'scrollBy',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -103418,9 +123725,49 @@ config = {
 					'name' : 'postInvalidate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'postInvalidate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'postInvalidateDelayed',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 					],
 					'returns' : [
@@ -103442,6 +123789,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -103454,6 +123813,30 @@ config = {
 					'name' : 'postInvalidateOnAnimation',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'postInvalidateOnAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -103926,6 +124309,18 @@ config = {
 					'name' : 'getDrawingCache',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Bitmap',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getDrawingCache',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -103986,6 +124381,18 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'buildDrawingCache',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -104107,6 +124514,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'unscheduleDrawable',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.drawable.Drawable',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'refreshDrawableState',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -104199,6 +124622,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -104211,6 +124646,18 @@ config = {
 					'name' : 'setPaddingRelative',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -104457,6 +124904,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -104469,6 +124920,10 @@ config = {
 					'name' : 'combineMeasuredStates',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -104489,6 +124944,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -104501,6 +124964,10 @@ config = {
 					'name' : 'getDefaultSize',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -104598,6 +125065,26 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'performHapticFeedback',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -104833,6 +125320,31 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.View',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.View',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.View',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -104852,7 +125364,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewParent',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -104872,6 +125384,10 @@ config = {
 					'name' : 'requestChildFocus',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -105231,7 +125747,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionMode$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -105322,6 +125838,18 @@ config = {
 			],	
 			'functions' : [
 				{
+					'name' : 'finish',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'getTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -105335,18 +125863,6 @@ config = {
 				},
 				{
 					'name' : 'invalidate',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'finish',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
 					],
@@ -105393,6 +125909,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -105425,6 +125953,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSubtitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -105533,6 +126073,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.ActionMode',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -105568,6 +126109,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.MenuInflater',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -105579,7 +126121,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Menu',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'NONE',
@@ -105673,6 +126215,74 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
@@ -105741,6 +126351,74 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'addSubMenu',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'addSubMenu',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'addSubMenu',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
@@ -105761,6 +126439,14 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.content.ComponentName',
 								'converter' : 'convert_proxy',
 						},
@@ -105772,6 +126458,10 @@ config = {
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : '_object_array_type',
@@ -105825,6 +126515,10 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 						{
 								'type' : 'boolean',
@@ -105922,6 +126616,10 @@ config = {
 								'type' : 'android.view.KeyEvent',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -105958,6 +126656,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -105988,7 +126690,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SHOW_AS_ACTION_NEVER',
@@ -106113,6 +126815,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -106225,6 +126939,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -106253,6 +126979,10 @@ config = {
 					'name' : 'setShortcut',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -106469,6 +127199,18 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MenuItem',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setActionView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -106579,7 +127321,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SubMenu',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -106603,6 +127345,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -106623,6 +127377,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setHeaderTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -106643,6 +127409,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.SubMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setHeaderIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -106689,7 +127467,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnMenuItemClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -106715,7 +127493,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu$ContextMenuInfo',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -106750,6 +127528,18 @@ config = {
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'onCreateActionView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -106841,6 +127631,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.ActionProvider',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -106852,7 +127643,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ActionProvider$VisibilityListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -106878,7 +127669,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MenuItem$OnActionExpandListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -109263,6 +130054,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'dispatch',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.KeyEvent$Callback',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'toString',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -109386,11 +130193,43 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'changeTimeRepeat',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.view.KeyEvent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.KeyEvent',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -109602,6 +130441,10 @@ config = {
 					'name' : 'metaStateHasModifiers',
 					'tags' : ['_proxy', '_static'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -109874,6 +130717,18 @@ config = {
 					'name' : 'getUnicodeChar',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'getUnicodeChar',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -109914,6 +130769,23 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'getMatch',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
 						},
 					],
 					'returns' : [
@@ -109971,11 +130843,204 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -109985,8 +131050,40 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.KeyEvent',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.KeyEvent',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.KeyEvent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -109994,7 +131091,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyEvent$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -110067,6 +131164,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.view.KeyEvent',
 								'converter' : 'convert_proxy',
 						},
@@ -110088,6 +131189,18 @@ config = {
 			'fields' : [
 			],	
 			'functions' : [
+				{
+					'name' : 'reset',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 				{
 					'name' : 'reset',
 					'tags' : ['_instance', '_proxy'],
@@ -110176,6 +131289,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.KeyEvent$DispatcherState',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -110322,6 +131436,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -110402,6 +131520,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -110458,6 +131580,31 @@ config = {
 								'type' : '_char_array_type',
 								'children' : [{'type': 'char', 'converter': 'convert_char'}],
 								'converter' : 'convert__char_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'char',
+								'converter' : 'convert_char',
+						},
+					],
+				},
+				{
+					'name' : 'getMatch',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_char_array_type',
+								'children' : [{'type': 'char', 'converter': 'convert_char'}],
+								'converter' : 'convert__char_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -110565,7 +131712,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.KeyCharacterMap$KeyData',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'META_LENGTH',
@@ -110610,6 +131757,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.KeyCharacterMap$KeyData',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -110920,6 +132068,30 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.view.accessibility.AccessibilityEvent',
 								'converter' : 'convert_proxy',
@@ -111186,6 +132358,18 @@ config = {
 					'name' : 'obtain',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityRecord',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.view.accessibility.AccessibilityRecord',
 								'converter' : 'convert_proxy',
@@ -111400,6 +132584,22 @@ config = {
 						{
 								'type' : 'android.view.accessibility.AccessibilityNodeInfo',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -112098,6 +133298,22 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setParent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -112178,10 +133394,50 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityNodeInfo',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityNodeInfo',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.accessibility.AccessibilityNodeInfo',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.view.accessibility.AccessibilityNodeInfo',
 								'converter' : 'convert_proxy',
@@ -112410,6 +133666,22 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setLabelFor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -112582,6 +133854,22 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -112715,6 +134003,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'addChild',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'setMovementGranularities',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -112753,6 +134057,22 @@ config = {
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'performAction',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -112911,6 +134231,22 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setLabeledBy',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -112941,7 +134277,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ContextMenu',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -112953,6 +134289,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.ContextMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setHeaderTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -112973,6 +134321,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.ContextMenu',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setHeaderIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -113113,6 +134473,86 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
@@ -113278,6 +134718,10 @@ config = {
 					'name' : 'requestChildFocus',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -113518,6 +134962,10 @@ config = {
 								'type' : 'java.util.ArrayList',
 								'children' : [{'type': 'android.view.View', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -113954,6 +135402,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -113982,6 +135434,10 @@ config = {
 					'name' : 'removeViews',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -114155,6 +135611,18 @@ config = {
 					'name' : 'layout',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -114343,6 +135811,14 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -114527,6 +136003,21 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.ViewGroup',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -114539,6 +136030,16 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -114624,6 +136125,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.ViewGroup$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -114633,10 +136135,26 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
@@ -114647,7 +136165,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.LayoutAnimationController$AnimationParameters',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'count',
@@ -114673,6 +136191,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.animation.LayoutAnimationController$AnimationParameters',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -115459,6 +136978,30 @@ config = {
 					],
 				},
 				{
+					'name' : 'getSize',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getY',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'getY',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -115466,6 +137009,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getX',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -115519,12 +137074,76 @@ config = {
 								'converter' : 'convert_long',
 						},
 						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : '_int_array_type',
@@ -115537,13 +137156,218 @@ config = {
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : '_object_array_type',
 								'children' : [{'type': 'android.view.MotionEvent$PointerProperties', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'android.view.MotionEvent$PointerCoords', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
 								'type' : 'android.view.MotionEvent',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.MotionEvent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'obtain',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -115613,6 +137437,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getOrientation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -115741,6 +137577,18 @@ config = {
 					'name' : 'getPressure',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getPressure',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -115757,10 +137605,34 @@ config = {
 					'name' : 'getTouchMajor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getTouchMajor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getTouchMinor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -115802,9 +137674,53 @@ config = {
 					],
 				},
 				{
+					'name' : 'getToolMajor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'getToolMinor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getToolMinor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getAxisValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -116038,7 +137954,63 @@ config = {
 					],
 				},
 				{
+					'name' : 'getHistoricalX',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'getHistoricalY',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalY',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalPressure',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
@@ -116057,6 +138029,30 @@ config = {
 					'name' : 'getHistoricalPressure',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalSize',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -116102,9 +138098,69 @@ config = {
 					],
 				},
 				{
+					'name' : 'getHistoricalTouchMajor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'getHistoricalTouchMinor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalTouchMinor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalToolMajor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -116150,9 +138206,49 @@ config = {
 					],
 				},
 				{
+					'name' : 'getHistoricalToolMinor',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
 					'name' : 'getHistoricalOrientation',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalOrientation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -116173,6 +138269,34 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getHistoricalAxisValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -116185,6 +138309,10 @@ config = {
 					'name' : 'getHistoricalPointerCoords',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -116237,6 +138365,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -116249,6 +138381,10 @@ config = {
 					'name' : 'setLocation',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -116278,9 +138414,41 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addBatch',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -116481,6 +138649,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.MotionEvent$PointerCoords',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.view.MotionEvent$PointerCoords',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.MotionEvent$PointerCoords',
@@ -116574,6 +138749,13 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.MotionEvent$PointerProperties',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.view.MotionEvent$PointerProperties',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.MotionEvent$PointerProperties',
@@ -116787,7 +138969,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewGroup$OnHierarchyChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -116795,6 +138977,10 @@ config = {
 					'name' : 'onChildViewAdded',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -116811,6 +138997,10 @@ config = {
 					'name' : 'onChildViewRemoved',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -116906,6 +139096,22 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDuration',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -117178,6 +139384,26 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'showChild',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -117192,6 +139418,26 @@ config = {
 				},
 				{
 					'name' : 'removeChild',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'hideChild',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
@@ -117283,6 +139529,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.animation.LayoutTransition',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -117290,7 +139537,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TimeInterpolator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117565,6 +139812,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.animation.Animator',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -117572,7 +139820,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.Animator$AnimatorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117646,7 +139894,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.LayoutTransition$TransitionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117763,6 +140011,18 @@ config = {
 								'type' : 'android.view.animation.Interpolator',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInterpolator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -117811,6 +140071,18 @@ config = {
 								'type' : 'android.view.animation.Animation',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setAnimation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -117927,6 +140199,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.animation.LayoutAnimationController',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -117936,6 +140209,22 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.view.animation.LayoutAnimationController',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.animation.Animation',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.animation.LayoutAnimationController',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.animation.Animation',
 								'converter' : 'convert_proxy',
@@ -118076,6 +140365,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -118108,6 +140409,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setInterpolator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.animation.Interpolator',
 								'converter' : 'convert_proxy',
@@ -118560,6 +140873,26 @@ config = {
 								'type' : 'android.view.animation.Transformation',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'getTransformation',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'android.view.animation.Transformation',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
@@ -118600,6 +140933,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.animation.Animation',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -118611,11 +140945,17 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'android.view.animation.Animation',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
 			],
 		},
 		{
 			'name' : 'android.view.animation.Interpolator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118625,7 +140965,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.animation.Animation$AnimationListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -118863,6 +141203,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.animation.Transformation',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -118870,7 +141211,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnCreateContextMenuListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119390,7 +141731,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnFocusChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119420,7 +141761,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLayoutChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119431,6 +141772,34 @@ config = {
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -119450,7 +141819,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnAttachStateChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119492,7 +141861,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119518,7 +141887,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnLongClickListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119544,7 +141913,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnKeyListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119578,7 +141947,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnTouchListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119608,7 +141977,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnGenericMotionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119638,7 +142007,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnHoverListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119668,7 +142037,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnDragListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -119890,6 +142259,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.View$AccessibilityDelegate',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -119921,6 +142291,10 @@ config = {
 					'name' : 'performAction',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -119962,6 +142336,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.accessibility.AccessibilityNodeProvider',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -120334,6 +142709,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.inputmethod.EditorInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -120341,7 +142717,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.InputConnection',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'GET_TEXT_WITH_STYLES',
@@ -120371,6 +142747,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -120383,6 +142763,10 @@ config = {
 					'name' : 'getTextAfterCursor',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -120455,6 +142839,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -120487,6 +142875,10 @@ config = {
 					'name' : 'setComposingRegion',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -120567,6 +142959,10 @@ config = {
 					'name' : 'setSelection',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -120795,6 +143191,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.inputmethod.ExtractedTextRequest',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -120933,6 +143330,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.inputmethod.ExtractedText',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -121050,6 +143448,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.inputmethod.CompletionInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'long',
@@ -121058,6 +143457,28 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.inputmethod.CompletionInfo',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -121167,10 +143588,15 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.inputmethod.CorrectionInfo',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.CharSequence',
@@ -121242,6 +143668,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.TouchDelegate',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.Rect',
@@ -121523,7 +143950,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalFocusChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121531,6 +143958,10 @@ config = {
 					'name' : 'onGlobalFocusChanged',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
@@ -121549,7 +143980,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnGlobalLayoutListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121571,7 +144002,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnPreDrawListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121593,7 +144024,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnDrawListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121615,7 +144046,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnScrollChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121637,7 +144068,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver$OnTouchModeChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121663,7 +144094,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.View$OnSystemUiVisibilityChangeListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -121713,6 +144144,10 @@ config = {
 								'type' : 'android.graphics.Point',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.graphics.Point',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -121741,11 +144176,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.View$DragShadowBuilder',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.view.View$DragShadowBuilder',
+					'tags' : ['_proxy'],
+					'params' : [
 					],
 				},
 			],
@@ -121805,6 +144247,10 @@ config = {
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -121835,6 +144281,11 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.Class',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
@@ -121851,6 +144302,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.util.Property',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
@@ -122022,9 +144474,41 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -122037,13 +144521,45 @@ config = {
 					'name' : 'popBackStackImmediate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStackImmediate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStackImmediate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -122157,6 +144673,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.app.FragmentManager',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -122243,6 +144760,46 @@ config = {
 								'type' : 'android.support.v4.app.Fragment',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.support.v4.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.support.v4.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -122281,6 +144838,26 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.support.v4.app.Fragment',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -122391,6 +144968,38 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setCustomAnimations',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -122479,6 +145088,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setBreadCrumbTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -122499,6 +145120,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.support.v4.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setBreadCrumbShortTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -122527,6 +145160,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.app.FragmentTransaction',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -122534,7 +145168,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$BackStackEntry',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122616,7 +145250,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -122788,6 +145422,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.app.LoaderManager',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -123058,6 +145693,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.support.v4.content.Loader',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -123069,7 +145705,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123100,7 +145736,7 @@ config = {
 		},
 		{
 			'name' : 'android.support.v4.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123225,13 +145861,73 @@ config = {
 								'type' : 'android.view.ViewGroup',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'inflate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'org.xmlpull.v1.XmlPullParser',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'inflate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'inflate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.view.ViewGroup',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
@@ -123338,6 +146034,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
@@ -123355,7 +146055,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123389,7 +146089,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Factory2',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123427,7 +146127,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.LayoutInflater$Filter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123626,6 +146326,22 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startActivity',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
@@ -123663,6 +146379,26 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivityForResult',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'getLayoutInflater',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -123682,6 +146418,30 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'onCreateView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -123882,6 +146642,30 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startActivityFromFragment',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
@@ -123972,6 +146756,23 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivities',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'android.content.Intent', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'startIntentSender',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -123988,8 +146789,48 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startIntentSender',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.IntentSender',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -124332,6 +147173,15 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -124392,9 +147242,37 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setContentView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setContentView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
@@ -124504,6 +147382,10 @@ config = {
 					'name' : 'onKeyMultiple',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -124958,6 +147840,18 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+					],
+				},
+				{
+					'name' : 'showDialog',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
@@ -125023,6 +147917,10 @@ config = {
 						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
@@ -125092,6 +147990,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -125148,6 +148050,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -125171,6 +148077,54 @@ config = {
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'startIntentSenderForResult',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.IntentSender',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -125198,6 +148152,42 @@ config = {
 						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'startActivityIfNeeded',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'startNextMatchingActivity',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -125257,6 +148247,30 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivityFromChild',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'startIntentSenderFromChild',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -125277,6 +148291,18 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
 						},
@@ -125289,7 +148315,67 @@ config = {
 					],
 				},
 				{
+					'name' : 'startIntentSenderFromChild',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Activity',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.content.IntentSender',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'overridePendingTransition',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setResult',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
@@ -125464,6 +148550,10 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -125588,6 +148678,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -125896,6 +148998,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.Activity',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -126058,9 +149161,41 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 					],
 					'returns' : [
 						{
@@ -126073,13 +149208,45 @@ config = {
 					'name' : 'popBackStackImmediate',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStackImmediate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'popBackStackImmediate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -126205,6 +149372,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.FragmentManager',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -126314,6 +149482,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'getString',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'getTag',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -126368,6 +149552,26 @@ config = {
 						},
 						{
 								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'instantiate',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -126739,6 +149943,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivity',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'startActivityForResult',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -126763,9 +149983,33 @@ config = {
 					],
 				},
 				{
+					'name' : 'startActivityForResult',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'onActivityResult',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -126790,6 +150034,26 @@ config = {
 								'type' : 'android.app.Activity',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.util.AttributeSet',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Bundle',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'onInflate',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
@@ -127234,6 +150498,10 @@ config = {
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -127246,6 +150514,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.Fragment',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -127305,7 +150574,7 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcelable$ClassLoaderCreator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -127473,6 +150742,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.LoaderManager',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -127801,6 +151071,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.content.Loader',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -127812,7 +151083,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCompleteListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -127843,7 +151114,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.Loader$OnLoadCanceledListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -127870,7 +151141,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.LoaderManager$LoaderCallbacks',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -128018,6 +151289,46 @@ config = {
 								'type' : 'android.app.Fragment',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.Fragment',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -128056,6 +151367,26 @@ config = {
 						},
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.app.Fragment',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -128166,6 +151497,38 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setCustomAnimations',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -128254,6 +151617,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setBreadCrumbTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -128274,6 +151649,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.FragmentTransaction',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setBreadCrumbShortTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -128302,6 +151689,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.FragmentTransaction',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -128309,7 +151697,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$BackStackEntry',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -128391,7 +151779,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.FragmentManager$OnBackStackChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -128765,12 +152153,40 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setContentView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setContentView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -128821,6 +152237,10 @@ config = {
 					'name' : 'setFeatureDrawableResource',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -128877,6 +152297,10 @@ config = {
 					'name' : 'setFeatureDrawableAlpha',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -128969,6 +152393,10 @@ config = {
 					'name' : 'setFlags',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -129142,6 +152570,30 @@ config = {
 					],
 				},
 				{
+					'name' : 'setWindowManager',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.WindowManager',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.IBinder',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'takeSurface',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -129189,6 +152641,10 @@ config = {
 					'name' : 'setLayout',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -129406,8 +152862,16 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.view.KeyEvent',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -129421,6 +152885,14 @@ config = {
 					'name' : 'performPanelIdentifierAction',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -129453,6 +152925,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -129481,6 +152957,10 @@ config = {
 					'name' : 'setFeatureInt',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -129629,6 +153109,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -129653,10 +153137,31 @@ config = {
 						},
 					],
 				},
+				{
+					'name' : 'setUiOptions',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
 			],	
 			'constructors' : [	
 				{
 					'name' : 'android.view.Window',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -130760,11 +154265,116 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.WindowManager$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -130775,7 +154385,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.WindowManager',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -130813,7 +154423,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.Window$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131167,7 +154777,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback2',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131193,7 +154803,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SURFACE_TYPE_NORMAL',
@@ -131333,6 +154943,10 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -131350,6 +154964,18 @@ config = {
 						{
 								'type' : 'void',
 								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'lockCanvas',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'android.graphics.Canvas',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -131415,7 +155041,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.SurfaceHolder$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131442,6 +155068,14 @@ config = {
 						{
 								'type' : 'android.view.SurfaceHolder',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -131663,6 +155297,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.Surface',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.graphics.SurfaceTexture',
@@ -131722,6 +155357,10 @@ config = {
 					'name' : 'setDefaultBufferSize',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -131795,6 +155434,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.graphics.SurfaceTexture',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -131806,7 +155446,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.SurfaceTexture$OnFrameAvailableListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131832,7 +155472,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131874,7 +155514,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -132024,6 +155664,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.Application',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -132031,7 +155672,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.Application$ActivityLifecycleCallbacks',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -132257,6 +155898,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setTitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -132317,6 +155970,18 @@ config = {
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -132337,6 +156002,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setSubtitle',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
@@ -132361,9 +156038,37 @@ config = {
 								'type' : 'android.app.ActionBar$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setCustomView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setCustomView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -132417,6 +156122,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setLogo',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -132493,6 +156210,26 @@ config = {
 					'name' : 'setDisplayOptions',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDisplayOptions',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -132694,6 +156431,62 @@ config = {
 					],
 				},
 				{
+					'name' : 'addTab',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addTab',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addTab',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'removeTab',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -132869,6 +156662,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.ActionBar',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -132876,7 +156670,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$LayoutParams',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_instance', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'gravity',
@@ -132893,6 +156687,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -132902,14 +156697,64 @@ config = {
 								'type' : 'android.util.AttributeSet',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.app.ActionBar$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.app.ActionBar$LayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
@@ -132920,7 +156765,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnNavigationListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -132995,6 +156840,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setText',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -133055,6 +156912,18 @@ config = {
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setContentDescription',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -133075,6 +156944,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setIcon',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.drawable.Drawable',
 								'converter' : 'convert_proxy',
@@ -133107,6 +156988,18 @@ config = {
 								'type' : 'android.view.View',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.ActionBar$Tab',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'setCustomView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -133163,6 +157056,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.ActionBar$Tab',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -133170,7 +157064,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$TabListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -133240,7 +157134,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.ActionBar$OnMenuVisibilityListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -133283,6 +157177,18 @@ config = {
 						{
 								'type' : 'android.app.TaskStackBuilder',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'startActivities',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -133342,11 +157248,35 @@ config = {
 								'type' : 'android.app.Activity',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.TaskStackBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'addParentStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.Class',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.TaskStackBuilder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'addParentStack',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.ComponentName',
 								'converter' : 'convert_proxy',
@@ -133391,6 +157321,30 @@ config = {
 					'name' : 'getPendingIntent',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.PendingIntent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getPendingIntent',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -133532,17 +157486,125 @@ config = {
 								'type' : 'android.os.Handler',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'send',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'send',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'android.app.PendingIntent$OnFinished',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'send',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.app.PendingIntent$OnFinished',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Handler',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'send',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'send',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -133567,6 +157629,10 @@ config = {
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -133624,6 +157690,10 @@ config = {
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -133659,6 +157729,38 @@ config = {
 						{
 								'type' : 'android.content.Intent',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.PendingIntent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getActivity',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.content.Intent',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'android.os.Bundle',
@@ -133738,8 +157840,41 @@ config = {
 								'converter' : 'convert__object_array_type',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.os.Bundle',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.app.PendingIntent',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'getActivities',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'android.content.Intent', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -133803,7 +157938,7 @@ config = {
 		},
 		{
 			'name' : 'android.app.PendingIntent$OnFinished',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -133965,7 +158100,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ValueCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134115,7 +158250,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$FindListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134123,6 +158258,10 @@ config = {
 					'name' : 'onFindResultReceived',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -134400,6 +158539,10 @@ config = {
 								'type' : 'android.os.Message',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'android.os.Message',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -134424,6 +158567,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -134438,6 +158585,10 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.webkit.WebView',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.os.Message',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -134516,6 +158667,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -134576,6 +158731,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -134596,6 +158755,14 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -134608,6 +158775,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.webkit.WebViewClient',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -134707,7 +158875,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.webkit.WebResourceResponse',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -134746,6 +158919,10 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
@@ -134772,7 +158949,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.DownloadListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -134780,6 +158957,18 @@ config = {
 					'name' : 'onDownloadStart',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -134902,9 +159091,29 @@ config = {
 								'type' : 'android.webkit.WebChromeClient$CustomViewCallback',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'onShowCustomView',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.view.View',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.webkit.WebChromeClient$CustomViewCallback',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -134933,6 +159142,10 @@ config = {
 						{
 								'type' : 'android.webkit.WebView',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 						{
 								'type' : 'boolean',
@@ -134995,6 +159208,10 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.webkit.JsResult',
 								'converter' : 'convert_proxy',
 						},
@@ -135012,6 +159229,10 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.webkit.WebView',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -135043,6 +159264,14 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'android.webkit.JsPromptResult',
 								'converter' : 'convert_proxy',
 						},
@@ -135060,6 +159289,10 @@ config = {
 					'params' : [
 						{
 								'type' : 'android.webkit.WebView',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 						{
@@ -135087,6 +159320,18 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
 								'type' : 'long',
 								'converter' : 'convert_long',
 						},
@@ -135106,6 +159351,10 @@ config = {
 					'name' : 'onReachedMaxAppCacheSize',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
 						{
 								'type' : 'long',
 								'converter' : 'convert_long',
@@ -135179,7 +159428,7 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
-								'type' : 'android.webkit.ConsoleMessage',
+								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -135188,6 +159437,18 @@ config = {
 								'type' : 'void',
 								'converter' : 'convert_void',
 						},
+					],
+				},
+				{
+					'name' : 'onConsoleMessage',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.webkit.ConsoleMessage',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
 						{
 								'type' : 'boolean',
 								'converter' : 'convert_boolean',
@@ -135239,6 +159500,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.webkit.WebChromeClient',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -135246,7 +159508,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebChromeClient$CustomViewCallback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135328,7 +159590,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebStorage$QuotaUpdater',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135354,7 +159616,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.GeolocationPermissions$Callback',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -135365,6 +159627,10 @@ config = {
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 						{
 								'type' : 'boolean',
@@ -135440,7 +159706,12 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.webkit.ConsoleMessage',
+					'tags' : ['_proxy'],
 					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -135543,7 +159814,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebView$PictureListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137308,7 +161579,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Editable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137324,6 +161595,38 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.text.Editable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.text.Editable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'append',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'char',
 								'converter' : 'convert_char',
@@ -137357,6 +161660,42 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.text.Editable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'replace',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
 						},
@@ -137372,6 +161711,10 @@ config = {
 					'name' : 'delete',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -137395,6 +161738,34 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.text.Editable',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'insert',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -137452,7 +161823,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.InputFilter',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -137469,8 +161840,20 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.text.Spanned',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
@@ -137486,7 +161869,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spanned',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'SPAN_POINT_MARK_MASK',
@@ -137643,6 +162026,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'java.lang.Class',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
@@ -137708,6 +162095,10 @@ config = {
 					'name' : 'nextSpanTransition',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -137822,6 +162213,18 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
 					],
 					'returns' : [
 						{
@@ -137902,19 +162305,42 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.view.ViewGroup$MarginLayoutParams',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup$MarginLayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
 								'type' : 'android.view.ViewGroup$MarginLayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup$MarginLayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.view.ViewGroup$LayoutParams',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.view.ViewGroup$MarginLayoutParams',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -138016,6 +162442,22 @@ config = {
 					],
 				},
 				{
+					'name' : 'draw',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.graphics.Canvas',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
 					'name' : 'getPaint',
 					'tags' : ['_instance', '_proxy'],
 					'params' : [
@@ -138070,6 +162512,30 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'android.text.TextPaint',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'getDesiredWidth',
+					'tags' : ['_proxy', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.CharSequence',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.text.TextPaint',
@@ -138576,6 +163042,10 @@ config = {
 								'converter' : 'convert_int',
 						},
 						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
 								'type' : 'android.graphics.Path',
 								'converter' : 'convert_proxy',
 						},
@@ -138743,11 +163213,24 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.text.TextPaint',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'android.text.TextPaint',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+				},
+				{
+					'name' : 'android.text.TextPaint',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.graphics.Paint',
 								'converter' : 'convert_proxy',
@@ -138824,7 +163307,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Layout$Directions',
-			'tags' : ['_proxy', '_static'],
+			'tags' : ['_abstract', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -138834,7 +163317,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.KeyListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -138960,7 +163443,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.MovementMethod',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139178,7 +163661,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Spannable',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139189,6 +163672,14 @@ config = {
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -139224,7 +163715,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.method.TransformationMethod',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139366,11 +163857,18 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.text.style.URLSpan',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+				},
+				{
+					'name' : 'android.text.style.URLSpan',
+					'tags' : ['_proxy'],
+					'params' : [
 						{
 								'type' : 'android.os.Parcel',
 								'converter' : 'convert_proxy',
@@ -139417,6 +163915,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.text.Editable$Factory',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -139460,6 +163959,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.text.Spannable$Factory',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -139551,7 +164051,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextWatcher',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139562,6 +164062,14 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -139582,6 +164090,14 @@ config = {
 						{
 								'type' : 'java.lang.CharSequence',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -139786,10 +164302,31 @@ config = {
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.ObjectAnimator',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofInt',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.util.Property',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
 						},
 					],
 					'returns' : [
@@ -139816,10 +164353,31 @@ config = {
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.ObjectAnimator',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofFloat',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.util.Property',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Float', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 					],
 					'returns' : [
@@ -139852,6 +164410,22 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.ObjectAnimator',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofObject',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
@@ -139859,6 +164433,11 @@ config = {
 						{
 								'type' : 'android.animation.TypeEvaluator',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
@@ -139944,6 +164523,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.animation.ObjectAnimator',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -139951,7 +164531,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.TypeEvaluator',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -139962,6 +164542,10 @@ config = {
 						{
 								'type' : 'float',
 								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Object',
@@ -140066,10 +164650,27 @@ config = {
 								'children' : [{'type': 'int', 'converter': 'convert_int'}],
 								'converter' : 'convert__int_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.PropertyValuesHolder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofInt',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.util.Property',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Integer', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_int_array_type',
+								'children' : [{'type': 'int', 'converter': 'convert_int'}],
+								'converter' : 'convert__int_array_type',
 						},
 					],
 					'returns' : [
@@ -140093,9 +164694,26 @@ config = {
 								'children' : [{'type': 'float', 'converter': 'convert_float'}],
 								'converter' : 'convert__float_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.PropertyValuesHolder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofFloat',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_float_array_type',
+								'children' : [{'type': 'float', 'converter': 'convert_float'}],
+								'converter' : 'convert__float_array_type',
 						},
 					],
 					'returns' : [
@@ -140122,6 +164740,18 @@ config = {
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.PropertyValuesHolder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofObject',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'android.util.Property',
 								'converter' : 'convert_proxy',
@@ -140130,6 +164760,11 @@ config = {
 								'type' : 'android.animation.TypeEvaluator',
 								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
@@ -140219,9 +164854,26 @@ config = {
 								'children' : [{'type': 'android.animation.Keyframe', 'converter': 'convert_proxy'}],
 								'converter' : 'convert__object_array_type',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.PropertyValuesHolder',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofKeyframe',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : '_object_array_type',
+								'children' : [{'type': 'android.animation.Keyframe', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array_type',
 						},
 					],
 					'returns' : [
@@ -140370,6 +165022,22 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.Keyframe',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofInt',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
@@ -140384,6 +165052,42 @@ config = {
 				},
 				{
 					'name' : 'ofFloat',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.Keyframe',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofFloat',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.animation.Keyframe',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'ofObject',
 					'tags' : ['_proxy', '_singleton', '_static'],
 					'params' : [
 						{
@@ -140438,6 +165142,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.animation.Keyframe',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -140785,7 +165490,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.DialogInterface',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 				{
 					'name' : 'BUTTON_POSITIVE',
@@ -141057,6 +165762,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.app.LocalActivityManager',
+					'tags' : ['_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -141072,7 +165778,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnPreparedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141324,12 +166030,48 @@ config = {
 								'type' : 'int',
 								'converter' : 'convert_int',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.media.MediaPlayer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
 						{
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.view.SurfaceHolder',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'android.media.MediaPlayer',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'create',
+					'tags' : ['_proxy', '_singleton', '_static'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
 					],
@@ -141540,18 +166282,82 @@ config = {
 								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDataSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.io.FileDescriptor',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDataSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDataSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'android.content.Context',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'android.net.Uri',
 								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Map',
 								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}, {'type': 'java.lang.String', 'converter': 'convert_proxy'}],
 								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'setDataSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.FileDescriptor',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
 						},
 						{
 								'type' : 'long',
@@ -141705,6 +166511,10 @@ config = {
 								'type' : 'float',
 								'converter' : 'convert_float',
 						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
 					],
 					'returns' : [
 						{
@@ -141798,6 +166608,18 @@ config = {
 								'type' : 'java.lang.String',
 								'converter' : 'convert_proxy',
 						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addTimedTextSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
 						{
 								'type' : 'android.content.Context',
 								'converter' : 'convert_proxy',
@@ -141807,8 +166629,56 @@ config = {
 								'converter' : 'convert_proxy',
 						},
 						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addTimedTextSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'addTimedTextSource',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.io.FileDescriptor',
+								'converter' : 'convert_proxy',
+						},
+						{
 								'type' : 'long',
 								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'long',
+								'converter' : 'convert_long',
+						},
+						{
+								'type' : 'java.lang.String',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -141918,6 +166788,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'android.media.MediaPlayer',
+					'tags' : ['_proxy'],
 					'params' : [
 					],
 				},
@@ -141925,7 +166796,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnCompletionListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141951,7 +166822,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnErrorListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141962,6 +166833,10 @@ config = {
 						{
 								'type' : 'android.media.MediaPlayer',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -141981,7 +166856,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnInfoListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -141992,6 +166867,10 @@ config = {
 						{
 								'type' : 'android.media.MediaPlayer',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -142113,7 +166992,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnBufferingUpdateListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142143,7 +167022,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnSeekCompleteListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142169,7 +167048,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnVideoSizeChangedListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [
@@ -142180,6 +167059,10 @@ config = {
 						{
 								'type' : 'android.media.MediaPlayer',
 								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
@@ -142199,7 +167082,7 @@ config = {
 		},
 		{
 			'name' : 'android.media.MediaPlayer$OnTimedTextListener',
-			'tags' : ['_callback', '_interface', '_proxy'],
+			'tags' : ['_interface', '_proxy'],
 			'fields' : [
 			],	
 			'functions' : [

@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,22 +9,36 @@
 
 
 
- 			
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_webkit_HttpAuthHandler
 #define _android_webkit_HttpAuthHandler
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,15 +46,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
 class android_webkit_HttpAuthHandler
 {
 public:
- void cancel();
- void proceed(java_lang_String& arg0);
- bool useHttpAuthUsernamePassword();
 
-
-};
+	android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc);
+	android_webkit_HttpAuthHandler(void * proxy);
+	// Public Constructors
+	android_webkit_HttpAuthHandler();
+	// Default Destructor
+	virtual ~android_webkit_HttpAuthHandler();
+	// Functions
+	 void cancel();
+	 void proceed(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
+	 bool useHttpAuthUsernamePassword();
+};	
 
 } // namespace
 

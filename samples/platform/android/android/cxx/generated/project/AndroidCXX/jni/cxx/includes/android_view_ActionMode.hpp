@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,47 +9,67 @@
 
 
 
-		
-		
- 			
- 			
-		
- 			
- 			
-		
-		
-		
+	
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_ActionMode
 #define _android_view_ActionMode
+//
+// Scroll Down 
+//
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include <java_lang_Object.hpp>
 
 #include <android_view_MenuInflater.hpp>
-#include <android_view_View.hpp>
-#include <android_view_Menu.hpp>
-#include <java_lang_Object.hpp>
+
 #include <java_lang_CharSequence.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_view_Menu.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,27 +77,47 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class android_view_MenuInflater;
+
+class java_lang_CharSequence;
+
+class android_view_View;
+
+class android_view_Menu;
+
 class android_view_ActionMode
 {
 public:
- java_lang_Object getTag();
- void invalidate();
- void finish();
- android_view_MenuInflater getMenuInflater();
- void setTag(java_lang_Object& arg0);
- void setTitle(int& arg0,java_lang_CharSequence& arg1);
- java_lang_CharSequence getTitle();
- void setSubtitle(int& arg0,java_lang_CharSequence& arg1);
- void setTitleOptionalHint(bool& arg0);
- bool getTitleOptionalHint();
- bool isTitleOptional();
- void setCustomView(android_view_View& arg0);
- android_view_Menu getMenu();
- java_lang_CharSequence getSubtitle();
- android_view_View getCustomView();
 
-
-};
+	android_view_ActionMode(const android_view_ActionMode& cc);
+	android_view_ActionMode(void * proxy);
+	// Public Constructors
+	android_view_ActionMode();
+	// Default Destructor
+	virtual ~android_view_ActionMode();
+	// Functions
+	 void finish();
+	 AndroidCXX::java_lang_Object getTag();
+	 void invalidate();
+	 AndroidCXX::android_view_MenuInflater getMenuInflater();
+	 void setTag(AndroidCXX::java_lang_Object& arg0);
+	 void setTitle(int& arg0);
+	 void setTitle(AndroidCXX::java_lang_CharSequence& arg0);
+	 AndroidCXX::java_lang_CharSequence getTitle();
+	 void setSubtitle(int& arg0);
+	 void setSubtitle(AndroidCXX::java_lang_CharSequence& arg0);
+	 void setTitleOptionalHint(bool& arg0);
+	 bool getTitleOptionalHint();
+	 bool isTitleOptional();
+	 void setCustomView(AndroidCXX::android_view_View& arg0);
+	 AndroidCXX::android_view_Menu getMenu();
+	 AndroidCXX::java_lang_CharSequence getSubtitle();
+	 AndroidCXX::android_view_View getCustomView();
+};	
 
 } // namespace
 

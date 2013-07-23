@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_os_MessageQueue_IdleHandler
 #define _android_os_MessageQueue_IdleHandler
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_os_MessageQueue_IdleHandler
 {
 public:
-	bool queueIdle();
 
-
-};
+	android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc);
+	android_os_MessageQueue_IdleHandler(void * proxy);
+	// Public Constructors
+	android_os_MessageQueue_IdleHandler();
+	// Default Destructor
+	virtual ~android_os_MessageQueue_IdleHandler();
+	// Functions
+	 bool queueIdle();
+};	
 
 } // namespace
 

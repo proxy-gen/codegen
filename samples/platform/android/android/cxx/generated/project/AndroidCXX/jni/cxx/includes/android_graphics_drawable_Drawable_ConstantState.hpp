@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,23 +9,40 @@
 
 
 
- 			
-		
+	
+ 		 
+	
 
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_graphics_drawable_Drawable_ConstantState
 #define _android_graphics_drawable_Drawable_ConstantState
+//
+// Scroll Down 
+//
 
 
-
+#include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_content_res_Resources.hpp>
-#include <android_graphics_drawable_Drawable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,14 +50,27 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_graphics_drawable_Drawable;
+
+class android_content_res_Resources;
+
 class android_graphics_drawable_Drawable_ConstantState
 {
 public:
- int getChangingConfigurations();
- android_graphics_drawable_Drawable newDrawable(android_content_res_Resources& arg0);
 
-
-};
+	android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc);
+	android_graphics_drawable_Drawable_ConstantState(void * proxy);
+	// Public Constructors
+	android_graphics_drawable_Drawable_ConstantState();
+	// Default Destructor
+	virtual ~android_graphics_drawable_Drawable_ConstantState();
+	// Functions
+	 int getChangingConfigurations();
+	 AndroidCXX::android_graphics_drawable_Drawable newDrawable();
+	 AndroidCXX::android_graphics_drawable_Drawable newDrawable(AndroidCXX::android_content_res_Resources& arg0);
+};	
 
 } // namespace
 

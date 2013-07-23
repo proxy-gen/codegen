@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,11 +11,21 @@
 
 
 
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_database_sqlite_SQLiteTransactionListener
 #define _android_database_sqlite_SQLiteTransactionListener
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -23,6 +33,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,15 +42,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_database_sqlite_SQLiteTransactionListener
 {
 public:
-	void onBegin();
-	void onCommit();
-	void onRollback();
 
-
-};
+	android_database_sqlite_SQLiteTransactionListener(const android_database_sqlite_SQLiteTransactionListener& cc);
+	android_database_sqlite_SQLiteTransactionListener(void * proxy);
+	// Public Constructors
+	android_database_sqlite_SQLiteTransactionListener();
+	// Default Destructor
+	virtual ~android_database_sqlite_SQLiteTransactionListener();
+	// Functions
+	 void onBegin();
+	 void onCommit();
+	 void onRollback();
+};	
 
 } // namespace
 

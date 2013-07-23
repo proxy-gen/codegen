@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_util_concurrent_Executor
 #define _java_util_concurrent_Executor
-
+//
+// Scroll Down 
+//
 
 
 #include <java_lang_Runnable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Runnable;
+
 class java_util_concurrent_Executor
 {
 public:
-	void execute(java_lang_Runnable& arg0);
 
-
-};
+	java_util_concurrent_Executor(const java_util_concurrent_Executor& cc);
+	java_util_concurrent_Executor(void * proxy);
+	// Public Constructors
+	java_util_concurrent_Executor();
+	// Default Destructor
+	virtual ~java_util_concurrent_Executor();
+	// Functions
+	 void execute(AndroidCXX::java_lang_Runnable& arg0);
+};	
 
 } // namespace
 

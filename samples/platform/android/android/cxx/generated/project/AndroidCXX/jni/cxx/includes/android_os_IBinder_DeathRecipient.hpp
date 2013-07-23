@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_os_IBinder_DeathRecipient
 #define _android_os_IBinder_DeathRecipient
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_os_IBinder_DeathRecipient
 {
 public:
-	void binderDied();
 
-
-};
+	android_os_IBinder_DeathRecipient(const android_os_IBinder_DeathRecipient& cc);
+	android_os_IBinder_DeathRecipient(void * proxy);
+	// Public Constructors
+	android_os_IBinder_DeathRecipient();
+	// Default Destructor
+	virtual ~android_os_IBinder_DeathRecipient();
+	// Functions
+	 void binderDied();
+};	
 
 } // namespace
 

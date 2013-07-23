@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,126 +9,244 @@
 
 
 
- 			
- 			
-		
-		
- 			
- 			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
- 			
-		
- 			
-		
-		
- 			
-		
- 			
-		
-		
- 			
-		
- 			
-		
-		
- 			
-		
- 			
-		
- 			
-		
- 			
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 		 
+	
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+	
+	
+	
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+	
+	
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+	
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+	
+ 	
+ 		 
+	
+	
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 		 
+ 	
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 		 
+ 	
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 	
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_lang_Class
 #define _java_lang_Class
+//
+// Scroll Down 
+//
 
 
+#include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
 
+#include <java_lang_ClassLoader.hpp>
 
+#include <java_lang_reflect_TypeVariable.hpp>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include <java_lang_reflect_Type.hpp>
 
 #include <java_lang_Package.hpp>
-#include <java_lang_reflect_Field.hpp>
-#include <java_lang_annotation_Annotation.hpp>
-#include <java_lang_reflect_Constructor.hpp>
-#include <java_net_URL.hpp>
-#include <java_lang_ClassLoader.hpp>
-#include <java_security_ProtectionDomain.hpp>
-#include <java_io_InputStream.hpp>
-#include <java_lang_String.hpp>
-#include <java_lang_reflect_Type.hpp>
+
 #include <java_lang_reflect_Method.hpp>
-#include <java_lang_Object.hpp>
+
+#include <java_lang_reflect_Constructor.hpp>
+
+#include <java_lang_reflect_Field.hpp>
+
+#include <java_io_InputStream.hpp>
+
+#include <java_net_URL.hpp>
+
+#include <java_security_ProtectionDomain.hpp>
+
+#include <java_lang_annotation_Annotation.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -136,68 +254,105 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_Class;
+
+class java_lang_Object;
+
+class java_lang_ClassLoader;
+
+class java_lang_reflect_TypeVariable;
+
+class java_lang_reflect_Type;
+
+class java_lang_Package;
+
+class java_lang_reflect_Method;
+
+class java_lang_reflect_Constructor;
+
+class java_lang_reflect_Field;
+
+class java_io_InputStream;
+
+class java_net_URL;
+
+class java_security_ProtectionDomain;
+
+class java_lang_annotation_Annotation;
+
 class java_lang_Class
 {
 public:
-static java_lang_Class forName(java_lang_String& arg0,bool& arg1,java_lang_ClassLoader& arg2);
- java_lang_String toString();
- bool isAssignableFrom(java_lang_Class& arg0);
- bool isInstance(java_lang_Object& arg0);
- int getModifiers();
- bool isInterface();
- bool isArray();
- bool isPrimitive();
- java_lang_Class getSuperclass();
- java_lang_Class getComponentType();
- java_lang_String getName();
- java_lang_Object newInstance();
- bool isAnnotation();
- bool isSynthetic();
- java_lang_ClassLoader getClassLoader();
- std::vector<long> getTypeParameters();
- java_lang_reflect_Type getGenericSuperclass();
- java_lang_Package getPackage();
- std::vector<long> getInterfaces();
- std::vector<long> getGenericInterfaces();
- std::vector<long> getSigners();
- java_lang_reflect_Method getEnclosingMethod();
- java_lang_reflect_Constructor getEnclosingConstructor();
- java_lang_Class getDeclaringClass();
- java_lang_Class getEnclosingClass();
- java_lang_String getSimpleName();
- java_lang_String getCanonicalName();
- bool isAnonymousClass();
- bool isLocalClass();
- bool isMemberClass();
- std::vector<long> getClasses();
- std::vector<long> getFields();
- std::vector<long> getMethods();
- std::vector<long> getConstructors();
- java_lang_reflect_Field getField(java_lang_String& arg0);
- java_lang_reflect_Method getMethod(java_lang_String& arg0,std::vector<long>& arg1);
- java_lang_reflect_Constructor getConstructor(std::vector<long>& arg0);
- std::vector<long> getDeclaredClasses();
- std::vector<long> getDeclaredFields();
- std::vector<long> getDeclaredMethods();
- std::vector<long> getDeclaredConstructors();
- java_lang_reflect_Field getDeclaredField(java_lang_String& arg0);
- java_lang_reflect_Method getDeclaredMethod(java_lang_String& arg0,std::vector<long>& arg1);
- java_lang_reflect_Constructor getDeclaredConstructor(std::vector<long>& arg0);
- java_io_InputStream getResourceAsStream(java_lang_String& arg0);
- java_net_URL getResource(java_lang_String& arg0);
- java_security_ProtectionDomain getProtectionDomain();
- bool desiredAssertionStatus();
- bool isEnum();
- std::vector<long> getEnumConstants();
- java_lang_Object cast(java_lang_Object& arg0);
- java_lang_Class asSubclass(java_lang_Class& arg0);
- java_lang_annotation_Annotation getAnnotation(java_lang_Class& arg0);
- bool isAnnotationPresent(java_lang_Class& arg0);
- std::vector<long> getAnnotations();
- std::vector<long> getDeclaredAnnotations();
 
-
-};
+	java_lang_Class(const java_lang_Class& cc);
+	java_lang_Class(void * proxy);
+	// Public Constructors
+	java_lang_Class();
+	// Default Destructor
+	virtual ~java_lang_Class();
+	// Functions
+	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String& arg0);
+	static AndroidCXX::java_lang_Class forName(AndroidCXX::java_lang_String& arg0,bool& arg1,AndroidCXX::java_lang_ClassLoader& arg2);
+	 AndroidCXX::java_lang_String toString();
+	 bool isAssignableFrom(AndroidCXX::java_lang_Class& arg0);
+	 bool isInstance(AndroidCXX::java_lang_Object& arg0);
+	 int getModifiers();
+	 bool isInterface();
+	 bool isArray();
+	 bool isPrimitive();
+	 AndroidCXX::java_lang_Class getSuperclass();
+	 AndroidCXX::java_lang_Class getComponentType();
+	 AndroidCXX::java_lang_String getName();
+	 AndroidCXX::java_lang_Object newInstance();
+	 bool isAnnotation();
+	 bool isSynthetic();
+	 AndroidCXX::java_lang_ClassLoader getClassLoader();
+	 std::vector<AndroidCXX::java_lang_reflect_TypeVariable > getTypeParameters();
+	 AndroidCXX::java_lang_reflect_Type getGenericSuperclass();
+	 AndroidCXX::java_lang_Package getPackage();
+	 std::vector<AndroidCXX::java_lang_Class > getInterfaces();
+	 std::vector<AndroidCXX::java_lang_reflect_Type > getGenericInterfaces();
+	 std::vector<AndroidCXX::java_lang_Object > getSigners();
+	 AndroidCXX::java_lang_reflect_Method getEnclosingMethod();
+	 AndroidCXX::java_lang_reflect_Constructor getEnclosingConstructor();
+	 AndroidCXX::java_lang_Class getDeclaringClass();
+	 AndroidCXX::java_lang_Class getEnclosingClass();
+	 AndroidCXX::java_lang_String getSimpleName();
+	 AndroidCXX::java_lang_String getCanonicalName();
+	 bool isAnonymousClass();
+	 bool isLocalClass();
+	 bool isMemberClass();
+	 std::vector<AndroidCXX::java_lang_Class > getClasses();
+	 std::vector<AndroidCXX::java_lang_reflect_Field > getFields();
+	 std::vector<AndroidCXX::java_lang_reflect_Method > getMethods();
+	 std::vector<AndroidCXX::java_lang_reflect_Constructor > getConstructors();
+	 AndroidCXX::java_lang_reflect_Field getField(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_reflect_Method getMethod(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
+	 AndroidCXX::java_lang_reflect_Constructor getConstructor(std::vector<AndroidCXX::java_lang_Class >& arg0);
+	 std::vector<AndroidCXX::java_lang_Class > getDeclaredClasses();
+	 std::vector<AndroidCXX::java_lang_reflect_Field > getDeclaredFields();
+	 std::vector<AndroidCXX::java_lang_reflect_Method > getDeclaredMethods();
+	 std::vector<AndroidCXX::java_lang_reflect_Constructor > getDeclaredConstructors();
+	 AndroidCXX::java_lang_reflect_Field getDeclaredField(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_reflect_Method getDeclaredMethod(AndroidCXX::java_lang_String& arg0,std::vector<AndroidCXX::java_lang_Class >& arg1);
+	 AndroidCXX::java_lang_reflect_Constructor getDeclaredConstructor(std::vector<AndroidCXX::java_lang_Class >& arg0);
+	 AndroidCXX::java_io_InputStream getResourceAsStream(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_net_URL getResource(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_security_ProtectionDomain getProtectionDomain();
+	 bool desiredAssertionStatus();
+	 bool isEnum();
+	 std::vector<AndroidCXX::java_lang_Object > getEnumConstants();
+	 AndroidCXX::java_lang_Object cast(AndroidCXX::java_lang_Object& arg0);
+	 AndroidCXX::java_lang_Class asSubclass(AndroidCXX::java_lang_Class& arg0);
+	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class& arg0);
+	 bool isAnnotationPresent(AndroidCXX::java_lang_Class& arg0);
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getAnnotations();
+	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
+};	
 
 } // namespace
 

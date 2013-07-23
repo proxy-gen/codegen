@@ -1,5 +1,5 @@
 /*
- * Header (Static CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,27 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_Filter_FilterResults
 #define _android_widget_Filter_FilterResults
+//
+// Scroll Down 
+//
 
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
 
 
 #ifdef __cplusplus
@@ -22,12 +40,20 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_Filter_FilterResults
 {
 public:
 
-
-};
+	android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc);
+	android_widget_Filter_FilterResults(void * proxy);
+	// Public Constructors
+	android_widget_Filter_FilterResults();
+	// Default Destructor
+	virtual ~android_widget_Filter_FilterResults();
+	// Functions
+};	
 
 } // namespace
 

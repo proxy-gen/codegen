@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,37 +9,53 @@
 
 
 
- 			
- 			
-		
-		
- 			
- 			
+ 		 
+ 		 
+	
+	
+ 		 
+ 		 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_widget_Adapter
 #define _android_widget_Adapter
+//
+// Scroll Down 
+//
 
 
+#include <android_view_View.hpp>
 
+#include <android_view_ViewGroup.hpp>
 
-
-
-
-
-
-
-
+#include <java_lang_Object.hpp>
 
 #include <android_database_DataSetObserver.hpp>
-#include <android_view_View.hpp>
-#include <java_lang_Object.hpp>
-#include <android_view_ViewGroup.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -47,22 +63,38 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
+class java_lang_Object;
+
+class android_database_DataSetObserver;
+
 class android_widget_Adapter
 {
 public:
-	bool isEmpty();
-	android_view_View getView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
-	java_lang_Object getItem(int& arg0);
-	long getItemId(int& arg0);
-	int getCount();
-	void registerDataSetObserver(android_database_DataSetObserver& arg0);
-	void unregisterDataSetObserver(android_database_DataSetObserver& arg0);
-	bool hasStableIds();
-	int getItemViewType(int& arg0);
-	int getViewTypeCount();
 
-
-};
+	android_widget_Adapter(const android_widget_Adapter& cc);
+	android_widget_Adapter(void * proxy);
+	// Public Constructors
+	android_widget_Adapter();
+	// Default Destructor
+	virtual ~android_widget_Adapter();
+	// Functions
+	 bool isEmpty();
+	 AndroidCXX::android_view_View getView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+	 AndroidCXX::java_lang_Object getItem(int& arg0);
+	 long getItemId(int& arg0);
+	 int getCount();
+	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
+	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver& arg0);
+	 bool hasStableIds();
+	 int getItemViewType(int& arg0);
+	 int getViewTypeCount();
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,28 +9,42 @@
 
 
 
-		
-		
-		
+	
+	
+	
 
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_app_FragmentManager_BackStackEntry
 #define _android_app_FragmentManager_BackStackEntry
+//
+// Scroll Down 
+//
 
 
-
-
-
-
-
+#include <java_lang_String.hpp>
 
 #include <java_lang_CharSequence.hpp>
-#include <java_lang_String.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,18 +52,30 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
+class java_lang_CharSequence;
+
 class android_app_FragmentManager_BackStackEntry
 {
 public:
-	java_lang_String getName();
-	int getId();
-	int getBreadCrumbTitleRes();
-	int getBreadCrumbShortTitleRes();
-	java_lang_CharSequence getBreadCrumbTitle();
-	java_lang_CharSequence getBreadCrumbShortTitle();
 
-
-};
+	android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc);
+	android_app_FragmentManager_BackStackEntry(void * proxy);
+	// Public Constructors
+	android_app_FragmentManager_BackStackEntry();
+	// Default Destructor
+	virtual ~android_app_FragmentManager_BackStackEntry();
+	// Functions
+	 AndroidCXX::java_lang_String getName();
+	 int getId();
+	 int getBreadCrumbTitleRes();
+	 int getBreadCrumbShortTitleRes();
+	 AndroidCXX::java_lang_CharSequence getBreadCrumbTitle();
+	 AndroidCXX::java_lang_CharSequence getBreadCrumbShortTitle();
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_view_View_OnLongClickListener
 #define _android_view_View_OnLongClickListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_view_View.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
 class android_view_View_OnLongClickListener
 {
 public:
-	bool onLongClick(android_view_View& arg0);
 
-
-};
+	android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc);
+	android_view_View_OnLongClickListener(void * proxy);
+	// Public Constructors
+	android_view_View_OnLongClickListener();
+	// Default Destructor
+	virtual ~android_view_View_OnLongClickListener();
+	// Functions
+	 bool onLongClick(AndroidCXX::android_view_View& arg0);
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,23 +9,39 @@
 
 
 
- 			
-		
+ 	
+ 		 
+ 		 
+	
 
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_os_Parcelable_Creator
 #define _android_os_Parcelable_Creator
+//
+// Scroll Down 
+//
 
 
-
+#include <java_lang_Object.hpp>
 
 #include <android_os_Parcel.hpp>
-#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,14 +49,26 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_Object;
+
+class android_os_Parcel;
+
 class android_os_Parcelable_Creator
 {
 public:
-	std::vector<long> newArray(int& arg0);
-	java_lang_Object createFromParcel(android_os_Parcel& arg0);
 
-
-};
+	android_os_Parcelable_Creator(const android_os_Parcelable_Creator& cc);
+	android_os_Parcelable_Creator(void * proxy);
+	// Public Constructors
+	android_os_Parcelable_Creator();
+	// Default Destructor
+	virtual ~android_os_Parcelable_Creator();
+	// Functions
+	 std::vector<AndroidCXX::java_lang_Object > newArray(int& arg0);
+	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel& arg0);
+};	
 
 } // namespace
 

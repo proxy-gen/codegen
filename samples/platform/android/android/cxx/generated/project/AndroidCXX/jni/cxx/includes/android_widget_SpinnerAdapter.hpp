@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,23 +9,37 @@
 
 
 
- 			
- 			
-		
+ 		 
+ 		 
+	
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_widget_SpinnerAdapter
 #define _android_widget_SpinnerAdapter
-
+//
+// Scroll Down 
+//
 
 
 #include <android_view_View.hpp>
+
 #include <android_view_ViewGroup.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,13 +47,25 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_view_View;
+
+class android_view_ViewGroup;
+
 class android_widget_SpinnerAdapter
 {
 public:
-	android_view_View getDropDownView(int& arg0,android_view_View& arg1,android_view_ViewGroup& arg2);
 
-
-};
+	android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc);
+	android_widget_SpinnerAdapter(void * proxy);
+	// Public Constructors
+	android_widget_SpinnerAdapter();
+	// Default Destructor
+	virtual ~android_widget_SpinnerAdapter();
+	// Functions
+	 AndroidCXX::android_view_View getDropDownView(int& arg0,AndroidCXX::android_view_View& arg1,AndroidCXX::android_view_ViewGroup& arg2);
+};	
 
 } // namespace
 

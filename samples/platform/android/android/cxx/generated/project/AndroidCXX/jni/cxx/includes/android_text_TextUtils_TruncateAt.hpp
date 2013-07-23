@@ -9,6 +9,7 @@
 
 
 
+
  			
 		
 
@@ -30,11 +31,15 @@
 extern "C" {
 #endif //__cplusplus
 
-namespace AndroidCXX {
+namespace ANDROID_TEXT_TEXTUTILS_TRUNCATEAT {
 
 enum android_text_TextUtils_TruncateAt
 {
-
+	START,
+	MIDDLE,
+	END,
+	MARQUEE,
+	END_SMALL,
 };
 
 } // namespace

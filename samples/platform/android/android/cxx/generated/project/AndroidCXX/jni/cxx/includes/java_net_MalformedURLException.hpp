@@ -1,5 +1,5 @@
 /*
- * Header (Static CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,31 @@
 
 
 
+ 		 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_net_MalformedURLException
 #define _java_net_MalformedURLException
+//
+// Scroll Down 
+//
 
+
+#include <java_lang_String.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
 
 
 #ifdef __cplusplus
@@ -22,12 +44,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class java_lang_String;
+
 class java_net_MalformedURLException
 {
 public:
 
-
-};
+	java_net_MalformedURLException(const java_net_MalformedURLException& cc);
+	java_net_MalformedURLException(void * proxy);
+	// Public Constructors
+	java_net_MalformedURLException();
+	java_net_MalformedURLException(AndroidCXX::java_lang_String& arg0);
+	// Default Destructor
+	virtual ~java_net_MalformedURLException();
+	// Functions
+};	
 
 } // namespace
 

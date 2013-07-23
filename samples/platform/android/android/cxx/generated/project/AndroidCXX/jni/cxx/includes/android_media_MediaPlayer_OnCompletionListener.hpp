@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_media_MediaPlayer_OnCompletionListener
 #define _android_media_MediaPlayer_OnCompletionListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_media_MediaPlayer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_media_MediaPlayer;
+
 class android_media_MediaPlayer_OnCompletionListener
 {
 public:
-	void onCompletion(android_media_MediaPlayer& arg0);
 
-
-};
+	android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc);
+	android_media_MediaPlayer_OnCompletionListener(void * proxy);
+	// Public Constructors
+	android_media_MediaPlayer_OnCompletionListener();
+	// Default Destructor
+	virtual ~android_media_MediaPlayer_OnCompletionListener();
+	// Functions
+	 void onCompletion(AndroidCXX::android_media_MediaPlayer& arg0);
+};	
 
 } // namespace
 

@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,10 +11,20 @@
 
 
 
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_SearchView_OnSuggestionListener
 #define _android_widget_SearchView_OnSuggestionListener
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -22,6 +32,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +41,22 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_SearchView_OnSuggestionListener
 {
 public:
-	bool onSuggestionSelect(int& arg0);
-	bool onSuggestionClick(int& arg0);
 
-
-};
+	android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc);
+	android_widget_SearchView_OnSuggestionListener(void * proxy);
+	// Public Constructors
+	android_widget_SearchView_OnSuggestionListener();
+	// Default Destructor
+	virtual ~android_widget_SearchView_OnSuggestionListener();
+	// Functions
+	 bool onSuggestionSelect(int& arg0);
+	 bool onSuggestionClick(int& arg0);
+};	
 
 } // namespace
 

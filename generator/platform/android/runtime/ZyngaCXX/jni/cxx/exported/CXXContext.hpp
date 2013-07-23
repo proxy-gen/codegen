@@ -44,6 +44,7 @@ public:
 	void registerProxyComponent(long address, jobject externalObject);
 	void deregisterProxyComponent(long address);
 	jobject findProxyComponent(long address);
+	long findProxiedComponent(jobject javaObject);
 
 	jobject notify(long proxiedObjectAddress, long proxiedObjectID, std::string methodName, void * payload);
 	void setAndroidContext(jobject applicationContext);

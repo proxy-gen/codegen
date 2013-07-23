@@ -1,12 +1,47 @@
 /*
- * Header (CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
+//
+// Scroll Down 
+//
+
+
+
+	
+ 		 
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _com_facebook_TestSession_TestAccount
 #define _com_facebook_TestSession_TestAccount
+//
+// Scroll Down 
+//
 
-//includes go here
+
+#include <java_lang_String.hpp>
+
+#include <vector>
+#include <map>
+#include <string>
+#include <stack>
+#include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,20 +49,25 @@ extern "C" {
 
 namespace FacebookCXX {
 
+// Forward Declarations
+
+
 class com_facebook_TestSession_TestAccount
 {
 public:
 
-	
-    "//TODO: add CONVERTER for java.lang.String"
-	void setName(java_lang_String& arg0);
-	
-    "//TODO: add CONVERTER for java.lang.String"
-	
-    "//TODO: add CONVERTER for java.lang.String"
-
-
-};
+	com_facebook_TestSession_TestAccount(const com_facebook_TestSession_TestAccount& cc);
+	com_facebook_TestSession_TestAccount(void * proxy);
+	// Public Constructors
+	com_facebook_TestSession_TestAccount();
+	// Default Destructor
+	virtual ~com_facebook_TestSession_TestAccount();
+	// Functions
+	 AndroidCXX::java_lang_String getName();
+	 void setName(AndroidCXX::java_lang_String& arg0);
+	 AndroidCXX::java_lang_String getId();
+	 AndroidCXX::java_lang_String getAccessToken();
+};	
 
 } // namespace
 

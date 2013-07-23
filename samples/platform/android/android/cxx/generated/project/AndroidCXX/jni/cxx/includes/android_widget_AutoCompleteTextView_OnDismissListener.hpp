@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _android_widget_AutoCompleteTextView_OnDismissListener
 #define _android_widget_AutoCompleteTextView_OnDismissListener
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class android_widget_AutoCompleteTextView_OnDismissListener
 {
 public:
-	void onDismiss();
 
-
-};
+	android_widget_AutoCompleteTextView_OnDismissListener(const android_widget_AutoCompleteTextView_OnDismissListener& cc);
+	android_widget_AutoCompleteTextView_OnDismissListener(void * proxy);
+	// Public Constructors
+	android_widget_AutoCompleteTextView_OnDismissListener();
+	// Default Destructor
+	virtual ~android_widget_AutoCompleteTextView_OnDismissListener();
+	// Functions
+	 void onDismiss();
+};	
 
 } // namespace
 

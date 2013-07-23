@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -11,9 +11,19 @@
 
 
 
+
+
+
+
+
+
+// Generated Code 
+
 #ifndef _java_lang_Runnable
 #define _java_lang_Runnable
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -21,6 +31,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -28,13 +40,21 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_lang_Runnable
 {
 public:
-	void run();
 
-
-};
+	java_lang_Runnable(const java_lang_Runnable& cc);
+	java_lang_Runnable(void * proxy);
+	// Public Constructors
+	java_lang_Runnable();
+	// Default Destructor
+	virtual ~java_lang_Runnable();
+	// Functions
+	 void run();
+};	
 
 } // namespace
 

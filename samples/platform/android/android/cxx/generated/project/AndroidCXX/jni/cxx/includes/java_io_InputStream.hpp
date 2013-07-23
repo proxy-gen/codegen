@@ -1,5 +1,5 @@
 /*
- * Header (Abstract CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,17 +9,32 @@
 
 
 
+ 	
+ 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _java_io_InputStream
 #define _java_io_InputStream
-
-
-
-
-
-
-
+//
+// Scroll Down 
+//
 
 
 #include <vector>
@@ -27,6 +42,8 @@
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,19 +51,29 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
 class java_io_InputStream
 {
 public:
- void close();
- void mark(int& arg0);
- void reset();
- int read(std::vector<char>& arg0,int& arg1);
- long skip(long& arg0);
- int available();
- bool markSupported();
 
-
-};
+	java_io_InputStream(const java_io_InputStream& cc);
+	java_io_InputStream(void * proxy);
+	// Public Constructors
+	java_io_InputStream();
+	// Default Destructor
+	virtual ~java_io_InputStream();
+	// Functions
+	 void close();
+	 void mark(int& arg0);
+	 void reset();
+	 int read(std::vector<byte>& arg0,int& arg1,int& arg2);
+	 int read(std::vector<byte>& arg0);
+	 int read();
+	 long skip(long& arg0);
+	 int available();
+	 bool markSupported();
+};	
 
 } // namespace
 

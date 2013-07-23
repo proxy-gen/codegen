@@ -2,11 +2,12 @@
  * Implementation (Java)
  * Author: cxx-bindings-generator
  */
+#set $config_module = $CONFIG.config_module
 #set $config_data = $CONFIG.config_module.config_data
 #set $package = $config_data['package']
 #set $callback_class = $CONFIG.callback_class
 #set $callback_class_name = $CONFIG.callback_class_name
-package $package
+// Default Package
 #set $SPACE = " "
 #set $COMMA = ","
 #set $base_class = $callback_class['name'].replace('$','.')
@@ -20,7 +21,24 @@ public class $callback_class_name extends $base_class
 {
 #set $constructors = $callback_class['constructors']
 #for $constructor in $constructors
-	//TODO constructor here
+	#set $param_str = ""
+	#set $invoke_str = ""
+	#set $params = $constructor['params']
+	#set $param_idx = 0
+	#for $param in $params
+		#if $param_idx > 0
+			#set $param_str = $param_str + $COMMA 
+			#set $invoke_str = $invoke_str + $COMMA 
+		#end if
+		#set $param_str = $param_str + $param['type']
+		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+		#set $invoke_str = $invoke_str + $param['type']
+		#set $param_idx = $param_idx + 1
+	#end for
+	public ${callback_class_name}(${param_str})
+	{
+		super($invoke_str);
+	}
 #end for
 #set $functions = $callback_class['functions']
 #for $function in $functions
@@ -35,6 +53,28 @@ public class $callback_class_name extends $base_class
 		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
 		#set $param_idx = $param_idx + 1
 	#end for
-	public native ${function['returns'][0]['type']} ${function['name']}($param_str);
+	public ${function['returns'][0]['type']} ${function['name']}($param_str)
+	{
+		#if ${function['returns'][0]['type']} != "void"
+			return ${config_module.to_safe_cxx_name(function['name'])}($param_str);
+		#else
+			${config_module.to_safe_cxx_name(function['name'])}($param_str);
+		#end if
+	}
+#end for
+#set $functions = $callback_class['functions']
+#for $function in $functions
+	#set $param_str = ""
+	#set $params = $function['params']
+	#set $param_idx = 0
+	#for $param in $params
+		#if $param_idx > 0
+			#set $param_str = $param_str + $COMMA 
+		#end if
+		#set $param_str = $param_str + $param['type']
+		#set $param_str = $param_str + $SPACE + "arg" + str($param_idx)
+		#set $param_idx = $param_idx + 1
+	#end for
+	public native ${function['returns'][0]['type']} ${config_module.to_safe_cxx_name(function['name'])}($param_str);
 #end for
 }

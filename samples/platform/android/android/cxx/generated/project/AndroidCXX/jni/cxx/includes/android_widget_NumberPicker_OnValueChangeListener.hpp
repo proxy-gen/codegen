@@ -1,5 +1,5 @@
 /*
- * Header (Callback CXX)
+ * Header (Instance CXX)
  * Author: cxx-bindings-generator
  */
 
@@ -9,20 +9,33 @@
 
 
 
- 			
+ 		 
 
+
+
+
+
+
+
+
+// Generated Code 
 
 #ifndef _android_widget_NumberPicker_OnValueChangeListener
 #define _android_widget_NumberPicker_OnValueChangeListener
-
+//
+// Scroll Down 
+//
 
 
 #include <android_widget_NumberPicker.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
 #include <stack>
 #include <list>
+#include <CXXTypes.hpp>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,13 +43,23 @@ extern "C" {
 
 namespace AndroidCXX {
 
+// Forward Declarations
+
+class android_widget_NumberPicker;
+
 class android_widget_NumberPicker_OnValueChangeListener
 {
 public:
-	void onValueChange(android_widget_NumberPicker& arg0,int& arg1);
 
-
-};
+	android_widget_NumberPicker_OnValueChangeListener(const android_widget_NumberPicker_OnValueChangeListener& cc);
+	android_widget_NumberPicker_OnValueChangeListener(void * proxy);
+	// Public Constructors
+	android_widget_NumberPicker_OnValueChangeListener();
+	// Default Destructor
+	virtual ~android_widget_NumberPicker_OnValueChangeListener();
+	// Functions
+	 void onValueChange(AndroidCXX::android_widget_NumberPicker& arg0,int& arg1,int& arg2);
+};	
 
 } // namespace
 
