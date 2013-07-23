@@ -2193,13 +2193,16 @@ bool * JNIContext::getBooleanArray(jbooleanArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (bool *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetBooleanArrayRegion(array,0,count,(jboolean *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2213,13 +2216,16 @@ char * JNIContext::getByteArray(jbyteArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (char *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetByteArrayRegion(array,0,count,(jbyte *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2233,13 +2239,16 @@ char * JNIContext::getCharArray(jcharArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (char *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetCharArrayRegion(array,0,count,(jchar *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2253,13 +2262,16 @@ short * JNIContext::getShortArray(jshortArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (short *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetShortArrayRegion(array,0,count,(jshort *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2273,13 +2285,16 @@ int * JNIContext::getIntArray(jintArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (int *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetIntArrayRegion(array,0,count,(jint *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2293,13 +2308,16 @@ long * JNIContext::getLongArray(jlongArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (long *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetLongArrayRegion(array,0,count,(jlong *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2313,13 +2331,16 @@ float * JNIContext::getFloatArray(jfloatArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (float *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetFloatArrayRegion(array,0,count,(jfloat *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
@@ -2333,13 +2354,16 @@ double * JNIContext::getDoubleArray(jdoubleArray array)
 		int count = getArrayLength(array);
 		if (count > 0)
 		{
+			result = (double *) malloc(count + 1);
 			JNIEnv *env = 0;
 			getEnv(&env);			
 			env->GetDoubleArrayRegion(array,0,count,(jdouble *) result);
 			if (checkException(env) == false)
 			{
+				result[count] = 0; /* NULL terminator */
 				return result;
 			}
+			free(result);
 		}
 	}
 	return result;
