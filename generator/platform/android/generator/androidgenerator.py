@@ -1150,6 +1150,9 @@ class ConfigModule(object):
 		if 'typeinfo' not in targetdata:
 			typeinfo = targetdata['typeinfo'] = dict()
 			typeinfo['isenum'] = False
+			typeinfo['isprimitive'] = jindex.PrimitiveType.is_primitive_id(type_config["type"])
+			typeinfo['isarray'] = jindex.ArrayType.is_array_id(type_config["type"])
+			typeinfo['isvoid'] = jindex.VoidType.is_void_id(type_config["type"])
 			typeinfo['namespace'] = config_data['namespace']
 			if type_config['converter'] == 'convert_proxy':
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=type_config['type'])
