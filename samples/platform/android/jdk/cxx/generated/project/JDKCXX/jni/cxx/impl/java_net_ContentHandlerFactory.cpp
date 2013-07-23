@@ -210,6 +210,7 @@ JDKCXX::java_net_ContentHandler java_net_ContentHandlerFactory::createContentHan
 	}
 
 	JDKCXX::java_net_ContentHandler result((JDKCXX::java_net_ContentHandler) *((JDKCXX::java_net_ContentHandler *) cxx_value));
+	delete ((JDKCXX::java_net_ContentHandler *) cxx_value);
 		
 	jni->popLocalFrame();
 

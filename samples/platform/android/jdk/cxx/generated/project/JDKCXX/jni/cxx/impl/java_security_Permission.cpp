@@ -299,6 +299,7 @@ bool java_security_Permission::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -346,6 +347,7 @@ JDKCXX::java_lang_String java_security_Permission::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -393,6 +395,7 @@ int java_security_Permission::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -440,6 +443,7 @@ JDKCXX::java_lang_String java_security_Permission::getName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -508,6 +512,7 @@ bool java_security_Permission::implies(JDKCXX::java_security_Permission& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -555,6 +560,7 @@ JDKCXX::java_lang_String java_security_Permission::getActions()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -602,6 +608,7 @@ JDKCXX::java_security_PermissionCollection java_security_Permission::newPermissi
 	}
 
 	JDKCXX::java_security_PermissionCollection result((JDKCXX::java_security_PermissionCollection) *((JDKCXX::java_security_PermissionCollection *) cxx_value));
+	delete ((JDKCXX::java_security_PermissionCollection *) cxx_value);
 		
 	jni->popLocalFrame();
 

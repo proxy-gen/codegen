@@ -202,6 +202,7 @@ JDKCXX::java_lang_String java_nio_charset_CoderResult::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -249,6 +250,7 @@ int java_nio_charset_CoderResult::length()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -324,6 +326,7 @@ bool java_nio_charset_CoderResult::isUnderflow()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -371,6 +374,7 @@ bool java_nio_charset_CoderResult::isError()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -418,6 +422,7 @@ bool java_nio_charset_CoderResult::isOverflow()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -486,6 +491,7 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::malformedForL
 	}
 
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -533,6 +539,7 @@ bool java_nio_charset_CoderResult::isMalformed()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -580,6 +587,7 @@ bool java_nio_charset_CoderResult::isUnmappable()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -648,6 +656,7 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappableFor
 	}
 
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
 	jni->popLocalFrame();
 

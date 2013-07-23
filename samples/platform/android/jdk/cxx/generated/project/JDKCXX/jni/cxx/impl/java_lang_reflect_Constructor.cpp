@@ -251,6 +251,7 @@ bool java_lang_reflect_Constructor::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -298,6 +299,7 @@ JDKCXX::java_lang_String java_lang_reflect_Constructor::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -345,6 +347,7 @@ int java_lang_reflect_Constructor::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -392,6 +395,7 @@ int java_lang_reflect_Constructor::getModifiers()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -439,6 +443,7 @@ JDKCXX::java_lang_String java_lang_reflect_Constructor::getName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -525,6 +530,7 @@ JDKCXX::java_lang_Object java_lang_reflect_Constructor::newInstance(std::vector<
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -572,6 +578,7 @@ bool java_lang_reflect_Constructor::isSynthetic()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -673,6 +680,7 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_Construct
 	}
 
 	std::vector<JDKCXX::java_lang_reflect_TypeVariable > result = (std::vector<JDKCXX::java_lang_reflect_TypeVariable >) *((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -738,6 +746,7 @@ JDKCXX::java_lang_Class java_lang_reflect_Constructor::getDeclaringClass()
 	}
 
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
+	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -824,6 +833,7 @@ JDKCXX::java_lang_annotation_Annotation java_lang_reflect_Constructor::getAnnota
 	}
 
 	JDKCXX::java_lang_annotation_Annotation result((JDKCXX::java_lang_annotation_Annotation) *((JDKCXX::java_lang_annotation_Annotation *) cxx_value));
+	delete ((JDKCXX::java_lang_annotation_Annotation *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -889,6 +899,7 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_reflect_Construc
 	}
 
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -972,6 +983,7 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Constructor::getParamete
 	}
 
 	std::vector<JDKCXX::java_lang_Class > result = (std::vector<JDKCXX::java_lang_Class >) *((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1019,6 +1031,7 @@ JDKCXX::java_lang_String java_lang_reflect_Constructor::toGenericString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1084,6 +1097,7 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getG
 	}
 
 	std::vector<JDKCXX::java_lang_reflect_Type > result = (std::vector<JDKCXX::java_lang_reflect_Type >) *((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1167,6 +1181,7 @@ std::vector<JDKCXX::java_lang_Class > java_lang_reflect_Constructor::getExceptio
 	}
 
 	std::vector<JDKCXX::java_lang_Class > result = (std::vector<JDKCXX::java_lang_Class >) *((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_Class > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1232,6 +1247,7 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_Constructor::getG
 	}
 
 	std::vector<JDKCXX::java_lang_reflect_Type > result = (std::vector<JDKCXX::java_lang_reflect_Type >) *((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1279,6 +1295,7 @@ bool java_lang_reflect_Constructor::isVarArgs()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1362,6 +1379,7 @@ std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > java_lang_re
 	}
 
 	std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > result = (std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > >) *((std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > *) cxx_value);
+	delete ((std::vector<std::vector<JDKCXX::java_lang_annotation_Annotation > > *) cxx_value);
 		
 	jni->popLocalFrame();
 

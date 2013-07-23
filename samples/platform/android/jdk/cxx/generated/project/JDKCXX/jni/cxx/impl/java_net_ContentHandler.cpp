@@ -221,6 +221,7 @@ JDKCXX::java_lang_Object java_net_ContentHandler::getContent(JDKCXX::java_net_UR
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -328,6 +329,7 @@ JDKCXX::java_lang_Object java_net_ContentHandler::getContent(JDKCXX::java_net_UR
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 

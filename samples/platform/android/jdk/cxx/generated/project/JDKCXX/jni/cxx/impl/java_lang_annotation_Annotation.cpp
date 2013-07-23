@@ -217,6 +217,7 @@ bool java_lang_annotation_Annotation::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -264,6 +265,7 @@ JDKCXX::java_lang_String java_lang_annotation_Annotation::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -311,6 +313,7 @@ int java_lang_annotation_Annotation::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -376,6 +379,7 @@ JDKCXX::java_lang_Class java_lang_annotation_Annotation::annotationType()
 	}
 
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
+	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -572,6 +572,7 @@ bool java_util_Locale::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -619,6 +620,7 @@ JDKCXX::java_lang_String java_util_Locale::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -666,6 +668,7 @@ int java_util_Locale::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -713,6 +716,7 @@ JDKCXX::java_lang_Object java_util_Locale::clone()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -760,6 +764,7 @@ JDKCXX::java_lang_String java_util_Locale::getLanguage()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -807,6 +812,7 @@ JDKCXX::java_util_Locale java_util_Locale::getDefault()
 	}
 
 	JDKCXX::java_util_Locale result((JDKCXX::java_util_Locale) *((JDKCXX::java_util_Locale *) cxx_value));
+	delete ((JDKCXX::java_util_Locale *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -921,6 +927,7 @@ std::vector<JDKCXX::java_util_Locale > java_util_Locale::getAvailableLocales()
 	}
 
 	std::vector<JDKCXX::java_util_Locale > result = (std::vector<JDKCXX::java_util_Locale >) *((std::vector<JDKCXX::java_util_Locale > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_util_Locale > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -986,6 +993,7 @@ std::vector<JDKCXX::java_lang_String > java_util_Locale::getISOCountries()
 	}
 
 	std::vector<JDKCXX::java_lang_String > result = (std::vector<JDKCXX::java_lang_String >) *((std::vector<JDKCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1051,6 +1059,7 @@ std::vector<JDKCXX::java_lang_String > java_util_Locale::getISOLanguages()
 	}
 
 	std::vector<JDKCXX::java_lang_String > result = (std::vector<JDKCXX::java_lang_String >) *((std::vector<JDKCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1098,6 +1107,7 @@ JDKCXX::java_lang_String java_util_Locale::getCountry()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1145,6 +1155,7 @@ JDKCXX::java_lang_String java_util_Locale::getVariant()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1192,6 +1203,7 @@ JDKCXX::java_lang_String java_util_Locale::getISO3Language()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1239,6 +1251,7 @@ JDKCXX::java_lang_String java_util_Locale::getISO3Country()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1307,6 +1320,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayLanguage(JDKCXX::java_util_
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1354,6 +1368,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayLanguage()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1422,6 +1437,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayCountry(JDKCXX::java_util_L
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1469,6 +1485,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayCountry()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1516,6 +1533,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayVariant()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1584,6 +1602,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayVariant(JDKCXX::java_util_L
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1652,6 +1671,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayName(JDKCXX::java_util_Loca
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1699,6 +1719,7 @@ JDKCXX::java_lang_String java_util_Locale::getDisplayName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

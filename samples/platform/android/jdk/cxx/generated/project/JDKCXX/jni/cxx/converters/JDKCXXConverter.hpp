@@ -24,6 +24,7 @@
 #include <JNIContext.hpp>
 #include <java_lang_String.hpp>
 #include <java_net_HttpURLConnection.hpp>
+#include <java_util_HashMap.hpp>
 #include <java_nio_charset_Charset.hpp>
 #include <java_lang_Object.hpp>
 #include <java_lang_Class.hpp>
@@ -88,6 +89,10 @@
 #include <java_lang_StringBuilder.hpp>
 
 using namespace JDKCXX;
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -352,6 +357,7 @@ using namespace JDKCXX;
 // Proxy Converter Types
 void convert_java_lang_String(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_java_net_HttpURLConnection(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert_java_util_HashMap(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_java_nio_charset_Charset(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_java_lang_Object(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_java_lang_Class(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);

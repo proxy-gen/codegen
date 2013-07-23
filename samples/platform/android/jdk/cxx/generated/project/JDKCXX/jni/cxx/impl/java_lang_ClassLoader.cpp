@@ -304,6 +304,7 @@ JDKCXX::java_lang_Class java_lang_ClassLoader::loadClass(JDKCXX::java_lang_Strin
 	}
 
 	JDKCXX::java_lang_Class result((JDKCXX::java_lang_Class) *((JDKCXX::java_lang_Class *) cxx_value));
+	delete ((JDKCXX::java_lang_Class *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -351,6 +352,7 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader()
 	}
 
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
+	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -419,6 +421,7 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(JDKCXX::j
 	}
 
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
+	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -487,6 +490,7 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getResource(JDKCXX::java_lang_String
 	}
 
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
+	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -555,6 +559,7 @@ JDKCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream(JDK
 	}
 
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
+	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -623,6 +628,7 @@ JDKCXX::java_net_URL java_lang_ClassLoader::getSystemResource(JDKCXX::java_lang_
 	}
 
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
+	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -709,6 +715,7 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getResources(JDKCXX::java_l
 	}
 
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
+	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -795,6 +802,7 @@ JDKCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(JDKCXX::
 	}
 
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
+	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -842,6 +850,7 @@ JDKCXX::java_lang_ClassLoader java_lang_ClassLoader::getParent()
 	}
 
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
+	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
 	jni->popLocalFrame();
 

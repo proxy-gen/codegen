@@ -365,6 +365,7 @@ JDKCXX::java_lang_String java_net_URLConnection::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -412,6 +413,7 @@ JDKCXX::java_net_URL java_net_URLConnection::getURL()
 	}
 
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
+	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -498,6 +500,7 @@ JDKCXX::java_lang_Object java_net_URLConnection::getContent(std::vector<JDKCXX::
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -545,6 +548,7 @@ JDKCXX::java_lang_Object java_net_URLConnection::getContent()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -592,6 +596,7 @@ JDKCXX::java_io_InputStream java_net_URLConnection::getInputStream()
 	}
 
 	JDKCXX::java_io_InputStream result((JDKCXX::java_io_InputStream) *((JDKCXX::java_io_InputStream *) cxx_value));
+	delete ((JDKCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -639,6 +644,7 @@ JDKCXX::java_security_Permission java_net_URLConnection::getPermission()
 	}
 
 	JDKCXX::java_security_Permission result((JDKCXX::java_security_Permission) *((JDKCXX::java_security_Permission *) cxx_value));
+	delete ((JDKCXX::java_security_Permission *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -784,6 +790,7 @@ long java_net_URLConnection::getDate()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -831,6 +838,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getContentType()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -878,6 +886,7 @@ int java_net_URLConnection::getContentLength()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -946,6 +955,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getHeaderField(JDKCXX::java_lan
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1014,6 +1024,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getHeaderField(int& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1082,6 +1093,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getHeaderFieldKey(int& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1129,6 +1141,7 @@ long java_net_URLConnection::getLastModified()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1176,6 +1189,7 @@ JDKCXX::java_net_FileNameMap java_net_URLConnection::getFileNameMap()
 	}
 
 	JDKCXX::java_net_FileNameMap result((JDKCXX::java_net_FileNameMap) *((JDKCXX::java_net_FileNameMap *) cxx_value));
+	delete ((JDKCXX::java_net_FileNameMap *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1314,6 +1328,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getRequestProperty(JDKCXX::java
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1412,6 +1427,7 @@ JDKCXX::java_util_Map java_net_URLConnection::getRequestProperties()
 	}
 
 	JDKCXX::java_util_Map result((JDKCXX::java_util_Map) *((JDKCXX::java_util_Map *) cxx_value));
+	delete ((JDKCXX::java_util_Map *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1480,6 +1496,7 @@ JDKCXX::java_lang_String java_net_URLConnection::guessContentTypeFromStream(JDKC
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1548,6 +1565,7 @@ JDKCXX::java_lang_String java_net_URLConnection::guessContentTypeFromName(JDKCXX
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1693,6 +1711,7 @@ int java_net_URLConnection::getConnectTimeout()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1789,6 +1808,7 @@ int java_net_URLConnection::getReadTimeout()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1836,6 +1856,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getContentEncoding()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1883,6 +1904,7 @@ long java_net_URLConnection::getExpiration()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1981,6 +2003,7 @@ JDKCXX::java_util_Map java_net_URLConnection::getHeaderFields()
 	}
 
 	JDKCXX::java_util_Map result((JDKCXX::java_util_Map) *((JDKCXX::java_util_Map *) cxx_value));
+	delete ((JDKCXX::java_util_Map *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2070,6 +2093,7 @@ int java_net_URLConnection::getHeaderFieldInt(JDKCXX::java_lang_String& arg0,int
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2159,6 +2183,7 @@ long java_net_URLConnection::getHeaderFieldDate(JDKCXX::java_lang_String& arg0,l
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2206,6 +2231,7 @@ JDKCXX::java_io_OutputStream java_net_URLConnection::getOutputStream()
 	}
 
 	JDKCXX::java_io_OutputStream result((JDKCXX::java_io_OutputStream) *((JDKCXX::java_io_OutputStream *) cxx_value));
+	delete ((JDKCXX::java_io_OutputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2302,6 +2328,7 @@ bool java_net_URLConnection::getDoInput()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2398,6 +2425,7 @@ bool java_net_URLConnection::getDoOutput()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2494,6 +2522,7 @@ bool java_net_URLConnection::getAllowUserInteraction()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2590,6 +2619,7 @@ bool java_net_URLConnection::getDefaultAllowUserInteraction()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2686,6 +2716,7 @@ bool java_net_URLConnection::getUseCaches()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2782,6 +2813,7 @@ long java_net_URLConnection::getIfModifiedSince()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2829,6 +2861,7 @@ bool java_net_URLConnection::getDefaultUseCaches()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3016,6 +3049,7 @@ JDKCXX::java_lang_String java_net_URLConnection::getDefaultRequestProperty(JDKCX
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

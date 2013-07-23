@@ -253,6 +253,7 @@ JDKCXX::java_lang_String java_security_PermissionCollection::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -321,6 +322,7 @@ bool java_security_PermissionCollection::implies(JDKCXX::java_security_Permissio
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -414,6 +416,7 @@ JDKCXX::java_util_Enumeration java_security_PermissionCollection::elements()
 	}
 
 	JDKCXX::java_util_Enumeration result((JDKCXX::java_util_Enumeration) *((JDKCXX::java_util_Enumeration *) cxx_value));
+	delete ((JDKCXX::java_util_Enumeration *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -461,6 +464,7 @@ bool java_security_PermissionCollection::isReadOnly()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

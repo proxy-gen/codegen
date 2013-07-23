@@ -215,6 +215,7 @@ bool java_util_Comparator::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -304,6 +305,7 @@ int java_util_Comparator::compare(JDKCXX::java_lang_Object& arg0,JDKCXX::java_la
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

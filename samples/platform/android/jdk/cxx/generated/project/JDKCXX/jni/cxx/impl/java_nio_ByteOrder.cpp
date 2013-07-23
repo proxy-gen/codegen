@@ -190,6 +190,7 @@ JDKCXX::java_lang_String java_nio_ByteOrder::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -237,6 +238,7 @@ JDKCXX::java_nio_ByteOrder java_nio_ByteOrder::nativeOrder()
 	}
 
 	JDKCXX::java_nio_ByteOrder result((JDKCXX::java_nio_ByteOrder) *((JDKCXX::java_nio_ByteOrder *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteOrder *) cxx_value);
 		
 	jni->popLocalFrame();
 

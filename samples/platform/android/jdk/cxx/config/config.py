@@ -289,6 +289,9 @@ config = {
 		},
 		{
 			"name" : "java.net.HttpURLConnection",
-		}
+		},
+		{
+			"name" : "java.util.HashMap",
+		},
 	],
 }

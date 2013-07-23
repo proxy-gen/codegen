@@ -288,6 +288,7 @@ JDKCXX::java_lang_String java_nio_charset_Charset::name()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -356,6 +357,7 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_Charset::forName(JDKCXX::java_
 	}
 
 	JDKCXX::java_nio_charset_Charset result((JDKCXX::java_nio_charset_Charset) *((JDKCXX::java_nio_charset_Charset *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_Charset *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -424,6 +426,7 @@ bool java_nio_charset_Charset::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -471,6 +474,7 @@ JDKCXX::java_lang_String java_nio_charset_Charset::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -518,6 +522,7 @@ int java_nio_charset_Charset::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -586,6 +591,7 @@ int java_nio_charset_Charset::compareTo(JDKCXX::java_nio_charset_Charset& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -654,6 +660,7 @@ bool java_nio_charset_Charset::contains(JDKCXX::java_nio_charset_Charset& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -722,6 +729,7 @@ JDKCXX::java_nio_CharBuffer java_nio_charset_Charset::decode(JDKCXX::java_nio_By
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -790,6 +798,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_charset_Charset::encode(JDKCXX::java_nio_Ch
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -858,6 +867,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_charset_Charset::encode(JDKCXX::java_lang_S
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -926,6 +936,7 @@ bool java_nio_charset_Charset::isSupported(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -973,6 +984,7 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_Charset::defaultCharset()
 	}
 
 	JDKCXX::java_nio_charset_Charset result((JDKCXX::java_nio_charset_Charset) *((JDKCXX::java_nio_charset_Charset *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_Charset *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1038,6 +1050,7 @@ JDKCXX::java_util_Set java_nio_charset_Charset::aliases()
 	}
 
 	JDKCXX::java_util_Set result((JDKCXX::java_util_Set) *((JDKCXX::java_util_Set *) cxx_value));
+	delete ((JDKCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1118,6 +1131,7 @@ JDKCXX::java_util_SortedMap java_nio_charset_Charset::availableCharsets()
 	}
 
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
+	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1165,6 +1179,7 @@ JDKCXX::java_lang_String java_nio_charset_Charset::displayName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1233,6 +1248,7 @@ JDKCXX::java_lang_String java_nio_charset_Charset::displayName(JDKCXX::java_util
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1280,6 +1296,7 @@ bool java_nio_charset_Charset::isRegistered()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1327,6 +1344,7 @@ JDKCXX::java_nio_charset_CharsetDecoder java_nio_charset_Charset::newDecoder()
 	}
 
 	JDKCXX::java_nio_charset_CharsetDecoder result((JDKCXX::java_nio_charset_CharsetDecoder) *((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1374,6 +1392,7 @@ JDKCXX::java_nio_charset_CharsetEncoder java_nio_charset_Charset::newEncoder()
 	}
 
 	JDKCXX::java_nio_charset_CharsetEncoder result((JDKCXX::java_nio_charset_CharsetEncoder) *((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetEncoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1421,6 +1440,7 @@ bool java_nio_charset_Charset::canEncode()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -210,6 +210,7 @@ JDKCXX::java_net_URLStreamHandler java_net_URLStreamHandlerFactory::createURLStr
 	}
 
 	JDKCXX::java_net_URLStreamHandler result((JDKCXX::java_net_URLStreamHandler) *((JDKCXX::java_net_URLStreamHandler *) cxx_value));
+	delete ((JDKCXX::java_net_URLStreamHandler *) cxx_value);
 		
 	jni->popLocalFrame();
 

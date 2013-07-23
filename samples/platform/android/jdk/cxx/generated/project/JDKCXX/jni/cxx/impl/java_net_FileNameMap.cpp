@@ -210,6 +210,7 @@ JDKCXX::java_lang_String java_net_FileNameMap::getContentTypeFor(JDKCXX::java_la
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

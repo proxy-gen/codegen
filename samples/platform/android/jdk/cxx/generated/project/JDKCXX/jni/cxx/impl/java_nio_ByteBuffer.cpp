@@ -397,6 +397,7 @@ byte java_nio_ByteBuffer::get()
 	}
 
 	byte result = (byte) *((byte *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -483,6 +484,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -611,6 +613,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::get(std::vector<byte>& arg0,int
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -679,6 +682,7 @@ byte java_nio_ByteBuffer::get(int& arg0)
 	}
 
 	byte result = (byte) *((byte *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -747,6 +751,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(JDKCXX::java_nio_ByteBuffer
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -833,6 +838,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -901,6 +907,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(byte& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -990,6 +997,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(int& arg0,byte& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1118,6 +1126,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::put(std::vector<byte>& arg0,int
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1186,6 +1195,7 @@ bool java_nio_ByteBuffer::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1233,6 +1243,7 @@ JDKCXX::java_lang_String java_nio_ByteBuffer::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1280,6 +1291,7 @@ int java_nio_ByteBuffer::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1348,6 +1360,7 @@ int java_nio_ByteBuffer::compareTo(JDKCXX::java_nio_ByteBuffer& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1416,6 +1429,7 @@ short java_nio_ByteBuffer::getShort(int& arg0)
 	}
 
 	short result = (short) *((short *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1463,6 +1477,7 @@ short java_nio_ByteBuffer::getShort()
 	}
 
 	short result = (short) *((short *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1552,6 +1567,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(int& arg0,short& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1620,6 +1636,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putShort(short& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1667,6 +1684,7 @@ char java_nio_ByteBuffer::getChar()
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1735,6 +1753,7 @@ char java_nio_ByteBuffer::getChar(int& arg0)
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1824,6 +1843,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(int& arg0,char& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1892,6 +1912,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putChar(char& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1939,6 +1960,7 @@ int java_nio_ByteBuffer::getInt()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2007,6 +2029,7 @@ int java_nio_ByteBuffer::getInt(int& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2096,6 +2119,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0,int& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2164,6 +2188,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putInt(int& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2232,6 +2257,7 @@ long java_nio_ByteBuffer::getLong(int& arg0)
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2279,6 +2305,7 @@ long java_nio_ByteBuffer::getLong()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2347,6 +2374,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(long& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2436,6 +2464,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putLong(int& arg0,long& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2483,6 +2512,7 @@ float java_nio_ByteBuffer::getFloat()
 	}
 
 	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2551,6 +2581,7 @@ float java_nio_ByteBuffer::getFloat(int& arg0)
 	}
 
 	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2619,6 +2650,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(float& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2708,6 +2740,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putFloat(int& arg0,float& arg1)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2755,6 +2788,7 @@ double java_nio_ByteBuffer::getDouble()
 	}
 
 	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2823,6 +2857,7 @@ double java_nio_ByteBuffer::getDouble(int& arg0)
 	}
 
 	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2912,6 +2947,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(int& arg0,double& arg
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2980,6 +3016,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::putDouble(double& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3027,6 +3064,7 @@ bool java_nio_ByteBuffer::isDirect()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3074,6 +3112,7 @@ bool java_nio_ByteBuffer::hasArray()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3139,6 +3178,7 @@ std::vector<byte> java_nio_ByteBuffer::array()
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3186,6 +3226,7 @@ int java_nio_ByteBuffer::arrayOffset()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3272,6 +3313,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3400,6 +3442,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::wrap(std::vector<byte>& arg0,in
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3468,6 +3511,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocate(int& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3515,6 +3559,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::duplicate()
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3583,6 +3628,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::allocateDirect(int& arg0)
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3630,6 +3676,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::slice()
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3677,6 +3724,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::asReadOnlyBuffer()
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3724,6 +3772,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::compact()
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3792,6 +3841,7 @@ JDKCXX::java_nio_ByteBuffer java_nio_ByteBuffer::order(JDKCXX::java_nio_ByteOrde
 	}
 
 	JDKCXX::java_nio_ByteBuffer result((JDKCXX::java_nio_ByteBuffer) *((JDKCXX::java_nio_ByteBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3839,6 +3889,7 @@ JDKCXX::java_nio_ByteOrder java_nio_ByteBuffer::order()
 	}
 
 	JDKCXX::java_nio_ByteOrder result((JDKCXX::java_nio_ByteOrder) *((JDKCXX::java_nio_ByteOrder *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteOrder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3886,6 +3937,7 @@ JDKCXX::java_nio_CharBuffer java_nio_ByteBuffer::asCharBuffer()
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3933,6 +3985,7 @@ JDKCXX::java_nio_ShortBuffer java_nio_ByteBuffer::asShortBuffer()
 	}
 
 	JDKCXX::java_nio_ShortBuffer result((JDKCXX::java_nio_ShortBuffer) *((JDKCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3980,6 +4033,7 @@ JDKCXX::java_nio_IntBuffer java_nio_ByteBuffer::asIntBuffer()
 	}
 
 	JDKCXX::java_nio_IntBuffer result((JDKCXX::java_nio_IntBuffer) *((JDKCXX::java_nio_IntBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_IntBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4027,6 +4081,7 @@ JDKCXX::java_nio_LongBuffer java_nio_ByteBuffer::asLongBuffer()
 	}
 
 	JDKCXX::java_nio_LongBuffer result((JDKCXX::java_nio_LongBuffer) *((JDKCXX::java_nio_LongBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_LongBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4074,6 +4129,7 @@ JDKCXX::java_nio_FloatBuffer java_nio_ByteBuffer::asFloatBuffer()
 	}
 
 	JDKCXX::java_nio_FloatBuffer result((JDKCXX::java_nio_FloatBuffer) *((JDKCXX::java_nio_FloatBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_FloatBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4121,6 +4177,7 @@ JDKCXX::java_nio_DoubleBuffer java_nio_ByteBuffer::asDoubleBuffer()
 	}
 
 	JDKCXX::java_nio_DoubleBuffer result((JDKCXX::java_nio_DoubleBuffer) *((JDKCXX::java_nio_DoubleBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_DoubleBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 

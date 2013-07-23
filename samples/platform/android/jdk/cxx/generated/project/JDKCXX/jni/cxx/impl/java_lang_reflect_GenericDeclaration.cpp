@@ -214,6 +214,7 @@ std::vector<JDKCXX::java_lang_reflect_TypeVariable > java_lang_reflect_GenericDe
 	}
 
 	std::vector<JDKCXX::java_lang_reflect_TypeVariable > result = (std::vector<JDKCXX::java_lang_reflect_TypeVariable >) *((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_reflect_TypeVariable > *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -309,6 +309,7 @@ bool java_security_Timestamp::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -356,6 +357,7 @@ JDKCXX::java_lang_String java_security_Timestamp::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -403,6 +405,7 @@ int java_security_Timestamp::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -450,6 +453,7 @@ JDKCXX::java_security_cert_CertPath java_security_Timestamp::getSignerCertPath()
 	}
 
 	JDKCXX::java_security_cert_CertPath result((JDKCXX::java_security_cert_CertPath) *((JDKCXX::java_security_cert_CertPath *) cxx_value));
+	delete ((JDKCXX::java_security_cert_CertPath *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -497,6 +501,7 @@ JDKCXX::java_util_Date java_security_Timestamp::getTimestamp()
 	}
 
 	JDKCXX::java_util_Date result((JDKCXX::java_util_Date) *((JDKCXX::java_util_Date *) cxx_value));
+	delete ((JDKCXX::java_util_Date *) cxx_value);
 		
 	jni->popLocalFrame();
 

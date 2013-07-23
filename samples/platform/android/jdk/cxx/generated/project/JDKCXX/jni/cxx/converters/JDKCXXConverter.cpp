@@ -20,8 +20,6 @@ void convert_java_lang_String(long& java_value, long& cxx_value, const CXXTypeHi
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
-	LOGV("convert_java_lang_String enter");
-
 	if (converter_type == CONVERT_TO_JAVA)
 	{
 		java_value = (long) ctx->findProxyComponent(cxx_value);
@@ -31,8 +29,6 @@ void convert_java_lang_String(long& java_value, long& cxx_value, const CXXTypeHi
 		java_lang_String *cxx_object = new java_lang_String((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
-
-	LOGV("convert_java_lang_String enter");
 }
 void convert_java_net_HttpURLConnection(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
@@ -46,6 +42,21 @@ void convert_java_net_HttpURLConnection(long& java_value, long& cxx_value, const
 	else if (converter_type == CONVERT_TO_CXX)
 	{
 		java_net_HttpURLConnection *cxx_object = new java_net_HttpURLConnection((void *) java_value);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_java_util_HashMap(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		java_util_HashMap *cxx_object = new java_util_HashMap((void *) java_value);
 		cxx_value = (long) cxx_object;
 	}
 }

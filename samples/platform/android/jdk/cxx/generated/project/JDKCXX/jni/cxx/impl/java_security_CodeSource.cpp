@@ -436,6 +436,7 @@ bool java_security_CodeSource::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -483,6 +484,7 @@ JDKCXX::java_lang_String java_security_CodeSource::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -530,6 +532,7 @@ int java_security_CodeSource::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -577,6 +580,7 @@ JDKCXX::java_net_URL java_security_CodeSource::getLocation()
 	}
 
 	JDKCXX::java_net_URL result((JDKCXX::java_net_URL) *((JDKCXX::java_net_URL *) cxx_value));
+	delete ((JDKCXX::java_net_URL *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -642,6 +646,7 @@ std::vector<JDKCXX::java_security_cert_Certificate > java_security_CodeSource::g
 	}
 
 	std::vector<JDKCXX::java_security_cert_Certificate > result = (std::vector<JDKCXX::java_security_cert_Certificate >) *((std::vector<JDKCXX::java_security_cert_Certificate > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_security_cert_Certificate > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -710,6 +715,7 @@ bool java_security_CodeSource::implies(JDKCXX::java_security_CodeSource& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -775,6 +781,7 @@ std::vector<JDKCXX::java_security_CodeSigner > java_security_CodeSource::getCode
 	}
 
 	std::vector<JDKCXX::java_security_CodeSigner > result = (std::vector<JDKCXX::java_security_CodeSigner >) *((std::vector<JDKCXX::java_security_CodeSigner > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_security_CodeSigner > *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -192,6 +192,7 @@ JDKCXX::java_lang_String java_lang_CharSequence::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -239,6 +240,7 @@ int java_lang_CharSequence::length()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -307,6 +309,7 @@ char java_lang_CharSequence::charAt(int& arg0)
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -396,6 +399,7 @@ JDKCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int& arg0,int
 	}
 
 	JDKCXX::java_lang_CharSequence result((JDKCXX::java_lang_CharSequence) *((JDKCXX::java_lang_CharSequence *) cxx_value));
+	delete ((JDKCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 

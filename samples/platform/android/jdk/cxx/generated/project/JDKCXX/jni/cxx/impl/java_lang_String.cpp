@@ -1943,6 +1943,7 @@ bool java_lang_String::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1990,6 +1991,7 @@ JDKCXX::java_lang_String java_lang_String::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2037,6 +2039,7 @@ int java_lang_String::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2105,6 +2108,7 @@ int java_lang_String::compareTo(JDKCXX::java_lang_String& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2173,6 +2177,7 @@ int java_lang_String::indexOf(int& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2241,6 +2246,7 @@ int java_lang_String::indexOf(JDKCXX::java_lang_String& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2330,6 +2336,7 @@ int java_lang_String::indexOf(JDKCXX::java_lang_String& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2419,6 +2426,7 @@ int java_lang_String::indexOf(int& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2487,6 +2495,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(JDKCXX::java_lang_Object& arg
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2555,6 +2564,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(double& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2623,6 +2633,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(float& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2691,6 +2702,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(long& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2759,6 +2771,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(int& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2827,6 +2840,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(char& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2895,6 +2909,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(bool& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3023,6 +3038,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(std::vector<char>& arg0,int& 
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3109,6 +3125,7 @@ JDKCXX::java_lang_String java_lang_String::valueOf(std::vector<char>& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3156,6 +3173,7 @@ int java_lang_String::length()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3203,6 +3221,7 @@ bool java_lang_String::isEmpty()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3271,6 +3290,7 @@ char java_lang_String::charAt(int& arg0)
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3339,6 +3359,7 @@ int java_lang_String::codePointAt(int& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3407,6 +3428,7 @@ int java_lang_String::codePointBefore(int& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3496,6 +3518,7 @@ int java_lang_String::codePointCount(int& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3585,6 +3608,7 @@ int java_lang_String::offsetByCodePoints(int& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3801,6 +3825,7 @@ std::vector<byte> java_lang_String::getBytes(JDKCXX::java_lang_String& arg0)
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4017,6 +4042,7 @@ std::vector<byte> java_lang_String::getBytes(JDKCXX::java_nio_charset_Charset& a
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4044,9 +4070,8 @@ std::vector<byte> java_lang_String::getBytes()
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
 	LOGV("java_lang_String jni address %d", javaObject);
 
-	LOGV("java_lang_String getBytes() invoking java.lang.Java getBytes()");
+
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
-	LOGV("java_lang_String getBytes() result address is %ld", (long) jni_result);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
 	{
@@ -4083,6 +4108,7 @@ std::vector<byte> java_lang_String::getBytes()
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4151,6 +4177,7 @@ bool java_lang_String::contentEquals(JDKCXX::java_lang_StringBuffer& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4219,6 +4246,7 @@ bool java_lang_String::contentEquals(JDKCXX::java_lang_CharSequence& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4287,6 +4315,7 @@ bool java_lang_String::equalsIgnoreCase(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4355,6 +4384,7 @@ int java_lang_String::compareToIgnoreCase(JDKCXX::java_lang_String& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4486,6 +4516,7 @@ bool java_lang_String::regionMatches(int& arg0,JDKCXX::java_lang_String& arg1,in
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4638,6 +4669,7 @@ bool java_lang_String::regionMatches(bool& arg0,int& arg1,JDKCXX::java_lang_Stri
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4727,6 +4759,7 @@ bool java_lang_String::startsWith(JDKCXX::java_lang_String& arg0,int& arg1)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4795,6 +4828,7 @@ bool java_lang_String::startsWith(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4863,6 +4897,7 @@ bool java_lang_String::endsWith(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4952,6 +4987,7 @@ int java_lang_String::lastIndexOf(JDKCXX::java_lang_String& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5020,6 +5056,7 @@ int java_lang_String::lastIndexOf(int& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5109,6 +5146,7 @@ int java_lang_String::lastIndexOf(int& arg0,int& arg1)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5177,6 +5215,7 @@ int java_lang_String::lastIndexOf(JDKCXX::java_lang_String& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5266,6 +5305,7 @@ JDKCXX::java_lang_String java_lang_String::substring(int& arg0,int& arg1)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5334,6 +5374,7 @@ JDKCXX::java_lang_String java_lang_String::substring(int& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5423,6 +5464,7 @@ JDKCXX::java_lang_CharSequence java_lang_String::subSequence(int& arg0,int& arg1
 	}
 
 	JDKCXX::java_lang_CharSequence result((JDKCXX::java_lang_CharSequence) *((JDKCXX::java_lang_CharSequence *) cxx_value));
+	delete ((JDKCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5491,6 +5533,7 @@ JDKCXX::java_lang_String java_lang_String::concat(JDKCXX::java_lang_String& arg0
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5580,6 +5623,7 @@ JDKCXX::java_lang_String java_lang_String::replace(JDKCXX::java_lang_CharSequenc
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5669,6 +5713,7 @@ JDKCXX::java_lang_String java_lang_String::replace(char& arg0,char& arg1)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5737,6 +5782,7 @@ bool java_lang_String::matches(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5805,6 +5851,7 @@ bool java_lang_String::contains(JDKCXX::java_lang_CharSequence& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5894,6 +5941,7 @@ JDKCXX::java_lang_String java_lang_String::replaceFirst(JDKCXX::java_lang_String
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5983,6 +6031,7 @@ JDKCXX::java_lang_String java_lang_String::replaceAll(JDKCXX::java_lang_String& 
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6069,6 +6118,7 @@ std::vector<JDKCXX::java_lang_String > java_lang_String::split(JDKCXX::java_lang
 	}
 
 	std::vector<JDKCXX::java_lang_String > result = (std::vector<JDKCXX::java_lang_String >) *((std::vector<JDKCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6176,6 +6226,7 @@ std::vector<JDKCXX::java_lang_String > java_lang_String::split(JDKCXX::java_lang
 	}
 
 	std::vector<JDKCXX::java_lang_String > result = (std::vector<JDKCXX::java_lang_String >) *((std::vector<JDKCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6223,6 +6274,7 @@ JDKCXX::java_lang_String java_lang_String::toLowerCase()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6291,6 +6343,7 @@ JDKCXX::java_lang_String java_lang_String::toLowerCase(JDKCXX::java_util_Locale&
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6359,6 +6412,7 @@ JDKCXX::java_lang_String java_lang_String::toUpperCase(JDKCXX::java_util_Locale&
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6406,6 +6460,7 @@ JDKCXX::java_lang_String java_lang_String::toUpperCase()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6453,6 +6508,7 @@ JDKCXX::java_lang_String java_lang_String::trim()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6518,6 +6574,7 @@ std::vector<char> java_lang_String::toCharArray()
 	}
 
 	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
+	delete ((std::vector<char> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6625,6 +6682,7 @@ JDKCXX::java_lang_String java_lang_String::format(JDKCXX::java_lang_String& arg0
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6753,6 +6811,7 @@ JDKCXX::java_lang_String java_lang_String::format(JDKCXX::java_util_Locale& arg0
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6839,6 +6898,7 @@ JDKCXX::java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0)
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6967,6 +7027,7 @@ JDKCXX::java_lang_String java_lang_String::copyValueOf(std::vector<char>& arg0,i
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -7014,6 +7075,7 @@ JDKCXX::java_lang_String java_lang_String::intern()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -233,6 +233,7 @@ bool java_security_cert_CertPath::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -280,6 +281,7 @@ JDKCXX::java_lang_String java_security_cert_CertPath::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -327,6 +329,7 @@ int java_security_cert_CertPath::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -392,6 +395,7 @@ JDKCXX::java_util_List java_security_cert_CertPath::getCertificates()
 	}
 
 	JDKCXX::java_util_List result((JDKCXX::java_util_List) *((JDKCXX::java_util_List *) cxx_value));
+	delete ((JDKCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -439,6 +443,7 @@ JDKCXX::java_lang_String java_security_cert_CertPath::getType()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -504,6 +509,7 @@ std::vector<byte> java_security_cert_CertPath::getEncoded()
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -590,6 +596,7 @@ std::vector<byte> java_security_cert_CertPath::getEncoded(JDKCXX::java_lang_Stri
 	}
 
 	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -655,6 +662,7 @@ JDKCXX::java_util_Iterator java_security_cert_CertPath::getEncodings()
 	}
 
 	JDKCXX::java_util_Iterator result((JDKCXX::java_util_Iterator) *((JDKCXX::java_util_Iterator *) cxx_value));
+	delete ((JDKCXX::java_util_Iterator *) cxx_value);
 		
 	jni->popLocalFrame();
 

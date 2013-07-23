@@ -258,6 +258,7 @@ JDKCXX::java_lang_String java_lang_Package::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -305,6 +306,7 @@ int java_lang_Package::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -352,6 +354,7 @@ JDKCXX::java_lang_String java_lang_Package::getName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -420,6 +423,7 @@ JDKCXX::java_lang_Package java_lang_Package::getPackage(JDKCXX::java_lang_String
 	}
 
 	JDKCXX::java_lang_Package result((JDKCXX::java_lang_Package) *((JDKCXX::java_lang_Package *) cxx_value));
+	delete ((JDKCXX::java_lang_Package *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -506,6 +510,7 @@ JDKCXX::java_lang_annotation_Annotation java_lang_Package::getAnnotation(JDKCXX:
 	}
 
 	JDKCXX::java_lang_annotation_Annotation result((JDKCXX::java_lang_annotation_Annotation) *((JDKCXX::java_lang_annotation_Annotation *) cxx_value));
+	delete ((JDKCXX::java_lang_annotation_Annotation *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -592,6 +597,7 @@ bool java_lang_Package::isAnnotationPresent(JDKCXX::java_lang_Class& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -657,6 +663,7 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getAnno
 	}
 
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -722,6 +729,7 @@ std::vector<JDKCXX::java_lang_annotation_Annotation > java_lang_Package::getDecl
 	}
 
 	std::vector<JDKCXX::java_lang_annotation_Annotation > result = (std::vector<JDKCXX::java_lang_annotation_Annotation >) *((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_annotation_Annotation > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -787,6 +795,7 @@ std::vector<JDKCXX::java_lang_Package > java_lang_Package::getPackages()
 	}
 
 	std::vector<JDKCXX::java_lang_Package > result = (std::vector<JDKCXX::java_lang_Package >) *((std::vector<JDKCXX::java_lang_Package > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_Package > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -834,6 +843,7 @@ bool java_lang_Package::isSealed()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -902,6 +912,7 @@ bool java_lang_Package::isSealed(JDKCXX::java_net_URL& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -949,6 +960,7 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationTitle()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -996,6 +1008,7 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVersion()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1043,6 +1056,7 @@ JDKCXX::java_lang_String java_lang_Package::getSpecificationVendor()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1090,6 +1104,7 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationTitle()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1137,6 +1152,7 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVersion()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1184,6 +1200,7 @@ JDKCXX::java_lang_String java_lang_Package::getImplementationVendor()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1252,6 +1269,7 @@ bool java_lang_Package::isCompatibleWith(JDKCXX::java_lang_String& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

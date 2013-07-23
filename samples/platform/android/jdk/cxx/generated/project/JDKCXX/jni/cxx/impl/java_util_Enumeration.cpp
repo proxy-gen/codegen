@@ -186,6 +186,7 @@ bool java_util_Enumeration::hasMoreElements()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -233,6 +234,7 @@ JDKCXX::java_lang_Object java_util_Enumeration::nextElement()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 

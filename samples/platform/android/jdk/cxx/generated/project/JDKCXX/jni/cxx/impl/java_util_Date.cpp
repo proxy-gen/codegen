@@ -791,6 +791,7 @@ bool java_util_Date::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -838,6 +839,7 @@ JDKCXX::java_lang_String java_util_Date::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -885,6 +887,7 @@ int java_util_Date::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -932,6 +935,7 @@ JDKCXX::java_lang_Object java_util_Date::clone()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1000,6 +1004,7 @@ int java_util_Date::compareTo(JDKCXX::java_util_Date& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1068,6 +1073,7 @@ bool java_util_Date::after(JDKCXX::java_util_Date& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1136,6 +1142,7 @@ bool java_util_Date::before(JDKCXX::java_util_Date& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1204,6 +1211,7 @@ long java_util_Date::parse(JDKCXX::java_lang_String& arg0)
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1300,6 +1308,7 @@ long java_util_Date::getTime()
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1347,6 +1356,7 @@ int java_util_Date::getYear()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1394,6 +1404,7 @@ int java_util_Date::getMonth()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1441,6 +1452,7 @@ int java_util_Date::getDate()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1488,6 +1500,7 @@ int java_util_Date::getHours()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1535,6 +1548,7 @@ int java_util_Date::getMinutes()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1582,6 +1596,7 @@ int java_util_Date::getSeconds()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1755,6 +1770,7 @@ long java_util_Date::UTC(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& 
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2096,6 +2112,7 @@ int java_util_Date::getDay()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2143,6 +2160,7 @@ JDKCXX::java_lang_String java_util_Date::toLocaleString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2190,6 +2208,7 @@ JDKCXX::java_lang_String java_util_Date::toGMTString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2237,6 +2256,7 @@ int java_util_Date::getTimezoneOffset()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

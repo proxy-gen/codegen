@@ -191,6 +191,7 @@ JDKCXX::java_lang_String java_lang_reflect_TypeVariable::getName()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -256,6 +257,7 @@ std::vector<JDKCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable::get
 	}
 
 	std::vector<JDKCXX::java_lang_reflect_Type > result = (std::vector<JDKCXX::java_lang_reflect_Type >) *((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_reflect_Type > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -303,6 +305,7 @@ JDKCXX::java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable::get
 	}
 
 	JDKCXX::java_lang_reflect_GenericDeclaration result((JDKCXX::java_lang_reflect_GenericDeclaration) *((JDKCXX::java_lang_reflect_GenericDeclaration *) cxx_value));
+	delete ((JDKCXX::java_lang_reflect_GenericDeclaration *) cxx_value);
 		
 	jni->popLocalFrame();
 

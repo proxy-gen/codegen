@@ -259,6 +259,7 @@ JDKCXX::java_util_Collection java_util_SortedMap::values()
 	}
 
 	JDKCXX::java_util_Collection result((JDKCXX::java_util_Collection) *((JDKCXX::java_util_Collection *) cxx_value));
+	delete ((JDKCXX::java_util_Collection *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -357,6 +358,7 @@ JDKCXX::java_util_Set java_util_SortedMap::entrySet()
 	}
 
 	JDKCXX::java_util_Set result((JDKCXX::java_util_Set) *((JDKCXX::java_util_Set *) cxx_value));
+	delete ((JDKCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -422,6 +424,7 @@ JDKCXX::java_util_Set java_util_SortedMap::keySet()
 	}
 
 	JDKCXX::java_util_Set result((JDKCXX::java_util_Set) *((JDKCXX::java_util_Set *) cxx_value));
+	delete ((JDKCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -487,6 +490,7 @@ JDKCXX::java_util_Comparator java_util_SortedMap::comparator()
 	}
 
 	JDKCXX::java_util_Comparator result((JDKCXX::java_util_Comparator) *((JDKCXX::java_util_Comparator *) cxx_value));
+	delete ((JDKCXX::java_util_Comparator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -609,6 +613,7 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::subMap(JDKCXX::java_lang_Object
 	}
 
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
+	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -710,6 +715,7 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::headMap(JDKCXX::java_lang_Objec
 	}
 
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
+	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -811,6 +817,7 @@ JDKCXX::java_util_SortedMap java_util_SortedMap::tailMap(JDKCXX::java_lang_Objec
 	}
 
 	JDKCXX::java_util_SortedMap result((JDKCXX::java_util_SortedMap) *((JDKCXX::java_util_SortedMap *) cxx_value));
+	delete ((JDKCXX::java_util_SortedMap *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -858,6 +865,7 @@ JDKCXX::java_lang_Object java_util_SortedMap::firstKey()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -905,6 +913,7 @@ JDKCXX::java_lang_Object java_util_SortedMap::lastKey()
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 

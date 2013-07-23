@@ -391,6 +391,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -519,6 +520,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::get(std::vector<char>& arg0,int
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -566,6 +568,7 @@ char java_nio_CharBuffer::get()
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -634,6 +637,7 @@ char java_nio_CharBuffer::get(int& arg0)
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -723,6 +727,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(int& arg0,char& arg1)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -791,6 +796,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(char& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -859,6 +865,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(JDKCXX::java_lang_String& a
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -969,6 +976,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(JDKCXX::java_lang_String& a
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1055,6 +1063,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1183,6 +1192,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(std::vector<char>& arg0,int
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1251,6 +1261,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::put(JDKCXX::java_nio_CharBuffer
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1319,6 +1330,7 @@ bool java_nio_CharBuffer::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1366,6 +1378,7 @@ JDKCXX::java_lang_String java_nio_CharBuffer::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1476,6 +1489,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::append(JDKCXX::java_lang_CharSe
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1544,6 +1558,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::append(char& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1612,6 +1627,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::append(JDKCXX::java_lang_CharSe
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1659,6 +1675,7 @@ int java_nio_CharBuffer::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1727,6 +1744,7 @@ int java_nio_CharBuffer::compareTo(JDKCXX::java_nio_CharBuffer& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1774,6 +1792,7 @@ int java_nio_CharBuffer::length()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1842,6 +1861,7 @@ char java_nio_CharBuffer::charAt(int& arg0)
 	}
 
 	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1931,6 +1951,7 @@ JDKCXX::java_lang_CharSequence java_nio_CharBuffer::subSequence(int& arg0,int& a
 	}
 
 	JDKCXX::java_lang_CharSequence result((JDKCXX::java_lang_CharSequence) *((JDKCXX::java_lang_CharSequence *) cxx_value));
+	delete ((JDKCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1978,6 +1999,7 @@ bool java_nio_CharBuffer::isDirect()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2025,6 +2047,7 @@ bool java_nio_CharBuffer::hasArray()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2090,6 +2113,7 @@ std::vector<char> java_nio_CharBuffer::array()
 	}
 
 	std::vector<char> result = (std::vector<char>) *((std::vector<char> *) cxx_value);
+	delete ((std::vector<char> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2137,6 +2161,7 @@ int java_nio_CharBuffer::arrayOffset()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2247,6 +2272,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::wrap(JDKCXX::java_lang_CharSequ
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2375,6 +2401,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0,in
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2461,6 +2488,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::wrap(std::vector<char>& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2529,6 +2557,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::wrap(JDKCXX::java_lang_CharSequ
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2597,6 +2626,7 @@ int java_nio_CharBuffer::read(JDKCXX::java_nio_CharBuffer& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2665,6 +2695,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::allocate(int& arg0)
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2712,6 +2743,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::duplicate()
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2759,6 +2791,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::slice()
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2806,6 +2839,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::asReadOnlyBuffer()
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2853,6 +2887,7 @@ JDKCXX::java_nio_CharBuffer java_nio_CharBuffer::compact()
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2900,6 +2935,7 @@ JDKCXX::java_nio_ByteOrder java_nio_CharBuffer::order()
 	}
 
 	JDKCXX::java_nio_ByteOrder result((JDKCXX::java_nio_ByteOrder) *((JDKCXX::java_nio_ByteOrder *) cxx_value));
+	delete ((JDKCXX::java_nio_ByteOrder *) cxx_value);
 		
 	jni->popLocalFrame();
 

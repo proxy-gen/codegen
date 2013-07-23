@@ -272,6 +272,7 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::charset()
 	}
 
 	JDKCXX::java_nio_charset_Charset result((JDKCXX::java_nio_charset_Charset) *((JDKCXX::java_nio_charset_Charset *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_Charset *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -382,6 +383,7 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::decode(JDK
 	}
 
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -450,6 +452,7 @@ JDKCXX::java_nio_CharBuffer java_nio_charset_CharsetDecoder::decode(JDKCXX::java
 	}
 
 	JDKCXX::java_nio_CharBuffer result((JDKCXX::java_nio_CharBuffer) *((JDKCXX::java_nio_CharBuffer *) cxx_value));
+	delete ((JDKCXX::java_nio_CharBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -518,6 +521,7 @@ JDKCXX::java_nio_charset_CoderResult java_nio_charset_CharsetDecoder::flush(JDKC
 	}
 
 	JDKCXX::java_nio_charset_CoderResult result((JDKCXX::java_nio_charset_CoderResult) *((JDKCXX::java_nio_charset_CoderResult *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CoderResult *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -565,6 +569,7 @@ JDKCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::reset()
 	}
 
 	JDKCXX::java_nio_charset_CharsetDecoder result((JDKCXX::java_nio_charset_CharsetDecoder) *((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -633,6 +638,7 @@ JDKCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onMalfo
 	}
 
 	JDKCXX::java_nio_charset_CharsetDecoder result((JDKCXX::java_nio_charset_CharsetDecoder) *((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -701,6 +707,7 @@ JDKCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::onUnmap
 	}
 
 	JDKCXX::java_nio_charset_CharsetDecoder result((JDKCXX::java_nio_charset_CharsetDecoder) *((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -748,6 +755,7 @@ JDKCXX::java_lang_String java_nio_charset_CharsetDecoder::replacement()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -795,6 +803,7 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::malf
 	}
 
 	JDKCXX::java_nio_charset_CodingErrorAction result((JDKCXX::java_nio_charset_CodingErrorAction) *((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -842,6 +851,7 @@ JDKCXX::java_nio_charset_CodingErrorAction java_nio_charset_CharsetDecoder::unma
 	}
 
 	JDKCXX::java_nio_charset_CodingErrorAction result((JDKCXX::java_nio_charset_CodingErrorAction) *((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CodingErrorAction *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -910,6 +920,7 @@ JDKCXX::java_nio_charset_CharsetDecoder java_nio_charset_CharsetDecoder::replace
 	}
 
 	JDKCXX::java_nio_charset_CharsetDecoder result((JDKCXX::java_nio_charset_CharsetDecoder) *((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_CharsetDecoder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -957,6 +968,7 @@ float java_nio_charset_CharsetDecoder::maxCharsPerByte()
 	}
 
 	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1004,6 +1016,7 @@ float java_nio_charset_CharsetDecoder::averageCharsPerByte()
 	}
 
 	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1051,6 +1064,7 @@ bool java_nio_charset_CharsetDecoder::isAutoDetecting()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1098,6 +1112,7 @@ bool java_nio_charset_CharsetDecoder::isCharsetDetected()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1145,6 +1160,7 @@ JDKCXX::java_nio_charset_Charset java_nio_charset_CharsetDecoder::detectedCharse
 	}
 
 	JDKCXX::java_nio_charset_Charset result((JDKCXX::java_nio_charset_Charset) *((JDKCXX::java_nio_charset_Charset *) cxx_value));
+	delete ((JDKCXX::java_nio_charset_Charset *) cxx_value);
 		
 	jni->popLocalFrame();
 

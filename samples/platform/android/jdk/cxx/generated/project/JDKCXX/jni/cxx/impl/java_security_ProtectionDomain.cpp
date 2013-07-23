@@ -449,6 +449,7 @@ JDKCXX::java_lang_String java_security_ProtectionDomain::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -496,6 +497,7 @@ JDKCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader()
 	}
 
 	JDKCXX::java_lang_ClassLoader result((JDKCXX::java_lang_ClassLoader) *((JDKCXX::java_lang_ClassLoader *) cxx_value));
+	delete ((JDKCXX::java_lang_ClassLoader *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -543,6 +545,7 @@ JDKCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSource()
 	}
 
 	JDKCXX::java_security_CodeSource result((JDKCXX::java_security_CodeSource) *((JDKCXX::java_security_CodeSource *) cxx_value));
+	delete ((JDKCXX::java_security_CodeSource *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -608,6 +611,7 @@ std::vector<JDKCXX::java_security_Principal > java_security_ProtectionDomain::ge
 	}
 
 	std::vector<JDKCXX::java_security_Principal > result = (std::vector<JDKCXX::java_security_Principal >) *((std::vector<JDKCXX::java_security_Principal > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_security_Principal > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -655,6 +659,7 @@ JDKCXX::java_security_PermissionCollection java_security_ProtectionDomain::getPe
 	}
 
 	JDKCXX::java_security_PermissionCollection result((JDKCXX::java_security_PermissionCollection) *((JDKCXX::java_security_PermissionCollection *) cxx_value));
+	delete ((JDKCXX::java_security_PermissionCollection *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -723,6 +728,7 @@ bool java_security_ProtectionDomain::implies(JDKCXX::java_security_Permission& a
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

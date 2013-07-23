@@ -376,6 +376,7 @@ bool java_util_List::add(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -444,6 +445,7 @@ JDKCXX::java_lang_Object java_util_List::get(int& arg0)
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -512,6 +514,7 @@ bool java_util_List::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -559,6 +562,7 @@ int java_util_List::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -627,6 +631,7 @@ int java_util_List::indexOf(JDKCXX::java_lang_Object& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -702,6 +707,7 @@ bool java_util_List::isEmpty()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -770,6 +776,7 @@ int java_util_List::lastIndexOf(JDKCXX::java_lang_Object& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -838,6 +845,7 @@ bool java_util_List::contains(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -945,6 +953,7 @@ bool java_util_List::addAll(int& arg0,JDKCXX::java_util_Collection& arg1)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1031,6 +1040,7 @@ bool java_util_List::addAll(JDKCXX::java_util_Collection& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1078,6 +1088,7 @@ int java_util_List::size()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1182,6 +1193,7 @@ std::vector<JDKCXX::java_lang_Object > java_util_List::toArray(std::vector<JDKCX
 	}
 
 	std::vector<JDKCXX::java_lang_Object > result = (std::vector<JDKCXX::java_lang_Object >) *((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1247,6 +1259,7 @@ std::vector<JDKCXX::java_lang_Object > java_util_List::toArray()
 	}
 
 	std::vector<JDKCXX::java_lang_Object > result = (std::vector<JDKCXX::java_lang_Object >) *((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
+	delete ((std::vector<JDKCXX::java_lang_Object > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1312,6 +1325,7 @@ JDKCXX::java_util_Iterator java_util_List::iterator()
 	}
 
 	JDKCXX::java_util_Iterator result((JDKCXX::java_util_Iterator) *((JDKCXX::java_util_Iterator *) cxx_value));
+	delete ((JDKCXX::java_util_Iterator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1380,6 +1394,7 @@ JDKCXX::java_lang_Object java_util_List::remove(int& arg0)
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1448,6 +1463,7 @@ bool java_util_List::remove(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1537,6 +1553,7 @@ JDKCXX::java_lang_Object java_util_List::set(int& arg0,JDKCXX::java_lang_Object&
 	}
 
 	JDKCXX::java_lang_Object result((JDKCXX::java_lang_Object) *((JDKCXX::java_lang_Object *) cxx_value));
+	delete ((JDKCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1623,6 +1640,7 @@ JDKCXX::java_util_ListIterator java_util_List::listIterator(int& arg0)
 	}
 
 	JDKCXX::java_util_ListIterator result((JDKCXX::java_util_ListIterator) *((JDKCXX::java_util_ListIterator *) cxx_value));
+	delete ((JDKCXX::java_util_ListIterator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1688,6 +1706,7 @@ JDKCXX::java_util_ListIterator java_util_List::listIterator()
 	}
 
 	JDKCXX::java_util_ListIterator result((JDKCXX::java_util_ListIterator) *((JDKCXX::java_util_ListIterator *) cxx_value));
+	delete ((JDKCXX::java_util_ListIterator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1795,6 +1814,7 @@ JDKCXX::java_util_List java_util_List::subList(int& arg0,int& arg1)
 	}
 
 	JDKCXX::java_util_List result((JDKCXX::java_util_List) *((JDKCXX::java_util_List *) cxx_value));
+	delete ((JDKCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1881,6 +1901,7 @@ bool java_util_List::removeAll(JDKCXX::java_util_Collection& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1967,6 +1988,7 @@ bool java_util_List::containsAll(JDKCXX::java_util_Collection& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2053,6 +2075,7 @@ bool java_util_List::retainAll(JDKCXX::java_util_Collection& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

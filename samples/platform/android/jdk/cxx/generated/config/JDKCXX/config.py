@@ -2485,6 +2485,245 @@ config = {
 			],
 		},
 		{
+			'name' : 'java.util.HashMap',
+			'tags' : ['_instance', '_proxy'],
+			'fields' : [
+			],	
+			'functions' : [
+				{
+					'name' : 'get',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'put',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'values',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'clone',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'clear',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'isEmpty',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'size',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'entrySet',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Set',
+								'children' : [{'type': 'java.util.Map$Entry', 'children': [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}], 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'putAll',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Map',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'remove',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'keySet',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Set',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'containsValue',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'containsKey',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+			],	
+			'constructors' : [	
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'float',
+								'converter' : 'convert_float',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+					],
+				},
+				{
+					'name' : 'java.util.HashMap',
+					'tags' : ['_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Map',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}, {'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],
+		},
+		{
 			'name' : 'java.nio.charset.Charset',
 			'tags' : ['_abstract', '_proxy'],
 			'fields' : [

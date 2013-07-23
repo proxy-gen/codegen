@@ -374,6 +374,7 @@ int java_io_InputStream::read(std::vector<byte>& arg0,int& arg1,int& arg2)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -460,6 +461,7 @@ int java_io_InputStream::read(std::vector<byte>& arg0)
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -507,6 +509,7 @@ int java_io_InputStream::read()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -575,6 +578,7 @@ long java_io_InputStream::skip(long& arg0)
 	}
 
 	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -622,6 +626,7 @@ int java_io_InputStream::available()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -669,6 +674,7 @@ bool java_io_InputStream::markSupported()
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

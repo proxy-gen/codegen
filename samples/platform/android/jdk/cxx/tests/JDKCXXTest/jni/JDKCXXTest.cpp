@@ -10,6 +10,10 @@
 #include <java_net_URL.hpp>
 #include <java_io_InputStream.hpp>
 
+#include <java_util_Map.hpp>
+#include <java_util_Map_Entry.hpp>
+#include <java_util_HashMap.hpp>
+
 #define LOG_TAG "JDKCXXTest"
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
 #define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__))
@@ -120,12 +124,40 @@ void test_java_net_URLConnection()
 	LOGI("test_java_net_URLConnection exit");
 }
 
+void test_java_util_Map()
+{
+	LOGI("test_java_util_Map enter");
+	java_util_HashMap map;
+	java_lang_Object key1;
+	java_lang_Object val1;
+	java_lang_Object key2;
+	java_lang_Object val2;
+	map.put(key1, val1);
+	map.put(key2, val2);
+
+	java_lang_Object val1p = map.get(key1);
+	java_lang_Object val2p = map.get(key2);
+
+	bool equals = val1.equals(val1p);
+	LOGI("val1 equals val1' is %s", boolstr(equals).c_str());
+	equals = val2.equals(val2p);
+	LOGI("val2 equals val2' is %s", boolstr(equals).c_str());
+
+	equals = val1.equals(val2p);
+	LOGI("val1 equals val2' is %s", boolstr(equals).c_str());
+	equals = val1p.equals(val2);
+	LOGI("val1' equals val2 is %s", boolstr(equals).c_str());
+
+	LOGI("test_java_util_Map exit");
+}
+
 JNIEXPORT void JNICALL Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull(JNIEnv *env, jobject classRef)
 {
 	LOGI("Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull enter");
 
 	test_java_lang_String();
 	test_java_net_URLConnection();
+	test_java_util_Map();
 
 	LOGI("Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull exit");
 }

@@ -293,6 +293,7 @@ JAVA_NET_PROXY_TYPE::java_net_Proxy_Type java_net_Proxy::type()
 	}
 
 	JAVA_NET_PROXY_TYPE::java_net_Proxy_Type result = (JAVA_NET_PROXY_TYPE::java_net_Proxy_Type) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -361,6 +362,7 @@ bool java_net_Proxy::equals(JDKCXX::java_lang_Object& arg0)
 	}
 
 	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -408,6 +410,7 @@ JDKCXX::java_lang_String java_net_Proxy::toString()
 	}
 
 	JDKCXX::java_lang_String result((JDKCXX::java_lang_String) *((JDKCXX::java_lang_String *) cxx_value));
+	delete ((JDKCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -455,6 +458,7 @@ int java_net_Proxy::hashCode()
 	}
 
 	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -502,6 +506,7 @@ JDKCXX::java_net_SocketAddress java_net_Proxy::address()
 	}
 
 	JDKCXX::java_net_SocketAddress result((JDKCXX::java_net_SocketAddress) *((JDKCXX::java_net_SocketAddress *) cxx_value));
+	delete ((JDKCXX::java_net_SocketAddress *) cxx_value);
 		
 	jni->popLocalFrame();
 
