@@ -715,6 +715,17 @@ $function['retrn_type'] ${entity_class_name}::$config_module.to_safe_cxx_name(fu
 	#else
 	$function['retrn_type'] result = (${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value);
 	#end if
+	#if $retrn_typeinfo['isenum'] == True
+	//
+	#elif $retrn_typeinfo['isprimitive'] == True
+	// 
+	#elif $retrn_typeinfo['isvoid'] == True
+	//
+	#elif $retrn_typeinfo['isarray'] == True
+	delete (($function['retrn_type'] *) cxx_value);
+	#else 
+	delete (($function['retrn_type'] *) cxx_value);
+	#end if
 	#else
 	jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);
 	#end if

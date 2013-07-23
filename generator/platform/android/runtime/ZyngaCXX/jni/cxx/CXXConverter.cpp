@@ -19,8 +19,8 @@
 #include <stack>
 #include <map>
 
-#define LOG_ENABLED 1
-#define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
+#define LOG_TAG "JDKCXXConverter"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 cxx_converter get_converter(std::stack<long>& converter_stack)
 {
@@ -215,7 +215,7 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<byte> *cxx_vector = (std::vector<byte> *) cxx_value;
+		std::vector<byte> *cxx_vector = new std::vector<byte>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		char * java_array = jni->getByteArray((jbyteArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -223,8 +223,11 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 			char item = (char) java_array[idx];
 			cxx_vector->push_back((byte) item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
+
+	log("convert__byte_array_type exit");
 }
 
 void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
@@ -251,7 +254,7 @@ void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<char> *cxx_vector = (std::vector<char> *) cxx_value;
+		std::vector<char> *cxx_vector = new std::vector<char>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		char * java_array = jni->getCharArray((jcharArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -259,6 +262,7 @@ void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 			char item = (char) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -287,7 +291,7 @@ void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeH
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<short> *cxx_vector = (std::vector<short> *) cxx_value;
+		std::vector<short> *cxx_vector = new std::vector<short>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		short * java_array = jni->getShortArray((jshortArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -295,6 +299,7 @@ void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeH
 			short item = (short) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -323,7 +328,7 @@ void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHie
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<int> *cxx_vector = (std::vector<int> *) cxx_value;
+		std::vector<int> *cxx_vector = new std::vector<int>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		int * java_array = jni->getIntArray((jintArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -331,6 +336,7 @@ void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHie
 			int item = (int) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -359,7 +365,7 @@ void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<long> *cxx_vector = (std::vector<long> *) cxx_value;
+		std::vector<long> *cxx_vector = new std::vector<long>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		long * java_array = jni->getLongArray((jlongArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -367,6 +373,7 @@ void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 			long item = (long) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -395,7 +402,7 @@ void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeH
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<float> *cxx_vector = (std::vector<float> *) cxx_value;
+		std::vector<float> *cxx_vector = new std::vector<float>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		float * java_array = jni->getFloatArray((jfloatArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -403,6 +410,7 @@ void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeH
 			float item = (float) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -431,7 +439,7 @@ void convert__double_array_type(long& java_value, long& cxx_value, const CXXType
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<double> *cxx_vector = (std::vector<double> *) cxx_value;
+		std::vector<double> *cxx_vector = new std::vector<double>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		double * java_array = jni->getDoubleArray((jdoubleArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -439,6 +447,7 @@ void convert__double_array_type(long& java_value, long& cxx_value, const CXXType
 			double item = (double) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
@@ -467,7 +476,7 @@ void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTyp
 	{
 		jni->pushLocalFrame();
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<bool> *cxx_vector = (std::vector<bool> *) cxx_value;
+		std::vector<bool> *cxx_vector = new std::vector<bool>();
 		int count = (int) jni->getArrayLength((jarray) java_value);
 		bool * java_array = jni->getBooleanArray((jbooleanArray) java_value);
 		for (int idx = 0 ; idx < count; idx++)
@@ -475,6 +484,7 @@ void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTyp
 			bool item = (bool) java_array[idx];
 			cxx_vector->push_back(item);
 		}
+		cxx_value = (long) cxx_vector;
 		jni->popLocalFrame();
 	}
 }
