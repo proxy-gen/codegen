@@ -6,7 +6,7 @@
 //
 // Scroll Down 
 //
-
+#from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
 #set $REF = "&"
@@ -38,8 +38,8 @@
 		#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$param['type'])
 		#for $clazz in $classes
 			#set $param_type = $clazz['name']
-			#set $param_type = $config_module.to_class_name($param_type)
- 			#set $file_name = $config_module.to_file_name($param_type,"hpp")
+			#set $param_type = Utils.to_class_name($param_type)
+ 			#set $file_name = Utils.to_file_name($param_type,"hpp")
  			$include_file_list.append(file_name)
 			#break
 		#end for
@@ -68,8 +68,8 @@
 	#set $classes = $config_module.list_all_classes(tags=None,xtags=None,name=$retrn['type'])
 	#for $clazz in $classes
 		#set $retrn_type = $clazz['name']
-		#set $retrn_type = $config_module.to_class_name($retrn_type)
-		#set $file_name = $config_module.to_file_name($retrn_type,"hpp")
+		#set $retrn_type = Utils.to_class_name($retrn_type)
+		#set $file_name = Utils.to_file_name($retrn_type,"hpp")
 		$include_file_list.append(file_name)
 		#break
 	#end for

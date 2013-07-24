@@ -6,7 +6,7 @@
 //
 // Scroll Down 
 //
-
+#from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
 #set $REF = "&"
@@ -18,6 +18,8 @@
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_jni_name = $CONFIG.entity_jni_name
+#set $safe_package_name = Utils.to_safe_jni_name($package)
+#set $safe_entity_class_name = Utils.to_safe_jni_name($entity_class_name)
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_callback','_proxy'],function_xtags=None,function_name=None)	
 
@@ -58,7 +60,8 @@ extern "C" {
 #if '_callback' in $entity_class_config['tags']
 // JNI callbacks
 #for $function in $functions
-JNIEXPORT $function['jni_retrn_type'] $config_module.to_safe_cxx_name(function['name'])(JNIEnv *env, jobject objectRef$function['jni_param_str']);
+#set $safe_function_name = Utils.to_safe_jni_name(Utils.to_safe_cxx_name(function['name']))
+JNIEXPORT $function['jni_retrn_type'] JNICALL Java_${safe_package_name}_${safe_entity_class_name}_${safe_function_name}(JNIEnv *env, jobject objectRef$function['jni_param_str']);
 #end for
 #end if
 

@@ -16,9 +16,10 @@
 #		_instance											Tag to indicate class is an instance
 #		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
-#		_callback 											Tag to indicate class is a callback
 #		_proxy 												Tag to indicate class will be proxied
 #		_no_proxy											Tag to indicate class will not be proxied
+#		_callback 											Tag to indicate class is a callback
+#		_no_callback										Tag to indicate class will not be made a callback
 #
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field
@@ -33,6 +34,8 @@
 #		_singleton											Tag to indicate method returns a singleton instance
 #		_proxy 												Tag to indicate method will be proxied
 #		_no_proxy											Tag to indicate method will not be proxied
+#		_callback											Tag to indicate method will be made a callback
+#		_no_callback										Tag to indicate method will not be made a callback
 
 #set $config_data = $CONFIG.config_module.config_data
 config = {

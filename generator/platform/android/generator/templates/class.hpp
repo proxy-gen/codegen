@@ -6,7 +6,7 @@
 //
 // Scroll Down 
 //
-
+#from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
 #set $REF = "&"
@@ -29,7 +29,18 @@
 #set $proxied_typeinfo_list = list()
 #set $modifier_str = None
 #if '_static' in $function['tags']
-#set $modifier_str = 'static' 
+#if $modifier_str
+#set $modifier_str = $modifier_str + SPACE + 'static' 
+#else
+#set $modifier_str = 'static'  
+#end if
+#end if
+#if '_callback' in $function['tags']
+#if $modifier_str
+#set $modifier_str = $modifier_str + SPACE + 'virtual' 
+#else
+#set $modifier_str = 'virtual'  
+#end if
 #end if
 #set $child_type_stack = list()
 #for $param in $params
@@ -220,7 +231,7 @@ public:
 	#end if	
 	// Functions
 	#for $function in $functions
-	$function['modifier_str'] $function['retrn_type'] $config_module.to_safe_cxx_name(function['name'])($function['param_str']);
+	$function['modifier_str'] $function['retrn_type'] $Utils.to_safe_cxx_name(function['name'])($function['param_str']);
 	#end for
 };	
 
