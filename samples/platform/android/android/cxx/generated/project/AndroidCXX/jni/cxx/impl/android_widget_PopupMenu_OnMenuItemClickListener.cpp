@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_PopupMenu_OnMenuItemClickListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc)
@@ -90,40 +88,45 @@ android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMen
 
 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener(void * proxy) exit");
 }
-android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener()
-{
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener()
+// {
+// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/PopupMenu$OnMenuItemClickListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/PopupMenu$OnMenuItemClickListener";
 
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() exit");	
-}
+// 	LOGV("android_widget_PopupMenu_OnMenuItemClickListener::android_widget_PopupMenu_OnMenuItemClickListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_widget_PopupMenu_OnMenuItemClickListener::~android_widget_PopupMenu_OnMenuItemClickListener()
@@ -182,7 +185,6 @@ bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -200,7 +202,9 @@ bool android_widget_PopupMenu_OnMenuItemClickListener::onMenuItemClick(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

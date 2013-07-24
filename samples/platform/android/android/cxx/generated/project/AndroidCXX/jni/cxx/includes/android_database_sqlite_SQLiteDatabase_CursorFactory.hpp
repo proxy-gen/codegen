@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,7 +73,10 @@ public:
 	android_database_sqlite_SQLiteDatabase_CursorFactory(const android_database_sqlite_SQLiteDatabase_CursorFactory& cc);
 	android_database_sqlite_SQLiteDatabase_CursorFactory(void * proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteDatabase_CursorFactory();
+	// TODO: remove
+	// 
+	// android_database_sqlite_SQLiteDatabase_CursorFactory();
+	// 
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteDatabase_CursorFactory();
 	// Functions

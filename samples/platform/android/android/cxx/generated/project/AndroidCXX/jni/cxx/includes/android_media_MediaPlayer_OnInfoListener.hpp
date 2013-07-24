@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_media_MediaPlayer_OnInfoListener(const android_media_MediaPlayer_OnInfoListener& cc);
 	android_media_MediaPlayer_OnInfoListener(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnInfoListener();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_OnInfoListener();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnInfoListener();
 	// Functions

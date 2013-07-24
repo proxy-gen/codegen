@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_graphics_SurfaceTexture_OnFrameAvailableListener(const android_graphics_SurfaceTexture_OnFrameAvailableListener& cc);
 	android_graphics_SurfaceTexture_OnFrameAvailableListener(void * proxy);
 	// Public Constructors
-	android_graphics_SurfaceTexture_OnFrameAvailableListener();
+	// TODO: remove
+	// 
+	// android_graphics_SurfaceTexture_OnFrameAvailableListener();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture_OnFrameAvailableListener();
 	// Functions

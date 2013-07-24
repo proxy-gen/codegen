@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -78,7 +77,10 @@ public:
 	android_content_PeriodicSync(void * proxy);
 	// Public Constructors
 	android_content_PeriodicSync(AndroidCXX::android_accounts_Account& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,long& arg3);
-	android_content_PeriodicSync();
+	// TODO: remove
+	// 
+	// android_content_PeriodicSync();
+	// 
 	// Default Destructor
 	virtual ~android_content_PeriodicSync();
 	// Functions

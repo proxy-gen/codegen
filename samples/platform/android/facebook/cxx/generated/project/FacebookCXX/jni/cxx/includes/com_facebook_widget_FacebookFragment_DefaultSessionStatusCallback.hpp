@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(const com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback& cc);
 	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(void * proxy);
 	// Public Constructors
-	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback();
+	// TODO: remove
+	// 
+	// com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -80,7 +79,10 @@ public:
 	android_widget_Adapter(const android_widget_Adapter& cc);
 	android_widget_Adapter(void * proxy);
 	// Public Constructors
-	android_widget_Adapter();
+	// TODO: remove
+	// 
+	// android_widget_Adapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Adapter();
 	// Functions

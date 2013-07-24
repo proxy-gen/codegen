@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -56,7 +55,10 @@ public:
 	com_facebook_TestSession_TestTokenCachingStrategy(const com_facebook_TestSession_TestTokenCachingStrategy& cc);
 	com_facebook_TestSession_TestTokenCachingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_TestSession_TestTokenCachingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_TestSession_TestTokenCachingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_TestSession_TestTokenCachingStrategy();
 	// Functions

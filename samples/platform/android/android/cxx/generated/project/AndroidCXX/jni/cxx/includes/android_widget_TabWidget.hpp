@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -121,7 +120,10 @@ public:
 	android_widget_TabWidget(AndroidCXX::android_content_Context& arg0);
 	android_widget_TabWidget(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_TabWidget(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_TabWidget();
+	// TODO: remove
+	// 
+	// android_widget_TabWidget();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TabWidget();
 	// Functions

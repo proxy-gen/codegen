@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -138,7 +137,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "org_json_JSONObject"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -355,7 +354,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 org_json_JSONObject::org_json_JSONObject(const org_json_JSONObject& cc)
 {
@@ -398,6 +396,10 @@ org_json_JSONObject::org_json_JSONObject(void * proxy)
 
 	LOGV("org_json_JSONObject::org_json_JSONObject(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject& arg0,std::vector<AndroidCXX::java_lang_String >& arg1)
 {
@@ -759,7 +761,6 @@ AndroidCXX::java_lang_Object org_json_JSONObject::get(AndroidCXX::java_lang_Stri
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -777,7 +778,9 @@ AndroidCXX::java_lang_Object org_json_JSONObject::get(AndroidCXX::java_lang_Stri
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -848,7 +851,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -866,7 +868,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -937,7 +941,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -955,7 +958,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1026,7 +1031,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1044,7 +1048,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1115,7 +1121,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1133,7 +1138,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1204,7 +1211,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1222,7 +1228,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1272,7 +1280,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1290,7 +1297,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1319,7 +1328,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString()
 	LOGV("org_json_JSONObject jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1337,7 +1345,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1387,7 +1397,6 @@ bool org_json_JSONObject::getBoolean(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1405,7 +1414,9 @@ bool org_json_JSONObject::getBoolean(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1455,7 +1466,6 @@ int org_json_JSONObject::getInt(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1473,7 +1483,9 @@ int org_json_JSONObject::getInt(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1523,7 +1535,6 @@ long org_json_JSONObject::getLong(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1541,7 +1552,9 @@ long org_json_JSONObject::getLong(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1591,7 +1604,6 @@ double org_json_JSONObject::getDouble(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -1609,7 +1621,9 @@ double org_json_JSONObject::getDouble(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
+
+	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1638,7 +1652,6 @@ int org_json_JSONObject::length()
 	LOGV("org_json_JSONObject jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1656,7 +1669,9 @@ int org_json_JSONObject::length()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1706,7 +1721,6 @@ AndroidCXX::java_lang_Object org_json_JSONObject::remove(AndroidCXX::java_lang_S
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1724,7 +1738,9 @@ AndroidCXX::java_lang_Object org_json_JSONObject::remove(AndroidCXX::java_lang_S
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1753,7 +1769,6 @@ AndroidCXX::java_util_Iterator org_json_JSONObject::keys()
 	LOGV("org_json_JSONObject jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Iterator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1771,7 +1786,9 @@ AndroidCXX::java_util_Iterator org_json_JSONObject::keys()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Iterator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Iterator) (AndroidCXX::java_util_Iterator((AndroidCXX::java_util_Iterator *) cxx_value));
+
+	AndroidCXX::java_util_Iterator result((AndroidCXX::java_util_Iterator) *((AndroidCXX::java_util_Iterator *) cxx_value));
+	delete ((AndroidCXX::java_util_Iterator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1800,7 +1817,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::names()
 	LOGV("org_json_JSONObject jni address %d", javaObject);
 
 
-	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1818,7 +1834,9 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::names()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
+
+	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1868,7 +1886,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::quote(AndroidCXX::java_lang_St
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1886,7 +1903,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::quote(AndroidCXX::java_lang_St
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1936,7 +1955,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::getString(AndroidCXX::java_lan
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1954,7 +1972,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::getString(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2004,7 +2024,6 @@ bool org_json_JSONObject::has(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2022,7 +2041,9 @@ bool org_json_JSONObject::has(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2093,7 +2114,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::putOpt(AndroidCXX::java_lan
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2111,7 +2131,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::putOpt(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2182,7 +2204,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::accumulate(AndroidCXX::java
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2200,7 +2221,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::accumulate(AndroidCXX::java
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2250,7 +2273,6 @@ bool org_json_JSONObject::isNull(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2268,7 +2290,9 @@ bool org_json_JSONObject::isNull(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2318,7 +2342,6 @@ AndroidCXX::java_lang_Object org_json_JSONObject::opt(AndroidCXX::java_lang_Stri
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2336,7 +2359,9 @@ AndroidCXX::java_lang_Object org_json_JSONObject::opt(AndroidCXX::java_lang_Stri
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2386,7 +2411,6 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2404,7 +2428,9 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2475,7 +2501,6 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String& arg0,bool& ar
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2493,7 +2518,9 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String& arg0,bool& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2543,7 +2570,6 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -2561,7 +2587,9 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
+
+	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2632,7 +2660,6 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String& arg0,double&
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -2650,7 +2677,9 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String& arg0,double&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
+
+	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2700,7 +2729,6 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2718,7 +2746,9 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2789,7 +2819,6 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2807,7 +2836,9 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2878,7 +2909,6 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String& arg0,long& arg1)
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2896,7 +2926,9 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String& arg0,long& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2946,7 +2978,6 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2964,7 +2995,9 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3014,7 +3047,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3032,7 +3064,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3103,7 +3137,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3121,7 +3154,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3171,7 +3206,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::getJSONArray(AndroidCXX::jav
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3189,7 +3223,9 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::getJSONArray(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
+
+	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3239,7 +3275,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::optJSONArray(AndroidCXX::jav
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3257,7 +3292,9 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::optJSONArray(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
+
+	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3307,7 +3344,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::getJSONObject(AndroidCXX::j
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3325,7 +3361,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::getJSONObject(AndroidCXX::j
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3375,7 +3413,6 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::optJSONObject(AndroidCXX::j
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3393,7 +3430,9 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::optJSONObject(AndroidCXX::j
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3443,7 +3482,6 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::toJSONArray(AndroidCXX::org_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3461,7 +3499,9 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::toJSONArray(AndroidCXX::org_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
+
+	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3511,7 +3551,6 @@ AndroidCXX::java_lang_String org_json_JSONObject::numberToString(AndroidCXX::jav
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3529,7 +3568,9 @@ AndroidCXX::java_lang_String org_json_JSONObject::numberToString(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

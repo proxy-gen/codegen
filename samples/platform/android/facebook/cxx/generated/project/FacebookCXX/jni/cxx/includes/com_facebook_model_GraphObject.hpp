@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -86,7 +85,10 @@ public:
 	com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc);
 	com_facebook_model_GraphObject(void * proxy);
 	// Public Constructors
-	com_facebook_model_GraphObject();
+	// TODO: remove
+	// 
+	// com_facebook_model_GraphObject();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions

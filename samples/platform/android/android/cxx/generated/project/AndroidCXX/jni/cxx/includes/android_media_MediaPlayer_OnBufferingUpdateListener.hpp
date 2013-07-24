@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_media_MediaPlayer_OnBufferingUpdateListener(const android_media_MediaPlayer_OnBufferingUpdateListener& cc);
 	android_media_MediaPlayer_OnBufferingUpdateListener(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnBufferingUpdateListener();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_OnBufferingUpdateListener();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnBufferingUpdateListener();
 	// Functions

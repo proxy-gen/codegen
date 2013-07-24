@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Request_GraphUserListCallback"
@@ -55,7 +55,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc)
@@ -99,40 +98,45 @@ com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCa
 
 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback(void * proxy) exit");
 }
-com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback()
-{
-	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback()
+// {
+// 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/Request$GraphUserListCallback";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/Request$GraphUserListCallback";
 
-	LOGV("com_facebook_Request_GraphUserListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_Request_GraphUserListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_Request_GraphUserListCallback cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_Request_GraphUserListCallback jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_Request_GraphUserListCallback cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_Request_GraphUserListCallback jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() exit");	
-}
+// 	LOGV("com_facebook_Request_GraphUserListCallback::com_facebook_Request_GraphUserListCallback() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_Request_GraphUserListCallback::~com_facebook_Request_GraphUserListCallback()

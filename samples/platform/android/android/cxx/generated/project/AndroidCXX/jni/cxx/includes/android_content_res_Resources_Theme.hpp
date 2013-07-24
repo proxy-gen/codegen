@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  	
@@ -85,7 +84,10 @@ public:
 	android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc);
 	android_content_res_Resources_Theme(void * proxy);
 	// Public Constructors
-	android_content_res_Resources_Theme();
+	// TODO: remove
+	// 
+	// android_content_res_Resources_Theme();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_Resources_Theme();
 	// Functions

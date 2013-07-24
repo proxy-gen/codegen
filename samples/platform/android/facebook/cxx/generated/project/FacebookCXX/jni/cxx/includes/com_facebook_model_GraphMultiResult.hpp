@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -60,7 +59,10 @@ public:
 	com_facebook_model_GraphMultiResult(const com_facebook_model_GraphMultiResult& cc);
 	com_facebook_model_GraphMultiResult(void * proxy);
 	// Public Constructors
-	com_facebook_model_GraphMultiResult();
+	// TODO: remove
+	// 
+	// com_facebook_model_GraphMultiResult();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_GraphMultiResult();
 	// Functions

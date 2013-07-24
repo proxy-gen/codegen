@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleCursorAdapter_CursorToStringConverter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -50,7 +49,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter(const android_widget_SimpleCursorAdapter_CursorToStringConverter& cc)
@@ -94,40 +92,45 @@ android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_Simpl
 
 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter(void * proxy) exit");
 }
-android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter()
-{
-	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter()
+// {
+// 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/SimpleCursorAdapter$CursorToStringConverter";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/SimpleCursorAdapter$CursorToStringConverter";
 
-	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter() exit");	
-}
+// 	LOGV("android_widget_SimpleCursorAdapter_CursorToStringConverter::android_widget_SimpleCursorAdapter_CursorToStringConverter() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_widget_SimpleCursorAdapter_CursorToStringConverter::~android_widget_SimpleCursorAdapter_CursorToStringConverter()
@@ -186,7 +189,6 @@ AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter_CursorToSt
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -204,7 +206,9 @@ AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter_CursorToSt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 

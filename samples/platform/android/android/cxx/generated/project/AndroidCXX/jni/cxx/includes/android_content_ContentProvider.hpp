@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -215,6 +214,8 @@ public:
 	android_content_ContentProvider(void * proxy);
 	// Public Constructors
 	android_content_ContentProvider();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_ContentProvider();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,7 +56,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_method_MovementMethod"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -139,7 +138,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_text_method_MovementMethod::android_text_method_MovementMethod(const android_text_method_MovementMethod& cc)
 {
@@ -182,40 +180,45 @@ android_text_method_MovementMethod::android_text_method_MovementMethod(void * pr
 
 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod(void * proxy) exit");
 }
-android_text_method_MovementMethod::android_text_method_MovementMethod()
-{
-	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() enter");	
+// TODO: remove
+// 
+// 
+// android_text_method_MovementMethod::android_text_method_MovementMethod()
+// {
+// 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/text/method/MovementMethod";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/text/method/MovementMethod";
 
-	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_text_method_MovementMethod className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_text_method_MovementMethod jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_text_method_MovementMethod cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_text_method_MovementMethod jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() exit");	
-}
+// 	LOGV("android_text_method_MovementMethod::android_text_method_MovementMethod() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_text_method_MovementMethod::~android_text_method_MovementMethod()
@@ -407,7 +410,6 @@ bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_Te
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -425,7 +427,9 @@ bool android_text_method_MovementMethod::onKeyDown(AndroidCXX::android_widget_Te
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -538,7 +542,6 @@ bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_Text
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -556,7 +559,9 @@ bool android_text_method_MovementMethod::onKeyUp(AndroidCXX::android_widget_Text
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -648,7 +653,6 @@ bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -666,7 +670,9 @@ bool android_text_method_MovementMethod::onTouchEvent(AndroidCXX::android_widget
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -758,7 +764,6 @@ bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_wi
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -776,7 +781,9 @@ bool android_text_method_MovementMethod::onTrackballEvent(AndroidCXX::android_wi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -868,7 +875,6 @@ bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::androi
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -886,7 +892,9 @@ bool android_text_method_MovementMethod::onGenericMotionEvent(AndroidCXX::androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -978,7 +986,6 @@ bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_T
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -996,7 +1003,9 @@ bool android_text_method_MovementMethod::onKeyOther(AndroidCXX::android_widget_T
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1116,7 +1125,6 @@ bool android_text_method_MovementMethod::canSelectArbitrarily()
 	LOGV("android_text_method_MovementMethod jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1134,7 +1142,9 @@ bool android_text_method_MovementMethod::canSelectArbitrarily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

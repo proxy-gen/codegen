@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -133,7 +132,10 @@ public:
 	org_xmlpull_v1_XmlSerializer(const org_xmlpull_v1_XmlSerializer& cc);
 	org_xmlpull_v1_XmlSerializer(void * proxy);
 	// Public Constructors
-	org_xmlpull_v1_XmlSerializer();
+	// TODO: remove
+	// 
+	// org_xmlpull_v1_XmlSerializer();
+	// 
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlSerializer();
 	// Functions

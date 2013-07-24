@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -105,7 +104,10 @@ public:
 	android_content_SharedPreferences(const android_content_SharedPreferences& cc);
 	android_content_SharedPreferences(void * proxy);
 	// Public Constructors
-	android_content_SharedPreferences();
+	// TODO: remove
+	// 
+	// android_content_SharedPreferences();
+	// 
 	// Default Destructor
 	virtual ~android_content_SharedPreferences();
 	// Functions

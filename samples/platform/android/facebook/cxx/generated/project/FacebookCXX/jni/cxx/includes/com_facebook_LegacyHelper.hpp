@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -60,6 +59,8 @@ public:
 	com_facebook_LegacyHelper(void * proxy);
 	// Public Constructors
 	com_facebook_LegacyHelper();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_LegacyHelper();
 	// Functions

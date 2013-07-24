@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -94,7 +93,10 @@ public:
 	// Public Constructors
 	java_lang_Byte(byte& arg0);
 	java_lang_Byte(AndroidCXX::java_lang_String& arg0);
-	java_lang_Byte();
+	// TODO: remove
+	// 
+	// java_lang_Byte();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Byte();
 	// Functions

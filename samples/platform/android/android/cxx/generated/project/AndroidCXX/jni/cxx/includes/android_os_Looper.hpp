@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -86,7 +85,10 @@ public:
 	android_os_Looper(const android_os_Looper& cc);
 	android_os_Looper(void * proxy);
 	// Public Constructors
-	android_os_Looper();
+	// TODO: remove
+	// 
+	// android_os_Looper();
+	// 
 	// Default Destructor
 	virtual ~android_os_Looper();
 	// Functions

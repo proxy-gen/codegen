@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -133,7 +132,10 @@ public:
 	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	android_widget_Spinner(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,int& arg3);
-	android_widget_Spinner();
+	// TODO: remove
+	// 
+	// android_widget_Spinner();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Spinner();
 	// Functions

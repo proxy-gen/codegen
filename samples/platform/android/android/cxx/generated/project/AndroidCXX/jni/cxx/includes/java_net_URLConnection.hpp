@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  	
@@ -187,7 +186,10 @@ public:
 	java_net_URLConnection(const java_net_URLConnection& cc);
 	java_net_URLConnection(void * proxy);
 	// Public Constructors
-	java_net_URLConnection();
+	// TODO: remove
+	// 
+	// java_net_URLConnection();
+	// 
 	// Default Destructor
 	virtual ~java_net_URLConnection();
 	// Functions

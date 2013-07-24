@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -340,7 +339,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_Activity"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -815,7 +814,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_app_Activity::android_app_Activity(const android_app_Activity& cc)
 {
@@ -858,6 +856,10 @@ android_app_Activity::android_app_Activity(void * proxy)
 
 	LOGV("android_app_Activity::android_app_Activity(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_app_Activity::android_app_Activity()
 {
@@ -931,7 +933,6 @@ AndroidCXX::android_app_Activity android_app_Activity::getParent()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_Activity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -949,7 +950,9 @@ AndroidCXX::android_app_Activity android_app_Activity::getParent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_Activity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_Activity) (AndroidCXX::android_app_Activity((AndroidCXX::android_app_Activity *) cxx_value));
+
+	AndroidCXX::android_app_Activity result((AndroidCXX::android_app_Activity) *((AndroidCXX::android_app_Activity *) cxx_value));
+	delete ((AndroidCXX::android_app_Activity *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -978,7 +981,6 @@ bool android_app_Activity::isDestroyed()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -996,7 +998,9 @@ bool android_app_Activity::isDestroyed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1183,7 +1187,6 @@ AndroidCXX::android_app_FragmentManager android_app_Activity::getFragmentManager
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_FragmentManager result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1201,7 +1204,9 @@ AndroidCXX::android_app_FragmentManager android_app_Activity::getFragmentManager
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_FragmentManager(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_FragmentManager) (AndroidCXX::android_app_FragmentManager((AndroidCXX::android_app_FragmentManager *) cxx_value));
+
+	AndroidCXX::android_app_FragmentManager result((AndroidCXX::android_app_FragmentManager) *((AndroidCXX::android_app_FragmentManager *) cxx_value));
+	delete ((AndroidCXX::android_app_FragmentManager *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1230,7 +1235,6 @@ AndroidCXX::android_app_LoaderManager android_app_Activity::getLoaderManager()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_LoaderManager result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1248,7 +1252,9 @@ AndroidCXX::android_app_LoaderManager android_app_Activity::getLoaderManager()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_LoaderManager(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_LoaderManager) (AndroidCXX::android_app_LoaderManager((AndroidCXX::android_app_LoaderManager *) cxx_value));
+
+	AndroidCXX::android_app_LoaderManager result((AndroidCXX::android_app_LoaderManager) *((AndroidCXX::android_app_LoaderManager *) cxx_value));
+	delete ((AndroidCXX::android_app_LoaderManager *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1557,7 +1563,6 @@ AndroidCXX::android_view_LayoutInflater android_app_Activity::getLayoutInflater(
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_LayoutInflater result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1575,7 +1580,9 @@ AndroidCXX::android_view_LayoutInflater android_app_Activity::getLayoutInflater(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_LayoutInflater(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_LayoutInflater) (AndroidCXX::android_view_LayoutInflater((AndroidCXX::android_view_LayoutInflater *) cxx_value));
+
+	AndroidCXX::android_view_LayoutInflater result((AndroidCXX::android_view_LayoutInflater) *((AndroidCXX::android_view_LayoutInflater *) cxx_value));
+	delete ((AndroidCXX::android_view_LayoutInflater *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1688,7 +1695,6 @@ AndroidCXX::android_view_View android_app_Activity::onCreateView(AndroidCXX::and
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1706,7 +1712,9 @@ AndroidCXX::android_view_View android_app_Activity::onCreateView(AndroidCXX::and
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1798,7 +1806,6 @@ AndroidCXX::android_view_View android_app_Activity::onCreateView(AndroidCXX::jav
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1816,7 +1823,9 @@ AndroidCXX::android_view_View android_app_Activity::onCreateView(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1943,7 +1952,6 @@ bool android_app_Activity::onCreateOptionsMenu(AndroidCXX::android_view_Menu& ar
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1961,7 +1969,9 @@ bool android_app_Activity::onCreateOptionsMenu(AndroidCXX::android_view_Menu& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2011,7 +2021,6 @@ bool android_app_Activity::onPrepareOptionsMenu(AndroidCXX::android_view_Menu& a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2029,7 +2038,9 @@ bool android_app_Activity::onPrepareOptionsMenu(AndroidCXX::android_view_Menu& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2079,7 +2090,6 @@ bool android_app_Activity::onOptionsItemSelected(AndroidCXX::android_view_MenuIt
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2097,7 +2107,9 @@ bool android_app_Activity::onOptionsItemSelected(AndroidCXX::android_view_MenuIt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2385,7 +2397,6 @@ bool android_app_Activity::onContextItemSelected(AndroidCXX::android_view_MenuIt
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2403,7 +2414,9 @@ bool android_app_Activity::onContextItemSelected(AndroidCXX::android_view_MenuIt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2656,7 +2669,6 @@ AndroidCXX::android_view_View android_app_Activity::findViewById(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2674,7 +2686,9 @@ AndroidCXX::android_view_View android_app_Activity::findViewById(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2703,7 +2717,6 @@ AndroidCXX::android_view_Window android_app_Activity::getWindow()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_Window result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2721,7 +2734,9 @@ AndroidCXX::android_view_Window android_app_Activity::getWindow()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_Window(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_Window) (AndroidCXX::android_view_Window((AndroidCXX::android_view_Window *) cxx_value));
+
+	AndroidCXX::android_view_Window result((AndroidCXX::android_view_Window) *((AndroidCXX::android_view_Window *) cxx_value));
+	delete ((AndroidCXX::android_view_Window *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2799,7 +2814,6 @@ bool android_app_Activity::isFinishing()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2817,7 +2831,9 @@ bool android_app_Activity::isFinishing()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3309,7 +3325,6 @@ AndroidCXX::java_lang_Object android_app_Activity::getSystemService(AndroidCXX::
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3327,7 +3342,9 @@ AndroidCXX::java_lang_Object android_app_Activity::getSystemService(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3426,7 +3443,6 @@ bool android_app_Activity::onCreatePanelMenu(int& arg0,AndroidCXX::android_view_
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3444,7 +3460,9 @@ bool android_app_Activity::onCreatePanelMenu(int& arg0,AndroidCXX::android_view_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3515,7 +3533,6 @@ bool android_app_Activity::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3533,7 +3550,9 @@ bool android_app_Activity::onKeyDown(int& arg0,AndroidCXX::android_view_KeyEvent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3604,7 +3623,6 @@ bool android_app_Activity::onMenuItemSelected(int& arg0,AndroidCXX::android_view
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3622,7 +3640,9 @@ bool android_app_Activity::onMenuItemSelected(int& arg0,AndroidCXX::android_view
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3784,7 +3804,6 @@ bool android_app_Activity::onPreparePanel(int& arg0,AndroidCXX::android_view_Vie
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3802,7 +3821,9 @@ bool android_app_Activity::onPreparePanel(int& arg0,AndroidCXX::android_view_Vie
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3831,7 +3852,6 @@ AndroidCXX::java_lang_Object android_app_Activity::onRetainNonConfigurationInsta
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3849,7 +3869,9 @@ AndroidCXX::java_lang_Object android_app_Activity::onRetainNonConfigurationInsta
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3878,7 +3900,6 @@ AndroidCXX::java_lang_Object android_app_Activity::getLastNonConfigurationInstan
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3896,7 +3917,9 @@ AndroidCXX::java_lang_Object android_app_Activity::getLastNonConfigurationInstan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3925,7 +3948,6 @@ AndroidCXX::android_view_MenuInflater android_app_Activity::getMenuInflater()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_MenuInflater result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3943,7 +3965,9 @@ AndroidCXX::android_view_MenuInflater android_app_Activity::getMenuInflater()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuInflater(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuInflater) (AndroidCXX::android_view_MenuInflater((AndroidCXX::android_view_MenuInflater *) cxx_value));
+
+	AndroidCXX::android_view_MenuInflater result((AndroidCXX::android_view_MenuInflater) *((AndroidCXX::android_view_MenuInflater *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuInflater *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4000,7 +4024,6 @@ AndroidCXX::android_content_Intent android_app_Activity::getIntent()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_Intent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4018,7 +4041,9 @@ AndroidCXX::android_content_Intent android_app_Activity::getIntent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Intent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Intent) (AndroidCXX::android_content_Intent((AndroidCXX::android_content_Intent *) cxx_value));
+
+	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
+	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4096,7 +4121,6 @@ AndroidCXX::android_app_Application android_app_Activity::getApplication()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_Application result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4114,7 +4138,9 @@ AndroidCXX::android_app_Application android_app_Activity::getApplication()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_Application(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_Application) (AndroidCXX::android_app_Application((AndroidCXX::android_app_Application *) cxx_value));
+
+	AndroidCXX::android_app_Application result((AndroidCXX::android_app_Application) *((AndroidCXX::android_app_Application *) cxx_value));
+	delete ((AndroidCXX::android_app_Application *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4143,7 +4169,6 @@ bool android_app_Activity::isChild()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4161,7 +4186,9 @@ bool android_app_Activity::isChild()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4190,7 +4217,6 @@ AndroidCXX::android_view_WindowManager android_app_Activity::getWindowManager()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_WindowManager result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4208,7 +4234,9 @@ AndroidCXX::android_view_WindowManager android_app_Activity::getWindowManager()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_WindowManager(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_WindowManager) (AndroidCXX::android_view_WindowManager((AndroidCXX::android_view_WindowManager *) cxx_value));
+
+	AndroidCXX::android_view_WindowManager result((AndroidCXX::android_view_WindowManager) *((AndroidCXX::android_view_WindowManager *) cxx_value));
+	delete ((AndroidCXX::android_view_WindowManager *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4237,7 +4265,6 @@ AndroidCXX::android_view_View android_app_Activity::getCurrentFocus()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4255,7 +4282,9 @@ AndroidCXX::android_view_View android_app_Activity::getCurrentFocus()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4326,7 +4355,6 @@ bool android_app_Activity::onCreateThumbnail(AndroidCXX::android_graphics_Bitmap
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4344,7 +4372,9 @@ bool android_app_Activity::onCreateThumbnail(AndroidCXX::android_graphics_Bitmap
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4373,7 +4403,6 @@ AndroidCXX::java_lang_CharSequence android_app_Activity::onCreateDescription()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4391,7 +4420,9 @@ AndroidCXX::java_lang_CharSequence android_app_Activity::onCreateDescription()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4420,7 +4451,6 @@ int android_app_Activity::getChangingConfigurations()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4438,7 +4468,9 @@ int android_app_Activity::getChangingConfigurations()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4657,7 +4689,6 @@ AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCX
 		jarg4 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4675,7 +4706,9 @@ AndroidCXX::android_database_Cursor android_app_Activity::managedQuery(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4802,7 +4835,6 @@ AndroidCXX::android_app_ActionBar android_app_Activity::getActionBar()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_ActionBar result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4820,7 +4852,9 @@ AndroidCXX::android_app_ActionBar android_app_Activity::getActionBar()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_ActionBar(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_ActionBar) (AndroidCXX::android_app_ActionBar((AndroidCXX::android_app_ActionBar *) cxx_value));
+
+	AndroidCXX::android_app_ActionBar result((AndroidCXX::android_app_ActionBar) *((AndroidCXX::android_app_ActionBar *) cxx_value));
+	delete ((AndroidCXX::android_app_ActionBar *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5227,7 +5261,6 @@ bool android_app_Activity::onKeyLongPress(int& arg0,AndroidCXX::android_view_Key
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5245,7 +5278,9 @@ bool android_app_Activity::onKeyLongPress(int& arg0,AndroidCXX::android_view_Key
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5316,7 +5351,6 @@ bool android_app_Activity::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& 
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5334,7 +5368,9 @@ bool android_app_Activity::onKeyUp(int& arg0,AndroidCXX::android_view_KeyEvent& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5426,7 +5462,6 @@ bool android_app_Activity::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5444,7 +5479,9 @@ bool android_app_Activity::onKeyMultiple(int& arg0,int& arg1,AndroidCXX::android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5515,7 +5552,6 @@ bool android_app_Activity::onKeyShortcut(int& arg0,AndroidCXX::android_view_KeyE
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5533,7 +5569,9 @@ bool android_app_Activity::onKeyShortcut(int& arg0,AndroidCXX::android_view_KeyE
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5583,7 +5621,6 @@ bool android_app_Activity::onTouchEvent(AndroidCXX::android_view_MotionEvent& ar
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5601,7 +5638,9 @@ bool android_app_Activity::onTouchEvent(AndroidCXX::android_view_MotionEvent& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5651,7 +5690,6 @@ bool android_app_Activity::onTrackballEvent(AndroidCXX::android_view_MotionEvent
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5669,7 +5707,9 @@ bool android_app_Activity::onTrackballEvent(AndroidCXX::android_view_MotionEvent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5719,7 +5759,6 @@ bool android_app_Activity::onGenericMotionEvent(AndroidCXX::android_view_MotionE
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5737,7 +5776,9 @@ bool android_app_Activity::onGenericMotionEvent(AndroidCXX::android_view_MotionE
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5976,7 +6017,6 @@ bool android_app_Activity::hasWindowFocus()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -5994,7 +6034,9 @@ bool android_app_Activity::hasWindowFocus()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6044,7 +6086,6 @@ bool android_app_Activity::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6062,7 +6103,9 @@ bool android_app_Activity::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6112,7 +6155,6 @@ bool android_app_Activity::dispatchKeyShortcutEvent(AndroidCXX::android_view_Key
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6130,7 +6172,9 @@ bool android_app_Activity::dispatchKeyShortcutEvent(AndroidCXX::android_view_Key
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6180,7 +6224,6 @@ bool android_app_Activity::dispatchTouchEvent(AndroidCXX::android_view_MotionEve
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6198,7 +6241,9 @@ bool android_app_Activity::dispatchTouchEvent(AndroidCXX::android_view_MotionEve
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6248,7 +6293,6 @@ bool android_app_Activity::dispatchTrackballEvent(AndroidCXX::android_view_Motio
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6266,7 +6310,9 @@ bool android_app_Activity::dispatchTrackballEvent(AndroidCXX::android_view_Motio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6316,7 +6362,6 @@ bool android_app_Activity::dispatchGenericMotionEvent(AndroidCXX::android_view_M
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6334,7 +6379,9 @@ bool android_app_Activity::dispatchGenericMotionEvent(AndroidCXX::android_view_M
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6384,7 +6431,6 @@ bool android_app_Activity::dispatchPopulateAccessibilityEvent(AndroidCXX::androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6402,7 +6448,9 @@ bool android_app_Activity::dispatchPopulateAccessibilityEvent(AndroidCXX::androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6452,7 +6500,6 @@ AndroidCXX::android_view_View android_app_Activity::onCreatePanelView(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -6470,7 +6517,9 @@ AndroidCXX::android_view_View android_app_Activity::onCreatePanelView(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6541,7 +6590,6 @@ bool android_app_Activity::onMenuOpened(int& arg0,AndroidCXX::android_view_Menu&
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6559,7 +6607,9 @@ bool android_app_Activity::onMenuOpened(int& arg0,AndroidCXX::android_view_Menu&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6588,7 +6638,6 @@ bool android_app_Activity::onNavigateUp()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6606,7 +6655,9 @@ bool android_app_Activity::onNavigateUp()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6656,7 +6707,6 @@ bool android_app_Activity::onNavigateUpFromChild(AndroidCXX::android_app_Activit
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6674,7 +6724,9 @@ bool android_app_Activity::onNavigateUpFromChild(AndroidCXX::android_app_Activit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -7025,7 +7077,6 @@ bool android_app_Activity::showDialog(int& arg0,AndroidCXX::android_os_Bundle& a
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -7043,7 +7094,9 @@ bool android_app_Activity::showDialog(int& arg0,AndroidCXX::android_os_Bundle& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -7219,7 +7272,6 @@ bool android_app_Activity::onSearchRequested()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -7237,7 +7289,9 @@ bool android_app_Activity::onSearchRequested()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -7518,7 +7572,6 @@ bool android_app_Activity::requestWindowFeature(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -7536,7 +7589,9 @@ bool android_app_Activity::requestWindowFeature(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -8237,7 +8292,6 @@ bool android_app_Activity::startActivityIfNeeded(AndroidCXX::android_content_Int
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -8255,7 +8309,9 @@ bool android_app_Activity::startActivityIfNeeded(AndroidCXX::android_content_Int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -8326,7 +8382,6 @@ bool android_app_Activity::startActivityIfNeeded(AndroidCXX::android_content_Int
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -8344,7 +8399,9 @@ bool android_app_Activity::startActivityIfNeeded(AndroidCXX::android_content_Int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -8394,7 +8451,6 @@ bool android_app_Activity::startNextMatchingActivity(AndroidCXX::android_content
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -8412,7 +8468,9 @@ bool android_app_Activity::startNextMatchingActivity(AndroidCXX::android_content
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -8483,7 +8541,6 @@ bool android_app_Activity::startNextMatchingActivity(AndroidCXX::android_content
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -8501,7 +8558,9 @@ bool android_app_Activity::startNextMatchingActivity(AndroidCXX::android_content
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -9293,7 +9352,6 @@ AndroidCXX::java_lang_String android_app_Activity::getCallingPackage()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -9311,7 +9369,9 @@ AndroidCXX::java_lang_String android_app_Activity::getCallingPackage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -9340,7 +9400,6 @@ AndroidCXX::android_content_ComponentName android_app_Activity::getCallingActivi
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_ComponentName result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -9358,7 +9417,9 @@ AndroidCXX::android_content_ComponentName android_app_Activity::getCallingActivi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ComponentName(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ComponentName) (AndroidCXX::android_content_ComponentName((AndroidCXX::android_content_ComponentName *) cxx_value));
+
+	AndroidCXX::android_content_ComponentName result((AndroidCXX::android_content_ComponentName) *((AndroidCXX::android_content_ComponentName *) cxx_value));
+	delete ((AndroidCXX::android_content_ComponentName *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -9436,7 +9497,6 @@ bool android_app_Activity::isChangingConfigurations()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -9454,7 +9514,9 @@ bool android_app_Activity::isChangingConfigurations()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -9770,7 +9832,6 @@ AndroidCXX::android_app_PendingIntent android_app_Activity::createPendingResult(
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_app_PendingIntent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -9788,7 +9849,9 @@ AndroidCXX::android_app_PendingIntent android_app_Activity::createPendingResult(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_PendingIntent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_PendingIntent) (AndroidCXX::android_app_PendingIntent((AndroidCXX::android_app_PendingIntent *) cxx_value));
+
+	AndroidCXX::android_app_PendingIntent result((AndroidCXX::android_app_PendingIntent) *((AndroidCXX::android_app_PendingIntent *) cxx_value));
+	delete ((AndroidCXX::android_app_PendingIntent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -9866,7 +9929,6 @@ int android_app_Activity::getRequestedOrientation()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -9884,7 +9946,9 @@ int android_app_Activity::getRequestedOrientation()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -9913,7 +9977,6 @@ int android_app_Activity::getTaskId()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -9931,7 +9994,9 @@ int android_app_Activity::getTaskId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -9960,7 +10025,6 @@ bool android_app_Activity::isTaskRoot()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -9978,7 +10042,9 @@ bool android_app_Activity::isTaskRoot()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -10028,7 +10094,6 @@ bool android_app_Activity::moveTaskToBack(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -10046,7 +10111,9 @@ bool android_app_Activity::moveTaskToBack(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -10075,7 +10142,6 @@ AndroidCXX::java_lang_String android_app_Activity::getLocalClassName()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -10093,7 +10159,9 @@ AndroidCXX::java_lang_String android_app_Activity::getLocalClassName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -10122,7 +10190,6 @@ AndroidCXX::android_content_ComponentName android_app_Activity::getComponentName
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_ComponentName result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -10140,7 +10207,9 @@ AndroidCXX::android_content_ComponentName android_app_Activity::getComponentName
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ComponentName(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ComponentName) (AndroidCXX::android_content_ComponentName((AndroidCXX::android_content_ComponentName *) cxx_value));
+
+	AndroidCXX::android_content_ComponentName result((AndroidCXX::android_content_ComponentName) *((AndroidCXX::android_content_ComponentName *) cxx_value));
+	delete ((AndroidCXX::android_content_ComponentName *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -10190,7 +10259,6 @@ AndroidCXX::android_content_SharedPreferences android_app_Activity::getPreferenc
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_SharedPreferences result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -10208,7 +10276,9 @@ AndroidCXX::android_content_SharedPreferences android_app_Activity::getPreferenc
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences) (AndroidCXX::android_content_SharedPreferences((AndroidCXX::android_content_SharedPreferences *) cxx_value));
+
+	AndroidCXX::android_content_SharedPreferences result((AndroidCXX::android_content_SharedPreferences) *((AndroidCXX::android_content_SharedPreferences *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -10384,7 +10454,6 @@ AndroidCXX::java_lang_CharSequence android_app_Activity::getTitle()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -10402,7 +10471,9 @@ AndroidCXX::java_lang_CharSequence android_app_Activity::getTitle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -10431,7 +10502,6 @@ int android_app_Activity::getTitleColor()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -10449,7 +10519,9 @@ int android_app_Activity::getTitleColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -10772,7 +10844,6 @@ int android_app_Activity::getVolumeControlStream()
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -10790,7 +10861,9 @@ int android_app_Activity::getVolumeControlStream()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -10889,7 +10962,6 @@ AndroidCXX::android_view_ActionMode android_app_Activity::startActionMode(Androi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ActionMode result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -10907,7 +10979,9 @@ AndroidCXX::android_view_ActionMode android_app_Activity::startActionMode(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ActionMode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ActionMode) (AndroidCXX::android_view_ActionMode((AndroidCXX::android_view_ActionMode *) cxx_value));
+
+	AndroidCXX::android_view_ActionMode result((AndroidCXX::android_view_ActionMode) *((AndroidCXX::android_view_ActionMode *) cxx_value));
+	delete ((AndroidCXX::android_view_ActionMode *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -10957,7 +11031,6 @@ AndroidCXX::android_view_ActionMode android_app_Activity::onWindowStartingAction
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ActionMode result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -10975,7 +11048,9 @@ AndroidCXX::android_view_ActionMode android_app_Activity::onWindowStartingAction
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ActionMode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ActionMode) (AndroidCXX::android_view_ActionMode((AndroidCXX::android_view_ActionMode *) cxx_value));
+
+	AndroidCXX::android_view_ActionMode result((AndroidCXX::android_view_ActionMode) *((AndroidCXX::android_view_ActionMode *) cxx_value));
+	delete ((AndroidCXX::android_view_ActionMode *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -11123,7 +11198,6 @@ bool android_app_Activity::shouldUpRecreateTask(AndroidCXX::android_content_Inte
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -11141,7 +11215,9 @@ bool android_app_Activity::shouldUpRecreateTask(AndroidCXX::android_content_Inte
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -11191,7 +11267,6 @@ bool android_app_Activity::navigateUpTo(AndroidCXX::android_content_Intent& arg0
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -11209,7 +11284,9 @@ bool android_app_Activity::navigateUpTo(AndroidCXX::android_content_Intent& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -11280,7 +11357,6 @@ bool android_app_Activity::navigateUpToFromChild(AndroidCXX::android_app_Activit
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -11298,7 +11374,9 @@ bool android_app_Activity::navigateUpToFromChild(AndroidCXX::android_app_Activit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -11327,7 +11405,6 @@ AndroidCXX::android_content_Intent android_app_Activity::getParentActivityIntent
 	LOGV("android_app_Activity jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_Intent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -11345,7 +11422,9 @@ AndroidCXX::android_content_Intent android_app_Activity::getParentActivityIntent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Intent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Intent) (AndroidCXX::android_content_Intent((AndroidCXX::android_content_Intent *) cxx_value));
+
+	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
+	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -95,7 +94,10 @@ public:
 	android_text_method_MovementMethod(const android_text_method_MovementMethod& cc);
 	android_text_method_MovementMethod(void * proxy);
 	// Public Constructors
-	android_text_method_MovementMethod();
+	// TODO: remove
+	// 
+	// android_text_method_MovementMethod();
+	// 
 	// Default Destructor
 	virtual ~android_text_method_MovementMethod();
 	// Functions

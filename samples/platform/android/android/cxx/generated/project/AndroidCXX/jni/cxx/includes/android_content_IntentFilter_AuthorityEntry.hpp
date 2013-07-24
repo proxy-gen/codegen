@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -65,7 +64,10 @@ public:
 	android_content_IntentFilter_AuthorityEntry(void * proxy);
 	// Public Constructors
 	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
-	android_content_IntentFilter_AuthorityEntry();
+	// TODO: remove
+	// 
+	// android_content_IntentFilter_AuthorityEntry();
+	// 
 	// Default Destructor
 	virtual ~android_content_IntentFilter_AuthorityEntry();
 	// Functions

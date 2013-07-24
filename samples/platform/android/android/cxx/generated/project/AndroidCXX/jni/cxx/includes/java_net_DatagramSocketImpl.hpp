@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_net_DatagramSocketImpl
@@ -50,6 +49,8 @@ public:
 	java_net_DatagramSocketImpl(void * proxy);
 	// Public Constructors
 	java_net_DatagramSocketImpl();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImpl();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -543,6 +542,8 @@ public:
 	android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1);
 	android_content_Intent(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
 	android_content_Intent(AndroidCXX::java_lang_String& arg0,AndroidCXX::android_net_Uri& arg1,AndroidCXX::android_content_Context& arg2,AndroidCXX::java_lang_Class& arg3);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_Intent();
 	// Functions

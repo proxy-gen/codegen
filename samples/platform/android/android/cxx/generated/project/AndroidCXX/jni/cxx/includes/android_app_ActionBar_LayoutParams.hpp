@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -79,7 +78,10 @@ public:
 	android_app_ActionBar_LayoutParams(int& arg0);
 	android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams& arg0);
 	android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_app_ActionBar_LayoutParams();
+	// TODO: remove
+	// 
+	// android_app_ActionBar_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar_LayoutParams();
 	// Functions

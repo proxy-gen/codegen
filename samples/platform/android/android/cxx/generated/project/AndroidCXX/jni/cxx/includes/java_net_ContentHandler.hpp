@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -70,6 +69,8 @@ public:
 	java_net_ContentHandler(void * proxy);
 	// Public Constructors
 	java_net_ContentHandler();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions

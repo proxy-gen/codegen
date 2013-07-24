@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -347,6 +346,8 @@ public:
 	android_content_pm_PackageManager(void * proxy);
 	// Public Constructors
 	android_content_pm_PackageManager();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_PackageManager();
 	// Functions

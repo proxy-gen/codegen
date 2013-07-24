@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -111,7 +110,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_net_Uri"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -265,7 +264,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_net_Uri::android_net_Uri(const android_net_Uri& cc)
 {
@@ -308,40 +306,45 @@ android_net_Uri::android_net_Uri(void * proxy)
 
 	LOGV("android_net_Uri::android_net_Uri(void * proxy) exit");
 }
-android_net_Uri::android_net_Uri()
-{
-	LOGV("android_net_Uri::android_net_Uri() enter");	
+// TODO: remove
+// 
+// 
+// android_net_Uri::android_net_Uri()
+// {
+// 	LOGV("android_net_Uri::android_net_Uri() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/net/Uri";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/net/Uri";
 
-	LOGV("android_net_Uri className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_net_Uri className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_net_Uri cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_net_Uri jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_net_Uri cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_net_Uri jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_net_Uri::android_net_Uri() exit");	
-}
+// 	LOGV("android_net_Uri::android_net_Uri() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_net_Uri::~android_net_Uri()
@@ -400,7 +403,6 @@ bool android_net_Uri::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -418,7 +420,9 @@ bool android_net_Uri::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -447,7 +451,6 @@ AndroidCXX::java_lang_String android_net_Uri::toString()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -465,7 +468,9 @@ AndroidCXX::java_lang_String android_net_Uri::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -494,7 +499,6 @@ int android_net_Uri::hashCode()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -512,7 +516,9 @@ int android_net_Uri::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -562,7 +568,6 @@ int android_net_Uri::compareTo(AndroidCXX::android_net_Uri& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -580,7 +585,9 @@ int android_net_Uri::compareTo(AndroidCXX::android_net_Uri& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -630,7 +637,6 @@ AndroidCXX::java_lang_String android_net_Uri::decode(AndroidCXX::java_lang_Strin
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -648,7 +654,9 @@ AndroidCXX::java_lang_String android_net_Uri::decode(AndroidCXX::java_lang_Strin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -698,7 +706,6 @@ AndroidCXX::java_lang_String android_net_Uri::encode(AndroidCXX::java_lang_Strin
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -716,7 +723,9 @@ AndroidCXX::java_lang_String android_net_Uri::encode(AndroidCXX::java_lang_Strin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -787,7 +796,6 @@ AndroidCXX::java_lang_String android_net_Uri::encode(AndroidCXX::java_lang_Strin
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -805,7 +813,9 @@ AndroidCXX::java_lang_String android_net_Uri::encode(AndroidCXX::java_lang_Strin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -834,7 +844,6 @@ bool android_net_Uri::isAbsolute()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -852,7 +861,9 @@ bool android_net_Uri::isAbsolute()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -881,7 +892,6 @@ AndroidCXX::java_lang_String android_net_Uri::getPath()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -899,7 +909,9 @@ AndroidCXX::java_lang_String android_net_Uri::getPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -928,7 +940,6 @@ bool android_net_Uri::isOpaque()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -946,7 +957,9 @@ bool android_net_Uri::isOpaque()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -975,7 +988,6 @@ AndroidCXX::java_lang_String android_net_Uri::getScheme()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -993,7 +1005,9 @@ AndroidCXX::java_lang_String android_net_Uri::getScheme()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1022,7 +1036,6 @@ AndroidCXX::java_lang_String android_net_Uri::getAuthority()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1040,7 +1053,9 @@ AndroidCXX::java_lang_String android_net_Uri::getAuthority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1069,7 +1084,6 @@ AndroidCXX::java_lang_String android_net_Uri::getFragment()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1087,7 +1101,9 @@ AndroidCXX::java_lang_String android_net_Uri::getFragment()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1116,7 +1132,6 @@ AndroidCXX::java_lang_String android_net_Uri::getQuery()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1134,7 +1149,9 @@ AndroidCXX::java_lang_String android_net_Uri::getQuery()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1184,7 +1201,6 @@ AndroidCXX::android_net_Uri android_net_Uri::parse(AndroidCXX::java_lang_String&
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1202,7 +1218,9 @@ AndroidCXX::android_net_Uri android_net_Uri::parse(AndroidCXX::java_lang_String&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1231,7 +1249,6 @@ AndroidCXX::java_lang_String android_net_Uri::getUserInfo()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1249,7 +1266,9 @@ AndroidCXX::java_lang_String android_net_Uri::getUserInfo()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1278,7 +1297,6 @@ int android_net_Uri::getPort()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1296,7 +1314,9 @@ int android_net_Uri::getPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1325,7 +1345,6 @@ AndroidCXX::java_lang_String android_net_Uri::getHost()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1343,7 +1362,9 @@ AndroidCXX::java_lang_String android_net_Uri::getHost()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1372,7 +1393,6 @@ AndroidCXX::java_lang_String android_net_Uri::getSchemeSpecificPart()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1390,7 +1410,9 @@ AndroidCXX::java_lang_String android_net_Uri::getSchemeSpecificPart()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1419,7 +1441,6 @@ bool android_net_Uri::isHierarchical()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1437,7 +1458,9 @@ bool android_net_Uri::isHierarchical()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1466,7 +1489,6 @@ bool android_net_Uri::isRelative()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1484,7 +1506,9 @@ bool android_net_Uri::isRelative()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1513,7 +1537,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedSchemeSpecificPart()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1531,7 +1554,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedSchemeSpecificPart()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1560,7 +1585,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedAuthority()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1578,7 +1602,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedAuthority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1607,7 +1633,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedUserInfo()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1625,7 +1650,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedUserInfo()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1654,7 +1681,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedPath()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1672,7 +1698,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1701,7 +1729,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedQuery()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1719,7 +1746,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedQuery()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1748,7 +1777,6 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedFragment()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1766,7 +1794,9 @@ AndroidCXX::java_lang_String android_net_Uri::getEncodedFragment()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1795,7 +1825,6 @@ AndroidCXX::java_util_List android_net_Uri::getPathSegments()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1831,7 +1860,9 @@ AndroidCXX::java_util_List android_net_Uri::getPathSegments()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1860,7 +1891,6 @@ AndroidCXX::java_lang_String android_net_Uri::getLastPathSegment()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1878,7 +1908,9 @@ AndroidCXX::java_lang_String android_net_Uri::getLastPathSegment()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1907,7 +1939,6 @@ AndroidCXX::java_lang_String android_net_Uri::toSafeString()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1925,7 +1956,9 @@ AndroidCXX::java_lang_String android_net_Uri::toSafeString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1975,7 +2008,6 @@ AndroidCXX::android_net_Uri android_net_Uri::fromFile(AndroidCXX::java_io_File& 
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1993,7 +2025,9 @@ AndroidCXX::android_net_Uri android_net_Uri::fromFile(AndroidCXX::java_io_File& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2085,7 +2119,6 @@ AndroidCXX::android_net_Uri android_net_Uri::fromParts(AndroidCXX::java_lang_Str
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2103,7 +2136,9 @@ AndroidCXX::android_net_Uri android_net_Uri::fromParts(AndroidCXX::java_lang_Str
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2132,7 +2167,6 @@ AndroidCXX::java_util_Set android_net_Uri::getQueryParameterNames()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2168,7 +2202,9 @@ AndroidCXX::java_util_Set android_net_Uri::getQueryParameterNames()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
+
+	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
+	delete ((AndroidCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2218,7 +2254,6 @@ AndroidCXX::java_util_List android_net_Uri::getQueryParameters(AndroidCXX::java_
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2254,7 +2289,9 @@ AndroidCXX::java_util_List android_net_Uri::getQueryParameters(AndroidCXX::java_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2304,7 +2341,6 @@ AndroidCXX::java_lang_String android_net_Uri::getQueryParameter(AndroidCXX::java
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2322,7 +2358,9 @@ AndroidCXX::java_lang_String android_net_Uri::getQueryParameter(AndroidCXX::java
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2393,7 +2431,6 @@ bool android_net_Uri::getBooleanQueryParameter(AndroidCXX::java_lang_String& arg
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2411,7 +2448,9 @@ bool android_net_Uri::getBooleanQueryParameter(AndroidCXX::java_lang_String& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2440,7 +2479,6 @@ AndroidCXX::android_net_Uri android_net_Uri::normalizeScheme()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2458,7 +2496,9 @@ AndroidCXX::android_net_Uri android_net_Uri::normalizeScheme()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2529,7 +2569,6 @@ AndroidCXX::android_net_Uri android_net_Uri::withAppendedPath(AndroidCXX::androi
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2547,7 +2586,9 @@ AndroidCXX::android_net_Uri android_net_Uri::withAppendedPath(AndroidCXX::androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2576,7 +2617,6 @@ AndroidCXX::android_net_Uri android_net_Uri::getCanonicalUri()
 	LOGV("android_net_Uri jni address %d", javaObject);
 
 
-	AndroidCXX::android_net_Uri result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2594,7 +2634,9 @@ AndroidCXX::android_net_Uri android_net_Uri::getCanonicalUri()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_Uri) (AndroidCXX::android_net_Uri((AndroidCXX::android_net_Uri *) cxx_value));
+
+	AndroidCXX::android_net_Uri result((AndroidCXX::android_net_Uri) *((AndroidCXX::android_net_Uri *) cxx_value));
+	delete ((AndroidCXX::android_net_Uri *) cxx_value);
 		
 	jni->popLocalFrame();
 

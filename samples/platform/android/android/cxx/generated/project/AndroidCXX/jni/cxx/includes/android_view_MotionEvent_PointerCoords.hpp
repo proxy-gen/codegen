@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -61,6 +60,8 @@ public:
 	// Public Constructors
 	android_view_MotionEvent_PointerCoords();
 	android_view_MotionEvent_PointerCoords(AndroidCXX::android_view_MotionEvent_PointerCoords& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerCoords();
 	// Functions

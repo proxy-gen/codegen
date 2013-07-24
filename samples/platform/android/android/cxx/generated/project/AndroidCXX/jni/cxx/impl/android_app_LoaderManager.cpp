@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -43,7 +42,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_LoaderManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -89,7 +88,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_app_LoaderManager::android_app_LoaderManager(const android_app_LoaderManager& cc)
 {
@@ -132,6 +130,10 @@ android_app_LoaderManager::android_app_LoaderManager(void * proxy)
 
 	LOGV("android_app_LoaderManager::android_app_LoaderManager(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_app_LoaderManager::android_app_LoaderManager()
 {
@@ -226,7 +228,6 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::getLoader(int& arg
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -262,7 +263,9 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::getLoader(int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Loader) (AndroidCXX::android_content_Loader((AndroidCXX::android_content_Loader *) cxx_value));
+
+	AndroidCXX::android_content_Loader result((AndroidCXX::android_content_Loader) *((AndroidCXX::android_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_content_Loader *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -502,7 +505,6 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::initLoader(int& ar
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -538,7 +540,9 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::initLoader(int& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Loader) (AndroidCXX::android_content_Loader((AndroidCXX::android_content_Loader *) cxx_value));
+
+	AndroidCXX::android_content_Loader result((AndroidCXX::android_content_Loader) *((AndroidCXX::android_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_content_Loader *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -648,7 +652,6 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::restartLoader(int&
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_Loader result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -684,7 +687,9 @@ AndroidCXX::android_content_Loader android_app_LoaderManager::restartLoader(int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Loader(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Loader) (AndroidCXX::android_content_Loader((AndroidCXX::android_content_Loader *) cxx_value));
+
+	AndroidCXX::android_content_Loader result((AndroidCXX::android_content_Loader) *((AndroidCXX::android_content_Loader *) cxx_value));
+	delete ((AndroidCXX::android_content_Loader *) cxx_value);
 		
 	jni->popLocalFrame();
 

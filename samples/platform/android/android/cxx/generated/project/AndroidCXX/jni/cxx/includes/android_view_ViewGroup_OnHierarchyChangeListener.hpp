@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,7 +57,10 @@ public:
 	android_view_ViewGroup_OnHierarchyChangeListener(const android_view_ViewGroup_OnHierarchyChangeListener& cc);
 	android_view_ViewGroup_OnHierarchyChangeListener(void * proxy);
 	// Public Constructors
-	android_view_ViewGroup_OnHierarchyChangeListener();
+	// TODO: remove
+	// 
+	// android_view_ViewGroup_OnHierarchyChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewGroup_OnHierarchyChangeListener();
 	// Functions

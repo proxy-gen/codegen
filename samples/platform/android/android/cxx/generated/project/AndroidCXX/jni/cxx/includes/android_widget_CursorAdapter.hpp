@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -138,7 +137,10 @@ public:
 	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,bool& arg2);
 	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2);
 	android_widget_CursorAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1);
-	android_widget_CursorAdapter();
+	// TODO: remove
+	// 
+	// android_widget_CursorAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_CursorAdapter();
 	// Functions

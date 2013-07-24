@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -134,7 +133,10 @@ public:
 	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
 	java_nio_charset_Charset(void * proxy);
 	// Public Constructors
-	java_nio_charset_Charset();
+	// TODO: remove
+	// 
+	// java_nio_charset_Charset();
+	// 
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions

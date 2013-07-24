@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -111,6 +110,8 @@ public:
 	android_app_ActionBar_Tab(void * proxy);
 	// Public Constructors
 	android_app_ActionBar_Tab();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar_Tab();
 	// Functions

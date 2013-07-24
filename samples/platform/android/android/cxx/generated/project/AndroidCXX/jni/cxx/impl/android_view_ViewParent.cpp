@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -76,7 +75,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewParent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -176,7 +175,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_ViewParent::android_view_ViewParent(const android_view_ViewParent& cc)
 {
@@ -219,40 +217,45 @@ android_view_ViewParent::android_view_ViewParent(void * proxy)
 
 	LOGV("android_view_ViewParent::android_view_ViewParent(void * proxy) exit");
 }
-android_view_ViewParent::android_view_ViewParent()
-{
-	LOGV("android_view_ViewParent::android_view_ViewParent() enter");	
+// TODO: remove
+// 
+// 
+// android_view_ViewParent::android_view_ViewParent()
+// {
+// 	LOGV("android_view_ViewParent::android_view_ViewParent() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ViewParent";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_ViewParent cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_ViewParent jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_ViewParent cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_ViewParent jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewParent::android_view_ViewParent() exit");	
-}
+// 	LOGV("android_view_ViewParent::android_view_ViewParent() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_ViewParent::~android_view_ViewParent()
@@ -290,7 +293,6 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParent()
 	LOGV("android_view_ViewParent jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_ViewParent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -308,7 +310,9 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewParent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewParent) (AndroidCXX::android_view_ViewParent((AndroidCXX::android_view_ViewParent *) cxx_value));
+
+	AndroidCXX::android_view_ViewParent result((AndroidCXX::android_view_ViewParent) *((AndroidCXX::android_view_ViewParent *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewParent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -477,7 +481,6 @@ bool android_view_ViewParent::showContextMenuForChild(AndroidCXX::android_view_V
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -495,7 +498,9 @@ bool android_view_ViewParent::showContextMenuForChild(AndroidCXX::android_view_V
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -566,7 +571,6 @@ AndroidCXX::android_view_ActionMode android_view_ViewParent::startActionModeForC
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ActionMode result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -584,7 +588,9 @@ AndroidCXX::android_view_ActionMode android_view_ViewParent::startActionModeForC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ActionMode(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ActionMode) (AndroidCXX::android_view_ActionMode((AndroidCXX::android_view_ActionMode *) cxx_value));
+
+	AndroidCXX::android_view_ActionMode result((AndroidCXX::android_view_ActionMode) *((AndroidCXX::android_view_ActionMode *) cxx_value));
+	delete ((AndroidCXX::android_view_ActionMode *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -655,7 +661,6 @@ AndroidCXX::android_view_View android_view_ViewParent::focusSearch(AndroidCXX::a
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -673,7 +678,9 @@ AndroidCXX::android_view_View android_view_ViewParent::focusSearch(AndroidCXX::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -765,7 +772,6 @@ bool android_view_ViewParent::requestChildRectangleOnScreen(AndroidCXX::android_
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -783,7 +789,9 @@ bool android_view_ViewParent::requestChildRectangleOnScreen(AndroidCXX::android_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -854,7 +862,6 @@ bool android_view_ViewParent::requestSendAccessibilityEvent(AndroidCXX::android_
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -872,7 +879,9 @@ bool android_view_ViewParent::requestSendAccessibilityEvent(AndroidCXX::android_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1227,7 +1236,6 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::invalidateChildInPa
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewParent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1245,7 +1253,9 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::invalidateChildInPa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewParent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewParent) (AndroidCXX::android_view_ViewParent((AndroidCXX::android_view_ViewParent *) cxx_value));
+
+	AndroidCXX::android_view_ViewParent result((AndroidCXX::android_view_ViewParent) *((AndroidCXX::android_view_ViewParent *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewParent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1337,7 +1347,6 @@ bool android_view_ViewParent::getChildVisibleRect(AndroidCXX::android_view_View&
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1355,7 +1364,9 @@ bool android_view_ViewParent::getChildVisibleRect(AndroidCXX::android_view_View&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1510,7 +1521,6 @@ bool android_view_ViewParent::isLayoutRequested()
 	LOGV("android_view_ViewParent jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1528,7 +1538,9 @@ bool android_view_ViewParent::isLayoutRequested()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1634,7 +1646,6 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParentForAccessi
 	LOGV("android_view_ViewParent jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_ViewParent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1652,7 +1663,9 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParentForAccessi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewParent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewParent) (AndroidCXX::android_view_ViewParent((AndroidCXX::android_view_ViewParent *) cxx_value));
+
+	AndroidCXX::android_view_ViewParent result((AndroidCXX::android_view_ViewParent) *((AndroidCXX::android_view_ViewParent *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewParent *) cxx_value);
 		
 	jni->popLocalFrame();
 

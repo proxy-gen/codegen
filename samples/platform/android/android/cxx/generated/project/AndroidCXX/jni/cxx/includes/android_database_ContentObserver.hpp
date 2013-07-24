@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -66,7 +65,10 @@ public:
 	android_database_ContentObserver(void * proxy);
 	// Public Constructors
 	android_database_ContentObserver(AndroidCXX::android_os_Handler& arg0);
-	android_database_ContentObserver();
+	// TODO: remove
+	// 
+	// android_database_ContentObserver();
+	// 
 	// Default Destructor
 	virtual ~android_database_ContentObserver();
 	// Functions

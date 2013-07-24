@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -211,7 +210,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteDatabase"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -587,7 +586,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase(const android_database_sqlite_SQLiteDatabase& cc)
 {
@@ -630,40 +628,45 @@ android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase(v
 
 	LOGV("android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase(void * proxy) exit");
 }
-android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase()
-{
-	LOGV("android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase() enter");	
+// TODO: remove
+// 
+// 
+// android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase()
+// {
+// 	LOGV("android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/database/sqlite/SQLiteDatabase";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_database_sqlite_SQLiteDatabase cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_database_sqlite_SQLiteDatabase cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase() exit");	
-}
+// 	LOGV("android_database_sqlite_SQLiteDatabase::android_database_sqlite_SQLiteDatabase() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_database_sqlite_SQLiteDatabase::~android_database_sqlite_SQLiteDatabase()
@@ -701,7 +704,6 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::toString()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -719,7 +721,9 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -811,7 +815,6 @@ long android_database_sqlite_SQLiteDatabase::replace(AndroidCXX::java_lang_Strin
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -829,7 +832,9 @@ long android_database_sqlite_SQLiteDatabase::replace(AndroidCXX::java_lang_Strin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -939,7 +944,6 @@ int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String
 		jarg2 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -957,7 +961,9 @@ int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1049,7 +1055,6 @@ long android_database_sqlite_SQLiteDatabase::insert(AndroidCXX::java_lang_String
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1067,7 +1072,9 @@ long android_database_sqlite_SQLiteDatabase::insert(AndroidCXX::java_lang_String
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1096,7 +1103,6 @@ bool android_database_sqlite_SQLiteDatabase::isReadOnly()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1114,7 +1120,9 @@ bool android_database_sqlite_SQLiteDatabase::isReadOnly()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1143,7 +1151,6 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::getPath()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1161,7 +1168,9 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::getPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1415,7 +1424,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg8 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1433,7 +1441,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1666,7 +1676,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg7 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1684,7 +1693,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1896,7 +1907,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg6 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1914,7 +1924,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2189,7 +2201,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg9 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2207,7 +2218,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2257,7 +2270,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2275,7 +2287,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2304,7 +2318,6 @@ bool android_database_sqlite_SQLiteDatabase::isOpen()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2322,7 +2335,9 @@ bool android_database_sqlite_SQLiteDatabase::isOpen()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2453,7 +2468,6 @@ int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String&
 		jarg3 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2471,7 +2485,9 @@ int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2500,7 +2516,6 @@ int android_database_sqlite_SQLiteDatabase::getVersion()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2518,7 +2533,9 @@ int android_database_sqlite_SQLiteDatabase::getVersion()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2715,7 +2732,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2733,7 +2749,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2804,7 +2822,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2822,7 +2839,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2914,7 +2933,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2932,7 +2950,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2982,7 +3002,6 @@ bool android_database_sqlite_SQLiteDatabase::deleteDatabase(AndroidCXX::java_io_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3000,7 +3019,9 @@ bool android_database_sqlite_SQLiteDatabase::deleteDatabase(AndroidCXX::java_io_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3029,7 +3050,6 @@ int android_database_sqlite_SQLiteDatabase::releaseMemory()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3047,7 +3067,9 @@ int android_database_sqlite_SQLiteDatabase::releaseMemory()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3307,7 +3329,6 @@ bool android_database_sqlite_SQLiteDatabase::inTransaction()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3325,7 +3346,9 @@ bool android_database_sqlite_SQLiteDatabase::inTransaction()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3354,7 +3377,6 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByCurrentThread()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3372,7 +3394,9 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByCurrentThread()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3401,7 +3425,6 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByOtherThreads()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3419,7 +3442,9 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByOtherThreads()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3448,7 +3473,6 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContended()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3466,7 +3490,9 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContended()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3516,7 +3542,6 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3534,7 +3559,9 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3563,7 +3590,6 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3581,7 +3607,9 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3610,7 +3638,6 @@ AndroidCXX::java_util_Map android_database_sqlite_SQLiteDatabase::getSyncedTable
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Map result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3661,7 +3688,9 @@ AndroidCXX::java_util_Map android_database_sqlite_SQLiteDatabase::getSyncedTable
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Map(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Map) (AndroidCXX::java_util_Map((AndroidCXX::java_util_Map *) cxx_value));
+
+	AndroidCXX::java_util_Map result((AndroidCXX::java_util_Map) *((AndroidCXX::java_util_Map *) cxx_value));
+	delete ((AndroidCXX::java_util_Map *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3774,7 +3803,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3792,7 +3820,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3884,7 +3914,6 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteDatabase result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3902,7 +3931,9 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteDatabase(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteDatabase) (AndroidCXX::android_database_sqlite_SQLiteDatabase((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteDatabase result((AndroidCXX::android_database_sqlite_SQLiteDatabase) *((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteDatabase *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3931,7 +3962,6 @@ long android_database_sqlite_SQLiteDatabase::getMaximumSize()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -3949,7 +3979,9 @@ long android_database_sqlite_SQLiteDatabase::getMaximumSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3999,7 +4031,6 @@ long android_database_sqlite_SQLiteDatabase::setMaximumSize(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -4017,7 +4048,9 @@ long android_database_sqlite_SQLiteDatabase::setMaximumSize(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4046,7 +4079,6 @@ long android_database_sqlite_SQLiteDatabase::getPageSize()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -4064,7 +4096,9 @@ long android_database_sqlite_SQLiteDatabase::getPageSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4324,7 +4358,6 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::findEditTab
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4342,7 +4375,9 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::findEditTab
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4392,7 +4427,6 @@ AndroidCXX::android_database_sqlite_SQLiteStatement android_database_sqlite_SQLi
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_sqlite_SQLiteStatement result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4410,7 +4444,9 @@ AndroidCXX::android_database_sqlite_SQLiteStatement android_database_sqlite_SQLi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_sqlite_SQLiteStatement(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_sqlite_SQLiteStatement) (AndroidCXX::android_database_sqlite_SQLiteStatement((AndroidCXX::android_database_sqlite_SQLiteStatement *) cxx_value));
+
+	AndroidCXX::android_database_sqlite_SQLiteStatement result((AndroidCXX::android_database_sqlite_SQLiteStatement) *((AndroidCXX::android_database_sqlite_SQLiteStatement *) cxx_value));
+	delete ((AndroidCXX::android_database_sqlite_SQLiteStatement *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4706,7 +4742,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg10 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4724,7 +4759,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4999,7 +5036,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		jarg9 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5017,7 +5053,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5127,7 +5165,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5145,7 +5182,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5234,7 +5273,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		jarg1 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5252,7 +5290,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5383,7 +5423,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		jarg3 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5401,7 +5440,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5553,7 +5594,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5571,7 +5611,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5663,7 +5705,6 @@ long android_database_sqlite_SQLiteDatabase::insertOrThrow(AndroidCXX::java_lang
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -5681,7 +5722,9 @@ long android_database_sqlite_SQLiteDatabase::insertOrThrow(AndroidCXX::java_lang
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5773,7 +5816,6 @@ long android_database_sqlite_SQLiteDatabase::replaceOrThrow(AndroidCXX::java_lan
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -5791,7 +5833,9 @@ long android_database_sqlite_SQLiteDatabase::replaceOrThrow(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5904,7 +5948,6 @@ long android_database_sqlite_SQLiteDatabase::insertWithOnConflict(AndroidCXX::ja
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -5922,7 +5965,9 @@ long android_database_sqlite_SQLiteDatabase::insertWithOnConflict(AndroidCXX::ja
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6074,7 +6119,6 @@ int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::jav
 		jarg4 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -6092,7 +6136,9 @@ int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6279,7 +6325,6 @@ bool android_database_sqlite_SQLiteDatabase::needUpgrade(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6297,7 +6342,9 @@ bool android_database_sqlite_SQLiteDatabase::needUpgrade(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6424,7 +6471,6 @@ bool android_database_sqlite_SQLiteDatabase::enableWriteAheadLogging()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6442,7 +6488,9 @@ bool android_database_sqlite_SQLiteDatabase::enableWriteAheadLogging()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6499,7 +6547,6 @@ bool android_database_sqlite_SQLiteDatabase::isWriteAheadLoggingEnabled()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6517,7 +6564,9 @@ bool android_database_sqlite_SQLiteDatabase::isWriteAheadLoggingEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6546,7 +6595,6 @@ AndroidCXX::java_util_List android_database_sqlite_SQLiteDatabase::getAttachedDb
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -6615,7 +6663,9 @@ AndroidCXX::java_util_List android_database_sqlite_SQLiteDatabase::getAttachedDb
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6644,7 +6694,6 @@ bool android_database_sqlite_SQLiteDatabase::isDatabaseIntegrityOk()
 	LOGV("android_database_sqlite_SQLiteDatabase jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -6662,7 +6711,9 @@ bool android_database_sqlite_SQLiteDatabase::isDatabaseIntegrityOk()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

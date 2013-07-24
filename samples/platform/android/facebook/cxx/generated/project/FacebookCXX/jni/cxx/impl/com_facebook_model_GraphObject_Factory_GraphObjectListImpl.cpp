@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -56,6 +55,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphObject_Factory_GraphObjectListImpl"
@@ -122,7 +122,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl(const com_facebook_model_GraphObject_Factory_GraphObjectListImpl& cc)
 {
@@ -165,40 +164,45 @@ com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_G
 
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl(void * proxy) exit");
 }
-com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl()
-{
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl()
+// {
+// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectListImpl";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectListImpl";
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl() exit");	
-}
+// 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_model_GraphObject_Factory_GraphObjectListImpl::com_facebook_model_GraphObject_Factory_GraphObjectListImpl(AndroidCXX::org_json_JSONArray& arg0,AndroidCXX::java_lang_Class& arg1)
 {
@@ -423,7 +427,6 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectL
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -441,7 +444,9 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectL
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -491,7 +496,6 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::equals(AndroidC
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -509,7 +513,9 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::equals(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -538,7 +544,6 @@ AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectL
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -556,7 +561,9 @@ AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectL
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -585,7 +592,6 @@ int com_facebook_model_GraphObject_Factory_GraphObjectListImpl::hashCode()
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -603,7 +609,9 @@ int com_facebook_model_GraphObject_Factory_GraphObjectListImpl::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -660,7 +668,6 @@ int com_facebook_model_GraphObject_Factory_GraphObjectListImpl::size()
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -678,7 +685,9 @@ int com_facebook_model_GraphObject_Factory_GraphObjectListImpl::size()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -728,7 +737,6 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::remove(AndroidC
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -746,7 +754,9 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::remove(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -817,7 +827,6 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectL
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -835,7 +844,9 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectL
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -903,7 +914,6 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::removeAll(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -921,7 +931,9 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::removeAll(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -989,7 +1001,6 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::retainAll(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1007,7 +1018,9 @@ bool com_facebook_model_GraphObject_Factory_GraphObjectListImpl::retainAll(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1075,7 +1088,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObject_F
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_model_GraphObjectList result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1111,7 +1123,9 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObject_F
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObjectList(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObjectList) (FacebookCXX::com_facebook_model_GraphObjectList((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
+
+	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1140,7 +1154,6 @@ AndroidCXX::org_json_JSONArray com_facebook_model_GraphObject_Factory_GraphObjec
 	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectListImpl jni address %d", javaObject);
 
 
-	AndroidCXX::org_json_JSONArray result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1158,7 +1171,9 @@ AndroidCXX::org_json_JSONArray com_facebook_model_GraphObject_Factory_GraphObjec
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONArray(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONArray) (AndroidCXX::org_json_JSONArray((AndroidCXX::org_json_JSONArray *) cxx_value));
+
+	AndroidCXX::org_json_JSONArray result((AndroidCXX::org_json_JSONArray) *((AndroidCXX::org_json_JSONArray *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONArray *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -54,7 +53,10 @@ public:
 	java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc);
 	java_nio_channels_FileChannel_MapMode(void * proxy);
 	// Public Constructors
-	java_nio_channels_FileChannel_MapMode();
+	// TODO: remove
+	// 
+	// java_nio_channels_FileChannel_MapMode();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel_MapMode();
 	// Functions

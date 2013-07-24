@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(const com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy& cc);
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
 	// Functions

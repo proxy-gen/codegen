@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -74,7 +73,10 @@ public:
 	// Public Constructors
 	android_text_style_URLSpan(AndroidCXX::java_lang_String& arg0);
 	android_text_style_URLSpan(AndroidCXX::android_os_Parcel& arg0);
-	android_text_style_URLSpan();
+	// TODO: remove
+	// 
+	// android_text_style_URLSpan();
+	// 
 	// Default Destructor
 	virtual ~android_text_style_URLSpan();
 	// Functions

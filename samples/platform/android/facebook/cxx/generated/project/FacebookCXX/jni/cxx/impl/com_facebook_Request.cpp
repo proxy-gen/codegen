@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -230,6 +229,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Request"
@@ -682,7 +682,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_Request::com_facebook_Request(const com_facebook_Request& cc)
 {
@@ -725,6 +724,10 @@ com_facebook_Request::com_facebook_Request(void * proxy)
 
 	LOGV("com_facebook_Request::com_facebook_Request(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_Request::com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3,FacebookCXX::com_facebook_Request_Callback& arg4)
 {
@@ -1137,7 +1140,6 @@ AndroidCXX::java_lang_String com_facebook_Request::toString()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1155,7 +1157,9 @@ AndroidCXX::java_lang_String com_facebook_Request::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1184,7 +1188,6 @@ AndroidCXX::android_os_Bundle com_facebook_Request::getParameters()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1202,7 +1205,9 @@ AndroidCXX::android_os_Bundle com_facebook_Request::getParameters()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1231,7 +1236,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1249,7 +1253,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeAsync()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1327,7 +1333,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_model_GraphObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1345,7 +1350,9 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_Request::getGraphObject
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObject) (FacebookCXX::com_facebook_model_GraphObject((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+
+	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1374,7 +1381,6 @@ FacebookCXX::com_facebook_Session com_facebook_Request::getSession()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1392,7 +1398,9 @@ FacebookCXX::com_facebook_Session com_facebook_Request::getSession()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session) (FacebookCXX::com_facebook_Session((FacebookCXX::com_facebook_Session *) cxx_value));
+
+	FacebookCXX::com_facebook_Session result((FacebookCXX::com_facebook_Session) *((FacebookCXX::com_facebook_Session *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1554,7 +1562,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1572,7 +1579,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPostRequest(FacebookC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1734,7 +1743,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1752,7 +1760,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newRestRequest(FacebookC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1872,7 +1882,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1890,7 +1899,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMeRequest(FacebookCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1961,7 +1972,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1979,7 +1989,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newMyFriendsRequest(Face
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2071,7 +2083,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2089,7 +2100,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2181,7 +2194,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2199,7 +2211,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadPhotoRequest(Fa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2291,7 +2305,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2309,7 +2322,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newUploadVideoRequest(Fa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2401,7 +2416,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2419,7 +2433,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newGraphPathRequest(Face
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2574,7 +2590,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 		jarg5 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2592,7 +2607,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newPlacesSearchRequest(F
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2684,7 +2701,6 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Request result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2702,7 +2718,9 @@ FacebookCXX::com_facebook_Request com_facebook_Request::newStatusUpdateRequest(F
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request) (FacebookCXX::com_facebook_Request((FacebookCXX::com_facebook_Request *) cxx_value));
+
+	FacebookCXX::com_facebook_Request result((FacebookCXX::com_facebook_Request) *((FacebookCXX::com_facebook_Request *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2731,7 +2749,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getGraphPath()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2749,7 +2766,9 @@ AndroidCXX::java_lang_String com_facebook_Request::getGraphPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2827,7 +2846,6 @@ COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMe
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2845,7 +2863,9 @@ COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod com_facebook_Request::getHttpMe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_HttpMethod(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod) (cxx_value);
+
+	COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod result = (COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -2923,7 +2943,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2941,7 +2960,9 @@ AndroidCXX::java_lang_String com_facebook_Request::getRestMethod()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3019,7 +3040,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3037,7 +3057,9 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3115,7 +3137,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3133,7 +3154,9 @@ AndroidCXX::java_lang_String com_facebook_Request::getBatchEntryDependsOn()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3211,7 +3234,6 @@ bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3229,7 +3251,9 @@ bool com_facebook_Request::getBatchEntryOmitResultOnSuccess()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3307,7 +3331,6 @@ AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId(
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -3325,7 +3348,9 @@ AndroidCXX::java_lang_String com_facebook_Request::getDefaultBatchApplicationId(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3403,7 +3428,6 @@ FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Request_Callback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3421,7 +3445,9 @@ FacebookCXX::com_facebook_Request_Callback com_facebook_Request::getCallback()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Request_Callback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Request_Callback) (FacebookCXX::com_facebook_Request_Callback((FacebookCXX::com_facebook_Request_Callback *) cxx_value));
+
+	FacebookCXX::com_facebook_Request_Callback result((FacebookCXX::com_facebook_Request_Callback) *((FacebookCXX::com_facebook_Request_Callback *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Request_Callback *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3534,7 +3560,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3552,7 +3577,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePostRequ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3665,7 +3692,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3683,7 +3709,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeRestRequ
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3754,7 +3782,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3772,7 +3799,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMeReques
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3843,7 +3872,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3861,7 +3889,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeMyFriend
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3953,7 +3983,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3971,7 +4000,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4063,7 +4094,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4081,7 +4111,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeUploadPh
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4173,7 +4205,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4191,7 +4222,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeGraphPat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4346,7 +4379,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 		jarg5 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4364,7 +4396,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executePlacesSe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4456,7 +4490,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4474,7 +4507,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeStatusUp
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4524,7 +4559,6 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Response result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4542,7 +4576,9 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait(Facebook
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Response(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Response) (FacebookCXX::com_facebook_Response((FacebookCXX::com_facebook_Response *) cxx_value));
+
+	FacebookCXX::com_facebook_Response result((FacebookCXX::com_facebook_Response) *((FacebookCXX::com_facebook_Response *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Response *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4571,7 +4607,6 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait()
 	LOGV("com_facebook_Request jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Response result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4589,7 +4624,9 @@ FacebookCXX::com_facebook_Response com_facebook_Request::executeAndWait()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Response(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Response) (FacebookCXX::com_facebook_Response((FacebookCXX::com_facebook_Response *) cxx_value));
+
+	FacebookCXX::com_facebook_Response result((FacebookCXX::com_facebook_Response) *((FacebookCXX::com_facebook_Response *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Response *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4639,7 +4676,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4657,7 +4693,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4725,7 +4763,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4743,7 +4780,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4811,7 +4850,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4829,7 +4867,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeBatchAsy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4879,7 +4919,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4897,7 +4936,9 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(Fa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+
+	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4965,7 +5006,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4983,7 +5023,9 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+
+	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5051,7 +5093,6 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_net_HttpURLConnection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5069,7 +5110,9 @@ AndroidCXX::java_net_HttpURLConnection com_facebook_Request::toHttpConnection(st
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_HttpURLConnection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_HttpURLConnection) (AndroidCXX::java_net_HttpURLConnection((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+
+	AndroidCXX::java_net_HttpURLConnection result((AndroidCXX::java_net_HttpURLConnection) *((AndroidCXX::java_net_HttpURLConnection *) cxx_value));
+	delete ((AndroidCXX::java_net_HttpURLConnection *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5137,7 +5180,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5173,7 +5215,9 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(std::vector
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5223,7 +5267,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5259,7 +5302,9 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(FacebookCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5327,7 +5372,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5363,7 +5407,9 @@ AndroidCXX::java_util_List com_facebook_Request::executeBatchAndWait(AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5434,7 +5480,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5470,7 +5515,9 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5559,7 +5606,6 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5595,7 +5641,9 @@ AndroidCXX::java_util_List com_facebook_Request::executeConnectionAndWait(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5666,7 +5714,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5684,7 +5731,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -5776,7 +5825,6 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_RequestAsyncTask result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -5794,7 +5842,9 @@ FacebookCXX::com_facebook_RequestAsyncTask com_facebook_Request::executeConnecti
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_RequestAsyncTask(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_RequestAsyncTask) (FacebookCXX::com_facebook_RequestAsyncTask((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+
+	FacebookCXX::com_facebook_RequestAsyncTask result((FacebookCXX::com_facebook_RequestAsyncTask) *((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value));
+	delete ((FacebookCXX::com_facebook_RequestAsyncTask *) cxx_value);
 		
 	jni->popLocalFrame();
 

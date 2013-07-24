@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
 	
@@ -138,7 +137,10 @@ public:
 	java_lang_reflect_Method(const java_lang_reflect_Method& cc);
 	java_lang_reflect_Method(void * proxy);
 	// Public Constructors
-	java_lang_reflect_Method();
+	// TODO: remove
+	// 
+	// java_lang_reflect_Method();
+	// 
 	// Default Destructor
 	virtual ~java_lang_reflect_Method();
 	// Functions

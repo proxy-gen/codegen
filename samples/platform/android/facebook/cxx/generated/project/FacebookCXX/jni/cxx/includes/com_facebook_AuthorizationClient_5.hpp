@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_AuthorizationClient_5(const com_facebook_AuthorizationClient_5& cc);
 	com_facebook_AuthorizationClient_5(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_5();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_5();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_5();
 	// Functions

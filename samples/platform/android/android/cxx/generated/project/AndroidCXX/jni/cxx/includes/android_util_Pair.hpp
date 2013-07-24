@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,10 @@ public:
 	android_util_Pair(void * proxy);
 	// Public Constructors
 	android_util_Pair(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1);
-	android_util_Pair();
+	// TODO: remove
+	// 
+	// android_util_Pair();
+	// 
 	// Default Destructor
 	virtual ~android_util_Pair();
 	// Functions

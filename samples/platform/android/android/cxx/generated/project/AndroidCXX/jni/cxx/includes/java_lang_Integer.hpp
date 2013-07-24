@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -122,7 +121,10 @@ public:
 	// Public Constructors
 	java_lang_Integer(int& arg0);
 	java_lang_Integer(AndroidCXX::java_lang_String& arg0);
-	java_lang_Integer();
+	// TODO: remove
+	// 
+	// java_lang_Integer();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Integer();
 	// Functions

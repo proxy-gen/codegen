@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -140,7 +139,10 @@ public:
 	com_facebook_model_OpenGraphAction(const com_facebook_model_OpenGraphAction& cc);
 	com_facebook_model_OpenGraphAction(void * proxy);
 	// Public Constructors
-	com_facebook_model_OpenGraphAction();
+	// TODO: remove
+	// 
+	// com_facebook_model_OpenGraphAction();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_OpenGraphAction();
 	// Functions

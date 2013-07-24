@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  	
@@ -172,7 +171,10 @@ public:
 	java_io_PrintWriter(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1);
 	java_io_PrintWriter(AndroidCXX::java_io_Writer& arg0);
 	java_io_PrintWriter(AndroidCXX::java_io_OutputStream& arg0);
-	java_io_PrintWriter();
+	// TODO: remove
+	// 
+	// java_io_PrintWriter();
+	// 
 	// Default Destructor
 	virtual ~java_io_PrintWriter();
 	// Functions

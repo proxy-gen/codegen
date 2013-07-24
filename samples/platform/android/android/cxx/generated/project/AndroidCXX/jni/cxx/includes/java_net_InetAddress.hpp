@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -105,7 +104,10 @@ public:
 	java_net_InetAddress(const java_net_InetAddress& cc);
 	java_net_InetAddress(void * proxy);
 	// Public Constructors
-	java_net_InetAddress();
+	// TODO: remove
+	// 
+	// java_net_InetAddress();
+	// 
 	// Default Destructor
 	virtual ~java_net_InetAddress();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_AuthorizationClient_OnCompletedListener(const com_facebook_AuthorizationClient_OnCompletedListener& cc);
 	com_facebook_AuthorizationClient_OnCompletedListener(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_OnCompletedListener();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_OnCompletedListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_OnCompletedListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_OnCreateContextMenuListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,7 +53,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener(const android_view_View_OnCreateContextMenuListener& cc)
@@ -98,40 +96,45 @@ android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContext
 
 	LOGV("android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener(void * proxy) exit");
 }
-android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener()
-{
-	LOGV("android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener() enter");	
+// TODO: remove
+// 
+// 
+// android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener()
+// {
+// 	LOGV("android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/View$OnCreateContextMenuListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/View$OnCreateContextMenuListener";
 
-	LOGV("android_view_View_OnCreateContextMenuListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_View_OnCreateContextMenuListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_View_OnCreateContextMenuListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_View_OnCreateContextMenuListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_View_OnCreateContextMenuListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_View_OnCreateContextMenuListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener() exit");	
-}
+// 	LOGV("android_view_View_OnCreateContextMenuListener::android_view_View_OnCreateContextMenuListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_View_OnCreateContextMenuListener::~android_view_View_OnCreateContextMenuListener()

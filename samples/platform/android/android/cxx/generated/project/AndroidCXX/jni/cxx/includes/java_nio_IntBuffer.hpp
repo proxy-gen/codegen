@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -114,7 +113,10 @@ public:
 	java_nio_IntBuffer(const java_nio_IntBuffer& cc);
 	java_nio_IntBuffer(void * proxy);
 	// Public Constructors
-	java_nio_IntBuffer();
+	// TODO: remove
+	// 
+	// java_nio_IntBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_IntBuffer();
 	// Functions

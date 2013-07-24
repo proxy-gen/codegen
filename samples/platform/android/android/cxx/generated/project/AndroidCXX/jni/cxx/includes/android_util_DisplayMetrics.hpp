@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -71,6 +70,8 @@ public:
 	android_util_DisplayMetrics(void * proxy);
 	// Public Constructors
 	android_util_DisplayMetrics();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_util_DisplayMetrics();
 	// Functions

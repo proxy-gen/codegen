@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -60,7 +59,10 @@ public:
 	android_view_KeyEvent_Callback(const android_view_KeyEvent_Callback& cc);
 	android_view_KeyEvent_Callback(void * proxy);
 	// Public Constructors
-	android_view_KeyEvent_Callback();
+	// TODO: remove
+	// 
+	// android_view_KeyEvent_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_view_KeyEvent_Callback();
 	// Functions

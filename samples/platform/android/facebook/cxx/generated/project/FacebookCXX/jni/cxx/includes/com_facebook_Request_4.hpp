@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_Request_4
@@ -49,7 +48,10 @@ public:
 	com_facebook_Request_4(const com_facebook_Request_4& cc);
 	com_facebook_Request_4(void * proxy);
 	// Public Constructors
-	com_facebook_Request_4();
+	// TODO: remove
+	// 
+	// com_facebook_Request_4();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Request_4();
 	// Functions

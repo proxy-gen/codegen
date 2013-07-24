@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_Session_2(const com_facebook_Session_2& cc);
 	com_facebook_Session_2(void * proxy);
 	// Public Constructors
-	com_facebook_Session_2();
+	// TODO: remove
+	// 
+	// com_facebook_Session_2();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_2();
 	// Functions

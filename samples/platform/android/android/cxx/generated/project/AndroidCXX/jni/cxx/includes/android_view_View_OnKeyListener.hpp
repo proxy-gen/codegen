@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_view_View_OnKeyListener(const android_view_View_OnKeyListener& cc);
 	android_view_View_OnKeyListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnKeyListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnKeyListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnKeyListener();
 	// Functions

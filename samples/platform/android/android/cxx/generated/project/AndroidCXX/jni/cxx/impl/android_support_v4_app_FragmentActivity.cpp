@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_support_v4_app_FragmentActivity"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -154,7 +153,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_support_v4_app_FragmentActivity::android_support_v4_app_FragmentActivity(const android_support_v4_app_FragmentActivity& cc)
 {
@@ -197,6 +195,10 @@ android_support_v4_app_FragmentActivity::android_support_v4_app_FragmentActivity
 
 	LOGV("android_support_v4_app_FragmentActivity::android_support_v4_app_FragmentActivity(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_support_v4_app_FragmentActivity::android_support_v4_app_FragmentActivity()
 {
@@ -533,7 +535,6 @@ AndroidCXX::android_view_View android_support_v4_app_FragmentActivity::onCreateV
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -551,7 +552,9 @@ AndroidCXX::android_view_View android_support_v4_app_FragmentActivity::onCreateV
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -895,7 +898,6 @@ bool android_support_v4_app_FragmentActivity::onCreatePanelMenu(int& arg0,Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -913,7 +915,9 @@ bool android_support_v4_app_FragmentActivity::onCreatePanelMenu(int& arg0,Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -984,7 +988,6 @@ bool android_support_v4_app_FragmentActivity::onKeyDown(int& arg0,AndroidCXX::an
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1002,7 +1005,9 @@ bool android_support_v4_app_FragmentActivity::onKeyDown(int& arg0,AndroidCXX::an
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1073,7 +1078,6 @@ bool android_support_v4_app_FragmentActivity::onMenuItemSelected(int& arg0,Andro
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1091,7 +1095,9 @@ bool android_support_v4_app_FragmentActivity::onMenuItemSelected(int& arg0,Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1253,7 +1259,6 @@ bool android_support_v4_app_FragmentActivity::onPreparePanel(int& arg0,AndroidCX
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1271,7 +1276,9 @@ bool android_support_v4_app_FragmentActivity::onPreparePanel(int& arg0,AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1300,7 +1307,6 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainNo
 	LOGV("android_support_v4_app_FragmentActivity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1318,7 +1324,9 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainNo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1347,7 +1355,6 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainCu
 	LOGV("android_support_v4_app_FragmentActivity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1365,7 +1372,9 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainCu
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1394,7 +1403,6 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::getLastCus
 	LOGV("android_support_v4_app_FragmentActivity jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1412,7 +1420,9 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::getLastCus
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1441,7 +1451,6 @@ AndroidCXX::android_support_v4_app_FragmentManager android_support_v4_app_Fragme
 	LOGV("android_support_v4_app_FragmentActivity jni address %d", javaObject);
 
 
-	AndroidCXX::android_support_v4_app_FragmentManager result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1459,7 +1468,9 @@ AndroidCXX::android_support_v4_app_FragmentManager android_support_v4_app_Fragme
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_app_FragmentManager(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_support_v4_app_FragmentManager) (AndroidCXX::android_support_v4_app_FragmentManager((AndroidCXX::android_support_v4_app_FragmentManager *) cxx_value));
+
+	AndroidCXX::android_support_v4_app_FragmentManager result((AndroidCXX::android_support_v4_app_FragmentManager) *((AndroidCXX::android_support_v4_app_FragmentManager *) cxx_value));
+	delete ((AndroidCXX::android_support_v4_app_FragmentManager *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1488,7 +1499,6 @@ AndroidCXX::android_support_v4_app_LoaderManager android_support_v4_app_Fragment
 	LOGV("android_support_v4_app_FragmentActivity jni address %d", javaObject);
 
 
-	AndroidCXX::android_support_v4_app_LoaderManager result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1506,7 +1516,9 @@ AndroidCXX::android_support_v4_app_LoaderManager android_support_v4_app_Fragment
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_support_v4_app_LoaderManager(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_support_v4_app_LoaderManager) (AndroidCXX::android_support_v4_app_LoaderManager((AndroidCXX::android_support_v4_app_LoaderManager *) cxx_value));
+
+	AndroidCXX::android_support_v4_app_LoaderManager result((AndroidCXX::android_support_v4_app_LoaderManager) *((AndroidCXX::android_support_v4_app_LoaderManager *) cxx_value));
+	delete ((AndroidCXX::android_support_v4_app_LoaderManager *) cxx_value);
 		
 	jni->popLocalFrame();
 

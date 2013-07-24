@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Shader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,7 +51,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_graphics_Shader::android_graphics_Shader(const android_graphics_Shader& cc)
@@ -96,6 +94,10 @@ android_graphics_Shader::android_graphics_Shader(void * proxy)
 
 	LOGV("android_graphics_Shader::android_graphics_Shader(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_graphics_Shader::android_graphics_Shader()
 {
@@ -190,7 +192,6 @@ bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -208,7 +209,9 @@ bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

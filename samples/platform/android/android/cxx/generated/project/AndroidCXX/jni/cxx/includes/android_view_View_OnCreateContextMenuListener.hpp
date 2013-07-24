@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,7 +63,10 @@ public:
 	android_view_View_OnCreateContextMenuListener(const android_view_View_OnCreateContextMenuListener& cc);
 	android_view_View_OnCreateContextMenuListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnCreateContextMenuListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnCreateContextMenuListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnCreateContextMenuListener();
 	// Functions

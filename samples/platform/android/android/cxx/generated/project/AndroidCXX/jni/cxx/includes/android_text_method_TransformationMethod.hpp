@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -68,7 +67,10 @@ public:
 	android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc);
 	android_text_method_TransformationMethod(void * proxy);
 	// Public Constructors
-	android_text_method_TransformationMethod();
+	// TODO: remove
+	// 
+	// android_text_method_TransformationMethod();
+	// 
 	// Default Destructor
 	virtual ~android_text_method_TransformationMethod();
 	// Functions

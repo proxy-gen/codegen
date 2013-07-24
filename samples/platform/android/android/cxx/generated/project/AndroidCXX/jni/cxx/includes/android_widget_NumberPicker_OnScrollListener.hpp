@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_NumberPicker_OnScrollListener(const android_widget_NumberPicker_OnScrollListener& cc);
 	android_widget_NumberPicker_OnScrollListener(void * proxy);
 	// Public Constructors
-	android_widget_NumberPicker_OnScrollListener();
+	// TODO: remove
+	// 
+	// android_widget_NumberPicker_OnScrollListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnScrollListener();
 	// Functions

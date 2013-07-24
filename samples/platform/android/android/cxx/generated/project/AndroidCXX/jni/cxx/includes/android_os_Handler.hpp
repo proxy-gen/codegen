@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -162,6 +161,8 @@ public:
 	android_os_Handler(AndroidCXX::android_os_Handler_Callback& arg0);
 	android_os_Handler(AndroidCXX::android_os_Looper& arg0);
 	android_os_Handler(AndroidCXX::android_os_Looper& arg0,AndroidCXX::android_os_Handler_Callback& arg1);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_os_Handler();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_os_Handler_Callback(const android_os_Handler_Callback& cc);
 	android_os_Handler_Callback(void * proxy);
 	// Public Constructors
-	android_os_Handler_Callback();
+	// TODO: remove
+	// 
+	// android_os_Handler_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_os_Handler_Callback();
 	// Functions

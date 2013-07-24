@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_webkit_ValueCallback(const android_webkit_ValueCallback& cc);
 	android_webkit_ValueCallback(void * proxy);
 	// Public Constructors
-	android_webkit_ValueCallback();
+	// TODO: remove
+	// 
+	// android_webkit_ValueCallback();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_ValueCallback();
 	// Functions

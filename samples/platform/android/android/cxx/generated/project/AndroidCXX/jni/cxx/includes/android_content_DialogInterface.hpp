@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_content_DialogInterface
@@ -50,7 +49,10 @@ public:
 	android_content_DialogInterface(const android_content_DialogInterface& cc);
 	android_content_DialogInterface(void * proxy);
 	// Public Constructors
-	android_content_DialogInterface();
+	// TODO: remove
+	// 
+	// android_content_DialogInterface();
+	// 
 	// Default Destructor
 	virtual ~android_content_DialogInterface();
 	// Functions

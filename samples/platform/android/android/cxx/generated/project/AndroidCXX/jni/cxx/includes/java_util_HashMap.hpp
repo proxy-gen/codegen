@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -119,6 +118,8 @@ public:
 	java_util_HashMap(int& arg0);
 	java_util_HashMap();
 	java_util_HashMap(AndroidCXX::java_util_Map& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_util_HashMap();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -49,6 +48,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_RequestAsyncTask"
@@ -106,7 +106,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(const com_facebook_RequestAsyncTask& cc)
 {
@@ -149,40 +148,45 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(void * proxy)
 
 	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(void * proxy) exit");
 }
-com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask()
-{
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask()
+// {
+// 	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/RequestAsyncTask";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_RequestAsyncTask cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_RequestAsyncTask jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_RequestAsyncTask cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_RequestAsyncTask jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask() exit");	
-}
+// 	LOGV("com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request >& arg0)
 {
@@ -697,7 +701,6 @@ AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 	LOGV("com_facebook_RequestAsyncTask jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -715,7 +718,9 @@ AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc);
 	com_facebook_model_PropertyName(void * proxy);
 	// Public Constructors
-	com_facebook_model_PropertyName();
+	// TODO: remove
+	// 
+	// com_facebook_model_PropertyName();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_PropertyName();
 	// Functions

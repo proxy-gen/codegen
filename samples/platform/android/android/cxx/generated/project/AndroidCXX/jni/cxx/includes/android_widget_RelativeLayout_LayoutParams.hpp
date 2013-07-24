@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -89,7 +88,10 @@ public:
 	android_widget_RelativeLayout_LayoutParams(int& arg0,int& arg1);
 	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
 	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	android_widget_RelativeLayout_LayoutParams();
+	// TODO: remove
+	// 
+	// android_widget_RelativeLayout_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout_LayoutParams();
 	// Functions

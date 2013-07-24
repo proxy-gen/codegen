@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ContextMenu_ContextMenuInfo
@@ -48,7 +47,10 @@ public:
 	android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc);
 	android_view_ContextMenu_ContextMenuInfo(void * proxy);
 	// Public Constructors
-	android_view_ContextMenu_ContextMenuInfo();
+	// TODO: remove
+	// 
+	// android_view_ContextMenu_ContextMenuInfo();
+	// 
 	// Default Destructor
 	virtual ~android_view_ContextMenu_ContextMenuInfo();
 	// Functions

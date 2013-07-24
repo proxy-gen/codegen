@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -78,7 +77,10 @@ public:
 	java_io_Writer(const java_io_Writer& cc);
 	java_io_Writer(void * proxy);
 	// Public Constructors
-	java_io_Writer();
+	// TODO: remove
+	// 
+	// java_io_Writer();
+	// 
 	// Default Destructor
 	virtual ~java_io_Writer();
 	// Functions

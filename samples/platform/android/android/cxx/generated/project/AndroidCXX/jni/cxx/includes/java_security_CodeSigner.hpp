@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -77,7 +76,10 @@ public:
 	java_security_CodeSigner(void * proxy);
 	// Public Constructors
 	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath& arg0,AndroidCXX::java_security_Timestamp& arg1);
-	java_security_CodeSigner();
+	// TODO: remove
+	// 
+	// java_security_CodeSigner();
+	// 
 	// Default Destructor
 	virtual ~java_security_CodeSigner();
 	// Functions

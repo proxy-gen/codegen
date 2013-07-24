@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_media_MediaPlayer_OnVideoSizeChangedListener(const android_media_MediaPlayer_OnVideoSizeChangedListener& cc);
 	android_media_MediaPlayer_OnVideoSizeChangedListener(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnVideoSizeChangedListener();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_OnVideoSizeChangedListener();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnVideoSizeChangedListener();
 	// Functions

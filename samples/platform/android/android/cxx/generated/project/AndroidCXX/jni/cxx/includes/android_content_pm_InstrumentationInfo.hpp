@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -69,6 +68,8 @@ public:
 	// Public Constructors
 	android_content_pm_InstrumentationInfo();
 	android_content_pm_InstrumentationInfo(AndroidCXX::android_content_pm_InstrumentationInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_InstrumentationInfo();
 	// Functions

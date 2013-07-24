@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -47,7 +46,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_SocketChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -83,7 +82,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_nio_channels_SocketChannel::java_nio_channels_SocketChannel(const java_nio_channels_SocketChannel& cc)
@@ -127,40 +125,45 @@ java_nio_channels_SocketChannel::java_nio_channels_SocketChannel(void * proxy)
 
 	LOGV("java_nio_channels_SocketChannel::java_nio_channels_SocketChannel(void * proxy) exit");
 }
-java_nio_channels_SocketChannel::java_nio_channels_SocketChannel()
-{
-	LOGV("java_nio_channels_SocketChannel::java_nio_channels_SocketChannel() enter");	
+// TODO: remove
+// 
+// 
+// java_nio_channels_SocketChannel::java_nio_channels_SocketChannel()
+// {
+// 	LOGV("java_nio_channels_SocketChannel::java_nio_channels_SocketChannel() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/channels/SocketChannel";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_nio_channels_SocketChannel cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_nio_channels_SocketChannel jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_nio_channels_SocketChannel cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_nio_channels_SocketChannel jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_nio_channels_SocketChannel::java_nio_channels_SocketChannel() exit");	
-}
+// 	LOGV("java_nio_channels_SocketChannel::java_nio_channels_SocketChannel() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 java_nio_channels_SocketChannel::~java_nio_channels_SocketChannel()
@@ -237,7 +240,6 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -255,7 +257,9 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -305,7 +309,6 @@ int java_nio_channels_SocketChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -323,7 +326,9 @@ int java_nio_channels_SocketChannel::write(AndroidCXX::java_nio_ByteBuffer& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -433,7 +438,6 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -451,7 +455,9 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -561,7 +567,6 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -579,7 +584,9 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -647,7 +654,6 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -665,7 +671,9 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -715,7 +723,6 @@ int java_nio_channels_SocketChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -733,7 +740,9 @@ int java_nio_channels_SocketChannel::read(AndroidCXX::java_nio_ByteBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -783,7 +792,6 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_channels_SocketChannel result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -801,7 +809,9 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_channels_SocketChannel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_channels_SocketChannel) (AndroidCXX::java_nio_channels_SocketChannel((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+
+	AndroidCXX::java_nio_channels_SocketChannel result((AndroidCXX::java_nio_channels_SocketChannel) *((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+	delete ((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -830,7 +840,6 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_channels_SocketChannel result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -848,7 +857,9 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_channels_SocketChannel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_channels_SocketChannel) (AndroidCXX::java_nio_channels_SocketChannel((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+
+	AndroidCXX::java_nio_channels_SocketChannel result((AndroidCXX::java_nio_channels_SocketChannel) *((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+	delete ((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -898,7 +909,6 @@ bool java_nio_channels_SocketChannel::connect(AndroidCXX::java_net_SocketAddress
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -916,7 +926,9 @@ bool java_nio_channels_SocketChannel::connect(AndroidCXX::java_net_SocketAddress
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -945,7 +957,6 @@ AndroidCXX::java_net_Socket java_nio_channels_SocketChannel::socket()
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_Socket result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -963,7 +974,9 @@ AndroidCXX::java_net_Socket java_nio_channels_SocketChannel::socket()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_Socket(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_Socket) (AndroidCXX::java_net_Socket((AndroidCXX::java_net_Socket *) cxx_value));
+
+	AndroidCXX::java_net_Socket result((AndroidCXX::java_net_Socket) *((AndroidCXX::java_net_Socket *) cxx_value));
+	delete ((AndroidCXX::java_net_Socket *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -992,7 +1005,6 @@ bool java_nio_channels_SocketChannel::isConnected()
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1010,7 +1022,9 @@ bool java_nio_channels_SocketChannel::isConnected()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1039,7 +1053,6 @@ int java_nio_channels_SocketChannel::validOps()
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1057,7 +1070,9 @@ int java_nio_channels_SocketChannel::validOps()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1086,7 +1101,6 @@ bool java_nio_channels_SocketChannel::isConnectionPending()
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1104,7 +1118,9 @@ bool java_nio_channels_SocketChannel::isConnectionPending()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1133,7 +1149,6 @@ bool java_nio_channels_SocketChannel::finishConnect()
 	LOGV("java_nio_channels_SocketChannel jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1151,7 +1166,9 @@ bool java_nio_channels_SocketChannel::finishConnect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

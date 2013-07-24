@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -55,7 +54,10 @@ public:
 	com_facebook_widget_GraphObjectAdapter_1(const com_facebook_widget_GraphObjectAdapter_1& cc);
 	com_facebook_widget_GraphObjectAdapter_1(void * proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_1();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectAdapter_1();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_1();
 	// Functions

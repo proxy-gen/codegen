@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_text_Spannable(const android_text_Spannable& cc);
 	android_text_Spannable(void * proxy);
 	// Public Constructors
-	android_text_Spannable();
+	// TODO: remove
+	// 
+	// android_text_Spannable();
+	// 
 	// Default Destructor
 	virtual ~android_text_Spannable();
 	// Functions

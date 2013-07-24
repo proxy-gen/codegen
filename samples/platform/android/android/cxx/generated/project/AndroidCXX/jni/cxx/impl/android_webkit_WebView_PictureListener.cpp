@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebView_PictureListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -50,7 +49,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener(const android_webkit_WebView_PictureListener& cc)
@@ -94,40 +92,45 @@ android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener(v
 
 	LOGV("android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener(void * proxy) exit");
 }
-android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener()
-{
-	LOGV("android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener() enter");	
+// TODO: remove
+// 
+// 
+// android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener()
+// {
+// 	LOGV("android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/WebView$PictureListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/webkit/WebView$PictureListener";
 
-	LOGV("android_webkit_WebView_PictureListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_webkit_WebView_PictureListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebView_PictureListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebView_PictureListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_webkit_WebView_PictureListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_webkit_WebView_PictureListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener() exit");	
-}
+// 	LOGV("android_webkit_WebView_PictureListener::android_webkit_WebView_PictureListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_webkit_WebView_PictureListener::~android_webkit_WebView_PictureListener()

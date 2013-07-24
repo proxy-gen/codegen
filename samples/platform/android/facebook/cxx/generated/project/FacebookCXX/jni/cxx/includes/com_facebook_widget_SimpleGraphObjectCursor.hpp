@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  	
@@ -79,7 +78,10 @@ public:
 	com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc);
 	com_facebook_widget_SimpleGraphObjectCursor(void * proxy);
 	// Public Constructors
-	com_facebook_widget_SimpleGraphObjectCursor();
+	// TODO: remove
+	// 
+	// com_facebook_widget_SimpleGraphObjectCursor();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_SimpleGraphObjectCursor();
 	// Functions

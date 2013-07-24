@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -56,7 +55,10 @@ public:
 	com_facebook_android_Facebook_SetterTokenCachingStrategy(const com_facebook_android_Facebook_SetterTokenCachingStrategy& cc);
 	com_facebook_android_Facebook_SetterTokenCachingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_SetterTokenCachingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_SetterTokenCachingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_SetterTokenCachingStrategy();
 	// Functions

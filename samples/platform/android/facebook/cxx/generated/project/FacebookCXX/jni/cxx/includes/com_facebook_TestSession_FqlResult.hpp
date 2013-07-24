@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -60,7 +59,10 @@ public:
 	com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc);
 	com_facebook_TestSession_FqlResult(void * proxy);
 	// Public Constructors
-	com_facebook_TestSession_FqlResult();
+	// TODO: remove
+	// 
+	// com_facebook_TestSession_FqlResult();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_TestSession_FqlResult();
 	// Functions

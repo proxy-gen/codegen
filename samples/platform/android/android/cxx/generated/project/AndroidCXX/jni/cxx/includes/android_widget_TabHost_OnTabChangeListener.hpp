@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_TabHost_OnTabChangeListener(const android_widget_TabHost_OnTabChangeListener& cc);
 	android_widget_TabHost_OnTabChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_TabHost_OnTabChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_TabHost_OnTabChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TabHost_OnTabChangeListener();
 	// Functions

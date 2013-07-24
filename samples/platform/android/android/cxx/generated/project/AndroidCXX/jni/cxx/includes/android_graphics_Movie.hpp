@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -86,7 +85,10 @@ public:
 	android_graphics_Movie(const android_graphics_Movie& cc);
 	android_graphics_Movie(void * proxy);
 	// Public Constructors
-	android_graphics_Movie();
+	// TODO: remove
+	// 
+	// android_graphics_Movie();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Movie();
 	// Functions

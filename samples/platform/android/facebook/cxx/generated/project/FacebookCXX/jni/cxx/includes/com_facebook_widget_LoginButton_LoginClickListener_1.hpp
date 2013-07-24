@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_widget_LoginButton_LoginClickListener_1(const com_facebook_widget_LoginButton_LoginClickListener_1& cc);
 	com_facebook_widget_LoginButton_LoginClickListener_1(void * proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_LoginClickListener_1();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton_LoginClickListener_1();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginClickListener_1();
 	// Functions

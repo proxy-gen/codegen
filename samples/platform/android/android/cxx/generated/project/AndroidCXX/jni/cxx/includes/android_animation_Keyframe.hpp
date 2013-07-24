@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -93,6 +92,8 @@ public:
 	android_animation_Keyframe(void * proxy);
 	// Public Constructors
 	android_animation_Keyframe();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_animation_Keyframe();
 	// Functions

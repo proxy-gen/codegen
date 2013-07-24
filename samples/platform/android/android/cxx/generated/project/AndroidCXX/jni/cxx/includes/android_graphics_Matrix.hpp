@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -147,6 +146,8 @@ public:
 	// Public Constructors
 	android_graphics_Matrix();
 	android_graphics_Matrix(AndroidCXX::android_graphics_Matrix& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Matrix();
 	// Functions

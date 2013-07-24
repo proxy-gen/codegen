@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -95,6 +94,8 @@ public:
 	// Public Constructors
 	android_content_pm_ResolveInfo();
 	android_content_pm_ResolveInfo(AndroidCXX::android_content_pm_ResolveInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_ResolveInfo();
 	// Functions

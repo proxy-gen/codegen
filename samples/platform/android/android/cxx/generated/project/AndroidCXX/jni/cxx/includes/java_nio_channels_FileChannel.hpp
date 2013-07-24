@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -117,7 +116,10 @@ public:
 	java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc);
 	java_nio_channels_FileChannel(void * proxy);
 	// Public Constructors
-	java_nio_channels_FileChannel();
+	// TODO: remove
+	// 
+	// java_nio_channels_FileChannel();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel();
 	// Functions

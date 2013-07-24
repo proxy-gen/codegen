@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -144,7 +143,10 @@ public:
 	java_nio_CharBuffer(const java_nio_CharBuffer& cc);
 	java_nio_CharBuffer(void * proxy);
 	// Public Constructors
-	java_nio_CharBuffer();
+	// TODO: remove
+	// 
+	// java_nio_CharBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_CharBuffer();
 	// Functions

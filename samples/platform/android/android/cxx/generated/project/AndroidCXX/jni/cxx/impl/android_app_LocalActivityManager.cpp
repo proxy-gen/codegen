@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -51,7 +50,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_LocalActivityManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -103,7 +102,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_app_LocalActivityManager::android_app_LocalActivityManager(const android_app_LocalActivityManager& cc)
 {
@@ -146,40 +144,45 @@ android_app_LocalActivityManager::android_app_LocalActivityManager(void * proxy)
 
 	LOGV("android_app_LocalActivityManager::android_app_LocalActivityManager(void * proxy) exit");
 }
-android_app_LocalActivityManager::android_app_LocalActivityManager()
-{
-	LOGV("android_app_LocalActivityManager::android_app_LocalActivityManager() enter");	
+// TODO: remove
+// 
+// 
+// android_app_LocalActivityManager::android_app_LocalActivityManager()
+// {
+// 	LOGV("android_app_LocalActivityManager::android_app_LocalActivityManager() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/app/LocalActivityManager";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/app/LocalActivityManager";
 
-	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_app_LocalActivityManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_app_LocalActivityManager cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_app_LocalActivityManager jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_app_LocalActivityManager cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_app_LocalActivityManager jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_app_LocalActivityManager::android_app_LocalActivityManager() exit");	
-}
+// 	LOGV("android_app_LocalActivityManager::android_app_LocalActivityManager() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_app_LocalActivityManager::android_app_LocalActivityManager(AndroidCXX::android_app_Activity& arg0,bool& arg1)
 {
@@ -316,7 +319,6 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getActivity(A
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_app_Activity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -334,7 +336,9 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getActivity(A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_Activity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_Activity) (AndroidCXX::android_app_Activity((AndroidCXX::android_app_Activity *) cxx_value));
+
+	AndroidCXX::android_app_Activity result((AndroidCXX::android_app_Activity) *((AndroidCXX::android_app_Activity *) cxx_value));
+	delete ((AndroidCXX::android_app_Activity *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -405,7 +409,6 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::startActivity(
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_Window result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -423,7 +426,9 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::startActivity(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_Window(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_Window) (AndroidCXX::android_view_Window((AndroidCXX::android_view_Window *) cxx_value));
+
+	AndroidCXX::android_view_Window result((AndroidCXX::android_view_Window) *((AndroidCXX::android_view_Window *) cxx_value));
+	delete ((AndroidCXX::android_view_Window *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -697,7 +702,6 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::destroyActivit
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_Window result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -715,7 +719,9 @@ AndroidCXX::android_view_Window android_app_LocalActivityManager::destroyActivit
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_Window(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_Window) (AndroidCXX::android_view_Window((AndroidCXX::android_view_Window *) cxx_value));
+
+	AndroidCXX::android_view_Window result((AndroidCXX::android_view_Window) *((AndroidCXX::android_view_Window *) cxx_value));
+	delete ((AndroidCXX::android_view_Window *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -744,7 +750,6 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getCurrentAct
 	LOGV("android_app_LocalActivityManager jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_Activity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -762,7 +767,9 @@ AndroidCXX::android_app_Activity android_app_LocalActivityManager::getCurrentAct
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_Activity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_Activity) (AndroidCXX::android_app_Activity((AndroidCXX::android_app_Activity *) cxx_value));
+
+	AndroidCXX::android_app_Activity result((AndroidCXX::android_app_Activity) *((AndroidCXX::android_app_Activity *) cxx_value));
+	delete ((AndroidCXX::android_app_Activity *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -791,7 +798,6 @@ AndroidCXX::java_lang_String android_app_LocalActivityManager::getCurrentId()
 	LOGV("android_app_LocalActivityManager jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -809,7 +815,9 @@ AndroidCXX::java_lang_String android_app_LocalActivityManager::getCurrentId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -838,7 +846,6 @@ AndroidCXX::android_os_Bundle android_app_LocalActivityManager::saveInstanceStat
 	LOGV("android_app_LocalActivityManager jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -856,7 +863,9 @@ AndroidCXX::android_os_Bundle android_app_LocalActivityManager::saveInstanceStat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 

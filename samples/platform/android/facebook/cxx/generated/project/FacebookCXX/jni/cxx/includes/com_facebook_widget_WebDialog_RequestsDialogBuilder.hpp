@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -85,7 +84,10 @@ public:
 	// Public Constructors
 	com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1);
 	com_facebook_widget_WebDialog_RequestsDialogBuilder(AndroidCXX::android_content_Context& arg0,FacebookCXX::com_facebook_Session& arg1,AndroidCXX::android_os_Bundle& arg2);
-	com_facebook_widget_WebDialog_RequestsDialogBuilder();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WebDialog_RequestsDialogBuilder();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_RequestsDialogBuilder();
 	// Functions

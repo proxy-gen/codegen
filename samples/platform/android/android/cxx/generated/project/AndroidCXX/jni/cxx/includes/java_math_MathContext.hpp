@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -75,7 +74,10 @@ public:
 	java_math_MathContext(int& arg0);
 	java_math_MathContext(int& arg0,JAVA_MATH_ROUNDINGMODE::java_math_RoundingMode& arg1);
 	java_math_MathContext(AndroidCXX::java_lang_String& arg0);
-	java_math_MathContext();
+	// TODO: remove
+	// 
+	// java_math_MathContext();
+	// 
 	// Default Destructor
 	virtual ~java_math_MathContext();
 	// Functions

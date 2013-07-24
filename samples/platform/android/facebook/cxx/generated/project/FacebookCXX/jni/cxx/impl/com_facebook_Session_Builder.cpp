@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -36,6 +35,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_Builder"
@@ -74,7 +74,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_Session_Builder::com_facebook_Session_Builder(const com_facebook_Session_Builder& cc)
@@ -118,40 +117,45 @@ com_facebook_Session_Builder::com_facebook_Session_Builder(void * proxy)
 
 	LOGV("com_facebook_Session_Builder::com_facebook_Session_Builder(void * proxy) exit");
 }
-com_facebook_Session_Builder::com_facebook_Session_Builder()
-{
-	LOGV("com_facebook_Session_Builder::com_facebook_Session_Builder() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_Session_Builder::com_facebook_Session_Builder()
+// {
+// 	LOGV("com_facebook_Session_Builder::com_facebook_Session_Builder() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/Session$Builder";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/Session$Builder";
 
-	LOGV("com_facebook_Session_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_Session_Builder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_Session_Builder cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_Session_Builder jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_Session_Builder cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_Session_Builder jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_Builder::com_facebook_Session_Builder() exit");	
-}
+// 	LOGV("com_facebook_Session_Builder::com_facebook_Session_Builder() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_Session_Builder::com_facebook_Session_Builder(AndroidCXX::android_content_Context& arg0)
 {
@@ -246,7 +250,6 @@ FacebookCXX::com_facebook_Session com_facebook_Session_Builder::build()
 	LOGV("com_facebook_Session_Builder jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -264,7 +267,9 @@ FacebookCXX::com_facebook_Session com_facebook_Session_Builder::build()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session) (FacebookCXX::com_facebook_Session((FacebookCXX::com_facebook_Session *) cxx_value));
+
+	FacebookCXX::com_facebook_Session result((FacebookCXX::com_facebook_Session) *((FacebookCXX::com_facebook_Session *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -314,7 +319,6 @@ FacebookCXX::com_facebook_Session_Builder com_facebook_Session_Builder::setAppli
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Session_Builder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -332,7 +336,9 @@ FacebookCXX::com_facebook_Session_Builder com_facebook_Session_Builder::setAppli
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session_Builder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session_Builder) (FacebookCXX::com_facebook_Session_Builder((FacebookCXX::com_facebook_Session_Builder *) cxx_value));
+
+	FacebookCXX::com_facebook_Session_Builder result((FacebookCXX::com_facebook_Session_Builder) *((FacebookCXX::com_facebook_Session_Builder *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session_Builder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -382,7 +388,6 @@ FacebookCXX::com_facebook_Session_Builder com_facebook_Session_Builder::setToken
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Session_Builder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -400,7 +405,9 @@ FacebookCXX::com_facebook_Session_Builder com_facebook_Session_Builder::setToken
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session_Builder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session_Builder) (FacebookCXX::com_facebook_Session_Builder((FacebookCXX::com_facebook_Session_Builder *) cxx_value));
+
+	FacebookCXX::com_facebook_Session_Builder result((FacebookCXX::com_facebook_Session_Builder) *((FacebookCXX::com_facebook_Session_Builder *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session_Builder *) cxx_value);
 		
 	jni->popLocalFrame();
 

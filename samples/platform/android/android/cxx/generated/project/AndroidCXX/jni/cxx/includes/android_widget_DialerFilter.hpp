@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -103,7 +102,10 @@ public:
 	// Public Constructors
 	android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0);
 	android_widget_DialerFilter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_DialerFilter();
+	// TODO: remove
+	// 
+	// android_widget_DialerFilter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_DialerFilter();
 	// Functions

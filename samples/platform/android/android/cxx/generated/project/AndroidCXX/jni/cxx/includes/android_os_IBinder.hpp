@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -90,7 +89,10 @@ public:
 	android_os_IBinder(const android_os_IBinder& cc);
 	android_os_IBinder(void * proxy);
 	// Public Constructors
-	android_os_IBinder();
+	// TODO: remove
+	// 
+	// android_os_IBinder();
+	// 
 	// Default Destructor
 	virtual ~android_os_IBinder();
 	// Functions

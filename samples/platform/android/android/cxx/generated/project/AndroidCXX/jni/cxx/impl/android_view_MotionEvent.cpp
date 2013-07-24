@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -127,7 +126,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MotionEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +193,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_MotionEvent::android_view_MotionEvent(const android_view_MotionEvent& cc)
 {
@@ -237,40 +235,45 @@ android_view_MotionEvent::android_view_MotionEvent(void * proxy)
 
 	LOGV("android_view_MotionEvent::android_view_MotionEvent(void * proxy) exit");
 }
-android_view_MotionEvent::android_view_MotionEvent()
-{
-	LOGV("android_view_MotionEvent::android_view_MotionEvent() enter");	
+// TODO: remove
+// 
+// 
+// android_view_MotionEvent::android_view_MotionEvent()
+// {
+// 	LOGV("android_view_MotionEvent::android_view_MotionEvent() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/MotionEvent";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_MotionEvent cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_MotionEvent jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_MotionEvent cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_MotionEvent jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_MotionEvent::android_view_MotionEvent() exit");	
-}
+// 	LOGV("android_view_MotionEvent::android_view_MotionEvent() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_MotionEvent::~android_view_MotionEvent()
@@ -308,7 +311,6 @@ AndroidCXX::java_lang_String android_view_MotionEvent::toString()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -326,7 +328,9 @@ AndroidCXX::java_lang_String android_view_MotionEvent::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -425,7 +429,6 @@ float android_view_MotionEvent::getSize(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -443,7 +446,9 @@ float android_view_MotionEvent::getSize(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -472,7 +477,6 @@ float android_view_MotionEvent::getSize()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -490,7 +494,9 @@ float android_view_MotionEvent::getSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -519,7 +525,6 @@ float android_view_MotionEvent::getY()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -537,7 +542,9 @@ float android_view_MotionEvent::getY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -587,7 +594,6 @@ float android_view_MotionEvent::getY(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -605,7 +611,9 @@ float android_view_MotionEvent::getY(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -634,7 +642,6 @@ float android_view_MotionEvent::getX()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -652,7 +659,9 @@ float android_view_MotionEvent::getX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -702,7 +711,6 @@ float android_view_MotionEvent::getX(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -720,7 +728,9 @@ float android_view_MotionEvent::getX(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1071,7 +1081,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		jarg11 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10,jarg11);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1089,7 +1098,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1427,7 +1438,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		jarg12 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10,jarg11,jarg12);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1445,7 +1455,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1804,7 +1816,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		jarg13 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10,jarg11,jarg12,jarg13);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1822,7 +1833,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1872,7 +1885,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(AndroidCXX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1890,7 +1902,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2045,7 +2059,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		jarg5 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2063,7 +2076,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2365,7 +2380,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		jarg12 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4,jarg5,jarg6,jarg7,jarg8,jarg9,jarg10,jarg11,jarg12);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2383,7 +2397,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2440,7 +2456,6 @@ int android_view_MotionEvent::getAction()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2458,7 +2473,9 @@ int android_view_MotionEvent::getAction()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2487,7 +2504,6 @@ int android_view_MotionEvent::getFlags()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2505,7 +2521,9 @@ int android_view_MotionEvent::getFlags()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2604,7 +2622,6 @@ float android_view_MotionEvent::getOrientation(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2622,7 +2639,9 @@ float android_view_MotionEvent::getOrientation(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2651,7 +2670,6 @@ float android_view_MotionEvent::getOrientation()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2669,7 +2687,9 @@ float android_view_MotionEvent::getOrientation()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2698,7 +2718,6 @@ int android_view_MotionEvent::getDeviceId()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2716,7 +2735,9 @@ int android_view_MotionEvent::getDeviceId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2745,7 +2766,6 @@ int android_view_MotionEvent::getSource()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2763,7 +2783,9 @@ int android_view_MotionEvent::getSource()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2841,7 +2863,6 @@ int android_view_MotionEvent::getMetaState()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2859,7 +2880,9 @@ int android_view_MotionEvent::getMetaState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2888,7 +2911,6 @@ long android_view_MotionEvent::getDownTime()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2906,7 +2928,9 @@ long android_view_MotionEvent::getDownTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2935,7 +2959,6 @@ long android_view_MotionEvent::getEventTime()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2953,7 +2976,9 @@ long android_view_MotionEvent::getEventTime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3003,7 +3028,6 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtainNoHistory(A
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MotionEvent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3021,7 +3045,9 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtainNoHistory(A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MotionEvent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MotionEvent) (AndroidCXX::android_view_MotionEvent((AndroidCXX::android_view_MotionEvent *) cxx_value));
+
+	AndroidCXX::android_view_MotionEvent result((AndroidCXX::android_view_MotionEvent) *((AndroidCXX::android_view_MotionEvent *) cxx_value));
+	delete ((AndroidCXX::android_view_MotionEvent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3050,7 +3076,6 @@ int android_view_MotionEvent::getActionMasked()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3068,7 +3093,9 @@ int android_view_MotionEvent::getActionMasked()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3097,7 +3124,6 @@ int android_view_MotionEvent::getActionIndex()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3115,7 +3141,9 @@ int android_view_MotionEvent::getActionIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3144,7 +3172,6 @@ float android_view_MotionEvent::getPressure()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3162,7 +3189,9 @@ float android_view_MotionEvent::getPressure()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3212,7 +3241,6 @@ float android_view_MotionEvent::getPressure(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3230,7 +3258,9 @@ float android_view_MotionEvent::getPressure(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3259,7 +3289,6 @@ float android_view_MotionEvent::getTouchMajor()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3277,7 +3306,9 @@ float android_view_MotionEvent::getTouchMajor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3327,7 +3358,6 @@ float android_view_MotionEvent::getTouchMajor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3345,7 +3375,9 @@ float android_view_MotionEvent::getTouchMajor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3374,7 +3406,6 @@ float android_view_MotionEvent::getTouchMinor()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3392,7 +3423,9 @@ float android_view_MotionEvent::getTouchMinor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3442,7 +3475,6 @@ float android_view_MotionEvent::getTouchMinor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3460,7 +3492,9 @@ float android_view_MotionEvent::getTouchMinor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3510,7 +3544,6 @@ float android_view_MotionEvent::getToolMajor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3528,7 +3561,9 @@ float android_view_MotionEvent::getToolMajor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3557,7 +3592,6 @@ float android_view_MotionEvent::getToolMajor()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3575,7 +3609,9 @@ float android_view_MotionEvent::getToolMajor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3604,7 +3640,6 @@ float android_view_MotionEvent::getToolMinor()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3622,7 +3657,9 @@ float android_view_MotionEvent::getToolMinor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3672,7 +3709,6 @@ float android_view_MotionEvent::getToolMinor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3690,7 +3726,9 @@ float android_view_MotionEvent::getToolMinor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3761,7 +3799,6 @@ float android_view_MotionEvent::getAxisValue(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3779,7 +3816,9 @@ float android_view_MotionEvent::getAxisValue(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3829,7 +3868,6 @@ float android_view_MotionEvent::getAxisValue(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -3847,7 +3885,9 @@ float android_view_MotionEvent::getAxisValue(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3876,7 +3916,6 @@ int android_view_MotionEvent::getPointerCount()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3894,7 +3933,9 @@ int android_view_MotionEvent::getPointerCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3944,7 +3985,6 @@ int android_view_MotionEvent::getPointerId(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3962,7 +4002,9 @@ int android_view_MotionEvent::getPointerId(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4012,7 +4054,6 @@ int android_view_MotionEvent::getToolType(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4030,7 +4071,9 @@ int android_view_MotionEvent::getToolType(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4080,7 +4123,6 @@ int android_view_MotionEvent::findPointerIndex(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4098,7 +4140,9 @@ int android_view_MotionEvent::findPointerIndex(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4267,7 +4311,6 @@ int android_view_MotionEvent::getButtonState()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4285,7 +4328,9 @@ int android_view_MotionEvent::getButtonState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4314,7 +4359,6 @@ float android_view_MotionEvent::getRawX()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4332,7 +4376,9 @@ float android_view_MotionEvent::getRawX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4361,7 +4407,6 @@ float android_view_MotionEvent::getRawY()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4379,7 +4424,9 @@ float android_view_MotionEvent::getRawY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4408,7 +4455,6 @@ float android_view_MotionEvent::getXPrecision()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4426,7 +4472,9 @@ float android_view_MotionEvent::getXPrecision()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4455,7 +4503,6 @@ float android_view_MotionEvent::getYPrecision()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4473,7 +4520,9 @@ float android_view_MotionEvent::getYPrecision()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4502,7 +4551,6 @@ int android_view_MotionEvent::getHistorySize()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4520,7 +4568,9 @@ int android_view_MotionEvent::getHistorySize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4570,7 +4620,6 @@ long android_view_MotionEvent::getHistoricalEventTime(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -4588,7 +4637,9 @@ long android_view_MotionEvent::getHistoricalEventTime(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4638,7 +4689,6 @@ float android_view_MotionEvent::getHistoricalX(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4656,7 +4706,9 @@ float android_view_MotionEvent::getHistoricalX(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4727,7 +4779,6 @@ float android_view_MotionEvent::getHistoricalX(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4745,7 +4796,9 @@ float android_view_MotionEvent::getHistoricalX(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4795,7 +4848,6 @@ float android_view_MotionEvent::getHistoricalY(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4813,7 +4865,9 @@ float android_view_MotionEvent::getHistoricalY(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4884,7 +4938,6 @@ float android_view_MotionEvent::getHistoricalY(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4902,7 +4955,9 @@ float android_view_MotionEvent::getHistoricalY(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4952,7 +5007,6 @@ float android_view_MotionEvent::getHistoricalPressure(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -4970,7 +5024,9 @@ float android_view_MotionEvent::getHistoricalPressure(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5041,7 +5097,6 @@ float android_view_MotionEvent::getHistoricalPressure(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5059,7 +5114,9 @@ float android_view_MotionEvent::getHistoricalPressure(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5130,7 +5187,6 @@ float android_view_MotionEvent::getHistoricalSize(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5148,7 +5204,9 @@ float android_view_MotionEvent::getHistoricalSize(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5198,7 +5256,6 @@ float android_view_MotionEvent::getHistoricalSize(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5216,7 +5273,9 @@ float android_view_MotionEvent::getHistoricalSize(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5266,7 +5325,6 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5284,7 +5342,9 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5355,7 +5415,6 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5373,7 +5432,9 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5444,7 +5505,6 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5462,7 +5522,9 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5512,7 +5574,6 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5530,7 +5591,9 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5601,7 +5664,6 @@ float android_view_MotionEvent::getHistoricalToolMajor(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5619,7 +5681,9 @@ float android_view_MotionEvent::getHistoricalToolMajor(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5669,7 +5733,6 @@ float android_view_MotionEvent::getHistoricalToolMajor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5687,7 +5750,9 @@ float android_view_MotionEvent::getHistoricalToolMajor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5737,7 +5802,6 @@ float android_view_MotionEvent::getHistoricalToolMinor(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5755,7 +5819,9 @@ float android_view_MotionEvent::getHistoricalToolMinor(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5826,7 +5892,6 @@ float android_view_MotionEvent::getHistoricalToolMinor(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5844,7 +5909,9 @@ float android_view_MotionEvent::getHistoricalToolMinor(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5894,7 +5961,6 @@ float android_view_MotionEvent::getHistoricalOrientation(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -5912,7 +5978,9 @@ float android_view_MotionEvent::getHistoricalOrientation(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -5983,7 +6051,6 @@ float android_view_MotionEvent::getHistoricalOrientation(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -6001,7 +6068,9 @@ float android_view_MotionEvent::getHistoricalOrientation(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6072,7 +6141,6 @@ float android_view_MotionEvent::getHistoricalAxisValue(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -6090,7 +6158,9 @@ float android_view_MotionEvent::getHistoricalAxisValue(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6182,7 +6252,6 @@ float android_view_MotionEvent::getHistoricalAxisValue(int& arg0,int& arg1,int& 
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -6200,7 +6269,9 @@ float android_view_MotionEvent::getHistoricalAxisValue(int& arg0,int& arg1,int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6320,7 +6391,6 @@ int android_view_MotionEvent::getEdgeFlags()
 	LOGV("android_view_MotionEvent jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -6338,7 +6408,9 @@ int android_view_MotionEvent::getEdgeFlags()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -6840,7 +6912,6 @@ AndroidCXX::java_lang_String android_view_MotionEvent::axisToString(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -6858,7 +6929,9 @@ AndroidCXX::java_lang_String android_view_MotionEvent::axisToString(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -6908,7 +6981,6 @@ int android_view_MotionEvent::axisFromString(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -6926,7 +6998,9 @@ int android_view_MotionEvent::axisFromString(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

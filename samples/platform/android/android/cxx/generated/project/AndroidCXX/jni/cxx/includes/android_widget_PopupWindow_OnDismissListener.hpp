@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_PopupWindow_OnDismissListener
@@ -49,7 +48,10 @@ public:
 	android_widget_PopupWindow_OnDismissListener(const android_widget_PopupWindow_OnDismissListener& cc);
 	android_widget_PopupWindow_OnDismissListener(void * proxy);
 	// Public Constructors
-	android_widget_PopupWindow_OnDismissListener();
+	// TODO: remove
+	// 
+	// android_widget_PopupWindow_OnDismissListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_PopupWindow_OnDismissListener();
 	// Functions

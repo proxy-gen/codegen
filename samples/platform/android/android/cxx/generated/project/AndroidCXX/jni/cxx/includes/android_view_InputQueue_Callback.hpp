@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_view_InputQueue_Callback(const android_view_InputQueue_Callback& cc);
 	android_view_InputQueue_Callback(void * proxy);
 	// Public Constructors
-	android_view_InputQueue_Callback();
+	// TODO: remove
+	// 
+	// android_view_InputQueue_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_view_InputQueue_Callback();
 	// Functions

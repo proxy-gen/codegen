@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -101,6 +100,8 @@ public:
 	android_view_View_AccessibilityDelegate(void * proxy);
 	// Public Constructors
 	android_view_View_AccessibilityDelegate();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_View_AccessibilityDelegate();
 	// Functions

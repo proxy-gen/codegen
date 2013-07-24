@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	com_facebook_Request_GraphUserCallback(const com_facebook_Request_GraphUserCallback& cc);
 	com_facebook_Request_GraphUserCallback(void * proxy);
 	// Public Constructors
-	com_facebook_Request_GraphUserCallback();
+	// TODO: remove
+	// 
+	// com_facebook_Request_GraphUserCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphUserCallback();
 	// Functions

@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -68,6 +67,8 @@ public:
 	java_io_IOException(AndroidCXX::java_lang_String& arg0);
 	java_io_IOException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
 	java_io_IOException(AndroidCXX::java_lang_Throwable& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_io_IOException();
 	// Functions

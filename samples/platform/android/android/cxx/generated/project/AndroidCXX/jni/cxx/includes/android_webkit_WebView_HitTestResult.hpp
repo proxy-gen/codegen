@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -55,7 +54,10 @@ public:
 	android_webkit_WebView_HitTestResult(const android_webkit_WebView_HitTestResult& cc);
 	android_webkit_WebView_HitTestResult(void * proxy);
 	// Public Constructors
-	android_webkit_WebView_HitTestResult();
+	// TODO: remove
+	// 
+	// android_webkit_WebView_HitTestResult();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebView_HitTestResult();
 	// Functions

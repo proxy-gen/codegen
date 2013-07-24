@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc);
 	android_webkit_GeolocationPermissions_Callback(void * proxy);
 	// Public Constructors
-	android_webkit_GeolocationPermissions_Callback();
+	// TODO: remove
+	// 
+	// android_webkit_GeolocationPermissions_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_GeolocationPermissions_Callback();
 	// Functions

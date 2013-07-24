@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	android_text_TextWatcher(const android_text_TextWatcher& cc);
 	android_text_TextWatcher(void * proxy);
 	// Public Constructors
-	android_text_TextWatcher();
+	// TODO: remove
+	// 
+	// android_text_TextWatcher();
+	// 
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions

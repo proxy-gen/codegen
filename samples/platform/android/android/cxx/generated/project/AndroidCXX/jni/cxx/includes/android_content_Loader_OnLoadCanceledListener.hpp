@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -60,7 +59,10 @@ public:
 	android_content_Loader_OnLoadCanceledListener(const android_content_Loader_OnLoadCanceledListener& cc);
 	android_content_Loader_OnLoadCanceledListener(void * proxy);
 	// Public Constructors
-	android_content_Loader_OnLoadCanceledListener();
+	// TODO: remove
+	// 
+	// android_content_Loader_OnLoadCanceledListener();
+	// 
 	// Default Destructor
 	virtual ~android_content_Loader_OnLoadCanceledListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -68,6 +67,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_LoginButton"
@@ -162,7 +162,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(const com_facebook_widget_LoginButton& cc)
 {
@@ -205,40 +204,45 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(void * proxy)
 
 	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(void * proxy) exit");
 }
-com_facebook_widget_LoginButton::com_facebook_widget_LoginButton()
-{
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_LoginButton::com_facebook_widget_LoginButton()
+// {
+// 	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/LoginButton";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_LoginButton cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_LoginButton jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_LoginButton cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_LoginButton jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton() exit");	
-}
+// 	LOGV("com_facebook_widget_LoginButton::com_facebook_widget_LoginButton() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
 {
@@ -573,7 +577,6 @@ bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,Andro
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -591,7 +594,9 @@ bool com_facebook_widget_LoginButton::onActivityResult(int& arg0,int& arg1,Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -620,7 +625,6 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 	LOGV("com_facebook_widget_LoginButton jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -638,7 +642,9 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionLoginBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior) (cxx_value);
+
+	COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior result = (COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -863,7 +869,6 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 	LOGV("com_facebook_widget_LoginButton jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -881,7 +886,9 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionDefaultAudience(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience) (cxx_value);
+
+	COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience result = (COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -938,7 +945,6 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 	LOGV("com_facebook_widget_LoginButton jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -956,7 +962,9 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_LoginButton_OnErrorListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
+
+	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) *((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1196,7 +1204,6 @@ FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback com_faceboo
 	LOGV("com_facebook_widget_LoginButton jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1214,7 +1221,9 @@ FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback com_faceboo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_LoginButton_UserInfoChangedCallback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback) (FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback((FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback *) cxx_value));
+
+	FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback result((FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback) *((FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1341,7 +1350,6 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 	LOGV("com_facebook_widget_LoginButton jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session_StatusCallback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1359,7 +1367,9 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session_StatusCallback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session_StatusCallback) (FacebookCXX::com_facebook_Session_StatusCallback((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
+
+	FacebookCXX::com_facebook_Session_StatusCallback result((FacebookCXX::com_facebook_Session_StatusCallback) *((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value);
 		
 	jni->popLocalFrame();
 

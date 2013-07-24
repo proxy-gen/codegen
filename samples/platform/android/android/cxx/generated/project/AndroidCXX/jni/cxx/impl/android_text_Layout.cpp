@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -90,7 +89,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Layout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +161,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_text_Layout::android_text_Layout(const android_text_Layout& cc)
 {
@@ -205,40 +203,45 @@ android_text_Layout::android_text_Layout(void * proxy)
 
 	LOGV("android_text_Layout::android_text_Layout(void * proxy) exit");
 }
-android_text_Layout::android_text_Layout()
-{
-	LOGV("android_text_Layout::android_text_Layout() enter");	
+// TODO: remove
+// 
+// 
+// android_text_Layout::android_text_Layout()
+// {
+// 	LOGV("android_text_Layout::android_text_Layout() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/text/Layout";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/text/Layout";
 
-	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_text_Layout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_text_Layout cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_text_Layout jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_text_Layout cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_text_Layout jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_text_Layout::android_text_Layout() exit");	
-}
+// 	LOGV("android_text_Layout::android_text_Layout() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_text_Layout::~android_text_Layout()
@@ -276,7 +279,6 @@ AndroidCXX::java_lang_CharSequence android_text_Layout::getText()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -294,7 +296,9 @@ AndroidCXX::java_lang_CharSequence android_text_Layout::getText()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -323,7 +327,6 @@ int android_text_Layout::getWidth()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -341,7 +344,9 @@ int android_text_Layout::getWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -370,7 +375,6 @@ int android_text_Layout::getHeight()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -388,7 +392,9 @@ int android_text_Layout::getHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -578,7 +584,6 @@ AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	AndroidCXX::android_text_TextPaint result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -596,7 +601,9 @@ AndroidCXX::android_text_TextPaint android_text_Layout::getPaint()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_TextPaint(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_TextPaint) (AndroidCXX::android_text_TextPaint((AndroidCXX::android_text_TextPaint *) cxx_value));
+
+	AndroidCXX::android_text_TextPaint result((AndroidCXX::android_text_TextPaint) *((AndroidCXX::android_text_TextPaint *) cxx_value));
+	delete ((AndroidCXX::android_text_TextPaint *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -625,7 +632,6 @@ int android_text_Layout::getLineCount()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -643,7 +649,9 @@ int android_text_Layout::getLineCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -714,7 +722,6 @@ int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Re
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -732,7 +739,9 @@ int android_text_Layout::getLineBounds(int& arg0,AndroidCXX::android_graphics_Re
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -845,7 +854,6 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		jarg3 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -863,7 +871,9 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -934,7 +944,6 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -952,7 +961,9 @@ float android_text_Layout::getDesiredWidth(AndroidCXX::java_lang_CharSequence& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -981,7 +992,6 @@ int android_text_Layout::getEllipsizedWidth()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -999,7 +1009,9 @@ int android_text_Layout::getEllipsizedWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1077,7 +1089,6 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1095,7 +1106,9 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Layout_Alignment(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+
+	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -1124,7 +1137,6 @@ float android_text_Layout::getSpacingMultiplier()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1142,7 +1154,9 @@ float android_text_Layout::getSpacingMultiplier()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1171,7 +1185,6 @@ float android_text_Layout::getSpacingAdd()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1189,7 +1202,9 @@ float android_text_Layout::getSpacingAdd()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1239,7 +1254,6 @@ int android_text_Layout::getLineTop(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1257,7 +1271,9 @@ int android_text_Layout::getLineTop(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1307,7 +1323,6 @@ int android_text_Layout::getLineDescent(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1325,7 +1340,9 @@ int android_text_Layout::getLineDescent(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1375,7 +1392,6 @@ int android_text_Layout::getLineStart(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1393,7 +1409,9 @@ int android_text_Layout::getLineStart(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1443,7 +1461,6 @@ int android_text_Layout::getParagraphDirection(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1461,7 +1478,9 @@ int android_text_Layout::getParagraphDirection(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1511,7 +1530,6 @@ bool android_text_Layout::getLineContainsTab(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1529,7 +1547,9 @@ bool android_text_Layout::getLineContainsTab(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1579,7 +1599,6 @@ AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirection
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_text_Layout_Directions result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1597,7 +1616,9 @@ AndroidCXX::android_text_Layout_Directions android_text_Layout::getLineDirection
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Layout_Directions(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_Layout_Directions) (AndroidCXX::android_text_Layout_Directions((AndroidCXX::android_text_Layout_Directions *) cxx_value));
+
+	AndroidCXX::android_text_Layout_Directions result((AndroidCXX::android_text_Layout_Directions) *((AndroidCXX::android_text_Layout_Directions *) cxx_value));
+	delete ((AndroidCXX::android_text_Layout_Directions *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1626,7 +1647,6 @@ int android_text_Layout::getTopPadding()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1644,7 +1664,9 @@ int android_text_Layout::getTopPadding()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1673,7 +1695,6 @@ int android_text_Layout::getBottomPadding()
 	LOGV("android_text_Layout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1691,7 +1712,9 @@ int android_text_Layout::getBottomPadding()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1741,7 +1764,6 @@ bool android_text_Layout::isRtlCharAt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1759,7 +1781,9 @@ bool android_text_Layout::isRtlCharAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1809,7 +1833,6 @@ float android_text_Layout::getPrimaryHorizontal(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1827,7 +1850,9 @@ float android_text_Layout::getPrimaryHorizontal(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1877,7 +1902,6 @@ float android_text_Layout::getSecondaryHorizontal(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1895,7 +1919,9 @@ float android_text_Layout::getSecondaryHorizontal(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1945,7 +1971,6 @@ float android_text_Layout::getLineLeft(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1963,7 +1988,9 @@ float android_text_Layout::getLineLeft(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2013,7 +2040,6 @@ float android_text_Layout::getLineRight(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2031,7 +2057,9 @@ float android_text_Layout::getLineRight(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2081,7 +2109,6 @@ float android_text_Layout::getLineMax(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2099,7 +2126,9 @@ float android_text_Layout::getLineMax(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2149,7 +2178,6 @@ float android_text_Layout::getLineWidth(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -2167,7 +2195,9 @@ float android_text_Layout::getLineWidth(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2217,7 +2247,6 @@ int android_text_Layout::getLineForVertical(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2235,7 +2264,9 @@ int android_text_Layout::getLineForVertical(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2285,7 +2316,6 @@ int android_text_Layout::getLineForOffset(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2303,7 +2333,9 @@ int android_text_Layout::getLineForOffset(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2374,7 +2406,6 @@ int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1)
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2392,7 +2423,9 @@ int android_text_Layout::getOffsetForHorizontal(int& arg0,float& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2442,7 +2475,6 @@ int android_text_Layout::getLineEnd(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2460,7 +2492,9 @@ int android_text_Layout::getLineEnd(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2510,7 +2544,6 @@ int android_text_Layout::getLineVisibleEnd(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2528,7 +2561,9 @@ int android_text_Layout::getLineVisibleEnd(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2578,7 +2613,6 @@ int android_text_Layout::getLineBottom(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2596,7 +2630,9 @@ int android_text_Layout::getLineBottom(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2646,7 +2682,6 @@ int android_text_Layout::getLineBaseline(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2664,7 +2699,9 @@ int android_text_Layout::getLineBaseline(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2714,7 +2751,6 @@ int android_text_Layout::getLineAscent(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2732,7 +2768,9 @@ int android_text_Layout::getLineAscent(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2782,7 +2820,6 @@ int android_text_Layout::getOffsetToLeftOf(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2800,7 +2837,9 @@ int android_text_Layout::getOffsetToLeftOf(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2850,7 +2889,6 @@ int android_text_Layout::getOffsetToRightOf(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2868,7 +2906,9 @@ int android_text_Layout::getOffsetToRightOf(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3100,7 +3140,6 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3118,7 +3157,9 @@ ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment android_text_Layout
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Layout_Alignment(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+
+	ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment result = (ANDROID_TEXT_LAYOUT_ALIGNMENT::android_text_Layout_Alignment) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -3168,7 +3209,6 @@ int android_text_Layout::getParagraphLeft(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3186,7 +3226,9 @@ int android_text_Layout::getParagraphLeft(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3236,7 +3278,6 @@ int android_text_Layout::getParagraphRight(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3254,7 +3295,9 @@ int android_text_Layout::getParagraphRight(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3304,7 +3347,6 @@ int android_text_Layout::getEllipsisStart(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3322,7 +3364,9 @@ int android_text_Layout::getEllipsisStart(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3372,7 +3416,6 @@ int android_text_Layout::getEllipsisCount(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3390,7 +3433,9 @@ int android_text_Layout::getEllipsisCount(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -94,7 +93,10 @@ public:
 	android_app_SearchableInfo(const android_app_SearchableInfo& cc);
 	android_app_SearchableInfo(void * proxy);
 	// Public Constructors
-	android_app_SearchableInfo();
+	// TODO: remove
+	// 
+	// android_app_SearchableInfo();
+	// 
 	// Default Destructor
 	virtual ~android_app_SearchableInfo();
 	// Functions

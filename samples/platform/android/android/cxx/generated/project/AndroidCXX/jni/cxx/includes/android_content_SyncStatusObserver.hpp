@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_content_SyncStatusObserver
@@ -49,7 +48,10 @@ public:
 	android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc);
 	android_content_SyncStatusObserver(void * proxy);
 	// Public Constructors
-	android_content_SyncStatusObserver();
+	// TODO: remove
+	// 
+	// android_content_SyncStatusObserver();
+	// 
 	// Default Destructor
 	virtual ~android_content_SyncStatusObserver();
 	// Functions

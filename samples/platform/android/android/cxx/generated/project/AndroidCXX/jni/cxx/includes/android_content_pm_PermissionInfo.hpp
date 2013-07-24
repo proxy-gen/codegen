@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -80,6 +79,8 @@ public:
 	// Public Constructors
 	android_content_pm_PermissionInfo();
 	android_content_pm_PermissionInfo(AndroidCXX::android_content_pm_PermissionInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_PermissionInfo();
 	// Functions

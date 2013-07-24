@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,7 +63,10 @@ public:
 	android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc);
 	android_graphics_drawable_Drawable_Callback(void * proxy);
 	// Public Constructors
-	android_graphics_drawable_Drawable_Callback();
+	// TODO: remove
+	// 
+	// android_graphics_drawable_Drawable_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_Callback();
 	// Functions

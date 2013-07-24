@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_app_ActionBar_OnMenuVisibilityListener
@@ -49,7 +48,10 @@ public:
 	android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc);
 	android_app_ActionBar_OnMenuVisibilityListener(void * proxy);
 	// Public Constructors
-	android_app_ActionBar_OnMenuVisibilityListener();
+	// TODO: remove
+	// 
+	// android_app_ActionBar_OnMenuVisibilityListener();
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnMenuVisibilityListener();
 	// Functions

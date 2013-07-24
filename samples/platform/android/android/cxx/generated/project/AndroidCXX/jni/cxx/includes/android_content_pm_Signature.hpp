@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  	
@@ -82,7 +81,10 @@ public:
 	// Public Constructors
 	android_content_pm_Signature(std::vector<byte>& arg0);
 	android_content_pm_Signature(AndroidCXX::java_lang_String& arg0);
-	android_content_pm_Signature();
+	// TODO: remove
+	// 
+	// android_content_pm_Signature();
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_Signature();
 	// Functions

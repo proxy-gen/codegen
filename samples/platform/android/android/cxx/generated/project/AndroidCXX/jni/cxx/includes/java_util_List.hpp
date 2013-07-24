@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -136,7 +135,10 @@ public:
 	java_util_List(const java_util_List& cc);
 	java_util_List(void * proxy);
 	// Public Constructors
-	java_util_List();
+	// TODO: remove
+	// 
+	// java_util_List();
+	// 
 	// Default Destructor
 	virtual ~java_util_List();
 	// Functions

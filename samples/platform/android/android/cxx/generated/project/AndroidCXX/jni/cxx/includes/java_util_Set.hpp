@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -100,7 +99,10 @@ public:
 	java_util_Set(const java_util_Set& cc);
 	java_util_Set(void * proxy);
 	// Public Constructors
-	java_util_Set();
+	// TODO: remove
+	// 
+	// java_util_Set();
+	// 
 	// Default Destructor
 	virtual ~java_util_Set();
 	// Functions

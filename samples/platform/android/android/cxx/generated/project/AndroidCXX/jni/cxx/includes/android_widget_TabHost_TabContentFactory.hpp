@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -59,7 +58,10 @@ public:
 	android_widget_TabHost_TabContentFactory(const android_widget_TabHost_TabContentFactory& cc);
 	android_widget_TabHost_TabContentFactory(void * proxy);
 	// Public Constructors
-	android_widget_TabHost_TabContentFactory();
+	// TODO: remove
+	// 
+	// android_widget_TabHost_TabContentFactory();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabContentFactory();
 	// Functions

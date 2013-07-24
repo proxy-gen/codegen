@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -85,7 +84,10 @@ public:
 	android_view_SurfaceHolder(const android_view_SurfaceHolder& cc);
 	android_view_SurfaceHolder(void * proxy);
 	// Public Constructors
-	android_view_SurfaceHolder();
+	// TODO: remove
+	// 
+	// android_view_SurfaceHolder();
+	// 
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder();
 	// Functions

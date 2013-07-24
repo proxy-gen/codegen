@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -68,7 +67,10 @@ public:
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
 	java_nio_charset_CoderResult(void * proxy);
 	// Public Constructors
-	java_nio_charset_CoderResult();
+	// TODO: remove
+	// 
+	// java_nio_charset_CoderResult();
+	// 
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions

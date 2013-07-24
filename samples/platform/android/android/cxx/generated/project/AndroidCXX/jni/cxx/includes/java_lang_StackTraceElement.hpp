@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -74,7 +73,10 @@ public:
 	java_lang_StackTraceElement(void * proxy);
 	// Public Constructors
 	java_lang_StackTraceElement(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,int& arg3);
-	java_lang_StackTraceElement();
+	// TODO: remove
+	// 
+	// java_lang_StackTraceElement();
+	// 
 	// Default Destructor
 	virtual ~java_lang_StackTraceElement();
 	// Functions

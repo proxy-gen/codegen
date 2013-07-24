@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_GridLayout_Alignment
@@ -48,7 +47,10 @@ public:
 	android_widget_GridLayout_Alignment(const android_widget_GridLayout_Alignment& cc);
 	android_widget_GridLayout_Alignment(void * proxy);
 	// Public Constructors
-	android_widget_GridLayout_Alignment();
+	// TODO: remove
+	// 
+	// android_widget_GridLayout_Alignment();
+	// 
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Alignment();
 	// Functions

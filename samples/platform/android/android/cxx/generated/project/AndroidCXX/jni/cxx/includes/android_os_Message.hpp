@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -125,6 +124,8 @@ public:
 	android_os_Message(void * proxy);
 	// Public Constructors
 	android_os_Message();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_os_Message();
 	// Functions

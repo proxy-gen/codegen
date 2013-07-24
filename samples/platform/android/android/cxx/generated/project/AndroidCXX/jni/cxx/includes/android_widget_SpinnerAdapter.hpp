@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -60,7 +59,10 @@ public:
 	android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc);
 	android_widget_SpinnerAdapter(void * proxy);
 	// Public Constructors
-	android_widget_SpinnerAdapter();
+	// TODO: remove
+	// 
+	// android_widget_SpinnerAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SpinnerAdapter();
 	// Functions

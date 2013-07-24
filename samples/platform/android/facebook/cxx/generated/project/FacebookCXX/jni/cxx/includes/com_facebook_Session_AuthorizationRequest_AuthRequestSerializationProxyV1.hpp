@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1
@@ -48,7 +47,10 @@ public:
 	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(const com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1& cc);
 	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(void * proxy);
 	// Public Constructors
-	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1();
+	// TODO: remove
+	// 
+	// com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1();
 	// Functions

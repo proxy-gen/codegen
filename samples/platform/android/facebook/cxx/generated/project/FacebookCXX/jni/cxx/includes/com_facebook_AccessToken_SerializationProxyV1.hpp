@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_AccessToken_SerializationProxyV1
@@ -48,7 +47,10 @@ public:
 	com_facebook_AccessToken_SerializationProxyV1(const com_facebook_AccessToken_SerializationProxyV1& cc);
 	com_facebook_AccessToken_SerializationProxyV1(void * proxy);
 	// Public Constructors
-	com_facebook_AccessToken_SerializationProxyV1();
+	// TODO: remove
+	// 
+	// com_facebook_AccessToken_SerializationProxyV1();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AccessToken_SerializationProxyV1();
 	// Functions

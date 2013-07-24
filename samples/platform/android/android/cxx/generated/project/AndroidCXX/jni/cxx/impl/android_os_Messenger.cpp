@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -46,7 +45,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Messenger"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -92,7 +91,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_os_Messenger::android_os_Messenger(const android_os_Messenger& cc)
 {
@@ -135,40 +133,45 @@ android_os_Messenger::android_os_Messenger(void * proxy)
 
 	LOGV("android_os_Messenger::android_os_Messenger(void * proxy) exit");
 }
-android_os_Messenger::android_os_Messenger()
-{
-	LOGV("android_os_Messenger::android_os_Messenger() enter");	
+// TODO: remove
+// 
+// 
+// android_os_Messenger::android_os_Messenger()
+// {
+// 	LOGV("android_os_Messenger::android_os_Messenger() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/os/Messenger";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_os_Messenger cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_os_Messenger jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_os_Messenger cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_os_Messenger jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_os_Messenger::android_os_Messenger() exit");	
-}
+// 	LOGV("android_os_Messenger::android_os_Messenger() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_os_Messenger::android_os_Messenger(AndroidCXX::android_os_Handler& arg0)
 {
@@ -341,7 +344,6 @@ bool android_os_Messenger::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -359,7 +361,9 @@ bool android_os_Messenger::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -388,7 +392,6 @@ int android_os_Messenger::hashCode()
 	LOGV("android_os_Messenger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -406,7 +409,9 @@ int android_os_Messenger::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -484,7 +489,6 @@ int android_os_Messenger::describeContents()
 	LOGV("android_os_Messenger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -502,7 +506,9 @@ int android_os_Messenger::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -601,7 +607,6 @@ AndroidCXX::android_os_IBinder android_os_Messenger::getBinder()
 	LOGV("android_os_Messenger jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_IBinder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -619,7 +624,9 @@ AndroidCXX::android_os_IBinder android_os_Messenger::getBinder()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_IBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_IBinder) (AndroidCXX::android_os_IBinder((AndroidCXX::android_os_IBinder *) cxx_value));
+
+	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
+	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -739,7 +746,6 @@ AndroidCXX::android_os_Messenger android_os_Messenger::readMessengerOrNullFromPa
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Messenger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -757,7 +763,9 @@ AndroidCXX::android_os_Messenger android_os_Messenger::readMessengerOrNullFromPa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Messenger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Messenger) (AndroidCXX::android_os_Messenger((AndroidCXX::android_os_Messenger *) cxx_value));
+
+	AndroidCXX::android_os_Messenger result((AndroidCXX::android_os_Messenger) *((AndroidCXX::android_os_Messenger *) cxx_value));
+	delete ((AndroidCXX::android_os_Messenger *) cxx_value);
 		
 	jni->popLocalFrame();
 

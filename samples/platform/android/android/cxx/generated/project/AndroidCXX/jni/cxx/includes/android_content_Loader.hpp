@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -123,7 +122,10 @@ public:
 	android_content_Loader(void * proxy);
 	// Public Constructors
 	android_content_Loader(AndroidCXX::android_content_Context& arg0);
-	android_content_Loader();
+	// TODO: remove
+	// 
+	// android_content_Loader();
+	// 
 	// Default Destructor
 	virtual ~android_content_Loader();
 	// Functions

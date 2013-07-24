@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_media_MediaPlayer_OnErrorListener(const android_media_MediaPlayer_OnErrorListener& cc);
 	android_media_MediaPlayer_OnErrorListener(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnErrorListener();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_OnErrorListener();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnErrorListener();
 	// Functions

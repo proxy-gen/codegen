@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_CancellationSignal"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -50,7 +49,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_os_CancellationSignal::android_os_CancellationSignal(const android_os_CancellationSignal& cc)
@@ -94,6 +92,10 @@ android_os_CancellationSignal::android_os_CancellationSignal(void * proxy)
 
 	LOGV("android_os_CancellationSignal::android_os_CancellationSignal(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_os_CancellationSignal::android_os_CancellationSignal()
 {
@@ -195,7 +197,6 @@ bool android_os_CancellationSignal::isCanceled()
 	LOGV("android_os_CancellationSignal jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -213,7 +214,9 @@ bool android_os_CancellationSignal::isCanceled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

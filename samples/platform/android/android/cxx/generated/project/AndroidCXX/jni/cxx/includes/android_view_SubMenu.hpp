@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -88,7 +87,10 @@ public:
 	android_view_SubMenu(const android_view_SubMenu& cc);
 	android_view_SubMenu(void * proxy);
 	// Public Constructors
-	android_view_SubMenu();
+	// TODO: remove
+	// 
+	// android_view_SubMenu();
+	// 
 	// Default Destructor
 	virtual ~android_view_SubMenu();
 	// Functions

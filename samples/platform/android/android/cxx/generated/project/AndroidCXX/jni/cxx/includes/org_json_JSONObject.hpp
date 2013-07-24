@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -196,6 +195,8 @@ public:
 	org_json_JSONObject(AndroidCXX::java_lang_String& arg0);
 	org_json_JSONObject();
 	org_json_JSONObject(AndroidCXX::java_util_Map& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~org_json_JSONObject();
 	// Functions

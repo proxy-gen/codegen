@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_WorkQueue_WorkNode
@@ -51,7 +50,10 @@ public:
 	com_facebook_widget_WorkQueue_WorkNode(const com_facebook_widget_WorkQueue_WorkNode& cc);
 	com_facebook_widget_WorkQueue_WorkNode(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WorkQueue_WorkNode();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WorkQueue_WorkNode();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkNode();
 	// Functions

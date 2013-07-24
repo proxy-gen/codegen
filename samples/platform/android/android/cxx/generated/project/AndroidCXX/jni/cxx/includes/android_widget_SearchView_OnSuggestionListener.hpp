@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_SearchView_OnSuggestionListener
@@ -50,7 +49,10 @@ public:
 	android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc);
 	android_widget_SearchView_OnSuggestionListener(void * proxy);
 	// Public Constructors
-	android_widget_SearchView_OnSuggestionListener();
+	// TODO: remove
+	// 
+	// android_widget_SearchView_OnSuggestionListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnSuggestionListener();
 	// Functions

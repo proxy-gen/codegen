@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -94,7 +93,10 @@ public:
 	com_facebook_InsightsLogger(const com_facebook_InsightsLogger& cc);
 	com_facebook_InsightsLogger(void * proxy);
 	// Public Constructors
-	com_facebook_InsightsLogger();
+	// TODO: remove
+	// 
+	// com_facebook_InsightsLogger();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_InsightsLogger();
 	// Functions

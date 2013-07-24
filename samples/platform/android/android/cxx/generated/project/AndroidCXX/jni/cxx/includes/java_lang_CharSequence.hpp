@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -61,7 +60,10 @@ public:
 	java_lang_CharSequence(const java_lang_CharSequence& cc);
 	java_lang_CharSequence(void * proxy);
 	// Public Constructors
-	java_lang_CharSequence();
+	// TODO: remove
+	// 
+	// java_lang_CharSequence();
+	// 
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_webkit_WebStorage_QuotaUpdater
@@ -49,7 +48,10 @@ public:
 	android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc);
 	android_webkit_WebStorage_QuotaUpdater(void * proxy);
 	// Public Constructors
-	android_webkit_WebStorage_QuotaUpdater();
+	// TODO: remove
+	// 
+	// android_webkit_WebStorage_QuotaUpdater();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebStorage_QuotaUpdater();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_webkit_WebView_PictureListener(const android_webkit_WebView_PictureListener& cc);
 	android_webkit_WebView_PictureListener(void * proxy);
 	// Public Constructors
-	android_webkit_WebView_PictureListener();
+	// TODO: remove
+	// 
+	// android_webkit_WebView_PictureListener();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebView_PictureListener();
 	// Functions

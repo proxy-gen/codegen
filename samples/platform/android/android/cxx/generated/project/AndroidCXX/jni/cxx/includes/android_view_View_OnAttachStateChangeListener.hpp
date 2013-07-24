@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc);
 	android_view_View_OnAttachStateChangeListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnAttachStateChangeListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnAttachStateChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnAttachStateChangeListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -76,7 +75,10 @@ public:
 	java_net_Proxy(void * proxy);
 	// Public Constructors
 	java_net_Proxy(JAVA_NET_PROXY_TYPE::java_net_Proxy_Type& arg0,AndroidCXX::java_net_SocketAddress& arg1);
-	java_net_Proxy();
+	// TODO: remove
+	// 
+	// java_net_Proxy();
+	// 
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_DragShadowBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -66,7 +65,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc)
@@ -110,6 +108,10 @@ android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * 
 
 	LOGV("android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_View_DragShadowBuilder::android_view_View_DragShadowBuilder(AndroidCXX::android_view_View& arg0)
 {
@@ -240,7 +242,6 @@ AndroidCXX::android_view_View android_view_View_DragShadowBuilder::getView()
 	LOGV("android_view_View_DragShadowBuilder jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -258,7 +259,9 @@ AndroidCXX::android_view_View android_view_View_DragShadowBuilder::getView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 

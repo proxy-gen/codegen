@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -75,7 +74,10 @@ public:
 	java_util_Currency(const java_util_Currency& cc);
 	java_util_Currency(void * proxy);
 	// Public Constructors
-	java_util_Currency();
+	// TODO: remove
+	// 
+	// java_util_Currency();
+	// 
 	// Default Destructor
 	virtual ~java_util_Currency();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphMultiResult"
@@ -46,7 +46,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult(const com_facebook_model_GraphMultiResult& cc)
@@ -90,40 +89,45 @@ com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult(void * 
 
 	LOGV("com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult(void * proxy) exit");
 }
-com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult()
-{
-	LOGV("com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult()
+// {
+// 	LOGV("com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/model/GraphMultiResult";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/model/GraphMultiResult";
 
-	LOGV("com_facebook_model_GraphMultiResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_model_GraphMultiResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_model_GraphMultiResult cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_model_GraphMultiResult jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_model_GraphMultiResult cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_model_GraphMultiResult jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult() exit");	
-}
+// 	LOGV("com_facebook_model_GraphMultiResult::com_facebook_model_GraphMultiResult() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_model_GraphMultiResult::~com_facebook_model_GraphMultiResult()
@@ -161,7 +165,6 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphMultiRes
 	LOGV("com_facebook_model_GraphMultiResult jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_model_GraphObjectList result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -197,7 +200,9 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphMultiRes
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObjectList(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObjectList) (FacebookCXX::com_facebook_model_GraphObjectList((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
+
+	FacebookCXX::com_facebook_model_GraphObjectList result((FacebookCXX::com_facebook_model_GraphObjectList) *((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObjectList *) cxx_value);
 		
 	jni->popLocalFrame();
 

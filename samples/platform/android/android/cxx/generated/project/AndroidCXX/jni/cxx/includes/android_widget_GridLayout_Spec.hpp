@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc);
 	android_widget_GridLayout_Spec(void * proxy);
 	// Public Constructors
-	android_widget_GridLayout_Spec();
+	// TODO: remove
+	// 
+	// android_widget_GridLayout_Spec();
+	// 
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Spec();
 	// Functions

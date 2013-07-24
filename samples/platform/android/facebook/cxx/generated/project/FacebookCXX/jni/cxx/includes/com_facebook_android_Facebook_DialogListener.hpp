@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -66,7 +65,10 @@ public:
 	com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc);
 	com_facebook_android_Facebook_DialogListener(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_DialogListener();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_DialogListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_DialogListener();
 	// Functions

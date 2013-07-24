@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  		 
@@ -92,7 +91,10 @@ public:
 	java_nio_channels_SocketChannel(const java_nio_channels_SocketChannel& cc);
 	java_nio_channels_SocketChannel(void * proxy);
 	// Public Constructors
-	java_nio_channels_SocketChannel();
+	// TODO: remove
+	// 
+	// java_nio_channels_SocketChannel();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_SocketChannel();
 	// Functions

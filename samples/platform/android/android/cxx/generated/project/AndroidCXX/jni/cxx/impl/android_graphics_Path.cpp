@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -92,7 +91,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Path"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -199,7 +198,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_graphics_Path::android_graphics_Path(const android_graphics_Path& cc)
 {
@@ -242,6 +240,10 @@ android_graphics_Path::android_graphics_Path(void * proxy)
 
 	LOGV("android_graphics_Path::android_graphics_Path(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_graphics_Path::android_graphics_Path()
 {
@@ -533,7 +535,6 @@ bool android_graphics_Path::isEmpty()
 	LOGV("android_graphics_Path jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -551,7 +552,9 @@ bool android_graphics_Path::isEmpty()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -853,7 +856,6 @@ bool android_graphics_Path::isRect(AndroidCXX::android_graphics_RectF& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -871,7 +873,9 @@ bool android_graphics_Path::isRect(AndroidCXX::android_graphics_RectF& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -900,7 +904,6 @@ ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType android_graphics_
 	LOGV("android_graphics_Path jni address %d", javaObject);
 
 
-	ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -918,7 +921,9 @@ ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType android_graphics_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Path_FillType(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType) (cxx_value);
+
+	ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType result = (ANDROID_GRAPHICS_PATH_FILLTYPE::android_graphics_Path_FillType) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -996,7 +1001,6 @@ bool android_graphics_Path::isInverseFillType()
 	LOGV("android_graphics_Path jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1014,7 +1018,9 @@ bool android_graphics_Path::isInverseFillType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

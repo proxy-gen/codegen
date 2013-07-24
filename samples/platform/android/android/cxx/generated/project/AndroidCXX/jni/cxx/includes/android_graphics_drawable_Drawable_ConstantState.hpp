@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -64,6 +63,8 @@ public:
 	android_graphics_drawable_Drawable_ConstantState(void * proxy);
 	// Public Constructors
 	android_graphics_drawable_Drawable_ConstantState();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_ConstantState();
 	// Functions

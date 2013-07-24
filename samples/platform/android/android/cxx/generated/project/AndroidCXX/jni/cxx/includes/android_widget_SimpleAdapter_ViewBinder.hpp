@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,7 +63,10 @@ public:
 	android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc);
 	android_widget_SimpleAdapter_ViewBinder(void * proxy);
 	// Public Constructors
-	android_widget_SimpleAdapter_ViewBinder();
+	// TODO: remove
+	// 
+	// android_widget_SimpleAdapter_ViewBinder();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter_ViewBinder();
 	// Functions

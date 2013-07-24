@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -141,6 +140,8 @@ public:
 	android_graphics_Region(AndroidCXX::android_graphics_Region& arg0);
 	android_graphics_Region(AndroidCXX::android_graphics_Rect& arg0);
 	android_graphics_Region(int& arg0,int& arg1,int& arg2,int& arg3);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Region();
 	// Functions

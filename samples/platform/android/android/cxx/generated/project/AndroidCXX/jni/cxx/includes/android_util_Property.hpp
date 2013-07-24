@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -94,7 +93,10 @@ public:
 	android_util_Property(void * proxy);
 	// Public Constructors
 	android_util_Property(AndroidCXX::java_lang_Class& arg0,AndroidCXX::java_lang_String& arg1);
-	android_util_Property();
+	// TODO: remove
+	// 
+	// android_util_Property();
+	// 
 	// Default Destructor
 	virtual ~android_util_Property();
 	// Functions

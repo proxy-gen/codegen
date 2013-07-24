@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ViewTreeObserver_OnTouchModeChangeListener
@@ -49,7 +48,10 @@ public:
 	android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc);
 	android_view_ViewTreeObserver_OnTouchModeChangeListener(void * proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver_OnTouchModeChangeListener();
+	// TODO: remove
+	// 
+	// android_view_ViewTreeObserver_OnTouchModeChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnTouchModeChangeListener();
 	// Functions

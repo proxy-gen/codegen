@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Paint_FontMetricsInt"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,7 +46,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc)
@@ -91,6 +89,10 @@ android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(voi
 
 	LOGV("android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_graphics_Paint_FontMetricsInt::android_graphics_Paint_FontMetricsInt()
 {
@@ -164,7 +166,6 @@ AndroidCXX::java_lang_String android_graphics_Paint_FontMetricsInt::toString()
 	LOGV("android_graphics_Paint_FontMetricsInt jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -182,7 +183,9 @@ AndroidCXX::java_lang_String android_graphics_Paint_FontMetricsInt::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

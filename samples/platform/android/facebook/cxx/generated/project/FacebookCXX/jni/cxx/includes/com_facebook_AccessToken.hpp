@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  	
@@ -92,7 +91,10 @@ public:
 	com_facebook_AccessToken(const com_facebook_AccessToken& cc);
 	com_facebook_AccessToken(void * proxy);
 	// Public Constructors
-	com_facebook_AccessToken();
+	// TODO: remove
+	// 
+	// com_facebook_AccessToken();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AccessToken();
 	// Functions

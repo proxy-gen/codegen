@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -98,7 +97,10 @@ public:
 	android_util_AttributeSet(const android_util_AttributeSet& cc);
 	android_util_AttributeSet(void * proxy);
 	// Public Constructors
-	android_util_AttributeSet();
+	// TODO: remove
+	// 
+	// android_util_AttributeSet();
+	// 
 	// Default Destructor
 	virtual ~android_util_AttributeSet();
 	// Functions

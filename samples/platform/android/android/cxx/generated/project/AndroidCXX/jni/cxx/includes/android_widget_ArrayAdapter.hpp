@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  	
@@ -159,7 +158,10 @@ public:
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,std::vector<AndroidCXX::java_lang_Object >& arg3);
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::java_util_List& arg2);
 	android_widget_ArrayAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,int& arg2,AndroidCXX::java_util_List& arg3);
-	android_widget_ArrayAdapter();
+	// TODO: remove
+	// 
+	// android_widget_ArrayAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ArrayAdapter();
 	// Functions

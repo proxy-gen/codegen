@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -59,7 +58,10 @@ public:
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
 	java_nio_ByteOrder(void * proxy);
 	// Public Constructors
-	java_nio_ByteOrder();
+	// TODO: remove
+	// 
+	// java_nio_ByteOrder();
+	// 
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions

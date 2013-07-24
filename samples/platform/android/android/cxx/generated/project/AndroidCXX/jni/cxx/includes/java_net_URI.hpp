@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -150,7 +149,10 @@ public:
 	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3,AndroidCXX::java_lang_String& arg4);
 	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
 	java_net_URI(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
-	java_net_URI();
+	// TODO: remove
+	// 
+	// java_net_URI();
+	// 
 	// Default Destructor
 	virtual ~java_net_URI();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -101,7 +100,10 @@ public:
 	android_view_accessibility_AccessibilityEvent(const android_view_accessibility_AccessibilityEvent& cc);
 	android_view_accessibility_AccessibilityEvent(void * proxy);
 	// Public Constructors
-	android_view_accessibility_AccessibilityEvent();
+	// TODO: remove
+	// 
+	// android_view_accessibility_AccessibilityEvent();
+	// 
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEvent();
 	// Functions

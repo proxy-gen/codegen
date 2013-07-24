@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -96,6 +95,8 @@ public:
 	android_animation_Animator(void * proxy);
 	// Public Constructors
 	android_animation_Animator();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_animation_Animator();
 	// Functions

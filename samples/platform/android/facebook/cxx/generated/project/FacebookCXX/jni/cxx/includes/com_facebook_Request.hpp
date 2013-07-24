@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -349,6 +348,8 @@ public:
 	com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1);
 	com_facebook_Request(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,COM_FACEBOOK_HTTPMETHOD::com_facebook_HttpMethod& arg3);
 	com_facebook_Request();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Request();
 	// Functions

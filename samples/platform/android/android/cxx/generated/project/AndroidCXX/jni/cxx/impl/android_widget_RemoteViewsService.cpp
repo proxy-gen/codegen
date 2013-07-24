@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -33,7 +32,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RemoteViewsService"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -60,7 +59,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_RemoteViewsService::android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc)
@@ -104,6 +102,10 @@ android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * prox
 
 	LOGV("android_widget_RemoteViewsService::android_widget_RemoteViewsService(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_widget_RemoteViewsService::android_widget_RemoteViewsService()
 {
@@ -198,7 +200,6 @@ AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(Android
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_IBinder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -216,7 +217,9 @@ AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_IBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_IBinder) (AndroidCXX::android_os_IBinder((AndroidCXX::android_os_IBinder *) cxx_value));
+
+	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
+	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -266,7 +269,6 @@ AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -284,7 +286,9 @@ AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_RemoteViewsService_RemoteViewsFactory(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory) (AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory *) cxx_value));
+
+	AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory result((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory) *((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory *) cxx_value));
+	delete ((AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory *) cxx_value);
 		
 	jni->popLocalFrame();
 

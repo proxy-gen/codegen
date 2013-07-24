@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -130,7 +129,10 @@ public:
 	java_lang_reflect_Constructor(const java_lang_reflect_Constructor& cc);
 	java_lang_reflect_Constructor(void * proxy);
 	// Public Constructors
-	java_lang_reflect_Constructor();
+	// TODO: remove
+	// 
+	// java_lang_reflect_Constructor();
+	// 
 	// Default Destructor
 	virtual ~java_lang_reflect_Constructor();
 	// Functions

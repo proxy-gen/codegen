@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_MappedByteBuffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,7 +51,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_nio_MappedByteBuffer::java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc)
@@ -96,40 +94,45 @@ java_nio_MappedByteBuffer::java_nio_MappedByteBuffer(void * proxy)
 
 	LOGV("java_nio_MappedByteBuffer::java_nio_MappedByteBuffer(void * proxy) exit");
 }
-java_nio_MappedByteBuffer::java_nio_MappedByteBuffer()
-{
-	LOGV("java_nio_MappedByteBuffer::java_nio_MappedByteBuffer() enter");	
+// TODO: remove
+// 
+// 
+// java_nio_MappedByteBuffer::java_nio_MappedByteBuffer()
+// {
+// 	LOGV("java_nio_MappedByteBuffer::java_nio_MappedByteBuffer() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/MappedByteBuffer";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/nio/MappedByteBuffer";
 
-	LOGV("java_nio_MappedByteBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_nio_MappedByteBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_nio_MappedByteBuffer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_nio_MappedByteBuffer jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_nio_MappedByteBuffer cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_nio_MappedByteBuffer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_nio_MappedByteBuffer::java_nio_MappedByteBuffer() exit");	
-}
+// 	LOGV("java_nio_MappedByteBuffer::java_nio_MappedByteBuffer() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 java_nio_MappedByteBuffer::~java_nio_MappedByteBuffer()
@@ -167,7 +170,6 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::load()
 	LOGV("java_nio_MappedByteBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_MappedByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -185,7 +187,9 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::load()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_MappedByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_MappedByteBuffer) (AndroidCXX::java_nio_MappedByteBuffer((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_MappedByteBuffer result((AndroidCXX::java_nio_MappedByteBuffer) *((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -214,7 +218,6 @@ bool java_nio_MappedByteBuffer::isLoaded()
 	LOGV("java_nio_MappedByteBuffer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -232,7 +235,9 @@ bool java_nio_MappedByteBuffer::isLoaded()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -261,7 +266,6 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::force()
 	LOGV("java_nio_MappedByteBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_MappedByteBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -279,7 +283,9 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::force()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_MappedByteBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_MappedByteBuffer) (AndroidCXX::java_nio_MappedByteBuffer((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_MappedByteBuffer result((AndroidCXX::java_nio_MappedByteBuffer) *((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_MappedByteBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 

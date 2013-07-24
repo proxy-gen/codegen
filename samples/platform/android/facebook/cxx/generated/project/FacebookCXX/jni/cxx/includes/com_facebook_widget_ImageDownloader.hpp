@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageDownloader
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_ImageDownloader(const com_facebook_widget_ImageDownloader& cc);
 	com_facebook_widget_ImageDownloader(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ImageDownloader();
+	// TODO: remove
+	// 
+	// com_facebook_widget_ImageDownloader();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader();
 	// Functions

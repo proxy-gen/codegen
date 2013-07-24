@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -71,7 +70,10 @@ public:
 	android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc);
 	android_view_ActionMode_Callback(void * proxy);
 	// Public Constructors
-	android_view_ActionMode_Callback();
+	// TODO: remove
+	// 
+	// android_view_ActionMode_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_view_ActionMode_Callback();
 	// Functions

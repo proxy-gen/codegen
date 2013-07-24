@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_widget_TextView_OnEditorActionListener(const android_widget_TextView_OnEditorActionListener& cc);
 	android_widget_TextView_OnEditorActionListener(void * proxy);
 	// Public Constructors
-	android_widget_TextView_OnEditorActionListener();
+	// TODO: remove
+	// 
+	// android_widget_TextView_OnEditorActionListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TextView_OnEditorActionListener();
 	// Functions

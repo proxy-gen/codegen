@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -63,7 +62,10 @@ public:
 	android_widget_RemoteViewsService_RemoteViewsFactory(const android_widget_RemoteViewsService_RemoteViewsFactory& cc);
 	android_widget_RemoteViewsService_RemoteViewsFactory(void * proxy);
 	// Public Constructors
-	android_widget_RemoteViewsService_RemoteViewsFactory();
+	// TODO: remove
+	// 
+	// android_widget_RemoteViewsService_RemoteViewsFactory();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -72,6 +71,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_TokenCachingStrategy"
@@ -176,7 +176,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(const com_facebook_TokenCachingStrategy& cc)
 {
@@ -219,6 +218,10 @@ com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * prox
 
 	LOGV("com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy()
 {
@@ -320,7 +323,6 @@ AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 	LOGV("com_facebook_TokenCachingStrategy jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -338,7 +340,9 @@ AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -388,7 +392,6 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -424,7 +427,9 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -523,7 +528,6 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -541,7 +545,9 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -591,7 +597,6 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -609,7 +614,9 @@ COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource com_facebook_Toke
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_AccessTokenSource(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource) (cxx_value);
+
+	COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource result = (COM_FACEBOOK_ACCESSTOKENSOURCE::com_facebook_AccessTokenSource) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -659,7 +666,6 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -677,7 +683,9 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -727,7 +735,6 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -745,7 +752,9 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
+
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -935,7 +944,6 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -953,7 +961,9 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1231,7 +1241,6 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1249,7 +1258,9 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
+
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1369,7 +1380,6 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1387,7 +1397,9 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

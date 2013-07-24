@@ -8,7 +8,6 @@
 //
 
 
-
  	
 
 
@@ -62,7 +61,10 @@ public:
 	// Public Constructors
 	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0);
 	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream& arg0,int& arg1);
-	java_io_BufferedOutputStream();
+	// TODO: remove
+	// 
+	// java_io_BufferedOutputStream();
+	// 
 	// Default Destructor
 	virtual ~java_io_BufferedOutputStream();
 	// Functions

@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_WorkQueue_WorkItem
@@ -51,7 +50,10 @@ public:
 	com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc);
 	com_facebook_widget_WorkQueue_WorkItem(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WorkQueue_WorkItem();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WorkQueue_WorkItem();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkItem();
 	// Functions

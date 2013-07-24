@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -44,6 +43,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectCursor"
@@ -62,7 +62,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor(const com_facebook_widget_GraphObjectCursor& cc)
@@ -106,40 +105,45 @@ com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor(voi
 
 	LOGV("com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor(void * proxy) exit");
 }
-com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor()
-{
-	LOGV("com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor()
+// {
+// 	LOGV("com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/GraphObjectCursor";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/GraphObjectCursor";
 
-	LOGV("com_facebook_widget_GraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_GraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_GraphObjectCursor cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_GraphObjectCursor cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor() exit");	
-}
+// 	LOGV("com_facebook_widget_GraphObjectCursor::com_facebook_widget_GraphObjectCursor() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_GraphObjectCursor::~com_facebook_widget_GraphObjectCursor()
@@ -205,7 +209,6 @@ bool com_facebook_widget_GraphObjectCursor::isFirst()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -223,7 +226,9 @@ bool com_facebook_widget_GraphObjectCursor::isFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -252,7 +257,6 @@ bool com_facebook_widget_GraphObjectCursor::isClosed()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -270,7 +274,9 @@ bool com_facebook_widget_GraphObjectCursor::isClosed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -299,7 +305,6 @@ int com_facebook_widget_GraphObjectCursor::getPosition()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -317,7 +322,9 @@ int com_facebook_widget_GraphObjectCursor::getPosition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -346,7 +353,6 @@ bool com_facebook_widget_GraphObjectCursor::isFromCache()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -364,7 +370,9 @@ bool com_facebook_widget_GraphObjectCursor::isFromCache()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -393,7 +401,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_GraphObjectCurso
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_model_GraphObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -411,7 +418,9 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_GraphObjectCurso
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObject) (FacebookCXX::com_facebook_model_GraphObject((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+
+	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -440,7 +449,6 @@ bool com_facebook_widget_GraphObjectCursor::moveToFirst()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -458,7 +466,9 @@ bool com_facebook_widget_GraphObjectCursor::moveToFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -487,7 +497,6 @@ int com_facebook_widget_GraphObjectCursor::getCount()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -505,7 +514,9 @@ int com_facebook_widget_GraphObjectCursor::getCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -534,7 +545,6 @@ bool com_facebook_widget_GraphObjectCursor::areMoreObjectsAvailable()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -552,7 +562,9 @@ bool com_facebook_widget_GraphObjectCursor::areMoreObjectsAvailable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -581,7 +593,6 @@ bool com_facebook_widget_GraphObjectCursor::moveToNext()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -599,7 +610,9 @@ bool com_facebook_widget_GraphObjectCursor::moveToNext()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -649,7 +662,6 @@ bool com_facebook_widget_GraphObjectCursor::move(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -667,7 +679,9 @@ bool com_facebook_widget_GraphObjectCursor::move(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -717,7 +731,6 @@ bool com_facebook_widget_GraphObjectCursor::moveToPosition(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -735,7 +748,9 @@ bool com_facebook_widget_GraphObjectCursor::moveToPosition(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -764,7 +779,6 @@ bool com_facebook_widget_GraphObjectCursor::moveToLast()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -782,7 +796,9 @@ bool com_facebook_widget_GraphObjectCursor::moveToLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -811,7 +827,6 @@ bool com_facebook_widget_GraphObjectCursor::moveToPrevious()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -829,7 +844,9 @@ bool com_facebook_widget_GraphObjectCursor::moveToPrevious()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -858,7 +875,6 @@ bool com_facebook_widget_GraphObjectCursor::isLast()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -876,7 +892,9 @@ bool com_facebook_widget_GraphObjectCursor::isLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -905,7 +923,6 @@ bool com_facebook_widget_GraphObjectCursor::isBeforeFirst()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -923,7 +940,9 @@ bool com_facebook_widget_GraphObjectCursor::isBeforeFirst()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -952,7 +971,6 @@ bool com_facebook_widget_GraphObjectCursor::isAfterLast()
 	LOGV("com_facebook_widget_GraphObjectCursor jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -970,7 +988,9 @@ bool com_facebook_widget_GraphObjectCursor::isAfterLast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

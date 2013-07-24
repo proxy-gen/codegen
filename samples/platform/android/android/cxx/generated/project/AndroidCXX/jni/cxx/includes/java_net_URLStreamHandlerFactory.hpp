@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -59,7 +58,10 @@ public:
 	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
 	java_net_URLStreamHandlerFactory(void * proxy);
 	// Public Constructors
-	java_net_URLStreamHandlerFactory();
+	// TODO: remove
+	// 
+	// java_net_URLStreamHandlerFactory();
+	// 
 	// Default Destructor
 	virtual ~java_net_URLStreamHandlerFactory();
 	// Functions

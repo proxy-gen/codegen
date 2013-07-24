@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -107,7 +106,10 @@ public:
 	java_util_Map(const java_util_Map& cc);
 	java_util_Map(void * proxy);
 	// Public Constructors
-	java_util_Map();
+	// TODO: remove
+	// 
+	// java_util_Map();
+	// 
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions

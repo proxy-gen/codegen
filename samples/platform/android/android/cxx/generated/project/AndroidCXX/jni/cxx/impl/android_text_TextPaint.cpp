@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_TextPaint"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -53,7 +52,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_text_TextPaint::android_text_TextPaint(const android_text_TextPaint& cc)
@@ -97,6 +95,10 @@ android_text_TextPaint::android_text_TextPaint(void * proxy)
 
 	LOGV("android_text_TextPaint::android_text_TextPaint(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_text_TextPaint::android_text_TextPaint()
 {

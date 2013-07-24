@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -59,7 +58,10 @@ public:
 	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
 	java_net_ContentHandlerFactory(void * proxy);
 	// Public Constructors
-	java_net_ContentHandlerFactory();
+	// TODO: remove
+	// 
+	// java_net_ContentHandlerFactory();
+	// 
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -37,7 +36,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_security_PermissionCollection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -64,7 +63,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_security_PermissionCollection::java_security_PermissionCollection(const java_security_PermissionCollection& cc)
@@ -108,6 +106,10 @@ java_security_PermissionCollection::java_security_PermissionCollection(void * pr
 
 	LOGV("java_security_PermissionCollection::java_security_PermissionCollection(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 java_security_PermissionCollection::java_security_PermissionCollection()
 {
@@ -230,7 +232,6 @@ AndroidCXX::java_lang_String java_security_PermissionCollection::toString()
 	LOGV("java_security_PermissionCollection jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -248,7 +249,9 @@ AndroidCXX::java_lang_String java_security_PermissionCollection::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -298,7 +301,6 @@ bool java_security_PermissionCollection::implies(AndroidCXX::java_security_Permi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -316,7 +318,9 @@ bool java_security_PermissionCollection::implies(AndroidCXX::java_security_Permi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -373,7 +377,6 @@ AndroidCXX::java_util_Enumeration java_security_PermissionCollection::elements()
 	LOGV("java_security_PermissionCollection jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Enumeration result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -409,7 +412,9 @@ AndroidCXX::java_util_Enumeration java_security_PermissionCollection::elements()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Enumeration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Enumeration) (AndroidCXX::java_util_Enumeration((AndroidCXX::java_util_Enumeration *) cxx_value));
+
+	AndroidCXX::java_util_Enumeration result((AndroidCXX::java_util_Enumeration) *((AndroidCXX::java_util_Enumeration *) cxx_value));
+	delete ((AndroidCXX::java_util_Enumeration *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -438,7 +443,6 @@ bool java_security_PermissionCollection::isReadOnly()
 	LOGV("java_security_PermissionCollection jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -456,7 +460,9 @@ bool java_security_PermissionCollection::isReadOnly()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

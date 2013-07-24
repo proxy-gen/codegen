@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -114,7 +113,10 @@ public:
 	java_nio_FloatBuffer(const java_nio_FloatBuffer& cc);
 	java_nio_FloatBuffer(void * proxy);
 	// Public Constructors
-	java_nio_FloatBuffer();
+	// TODO: remove
+	// 
+	// java_nio_FloatBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_FloatBuffer();
 	// Functions

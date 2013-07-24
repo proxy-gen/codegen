@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -101,7 +100,10 @@ public:
 	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0);
 	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_ZoomButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ZoomButton();
+	// TODO: remove
+	// 
+	// android_widget_ZoomButton();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ZoomButton();
 	// Functions

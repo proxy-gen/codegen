@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -129,7 +128,10 @@ public:
 	// Public Constructors
 	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4);
 	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context& arg0,int& arg1,AndroidCXX::android_database_Cursor& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4,int& arg5);
-	android_widget_SimpleCursorAdapter();
+	// TODO: remove
+	// 
+	// android_widget_SimpleCursorAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter();
 	// Functions

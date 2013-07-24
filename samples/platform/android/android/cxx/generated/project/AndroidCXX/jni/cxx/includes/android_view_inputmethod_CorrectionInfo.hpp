@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -74,7 +73,10 @@ public:
 	android_view_inputmethod_CorrectionInfo(void * proxy);
 	// Public Constructors
 	android_view_inputmethod_CorrectionInfo(int& arg0,AndroidCXX::java_lang_CharSequence& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	android_view_inputmethod_CorrectionInfo();
+	// TODO: remove
+	// 
+	// android_view_inputmethod_CorrectionInfo();
+	// 
 	// Default Destructor
 	virtual ~android_view_inputmethod_CorrectionInfo();
 	// Functions

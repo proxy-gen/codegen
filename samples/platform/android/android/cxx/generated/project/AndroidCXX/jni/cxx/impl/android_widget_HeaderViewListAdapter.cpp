@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -62,7 +61,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_HeaderViewListAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -123,7 +122,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter(const android_widget_HeaderViewListAdapter& cc)
 {
@@ -166,40 +164,45 @@ android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter(void 
 
 	LOGV("android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter(void * proxy) exit");
 }
-android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter()
-{
-	LOGV("android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter()
+// {
+// 	LOGV("android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/HeaderViewListAdapter";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_HeaderViewListAdapter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_HeaderViewListAdapter jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_HeaderViewListAdapter cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_HeaderViewListAdapter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter() exit");	
-}
+// 	LOGV("android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_util_ArrayList& arg1,AndroidCXX::android_widget_ListAdapter& arg2)
 {
@@ -372,7 +375,6 @@ bool android_widget_HeaderViewListAdapter::isEmpty()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -390,7 +392,9 @@ bool android_widget_HeaderViewListAdapter::isEmpty()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -482,7 +486,6 @@ AndroidCXX::android_view_View android_widget_HeaderViewListAdapter::getView(int&
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -500,7 +503,9 @@ AndroidCXX::android_view_View android_widget_HeaderViewListAdapter::getView(int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -550,7 +555,6 @@ bool android_widget_HeaderViewListAdapter::isEnabled(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -568,7 +572,9 @@ bool android_widget_HeaderViewListAdapter::isEnabled(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -597,7 +603,6 @@ AndroidCXX::android_widget_Filter android_widget_HeaderViewListAdapter::getFilte
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_Filter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -615,7 +620,9 @@ AndroidCXX::android_widget_Filter android_widget_HeaderViewListAdapter::getFilte
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_Filter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_Filter) (AndroidCXX::android_widget_Filter((AndroidCXX::android_widget_Filter *) cxx_value));
+
+	AndroidCXX::android_widget_Filter result((AndroidCXX::android_widget_Filter) *((AndroidCXX::android_widget_Filter *) cxx_value));
+	delete ((AndroidCXX::android_widget_Filter *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -665,7 +672,6 @@ AndroidCXX::java_lang_Object android_widget_HeaderViewListAdapter::getItem(int& 
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -683,7 +689,9 @@ AndroidCXX::java_lang_Object android_widget_HeaderViewListAdapter::getItem(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -733,7 +741,6 @@ long android_widget_HeaderViewListAdapter::getItemId(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -751,7 +758,9 @@ long android_widget_HeaderViewListAdapter::getItemId(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -780,7 +789,6 @@ int android_widget_HeaderViewListAdapter::getCount()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -798,7 +806,9 @@ int android_widget_HeaderViewListAdapter::getCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -925,7 +935,6 @@ bool android_widget_HeaderViewListAdapter::hasStableIds()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -943,7 +952,9 @@ bool android_widget_HeaderViewListAdapter::hasStableIds()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -993,7 +1004,6 @@ int android_widget_HeaderViewListAdapter::getItemViewType(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1011,7 +1021,9 @@ int android_widget_HeaderViewListAdapter::getItemViewType(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1040,7 +1052,6 @@ int android_widget_HeaderViewListAdapter::getViewTypeCount()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1058,7 +1069,9 @@ int android_widget_HeaderViewListAdapter::getViewTypeCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1087,7 +1100,6 @@ bool android_widget_HeaderViewListAdapter::areAllItemsEnabled()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1105,7 +1117,9 @@ bool android_widget_HeaderViewListAdapter::areAllItemsEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1134,7 +1148,6 @@ AndroidCXX::android_widget_ListAdapter android_widget_HeaderViewListAdapter::get
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_ListAdapter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1152,7 +1165,9 @@ AndroidCXX::android_widget_ListAdapter android_widget_HeaderViewListAdapter::get
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_ListAdapter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_ListAdapter) (AndroidCXX::android_widget_ListAdapter((AndroidCXX::android_widget_ListAdapter *) cxx_value));
+
+	AndroidCXX::android_widget_ListAdapter result((AndroidCXX::android_widget_ListAdapter) *((AndroidCXX::android_widget_ListAdapter *) cxx_value));
+	delete ((AndroidCXX::android_widget_ListAdapter *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1181,7 +1196,6 @@ int android_widget_HeaderViewListAdapter::getHeadersCount()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1199,7 +1213,9 @@ int android_widget_HeaderViewListAdapter::getHeadersCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1228,7 +1244,6 @@ int android_widget_HeaderViewListAdapter::getFootersCount()
 	LOGV("android_widget_HeaderViewListAdapter jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1246,7 +1261,9 @@ int android_widget_HeaderViewListAdapter::getFootersCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1296,7 +1313,6 @@ bool android_widget_HeaderViewListAdapter::removeHeader(AndroidCXX::android_view
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1314,7 +1330,9 @@ bool android_widget_HeaderViewListAdapter::removeHeader(AndroidCXX::android_view
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1364,7 +1382,6 @@ bool android_widget_HeaderViewListAdapter::removeFooter(AndroidCXX::android_view
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1382,7 +1399,9 @@ bool android_widget_HeaderViewListAdapter::removeFooter(AndroidCXX::android_view
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

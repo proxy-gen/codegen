@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
 	
@@ -131,7 +130,10 @@ public:
 	java_security_cert_X509Certificate(const java_security_cert_X509Certificate& cc);
 	java_security_cert_X509Certificate(void * proxy);
 	// Public Constructors
-	java_security_cert_X509Certificate();
+	// TODO: remove
+	// 
+	// java_security_cert_X509Certificate();
+	// 
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions

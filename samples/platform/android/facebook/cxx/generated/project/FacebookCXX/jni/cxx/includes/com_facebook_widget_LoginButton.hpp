@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -137,7 +136,10 @@ public:
 	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0);
 	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	com_facebook_widget_LoginButton();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton();
 	// Functions

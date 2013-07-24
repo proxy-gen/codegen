@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -78,6 +77,8 @@ public:
 	android_widget_BaseAdapter(void * proxy);
 	// Public Constructors
 	android_widget_BaseAdapter();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_BaseAdapter();
 	// Functions

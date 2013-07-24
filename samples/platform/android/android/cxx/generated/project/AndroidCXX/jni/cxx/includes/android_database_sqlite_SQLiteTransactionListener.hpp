@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_database_sqlite_SQLiteTransactionListener
@@ -51,7 +50,10 @@ public:
 	android_database_sqlite_SQLiteTransactionListener(const android_database_sqlite_SQLiteTransactionListener& cc);
 	android_database_sqlite_SQLiteTransactionListener(void * proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteTransactionListener();
+	// TODO: remove
+	// 
+	// android_database_sqlite_SQLiteTransactionListener();
+	// 
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteTransactionListener();
 	// Functions

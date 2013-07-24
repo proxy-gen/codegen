@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -73,7 +72,10 @@ public:
 	com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc);
 	com_facebook_widget_WebDialog_BuilderBase(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_BuilderBase();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WebDialog_BuilderBase();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_BuilderBase();
 	// Functions

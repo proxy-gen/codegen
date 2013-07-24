@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Parcelable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,7 +46,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_os_Parcelable::android_os_Parcelable(const android_os_Parcelable& cc)
@@ -91,40 +89,45 @@ android_os_Parcelable::android_os_Parcelable(void * proxy)
 
 	LOGV("android_os_Parcelable::android_os_Parcelable(void * proxy) exit");
 }
-android_os_Parcelable::android_os_Parcelable()
-{
-	LOGV("android_os_Parcelable::android_os_Parcelable() enter");	
+// TODO: remove
+// 
+// 
+// android_os_Parcelable::android_os_Parcelable()
+// {
+// 	LOGV("android_os_Parcelable::android_os_Parcelable() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/os/Parcelable";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/os/Parcelable";
 
-	LOGV("android_os_Parcelable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_os_Parcelable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_os_Parcelable cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_os_Parcelable jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_os_Parcelable cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_os_Parcelable jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_os_Parcelable::android_os_Parcelable() exit");	
-}
+// 	LOGV("android_os_Parcelable::android_os_Parcelable() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_os_Parcelable::~android_os_Parcelable()
@@ -162,7 +165,6 @@ int android_os_Parcelable::describeContents()
 	LOGV("android_os_Parcelable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -180,7 +182,9 @@ int android_os_Parcelable::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

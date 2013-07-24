@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -70,7 +69,10 @@ public:
 	// Public Constructors
 	android_content_pm_PathPermission(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
 	android_content_pm_PathPermission(AndroidCXX::android_os_Parcel& arg0);
-	android_content_pm_PathPermission();
+	// TODO: remove
+	// 
+	// android_content_pm_PathPermission();
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_PathPermission();
 	// Functions

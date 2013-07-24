@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -64,6 +63,8 @@ public:
 	android_text_TextPaint();
 	android_text_TextPaint(int& arg0);
 	android_text_TextPaint(AndroidCXX::android_graphics_Paint& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_text_TextPaint();
 	// Functions

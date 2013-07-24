@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_app_ActionBar_OnNavigationListener
@@ -49,7 +48,10 @@ public:
 	android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc);
 	android_app_ActionBar_OnNavigationListener(void * proxy);
 	// Public Constructors
-	android_app_ActionBar_OnNavigationListener();
+	// TODO: remove
+	// 
+	// android_app_ActionBar_OnNavigationListener();
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnNavigationListener();
 	// Functions

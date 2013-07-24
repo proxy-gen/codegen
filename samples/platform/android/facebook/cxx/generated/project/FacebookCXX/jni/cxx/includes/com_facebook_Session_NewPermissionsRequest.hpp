@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -96,7 +95,10 @@ public:
 	// Public Constructors
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity& arg0,AndroidCXX::java_util_List& arg1);
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment& arg0,AndroidCXX::java_util_List& arg1);
-	com_facebook_Session_NewPermissionsRequest();
+	// TODO: remove
+	// 
+	// com_facebook_Session_NewPermissionsRequest();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_NewPermissionsRequest();
 	// Functions

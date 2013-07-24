@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -87,7 +86,10 @@ public:
 	android_widget_Scroller(AndroidCXX::android_content_Context& arg0);
 	android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1);
 	android_widget_Scroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,bool& arg2);
-	android_widget_Scroller();
+	// TODO: remove
+	// 
+	// android_widget_Scroller();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Scroller();
 	// Functions

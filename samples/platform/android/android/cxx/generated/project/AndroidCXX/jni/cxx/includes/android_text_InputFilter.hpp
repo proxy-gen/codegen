@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -60,7 +59,10 @@ public:
 	android_text_InputFilter(const android_text_InputFilter& cc);
 	android_text_InputFilter(void * proxy);
 	// Public Constructors
-	android_text_InputFilter();
+	// TODO: remove
+	// 
+	// android_text_InputFilter();
+	// 
 	// Default Destructor
 	virtual ~android_text_InputFilter();
 	// Functions

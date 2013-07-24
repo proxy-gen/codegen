@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -88,6 +87,8 @@ public:
 	// Public Constructors
 	com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle& arg0);
 	com_facebook_widget_FriendPickerFragment();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment();
 	// Functions

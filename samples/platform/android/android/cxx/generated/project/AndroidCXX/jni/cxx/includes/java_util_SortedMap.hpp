@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -113,7 +112,10 @@ public:
 	java_util_SortedMap(const java_util_SortedMap& cc);
 	java_util_SortedMap(void * proxy);
 	// Public Constructors
-	java_util_SortedMap();
+	// TODO: remove
+	// 
+	// java_util_SortedMap();
+	// 
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions

@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_io_IOException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -61,7 +60,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_io_IOException::java_io_IOException(const java_io_IOException& cc)
@@ -105,6 +103,10 @@ java_io_IOException::java_io_IOException(void * proxy)
 
 	LOGV("java_io_IOException::java_io_IOException(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 java_io_IOException::java_io_IOException()
 {

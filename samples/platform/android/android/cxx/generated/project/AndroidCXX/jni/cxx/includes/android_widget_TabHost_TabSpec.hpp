@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -95,7 +94,10 @@ public:
 	android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc);
 	android_widget_TabHost_TabSpec(void * proxy);
 	// Public Constructors
-	android_widget_TabHost_TabSpec();
+	// TODO: remove
+	// 
+	// android_widget_TabHost_TabSpec();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabSpec();
 	// Functions

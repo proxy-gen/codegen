@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -61,7 +60,10 @@ public:
 	android_content_ServiceConnection(const android_content_ServiceConnection& cc);
 	android_content_ServiceConnection(void * proxy);
 	// Public Constructors
-	android_content_ServiceConnection();
+	// TODO: remove
+	// 
+	// android_content_ServiceConnection();
+	// 
 	// Default Destructor
 	virtual ~android_content_ServiceConnection();
 	// Functions

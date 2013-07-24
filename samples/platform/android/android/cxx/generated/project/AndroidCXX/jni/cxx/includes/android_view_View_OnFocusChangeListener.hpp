@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc);
 	android_view_View_OnFocusChangeListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnFocusChangeListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnFocusChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnFocusChangeListener();
 	// Functions

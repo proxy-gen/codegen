@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc);
 	java_lang_Thread_UncaughtExceptionHandler(void * proxy);
 	// Public Constructors
-	java_lang_Thread_UncaughtExceptionHandler();
+	// TODO: remove
+	// 
+	// java_lang_Thread_UncaughtExceptionHandler();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Thread_UncaughtExceptionHandler();
 	// Functions

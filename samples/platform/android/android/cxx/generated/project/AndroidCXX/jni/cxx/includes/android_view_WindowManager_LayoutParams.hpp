@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -93,6 +92,8 @@ public:
 	android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4);
 	android_view_WindowManager_LayoutParams(int& arg0,int& arg1,int& arg2,int& arg3,int& arg4,int& arg5,int& arg6);
 	android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_WindowManager_LayoutParams();
 	// Functions

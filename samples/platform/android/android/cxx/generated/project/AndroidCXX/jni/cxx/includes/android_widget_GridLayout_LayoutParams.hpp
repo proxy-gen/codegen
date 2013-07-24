@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -98,6 +97,8 @@ public:
 	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
 	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams& arg0);
 	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_GridLayout_LayoutParams();
 	// Functions

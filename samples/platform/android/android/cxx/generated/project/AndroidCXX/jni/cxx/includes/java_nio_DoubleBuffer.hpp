@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -114,7 +113,10 @@ public:
 	java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc);
 	java_nio_DoubleBuffer(void * proxy);
 	// Public Constructors
-	java_nio_DoubleBuffer();
+	// TODO: remove
+	// 
+	// java_nio_DoubleBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_DoubleBuffer();
 	// Functions

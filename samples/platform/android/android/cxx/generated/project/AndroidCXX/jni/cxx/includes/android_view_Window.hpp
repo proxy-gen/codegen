@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -245,7 +244,10 @@ public:
 	android_view_Window(void * proxy);
 	// Public Constructors
 	android_view_Window(AndroidCXX::android_content_Context& arg0);
-	android_view_Window();
+	// TODO: remove
+	// 
+	// android_view_Window();
+	// 
 	// Default Destructor
 	virtual ~android_view_Window();
 	// Functions

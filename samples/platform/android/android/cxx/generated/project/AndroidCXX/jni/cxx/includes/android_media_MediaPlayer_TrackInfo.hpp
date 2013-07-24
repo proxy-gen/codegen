@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -62,7 +61,10 @@ public:
 	android_media_MediaPlayer_TrackInfo(const android_media_MediaPlayer_TrackInfo& cc);
 	android_media_MediaPlayer_TrackInfo(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_TrackInfo();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_TrackInfo();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_TrackInfo();
 	// Functions

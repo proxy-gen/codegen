@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -114,7 +113,10 @@ public:
 	java_nio_LongBuffer(const java_nio_LongBuffer& cc);
 	java_nio_LongBuffer(void * proxy);
 	// Public Constructors
-	java_nio_LongBuffer();
+	// TODO: remove
+	// 
+	// java_nio_LongBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_LongBuffer();
 	// Functions

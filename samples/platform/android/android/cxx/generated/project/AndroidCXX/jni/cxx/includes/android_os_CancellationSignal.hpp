@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -59,6 +58,8 @@ public:
 	android_os_CancellationSignal(void * proxy);
 	// Public Constructors
 	android_os_CancellationSignal();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_os_CancellationSignal();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -126,6 +125,8 @@ public:
 	android_graphics_RectF(float& arg0,float& arg1,float& arg2,float& arg3);
 	android_graphics_RectF(AndroidCXX::android_graphics_RectF& arg0);
 	android_graphics_RectF(AndroidCXX::android_graphics_Rect& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_RectF();
 	// Functions

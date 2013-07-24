@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -185,6 +184,8 @@ public:
 	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1);
 	java_lang_Thread(AndroidCXX::java_lang_Runnable& arg0,AndroidCXX::java_lang_String& arg1);
 	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_Runnable& arg1,AndroidCXX::java_lang_String& arg2);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_lang_Thread();
 	// Functions

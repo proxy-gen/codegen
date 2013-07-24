@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	com_facebook_android_Facebook_1(const com_facebook_android_Facebook_1& cc);
 	com_facebook_android_Facebook_1(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_1();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_1();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_1();
 	// Functions

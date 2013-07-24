@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
 	
@@ -85,7 +84,10 @@ public:
 	java_io_FileInputStream(AndroidCXX::java_lang_String& arg0);
 	java_io_FileInputStream(AndroidCXX::java_io_File& arg0);
 	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor& arg0);
-	java_io_FileInputStream();
+	// TODO: remove
+	// 
+	// java_io_FileInputStream();
+	// 
 	// Default Destructor
 	virtual ~java_io_FileInputStream();
 	// Functions

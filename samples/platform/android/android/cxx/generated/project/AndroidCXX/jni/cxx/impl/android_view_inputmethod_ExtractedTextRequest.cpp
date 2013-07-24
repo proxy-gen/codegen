@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -30,7 +29,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_inputmethod_ExtractedTextRequest"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -48,7 +47,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_inputmethod_ExtractedTextRequest::android_view_inputmethod_ExtractedTextRequest(const android_view_inputmethod_ExtractedTextRequest& cc)
@@ -92,6 +90,10 @@ android_view_inputmethod_ExtractedTextRequest::android_view_inputmethod_Extracte
 
 	LOGV("android_view_inputmethod_ExtractedTextRequest::android_view_inputmethod_ExtractedTextRequest(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_inputmethod_ExtractedTextRequest::android_view_inputmethod_ExtractedTextRequest()
 {
@@ -165,7 +167,6 @@ int android_view_inputmethod_ExtractedTextRequest::describeContents()
 	LOGV("android_view_inputmethod_ExtractedTextRequest jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -183,7 +184,9 @@ int android_view_inputmethod_ExtractedTextRequest::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

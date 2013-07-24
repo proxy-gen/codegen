@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -55,7 +54,10 @@ public:
 	java_net_FileNameMap(const java_net_FileNameMap& cc);
 	java_net_FileNameMap(void * proxy);
 	// Public Constructors
-	java_net_FileNameMap();
+	// TODO: remove
+	// 
+	// java_net_FileNameMap();
+	// 
 	// Default Destructor
 	virtual ~java_net_FileNameMap();
 	// Functions

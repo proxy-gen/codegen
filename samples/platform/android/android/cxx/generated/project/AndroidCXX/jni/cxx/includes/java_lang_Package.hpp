@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -110,7 +109,10 @@ public:
 	java_lang_Package(const java_lang_Package& cc);
 	java_lang_Package(void * proxy);
 	// Public Constructors
-	java_lang_Package();
+	// TODO: remove
+	// 
+	// java_lang_Package();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions

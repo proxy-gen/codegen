@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -77,7 +76,10 @@ public:
 	java_security_Timestamp(void * proxy);
 	// Public Constructors
 	java_security_Timestamp(AndroidCXX::java_util_Date& arg0,AndroidCXX::java_security_cert_CertPath& arg1);
-	java_security_Timestamp();
+	// TODO: remove
+	// 
+	// java_security_Timestamp();
+	// 
 	// Default Destructor
 	virtual ~java_security_Timestamp();
 	// Functions

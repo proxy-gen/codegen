@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  		 
@@ -73,7 +72,10 @@ public:
 	android_widget_AlphabetIndexer(void * proxy);
 	// Public Constructors
 	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2);
-	android_widget_AlphabetIndexer();
+	// TODO: remove
+	// 
+	// android_widget_AlphabetIndexer();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AlphabetIndexer();
 	// Functions

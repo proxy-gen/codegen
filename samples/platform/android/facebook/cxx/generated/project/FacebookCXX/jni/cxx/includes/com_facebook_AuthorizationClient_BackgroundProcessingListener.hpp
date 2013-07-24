@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_AuthorizationClient_BackgroundProcessingListener
@@ -50,7 +49,10 @@ public:
 	com_facebook_AuthorizationClient_BackgroundProcessingListener(const com_facebook_AuthorizationClient_BackgroundProcessingListener& cc);
 	com_facebook_AuthorizationClient_BackgroundProcessingListener(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_BackgroundProcessingListener();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_BackgroundProcessingListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_BackgroundProcessingListener();
 	// Functions

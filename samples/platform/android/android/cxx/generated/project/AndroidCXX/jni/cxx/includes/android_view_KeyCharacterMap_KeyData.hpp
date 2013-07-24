@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_KeyCharacterMap_KeyData
@@ -50,6 +49,8 @@ public:
 	android_view_KeyCharacterMap_KeyData(void * proxy);
 	// Public Constructors
 	android_view_KeyCharacterMap_KeyData();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap_KeyData();
 	// Functions

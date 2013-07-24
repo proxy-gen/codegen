@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -60,7 +59,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleCursorTreeAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +123,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(const android_widget_SimpleCursorTreeAdapter& cc)
 {
@@ -167,40 +165,45 @@ android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(v
 
 	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(void * proxy) exit");
 }
-android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter()
-{
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter()
+// {
+// 	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/SimpleCursorTreeAdapter";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/SimpleCursorTreeAdapter";
 
-	LOGV("android_widget_SimpleCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_SimpleCursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_SimpleCursorTreeAdapter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_SimpleCursorTreeAdapter jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_SimpleCursorTreeAdapter cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_SimpleCursorTreeAdapter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter() exit");	
-}
+// 	LOGV("android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_SimpleCursorTreeAdapter::android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_database_Cursor& arg1,int& arg2,int& arg3,std::vector<AndroidCXX::java_lang_String >& arg4,std::vector<int>& arg5,int& arg6,std::vector<AndroidCXX::java_lang_String >& arg7,std::vector<int>& arg8)
 {
@@ -1129,7 +1132,6 @@ AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder android_widget_Sim
 	LOGV("android_widget_SimpleCursorTreeAdapter jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1147,7 +1149,9 @@ AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder android_widget_Sim
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_SimpleCursorTreeAdapter_ViewBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder) (AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder((AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder *) cxx_value));
+
+	AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder result((AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder) *((AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder *) cxx_value));
+	delete ((AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder *) cxx_value);
 		
 	jni->popLocalFrame();
 

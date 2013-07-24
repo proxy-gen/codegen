@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_AbsListView_MultiChoiceModeListener(const android_widget_AbsListView_MultiChoiceModeListener& cc);
 	android_widget_AbsListView_MultiChoiceModeListener(void * proxy);
 	// Public Constructors
-	android_widget_AbsListView_MultiChoiceModeListener();
+	// TODO: remove
+	// 
+	// android_widget_AbsListView_MultiChoiceModeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AbsListView_MultiChoiceModeListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -94,7 +93,10 @@ public:
 	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,std::vector<FacebookCXX::com_facebook_Request >& arg1);
 	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,AndroidCXX::java_util_Collection& arg1);
 	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection& arg0,FacebookCXX::com_facebook_RequestBatch& arg1);
-	com_facebook_RequestAsyncTask();
+	// TODO: remove
+	// 
+	// com_facebook_RequestAsyncTask();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_RequestAsyncTask();
 	// Functions

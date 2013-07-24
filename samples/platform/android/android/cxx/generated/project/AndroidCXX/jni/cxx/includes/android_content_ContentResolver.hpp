@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -310,7 +309,10 @@ public:
 	android_content_ContentResolver(void * proxy);
 	// Public Constructors
 	android_content_ContentResolver(AndroidCXX::android_content_Context& arg0);
-	android_content_ContentResolver();
+	// TODO: remove
+	// 
+	// android_content_ContentResolver();
+	// 
 	// Default Destructor
 	virtual ~android_content_ContentResolver();
 	// Functions

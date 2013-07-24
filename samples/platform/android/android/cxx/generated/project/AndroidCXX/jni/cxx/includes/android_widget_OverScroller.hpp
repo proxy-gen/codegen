@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -91,7 +90,10 @@ public:
 	android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1);
 	android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3);
 	android_widget_OverScroller(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_animation_Interpolator& arg1,float& arg2,float& arg3,bool& arg4);
-	android_widget_OverScroller();
+	// TODO: remove
+	// 
+	// android_widget_OverScroller();
+	// 
 	// Default Destructor
 	virtual ~android_widget_OverScroller();
 	// Functions

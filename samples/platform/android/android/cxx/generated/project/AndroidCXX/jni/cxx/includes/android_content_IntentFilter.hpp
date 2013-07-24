@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -220,6 +219,8 @@ public:
 	android_content_IntentFilter(AndroidCXX::java_lang_String& arg0);
 	android_content_IntentFilter(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	android_content_IntentFilter(AndroidCXX::android_content_IntentFilter& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_IntentFilter();
 	// Functions

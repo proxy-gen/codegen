@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -51,7 +50,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_AssetManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -112,7 +111,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_content_res_AssetManager::android_content_res_AssetManager(const android_content_res_AssetManager& cc)
 {
@@ -155,40 +153,45 @@ android_content_res_AssetManager::android_content_res_AssetManager(void * proxy)
 
 	LOGV("android_content_res_AssetManager::android_content_res_AssetManager(void * proxy) exit");
 }
-android_content_res_AssetManager::android_content_res_AssetManager()
-{
-	LOGV("android_content_res_AssetManager::android_content_res_AssetManager() enter");	
+// TODO: remove
+// 
+// 
+// android_content_res_AssetManager::android_content_res_AssetManager()
+// {
+// 	LOGV("android_content_res_AssetManager::android_content_res_AssetManager() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/res/AssetManager";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_content_res_AssetManager cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_content_res_AssetManager jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_content_res_AssetManager cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_content_res_AssetManager jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_content_res_AssetManager::android_content_res_AssetManager() exit");	
-}
+// 	LOGV("android_content_res_AssetManager::android_content_res_AssetManager() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_content_res_AssetManager::~android_content_res_AssetManager()
@@ -247,7 +250,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::lis
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -283,7 +285,9 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::lis
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
+
+	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -382,7 +386,6 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_io_InputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -400,7 +403,9 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_InputStream) (AndroidCXX::java_io_InputStream((AndroidCXX::java_io_InputStream *) cxx_value));
+
+	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
+	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -450,7 +455,6 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_io_InputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -468,7 +472,9 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_InputStream) (AndroidCXX::java_io_InputStream((AndroidCXX::java_io_InputStream *) cxx_value));
+
+	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
+	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -518,7 +524,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_res_AssetFileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -536,7 +541,9 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_res_AssetFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_res_AssetFileDescriptor) (AndroidCXX::android_content_res_AssetFileDescriptor((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+
+	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -586,7 +593,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_res_AssetFileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -604,7 +610,9 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_res_AssetFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_res_AssetFileDescriptor) (AndroidCXX::android_content_res_AssetFileDescriptor((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+
+	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -675,7 +683,6 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_res_AssetFileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -693,7 +700,9 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_res_AssetFileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_res_AssetFileDescriptor) (AndroidCXX::android_content_res_AssetFileDescriptor((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+
+	AndroidCXX::android_content_res_AssetFileDescriptor result((AndroidCXX::android_content_res_AssetFileDescriptor) *((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value));
+	delete ((AndroidCXX::android_content_res_AssetFileDescriptor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -764,7 +773,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_res_XmlResourceParser result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -782,7 +790,9 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_res_XmlResourceParser(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_res_XmlResourceParser) (AndroidCXX::android_content_res_XmlResourceParser((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
+
+	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
+	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -832,7 +842,6 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_res_XmlResourceParser result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -850,7 +859,9 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_res_XmlResourceParser(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_res_XmlResourceParser) (AndroidCXX::android_content_res_XmlResourceParser((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
+
+	AndroidCXX::android_content_res_XmlResourceParser result((AndroidCXX::android_content_res_XmlResourceParser) *((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value));
+	delete ((AndroidCXX::android_content_res_XmlResourceParser *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -879,7 +890,6 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::get
 	LOGV("android_content_res_AssetManager jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -915,7 +925,9 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::get
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
+
+	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 

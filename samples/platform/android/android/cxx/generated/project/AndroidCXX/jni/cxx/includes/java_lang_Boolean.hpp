@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -83,7 +82,10 @@ public:
 	// Public Constructors
 	java_lang_Boolean(bool& arg0);
 	java_lang_Boolean(AndroidCXX::java_lang_String& arg0);
-	java_lang_Boolean();
+	// TODO: remove
+	// 
+	// java_lang_Boolean();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Boolean();
 	// Functions

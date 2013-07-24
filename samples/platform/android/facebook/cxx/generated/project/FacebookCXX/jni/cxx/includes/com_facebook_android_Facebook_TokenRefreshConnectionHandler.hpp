@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_android_Facebook_TokenRefreshConnectionHandler(const com_facebook_android_Facebook_TokenRefreshConnectionHandler& cc);
 	com_facebook_android_Facebook_TokenRefreshConnectionHandler(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_TokenRefreshConnectionHandler();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_TokenRefreshConnectionHandler();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshConnectionHandler();
 	// Functions

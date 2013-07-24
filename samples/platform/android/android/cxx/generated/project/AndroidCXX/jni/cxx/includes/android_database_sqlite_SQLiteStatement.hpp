@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -66,7 +65,10 @@ public:
 	android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc);
 	android_database_sqlite_SQLiteStatement(void * proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteStatement();
+	// TODO: remove
+	// 
+	// android_database_sqlite_SQLiteStatement();
+	// 
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions

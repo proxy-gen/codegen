@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_webkit_WebView_FindListener
@@ -49,7 +48,10 @@ public:
 	android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc);
 	android_webkit_WebView_FindListener(void * proxy);
 	// Public Constructors
-	android_webkit_WebView_FindListener();
+	// TODO: remove
+	// 
+	// android_webkit_WebView_FindListener();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebView_FindListener();
 	// Functions

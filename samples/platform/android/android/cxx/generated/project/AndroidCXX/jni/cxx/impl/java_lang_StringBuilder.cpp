@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -112,7 +111,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_StringBuilder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -269,7 +268,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 java_lang_StringBuilder::java_lang_StringBuilder(const java_lang_StringBuilder& cc)
 {
@@ -312,6 +310,10 @@ java_lang_StringBuilder::java_lang_StringBuilder(void * proxy)
 
 	LOGV("java_lang_StringBuilder::java_lang_StringBuilder(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 java_lang_StringBuilder::java_lang_StringBuilder(int& arg0)
 {
@@ -556,7 +558,6 @@ AndroidCXX::java_lang_String java_lang_StringBuilder::toString()
 	LOGV("java_lang_StringBuilder jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -574,7 +575,9 @@ AndroidCXX::java_lang_String java_lang_StringBuilder::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -624,7 +627,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -642,7 +644,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -734,7 +738,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -752,7 +755,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -820,7 +825,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<
 		jarg0 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -838,7 +842,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -888,7 +894,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -906,7 +911,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -956,7 +963,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(char& arg0)
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -974,7 +980,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(char& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1024,7 +1032,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1042,7 +1049,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1092,7 +1101,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1110,7 +1118,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1160,7 +1170,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1178,7 +1187,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1228,7 +1239,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(double& arg0
 		jarg0 = convert_jni_double_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1246,7 +1256,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(double& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1356,7 +1368,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1374,7 +1385,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(std::vector<
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1424,7 +1437,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1442,7 +1454,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1492,7 +1506,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1510,7 +1523,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1560,7 +1575,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1578,7 +1592,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::append(AndroidCXX::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1628,7 +1644,6 @@ int java_lang_StringBuilder::indexOf(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1646,7 +1661,9 @@ int java_lang_StringBuilder::indexOf(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1717,7 +1734,6 @@ int java_lang_StringBuilder::indexOf(AndroidCXX::java_lang_String& arg0,int& arg
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1735,7 +1751,9 @@ int java_lang_StringBuilder::indexOf(AndroidCXX::java_lang_String& arg0,int& arg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1806,7 +1824,6 @@ int java_lang_StringBuilder::lastIndexOf(AndroidCXX::java_lang_String& arg0,int&
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1824,7 +1841,9 @@ int java_lang_StringBuilder::lastIndexOf(AndroidCXX::java_lang_String& arg0,int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1874,7 +1893,6 @@ int java_lang_StringBuilder::lastIndexOf(AndroidCXX::java_lang_String& arg0)
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1892,7 +1910,9 @@ int java_lang_StringBuilder::lastIndexOf(AndroidCXX::java_lang_String& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1984,7 +2004,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::replace(int& arg0,i
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2002,7 +2021,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::replace(int& arg0,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2052,7 +2073,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::appendCodePoint(int
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2070,7 +2090,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::appendCodePoint(int
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2141,7 +2163,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::_delete(int& arg0,i
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2159,7 +2180,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::_delete(int& arg0,i
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2209,7 +2232,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::deleteCharAt(int& a
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2227,7 +2249,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::deleteCharAt(int& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2298,7 +2322,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,fl
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2316,7 +2339,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,fl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2387,7 +2412,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,do
 		jarg1 = convert_jni_double_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2405,7 +2429,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,do
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2536,7 +2562,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,st
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2554,7 +2579,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,st
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2625,7 +2652,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2643,7 +2669,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2714,7 +2742,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2732,7 +2759,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2821,7 +2850,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,st
 		jarg1 = convert_jni__char_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2839,7 +2867,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,st
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2910,7 +2940,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2928,7 +2957,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3041,7 +3072,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		jarg3 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3059,7 +3089,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3130,7 +3162,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,bo
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3148,7 +3179,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,bo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3219,7 +3252,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,ch
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3237,7 +3269,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,ch
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3308,7 +3342,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,in
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3326,7 +3359,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3397,7 +3432,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,lo
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3415,7 +3449,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::insert(int& arg0,lo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3444,7 +3480,6 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::reverse()
 	LOGV("java_lang_StringBuilder jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_StringBuilder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3462,7 +3497,9 @@ AndroidCXX::java_lang_StringBuilder java_lang_StringBuilder::reverse()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_StringBuilder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_StringBuilder) (AndroidCXX::java_lang_StringBuilder((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+
+	AndroidCXX::java_lang_StringBuilder result((AndroidCXX::java_lang_StringBuilder) *((AndroidCXX::java_lang_StringBuilder *) cxx_value));
+	delete ((AndroidCXX::java_lang_StringBuilder *) cxx_value);
 		
 	jni->popLocalFrame();
 

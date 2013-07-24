@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_ZoomButtonsController_OnZoomListener
@@ -50,7 +49,10 @@ public:
 	android_widget_ZoomButtonsController_OnZoomListener(const android_widget_ZoomButtonsController_OnZoomListener& cc);
 	android_widget_ZoomButtonsController_OnZoomListener(void * proxy);
 	// Public Constructors
-	android_widget_ZoomButtonsController_OnZoomListener();
+	// TODO: remove
+	// 
+	// android_widget_ZoomButtonsController_OnZoomListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController_OnZoomListener();
 	// Functions

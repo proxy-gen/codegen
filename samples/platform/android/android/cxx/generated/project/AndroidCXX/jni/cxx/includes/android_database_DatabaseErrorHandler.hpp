@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc);
 	android_database_DatabaseErrorHandler(void * proxy);
 	// Public Constructors
-	android_database_DatabaseErrorHandler();
+	// TODO: remove
+	// 
+	// android_database_DatabaseErrorHandler();
+	// 
 	// Default Destructor
 	virtual ~android_database_DatabaseErrorHandler();
 	// Functions

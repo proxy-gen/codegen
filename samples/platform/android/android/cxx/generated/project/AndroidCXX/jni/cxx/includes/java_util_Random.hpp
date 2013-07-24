@@ -8,7 +8,6 @@
 //
 
 
-
  	
 
 
@@ -62,6 +61,8 @@ public:
 	// Public Constructors
 	java_util_Random();
 	java_util_Random(long& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_util_Random();
 	// Functions

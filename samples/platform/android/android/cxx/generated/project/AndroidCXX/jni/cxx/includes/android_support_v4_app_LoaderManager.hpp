@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -107,6 +106,8 @@ public:
 	android_support_v4_app_LoaderManager(void * proxy);
 	// Public Constructors
 	android_support_v4_app_LoaderManager();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_support_v4_app_LoaderManager();
 	// Functions

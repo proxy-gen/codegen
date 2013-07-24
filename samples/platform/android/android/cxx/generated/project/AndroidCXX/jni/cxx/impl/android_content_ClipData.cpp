@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -70,7 +69,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ClipData"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -170,7 +169,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_content_ClipData::android_content_ClipData(const android_content_ClipData& cc)
 {
@@ -213,40 +211,45 @@ android_content_ClipData::android_content_ClipData(void * proxy)
 
 	LOGV("android_content_ClipData::android_content_ClipData(void * proxy) exit");
 }
-android_content_ClipData::android_content_ClipData()
-{
-	LOGV("android_content_ClipData::android_content_ClipData() enter");	
+// TODO: remove
+// 
+// 
+// android_content_ClipData::android_content_ClipData()
+// {
+// 	LOGV("android_content_ClipData::android_content_ClipData() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/ClipData";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/content/ClipData";
 
-	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_content_ClipData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_content_ClipData cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_content_ClipData jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_content_ClipData cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_content_ClipData jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_content_ClipData::android_content_ClipData() exit");	
-}
+// 	LOGV("android_content_ClipData::android_content_ClipData() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_content_ClipData::android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2)
 {
@@ -536,7 +539,6 @@ AndroidCXX::java_lang_String android_content_ClipData::toString()
 	LOGV("android_content_ClipData jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -554,7 +556,9 @@ AndroidCXX::java_lang_String android_content_ClipData::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -583,7 +587,6 @@ int android_content_ClipData::describeContents()
 	LOGV("android_content_ClipData jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -601,7 +604,9 @@ int android_content_ClipData::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -742,7 +747,6 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newIntent(Android
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -760,7 +764,9 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newIntent(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData) (AndroidCXX::android_content_ClipData((AndroidCXX::android_content_ClipData *) cxx_value));
+
+	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -831,7 +837,6 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newPlainText(Andr
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -849,7 +854,9 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newPlainText(Andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData) (AndroidCXX::android_content_ClipData((AndroidCXX::android_content_ClipData *) cxx_value));
+
+	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -941,7 +948,6 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newHtmlText(Andro
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -959,7 +965,9 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newHtmlText(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData) (AndroidCXX::android_content_ClipData((AndroidCXX::android_content_ClipData *) cxx_value));
+
+	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1051,7 +1059,6 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newUri(AndroidCXX
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1069,7 +1076,9 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newUri(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData) (AndroidCXX::android_content_ClipData((AndroidCXX::android_content_ClipData *) cxx_value));
+
+	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1140,7 +1149,6 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newRawUri(Android
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1158,7 +1166,9 @@ AndroidCXX::android_content_ClipData android_content_ClipData::newRawUri(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData) (AndroidCXX::android_content_ClipData((AndroidCXX::android_content_ClipData *) cxx_value));
+
+	AndroidCXX::android_content_ClipData result((AndroidCXX::android_content_ClipData) *((AndroidCXX::android_content_ClipData *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1187,7 +1197,6 @@ AndroidCXX::android_content_ClipDescription android_content_ClipData::getDescrip
 	LOGV("android_content_ClipData jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_ClipDescription result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1205,7 +1214,9 @@ AndroidCXX::android_content_ClipDescription android_content_ClipData::getDescrip
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipDescription(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipDescription) (AndroidCXX::android_content_ClipDescription((AndroidCXX::android_content_ClipDescription *) cxx_value));
+
+	AndroidCXX::android_content_ClipDescription result((AndroidCXX::android_content_ClipDescription) *((AndroidCXX::android_content_ClipDescription *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipDescription *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1283,7 +1294,6 @@ int android_content_ClipData::getItemCount()
 	LOGV("android_content_ClipData jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1301,7 +1311,9 @@ int android_content_ClipData::getItemCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1351,7 +1363,6 @@ AndroidCXX::android_content_ClipData_Item android_content_ClipData::getItemAt(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_content_ClipData_Item result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1369,7 +1380,9 @@ AndroidCXX::android_content_ClipData_Item android_content_ClipData::getItemAt(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_ClipData_Item(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_ClipData_Item) (AndroidCXX::android_content_ClipData_Item((AndroidCXX::android_content_ClipData_Item *) cxx_value));
+
+	AndroidCXX::android_content_ClipData_Item result((AndroidCXX::android_content_ClipData_Item) *((AndroidCXX::android_content_ClipData_Item *) cxx_value));
+	delete ((AndroidCXX::android_content_ClipData_Item *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -65,7 +64,10 @@ public:
 	android_app_ActionBar_TabListener(const android_app_ActionBar_TabListener& cc);
 	android_app_ActionBar_TabListener(void * proxy);
 	// Public Constructors
-	android_app_ActionBar_TabListener();
+	// TODO: remove
+	// 
+	// android_app_ActionBar_TabListener();
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar_TabListener();
 	// Functions

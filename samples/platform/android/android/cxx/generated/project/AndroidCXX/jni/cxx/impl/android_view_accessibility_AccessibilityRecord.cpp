@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -89,7 +88,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_accessibility_AccessibilityRecord"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -153,7 +152,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc)
 {
@@ -196,40 +194,45 @@ android_view_accessibility_AccessibilityRecord::android_view_accessibility_Acces
 
 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord(void * proxy) exit");
 }
-android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord()
-{
-	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() enter");	
+// TODO: remove
+// 
+// 
+// android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord()
+// {
+// 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/accessibility/AccessibilityRecord";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/accessibility/AccessibilityRecord";
 
-	LOGV("android_view_accessibility_AccessibilityRecord className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_accessibility_AccessibilityRecord className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_accessibility_AccessibilityRecord cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() exit");	
-}
+// 	LOGV("android_view_accessibility_AccessibilityRecord::android_view_accessibility_AccessibilityRecord() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_accessibility_AccessibilityRecord::~android_view_accessibility_AccessibilityRecord()
@@ -267,7 +270,6 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityRecord::toS
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -285,7 +287,9 @@ AndroidCXX::java_lang_String android_view_accessibility_AccessibilityRecord::toS
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -314,7 +318,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -332,7 +335,9 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -361,7 +366,6 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_accessibility_AccessibilityRecord result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -379,7 +383,9 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_accessibility_AccessibilityRecord(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_accessibility_AccessibilityRecord) (AndroidCXX::android_view_accessibility_AccessibilityRecord((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
+
+	AndroidCXX::android_view_accessibility_AccessibilityRecord result((AndroidCXX::android_view_accessibility_AccessibilityRecord) *((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
+	delete ((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -429,7 +435,6 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_accessibility_AccessibilityRecord result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -447,7 +452,9 @@ AndroidCXX::android_view_accessibility_AccessibilityRecord android_view_accessib
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_accessibility_AccessibilityRecord(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_accessibility_AccessibilityRecord) (AndroidCXX::android_view_accessibility_AccessibilityRecord((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
+
+	AndroidCXX::android_view_accessibility_AccessibilityRecord result((AndroidCXX::android_view_accessibility_AccessibilityRecord) *((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value));
+	delete ((AndroidCXX::android_view_accessibility_AccessibilityRecord *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -504,7 +511,6 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityRecord::getTe
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -540,7 +546,9 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityRecord::getTe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -569,7 +577,6 @@ bool android_view_accessibility_AccessibilityRecord::isEnabled()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -587,7 +594,9 @@ bool android_view_accessibility_AccessibilityRecord::isEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -665,7 +674,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -683,7 +691,9 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -908,7 +918,6 @@ int android_view_accessibility_AccessibilityRecord::getScrollX()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -926,7 +935,9 @@ int android_view_accessibility_AccessibilityRecord::getScrollX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -955,7 +966,6 @@ int android_view_accessibility_AccessibilityRecord::getScrollY()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -973,7 +983,9 @@ int android_view_accessibility_AccessibilityRecord::getScrollY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1051,7 +1063,6 @@ bool android_view_accessibility_AccessibilityRecord::isChecked()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1069,7 +1080,9 @@ bool android_view_accessibility_AccessibilityRecord::isChecked()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1098,7 +1111,6 @@ int android_view_accessibility_AccessibilityRecord::getItemCount()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1116,7 +1128,9 @@ int android_view_accessibility_AccessibilityRecord::getItemCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1145,7 +1159,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1163,7 +1176,9 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_accessibility_AccessibilityNodeInfo(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) (AndroidCXX::android_view_accessibility_AccessibilityNodeInfo((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
+
+	AndroidCXX::android_view_accessibility_AccessibilityNodeInfo result((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo) *((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value));
+	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeInfo *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1311,7 +1326,6 @@ int android_view_accessibility_AccessibilityRecord::getWindowId()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1329,7 +1343,9 @@ int android_view_accessibility_AccessibilityRecord::getWindowId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1358,7 +1374,6 @@ bool android_view_accessibility_AccessibilityRecord::isPassword()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1376,7 +1391,9 @@ bool android_view_accessibility_AccessibilityRecord::isPassword()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1454,7 +1471,6 @@ bool android_view_accessibility_AccessibilityRecord::isFullScreen()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1472,7 +1488,9 @@ bool android_view_accessibility_AccessibilityRecord::isFullScreen()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1550,7 +1568,6 @@ bool android_view_accessibility_AccessibilityRecord::isScrollable()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1568,7 +1585,9 @@ bool android_view_accessibility_AccessibilityRecord::isScrollable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1695,7 +1714,6 @@ int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1713,7 +1731,9 @@ int android_view_accessibility_AccessibilityRecord::getCurrentItemIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1791,7 +1811,6 @@ int android_view_accessibility_AccessibilityRecord::getFromIndex()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1809,7 +1828,9 @@ int android_view_accessibility_AccessibilityRecord::getFromIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1887,7 +1908,6 @@ int android_view_accessibility_AccessibilityRecord::getToIndex()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1905,7 +1925,9 @@ int android_view_accessibility_AccessibilityRecord::getToIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1983,7 +2005,6 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollX()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2001,7 +2022,9 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollX()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2079,7 +2102,6 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollY()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2097,7 +2119,9 @@ int android_view_accessibility_AccessibilityRecord::getMaxScrollY()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2175,7 +2199,6 @@ int android_view_accessibility_AccessibilityRecord::getAddedCount()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2193,7 +2216,9 @@ int android_view_accessibility_AccessibilityRecord::getAddedCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2271,7 +2296,6 @@ int android_view_accessibility_AccessibilityRecord::getRemovedCount()
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2289,7 +2313,9 @@ int android_view_accessibility_AccessibilityRecord::getRemovedCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2367,7 +2393,6 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2385,7 +2410,9 @@ AndroidCXX::java_lang_CharSequence android_view_accessibility_AccessibilityRecor
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2463,7 +2490,6 @@ AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord
 	LOGV("android_view_accessibility_AccessibilityRecord jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Parcelable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2481,7 +2507,9 @@ AndroidCXX::android_os_Parcelable android_view_accessibility_AccessibilityRecord
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Parcelable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Parcelable) (AndroidCXX::android_os_Parcelable((AndroidCXX::android_os_Parcelable *) cxx_value));
+
+	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
+	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
 	jni->popLocalFrame();
 

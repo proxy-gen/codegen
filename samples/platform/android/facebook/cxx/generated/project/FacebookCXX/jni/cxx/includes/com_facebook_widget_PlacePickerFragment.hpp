@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -99,6 +98,8 @@ public:
 	// Public Constructors
 	com_facebook_widget_PlacePickerFragment();
 	com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment();
 	// Functions

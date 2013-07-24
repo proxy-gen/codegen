@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -56,7 +55,10 @@ public:
 	android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc);
 	android_animation_TypeEvaluator(void * proxy);
 	// Public Constructors
-	android_animation_TypeEvaluator();
+	// TODO: remove
+	// 
+	// android_animation_TypeEvaluator();
+	// 
 	// Default Destructor
 	virtual ~android_animation_TypeEvaluator();
 	// Functions

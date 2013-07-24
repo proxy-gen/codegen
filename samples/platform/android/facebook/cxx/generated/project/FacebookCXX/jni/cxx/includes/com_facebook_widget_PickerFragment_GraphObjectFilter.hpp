@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_widget_PickerFragment_GraphObjectFilter(const com_facebook_widget_PickerFragment_GraphObjectFilter& cc);
 	com_facebook_widget_PickerFragment_GraphObjectFilter(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_GraphObjectFilter();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment_GraphObjectFilter();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_GraphObjectFilter();
 	// Functions

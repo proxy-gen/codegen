@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -76,7 +75,10 @@ public:
 	android_text_method_KeyListener(const android_text_method_KeyListener& cc);
 	android_text_method_KeyListener(void * proxy);
 	// Public Constructors
-	android_text_method_KeyListener();
+	// TODO: remove
+	// 
+	// android_text_method_KeyListener();
+	// 
 	// Default Destructor
 	virtual ~android_text_method_KeyListener();
 	// Functions

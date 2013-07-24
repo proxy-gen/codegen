@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_widget_LoginButton_OnErrorListener(const com_facebook_widget_LoginButton_OnErrorListener& cc);
 	com_facebook_widget_LoginButton_OnErrorListener(void * proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_OnErrorListener();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton_OnErrorListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_OnErrorListener();
 	// Functions

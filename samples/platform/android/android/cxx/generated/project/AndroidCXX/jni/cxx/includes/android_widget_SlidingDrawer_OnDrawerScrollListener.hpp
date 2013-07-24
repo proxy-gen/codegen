@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_SlidingDrawer_OnDrawerScrollListener
@@ -50,7 +49,10 @@ public:
 	android_widget_SlidingDrawer_OnDrawerScrollListener(const android_widget_SlidingDrawer_OnDrawerScrollListener& cc);
 	android_widget_SlidingDrawer_OnDrawerScrollListener(void * proxy);
 	// Public Constructors
-	android_widget_SlidingDrawer_OnDrawerScrollListener();
+	// TODO: remove
+	// 
+	// android_widget_SlidingDrawer_OnDrawerScrollListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerScrollListener();
 	// Functions

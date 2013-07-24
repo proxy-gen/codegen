@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -91,7 +90,10 @@ public:
 	// Public Constructors
 	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context& arg0);
-	android_widget_AdapterViewFlipper();
+	// TODO: remove
+	// 
+	// android_widget_AdapterViewFlipper();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AdapterViewFlipper();
 	// Functions

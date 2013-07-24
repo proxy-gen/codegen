@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_view_View_OnTouchListener(const android_view_View_OnTouchListener& cc);
 	android_view_View_OnTouchListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnTouchListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnTouchListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnTouchListener();
 	// Functions

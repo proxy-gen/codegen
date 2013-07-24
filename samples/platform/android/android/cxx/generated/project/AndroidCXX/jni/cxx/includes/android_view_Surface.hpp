@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -87,7 +86,10 @@ public:
 	android_view_Surface(void * proxy);
 	// Public Constructors
 	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture& arg0);
-	android_view_Surface();
+	// TODO: remove
+	// 
+	// android_view_Surface();
+	// 
 	// Default Destructor
 	virtual ~android_view_Surface();
 	// Functions

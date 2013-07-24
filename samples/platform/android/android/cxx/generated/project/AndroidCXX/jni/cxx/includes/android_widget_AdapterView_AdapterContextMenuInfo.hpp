@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_widget_AdapterView_AdapterContextMenuInfo(void * proxy);
 	// Public Constructors
 	android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View& arg0,int& arg1,long& arg2);
-	android_widget_AdapterView_AdapterContextMenuInfo();
+	// TODO: remove
+	// 
+	// android_widget_AdapterView_AdapterContextMenuInfo();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AdapterView_AdapterContextMenuInfo();
 	// Functions

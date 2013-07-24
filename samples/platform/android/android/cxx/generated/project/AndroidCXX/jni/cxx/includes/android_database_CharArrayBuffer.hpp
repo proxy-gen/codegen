@@ -10,7 +10,6 @@
 
 
 
-
  	
 
 
@@ -53,7 +52,10 @@ public:
 	// Public Constructors
 	android_database_CharArrayBuffer(int& arg0);
 	android_database_CharArrayBuffer(std::vector<char>& arg0);
-	android_database_CharArrayBuffer();
+	// TODO: remove
+	// 
+	// android_database_CharArrayBuffer();
+	// 
 	// Default Destructor
 	virtual ~android_database_CharArrayBuffer();
 	// Functions

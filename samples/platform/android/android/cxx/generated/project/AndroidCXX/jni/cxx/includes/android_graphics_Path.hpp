@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -134,6 +133,8 @@ public:
 	// Public Constructors
 	android_graphics_Path();
 	android_graphics_Path(AndroidCXX::android_graphics_Path& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Path();
 	// Functions

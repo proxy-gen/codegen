@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -58,7 +57,10 @@ public:
 	com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc);
 	com_facebook_AuthorizationClient_StartActivityDelegate(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_StartActivityDelegate();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_StartActivityDelegate();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_StartActivityDelegate();
 	// Functions

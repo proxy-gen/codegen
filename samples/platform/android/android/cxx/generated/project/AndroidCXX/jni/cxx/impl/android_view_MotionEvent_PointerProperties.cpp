@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -35,7 +34,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MotionEvent_PointerProperties"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -59,7 +58,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(const android_view_MotionEvent_PointerProperties& cc)
@@ -103,6 +101,10 @@ android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProp
 
 	LOGV("android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_MotionEvent_PointerProperties::android_view_MotionEvent_PointerProperties()
 {
@@ -254,7 +256,6 @@ bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Ob
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -272,7 +273,9 @@ bool android_view_MotionEvent_PointerProperties::equals(AndroidCXX::java_lang_Ob
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -301,7 +304,6 @@ int android_view_MotionEvent_PointerProperties::hashCode()
 	LOGV("android_view_MotionEvent_PointerProperties jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -319,7 +321,9 @@ int android_view_MotionEvent_PointerProperties::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

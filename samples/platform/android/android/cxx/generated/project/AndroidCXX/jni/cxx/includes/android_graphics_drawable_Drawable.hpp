@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
  		 
@@ -201,6 +200,8 @@ public:
 	android_graphics_drawable_Drawable(void * proxy);
 	// Public Constructors
 	android_graphics_drawable_Drawable();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable();
 	// Functions

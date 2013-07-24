@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -116,7 +115,10 @@ public:
 	java_net_NetworkInterface(const java_net_NetworkInterface& cc);
 	java_net_NetworkInterface(void * proxy);
 	// Public Constructors
-	java_net_NetworkInterface();
+	// TODO: remove
+	// 
+	// java_net_NetworkInterface();
+	// 
 	// Default Destructor
 	virtual ~java_net_NetworkInterface();
 	// Functions

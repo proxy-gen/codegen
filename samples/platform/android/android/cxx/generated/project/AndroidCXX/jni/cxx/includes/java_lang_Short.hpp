@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -95,7 +94,10 @@ public:
 	// Public Constructors
 	java_lang_Short(short& arg0);
 	java_lang_Short(AndroidCXX::java_lang_String& arg0);
-	java_lang_Short();
+	// TODO: remove
+	// 
+	// java_lang_Short();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Short();
 	// Functions

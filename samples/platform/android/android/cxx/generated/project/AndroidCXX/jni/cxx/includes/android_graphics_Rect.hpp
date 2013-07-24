@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -120,6 +119,8 @@ public:
 	android_graphics_Rect();
 	android_graphics_Rect(int& arg0,int& arg1,int& arg2,int& arg3);
 	android_graphics_Rect(AndroidCXX::android_graphics_Rect& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Rect();
 	// Functions

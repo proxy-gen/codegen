@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -87,6 +86,8 @@ public:
 	// Public Constructors
 	android_content_pm_ApplicationInfo();
 	android_content_pm_ApplicationInfo(AndroidCXX::android_content_pm_ApplicationInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_ApplicationInfo();
 	// Functions

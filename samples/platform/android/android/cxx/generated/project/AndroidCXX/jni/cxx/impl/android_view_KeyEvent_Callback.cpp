@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyEvent_Callback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -61,7 +60,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_KeyEvent_Callback::android_view_KeyEvent_Callback(const android_view_KeyEvent_Callback& cc)
@@ -105,40 +103,45 @@ android_view_KeyEvent_Callback::android_view_KeyEvent_Callback(void * proxy)
 
 	LOGV("android_view_KeyEvent_Callback::android_view_KeyEvent_Callback(void * proxy) exit");
 }
-android_view_KeyEvent_Callback::android_view_KeyEvent_Callback()
-{
-	LOGV("android_view_KeyEvent_Callback::android_view_KeyEvent_Callback() enter");	
+// TODO: remove
+// 
+// 
+// android_view_KeyEvent_Callback::android_view_KeyEvent_Callback()
+// {
+// 	LOGV("android_view_KeyEvent_Callback::android_view_KeyEvent_Callback() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/KeyEvent$Callback";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/KeyEvent$Callback";
 
-	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_KeyEvent_Callback cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_KeyEvent_Callback jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_KeyEvent_Callback cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_KeyEvent_Callback jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_KeyEvent_Callback::android_view_KeyEvent_Callback() exit");	
-}
+// 	LOGV("android_view_KeyEvent_Callback::android_view_KeyEvent_Callback() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_KeyEvent_Callback::~android_view_KeyEvent_Callback()
@@ -218,7 +221,6 @@ bool android_view_KeyEvent_Callback::onKeyDown(int& arg0,AndroidCXX::android_vie
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -236,7 +238,9 @@ bool android_view_KeyEvent_Callback::onKeyDown(int& arg0,AndroidCXX::android_vie
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -307,7 +311,6 @@ bool android_view_KeyEvent_Callback::onKeyLongPress(int& arg0,AndroidCXX::androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -325,7 +328,9 @@ bool android_view_KeyEvent_Callback::onKeyLongPress(int& arg0,AndroidCXX::androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -396,7 +401,6 @@ bool android_view_KeyEvent_Callback::onKeyUp(int& arg0,AndroidCXX::android_view_
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -414,7 +418,9 @@ bool android_view_KeyEvent_Callback::onKeyUp(int& arg0,AndroidCXX::android_view_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -506,7 +512,6 @@ bool android_view_KeyEvent_Callback::onKeyMultiple(int& arg0,int& arg1,AndroidCX
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -524,7 +529,9 @@ bool android_view_KeyEvent_Callback::onKeyMultiple(int& arg0,int& arg1,AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

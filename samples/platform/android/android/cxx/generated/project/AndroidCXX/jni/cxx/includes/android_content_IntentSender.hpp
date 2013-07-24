@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -115,7 +114,10 @@ public:
 	android_content_IntentSender(const android_content_IntentSender& cc);
 	android_content_IntentSender(void * proxy);
 	// Public Constructors
-	android_content_IntentSender();
+	// TODO: remove
+	// 
+	// android_content_IntentSender();
+	// 
 	// Default Destructor
 	virtual ~android_content_IntentSender();
 	// Functions

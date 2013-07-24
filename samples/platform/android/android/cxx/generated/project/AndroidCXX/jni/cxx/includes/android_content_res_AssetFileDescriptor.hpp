@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -92,7 +91,10 @@ public:
 	android_content_res_AssetFileDescriptor(void * proxy);
 	// Public Constructors
 	android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0,long& arg1,long& arg2);
-	android_content_res_AssetFileDescriptor();
+	// TODO: remove
+	// 
+	// android_content_res_AssetFileDescriptor();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_AssetFileDescriptor();
 	// Functions

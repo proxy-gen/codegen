@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -90,7 +89,10 @@ public:
 	// Public Constructors
 	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1);
 	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription& arg0);
-	android_content_ClipDescription();
+	// TODO: remove
+	// 
+	// android_content_ClipDescription();
+	// 
 	// Default Destructor
 	virtual ~android_content_ClipDescription();
 	// Functions

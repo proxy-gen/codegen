@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -107,7 +106,10 @@ public:
 	com_facebook_android_AsyncFacebookRunner(void * proxy);
 	// Public Constructors
 	com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook& arg0);
-	com_facebook_android_AsyncFacebookRunner();
+	// TODO: remove
+	// 
+	// com_facebook_android_AsyncFacebookRunner();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner();
 	// Functions

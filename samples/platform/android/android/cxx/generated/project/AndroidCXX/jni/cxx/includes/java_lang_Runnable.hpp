@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_lang_Runnable
@@ -49,7 +48,10 @@ public:
 	java_lang_Runnable(const java_lang_Runnable& cc);
 	java_lang_Runnable(void * proxy);
 	// Public Constructors
-	java_lang_Runnable();
+	// TODO: remove
+	// 
+	// java_lang_Runnable();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Runnable();
 	// Functions

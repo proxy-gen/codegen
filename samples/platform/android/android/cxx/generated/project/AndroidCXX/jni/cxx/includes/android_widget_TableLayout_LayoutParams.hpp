@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -80,6 +79,8 @@ public:
 	android_widget_TableLayout_LayoutParams();
 	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
 	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_TableLayout_LayoutParams();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -88,7 +87,10 @@ public:
 	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
 	java_security_cert_CertPath(void * proxy);
 	// Public Constructors
-	java_security_cert_CertPath();
+	// TODO: remove
+	// 
+	// java_security_cert_CertPath();
+	// 
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions

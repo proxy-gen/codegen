@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -99,7 +98,10 @@ public:
 	com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc);
 	com_facebook_widget_LoginButton_LoginButtonProperties(void * proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_LoginButtonProperties();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton_LoginButtonProperties();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonProperties();
 	// Functions

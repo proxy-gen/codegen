@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_os_MessageQueue(const android_os_MessageQueue& cc);
 	android_os_MessageQueue(void * proxy);
 	// Public Constructors
-	android_os_MessageQueue();
+	// TODO: remove
+	// 
+	// android_os_MessageQueue();
+	// 
 	// Default Destructor
 	virtual ~android_os_MessageQueue();
 	// Functions

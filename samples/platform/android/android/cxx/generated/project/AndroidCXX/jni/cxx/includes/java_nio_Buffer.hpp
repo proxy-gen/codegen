@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -80,7 +79,10 @@ public:
 	java_nio_Buffer(const java_nio_Buffer& cc);
 	java_nio_Buffer(void * proxy);
 	// Public Constructors
-	java_nio_Buffer();
+	// TODO: remove
+	// 
+	// java_nio_Buffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_Buffer();
 	// Functions

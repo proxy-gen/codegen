@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -110,7 +109,10 @@ public:
 	android_os_ParcelFileDescriptor(void * proxy);
 	// Public Constructors
 	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor& arg0);
-	android_os_ParcelFileDescriptor();
+	// TODO: remove
+	// 
+	// android_os_ParcelFileDescriptor();
+	// 
 	// Default Destructor
 	virtual ~android_os_ParcelFileDescriptor();
 	// Functions

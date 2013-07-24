@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -36,6 +35,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_SharedPreferencesTokenCachingStrategy"
@@ -68,7 +68,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc)
@@ -112,40 +111,45 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 
 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(void * proxy) exit");
 }
-com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy()
-{
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy()
+// {
+// 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy() exit");	
-}
+// 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0)
 {
@@ -346,7 +350,6 @@ AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy
 	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -364,7 +367,9 @@ AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 

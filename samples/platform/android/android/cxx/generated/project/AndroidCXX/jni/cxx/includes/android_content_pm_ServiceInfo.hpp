@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -76,6 +75,8 @@ public:
 	// Public Constructors
 	android_content_pm_ServiceInfo();
 	android_content_pm_ServiceInfo(AndroidCXX::android_content_pm_ServiceInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_ServiceInfo();
 	// Functions

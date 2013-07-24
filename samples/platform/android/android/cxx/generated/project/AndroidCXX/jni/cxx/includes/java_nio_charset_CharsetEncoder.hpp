@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -111,7 +110,10 @@ public:
 	java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc);
 	java_nio_charset_CharsetEncoder(void * proxy);
 	// Public Constructors
-	java_nio_charset_CharsetEncoder();
+	// TODO: remove
+	// 
+	// java_nio_charset_CharsetEncoder();
+	// 
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions

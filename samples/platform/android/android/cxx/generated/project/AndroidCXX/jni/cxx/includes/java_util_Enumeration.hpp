@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -55,7 +54,10 @@ public:
 	java_util_Enumeration(const java_util_Enumeration& cc);
 	java_util_Enumeration(void * proxy);
 	// Public Constructors
-	java_util_Enumeration();
+	// TODO: remove
+	// 
+	// java_util_Enumeration();
+	// 
 	// Default Destructor
 	virtual ~java_util_Enumeration();
 	// Functions

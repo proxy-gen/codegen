@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_Filter_FilterResults
@@ -50,6 +49,8 @@ public:
 	android_widget_Filter_FilterResults(void * proxy);
 	// Public Constructors
 	android_widget_Filter_FilterResults();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterResults();
 	// Functions

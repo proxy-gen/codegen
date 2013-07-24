@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -73,7 +72,10 @@ public:
 	android_webkit_WebResourceResponse(void * proxy);
 	// Public Constructors
 	android_webkit_WebResourceResponse(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_io_InputStream& arg2);
-	android_webkit_WebResourceResponse();
+	// TODO: remove
+	// 
+	// android_webkit_WebResourceResponse();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebResourceResponse();
 	// Functions

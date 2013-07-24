@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,10 @@ public:
 	android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc);
 	android_view_LayoutInflater_Factory(void * proxy);
 	// Public Constructors
-	android_view_LayoutInflater_Factory();
+	// TODO: remove
+	// 
+	// android_view_LayoutInflater_Factory();
+	// 
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Factory();
 	// Functions

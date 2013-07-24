@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -100,6 +99,8 @@ public:
 	// Public Constructors
 	android_content_res_Configuration();
 	android_content_res_Configuration(AndroidCXX::android_content_res_Configuration& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_res_Configuration();
 	// Functions

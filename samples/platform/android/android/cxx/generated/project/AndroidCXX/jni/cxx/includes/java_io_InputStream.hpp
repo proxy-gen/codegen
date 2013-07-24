@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
 
@@ -61,6 +60,8 @@ public:
 	java_io_InputStream(void * proxy);
 	// Public Constructors
 	java_io_InputStream();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_io_InputStream();
 	// Functions

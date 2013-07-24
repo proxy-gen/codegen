@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -93,7 +92,10 @@ public:
 	// Public Constructors
 	android_os_Messenger(AndroidCXX::android_os_Handler& arg0);
 	android_os_Messenger(AndroidCXX::android_os_IBinder& arg0);
-	android_os_Messenger();
+	// TODO: remove
+	// 
+	// android_os_Messenger();
+	// 
 	// Default Destructor
 	virtual ~android_os_Messenger();
 	// Functions

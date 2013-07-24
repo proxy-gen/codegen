@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
 
@@ -62,7 +61,10 @@ public:
 	// Public Constructors
 	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception& arg0);
 	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String& arg0);
-	android_widget_RemoteViews_ActionException();
+	// TODO: remove
+	// 
+	// android_widget_RemoteViews_ActionException();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RemoteViews_ActionException();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -121,6 +120,8 @@ public:
 	com_facebook_widget_UserSettingsFragment(void * proxy);
 	// Public Constructors
 	com_facebook_widget_UserSettingsFragment();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment();
 	// Functions

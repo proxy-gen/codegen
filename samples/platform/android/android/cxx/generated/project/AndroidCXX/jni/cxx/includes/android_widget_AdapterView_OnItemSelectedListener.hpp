@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -69,7 +68,10 @@ public:
 	android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc);
 	android_widget_AdapterView_OnItemSelectedListener(void * proxy);
 	// Public Constructors
-	android_widget_AdapterView_OnItemSelectedListener();
+	// TODO: remove
+	// 
+	// android_widget_AdapterView_OnItemSelectedListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemSelectedListener();
 	// Functions

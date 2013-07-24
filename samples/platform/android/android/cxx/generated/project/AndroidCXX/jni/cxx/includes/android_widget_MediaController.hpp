@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -117,7 +116,10 @@ public:
 	android_widget_MediaController(AndroidCXX::android_content_Context& arg0,bool& arg1);
 	android_widget_MediaController(AndroidCXX::android_content_Context& arg0);
 	android_widget_MediaController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_MediaController();
+	// TODO: remove
+	// 
+	// android_widget_MediaController();
+	// 
 	// Default Destructor
 	virtual ~android_widget_MediaController();
 	// Functions

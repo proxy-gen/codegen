@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -108,7 +107,10 @@ public:
 	// Public Constructors
 	java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0);
 	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup& arg0,AndroidCXX::java_lang_String& arg1);
-	java_lang_ThreadGroup();
+	// TODO: remove
+	// 
+	// java_lang_ThreadGroup();
+	// 
 	// Default Destructor
 	virtual ~java_lang_ThreadGroup();
 	// Functions

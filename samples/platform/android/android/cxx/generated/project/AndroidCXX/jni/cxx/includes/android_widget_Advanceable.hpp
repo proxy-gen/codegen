@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_Advanceable
@@ -50,7 +49,10 @@ public:
 	android_widget_Advanceable(const android_widget_Advanceable& cc);
 	android_widget_Advanceable(void * proxy);
 	// Public Constructors
-	android_widget_Advanceable();
+	// TODO: remove
+	// 
+	// android_widget_Advanceable();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Advanceable();
 	// Functions

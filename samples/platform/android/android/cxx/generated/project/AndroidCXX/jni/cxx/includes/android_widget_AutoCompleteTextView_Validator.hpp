@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -57,7 +56,10 @@ public:
 	android_widget_AutoCompleteTextView_Validator(const android_widget_AutoCompleteTextView_Validator& cc);
 	android_widget_AutoCompleteTextView_Validator(void * proxy);
 	// Public Constructors
-	android_widget_AutoCompleteTextView_Validator();
+	// TODO: remove
+	// 
+	// android_widget_AutoCompleteTextView_Validator();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_Validator();
 	// Functions

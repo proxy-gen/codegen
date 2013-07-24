@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -38,7 +37,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_style_URLSpan"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -68,7 +67,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_text_style_URLSpan::android_text_style_URLSpan(const android_text_style_URLSpan& cc)
@@ -112,40 +110,45 @@ android_text_style_URLSpan::android_text_style_URLSpan(void * proxy)
 
 	LOGV("android_text_style_URLSpan::android_text_style_URLSpan(void * proxy) exit");
 }
-android_text_style_URLSpan::android_text_style_URLSpan()
-{
-	LOGV("android_text_style_URLSpan::android_text_style_URLSpan() enter");	
+// TODO: remove
+// 
+// 
+// android_text_style_URLSpan::android_text_style_URLSpan()
+// {
+// 	LOGV("android_text_style_URLSpan::android_text_style_URLSpan() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/text/style/URLSpan";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_text_style_URLSpan cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_text_style_URLSpan jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_text_style_URLSpan cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_text_style_URLSpan jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_text_style_URLSpan::android_text_style_URLSpan() exit");	
-}
+// 	LOGV("android_text_style_URLSpan::android_text_style_URLSpan() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_text_style_URLSpan::android_text_style_URLSpan(AndroidCXX::java_lang_String& arg0)
 {
@@ -297,7 +300,6 @@ AndroidCXX::java_lang_String android_text_style_URLSpan::getURL()
 	LOGV("android_text_style_URLSpan jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -315,7 +317,9 @@ AndroidCXX::java_lang_String android_text_style_URLSpan::getURL()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -344,7 +348,6 @@ int android_text_style_URLSpan::describeContents()
 	LOGV("android_text_style_URLSpan jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -362,7 +365,9 @@ int android_text_style_URLSpan::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -510,7 +515,6 @@ int android_text_style_URLSpan::getSpanTypeId()
 	LOGV("android_text_style_URLSpan jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -528,7 +532,9 @@ int android_text_style_URLSpan::getSpanTypeId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

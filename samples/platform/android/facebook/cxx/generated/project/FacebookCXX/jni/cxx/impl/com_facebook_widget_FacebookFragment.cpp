@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -33,6 +32,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FacebookFragment"
@@ -62,7 +62,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment(const com_facebook_widget_FacebookFragment& cc)
@@ -106,40 +105,45 @@ com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment(void 
 
 	LOGV("com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment(void * proxy) exit");
 }
-com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment()
-{
-	LOGV("com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment()
+// {
+// 	LOGV("com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/FacebookFragment";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/FacebookFragment";
 
-	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_FacebookFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_FacebookFragment cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_FacebookFragment jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_FacebookFragment cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_FacebookFragment jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment() exit");	
-}
+// 	LOGV("com_facebook_widget_FacebookFragment::com_facebook_widget_FacebookFragment() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_FacebookFragment::~com_facebook_widget_FacebookFragment()

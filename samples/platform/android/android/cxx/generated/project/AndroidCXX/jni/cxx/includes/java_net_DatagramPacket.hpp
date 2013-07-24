@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -97,7 +96,10 @@ public:
 	java_net_DatagramPacket(std::vector<byte>& arg0,int& arg1,int& arg2,AndroidCXX::java_net_SocketAddress& arg3);
 	java_net_DatagramPacket(std::vector<byte>& arg0,int& arg1,AndroidCXX::java_net_InetAddress& arg2,int& arg3);
 	java_net_DatagramPacket(std::vector<byte>& arg0,int& arg1,AndroidCXX::java_net_SocketAddress& arg2);
-	java_net_DatagramPacket();
+	// TODO: remove
+	// 
+	// java_net_DatagramPacket();
+	// 
 	// Default Destructor
 	virtual ~java_net_DatagramPacket();
 	// Functions

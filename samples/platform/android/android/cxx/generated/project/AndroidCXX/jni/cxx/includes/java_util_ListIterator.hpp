@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -65,7 +64,10 @@ public:
 	java_util_ListIterator(const java_util_ListIterator& cc);
 	java_util_ListIterator(void * proxy);
 	// Public Constructors
-	java_util_ListIterator();
+	// TODO: remove
+	// 
+	// java_util_ListIterator();
+	// 
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions

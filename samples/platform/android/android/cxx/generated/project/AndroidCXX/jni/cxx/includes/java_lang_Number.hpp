@@ -22,7 +22,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_lang_Number
@@ -56,6 +55,8 @@ public:
 	java_lang_Number(void * proxy);
 	// Public Constructors
 	java_lang_Number();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_lang_Number();
 	// Functions

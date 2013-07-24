@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -64,7 +63,10 @@ public:
 	com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc);
 	com_facebook_android_Facebook_ServiceListener(void * proxy);
 	// Public Constructors
-	com_facebook_android_Facebook_ServiceListener();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_ServiceListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_ServiceListener();
 	// Functions

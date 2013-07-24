@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -93,7 +92,10 @@ public:
 	android_content_res_AssetManager(const android_content_res_AssetManager& cc);
 	android_content_res_AssetManager(void * proxy);
 	// Public Constructors
-	android_content_res_AssetManager();
+	// TODO: remove
+	// 
+	// android_content_res_AssetManager();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_AssetManager();
 	// Functions

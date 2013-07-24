@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -191,7 +190,10 @@ public:
 	java_nio_ByteBuffer(const java_nio_ByteBuffer& cc);
 	java_nio_ByteBuffer(void * proxy);
 	// Public Constructors
-	java_nio_ByteBuffer();
+	// TODO: remove
+	// 
+	// java_nio_ByteBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_ByteBuffer();
 	// Functions

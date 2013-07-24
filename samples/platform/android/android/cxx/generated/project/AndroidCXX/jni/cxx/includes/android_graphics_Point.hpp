@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -84,6 +83,8 @@ public:
 	android_graphics_Point();
 	android_graphics_Point(int& arg0,int& arg1);
 	android_graphics_Point(AndroidCXX::android_graphics_Point& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Point();
 	// Functions

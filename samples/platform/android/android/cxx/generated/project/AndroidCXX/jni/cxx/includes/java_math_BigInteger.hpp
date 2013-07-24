@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -177,7 +176,10 @@ public:
 	java_math_BigInteger(AndroidCXX::java_lang_String& arg0);
 	java_math_BigInteger(int& arg0,AndroidCXX::java_util_Random& arg1);
 	java_math_BigInteger(int& arg0,int& arg1,AndroidCXX::java_util_Random& arg2);
-	java_math_BigInteger();
+	// TODO: remove
+	// 
+	// java_math_BigInteger();
+	// 
 	// Default Destructor
 	virtual ~java_math_BigInteger();
 	// Functions

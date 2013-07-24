@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,7 +57,10 @@ public:
 	android_view_SurfaceHolder_Callback(const android_view_SurfaceHolder_Callback& cc);
 	android_view_SurfaceHolder_Callback(void * proxy);
 	// Public Constructors
-	android_view_SurfaceHolder_Callback();
+	// TODO: remove
+	// 
+	// android_view_SurfaceHolder_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder_Callback();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	android_os_Parcelable_Creator(const android_os_Parcelable_Creator& cc);
 	android_os_Parcelable_Creator(void * proxy);
 	// Public Constructors
-	android_os_Parcelable_Creator();
+	// TODO: remove
+	// 
+	// android_os_Parcelable_Creator();
+	// 
 	// Default Destructor
 	virtual ~android_os_Parcelable_Creator();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -81,7 +80,10 @@ public:
 	com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc);
 	com_facebook_widget_WebDialog_DialogWebViewClient(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_DialogWebViewClient();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WebDialog_DialogWebViewClient();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_DialogWebViewClient();
 	// Functions

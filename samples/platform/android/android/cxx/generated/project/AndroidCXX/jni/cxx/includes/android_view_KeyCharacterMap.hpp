@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -89,7 +88,10 @@ public:
 	android_view_KeyCharacterMap(const android_view_KeyCharacterMap& cc);
 	android_view_KeyCharacterMap(void * proxy);
 	// Public Constructors
-	android_view_KeyCharacterMap();
+	// TODO: remove
+	// 
+	// android_view_KeyCharacterMap();
+	// 
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap();
 	// Functions

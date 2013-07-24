@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -89,6 +88,8 @@ public:
 	android_util_TypedValue(void * proxy);
 	// Public Constructors
 	android_util_TypedValue();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_util_TypedValue();
 	// Functions

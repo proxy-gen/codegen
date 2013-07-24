@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -117,7 +116,10 @@ public:
 	android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc);
 	android_app_TaskStackBuilder(void * proxy);
 	// Public Constructors
-	android_app_TaskStackBuilder();
+	// TODO: remove
+	// 
+	// android_app_TaskStackBuilder();
+	// 
 	// Default Destructor
 	virtual ~android_app_TaskStackBuilder();
 	// Functions

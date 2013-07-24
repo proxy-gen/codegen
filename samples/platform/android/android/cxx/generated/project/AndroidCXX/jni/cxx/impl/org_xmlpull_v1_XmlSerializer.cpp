@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -87,7 +86,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "org_xmlpull_v1_XmlSerializer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -211,7 +210,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer(const org_xmlpull_v1_XmlSerializer& cc)
 {
@@ -254,40 +252,45 @@ org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer(void * proxy)
 
 	LOGV("org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer(void * proxy) exit");
 }
-org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer()
-{
-	LOGV("org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer() enter");	
+// TODO: remove
+// 
+// 
+// org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer()
+// {
+// 	LOGV("org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "org/xmlpull/v1/XmlSerializer";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("org_xmlpull_v1_XmlSerializer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("org_xmlpull_v1_XmlSerializer jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("org_xmlpull_v1_XmlSerializer cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("org_xmlpull_v1_XmlSerializer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer() exit");	
-}
+// 	LOGV("org_xmlpull_v1_XmlSerializer::org_xmlpull_v1_XmlSerializer() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 org_xmlpull_v1_XmlSerializer::~org_xmlpull_v1_XmlSerializer()
@@ -416,7 +419,6 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlSerializer::getProperty(AndroidCX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -434,7 +436,9 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlSerializer::getProperty(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -463,7 +467,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getName()
 	LOGV("org_xmlpull_v1_XmlSerializer jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -481,7 +484,9 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -629,7 +634,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getPrefix(AndroidCXX:
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -647,7 +651,9 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getPrefix(AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -697,7 +703,6 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(Andr
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_xmlpull_v1_XmlSerializer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -715,7 +720,9 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(Andr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_xmlpull_v1_XmlSerializer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_xmlpull_v1_XmlSerializer) (AndroidCXX::org_xmlpull_v1_XmlSerializer((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+
+	AndroidCXX::org_xmlpull_v1_XmlSerializer result((AndroidCXX::org_xmlpull_v1_XmlSerializer) *((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+	delete ((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -825,7 +832,6 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(std:
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::org_xmlpull_v1_XmlSerializer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -843,7 +849,9 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(std:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_xmlpull_v1_XmlSerializer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_xmlpull_v1_XmlSerializer) (AndroidCXX::org_xmlpull_v1_XmlSerializer((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+
+	AndroidCXX::org_xmlpull_v1_XmlSerializer result((AndroidCXX::org_xmlpull_v1_XmlSerializer) *((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+	delete ((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -963,7 +971,6 @@ bool org_xmlpull_v1_XmlSerializer::getFeature(AndroidCXX::java_lang_String& arg0
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -981,7 +988,9 @@ bool org_xmlpull_v1_XmlSerializer::getFeature(AndroidCXX::java_lang_String& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1010,7 +1019,6 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getNamespace()
 	LOGV("org_xmlpull_v1_XmlSerializer jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1028,7 +1036,9 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getNamespace()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1057,7 +1067,6 @@ int org_xmlpull_v1_XmlSerializer::getDepth()
 	LOGV("org_xmlpull_v1_XmlSerializer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1075,7 +1084,9 @@ int org_xmlpull_v1_XmlSerializer::getDepth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1433,7 +1444,6 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::startTag(
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_xmlpull_v1_XmlSerializer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1451,7 +1461,9 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::startTag(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_xmlpull_v1_XmlSerializer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_xmlpull_v1_XmlSerializer) (AndroidCXX::org_xmlpull_v1_XmlSerializer((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+
+	AndroidCXX::org_xmlpull_v1_XmlSerializer result((AndroidCXX::org_xmlpull_v1_XmlSerializer) *((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+	delete ((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1543,7 +1555,6 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::attribute
 		jarg2 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_xmlpull_v1_XmlSerializer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1561,7 +1572,9 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::attribute
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_xmlpull_v1_XmlSerializer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_xmlpull_v1_XmlSerializer) (AndroidCXX::org_xmlpull_v1_XmlSerializer((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+
+	AndroidCXX::org_xmlpull_v1_XmlSerializer result((AndroidCXX::org_xmlpull_v1_XmlSerializer) *((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+	delete ((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1632,7 +1645,6 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::endTag(An
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::org_xmlpull_v1_XmlSerializer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1650,7 +1662,9 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::endTag(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_xmlpull_v1_XmlSerializer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_xmlpull_v1_XmlSerializer) (AndroidCXX::org_xmlpull_v1_XmlSerializer((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+
+	AndroidCXX::org_xmlpull_v1_XmlSerializer result((AndroidCXX::org_xmlpull_v1_XmlSerializer) *((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value));
+	delete ((AndroidCXX::org_xmlpull_v1_XmlSerializer *) cxx_value);
 		
 	jni->popLocalFrame();
 

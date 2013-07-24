@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -58,7 +57,10 @@ public:
 	com_facebook_FacebookDialogException(void * proxy);
 	// Public Constructors
 	com_facebook_FacebookDialogException(AndroidCXX::java_lang_String& arg0,int& arg1,AndroidCXX::java_lang_String& arg2);
-	com_facebook_FacebookDialogException();
+	// TODO: remove
+	// 
+	// com_facebook_FacebookDialogException();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_FacebookDialogException();
 	// Functions

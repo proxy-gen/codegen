@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -113,7 +112,10 @@ public:
 	android_content_res_TypedArray(const android_content_res_TypedArray& cc);
 	android_content_res_TypedArray(void * proxy);
 	// Public Constructors
-	android_content_res_TypedArray();
+	// TODO: remove
+	// 
+	// android_content_res_TypedArray();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_TypedArray();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -71,6 +70,8 @@ public:
 	// Public Constructors
 	android_content_pm_FeatureInfo();
 	android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_FeatureInfo();
 	// Functions

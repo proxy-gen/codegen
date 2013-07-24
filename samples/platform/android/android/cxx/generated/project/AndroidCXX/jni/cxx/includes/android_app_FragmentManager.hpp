@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -129,6 +128,8 @@ public:
 	android_app_FragmentManager(void * proxy);
 	// Public Constructors
 	android_app_FragmentManager();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_app_FragmentManager();
 	// Functions

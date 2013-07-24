@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  	
@@ -70,7 +69,10 @@ public:
 	android_text_Spanned(const android_text_Spanned& cc);
 	android_text_Spanned(void * proxy);
 	// Public Constructors
-	android_text_Spanned();
+	// TODO: remove
+	// 
+	// android_text_Spanned();
+	// 
 	// Default Destructor
 	virtual ~android_text_Spanned();
 	// Functions

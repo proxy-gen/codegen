@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -132,7 +131,10 @@ public:
 	android_database_Cursor(const android_database_Cursor& cc);
 	android_database_Cursor(void * proxy);
 	// Public Constructors
-	android_database_Cursor();
+	// TODO: remove
+	// 
+	// android_database_Cursor();
+	// 
 	// Default Destructor
 	virtual ~android_database_Cursor();
 	// Functions

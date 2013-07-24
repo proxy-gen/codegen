@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -59,7 +58,10 @@ public:
 	android_widget_MultiAutoCompleteTextView_Tokenizer(const android_widget_MultiAutoCompleteTextView_Tokenizer& cc);
 	android_widget_MultiAutoCompleteTextView_Tokenizer(void * proxy);
 	// Public Constructors
-	android_widget_MultiAutoCompleteTextView_Tokenizer();
+	// TODO: remove
+	// 
+	// android_widget_MultiAutoCompleteTextView_Tokenizer();
+	// 
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_Tokenizer();
 	// Functions

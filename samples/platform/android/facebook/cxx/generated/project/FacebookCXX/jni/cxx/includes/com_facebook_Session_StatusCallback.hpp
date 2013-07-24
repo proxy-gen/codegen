@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	com_facebook_Session_StatusCallback(const com_facebook_Session_StatusCallback& cc);
 	com_facebook_Session_StatusCallback(void * proxy);
 	// Public Constructors
-	com_facebook_Session_StatusCallback();
+	// TODO: remove
+	// 
+	// com_facebook_Session_StatusCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_StatusCallback();
 	// Functions

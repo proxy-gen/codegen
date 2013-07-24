@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_Checkable
@@ -51,7 +50,10 @@ public:
 	android_widget_Checkable(const android_widget_Checkable& cc);
 	android_widget_Checkable(void * proxy);
 	// Public Constructors
-	android_widget_Checkable();
+	// TODO: remove
+	// 
+	// android_widget_Checkable();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Checkable();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -88,7 +87,10 @@ public:
 	// Public Constructors
 	android_content_SyncAdapterType(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,bool& arg2,bool& arg3);
 	android_content_SyncAdapterType(AndroidCXX::android_os_Parcel& arg0);
-	android_content_SyncAdapterType();
+	// TODO: remove
+	// 
+	// android_content_SyncAdapterType();
+	// 
 	// Default Destructor
 	virtual ~android_content_SyncAdapterType();
 	// Functions

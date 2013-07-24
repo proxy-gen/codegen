@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -114,7 +113,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_drawable_Drawable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -261,7 +260,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_graphics_drawable_Drawable::android_graphics_drawable_Drawable(const android_graphics_drawable_Drawable& cc)
 {
@@ -304,6 +302,10 @@ android_graphics_drawable_Drawable::android_graphics_drawable_Drawable(void * pr
 
 	LOGV("android_graphics_drawable_Drawable::android_graphics_drawable_Drawable(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_graphics_drawable_Drawable::android_graphics_drawable_Drawable()
 {
@@ -377,7 +379,6 @@ std::vector<int> android_graphics_drawable_Drawable::getState()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	std::vector<int> result;
 	jintArray jni_result = (jintArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__int_array_type_to_java(jni_result);
@@ -413,7 +414,9 @@ std::vector<int> android_graphics_drawable_Drawable::getState()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__int_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<int>) (cxx_value);
+
+	std::vector<int> result = (std::vector<int>) *((std::vector<int> *) cxx_value);
+	delete ((std::vector<int> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -481,7 +484,6 @@ bool android_graphics_drawable_Drawable::setState(std::vector<int>& arg0)
 		jarg0 = convert_jni__int_array_type_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -499,7 +501,9 @@ bool android_graphics_drawable_Drawable::setState(std::vector<int>& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -619,7 +623,6 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::getBounds(
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Rect result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -637,7 +640,9 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::getBounds(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Rect) (AndroidCXX::android_graphics_Rect((AndroidCXX::android_graphics_Rect *) cxx_value));
+
+	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -666,7 +671,6 @@ bool android_graphics_drawable_Drawable::isVisible()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -684,7 +688,9 @@ bool android_graphics_drawable_Drawable::isVisible()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -713,7 +719,6 @@ int android_graphics_drawable_Drawable::getChangingConfigurations()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -731,7 +736,9 @@ int android_graphics_drawable_Drawable::getChangingConfigurations()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -802,7 +809,6 @@ bool android_graphics_drawable_Drawable::setVisible(bool& arg0,bool& arg1)
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -820,7 +826,9 @@ bool android_graphics_drawable_Drawable::setVisible(bool& arg0,bool& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -947,7 +955,6 @@ int android_graphics_drawable_Drawable::getMinimumHeight()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -965,7 +972,9 @@ int android_graphics_drawable_Drawable::getMinimumHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -994,7 +1003,6 @@ int android_graphics_drawable_Drawable::getMinimumWidth()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1012,7 +1020,9 @@ int android_graphics_drawable_Drawable::getMinimumWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1251,7 +1261,6 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::copyBounds
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Rect result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1269,7 +1278,9 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::copyBounds
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Rect(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Rect) (AndroidCXX::android_graphics_Rect((AndroidCXX::android_graphics_Rect *) cxx_value));
+
+	AndroidCXX::android_graphics_Rect result((AndroidCXX::android_graphics_Rect) *((AndroidCXX::android_graphics_Rect *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Rect *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1494,7 +1505,6 @@ AndroidCXX::android_graphics_drawable_Drawable_Callback android_graphics_drawabl
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable_Callback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1512,7 +1522,9 @@ AndroidCXX::android_graphics_drawable_Drawable_Callback android_graphics_drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable_Callback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable_Callback) (AndroidCXX::android_graphics_drawable_Drawable_Callback((AndroidCXX::android_graphics_drawable_Drawable_Callback *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable_Callback result((AndroidCXX::android_graphics_drawable_Drawable_Callback) *((AndroidCXX::android_graphics_drawable_Drawable_Callback *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable_Callback *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1835,7 +1847,6 @@ bool android_graphics_drawable_Drawable::isStateful()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1853,7 +1864,9 @@ bool android_graphics_drawable_Drawable::isStateful()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1910,7 +1923,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1928,7 +1940,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1978,7 +1992,6 @@ bool android_graphics_drawable_Drawable::setLevel(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1996,7 +2009,9 @@ bool android_graphics_drawable_Drawable::setLevel(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2025,7 +2040,6 @@ int android_graphics_drawable_Drawable::getLevel()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2043,7 +2057,9 @@ int android_graphics_drawable_Drawable::getLevel()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2072,7 +2088,6 @@ int android_graphics_drawable_Drawable::getOpacity()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2090,7 +2105,9 @@ int android_graphics_drawable_Drawable::getOpacity()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2161,7 +2178,6 @@ int android_graphics_drawable_Drawable::resolveOpacity(int& arg0,int& arg1)
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2179,7 +2195,9 @@ int android_graphics_drawable_Drawable::resolveOpacity(int& arg0,int& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2208,7 +2226,6 @@ AndroidCXX::android_graphics_Region android_graphics_drawable_Drawable::getTrans
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Region result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2226,7 +2243,9 @@ AndroidCXX::android_graphics_Region android_graphics_drawable_Drawable::getTrans
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Region(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Region) (AndroidCXX::android_graphics_Region((AndroidCXX::android_graphics_Region *) cxx_value));
+
+	AndroidCXX::android_graphics_Region result((AndroidCXX::android_graphics_Region) *((AndroidCXX::android_graphics_Region *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Region *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2255,7 +2274,6 @@ int android_graphics_drawable_Drawable::getIntrinsicWidth()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2273,7 +2291,9 @@ int android_graphics_drawable_Drawable::getIntrinsicWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2302,7 +2322,6 @@ int android_graphics_drawable_Drawable::getIntrinsicHeight()
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2320,7 +2339,9 @@ int android_graphics_drawable_Drawable::getIntrinsicHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2370,7 +2391,6 @@ bool android_graphics_drawable_Drawable::getPadding(AndroidCXX::android_graphics
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2388,7 +2408,9 @@ bool android_graphics_drawable_Drawable::getPadding(AndroidCXX::android_graphics
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2417,7 +2439,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2435,7 +2456,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2506,7 +2529,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2524,7 +2546,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2637,7 +2661,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg3 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2655,7 +2678,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2789,7 +2814,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg4 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2,jarg3,jarg4);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2807,7 +2831,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2878,7 +2904,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2896,7 +2921,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2988,7 +3015,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3006,7 +3032,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3056,7 +3084,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3074,7 +3101,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3103,7 +3132,6 @@ AndroidCXX::android_graphics_drawable_Drawable_ConstantState android_graphics_dr
 	LOGV("android_graphics_drawable_Drawable jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable_ConstantState result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3121,7 +3149,9 @@ AndroidCXX::android_graphics_drawable_Drawable_ConstantState android_graphics_dr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable_ConstantState(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable_ConstantState) (AndroidCXX::android_graphics_drawable_Drawable_ConstantState((AndroidCXX::android_graphics_drawable_Drawable_ConstantState *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable_ConstantState result((AndroidCXX::android_graphics_drawable_Drawable_ConstantState) *((AndroidCXX::android_graphics_drawable_Drawable_ConstantState *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable_ConstantState *) cxx_value);
 		
 	jni->popLocalFrame();
 

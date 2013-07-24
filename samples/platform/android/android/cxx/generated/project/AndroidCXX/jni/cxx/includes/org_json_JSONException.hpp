@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	org_json_JSONException(void * proxy);
 	// Public Constructors
 	org_json_JSONException(AndroidCXX::java_lang_String& arg0);
-	org_json_JSONException();
+	// TODO: remove
+	// 
+	// org_json_JSONException();
+	// 
 	// Default Destructor
 	virtual ~org_json_JSONException();
 	// Functions

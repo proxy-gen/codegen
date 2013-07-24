@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_AuthorizationClient_GetTokenAuthHandler
@@ -48,7 +47,10 @@ public:
 	com_facebook_AuthorizationClient_GetTokenAuthHandler(const com_facebook_AuthorizationClient_GetTokenAuthHandler& cc);
 	com_facebook_AuthorizationClient_GetTokenAuthHandler(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_GetTokenAuthHandler();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_GetTokenAuthHandler();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_GetTokenAuthHandler();
 	// Functions

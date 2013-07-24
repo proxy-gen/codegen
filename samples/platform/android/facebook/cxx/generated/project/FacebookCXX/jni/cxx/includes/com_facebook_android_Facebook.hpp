@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -157,7 +156,10 @@ public:
 	com_facebook_android_Facebook(void * proxy);
 	// Public Constructors
 	com_facebook_android_Facebook(AndroidCXX::java_lang_String& arg0);
-	com_facebook_android_Facebook();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook();
 	// Functions

@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_ListAdapter
@@ -50,7 +49,10 @@ public:
 	android_widget_ListAdapter(const android_widget_ListAdapter& cc);
 	android_widget_ListAdapter(void * proxy);
 	// Public Constructors
-	android_widget_ListAdapter();
+	// TODO: remove
+	// 
+	// android_widget_ListAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ListAdapter();
 	// Functions

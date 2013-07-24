@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -320,7 +319,10 @@ public:
 	android_view_ViewGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_view_ViewGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	android_view_ViewGroup(AndroidCXX::android_content_Context& arg0);
-	android_view_ViewGroup();
+	// TODO: remove
+	// 
+	// android_view_ViewGroup();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewGroup();
 	// Functions

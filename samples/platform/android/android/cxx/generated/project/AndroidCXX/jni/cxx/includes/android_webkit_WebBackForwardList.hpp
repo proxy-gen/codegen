@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -58,7 +57,10 @@ public:
 	android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc);
 	android_webkit_WebBackForwardList(void * proxy);
 	// Public Constructors
-	android_webkit_WebBackForwardList();
+	// TODO: remove
+	// 
+	// android_webkit_WebBackForwardList();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebBackForwardList();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -69,7 +68,10 @@ public:
 	com_facebook_widget_PickerFragment_LoadingStrategy(const com_facebook_widget_PickerFragment_LoadingStrategy& cc);
 	com_facebook_widget_PickerFragment_LoadingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_LoadingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment_LoadingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy();
 	// Functions

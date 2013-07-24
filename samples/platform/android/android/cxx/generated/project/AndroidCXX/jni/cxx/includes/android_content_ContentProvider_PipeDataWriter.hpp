@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,7 +73,10 @@ public:
 	android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc);
 	android_content_ContentProvider_PipeDataWriter(void * proxy);
 	// Public Constructors
-	android_content_ContentProvider_PipeDataWriter();
+	// TODO: remove
+	// 
+	// android_content_ContentProvider_PipeDataWriter();
+	// 
 	// Default Destructor
 	virtual ~android_content_ContentProvider_PipeDataWriter();
 	// Functions

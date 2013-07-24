@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -67,7 +66,10 @@ public:
 	android_widget_EdgeEffect(void * proxy);
 	// Public Constructors
 	android_widget_EdgeEffect(AndroidCXX::android_content_Context& arg0);
-	android_widget_EdgeEffect();
+	// TODO: remove
+	// 
+	// android_widget_EdgeEffect();
+	// 
 	// Default Destructor
 	virtual ~android_widget_EdgeEffect();
 	// Functions

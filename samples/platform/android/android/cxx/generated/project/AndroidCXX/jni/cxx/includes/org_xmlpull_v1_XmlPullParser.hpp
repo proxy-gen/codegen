@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -135,7 +134,10 @@ public:
 	org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc);
 	org_xmlpull_v1_XmlPullParser(void * proxy);
 	// Public Constructors
-	org_xmlpull_v1_XmlPullParser();
+	// TODO: remove
+	// 
+	// org_xmlpull_v1_XmlPullParser();
+	// 
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlPullParser();
 	// Functions

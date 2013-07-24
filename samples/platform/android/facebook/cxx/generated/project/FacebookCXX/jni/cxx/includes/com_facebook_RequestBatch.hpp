@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -112,6 +111,8 @@ public:
 	com_facebook_RequestBatch(AndroidCXX::java_util_Collection& arg0);
 	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request >& arg0);
 	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch();
 	// Functions

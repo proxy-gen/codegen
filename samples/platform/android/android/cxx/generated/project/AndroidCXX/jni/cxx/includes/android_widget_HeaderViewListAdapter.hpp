@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -117,7 +116,10 @@ public:
 	android_widget_HeaderViewListAdapter(void * proxy);
 	// Public Constructors
 	android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList& arg0,AndroidCXX::java_util_ArrayList& arg1,AndroidCXX::android_widget_ListAdapter& arg2);
-	android_widget_HeaderViewListAdapter();
+	// TODO: remove
+	// 
+	// android_widget_HeaderViewListAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_HeaderViewListAdapter();
 	// Functions

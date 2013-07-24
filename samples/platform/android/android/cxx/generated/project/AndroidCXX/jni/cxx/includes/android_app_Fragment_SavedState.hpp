@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_app_Fragment_SavedState(const android_app_Fragment_SavedState& cc);
 	android_app_Fragment_SavedState(void * proxy);
 	// Public Constructors
-	android_app_Fragment_SavedState();
+	// TODO: remove
+	// 
+	// android_app_Fragment_SavedState();
+	// 
 	// Default Destructor
 	virtual ~android_app_Fragment_SavedState();
 	// Functions

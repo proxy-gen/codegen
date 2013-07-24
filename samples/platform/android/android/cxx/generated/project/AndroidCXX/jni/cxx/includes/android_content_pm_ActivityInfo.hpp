@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -77,6 +76,8 @@ public:
 	// Public Constructors
 	android_content_pm_ActivityInfo();
 	android_content_pm_ActivityInfo(AndroidCXX::android_content_pm_ActivityInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_ActivityInfo();
 	// Functions

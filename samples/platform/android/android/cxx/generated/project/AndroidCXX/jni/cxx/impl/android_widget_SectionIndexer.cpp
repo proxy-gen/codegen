@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_widget_SectionIndexer.hpp>
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SectionIndexer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -41,7 +40,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_SectionIndexer::android_widget_SectionIndexer(const android_widget_SectionIndexer& cc)
@@ -85,40 +83,45 @@ android_widget_SectionIndexer::android_widget_SectionIndexer(void * proxy)
 
 	LOGV("android_widget_SectionIndexer::android_widget_SectionIndexer(void * proxy) exit");
 }
-android_widget_SectionIndexer::android_widget_SectionIndexer()
-{
-	LOGV("android_widget_SectionIndexer::android_widget_SectionIndexer() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_SectionIndexer::android_widget_SectionIndexer()
+// {
+// 	LOGV("android_widget_SectionIndexer::android_widget_SectionIndexer() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/SectionIndexer";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/SectionIndexer";
 
-	LOGV("android_widget_SectionIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_SectionIndexer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_SectionIndexer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_SectionIndexer jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_SectionIndexer cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_SectionIndexer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_SectionIndexer::android_widget_SectionIndexer() exit");	
-}
+// 	LOGV("android_widget_SectionIndexer::android_widget_SectionIndexer() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_widget_SectionIndexer::~android_widget_SectionIndexer()
@@ -156,7 +159,6 @@ std::vector<AndroidCXX::java_lang_Object > android_widget_SectionIndexer::getSec
 	LOGV("android_widget_SectionIndexer jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_lang_Object > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -192,7 +194,9 @@ std::vector<AndroidCXX::java_lang_Object > android_widget_SectionIndexer::getSec
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_Object >) (cxx_value);
+
+	std::vector<AndroidCXX::java_lang_Object > result = (std::vector<AndroidCXX::java_lang_Object >) *((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_Object > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -242,7 +246,6 @@ int android_widget_SectionIndexer::getPositionForSection(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -260,7 +263,9 @@ int android_widget_SectionIndexer::getPositionForSection(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -310,7 +315,6 @@ int android_widget_SectionIndexer::getSectionForPosition(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -328,7 +332,9 @@ int android_widget_SectionIndexer::getSectionForPosition(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -88,7 +87,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewPropertyAnimator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -197,7 +196,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator(const android_view_ViewPropertyAnimator& cc)
 {
@@ -240,40 +238,45 @@ android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator(void * prox
 
 	LOGV("android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator(void * proxy) exit");
 }
-android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator()
-{
-	LOGV("android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator() enter");	
+// TODO: remove
+// 
+// 
+// android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator()
+// {
+// 	LOGV("android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ViewPropertyAnimator";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_ViewPropertyAnimator cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_ViewPropertyAnimator jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_ViewPropertyAnimator cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_ViewPropertyAnimator jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator() exit");	
-}
+// 	LOGV("android_view_ViewPropertyAnimator::android_view_ViewPropertyAnimator() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_ViewPropertyAnimator::~android_view_ViewPropertyAnimator()
@@ -360,7 +363,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -378,7 +380,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -428,7 +432,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -446,7 +449,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -524,7 +529,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -542,7 +546,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -592,7 +598,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -610,7 +615,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -660,7 +667,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -678,7 +684,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -707,7 +715,6 @@ long android_view_ViewPropertyAnimator::getDuration()
 	LOGV("android_view_ViewPropertyAnimator jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -725,7 +732,9 @@ long android_view_ViewPropertyAnimator::getDuration()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -775,7 +784,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -793,7 +801,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -843,7 +853,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -861,7 +870,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -911,7 +922,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -929,7 +939,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -979,7 +991,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -997,7 +1008,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1047,7 +1060,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1065,7 +1077,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1115,7 +1129,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1133,7 +1146,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1183,7 +1198,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1201,7 +1215,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1230,7 +1246,6 @@ long android_view_ViewPropertyAnimator::getStartDelay()
 	LOGV("android_view_ViewPropertyAnimator jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1248,7 +1263,9 @@ long android_view_ViewPropertyAnimator::getStartDelay()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1298,7 +1315,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1316,7 +1332,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1366,7 +1384,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1384,7 +1401,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1434,7 +1453,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1452,7 +1470,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1502,7 +1522,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1520,7 +1539,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1570,7 +1591,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1588,7 +1608,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1638,7 +1660,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1656,7 +1677,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1706,7 +1729,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1724,7 +1746,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1774,7 +1798,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1792,7 +1815,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1842,7 +1867,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1860,7 +1884,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1910,7 +1936,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1928,7 +1953,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1978,7 +2005,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1996,7 +2022,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2046,7 +2074,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2064,7 +2091,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2093,7 +2122,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	LOGV("android_view_ViewPropertyAnimator jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2111,7 +2139,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2161,7 +2191,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2179,7 +2208,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2229,7 +2260,6 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_ViewPropertyAnimator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2247,7 +2277,9 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ViewPropertyAnimator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ViewPropertyAnimator) (AndroidCXX::android_view_ViewPropertyAnimator((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+
+	AndroidCXX::android_view_ViewPropertyAnimator result((AndroidCXX::android_view_ViewPropertyAnimator) *((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value));
+	delete ((AndroidCXX::android_view_ViewPropertyAnimator *) cxx_value);
 		
 	jni->popLocalFrame();
 

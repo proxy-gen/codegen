@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc);
 	android_widget_PopupMenu_OnMenuItemClickListener(void * proxy);
 	// Public Constructors
-	android_widget_PopupMenu_OnMenuItemClickListener();
+	// TODO: remove
+	// 
+	// android_widget_PopupMenu_OnMenuItemClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_PopupMenu_OnMenuItemClickListener();
 	// Functions

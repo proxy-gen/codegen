@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -96,7 +95,10 @@ public:
 	// Public Constructors
 	java_lang_Double(double& arg0);
 	java_lang_Double(AndroidCXX::java_lang_String& arg0);
-	java_lang_Double();
+	// TODO: remove
+	// 
+	// java_lang_Double();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Double();
 	// Functions

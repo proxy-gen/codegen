@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -155,6 +154,8 @@ public:
 	android_widget_PopupWindow(int& arg0,int& arg1);
 	android_widget_PopupWindow(AndroidCXX::android_view_View& arg0,int& arg1,int& arg2);
 	android_widget_PopupWindow(AndroidCXX::android_content_Context& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_PopupWindow();
 	// Functions

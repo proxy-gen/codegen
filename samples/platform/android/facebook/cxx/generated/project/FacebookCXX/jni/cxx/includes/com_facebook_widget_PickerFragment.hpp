@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -172,7 +171,10 @@ public:
 	com_facebook_widget_PickerFragment(const com_facebook_widget_PickerFragment& cc);
 	com_facebook_widget_PickerFragment(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment();
 	// Functions

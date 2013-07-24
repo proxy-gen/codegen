@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -70,7 +69,10 @@ public:
 	java_net_InterfaceAddress(const java_net_InterfaceAddress& cc);
 	java_net_InterfaceAddress(void * proxy);
 	// Public Constructors
-	java_net_InterfaceAddress();
+	// TODO: remove
+	// 
+	// java_net_InterfaceAddress();
+	// 
 	// Default Destructor
 	virtual ~java_net_InterfaceAddress();
 	// Functions

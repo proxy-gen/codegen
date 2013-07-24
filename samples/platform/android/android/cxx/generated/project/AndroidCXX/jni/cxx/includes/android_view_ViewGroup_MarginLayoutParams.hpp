@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -84,7 +83,10 @@ public:
 	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
 	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
 	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_view_ViewGroup_MarginLayoutParams();
+	// TODO: remove
+	// 
+	// android_view_ViewGroup_MarginLayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewGroup_MarginLayoutParams();
 	// Functions

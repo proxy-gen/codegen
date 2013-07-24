@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -66,6 +65,8 @@ public:
 	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0);
 	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_Throwable& arg1);
 	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_FacebookAuthorizationException();
 	// Functions

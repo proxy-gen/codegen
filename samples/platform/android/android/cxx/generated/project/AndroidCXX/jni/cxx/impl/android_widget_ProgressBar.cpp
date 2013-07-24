@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -71,7 +70,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ProgressBar"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -138,7 +137,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_ProgressBar::android_widget_ProgressBar(const android_widget_ProgressBar& cc)
 {
@@ -181,40 +179,45 @@ android_widget_ProgressBar::android_widget_ProgressBar(void * proxy)
 
 	LOGV("android_widget_ProgressBar::android_widget_ProgressBar(void * proxy) exit");
 }
-android_widget_ProgressBar::android_widget_ProgressBar()
-{
-	LOGV("android_widget_ProgressBar::android_widget_ProgressBar() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_ProgressBar::android_widget_ProgressBar()
+// {
+// 	LOGV("android_widget_ProgressBar::android_widget_ProgressBar() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ProgressBar";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_ProgressBar cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_ProgressBar jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_ProgressBar cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_ProgressBar jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_ProgressBar::android_widget_ProgressBar() exit");	
-}
+// 	LOGV("android_widget_ProgressBar::android_widget_ProgressBar() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_ProgressBar::android_widget_ProgressBar(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
 {
@@ -486,7 +489,6 @@ AndroidCXX::android_os_Parcelable android_widget_ProgressBar::onSaveInstanceStat
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Parcelable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -504,7 +506,9 @@ AndroidCXX::android_os_Parcelable android_widget_ProgressBar::onSaveInstanceStat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Parcelable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Parcelable) (AndroidCXX::android_os_Parcelable((AndroidCXX::android_os_Parcelable *) cxx_value));
+
+	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
+	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -848,7 +852,6 @@ AndroidCXX::android_view_animation_Interpolator android_widget_ProgressBar::getI
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_animation_Interpolator result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -866,7 +869,9 @@ AndroidCXX::android_view_animation_Interpolator android_widget_ProgressBar::getI
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_animation_Interpolator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_animation_Interpolator) (AndroidCXX::android_view_animation_Interpolator((AndroidCXX::android_view_animation_Interpolator *) cxx_value));
+
+	AndroidCXX::android_view_animation_Interpolator result((AndroidCXX::android_view_animation_Interpolator) *((AndroidCXX::android_view_animation_Interpolator *) cxx_value));
+	delete ((AndroidCXX::android_view_animation_Interpolator *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1098,7 +1103,6 @@ int android_widget_ProgressBar::getProgress()
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1116,7 +1120,9 @@ int android_widget_ProgressBar::getProgress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1194,7 +1200,6 @@ bool android_widget_ProgressBar::isIndeterminate()
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1212,7 +1217,9 @@ bool android_widget_ProgressBar::isIndeterminate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1290,7 +1297,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getIn
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1308,7 +1314,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getIn
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1386,7 +1394,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getPr
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1404,7 +1411,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getPr
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1482,7 +1491,6 @@ int android_widget_ProgressBar::getSecondaryProgress()
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1500,7 +1508,9 @@ int android_widget_ProgressBar::getSecondaryProgress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1529,7 +1539,6 @@ int android_widget_ProgressBar::getMax()
 	LOGV("android_widget_ProgressBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1547,7 +1556,9 @@ int android_widget_ProgressBar::getMax()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

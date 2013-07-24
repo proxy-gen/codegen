@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -60,7 +59,10 @@ public:
 	com_facebook_Session_TokenRefreshRequest(const com_facebook_Session_TokenRefreshRequest& cc);
 	com_facebook_Session_TokenRefreshRequest(void * proxy);
 	// Public Constructors
-	com_facebook_Session_TokenRefreshRequest();
+	// TODO: remove
+	// 
+	// com_facebook_Session_TokenRefreshRequest();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequest();
 	// Functions

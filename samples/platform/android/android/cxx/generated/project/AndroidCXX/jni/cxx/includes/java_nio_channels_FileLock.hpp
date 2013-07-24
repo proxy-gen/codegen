@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -66,7 +65,10 @@ public:
 	java_nio_channels_FileLock(const java_nio_channels_FileLock& cc);
 	java_nio_channels_FileLock(void * proxy);
 	// Public Constructors
-	java_nio_channels_FileLock();
+	// TODO: remove
+	// 
+	// java_nio_channels_FileLock();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_FileLock();
 	// Functions

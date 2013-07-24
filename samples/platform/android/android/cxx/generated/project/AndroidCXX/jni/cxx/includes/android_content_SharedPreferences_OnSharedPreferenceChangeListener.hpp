@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener(const android_content_SharedPreferences_OnSharedPreferenceChangeListener& cc);
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener(void * proxy);
 	// Public Constructors
-	android_content_SharedPreferences_OnSharedPreferenceChangeListener();
+	// TODO: remove
+	// 
+	// android_content_SharedPreferences_OnSharedPreferenceChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_OnSharedPreferenceChangeListener();
 	// Functions

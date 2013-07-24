@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,7 +57,10 @@ public:
 	android_widget_SeekBar_OnSeekBarChangeListener(const android_widget_SeekBar_OnSeekBarChangeListener& cc);
 	android_widget_SeekBar_OnSeekBarChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_SeekBar_OnSeekBarChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_SeekBar_OnSeekBarChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SeekBar_OnSeekBarChangeListener();
 	// Functions

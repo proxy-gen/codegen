@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -340,7 +339,10 @@ public:
 	android_database_sqlite_SQLiteDatabase(const android_database_sqlite_SQLiteDatabase& cc);
 	android_database_sqlite_SQLiteDatabase(void * proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteDatabase();
+	// TODO: remove
+	// 
+	// android_database_sqlite_SQLiteDatabase();
+	// 
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteDatabase();
 	// Functions

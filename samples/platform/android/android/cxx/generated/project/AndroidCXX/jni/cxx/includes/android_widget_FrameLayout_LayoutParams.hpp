@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -78,7 +77,10 @@ public:
 	android_widget_FrameLayout_LayoutParams(int& arg0,int& arg1,int& arg2);
 	android_widget_FrameLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
 	android_widget_FrameLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	android_widget_FrameLayout_LayoutParams();
+	// TODO: remove
+	// 
+	// android_widget_FrameLayout_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_widget_FrameLayout_LayoutParams();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_CompoundButton_OnCheckedChangeListener(const android_widget_CompoundButton_OnCheckedChangeListener& cc);
 	android_widget_CompoundButton_OnCheckedChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_CompoundButton_OnCheckedChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_CompoundButton_OnCheckedChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_CompoundButton_OnCheckedChangeListener();
 	// Functions

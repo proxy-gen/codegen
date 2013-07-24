@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_View_OnSystemUiVisibilityChangeListener
@@ -49,7 +48,10 @@ public:
 	android_view_View_OnSystemUiVisibilityChangeListener(const android_view_View_OnSystemUiVisibilityChangeListener& cc);
 	android_view_View_OnSystemUiVisibilityChangeListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnSystemUiVisibilityChangeListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnSystemUiVisibilityChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnSystemUiVisibilityChangeListener();
 	// Functions

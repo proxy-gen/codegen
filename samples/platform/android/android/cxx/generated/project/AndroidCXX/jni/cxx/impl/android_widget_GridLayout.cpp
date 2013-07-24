@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -66,7 +65,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_GridLayout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -127,7 +126,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_GridLayout::android_widget_GridLayout(const android_widget_GridLayout& cc)
 {
@@ -170,40 +168,45 @@ android_widget_GridLayout::android_widget_GridLayout(void * proxy)
 
 	LOGV("android_widget_GridLayout::android_widget_GridLayout(void * proxy) exit");
 }
-android_widget_GridLayout::android_widget_GridLayout()
-{
-	LOGV("android_widget_GridLayout::android_widget_GridLayout() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_GridLayout::android_widget_GridLayout()
+// {
+// 	LOGV("android_widget_GridLayout::android_widget_GridLayout() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/GridLayout";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/GridLayout";
 
-	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_GridLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_GridLayout cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_GridLayout jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_GridLayout cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_GridLayout jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_GridLayout::android_widget_GridLayout() exit");	
-}
+// 	LOGV("android_widget_GridLayout::android_widget_GridLayout() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_GridLayout::android_widget_GridLayout(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2)
 {
@@ -496,7 +499,6 @@ AndroidCXX::android_widget_GridLayout_LayoutParams android_widget_GridLayout::ge
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_GridLayout_LayoutParams result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -514,7 +516,9 @@ AndroidCXX::android_widget_GridLayout_LayoutParams android_widget_GridLayout::ge
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_GridLayout_LayoutParams(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_GridLayout_LayoutParams) (AndroidCXX::android_widget_GridLayout_LayoutParams((AndroidCXX::android_widget_GridLayout_LayoutParams *) cxx_value));
+
+	AndroidCXX::android_widget_GridLayout_LayoutParams result((AndroidCXX::android_widget_GridLayout_LayoutParams) *((AndroidCXX::android_widget_GridLayout_LayoutParams *) cxx_value));
+	delete ((AndroidCXX::android_widget_GridLayout_LayoutParams *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -564,7 +568,6 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_GridLayout_Spec result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -582,7 +585,9 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_GridLayout_Spec(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_GridLayout_Spec) (AndroidCXX::android_widget_GridLayout_Spec((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+
+	AndroidCXX::android_widget_GridLayout_Spec result((AndroidCXX::android_widget_GridLayout_Spec) *((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+	delete ((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -653,7 +658,6 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_GridLayout_Spec result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -671,7 +675,9 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_GridLayout_Spec(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_GridLayout_Spec) (AndroidCXX::android_widget_GridLayout_Spec((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+
+	AndroidCXX::android_widget_GridLayout_Spec result((AndroidCXX::android_widget_GridLayout_Spec) *((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+	delete ((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -763,7 +769,6 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_GridLayout_Spec result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -781,7 +786,9 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_GridLayout_Spec(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_GridLayout_Spec) (AndroidCXX::android_widget_GridLayout_Spec((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+
+	AndroidCXX::android_widget_GridLayout_Spec result((AndroidCXX::android_widget_GridLayout_Spec) *((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+	delete ((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -852,7 +859,6 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_GridLayout_Spec result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -870,7 +876,9 @@ AndroidCXX::android_widget_GridLayout_Spec android_widget_GridLayout::spec(int& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_GridLayout_Spec(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_GridLayout_Spec) (AndroidCXX::android_widget_GridLayout_Spec((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+
+	AndroidCXX::android_widget_GridLayout_Spec result((AndroidCXX::android_widget_GridLayout_Spec) *((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value));
+	delete ((AndroidCXX::android_widget_GridLayout_Spec *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1025,7 +1033,6 @@ int android_widget_GridLayout::getOrientation()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1043,7 +1050,9 @@ int android_widget_GridLayout::getOrientation()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1072,7 +1081,6 @@ int android_widget_GridLayout::getColumnCount()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1090,7 +1098,9 @@ int android_widget_GridLayout::getColumnCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1168,7 +1178,6 @@ int android_widget_GridLayout::getRowCount()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1186,7 +1195,9 @@ int android_widget_GridLayout::getRowCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1313,7 +1324,6 @@ bool android_widget_GridLayout::getUseDefaultMargins()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1331,7 +1341,9 @@ bool android_widget_GridLayout::getUseDefaultMargins()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1409,7 +1421,6 @@ int android_widget_GridLayout::getAlignmentMode()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1427,7 +1438,9 @@ int android_widget_GridLayout::getAlignmentMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1505,7 +1518,6 @@ bool android_widget_GridLayout::isRowOrderPreserved()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1523,7 +1535,9 @@ bool android_widget_GridLayout::isRowOrderPreserved()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1601,7 +1615,6 @@ bool android_widget_GridLayout::isColumnOrderPreserved()
 	LOGV("android_widget_GridLayout jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1619,7 +1632,9 @@ bool android_widget_GridLayout::isColumnOrderPreserved()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

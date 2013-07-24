@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -97,7 +96,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_Socket"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -176,7 +175,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 java_net_Socket::java_net_Socket(const java_net_Socket& cc)
 {
@@ -219,6 +217,10 @@ java_net_Socket::java_net_Socket(void * proxy)
 
 	LOGV("java_net_Socket::java_net_Socket(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 java_net_Socket::java_net_Socket()
 {
@@ -943,7 +945,6 @@ AndroidCXX::java_lang_String java_net_Socket::toString()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -961,7 +962,9 @@ AndroidCXX::java_lang_String java_net_Socket::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1018,7 +1021,6 @@ int java_net_Socket::getPort()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1036,7 +1038,9 @@ int java_net_Socket::getPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1065,7 +1069,6 @@ AndroidCXX::java_io_InputStream java_net_Socket::getInputStream()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_io_InputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1083,7 +1086,9 @@ AndroidCXX::java_io_InputStream java_net_Socket::getInputStream()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_InputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_InputStream) (AndroidCXX::java_io_InputStream((AndroidCXX::java_io_InputStream *) cxx_value));
+
+	AndroidCXX::java_io_InputStream result((AndroidCXX::java_io_InputStream) *((AndroidCXX::java_io_InputStream *) cxx_value));
+	delete ((AndroidCXX::java_io_InputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1112,7 +1117,6 @@ AndroidCXX::java_nio_channels_SocketChannel java_net_Socket::getChannel()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_channels_SocketChannel result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1130,7 +1134,9 @@ AndroidCXX::java_nio_channels_SocketChannel java_net_Socket::getChannel()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_channels_SocketChannel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_channels_SocketChannel) (AndroidCXX::java_nio_channels_SocketChannel((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+
+	AndroidCXX::java_nio_channels_SocketChannel result((AndroidCXX::java_nio_channels_SocketChannel) *((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value));
+	delete ((AndroidCXX::java_nio_channels_SocketChannel *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1278,7 +1284,6 @@ bool java_net_Socket::isClosed()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1296,7 +1301,9 @@ bool java_net_Socket::isClosed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1325,7 +1332,6 @@ AndroidCXX::java_io_OutputStream java_net_Socket::getOutputStream()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_io_OutputStream result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1343,7 +1349,9 @@ AndroidCXX::java_io_OutputStream java_net_Socket::getOutputStream()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_OutputStream(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_OutputStream) (AndroidCXX::java_io_OutputStream((AndroidCXX::java_io_OutputStream *) cxx_value));
+
+	AndroidCXX::java_io_OutputStream result((AndroidCXX::java_io_OutputStream) *((AndroidCXX::java_io_OutputStream *) cxx_value));
+	delete ((AndroidCXX::java_io_OutputStream *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1421,7 +1429,6 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getInetAddress()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1439,7 +1446,9 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getInetAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
+
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1468,7 +1477,6 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getLocalAddress()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_InetAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1486,7 +1494,9 @@ AndroidCXX::java_net_InetAddress java_net_Socket::getLocalAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_InetAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_InetAddress) (AndroidCXX::java_net_InetAddress((AndroidCXX::java_net_InetAddress *) cxx_value));
+
+	AndroidCXX::java_net_InetAddress result((AndroidCXX::java_net_InetAddress) *((AndroidCXX::java_net_InetAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_InetAddress *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1515,7 +1525,6 @@ int java_net_Socket::getLocalPort()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1533,7 +1542,9 @@ int java_net_Socket::getLocalPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1562,7 +1573,6 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getRemoteSocketAddress()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_SocketAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1580,7 +1590,9 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getRemoteSocketAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_SocketAddress) (AndroidCXX::java_net_SocketAddress((AndroidCXX::java_net_SocketAddress *) cxx_value));
+
+	AndroidCXX::java_net_SocketAddress result((AndroidCXX::java_net_SocketAddress) *((AndroidCXX::java_net_SocketAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_SocketAddress *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1609,7 +1621,6 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getLocalSocketAddress()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	AndroidCXX::java_net_SocketAddress result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1627,7 +1638,9 @@ AndroidCXX::java_net_SocketAddress java_net_Socket::getLocalSocketAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_net_SocketAddress(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_net_SocketAddress) (AndroidCXX::java_net_SocketAddress((AndroidCXX::java_net_SocketAddress *) cxx_value));
+
+	AndroidCXX::java_net_SocketAddress result((AndroidCXX::java_net_SocketAddress) *((AndroidCXX::java_net_SocketAddress *) cxx_value));
+	delete ((AndroidCXX::java_net_SocketAddress *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1705,7 +1718,6 @@ bool java_net_Socket::getTcpNoDelay()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1723,7 +1735,9 @@ bool java_net_Socket::getTcpNoDelay()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1822,7 +1836,6 @@ int java_net_Socket::getSoLinger()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1840,7 +1853,9 @@ int java_net_Socket::getSoLinger()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1967,7 +1982,6 @@ bool java_net_Socket::getOOBInline()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1985,7 +1999,9 @@ bool java_net_Socket::getOOBInline()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2063,7 +2079,6 @@ int java_net_Socket::getSoTimeout()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2081,7 +2096,9 @@ int java_net_Socket::getSoTimeout()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2159,7 +2176,6 @@ int java_net_Socket::getSendBufferSize()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2177,7 +2193,9 @@ int java_net_Socket::getSendBufferSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2255,7 +2273,6 @@ int java_net_Socket::getReceiveBufferSize()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2273,7 +2290,9 @@ int java_net_Socket::getReceiveBufferSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2351,7 +2370,6 @@ bool java_net_Socket::getKeepAlive()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2369,7 +2387,9 @@ bool java_net_Socket::getKeepAlive()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2447,7 +2467,6 @@ int java_net_Socket::getTrafficClass()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2465,7 +2484,9 @@ int java_net_Socket::getTrafficClass()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2543,7 +2564,6 @@ bool java_net_Socket::getReuseAddress()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2561,7 +2581,9 @@ bool java_net_Socket::getReuseAddress()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2646,7 +2668,6 @@ bool java_net_Socket::isConnected()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2664,7 +2685,9 @@ bool java_net_Socket::isConnected()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2693,7 +2716,6 @@ bool java_net_Socket::isBound()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2711,7 +2733,9 @@ bool java_net_Socket::isBound()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2740,7 +2764,6 @@ bool java_net_Socket::isInputShutdown()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2758,7 +2781,9 @@ bool java_net_Socket::isInputShutdown()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2787,7 +2812,6 @@ bool java_net_Socket::isOutputShutdown()
 	LOGV("java_net_Socket jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2805,7 +2829,9 @@ bool java_net_Socket::isOutputShutdown()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

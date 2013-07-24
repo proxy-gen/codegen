@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -64,7 +63,10 @@ public:
 	com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc);
 	com_facebook_Request_GraphUserListCallback(void * proxy);
 	// Public Constructors
-	com_facebook_Request_GraphUserListCallback();
+	// TODO: remove
+	// 
+	// com_facebook_Request_GraphUserListCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphUserListCallback();
 	// Functions

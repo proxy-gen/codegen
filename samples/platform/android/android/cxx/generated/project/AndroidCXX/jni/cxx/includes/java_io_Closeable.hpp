@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_io_Closeable
@@ -49,7 +48,10 @@ public:
 	java_io_Closeable(const java_io_Closeable& cc);
 	java_io_Closeable(void * proxy);
 	// Public Constructors
-	java_io_Closeable();
+	// TODO: remove
+	// 
+	// java_io_Closeable();
+	// 
 	// Default Destructor
 	virtual ~java_io_Closeable();
 	// Functions

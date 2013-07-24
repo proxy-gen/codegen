@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -72,6 +71,8 @@ public:
 	// Public Constructors
 	android_view_View_DragShadowBuilder(AndroidCXX::android_view_View& arg0);
 	android_view_View_DragShadowBuilder();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_View_DragShadowBuilder();
 	// Functions

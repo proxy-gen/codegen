@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteCursorDriver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -58,7 +57,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc)
@@ -102,40 +100,45 @@ android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursor
 
 	LOGV("android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver(void * proxy) exit");
 }
-android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver()
-{
-	LOGV("android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver() enter");	
+// TODO: remove
+// 
+// 
+// android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver()
+// {
+// 	LOGV("android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/database/sqlite/SQLiteCursorDriver";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/database/sqlite/SQLiteCursorDriver";
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_database_sqlite_SQLiteCursorDriver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_database_sqlite_SQLiteCursorDriver cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_database_sqlite_SQLiteCursorDriver jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_database_sqlite_SQLiteCursorDriver cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_database_sqlite_SQLiteCursorDriver jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver() exit");	
-}
+// 	LOGV("android_database_sqlite_SQLiteCursorDriver::android_database_sqlite_SQLiteCursorDriver() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_database_sqlite_SQLiteCursorDriver::~android_database_sqlite_SQLiteCursorDriver()
@@ -233,7 +236,6 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::
 		jarg1 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::android_database_Cursor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -251,7 +253,9 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteCursorDriver::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_database_Cursor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_database_Cursor) (AndroidCXX::android_database_Cursor((AndroidCXX::android_database_Cursor *) cxx_value));
+
+	AndroidCXX::android_database_Cursor result((AndroidCXX::android_database_Cursor) *((AndroidCXX::android_database_Cursor *) cxx_value));
+	delete ((AndroidCXX::android_database_Cursor *) cxx_value);
 		
 	jni->popLocalFrame();
 

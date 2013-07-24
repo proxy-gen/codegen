@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -33,6 +32,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_JsonUtil_JSONObjectEntry"
@@ -62,7 +62,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry(const com_facebook_model_JsonUtil_JSONObjectEntry& cc)
@@ -106,40 +105,45 @@ com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObj
 
 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry(void * proxy) exit");
 }
-com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry()
-{
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry()
+// {
+// 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/model/JsonUtil$JSONObjectEntry";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/model/JsonUtil$JSONObjectEntry";
 
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry() exit");	
-}
+// 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry::com_facebook_model_JsonUtil_JSONObjectEntry() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_model_JsonUtil_JSONObjectEntry::~com_facebook_model_JsonUtil_JSONObjectEntry()
@@ -177,7 +181,6 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::getVal
 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -195,7 +198,9 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::getVal
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -224,7 +229,6 @@ AndroidCXX::java_lang_String com_facebook_model_JsonUtil_JSONObjectEntry::getKey
 	LOGV("com_facebook_model_JsonUtil_JSONObjectEntry jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -242,7 +246,9 @@ AndroidCXX::java_lang_String com_facebook_model_JsonUtil_JSONObjectEntry::getKey
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -292,7 +298,6 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::setVal
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -310,7 +315,9 @@ AndroidCXX::java_lang_Object com_facebook_model_JsonUtil_JSONObjectEntry::setVal
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
 
@@ -57,7 +56,10 @@ public:
 	android_widget_SectionIndexer(const android_widget_SectionIndexer& cc);
 	android_widget_SectionIndexer(void * proxy);
 	// Public Constructors
-	android_widget_SectionIndexer();
+	// TODO: remove
+	// 
+	// android_widget_SectionIndexer();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions

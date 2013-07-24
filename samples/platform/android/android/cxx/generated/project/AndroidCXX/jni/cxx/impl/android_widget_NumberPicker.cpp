@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_NumberPicker"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -130,7 +129,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_NumberPicker::android_widget_NumberPicker(const android_widget_NumberPicker& cc)
 {
@@ -173,40 +171,45 @@ android_widget_NumberPicker::android_widget_NumberPicker(void * proxy)
 
 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker(void * proxy) exit");
 }
-android_widget_NumberPicker::android_widget_NumberPicker()
-{
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_NumberPicker::android_widget_NumberPicker()
+// {
+// 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/NumberPicker";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/NumberPicker";
 
-	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_NumberPicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_NumberPicker jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_NumberPicker cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_NumberPicker jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() exit");	
-}
+// 	LOGV("android_widget_NumberPicker::android_widget_NumberPicker() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_NumberPicker::android_widget_NumberPicker(AndroidCXX::android_content_Context& arg0)
 {
@@ -478,7 +481,6 @@ int android_widget_NumberPicker::getValue()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -496,7 +498,9 @@ int android_widget_NumberPicker::getValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -595,7 +599,6 @@ bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEv
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -613,7 +616,9 @@ bool android_widget_NumberPicker::onTouchEvent(AndroidCXX::android_view_MotionEv
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -663,7 +668,6 @@ bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyE
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -681,7 +685,9 @@ bool android_widget_NumberPicker::dispatchKeyEvent(AndroidCXX::android_view_KeyE
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -731,7 +737,6 @@ bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_Mo
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -749,7 +754,9 @@ bool android_widget_NumberPicker::dispatchTouchEvent(AndroidCXX::android_view_Mo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -799,7 +806,6 @@ bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_vie
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -817,7 +823,9 @@ bool android_widget_NumberPicker::dispatchTrackballEvent(AndroidCXX::android_vie
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -867,7 +875,6 @@ bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -885,7 +892,9 @@ bool android_widget_NumberPicker::onInterceptTouchEvent(AndroidCXX::android_view
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -963,7 +972,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_accessibility_AccessibilityNodeProvider result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -981,7 +989,9 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_widget_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_accessibility_AccessibilityNodeProvider(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_accessibility_AccessibilityNodeProvider) (AndroidCXX::android_view_accessibility_AccessibilityNodeProvider((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value));
+
+	AndroidCXX::android_view_accessibility_AccessibilityNodeProvider result((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider) *((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value));
+	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1157,7 +1167,6 @@ int android_widget_NumberPicker::getSolidColor()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1175,7 +1184,9 @@ int android_widget_NumberPicker::getSolidColor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1351,7 +1362,6 @@ bool android_widget_NumberPicker::getWrapSelectorWheel()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1369,7 +1379,9 @@ bool android_widget_NumberPicker::getWrapSelectorWheel()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1496,7 +1508,6 @@ int android_widget_NumberPicker::getMinValue()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1514,7 +1525,9 @@ int android_widget_NumberPicker::getMinValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1592,7 +1605,6 @@ int android_widget_NumberPicker::getMaxValue()
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1610,7 +1622,9 @@ int android_widget_NumberPicker::getMaxValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1688,7 +1702,6 @@ std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDispl
 	LOGV("android_widget_NumberPicker jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_lang_String > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -1724,7 +1737,9 @@ std::vector<AndroidCXX::java_lang_String > android_widget_NumberPicker::getDispl
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_String >) (cxx_value);
+
+	std::vector<AndroidCXX::java_lang_String > result = (std::vector<AndroidCXX::java_lang_String >) *((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_String > *) cxx_value);
 		
 	jni->popLocalFrame();
 

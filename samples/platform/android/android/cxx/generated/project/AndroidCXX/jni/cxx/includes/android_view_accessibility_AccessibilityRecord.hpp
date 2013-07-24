@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -140,7 +139,10 @@ public:
 	android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc);
 	android_view_accessibility_AccessibilityRecord(void * proxy);
 	// Public Constructors
-	android_view_accessibility_AccessibilityRecord();
+	// TODO: remove
+	// 
+	// android_view_accessibility_AccessibilityRecord();
+	// 
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityRecord();
 	// Functions

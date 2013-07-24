@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -96,7 +95,10 @@ public:
 	// Public Constructors
 	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_CodeSigner >& arg1);
 	java_security_CodeSource(AndroidCXX::java_net_URL& arg0,std::vector<AndroidCXX::java_security_cert_Certificate >& arg1);
-	java_security_CodeSource();
+	// TODO: remove
+	// 
+	// java_security_CodeSource();
+	// 
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions

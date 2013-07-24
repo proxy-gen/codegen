@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -106,7 +105,10 @@ public:
 	android_net_http_SslCertificate(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3);
 	android_net_http_SslCertificate(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_util_Date& arg2,AndroidCXX::java_util_Date& arg3);
 	android_net_http_SslCertificate(AndroidCXX::java_security_cert_X509Certificate& arg0);
-	android_net_http_SslCertificate();
+	// TODO: remove
+	// 
+	// android_net_http_SslCertificate();
+	// 
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate();
 	// Functions

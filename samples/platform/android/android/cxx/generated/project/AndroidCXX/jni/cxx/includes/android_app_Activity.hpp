@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -544,6 +543,8 @@ public:
 	android_app_Activity(void * proxy);
 	// Public Constructors
 	android_app_Activity();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_app_Activity();
 	// Functions

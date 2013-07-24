@@ -19,7 +19,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_HeterogeneousExpandableList
@@ -52,7 +51,10 @@ public:
 	android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc);
 	android_widget_HeterogeneousExpandableList(void * proxy);
 	// Public Constructors
-	android_widget_HeterogeneousExpandableList();
+	// TODO: remove
+	// 
+	// android_widget_HeterogeneousExpandableList();
+	// 
 	// Default Destructor
 	virtual ~android_widget_HeterogeneousExpandableList();
 	// Functions

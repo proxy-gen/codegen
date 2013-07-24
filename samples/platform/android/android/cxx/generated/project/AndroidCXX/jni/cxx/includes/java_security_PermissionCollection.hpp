@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -74,6 +73,8 @@ public:
 	java_security_PermissionCollection(void * proxy);
 	// Public Constructors
 	java_security_PermissionCollection();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions

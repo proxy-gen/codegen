@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageRequest
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_ImageRequest(const com_facebook_widget_ImageRequest& cc);
 	com_facebook_widget_ImageRequest(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ImageRequest();
+	// TODO: remove
+	// 
+	// com_facebook_widget_ImageRequest();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest();
 	// Functions

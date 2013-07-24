@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,7 +56,10 @@ public:
 	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(const com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver& cc);
 	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(void * proxy);
 	// Public Constructors
-	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
+	// TODO: remove
+	// 
+	// com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
 	// Functions

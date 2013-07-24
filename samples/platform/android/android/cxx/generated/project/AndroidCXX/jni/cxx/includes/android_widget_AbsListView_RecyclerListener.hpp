@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_AbsListView_RecyclerListener(const android_widget_AbsListView_RecyclerListener& cc);
 	android_widget_AbsListView_RecyclerListener(void * proxy);
 	// Public Constructors
-	android_widget_AbsListView_RecyclerListener();
+	// TODO: remove
+	// 
+	// android_widget_AbsListView_RecyclerListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AbsListView_RecyclerListener();
 	// Functions

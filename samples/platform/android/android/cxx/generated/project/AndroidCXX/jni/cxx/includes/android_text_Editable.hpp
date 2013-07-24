@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -89,7 +88,10 @@ public:
 	android_text_Editable(const android_text_Editable& cc);
 	android_text_Editable(void * proxy);
 	// Public Constructors
-	android_text_Editable();
+	// TODO: remove
+	// 
+	// android_text_Editable();
+	// 
 	// Default Destructor
 	virtual ~android_text_Editable();
 	// Functions

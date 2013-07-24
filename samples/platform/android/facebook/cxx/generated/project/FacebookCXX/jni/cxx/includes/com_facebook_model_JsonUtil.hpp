@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_model_JsonUtil
@@ -48,7 +47,10 @@ public:
 	com_facebook_model_JsonUtil(const com_facebook_model_JsonUtil& cc);
 	com_facebook_model_JsonUtil(void * proxy);
 	// Public Constructors
-	com_facebook_model_JsonUtil();
+	// TODO: remove
+	// 
+	// com_facebook_model_JsonUtil();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil();
 	// Functions

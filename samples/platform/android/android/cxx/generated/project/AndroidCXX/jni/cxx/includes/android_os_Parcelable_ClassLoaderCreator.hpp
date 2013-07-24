@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -64,7 +63,10 @@ public:
 	android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc);
 	android_os_Parcelable_ClassLoaderCreator(void * proxy);
 	// Public Constructors
-	android_os_Parcelable_ClassLoaderCreator();
+	// TODO: remove
+	// 
+	// android_os_Parcelable_ClassLoaderCreator();
+	// 
 	// Default Destructor
 	virtual ~android_os_Parcelable_ClassLoaderCreator();
 	// Functions

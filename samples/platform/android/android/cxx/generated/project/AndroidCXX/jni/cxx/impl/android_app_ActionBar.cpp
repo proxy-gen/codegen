@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -105,7 +104,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_app_ActionBar"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -202,7 +201,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_app_ActionBar::android_app_ActionBar(const android_app_ActionBar& cc)
 {
@@ -245,6 +243,10 @@ android_app_ActionBar::android_app_ActionBar(void * proxy)
 
 	LOGV("android_app_ActionBar::android_app_ActionBar(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_app_ActionBar::android_app_ActionBar()
 {
@@ -444,7 +446,6 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar::getTitle()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -462,7 +463,9 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar::getTitle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -491,7 +494,6 @@ int android_app_ActionBar::getHeight()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -509,7 +511,9 @@ int android_app_ActionBar::getHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -951,7 +955,6 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar::getSubtitle()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -969,7 +972,9 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar::getSubtitle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -998,7 +1003,6 @@ AndroidCXX::android_view_View android_app_ActionBar::getCustomView()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1016,7 +1020,9 @@ AndroidCXX::android_view_View android_app_ActionBar::getCustomView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1290,7 +1296,6 @@ int android_app_ActionBar::getSelectedNavigationIndex()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1308,7 +1313,9 @@ int android_app_ActionBar::getSelectedNavigationIndex()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1337,7 +1344,6 @@ int android_app_ActionBar::getNavigationItemCount()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1355,7 +1361,9 @@ int android_app_ActionBar::getNavigationItemCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1846,7 +1854,6 @@ int android_app_ActionBar::getNavigationMode()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1864,7 +1871,9 @@ int android_app_ActionBar::getNavigationMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1942,7 +1951,6 @@ int android_app_ActionBar::getDisplayOptions()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1960,7 +1968,9 @@ int android_app_ActionBar::getDisplayOptions()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1989,7 +1999,6 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::newTab()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_ActionBar_Tab result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2007,7 +2016,9 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::newTab()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_ActionBar_Tab(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_ActionBar_Tab) (AndroidCXX::android_app_ActionBar_Tab((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+
+	AndroidCXX::android_app_ActionBar_Tab result((AndroidCXX::android_app_ActionBar_Tab) *((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+	delete ((AndroidCXX::android_app_ActionBar_Tab *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2491,7 +2502,6 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::getSelectedTab()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_app_ActionBar_Tab result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2509,7 +2519,9 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::getSelectedTab()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_ActionBar_Tab(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_ActionBar_Tab) (AndroidCXX::android_app_ActionBar_Tab((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+
+	AndroidCXX::android_app_ActionBar_Tab result((AndroidCXX::android_app_ActionBar_Tab) *((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+	delete ((AndroidCXX::android_app_ActionBar_Tab *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2559,7 +2571,6 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::getTabAt(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_app_ActionBar_Tab result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2577,7 +2588,9 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar::getTabAt(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_app_ActionBar_Tab(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_app_ActionBar_Tab) (AndroidCXX::android_app_ActionBar_Tab((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+
+	AndroidCXX::android_app_ActionBar_Tab result((AndroidCXX::android_app_ActionBar_Tab) *((AndroidCXX::android_app_ActionBar_Tab *) cxx_value));
+	delete ((AndroidCXX::android_app_ActionBar_Tab *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2606,7 +2619,6 @@ int android_app_ActionBar::getTabCount()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2624,7 +2636,9 @@ int android_app_ActionBar::getTabCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2653,7 +2667,6 @@ bool android_app_ActionBar::isShowing()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2671,7 +2684,9 @@ bool android_app_ActionBar::isShowing()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2847,7 +2862,6 @@ AndroidCXX::android_content_Context android_app_ActionBar::getThemedContext()
 	LOGV("android_app_ActionBar jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_Context result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2865,7 +2879,9 @@ AndroidCXX::android_content_Context android_app_ActionBar::getThemedContext()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Context) (AndroidCXX::android_content_Context((AndroidCXX::android_content_Context *) cxx_value));
+
+	AndroidCXX::android_content_Context result((AndroidCXX::android_content_Context) *((AndroidCXX::android_content_Context *) cxx_value));
+	delete ((AndroidCXX::android_content_Context *) cxx_value);
 		
 	jni->popLocalFrame();
 

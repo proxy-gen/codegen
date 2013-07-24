@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_widget_AbsListView_OnScrollListener(const android_widget_AbsListView_OnScrollListener& cc);
 	android_widget_AbsListView_OnScrollListener(void * proxy);
 	// Public Constructors
-	android_widget_AbsListView_OnScrollListener();
+	// TODO: remove
+	// 
+	// android_widget_AbsListView_OnScrollListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AbsListView_OnScrollListener();
 	// Functions

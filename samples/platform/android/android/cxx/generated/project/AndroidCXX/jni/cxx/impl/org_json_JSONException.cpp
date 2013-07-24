@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "org_json_JSONException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 org_json_JSONException::org_json_JSONException(const org_json_JSONException& cc)
@@ -90,40 +88,45 @@ org_json_JSONException::org_json_JSONException(void * proxy)
 
 	LOGV("org_json_JSONException::org_json_JSONException(void * proxy) exit");
 }
-org_json_JSONException::org_json_JSONException()
-{
-	LOGV("org_json_JSONException::org_json_JSONException() enter");	
+// TODO: remove
+// 
+// 
+// org_json_JSONException::org_json_JSONException()
+// {
+// 	LOGV("org_json_JSONException::org_json_JSONException() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "org/json/JSONException";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "org/json/JSONException";
 
-	LOGV("org_json_JSONException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("org_json_JSONException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("org_json_JSONException cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("org_json_JSONException jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("org_json_JSONException cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("org_json_JSONException jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("org_json_JSONException::org_json_JSONException() exit");	
-}
+// 	LOGV("org_json_JSONException::org_json_JSONException() exit");	
+// }
+// 
+// 
 // Public Constructors
 org_json_JSONException::org_json_JSONException(AndroidCXX::java_lang_String& arg0)
 {

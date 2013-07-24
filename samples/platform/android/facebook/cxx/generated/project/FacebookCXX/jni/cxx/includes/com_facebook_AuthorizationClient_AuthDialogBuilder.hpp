@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -68,7 +67,10 @@ public:
 	com_facebook_AuthorizationClient_AuthDialogBuilder(void * proxy);
 	// Public Constructors
 	com_facebook_AuthorizationClient_AuthDialogBuilder(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2);
-	com_facebook_AuthorizationClient_AuthDialogBuilder();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_AuthDialogBuilder();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthDialogBuilder();
 	// Functions

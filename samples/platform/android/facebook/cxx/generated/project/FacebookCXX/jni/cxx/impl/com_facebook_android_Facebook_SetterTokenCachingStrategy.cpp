@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -31,6 +30,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_SetterTokenCachingStrategy"
@@ -54,7 +54,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy(const com_facebook_android_Facebook_SetterTokenCachingStrategy& cc)
@@ -98,40 +97,45 @@ com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_F
 
 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy(void * proxy) exit");
 }
-com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy()
-{
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy()
+// {
+// 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/android/Facebook$SetterTokenCachingStrategy";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/android/Facebook$SetterTokenCachingStrategy";
 
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy() exit");	
-}
+// 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy::com_facebook_android_Facebook_SetterTokenCachingStrategy() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_android_Facebook_SetterTokenCachingStrategy::~com_facebook_android_Facebook_SetterTokenCachingStrategy()
@@ -197,7 +201,6 @@ AndroidCXX::android_os_Bundle com_facebook_android_Facebook_SetterTokenCachingSt
 	LOGV("com_facebook_android_Facebook_SetterTokenCachingStrategy jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -215,7 +218,9 @@ AndroidCXX::android_os_Bundle com_facebook_android_Facebook_SetterTokenCachingSt
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 

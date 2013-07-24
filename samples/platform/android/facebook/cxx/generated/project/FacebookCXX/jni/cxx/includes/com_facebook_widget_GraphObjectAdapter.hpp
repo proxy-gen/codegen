@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -148,7 +147,10 @@ public:
 	com_facebook_widget_GraphObjectAdapter(void * proxy);
 	// Public Constructors
 	com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context& arg0);
-	com_facebook_widget_GraphObjectAdapter();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectAdapter();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter();
 	// Functions

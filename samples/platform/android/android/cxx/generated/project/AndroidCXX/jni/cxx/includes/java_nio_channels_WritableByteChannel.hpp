@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc);
 	java_nio_channels_WritableByteChannel(void * proxy);
 	// Public Constructors
-	java_nio_channels_WritableByteChannel();
+	// TODO: remove
+	// 
+	// java_nio_channels_WritableByteChannel();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_WritableByteChannel();
 	// Functions

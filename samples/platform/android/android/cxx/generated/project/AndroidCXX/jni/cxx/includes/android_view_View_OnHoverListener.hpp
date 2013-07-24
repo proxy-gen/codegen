@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc);
 	android_view_View_OnHoverListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnHoverListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnHoverListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnHoverListener();
 	// Functions

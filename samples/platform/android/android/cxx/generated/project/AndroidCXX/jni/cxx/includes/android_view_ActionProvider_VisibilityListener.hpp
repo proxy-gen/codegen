@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ActionProvider_VisibilityListener
@@ -49,7 +48,10 @@ public:
 	android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc);
 	android_view_ActionProvider_VisibilityListener(void * proxy);
 	// Public Constructors
-	android_view_ActionProvider_VisibilityListener();
+	// TODO: remove
+	// 
+	// android_view_ActionProvider_VisibilityListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ActionProvider_VisibilityListener();
 	// Functions

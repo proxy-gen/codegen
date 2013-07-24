@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -32,6 +31,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_NonCachingTokenCachingStrategy"
@@ -55,7 +55,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_NonCachingTokenCachingStrategy::com_facebook_NonCachingTokenCachingStrategy(const com_facebook_NonCachingTokenCachingStrategy& cc)
@@ -99,6 +98,10 @@ com_facebook_NonCachingTokenCachingStrategy::com_facebook_NonCachingTokenCaching
 
 	LOGV("com_facebook_NonCachingTokenCachingStrategy::com_facebook_NonCachingTokenCachingStrategy(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_NonCachingTokenCachingStrategy::com_facebook_NonCachingTokenCachingStrategy()
 {
@@ -200,7 +203,6 @@ AndroidCXX::android_os_Bundle com_facebook_NonCachingTokenCachingStrategy::load(
 	LOGV("com_facebook_NonCachingTokenCachingStrategy jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -218,7 +220,9 @@ AndroidCXX::android_os_Bundle com_facebook_NonCachingTokenCachingStrategy::load(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 

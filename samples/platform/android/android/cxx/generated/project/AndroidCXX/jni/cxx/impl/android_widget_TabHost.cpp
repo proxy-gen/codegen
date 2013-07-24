@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -65,7 +64,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TabHost"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -132,7 +131,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_TabHost::android_widget_TabHost(const android_widget_TabHost& cc)
 {
@@ -175,40 +173,45 @@ android_widget_TabHost::android_widget_TabHost(void * proxy)
 
 	LOGV("android_widget_TabHost::android_widget_TabHost(void * proxy) exit");
 }
-android_widget_TabHost::android_widget_TabHost()
-{
-	LOGV("android_widget_TabHost::android_widget_TabHost() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_TabHost::android_widget_TabHost()
+// {
+// 	LOGV("android_widget_TabHost::android_widget_TabHost() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/TabHost";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_TabHost cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_TabHost jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_TabHost cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_TabHost jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_TabHost::android_widget_TabHost() exit");	
-}
+// 	LOGV("android_widget_TabHost::android_widget_TabHost() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_TabHost::android_widget_TabHost(AndroidCXX::android_content_Context& arg0)
 {
@@ -479,7 +482,6 @@ bool android_widget_TabHost::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent&
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -497,7 +499,9 @@ bool android_widget_TabHost::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -820,7 +824,6 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentView()
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -838,7 +841,9 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -888,7 +893,6 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost::newTabSpec(An
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_widget_TabHost_TabSpec result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -906,7 +910,9 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost::newTabSpec(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_TabHost_TabSpec(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_TabHost_TabSpec) (AndroidCXX::android_widget_TabHost_TabSpec((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
+
+	AndroidCXX::android_widget_TabHost_TabSpec result((AndroidCXX::android_widget_TabHost_TabSpec) *((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value));
+	delete ((AndroidCXX::android_widget_TabHost_TabSpec *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -963,7 +969,6 @@ AndroidCXX::android_widget_TabWidget android_widget_TabHost::getTabWidget()
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_TabWidget result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -981,7 +986,9 @@ AndroidCXX::android_widget_TabWidget android_widget_TabHost::getTabWidget()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_TabWidget(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_TabWidget) (AndroidCXX::android_widget_TabWidget((AndroidCXX::android_widget_TabWidget *) cxx_value));
+
+	AndroidCXX::android_widget_TabWidget result((AndroidCXX::android_widget_TabWidget) *((AndroidCXX::android_widget_TabWidget *) cxx_value));
+	delete ((AndroidCXX::android_widget_TabWidget *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1010,7 +1017,6 @@ int android_widget_TabHost::getCurrentTab()
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1028,7 +1034,9 @@ int android_widget_TabHost::getCurrentTab()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1057,7 +1065,6 @@ AndroidCXX::java_lang_String android_widget_TabHost::getCurrentTabTag()
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1075,7 +1082,9 @@ AndroidCXX::java_lang_String android_widget_TabHost::getCurrentTabTag()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1104,7 +1113,6 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentTabView()
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1122,7 +1130,9 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentTabView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1200,7 +1210,6 @@ AndroidCXX::android_widget_FrameLayout android_widget_TabHost::getTabContentView
 	LOGV("android_widget_TabHost jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_FrameLayout result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1218,7 +1227,9 @@ AndroidCXX::android_widget_FrameLayout android_widget_TabHost::getTabContentView
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_FrameLayout(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_FrameLayout) (AndroidCXX::android_widget_FrameLayout((AndroidCXX::android_widget_FrameLayout *) cxx_value));
+
+	AndroidCXX::android_widget_FrameLayout result((AndroidCXX::android_widget_FrameLayout) *((AndroidCXX::android_widget_FrameLayout *) cxx_value));
+	delete ((AndroidCXX::android_widget_FrameLayout *) cxx_value);
 		
 	jni->popLocalFrame();
 

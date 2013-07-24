@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -98,7 +97,10 @@ public:
 	java_lang_Float(float& arg0);
 	java_lang_Float(AndroidCXX::java_lang_String& arg0);
 	java_lang_Float(double& arg0);
-	java_lang_Float();
+	// TODO: remove
+	// 
+	// java_lang_Float();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Float();
 	// Functions

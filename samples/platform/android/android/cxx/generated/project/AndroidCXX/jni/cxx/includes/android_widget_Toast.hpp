@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -91,7 +90,10 @@ public:
 	android_widget_Toast(void * proxy);
 	// Public Constructors
 	android_widget_Toast(AndroidCXX::android_content_Context& arg0);
-	android_widget_Toast();
+	// TODO: remove
+	// 
+	// android_widget_Toast();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Toast();
 	// Functions

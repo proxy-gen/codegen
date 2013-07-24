@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -65,7 +64,10 @@ public:
 	android_support_v4_app_FragmentManager_BackStackEntry(const android_support_v4_app_FragmentManager_BackStackEntry& cc);
 	android_support_v4_app_FragmentManager_BackStackEntry(void * proxy);
 	// Public Constructors
-	android_support_v4_app_FragmentManager_BackStackEntry();
+	// TODO: remove
+	// 
+	// android_support_v4_app_FragmentManager_BackStackEntry();
+	// 
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager_BackStackEntry();
 	// Functions

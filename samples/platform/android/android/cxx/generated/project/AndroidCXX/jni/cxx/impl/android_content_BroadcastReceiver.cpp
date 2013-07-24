@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,7 +56,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_BroadcastReceiver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -109,7 +108,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_content_BroadcastReceiver::android_content_BroadcastReceiver(const android_content_BroadcastReceiver& cc)
 {
@@ -152,6 +150,10 @@ android_content_BroadcastReceiver::android_content_BroadcastReceiver(void * prox
 
 	LOGV("android_content_BroadcastReceiver::android_content_BroadcastReceiver(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_content_BroadcastReceiver::android_content_BroadcastReceiver()
 {
@@ -386,7 +388,6 @@ AndroidCXX::android_content_BroadcastReceiver_PendingResult android_content_Broa
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_BroadcastReceiver_PendingResult result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -404,7 +405,9 @@ AndroidCXX::android_content_BroadcastReceiver_PendingResult android_content_Broa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_BroadcastReceiver_PendingResult(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_BroadcastReceiver_PendingResult) (AndroidCXX::android_content_BroadcastReceiver_PendingResult((AndroidCXX::android_content_BroadcastReceiver_PendingResult *) cxx_value));
+
+	AndroidCXX::android_content_BroadcastReceiver_PendingResult result((AndroidCXX::android_content_BroadcastReceiver_PendingResult) *((AndroidCXX::android_content_BroadcastReceiver_PendingResult *) cxx_value));
+	delete ((AndroidCXX::android_content_BroadcastReceiver_PendingResult *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -475,7 +478,6 @@ AndroidCXX::android_os_IBinder android_content_BroadcastReceiver::peekService(An
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_IBinder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -493,7 +495,9 @@ AndroidCXX::android_os_IBinder android_content_BroadcastReceiver::peekService(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_IBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_IBinder) (AndroidCXX::android_os_IBinder((AndroidCXX::android_os_IBinder *) cxx_value));
+
+	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
+	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -571,7 +575,6 @@ int android_content_BroadcastReceiver::getResultCode()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -589,7 +592,9 @@ int android_content_BroadcastReceiver::getResultCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -667,7 +672,6 @@ AndroidCXX::java_lang_String android_content_BroadcastReceiver::getResultData()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -685,7 +689,9 @@ AndroidCXX::java_lang_String android_content_BroadcastReceiver::getResultData()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -784,7 +790,6 @@ AndroidCXX::android_os_Bundle android_content_BroadcastReceiver::getResultExtras
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -802,7 +807,9 @@ AndroidCXX::android_os_Bundle android_content_BroadcastReceiver::getResultExtras
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -831,7 +838,6 @@ bool android_content_BroadcastReceiver::getAbortBroadcast()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -849,7 +855,9 @@ bool android_content_BroadcastReceiver::getAbortBroadcast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -934,7 +942,6 @@ bool android_content_BroadcastReceiver::isOrderedBroadcast()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -952,7 +959,9 @@ bool android_content_BroadcastReceiver::isOrderedBroadcast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -981,7 +990,6 @@ bool android_content_BroadcastReceiver::isInitialStickyBroadcast()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -999,7 +1007,9 @@ bool android_content_BroadcastReceiver::isInitialStickyBroadcast()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1126,7 +1136,6 @@ bool android_content_BroadcastReceiver::getDebugUnregister()
 	LOGV("android_content_BroadcastReceiver jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1144,7 +1153,9 @@ bool android_content_BroadcastReceiver::getDebugUnregister()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

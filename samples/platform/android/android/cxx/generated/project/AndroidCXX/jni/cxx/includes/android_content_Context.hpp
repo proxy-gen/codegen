@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -462,6 +461,8 @@ public:
 	android_content_Context(void * proxy);
 	// Public Constructors
 	android_content_Context();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_Context();
 	// Functions

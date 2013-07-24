@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -94,7 +93,10 @@ public:
 	// Public Constructors
 	android_widget_TextSwitcher(AndroidCXX::android_content_Context& arg0);
 	android_widget_TextSwitcher(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TextSwitcher();
+	// TODO: remove
+	// 
+	// android_widget_TextSwitcher();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TextSwitcher();
 	// Functions

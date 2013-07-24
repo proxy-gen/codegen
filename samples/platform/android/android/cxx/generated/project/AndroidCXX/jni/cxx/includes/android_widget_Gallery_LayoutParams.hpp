@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,10 @@ public:
 	android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_Gallery_LayoutParams(int& arg0,int& arg1);
 	android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_widget_Gallery_LayoutParams();
+	// TODO: remove
+	// 
+	// android_widget_Gallery_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Gallery_LayoutParams();
 	// Functions

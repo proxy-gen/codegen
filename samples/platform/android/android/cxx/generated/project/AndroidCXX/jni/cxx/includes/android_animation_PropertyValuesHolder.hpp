@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -147,7 +146,10 @@ public:
 	android_animation_PropertyValuesHolder(const android_animation_PropertyValuesHolder& cc);
 	android_animation_PropertyValuesHolder(void * proxy);
 	// Public Constructors
-	android_animation_PropertyValuesHolder();
+	// TODO: remove
+	// 
+	// android_animation_PropertyValuesHolder();
+	// 
 	// Default Destructor
 	virtual ~android_animation_PropertyValuesHolder();
 	// Functions

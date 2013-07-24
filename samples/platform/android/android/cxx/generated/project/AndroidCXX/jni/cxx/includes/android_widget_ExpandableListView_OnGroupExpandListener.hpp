@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_ExpandableListView_OnGroupExpandListener
@@ -49,7 +48,10 @@ public:
 	android_widget_ExpandableListView_OnGroupExpandListener(const android_widget_ExpandableListView_OnGroupExpandListener& cc);
 	android_widget_ExpandableListView_OnGroupExpandListener(void * proxy);
 	// Public Constructors
-	android_widget_ExpandableListView_OnGroupExpandListener();
+	// TODO: remove
+	// 
+	// android_widget_ExpandableListView_OnGroupExpandListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupExpandListener();
 	// Functions

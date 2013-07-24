@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -61,7 +60,10 @@ public:
 	android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc);
 	android_support_v4_content_Loader_OnLoadCompleteListener(void * proxy);
 	// Public Constructors
-	android_support_v4_content_Loader_OnLoadCompleteListener();
+	// TODO: remove
+	// 
+	// android_support_v4_content_Loader_OnLoadCompleteListener();
+	// 
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader_OnLoadCompleteListener();
 	// Functions

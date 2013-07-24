@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -58,7 +57,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_net_http_SslCertificate"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -134,7 +133,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_net_http_SslCertificate::android_net_http_SslCertificate(const android_net_http_SslCertificate& cc)
 {
@@ -177,40 +175,45 @@ android_net_http_SslCertificate::android_net_http_SslCertificate(void * proxy)
 
 	LOGV("android_net_http_SslCertificate::android_net_http_SslCertificate(void * proxy) exit");
 }
-android_net_http_SslCertificate::android_net_http_SslCertificate()
-{
-	LOGV("android_net_http_SslCertificate::android_net_http_SslCertificate() enter");	
+// TODO: remove
+// 
+// 
+// android_net_http_SslCertificate::android_net_http_SslCertificate()
+// {
+// 	LOGV("android_net_http_SslCertificate::android_net_http_SslCertificate() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/net/http/SslCertificate";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/net/http/SslCertificate";
 
-	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_net_http_SslCertificate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_net_http_SslCertificate cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_net_http_SslCertificate jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_net_http_SslCertificate cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_net_http_SslCertificate jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_net_http_SslCertificate::android_net_http_SslCertificate() exit");	
-}
+// 	LOGV("android_net_http_SslCertificate::android_net_http_SslCertificate() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_net_http_SslCertificate::android_net_http_SslCertificate(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2,AndroidCXX::java_lang_String& arg3)
 {
@@ -545,7 +548,6 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::toString()
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -563,7 +565,9 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -613,7 +617,6 @@ AndroidCXX::android_os_Bundle android_net_http_SslCertificate::saveState(Android
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_os_Bundle result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -631,7 +634,9 @@ AndroidCXX::android_os_Bundle android_net_http_SslCertificate::saveState(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Bundle(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Bundle) (AndroidCXX::android_os_Bundle((AndroidCXX::android_os_Bundle *) cxx_value));
+
+	AndroidCXX::android_os_Bundle result((AndroidCXX::android_os_Bundle) *((AndroidCXX::android_os_Bundle *) cxx_value));
+	delete ((AndroidCXX::android_os_Bundle *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -681,7 +686,6 @@ AndroidCXX::android_net_http_SslCertificate android_net_http_SslCertificate::res
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_net_http_SslCertificate result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -699,7 +703,9 @@ AndroidCXX::android_net_http_SslCertificate android_net_http_SslCertificate::res
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_http_SslCertificate(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_http_SslCertificate) (AndroidCXX::android_net_http_SslCertificate((AndroidCXX::android_net_http_SslCertificate *) cxx_value));
+
+	AndroidCXX::android_net_http_SslCertificate result((AndroidCXX::android_net_http_SslCertificate) *((AndroidCXX::android_net_http_SslCertificate *) cxx_value));
+	delete ((AndroidCXX::android_net_http_SslCertificate *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -728,7 +734,6 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotBeforeDat
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -746,7 +751,9 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotBeforeDat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
+
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -775,7 +782,6 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotBefore(
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -793,7 +799,9 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotBefore(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -822,7 +830,6 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotAfterDate
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Date result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -840,7 +847,9 @@ AndroidCXX::java_util_Date android_net_http_SslCertificate::getValidNotAfterDate
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Date(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Date) (AndroidCXX::java_util_Date((AndroidCXX::java_util_Date *) cxx_value));
+
+	AndroidCXX::java_util_Date result((AndroidCXX::java_util_Date) *((AndroidCXX::java_util_Date *) cxx_value));
+	delete ((AndroidCXX::java_util_Date *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -869,7 +878,6 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotAfter()
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -887,7 +895,9 @@ AndroidCXX::java_lang_String android_net_http_SslCertificate::getValidNotAfter()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -916,7 +926,6 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::android_net_http_SslCertificate_DName result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -934,7 +943,9 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_http_SslCertificate_DName(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_http_SslCertificate_DName) (AndroidCXX::android_net_http_SslCertificate_DName((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value));
+
+	AndroidCXX::android_net_http_SslCertificate_DName result((AndroidCXX::android_net_http_SslCertificate_DName) *((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value));
+	delete ((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -963,7 +974,6 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 	LOGV("android_net_http_SslCertificate jni address %d", javaObject);
 
 
-	AndroidCXX::android_net_http_SslCertificate_DName result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -981,7 +991,9 @@ AndroidCXX::android_net_http_SslCertificate_DName android_net_http_SslCertificat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_net_http_SslCertificate_DName(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_net_http_SslCertificate_DName) (AndroidCXX::android_net_http_SslCertificate_DName((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value));
+
+	AndroidCXX::android_net_http_SslCertificate_DName result((AndroidCXX::android_net_http_SslCertificate_DName) *((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value));
+	delete ((AndroidCXX::android_net_http_SslCertificate_DName *) cxx_value);
 		
 	jni->popLocalFrame();
 

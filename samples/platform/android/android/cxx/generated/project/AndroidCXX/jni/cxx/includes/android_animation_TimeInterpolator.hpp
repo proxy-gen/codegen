@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_animation_TimeInterpolator
@@ -49,7 +48,10 @@ public:
 	android_animation_TimeInterpolator(const android_animation_TimeInterpolator& cc);
 	android_animation_TimeInterpolator(void * proxy);
 	// Public Constructors
-	android_animation_TimeInterpolator();
+	// TODO: remove
+	// 
+	// android_animation_TimeInterpolator();
+	// 
 	// Default Destructor
 	virtual ~android_animation_TimeInterpolator();
 	// Functions

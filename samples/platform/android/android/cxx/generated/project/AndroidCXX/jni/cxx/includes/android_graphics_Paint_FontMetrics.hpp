@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_graphics_Paint_FontMetrics
@@ -50,6 +49,8 @@ public:
 	android_graphics_Paint_FontMetrics(void * proxy);
 	// Public Constructors
 	android_graphics_Paint_FontMetrics();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetrics();
 	// Functions

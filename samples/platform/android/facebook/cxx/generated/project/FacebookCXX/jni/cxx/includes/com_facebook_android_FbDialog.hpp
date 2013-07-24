@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -83,7 +82,10 @@ public:
 	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg2,int& arg3);
 	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3);
 	com_facebook_android_FbDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener& arg3,int& arg4);
-	com_facebook_android_FbDialog();
+	// TODO: remove
+	// 
+	// com_facebook_android_FbDialog();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_FbDialog();
 	// Functions

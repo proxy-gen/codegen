@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -94,7 +93,10 @@ public:
 	android_app_LocalActivityManager(void * proxy);
 	// Public Constructors
 	android_app_LocalActivityManager(AndroidCXX::android_app_Activity& arg0,bool& arg1);
-	android_app_LocalActivityManager();
+	// TODO: remove
+	// 
+	// android_app_LocalActivityManager();
+	// 
 	// Default Destructor
 	virtual ~android_app_LocalActivityManager();
 	// Functions

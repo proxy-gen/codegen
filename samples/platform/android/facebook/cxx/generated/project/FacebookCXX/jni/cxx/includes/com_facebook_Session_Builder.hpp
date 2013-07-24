@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -76,7 +75,10 @@ public:
 	com_facebook_Session_Builder(void * proxy);
 	// Public Constructors
 	com_facebook_Session_Builder(AndroidCXX::android_content_Context& arg0);
-	com_facebook_Session_Builder();
+	// TODO: remove
+	// 
+	// com_facebook_Session_Builder();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_Builder();
 	// Functions

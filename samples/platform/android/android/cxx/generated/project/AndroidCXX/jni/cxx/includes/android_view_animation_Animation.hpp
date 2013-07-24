@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -121,6 +120,8 @@ public:
 	// Public Constructors
 	android_view_animation_Animation(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_view_animation_Animation();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_animation_Animation();
 	// Functions

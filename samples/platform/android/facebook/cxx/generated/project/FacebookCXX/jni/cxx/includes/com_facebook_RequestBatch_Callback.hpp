@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_RequestBatch_Callback(const com_facebook_RequestBatch_Callback& cc);
 	com_facebook_RequestBatch_Callback(void * proxy);
 	// Public Constructors
-	com_facebook_RequestBatch_Callback();
+	// TODO: remove
+	// 
+	// com_facebook_RequestBatch_Callback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch_Callback();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc);
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener(void * proxy);
 	// Public Constructors
-	android_widget_ShareActionProvider_OnShareTargetSelectedListener();
+	// TODO: remove
+	// 
+	// android_widget_ShareActionProvider_OnShareTargetSelectedListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider_OnShareTargetSelectedListener();
 	// Functions

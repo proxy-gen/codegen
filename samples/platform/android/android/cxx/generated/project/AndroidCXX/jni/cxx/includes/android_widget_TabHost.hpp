@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -137,7 +136,10 @@ public:
 	// Public Constructors
 	android_widget_TabHost(AndroidCXX::android_content_Context& arg0);
 	android_widget_TabHost(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_TabHost();
+	// TODO: remove
+	// 
+	// android_widget_TabHost();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TabHost();
 	// Functions

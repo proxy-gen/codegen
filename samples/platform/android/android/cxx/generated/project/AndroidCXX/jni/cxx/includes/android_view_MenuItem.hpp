@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -163,7 +162,10 @@ public:
 	android_view_MenuItem(const android_view_MenuItem& cc);
 	android_view_MenuItem(void * proxy);
 	// Public Constructors
-	android_view_MenuItem();
+	// TODO: remove
+	// 
+	// android_view_MenuItem();
+	// 
 	// Default Destructor
 	virtual ~android_view_MenuItem();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Editable_Factory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,7 +55,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_text_Editable_Factory::android_text_Editable_Factory(const android_text_Editable_Factory& cc)
@@ -100,6 +98,10 @@ android_text_Editable_Factory::android_text_Editable_Factory(void * proxy)
 
 	LOGV("android_text_Editable_Factory::android_text_Editable_Factory(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_text_Editable_Factory::android_text_Editable_Factory()
 {
@@ -173,7 +175,6 @@ AndroidCXX::android_text_Editable_Factory android_text_Editable_Factory::getInst
 	LOGV("android_text_Editable_Factory jni address %d", javaObject);
 
 
-	AndroidCXX::android_text_Editable_Factory result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -191,7 +192,9 @@ AndroidCXX::android_text_Editable_Factory android_text_Editable_Factory::getInst
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Editable_Factory(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_Editable_Factory) (AndroidCXX::android_text_Editable_Factory((AndroidCXX::android_text_Editable_Factory *) cxx_value));
+
+	AndroidCXX::android_text_Editable_Factory result((AndroidCXX::android_text_Editable_Factory) *((AndroidCXX::android_text_Editable_Factory *) cxx_value));
+	delete ((AndroidCXX::android_text_Editable_Factory *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -241,7 +244,6 @@ AndroidCXX::android_text_Editable android_text_Editable_Factory::newEditable(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_text_Editable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -259,7 +261,9 @@ AndroidCXX::android_text_Editable android_text_Editable_Factory::newEditable(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Editable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_Editable) (AndroidCXX::android_text_Editable((AndroidCXX::android_text_Editable *) cxx_value));
+
+	AndroidCXX::android_text_Editable result((AndroidCXX::android_text_Editable) *((AndroidCXX::android_text_Editable *) cxx_value));
+	delete ((AndroidCXX::android_text_Editable *) cxx_value);
 		
 	jni->popLocalFrame();
 

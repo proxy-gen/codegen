@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -57,6 +56,8 @@ public:
 	// Public Constructors
 	java_net_MalformedURLException();
 	java_net_MalformedURLException(AndroidCXX::java_lang_String& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_MalformedURLException();
 	// Functions

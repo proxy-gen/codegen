@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -104,6 +103,8 @@ public:
 	android_content_BroadcastReceiver(void * proxy);
 	// Public Constructors
 	android_content_BroadcastReceiver();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver();
 	// Functions

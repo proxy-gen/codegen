@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -88,7 +87,10 @@ public:
 	org_json_JSONTokener(void * proxy);
 	// Public Constructors
 	org_json_JSONTokener(AndroidCXX::java_lang_String& arg0);
-	org_json_JSONTokener();
+	// TODO: remove
+	// 
+	// org_json_JSONTokener();
+	// 
 	// Default Destructor
 	virtual ~org_json_JSONTokener();
 	// Functions

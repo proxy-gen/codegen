@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -85,7 +84,10 @@ public:
 	android_view_ActionProvider(void * proxy);
 	// Public Constructors
 	android_view_ActionProvider(AndroidCXX::android_content_Context& arg0);
-	android_view_ActionProvider();
+	// TODO: remove
+	// 
+	// android_view_ActionProvider();
+	// 
 	// Default Destructor
 	virtual ~android_view_ActionProvider();
 	// Functions

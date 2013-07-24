@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	java_io_FileFilter(const java_io_FileFilter& cc);
 	java_io_FileFilter(void * proxy);
 	// Public Constructors
-	java_io_FileFilter();
+	// TODO: remove
+	// 
+	// java_io_FileFilter();
+	// 
 	// Default Destructor
 	virtual ~java_io_FileFilter();
 	// Functions

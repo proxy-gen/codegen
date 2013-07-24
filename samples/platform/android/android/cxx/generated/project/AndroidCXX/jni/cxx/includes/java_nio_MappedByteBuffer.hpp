@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -56,7 +55,10 @@ public:
 	java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc);
 	java_nio_MappedByteBuffer(void * proxy);
 	// Public Constructors
-	java_nio_MappedByteBuffer();
+	// TODO: remove
+	// 
+	// java_nio_MappedByteBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_MappedByteBuffer();
 	// Functions

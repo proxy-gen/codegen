@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -143,7 +142,10 @@ public:
 	android_text_Layout(const android_text_Layout& cc);
 	android_text_Layout(void * proxy);
 	// Public Constructors
-	android_text_Layout();
+	// TODO: remove
+	// 
+	// android_text_Layout();
+	// 
 	// Default Destructor
 	virtual ~android_text_Layout();
 	// Functions

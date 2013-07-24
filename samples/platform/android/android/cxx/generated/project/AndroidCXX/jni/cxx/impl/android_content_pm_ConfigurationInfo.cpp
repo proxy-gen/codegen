@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_ConfigurationInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -63,7 +62,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_content_pm_ConfigurationInfo::android_content_pm_ConfigurationInfo(const android_content_pm_ConfigurationInfo& cc)
@@ -107,6 +105,10 @@ android_content_pm_ConfigurationInfo::android_content_pm_ConfigurationInfo(void 
 
 	LOGV("android_content_pm_ConfigurationInfo::android_content_pm_ConfigurationInfo(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_content_pm_ConfigurationInfo::android_content_pm_ConfigurationInfo()
 {
@@ -237,7 +239,6 @@ AndroidCXX::java_lang_String android_content_pm_ConfigurationInfo::toString()
 	LOGV("android_content_pm_ConfigurationInfo jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -255,7 +256,9 @@ AndroidCXX::java_lang_String android_content_pm_ConfigurationInfo::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -284,7 +287,6 @@ int android_content_pm_ConfigurationInfo::describeContents()
 	LOGV("android_content_pm_ConfigurationInfo jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -302,7 +304,9 @@ int android_content_pm_ConfigurationInfo::describeContents()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -401,7 +405,6 @@ AndroidCXX::java_lang_String android_content_pm_ConfigurationInfo::getGlEsVersio
 	LOGV("android_content_pm_ConfigurationInfo jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -419,7 +422,9 @@ AndroidCXX::java_lang_String android_content_pm_ConfigurationInfo::getGlEsVersio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -56,6 +55,8 @@ public:
 	android_graphics_Paint_FontMetricsInt(void * proxy);
 	// Public Constructors
 	android_graphics_Paint_FontMetricsInt();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetricsInt();
 	// Functions

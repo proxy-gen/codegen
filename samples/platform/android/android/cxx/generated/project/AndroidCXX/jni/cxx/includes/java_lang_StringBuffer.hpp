@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
 	
@@ -176,6 +175,8 @@ public:
 	java_lang_StringBuffer(int& arg0);
 	java_lang_StringBuffer(AndroidCXX::java_lang_String& arg0);
 	java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_lang_StringBuffer();
 	// Functions

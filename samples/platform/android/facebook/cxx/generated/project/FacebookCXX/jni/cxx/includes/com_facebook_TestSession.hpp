@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -91,7 +90,10 @@ public:
 	com_facebook_TestSession(const com_facebook_TestSession& cc);
 	com_facebook_TestSession(void * proxy);
 	// Public Constructors
-	com_facebook_TestSession();
+	// TODO: remove
+	// 
+	// com_facebook_TestSession();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_TestSession();
 	// Functions

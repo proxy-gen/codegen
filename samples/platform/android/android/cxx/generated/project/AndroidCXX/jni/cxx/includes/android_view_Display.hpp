@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -90,7 +89,10 @@ public:
 	android_view_Display(const android_view_Display& cc);
 	android_view_Display(void * proxy);
 	// Public Constructors
-	android_view_Display();
+	// TODO: remove
+	// 
+	// android_view_Display();
+	// 
 	// Default Destructor
 	virtual ~android_view_Display();
 	// Functions

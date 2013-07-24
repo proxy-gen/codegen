@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_PickerFragment_SelectionStrategy
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc);
 	com_facebook_widget_PickerFragment_SelectionStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_SelectionStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment_SelectionStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SelectionStrategy();
 	// Functions

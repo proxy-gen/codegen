@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,6 +58,8 @@ public:
 	com_facebook_LoginActivity(void * proxy);
 	// Public Constructors
 	com_facebook_LoginActivity();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity();
 	// Functions

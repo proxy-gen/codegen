@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -130,7 +129,10 @@ public:
 	android_view_ViewParent(const android_view_ViewParent& cc);
 	android_view_ViewParent(void * proxy);
 	// Public Constructors
-	android_view_ViewParent();
+	// TODO: remove
+	// 
+	// android_view_ViewParent();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewParent();
 	// Functions

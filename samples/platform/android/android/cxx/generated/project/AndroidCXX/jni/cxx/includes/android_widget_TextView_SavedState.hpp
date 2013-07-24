@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -60,7 +59,10 @@ public:
 	android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc);
 	android_widget_TextView_SavedState(void * proxy);
 	// Public Constructors
-	android_widget_TextView_SavedState();
+	// TODO: remove
+	// 
+	// android_widget_TextView_SavedState();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TextView_SavedState();
 	// Functions

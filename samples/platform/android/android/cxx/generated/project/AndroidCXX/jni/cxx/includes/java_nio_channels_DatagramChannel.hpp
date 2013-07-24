@@ -8,7 +8,6 @@
 //
 
 
-
  	
  		 
  		 
@@ -96,7 +95,10 @@ public:
 	java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc);
 	java_nio_channels_DatagramChannel(void * proxy);
 	// Public Constructors
-	java_nio_channels_DatagramChannel();
+	// TODO: remove
+	// 
+	// java_nio_channels_DatagramChannel();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_DatagramChannel();
 	// Functions

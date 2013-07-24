@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_support_v4_app_FragmentManager_OnBackStackChangedListener
@@ -49,7 +48,10 @@ public:
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener(const android_support_v4_app_FragmentManager_OnBackStackChangedListener& cc);
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener(void * proxy);
 	// Public Constructors
-	android_support_v4_app_FragmentManager_OnBackStackChangedListener();
+	// TODO: remove
+	// 
+	// android_support_v4_app_FragmentManager_OnBackStackChangedListener();
+	// 
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager_OnBackStackChangedListener();
 	// Functions

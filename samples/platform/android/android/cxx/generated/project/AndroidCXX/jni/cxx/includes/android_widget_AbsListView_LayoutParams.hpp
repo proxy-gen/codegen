@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -71,7 +70,10 @@ public:
 	android_widget_AbsListView_LayoutParams(int& arg0,int& arg1);
 	android_widget_AbsListView_LayoutParams(int& arg0,int& arg1,int& arg2);
 	android_widget_AbsListView_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
-	android_widget_AbsListView_LayoutParams();
+	// TODO: remove
+	// 
+	// android_widget_AbsListView_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AbsListView_LayoutParams();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -120,7 +119,10 @@ public:
 	// Public Constructors
 	android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	android_widget_SlidingDrawer(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
-	android_widget_SlidingDrawer();
+	// TODO: remove
+	// 
+	// android_widget_SlidingDrawer();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer();
 	// Functions

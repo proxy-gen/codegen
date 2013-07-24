@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -62,7 +61,10 @@ public:
 	com_facebook_widget_LoginButton_LoginButtonCallback(const com_facebook_widget_LoginButton_LoginButtonCallback& cc);
 	com_facebook_widget_LoginButton_LoginButtonCallback(void * proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_LoginButtonCallback();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton_LoginButtonCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonCallback();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -210,6 +209,8 @@ public:
 	android_media_MediaPlayer(void * proxy);
 	// Public Constructors
 	android_media_MediaPlayer();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer();
 	// Functions

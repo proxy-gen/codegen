@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -86,7 +85,10 @@ public:
 	android_widget_ShareActionProvider(void * proxy);
 	// Public Constructors
 	android_widget_ShareActionProvider(AndroidCXX::android_content_Context& arg0);
-	android_widget_ShareActionProvider();
+	// TODO: remove
+	// 
+	// android_widget_ShareActionProvider();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider();
 	// Functions

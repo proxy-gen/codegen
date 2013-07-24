@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_content_ComponentCallbacks(const android_content_ComponentCallbacks& cc);
 	android_content_ComponentCallbacks(void * proxy);
 	// Public Constructors
-	android_content_ComponentCallbacks();
+	// TODO: remove
+	// 
+	// android_content_ComponentCallbacks();
+	// 
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks();
 	// Functions

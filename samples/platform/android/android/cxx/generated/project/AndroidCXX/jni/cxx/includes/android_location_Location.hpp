@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -126,7 +125,10 @@ public:
 	// Public Constructors
 	android_location_Location(AndroidCXX::java_lang_String& arg0);
 	android_location_Location(AndroidCXX::android_location_Location& arg0);
-	android_location_Location();
+	// TODO: remove
+	// 
+	// android_location_Location();
+	// 
 	// Default Destructor
 	virtual ~android_location_Location();
 	// Functions

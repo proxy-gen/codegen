@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageDownloader_CacheReadWorkItem
@@ -49,7 +48,10 @@ public:
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc);
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ImageDownloader_CacheReadWorkItem();
+	// TODO: remove
+	// 
+	// com_facebook_widget_ImageDownloader_CacheReadWorkItem();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_CacheReadWorkItem();
 	// Functions

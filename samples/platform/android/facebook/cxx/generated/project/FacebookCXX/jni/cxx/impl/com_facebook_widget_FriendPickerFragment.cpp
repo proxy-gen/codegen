@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -43,6 +42,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_FriendPickerFragment"
@@ -84,7 +84,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(const com_facebook_widget_FriendPickerFragment& cc)
@@ -128,6 +127,10 @@ com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragme
 
 	LOGV("com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_widget_FriendPickerFragment::com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle& arg0)
 {
@@ -349,7 +352,6 @@ AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId
 	LOGV("com_facebook_widget_FriendPickerFragment jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -367,7 +369,9 @@ AndroidCXX::java_lang_String com_facebook_widget_FriendPickerFragment::getUserId
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -445,7 +449,6 @@ bool com_facebook_widget_FriendPickerFragment::getMultiSelect()
 	LOGV("com_facebook_widget_FriendPickerFragment jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -463,7 +466,9 @@ bool com_facebook_widget_FriendPickerFragment::getMultiSelect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -541,7 +546,6 @@ AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelectio
 	LOGV("com_facebook_widget_FriendPickerFragment jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_List result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -577,7 +581,9 @@ AndroidCXX::java_util_List com_facebook_widget_FriendPickerFragment::getSelectio
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_List(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_List) (AndroidCXX::java_util_List((AndroidCXX::java_util_List *) cxx_value));
+
+	AndroidCXX::java_util_List result((AndroidCXX::java_util_List) *((AndroidCXX::java_util_List *) cxx_value));
+	delete ((AndroidCXX::java_util_List *) cxx_value);
 		
 	jni->popLocalFrame();
 

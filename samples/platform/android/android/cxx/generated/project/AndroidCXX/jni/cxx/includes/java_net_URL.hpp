@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -159,7 +158,10 @@ public:
 	java_net_URL(AndroidCXX::java_lang_String& arg0);
 	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1);
 	java_net_URL(AndroidCXX::java_net_URL& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_net_URLStreamHandler& arg2);
-	java_net_URL();
+	// TODO: remove
+	// 
+	// java_net_URL();
+	// 
 	// Default Destructor
 	virtual ~java_net_URL();
 	// Functions

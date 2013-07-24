@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -159,6 +158,8 @@ public:
 	java_net_Socket(AndroidCXX::java_net_InetAddress& arg0,int& arg1,AndroidCXX::java_net_InetAddress& arg2,int& arg3);
 	java_net_Socket(AndroidCXX::java_lang_String& arg0,int& arg1,bool& arg2);
 	java_net_Socket(AndroidCXX::java_net_InetAddress& arg0,int& arg1,bool& arg2);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_Socket();
 	// Functions

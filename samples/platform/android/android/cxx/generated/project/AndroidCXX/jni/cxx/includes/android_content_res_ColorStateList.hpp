@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -89,7 +88,10 @@ public:
 	android_content_res_ColorStateList(void * proxy);
 	// Public Constructors
 	android_content_res_ColorStateList(std::vector<std::vector<int > >& arg0,std::vector<int>& arg1);
-	android_content_res_ColorStateList();
+	// TODO: remove
+	// 
+	// android_content_res_ColorStateList();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_ColorStateList();
 	// Functions

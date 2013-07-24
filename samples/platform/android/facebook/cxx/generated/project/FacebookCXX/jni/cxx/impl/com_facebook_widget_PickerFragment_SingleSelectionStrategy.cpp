@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_SingleSelectionStrategy"
@@ -49,7 +49,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy(const com_facebook_widget_PickerFragment_SingleSelectionStrategy& cc)
@@ -93,40 +92,45 @@ com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_
 
 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy(void * proxy) exit");
 }
-com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy()
-{
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy()
+// {
+// 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$SingleSelectionStrategy";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/PickerFragment$SingleSelectionStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy() exit");	
-}
+// 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy::com_facebook_widget_PickerFragment_SingleSelectionStrategy() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_SingleSelectionStrategy::~com_facebook_widget_PickerFragment_SingleSelectionStrategy()
@@ -192,7 +196,6 @@ AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_SingleSelect
 	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Collection result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -228,7 +231,9 @@ AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_SingleSelect
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Collection(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Collection) (AndroidCXX::java_util_Collection((AndroidCXX::java_util_Collection *) cxx_value));
+
+	AndroidCXX::java_util_Collection result((AndroidCXX::java_util_Collection) *((AndroidCXX::java_util_Collection *) cxx_value));
+	delete ((AndroidCXX::java_util_Collection *) cxx_value);
 		
 	jni->popLocalFrame();
 

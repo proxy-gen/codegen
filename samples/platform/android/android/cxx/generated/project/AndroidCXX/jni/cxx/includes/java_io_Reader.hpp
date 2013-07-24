@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
  		 
@@ -65,7 +64,10 @@ public:
 	java_io_Reader(const java_io_Reader& cc);
 	java_io_Reader(void * proxy);
 	// Public Constructors
-	java_io_Reader();
+	// TODO: remove
+	// 
+	// java_io_Reader();
+	// 
 	// Default Destructor
 	virtual ~java_io_Reader();
 	// Functions

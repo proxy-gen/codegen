@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -74,7 +73,10 @@ public:
 	com_facebook_UiLifecycleHelper(void * proxy);
 	// Public Constructors
 	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity& arg0,FacebookCXX::com_facebook_Session_StatusCallback& arg1);
-	com_facebook_UiLifecycleHelper();
+	// TODO: remove
+	// 
+	// com_facebook_UiLifecycleHelper();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_widget_SearchView_OnQueryTextListener(const android_widget_SearchView_OnQueryTextListener& cc);
 	android_widget_SearchView_OnQueryTextListener(void * proxy);
 	// Public Constructors
-	android_widget_SearchView_OnQueryTextListener();
+	// TODO: remove
+	// 
+	// android_widget_SearchView_OnQueryTextListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnQueryTextListener();
 	// Functions

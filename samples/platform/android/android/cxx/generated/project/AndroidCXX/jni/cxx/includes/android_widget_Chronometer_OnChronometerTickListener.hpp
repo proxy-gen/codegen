@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc);
 	android_widget_Chronometer_OnChronometerTickListener(void * proxy);
 	// Public Constructors
-	android_widget_Chronometer_OnChronometerTickListener();
+	// TODO: remove
+	// 
+	// android_widget_Chronometer_OnChronometerTickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Chronometer_OnChronometerTickListener();
 	// Functions

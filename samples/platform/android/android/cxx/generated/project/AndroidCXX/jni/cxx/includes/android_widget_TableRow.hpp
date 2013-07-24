@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -95,7 +94,10 @@ public:
 	// Public Constructors
 	android_widget_TableRow(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_TableRow(AndroidCXX::android_content_Context& arg0);
-	android_widget_TableRow();
+	// TODO: remove
+	// 
+	// android_widget_TableRow();
+	// 
 	// Default Destructor
 	virtual ~android_widget_TableRow();
 	// Functions

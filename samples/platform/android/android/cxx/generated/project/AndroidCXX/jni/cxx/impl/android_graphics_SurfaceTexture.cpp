@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_SurfaceTexture"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -54,7 +53,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc)
@@ -98,40 +96,45 @@ android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy)
 
 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(void * proxy) exit");
 }
-android_graphics_SurfaceTexture::android_graphics_SurfaceTexture()
-{
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() enter");	
+// TODO: remove
+// 
+// 
+// android_graphics_SurfaceTexture::android_graphics_SurfaceTexture()
+// {
+// 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/graphics/SurfaceTexture";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_SurfaceTexture jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_graphics_SurfaceTexture cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_graphics_SurfaceTexture jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() exit");	
-}
+// 	LOGV("android_graphics_SurfaceTexture::android_graphics_SurfaceTexture() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int& arg0)
 {
@@ -254,7 +257,6 @@ long android_graphics_SurfaceTexture::getTimestamp()
 	LOGV("android_graphics_SurfaceTexture jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -272,7 +274,9 @@ long android_graphics_SurfaceTexture::getTimestamp()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -276,6 +275,8 @@ public:
 	android_graphics_Paint();
 	android_graphics_Paint(int& arg0);
 	android_graphics_Paint(AndroidCXX::android_graphics_Paint& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Paint();
 	// Functions

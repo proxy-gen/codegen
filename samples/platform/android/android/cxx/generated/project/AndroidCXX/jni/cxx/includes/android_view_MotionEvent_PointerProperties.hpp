@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -66,6 +65,8 @@ public:
 	// Public Constructors
 	android_view_MotionEvent_PointerProperties();
 	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerProperties();
 	// Functions

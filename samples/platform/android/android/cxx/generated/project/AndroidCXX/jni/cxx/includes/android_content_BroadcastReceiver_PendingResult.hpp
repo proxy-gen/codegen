@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -73,7 +72,10 @@ public:
 	android_content_BroadcastReceiver_PendingResult(const android_content_BroadcastReceiver_PendingResult& cc);
 	android_content_BroadcastReceiver_PendingResult(void * proxy);
 	// Public Constructors
-	android_content_BroadcastReceiver_PendingResult();
+	// TODO: remove
+	// 
+	// android_content_BroadcastReceiver_PendingResult();
+	// 
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver_PendingResult();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -60,7 +59,10 @@ public:
 	android_media_TimedText(const android_media_TimedText& cc);
 	android_media_TimedText(void * proxy);
 	// Public Constructors
-	android_media_TimedText();
+	// TODO: remove
+	// 
+	// android_media_TimedText();
+	// 
 	// Default Destructor
 	virtual ~android_media_TimedText();
 	// Functions

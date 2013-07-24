@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -41,6 +40,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_model_GraphObject"
@@ -89,7 +89,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_model_GraphObject::com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc)
 {
@@ -132,40 +131,45 @@ com_facebook_model_GraphObject::com_facebook_model_GraphObject(void * proxy)
 
 	LOGV("com_facebook_model_GraphObject::com_facebook_model_GraphObject(void * proxy) exit");
 }
-com_facebook_model_GraphObject::com_facebook_model_GraphObject()
-{
-	LOGV("com_facebook_model_GraphObject::com_facebook_model_GraphObject() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_model_GraphObject::com_facebook_model_GraphObject()
+// {
+// 	LOGV("com_facebook_model_GraphObject::com_facebook_model_GraphObject() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/model/GraphObject";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/model/GraphObject";
 
-	LOGV("com_facebook_model_GraphObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_model_GraphObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_model_GraphObject cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_model_GraphObject jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_model_GraphObject cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_model_GraphObject jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_model_GraphObject::com_facebook_model_GraphObject() exit");	
-}
+// 	LOGV("com_facebook_model_GraphObject::com_facebook_model_GraphObject() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_model_GraphObject::~com_facebook_model_GraphObject()
@@ -294,7 +298,6 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject::getProperty(Android
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_Object result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -312,7 +315,9 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject::getProperty(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_Object(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_Object) (AndroidCXX::java_lang_Object((AndroidCXX::java_lang_Object *) cxx_value));
+
+	AndroidCXX::java_lang_Object result((AndroidCXX::java_lang_Object) *((AndroidCXX::java_lang_Object *) cxx_value));
+	delete ((AndroidCXX::java_lang_Object *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -380,7 +385,6 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject::cast
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_model_GraphObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -398,7 +402,9 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject::cast
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_model_GraphObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_model_GraphObject) (FacebookCXX::com_facebook_model_GraphObject((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+
+	FacebookCXX::com_facebook_model_GraphObject result((FacebookCXX::com_facebook_model_GraphObject) *((FacebookCXX::com_facebook_model_GraphObject *) cxx_value));
+	delete ((FacebookCXX::com_facebook_model_GraphObject *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -427,7 +433,6 @@ AndroidCXX::java_util_Map com_facebook_model_GraphObject::asMap()
 	LOGV("com_facebook_model_GraphObject jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Map result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -478,7 +483,9 @@ AndroidCXX::java_util_Map com_facebook_model_GraphObject::asMap()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Map(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Map) (AndroidCXX::java_util_Map((AndroidCXX::java_util_Map *) cxx_value));
+
+	AndroidCXX::java_util_Map result((AndroidCXX::java_util_Map) *((AndroidCXX::java_util_Map *) cxx_value));
+	delete ((AndroidCXX::java_util_Map *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -507,7 +514,6 @@ AndroidCXX::org_json_JSONObject com_facebook_model_GraphObject::getInnerJSONObje
 	LOGV("com_facebook_model_GraphObject jni address %d", javaObject);
 
 
-	AndroidCXX::org_json_JSONObject result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -525,7 +531,9 @@ AndroidCXX::org_json_JSONObject com_facebook_model_GraphObject::getInnerJSONObje
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_org_json_JSONObject(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::org_json_JSONObject) (AndroidCXX::org_json_JSONObject((AndroidCXX::org_json_JSONObject *) cxx_value));
+
+	AndroidCXX::org_json_JSONObject result((AndroidCXX::org_json_JSONObject) *((AndroidCXX::org_json_JSONObject *) cxx_value));
+	delete ((AndroidCXX::org_json_JSONObject *) cxx_value);
 		
 	jni->popLocalFrame();
 

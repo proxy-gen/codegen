@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -35,7 +34,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_FrameLayout_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -62,7 +61,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams(const android_widget_FrameLayout_LayoutParams& cc)
@@ -106,40 +104,45 @@ android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams
 
 	LOGV("android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams(void * proxy) exit");
 }
-android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams()
-{
-	LOGV("android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams()
+// {
+// 	LOGV("android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/FrameLayout$LayoutParams";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/FrameLayout$LayoutParams";
 
-	LOGV("android_widget_FrameLayout_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_FrameLayout_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_FrameLayout_LayoutParams cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_FrameLayout_LayoutParams jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_FrameLayout_LayoutParams cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_FrameLayout_LayoutParams jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams() exit");	
-}
+// 	LOGV("android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_FrameLayout_LayoutParams::android_widget_FrameLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
 {

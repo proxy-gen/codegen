@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -61,7 +60,10 @@ public:
 	android_view_MenuInflater(void * proxy);
 	// Public Constructors
 	android_view_MenuInflater(AndroidCXX::android_content_Context& arg0);
-	android_view_MenuInflater();
+	// TODO: remove
+	// 
+	// android_view_MenuInflater();
+	// 
 	// Default Destructor
 	virtual ~android_view_MenuInflater();
 	// Functions

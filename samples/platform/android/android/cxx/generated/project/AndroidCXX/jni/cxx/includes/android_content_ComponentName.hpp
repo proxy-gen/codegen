@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -121,7 +120,10 @@ public:
 	android_content_ComponentName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
 	android_content_ComponentName(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
 	android_content_ComponentName(AndroidCXX::android_os_Parcel& arg0);
-	android_content_ComponentName();
+	// TODO: remove
+	// 
+	// android_content_ComponentName();
+	// 
 	// Default Destructor
 	virtual ~android_content_ComponentName();
 	// Functions

@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_io_FileDescriptor
@@ -52,6 +51,8 @@ public:
 	java_io_FileDescriptor(void * proxy);
 	// Public Constructors
 	java_io_FileDescriptor();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions

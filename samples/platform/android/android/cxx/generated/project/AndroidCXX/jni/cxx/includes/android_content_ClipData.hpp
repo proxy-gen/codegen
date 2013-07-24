@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -130,7 +129,10 @@ public:
 	android_content_ClipData(AndroidCXX::java_lang_CharSequence& arg0,std::vector<AndroidCXX::java_lang_String >& arg1,AndroidCXX::android_content_ClipData_Item& arg2);
 	android_content_ClipData(AndroidCXX::android_content_ClipDescription& arg0,AndroidCXX::android_content_ClipData_Item& arg1);
 	android_content_ClipData(AndroidCXX::android_content_ClipData& arg0);
-	android_content_ClipData();
+	// TODO: remove
+	// 
+	// android_content_ClipData();
+	// 
 	// Default Destructor
 	virtual ~android_content_ClipData();
 	// Functions

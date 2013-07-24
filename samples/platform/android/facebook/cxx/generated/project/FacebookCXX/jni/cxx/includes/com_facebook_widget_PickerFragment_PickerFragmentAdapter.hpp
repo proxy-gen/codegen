@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	com_facebook_widget_PickerFragment_PickerFragmentAdapter(void * proxy);
 	// Public Constructors
 	com_facebook_widget_PickerFragment_PickerFragmentAdapter(FacebookCXX::com_facebook_widget_PickerFragment& arg0,AndroidCXX::android_content_Context& arg1);
-	com_facebook_widget_PickerFragment_PickerFragmentAdapter();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment_PickerFragmentAdapter();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_PickerFragmentAdapter();
 	// Functions

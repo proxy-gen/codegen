@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ViewTreeObserver_OnScrollChangedListener
@@ -49,7 +48,10 @@ public:
 	android_view_ViewTreeObserver_OnScrollChangedListener(const android_view_ViewTreeObserver_OnScrollChangedListener& cc);
 	android_view_ViewTreeObserver_OnScrollChangedListener(void * proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver_OnScrollChangedListener();
+	// TODO: remove
+	// 
+	// android_view_ViewTreeObserver_OnScrollChangedListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnScrollChangedListener();
 	// Functions

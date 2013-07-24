@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -78,7 +77,10 @@ public:
 	android_widget_RadioGroup_LayoutParams(int& arg0,int& arg1,float& arg2);
 	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams& arg0);
 	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams& arg0);
-	android_widget_RadioGroup_LayoutParams();
+	// TODO: remove
+	// 
+	// android_widget_RadioGroup_LayoutParams();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RadioGroup_LayoutParams();
 	// Functions

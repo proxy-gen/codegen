@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -119,7 +118,10 @@ public:
 	// Public Constructors
 	android_widget_ViewAnimator(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_ViewAnimator(AndroidCXX::android_content_Context& arg0);
-	android_widget_ViewAnimator();
+	// TODO: remove
+	// 
+	// android_widget_ViewAnimator();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ViewAnimator();
 	// Functions

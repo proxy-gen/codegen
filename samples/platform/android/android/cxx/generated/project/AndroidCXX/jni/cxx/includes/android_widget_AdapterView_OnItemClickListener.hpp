@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -65,7 +64,10 @@ public:
 	android_widget_AdapterView_OnItemClickListener(const android_widget_AdapterView_OnItemClickListener& cc);
 	android_widget_AdapterView_OnItemClickListener(void * proxy);
 	// Public Constructors
-	android_widget_AdapterView_OnItemClickListener();
+	// TODO: remove
+	// 
+	// android_widget_AdapterView_OnItemClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemClickListener();
 	// Functions

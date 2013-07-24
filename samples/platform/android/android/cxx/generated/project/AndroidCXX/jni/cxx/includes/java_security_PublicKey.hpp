@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_security_PublicKey
@@ -48,7 +47,10 @@ public:
 	java_security_PublicKey(const java_security_PublicKey& cc);
 	java_security_PublicKey(void * proxy);
 	// Public Constructors
-	java_security_PublicKey();
+	// TODO: remove
+	// 
+	// java_security_PublicKey();
+	// 
 	// Default Destructor
 	virtual ~java_security_PublicKey();
 	// Functions

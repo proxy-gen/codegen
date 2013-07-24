@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -164,6 +163,8 @@ public:
 	android_app_ActionBar(void * proxy);
 	// Public Constructors
 	android_app_ActionBar();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_app_ActionBar();
 	// Functions

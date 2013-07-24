@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -34,7 +33,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MotionEvent_PointerCoords"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -55,7 +54,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords(const android_view_MotionEvent_PointerCoords& cc)
@@ -99,6 +97,10 @@ android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords(v
 
 	LOGV("android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords()
 {
@@ -327,7 +329,6 @@ float android_view_MotionEvent_PointerCoords::getAxisValue(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -345,7 +346,9 @@ float android_view_MotionEvent_PointerCoords::getAxisValue(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

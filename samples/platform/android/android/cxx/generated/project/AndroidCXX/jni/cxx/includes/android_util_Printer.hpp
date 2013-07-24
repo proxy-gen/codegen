@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_util_Printer(const android_util_Printer& cc);
 	android_util_Printer(void * proxy);
 	// Public Constructors
-	android_util_Printer();
+	// TODO: remove
+	// 
+	// android_util_Printer();
+	// 
 	// Default Destructor
 	virtual ~android_util_Printer();
 	// Functions

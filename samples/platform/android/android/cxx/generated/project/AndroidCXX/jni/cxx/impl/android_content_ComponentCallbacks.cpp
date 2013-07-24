@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ComponentCallbacks"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,7 +46,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_content_ComponentCallbacks::android_content_ComponentCallbacks(const android_content_ComponentCallbacks& cc)
@@ -91,40 +89,45 @@ android_content_ComponentCallbacks::android_content_ComponentCallbacks(void * pr
 
 	LOGV("android_content_ComponentCallbacks::android_content_ComponentCallbacks(void * proxy) exit");
 }
-android_content_ComponentCallbacks::android_content_ComponentCallbacks()
-{
-	LOGV("android_content_ComponentCallbacks::android_content_ComponentCallbacks() enter");	
+// TODO: remove
+// 
+// 
+// android_content_ComponentCallbacks::android_content_ComponentCallbacks()
+// {
+// 	LOGV("android_content_ComponentCallbacks::android_content_ComponentCallbacks() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/ComponentCallbacks";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/content/ComponentCallbacks";
 
-	LOGV("android_content_ComponentCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_content_ComponentCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_content_ComponentCallbacks cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_content_ComponentCallbacks jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_content_ComponentCallbacks cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_content_ComponentCallbacks jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_content_ComponentCallbacks::android_content_ComponentCallbacks() exit");	
-}
+// 	LOGV("android_content_ComponentCallbacks::android_content_ComponentCallbacks() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_content_ComponentCallbacks::~android_content_ComponentCallbacks()

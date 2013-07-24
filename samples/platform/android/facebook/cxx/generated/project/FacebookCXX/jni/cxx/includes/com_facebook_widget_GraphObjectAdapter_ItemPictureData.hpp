@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData(const com_facebook_widget_GraphObjectAdapter_ItemPictureData& cc);
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData(void * proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_ItemPictureData();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectAdapter_ItemPictureData();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPictureData();
 	// Functions

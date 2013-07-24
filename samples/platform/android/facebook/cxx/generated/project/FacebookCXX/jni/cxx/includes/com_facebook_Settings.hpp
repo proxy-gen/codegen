@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -114,6 +113,8 @@ public:
 	com_facebook_Settings(void * proxy);
 	// Public Constructors
 	com_facebook_Settings();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Settings();
 	// Functions

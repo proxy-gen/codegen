@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -61,7 +60,10 @@ public:
 	com_facebook_model_JsonUtil_JSONObjectEntry(const com_facebook_model_JsonUtil_JSONObjectEntry& cc);
 	com_facebook_model_JsonUtil_JSONObjectEntry(void * proxy);
 	// Public Constructors
-	com_facebook_model_JsonUtil_JSONObjectEntry();
+	// TODO: remove
+	// 
+	// com_facebook_model_JsonUtil_JSONObjectEntry();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil_JSONObjectEntry();
 	// Functions

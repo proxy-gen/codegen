@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -121,6 +120,8 @@ public:
 	android_animation_LayoutTransition(void * proxy);
 	// Public Constructors
 	android_animation_LayoutTransition();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_GraphObjectAdapter_1"
@@ -50,7 +50,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1(const com_facebook_widget_GraphObjectAdapter_1& cc)
@@ -94,40 +93,45 @@ com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter
 
 	LOGV("com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1(void * proxy) exit");
 }
-com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1()
-{
-	LOGV("com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1()
+// {
+// 	LOGV("com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/GraphObjectAdapter$1";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/GraphObjectAdapter$1";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_GraphObjectAdapter_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_GraphObjectAdapter_1 cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_GraphObjectAdapter_1 jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_GraphObjectAdapter_1 cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_GraphObjectAdapter_1 jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1() exit");	
-}
+// 	LOGV("com_facebook_widget_GraphObjectAdapter_1::com_facebook_widget_GraphObjectAdapter_1() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_GraphObjectAdapter_1::~com_facebook_widget_GraphObjectAdapter_1()
@@ -207,7 +211,6 @@ int com_facebook_widget_GraphObjectAdapter_1::compare(FacebookCXX::com_facebook_
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -225,7 +228,9 @@ int com_facebook_widget_GraphObjectAdapter_1::compare(FacebookCXX::com_facebook_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

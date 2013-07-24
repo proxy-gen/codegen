@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,7 +56,10 @@ public:
 	java_util_Comparator(const java_util_Comparator& cc);
 	java_util_Comparator(void * proxy);
 	// Public Constructors
-	java_util_Comparator();
+	// TODO: remove
+	// 
+	// java_util_Comparator();
+	// 
 	// Default Destructor
 	virtual ~java_util_Comparator();
 	// Functions

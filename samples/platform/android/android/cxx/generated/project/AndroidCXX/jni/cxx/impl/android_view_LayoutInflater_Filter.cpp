@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_LayoutInflater_Filter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc)
@@ -90,40 +88,45 @@ android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * pr
 
 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter(void * proxy) exit");
 }
-android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter()
-{
-	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() enter");	
+// TODO: remove
+// 
+// 
+// android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter()
+// {
+// 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/LayoutInflater$Filter";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/LayoutInflater$Filter";
 
-	LOGV("android_view_LayoutInflater_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_LayoutInflater_Filter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_LayoutInflater_Filter cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_LayoutInflater_Filter jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_LayoutInflater_Filter cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_LayoutInflater_Filter jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() exit");	
-}
+// 	LOGV("android_view_LayoutInflater_Filter::android_view_LayoutInflater_Filter() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_LayoutInflater_Filter::~android_view_LayoutInflater_Filter()
@@ -182,7 +185,6 @@ bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -200,7 +202,9 @@ bool android_view_LayoutInflater_Filter::onLoadClass(AndroidCXX::java_lang_Class
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

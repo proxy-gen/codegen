@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc);
 	android_view_View_OnLongClickListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnLongClickListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnLongClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnLongClickListener();
 	// Functions

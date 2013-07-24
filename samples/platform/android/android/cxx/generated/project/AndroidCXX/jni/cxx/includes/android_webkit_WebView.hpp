@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -367,7 +366,10 @@ public:
 	android_webkit_WebView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
 	android_webkit_WebView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2,bool& arg3);
 	android_webkit_WebView(AndroidCXX::android_content_Context& arg0);
-	android_webkit_WebView();
+	// TODO: remove
+	// 
+	// android_webkit_WebView();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebView();
 	// Functions

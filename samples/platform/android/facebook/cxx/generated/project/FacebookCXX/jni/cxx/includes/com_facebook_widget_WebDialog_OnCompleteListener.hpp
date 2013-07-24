@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -58,7 +57,10 @@ public:
 	com_facebook_widget_WebDialog_OnCompleteListener(const com_facebook_widget_WebDialog_OnCompleteListener& cc);
 	com_facebook_widget_WebDialog_OnCompleteListener(void * proxy);
 	// Public Constructors
-	com_facebook_widget_WebDialog_OnCompleteListener();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WebDialog_OnCompleteListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_OnCompleteListener();
 	// Functions

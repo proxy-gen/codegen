@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -81,7 +80,10 @@ public:
 	java_security_Permission(void * proxy);
 	// Public Constructors
 	java_security_Permission(AndroidCXX::java_lang_String& arg0);
-	java_security_Permission();
+	// TODO: remove
+	// 
+	// java_security_Permission();
+	// 
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions

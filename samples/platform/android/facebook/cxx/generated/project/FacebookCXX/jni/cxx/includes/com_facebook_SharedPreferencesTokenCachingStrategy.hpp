@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -69,7 +68,10 @@ public:
 	// Public Constructors
 	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0);
 	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	com_facebook_SharedPreferencesTokenCachingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_SharedPreferencesTokenCachingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions

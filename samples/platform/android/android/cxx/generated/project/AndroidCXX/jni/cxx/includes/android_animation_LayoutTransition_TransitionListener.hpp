@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -68,7 +67,10 @@ public:
 	android_animation_LayoutTransition_TransitionListener(const android_animation_LayoutTransition_TransitionListener& cc);
 	android_animation_LayoutTransition_TransitionListener(void * proxy);
 	// Public Constructors
-	android_animation_LayoutTransition_TransitionListener();
+	// TODO: remove
+	// 
+	// android_animation_LayoutTransition_TransitionListener();
+	// 
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition_TransitionListener();
 	// Functions

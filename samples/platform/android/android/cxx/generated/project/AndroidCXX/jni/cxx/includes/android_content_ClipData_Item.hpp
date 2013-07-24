@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -111,7 +110,10 @@ public:
 	android_content_ClipData_Item(AndroidCXX::android_net_Uri& arg0);
 	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::android_content_Intent& arg1,AndroidCXX::android_net_Uri& arg2);
 	android_content_ClipData_Item(AndroidCXX::java_lang_CharSequence& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Intent& arg2,AndroidCXX::android_net_Uri& arg3);
-	android_content_ClipData_Item();
+	// TODO: remove
+	// 
+	// android_content_ClipData_Item();
+	// 
 	// Default Destructor
 	virtual ~android_content_ClipData_Item();
 	// Functions

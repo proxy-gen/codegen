@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_animation_TimeInterpolator.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_TimeInterpolator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,7 +38,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_animation_TimeInterpolator::android_animation_TimeInterpolator(const android_animation_TimeInterpolator& cc)
@@ -83,40 +81,45 @@ android_animation_TimeInterpolator::android_animation_TimeInterpolator(void * pr
 
 	LOGV("android_animation_TimeInterpolator::android_animation_TimeInterpolator(void * proxy) exit");
 }
-android_animation_TimeInterpolator::android_animation_TimeInterpolator()
-{
-	LOGV("android_animation_TimeInterpolator::android_animation_TimeInterpolator() enter");	
+// TODO: remove
+// 
+// 
+// android_animation_TimeInterpolator::android_animation_TimeInterpolator()
+// {
+// 	LOGV("android_animation_TimeInterpolator::android_animation_TimeInterpolator() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/animation/TimeInterpolator";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/animation/TimeInterpolator";
 
-	LOGV("android_animation_TimeInterpolator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_animation_TimeInterpolator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_animation_TimeInterpolator cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_animation_TimeInterpolator jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_animation_TimeInterpolator cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_animation_TimeInterpolator jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_animation_TimeInterpolator::android_animation_TimeInterpolator() exit");	
-}
+// 	LOGV("android_animation_TimeInterpolator::android_animation_TimeInterpolator() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_animation_TimeInterpolator::~android_animation_TimeInterpolator()
@@ -175,7 +178,6 @@ float android_animation_TimeInterpolator::getInterpolation(float& arg0)
 		jarg0 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -193,7 +195,9 @@ float android_animation_TimeInterpolator::getInterpolation(float& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

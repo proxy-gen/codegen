@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_os_IBinder_DeathRecipient
@@ -49,7 +48,10 @@ public:
 	android_os_IBinder_DeathRecipient(const android_os_IBinder_DeathRecipient& cc);
 	android_os_IBinder_DeathRecipient(void * proxy);
 	// Public Constructors
-	android_os_IBinder_DeathRecipient();
+	// TODO: remove
+	// 
+	// android_os_IBinder_DeathRecipient();
+	// 
 	// Default Destructor
 	virtual ~android_os_IBinder_DeathRecipient();
 	// Functions

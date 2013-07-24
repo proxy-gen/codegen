@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -122,7 +121,10 @@ public:
 	// Public Constructors
 	java_lang_Long(long& arg0);
 	java_lang_Long(AndroidCXX::java_lang_String& arg0);
-	java_lang_Long();
+	// TODO: remove
+	// 
+	// java_lang_Long();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Long();
 	// Functions

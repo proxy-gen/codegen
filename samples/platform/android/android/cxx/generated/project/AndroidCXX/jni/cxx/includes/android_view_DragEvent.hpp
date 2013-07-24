@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -83,7 +82,10 @@ public:
 	android_view_DragEvent(const android_view_DragEvent& cc);
 	android_view_DragEvent(void * proxy);
 	// Public Constructors
-	android_view_DragEvent();
+	// TODO: remove
+	// 
+	// android_view_DragEvent();
+	// 
 	// Default Destructor
 	virtual ~android_view_DragEvent();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -76,6 +75,8 @@ public:
 	android_view_animation_Transformation(void * proxy);
 	// Public Constructors
 	android_view_animation_Transformation();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -70,6 +69,8 @@ public:
 	android_widget_BaseExpandableListAdapter(void * proxy);
 	// Public Constructors
 	android_widget_BaseExpandableListAdapter();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_widget_BaseExpandableListAdapter();
 	// Functions

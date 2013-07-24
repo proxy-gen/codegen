@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_io_Serializable
@@ -48,7 +47,10 @@ public:
 	java_io_Serializable(const java_io_Serializable& cc);
 	java_io_Serializable(void * proxy);
 	// Public Constructors
-	java_io_Serializable();
+	// TODO: remove
+	// 
+	// java_io_Serializable();
+	// 
 	// Default Destructor
 	virtual ~java_io_Serializable();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_OnDoneButtonClickedListener"
@@ -46,7 +46,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(const com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& cc)
@@ -90,40 +89,45 @@ com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_wid
 
 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(void * proxy) exit");
 }
-com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener()
-{
-	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener()
+// {
+// 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$OnDoneButtonClickedListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/PickerFragment$OnDoneButtonClickedListener";
 
-	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener() exit");	
-}
+// 	LOGV("com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_OnDoneButtonClickedListener::~com_facebook_widget_PickerFragment_OnDoneButtonClickedListener()

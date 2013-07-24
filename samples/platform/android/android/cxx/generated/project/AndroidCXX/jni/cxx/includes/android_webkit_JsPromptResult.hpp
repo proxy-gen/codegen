@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_webkit_JsPromptResult(const android_webkit_JsPromptResult& cc);
 	android_webkit_JsPromptResult(void * proxy);
 	// Public Constructors
-	android_webkit_JsPromptResult();
+	// TODO: remove
+	// 
+	// android_webkit_JsPromptResult();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_JsPromptResult();
 	// Functions

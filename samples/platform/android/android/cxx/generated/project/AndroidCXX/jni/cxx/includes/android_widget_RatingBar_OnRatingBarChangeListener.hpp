@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_RatingBar_OnRatingBarChangeListener(const android_widget_RatingBar_OnRatingBarChangeListener& cc);
 	android_widget_RatingBar_OnRatingBarChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_RatingBar_OnRatingBarChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_RatingBar_OnRatingBarChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RatingBar_OnRatingBarChangeListener();
 	// Functions

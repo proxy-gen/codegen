@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -71,6 +70,8 @@ public:
 	// Public Constructors
 	android_content_pm_ConfigurationInfo();
 	android_content_pm_ConfigurationInfo(AndroidCXX::android_content_pm_ConfigurationInfo& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_ConfigurationInfo();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
 	
@@ -72,7 +71,10 @@ public:
 	android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc);
 	android_database_sqlite_SQLiteCursorDriver(void * proxy);
 	// Public Constructors
-	android_database_sqlite_SQLiteCursorDriver();
+	// TODO: remove
+	// 
+	// android_database_sqlite_SQLiteCursorDriver();
+	// 
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteCursorDriver();
 	// Functions

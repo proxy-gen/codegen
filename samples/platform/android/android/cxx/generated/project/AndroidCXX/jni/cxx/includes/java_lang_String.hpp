@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -268,6 +267,8 @@ public:
 	java_lang_String(std::vector<byte>& arg0);
 	java_lang_String(AndroidCXX::java_lang_StringBuffer& arg0);
 	java_lang_String(AndroidCXX::java_lang_StringBuilder& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_lang_String();
 	// Functions

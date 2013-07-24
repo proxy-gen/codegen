@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -197,7 +196,10 @@ public:
 	android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc);
 	android_view_accessibility_AccessibilityNodeInfo(void * proxy);
 	// Public Constructors
-	android_view_accessibility_AccessibilityNodeInfo();
+	// TODO: remove
+	// 
+	// android_view_accessibility_AccessibilityNodeInfo();
+	// 
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeInfo();
 	// Functions

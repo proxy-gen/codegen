@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -74,7 +73,10 @@ public:
 	android_app_LoaderManager_LoaderCallbacks(const android_app_LoaderManager_LoaderCallbacks& cc);
 	android_app_LoaderManager_LoaderCallbacks(void * proxy);
 	// Public Constructors
-	android_app_LoaderManager_LoaderCallbacks();
+	// TODO: remove
+	// 
+	// android_app_LoaderManager_LoaderCallbacks();
+	// 
 	// Default Destructor
 	virtual ~android_app_LoaderManager_LoaderCallbacks();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,6 +27,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_PickerFragment_2"
@@ -46,7 +46,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(const com_facebook_widget_PickerFragment_2& cc)
@@ -90,40 +89,45 @@ com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void 
 
 	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2(void * proxy) exit");
 }
-com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2()
-{
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2()
+// {
+// 	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/PickerFragment$2";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/PickerFragment$2";
 
-	LOGV("com_facebook_widget_PickerFragment_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_PickerFragment_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_PickerFragment_2 cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_PickerFragment_2 jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_PickerFragment_2 cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_PickerFragment_2 jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() exit");	
-}
+// 	LOGV("com_facebook_widget_PickerFragment_2::com_facebook_widget_PickerFragment_2() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_PickerFragment_2::~com_facebook_widget_PickerFragment_2()
@@ -182,7 +186,6 @@ bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -200,7 +203,9 @@ bool com_facebook_widget_PickerFragment_2::includeItem(FacebookCXX::com_facebook
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

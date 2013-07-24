@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -44,7 +43,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Movie"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -83,7 +82,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_graphics_Movie::android_graphics_Movie(const android_graphics_Movie& cc)
@@ -127,40 +125,45 @@ android_graphics_Movie::android_graphics_Movie(void * proxy)
 
 	LOGV("android_graphics_Movie::android_graphics_Movie(void * proxy) exit");
 }
-android_graphics_Movie::android_graphics_Movie()
-{
-	LOGV("android_graphics_Movie::android_graphics_Movie() enter");	
+// TODO: remove
+// 
+// 
+// android_graphics_Movie::android_graphics_Movie()
+// {
+// 	LOGV("android_graphics_Movie::android_graphics_Movie() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/graphics/Movie";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/graphics/Movie";
 
-	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_graphics_Movie className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_graphics_Movie cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_graphics_Movie jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_graphics_Movie cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_graphics_Movie jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_graphics_Movie::android_graphics_Movie() exit");	
-}
+// 	LOGV("android_graphics_Movie::android_graphics_Movie() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_graphics_Movie::~android_graphics_Movie()
@@ -198,7 +201,6 @@ bool android_graphics_Movie::isOpaque()
 	LOGV("android_graphics_Movie jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -216,7 +218,9 @@ bool android_graphics_Movie::isOpaque()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -266,7 +270,6 @@ bool android_graphics_Movie::setTime(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -284,7 +287,9 @@ bool android_graphics_Movie::setTime(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -313,7 +318,6 @@ int android_graphics_Movie::width()
 	LOGV("android_graphics_Movie jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -331,7 +335,9 @@ int android_graphics_Movie::width()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -360,7 +366,6 @@ int android_graphics_Movie::height()
 	LOGV("android_graphics_Movie jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -378,7 +383,9 @@ int android_graphics_Movie::height()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -610,7 +617,6 @@ int android_graphics_Movie::duration()
 	LOGV("android_graphics_Movie jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -628,7 +634,9 @@ int android_graphics_Movie::duration()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -678,7 +686,6 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeStream(AndroidC
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Movie result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -696,7 +703,9 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeStream(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Movie(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Movie) (AndroidCXX::android_graphics_Movie((AndroidCXX::android_graphics_Movie *) cxx_value));
+
+	AndroidCXX::android_graphics_Movie result((AndroidCXX::android_graphics_Movie) *((AndroidCXX::android_graphics_Movie *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Movie *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -806,7 +815,6 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeByteArray(std::
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Movie result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -824,7 +832,9 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeByteArray(std::
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Movie(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Movie) (AndroidCXX::android_graphics_Movie((AndroidCXX::android_graphics_Movie *) cxx_value));
+
+	AndroidCXX::android_graphics_Movie result((AndroidCXX::android_graphics_Movie) *((AndroidCXX::android_graphics_Movie *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Movie *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -874,7 +884,6 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeFile(AndroidCXX
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::android_graphics_Movie result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -892,7 +901,9 @@ AndroidCXX::android_graphics_Movie android_graphics_Movie::decodeFile(AndroidCXX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Movie(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Movie) (AndroidCXX::android_graphics_Movie((AndroidCXX::android_graphics_Movie *) cxx_value));
+
+	AndroidCXX::android_graphics_Movie result((AndroidCXX::android_graphics_Movie) *((AndroidCXX::android_graphics_Movie *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Movie *) cxx_value);
 		
 	jni->popLocalFrame();
 

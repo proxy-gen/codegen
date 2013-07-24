@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -75,7 +74,10 @@ public:
 	com_facebook_android_Facebook_TokenRefreshServiceConnection(void * proxy);
 	// Public Constructors
 	com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2);
-	com_facebook_android_Facebook_TokenRefreshServiceConnection();
+	// TODO: remove
+	// 
+	// com_facebook_android_Facebook_TokenRefreshServiceConnection();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshServiceConnection();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -64,7 +63,10 @@ public:
 	android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc);
 	android_webkit_WebHistoryItem(void * proxy);
 	// Public Constructors
-	android_webkit_WebHistoryItem();
+	// TODO: remove
+	// 
+	// android_webkit_WebHistoryItem();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebHistoryItem();
 	// Functions

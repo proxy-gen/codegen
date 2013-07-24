@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -150,6 +149,8 @@ public:
 	org_json_JSONArray(AndroidCXX::java_lang_String& arg0);
 	org_json_JSONArray();
 	org_json_JSONArray(AndroidCXX::java_util_Collection& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~org_json_JSONArray();
 	// Functions

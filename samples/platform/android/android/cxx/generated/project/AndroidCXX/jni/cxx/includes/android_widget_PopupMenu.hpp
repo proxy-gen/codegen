@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -87,7 +86,10 @@ public:
 	android_widget_PopupMenu(void * proxy);
 	// Public Constructors
 	android_widget_PopupMenu(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_view_View& arg1);
-	android_widget_PopupMenu();
+	// TODO: remove
+	// 
+	// android_widget_PopupMenu();
+	// 
 	// Default Destructor
 	virtual ~android_widget_PopupMenu();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -29,6 +28,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_ImageDownloader_RequestKey"
@@ -49,7 +49,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey(const com_facebook_widget_ImageDownloader_RequestKey& cc)
@@ -93,40 +92,45 @@ com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloa
 
 	LOGV("com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey(void * proxy) exit");
 }
-com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey()
-{
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey()
+// {
+// 	LOGV("com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/widget/ImageDownloader$RequestKey";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/widget/ImageDownloader$RequestKey";
 
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_widget_ImageDownloader_RequestKey cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_widget_ImageDownloader_RequestKey jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey() exit");	
-}
+// 	LOGV("com_facebook_widget_ImageDownloader_RequestKey::com_facebook_widget_ImageDownloader_RequestKey() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_widget_ImageDownloader_RequestKey::~com_facebook_widget_ImageDownloader_RequestKey()
@@ -185,7 +189,6 @@ bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lan
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -203,7 +206,9 @@ bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lan
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -232,7 +237,6 @@ int com_facebook_widget_ImageDownloader_RequestKey::hashCode()
 	LOGV("com_facebook_widget_ImageDownloader_RequestKey jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -250,7 +254,9 @@ int com_facebook_widget_ImageDownloader_RequestKey::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_util_Pair"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -69,7 +68,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_util_Pair::android_util_Pair(const android_util_Pair& cc)
@@ -113,40 +111,45 @@ android_util_Pair::android_util_Pair(void * proxy)
 
 	LOGV("android_util_Pair::android_util_Pair(void * proxy) exit");
 }
-android_util_Pair::android_util_Pair()
-{
-	LOGV("android_util_Pair::android_util_Pair() enter");	
+// TODO: remove
+// 
+// 
+// android_util_Pair::android_util_Pair()
+// {
+// 	LOGV("android_util_Pair::android_util_Pair() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/util/Pair";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/util/Pair";
 
-	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_util_Pair cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_util_Pair jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_util_Pair cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_util_Pair jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_util_Pair::android_util_Pair() exit");	
-}
+// 	LOGV("android_util_Pair::android_util_Pair() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_util_Pair::android_util_Pair(AndroidCXX::java_lang_Object& arg0,AndroidCXX::java_lang_Object& arg1)
 {
@@ -283,7 +286,6 @@ bool android_util_Pair::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -301,7 +303,9 @@ bool android_util_Pair::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -330,7 +334,6 @@ int android_util_Pair::hashCode()
 	LOGV("android_util_Pair jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -348,7 +351,9 @@ int android_util_Pair::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -419,7 +424,6 @@ AndroidCXX::android_util_Pair android_util_Pair::create(AndroidCXX::java_lang_Ob
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_util_Pair result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -470,7 +474,9 @@ AndroidCXX::android_util_Pair android_util_Pair::create(AndroidCXX::java_lang_Ob
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_util_Pair(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_util_Pair) (AndroidCXX::android_util_Pair((AndroidCXX::android_util_Pair *) cxx_value));
+
+	AndroidCXX::android_util_Pair result((AndroidCXX::android_util_Pair) *((AndroidCXX::android_util_Pair *) cxx_value));
+	delete ((AndroidCXX::android_util_Pair *) cxx_value);
 		
 	jni->popLocalFrame();
 

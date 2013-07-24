@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -99,7 +98,10 @@ public:
 	java_util_Collection(const java_util_Collection& cc);
 	java_util_Collection(void * proxy);
 	// Public Constructors
-	java_util_Collection();
+	// TODO: remove
+	// 
+	// java_util_Collection();
+	// 
 	// Default Destructor
 	virtual ~java_util_Collection();
 	// Functions

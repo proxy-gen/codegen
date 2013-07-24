@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_view_View_OnClickListener(const android_view_View_OnClickListener& cc);
 	android_view_View_OnClickListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnClickListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnClickListener();
 	// Functions

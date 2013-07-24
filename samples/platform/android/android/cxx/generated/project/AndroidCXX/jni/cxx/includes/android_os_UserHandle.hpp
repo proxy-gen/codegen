@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -80,7 +79,10 @@ public:
 	android_os_UserHandle(void * proxy);
 	// Public Constructors
 	android_os_UserHandle(AndroidCXX::android_os_Parcel& arg0);
-	android_os_UserHandle();
+	// TODO: remove
+	// 
+	// android_os_UserHandle();
+	// 
 	// Default Destructor
 	virtual ~android_os_UserHandle();
 	// Functions

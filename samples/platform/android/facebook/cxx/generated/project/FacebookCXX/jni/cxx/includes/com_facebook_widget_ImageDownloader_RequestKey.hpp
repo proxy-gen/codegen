@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_widget_ImageDownloader_RequestKey(const com_facebook_widget_ImageDownloader_RequestKey& cc);
 	com_facebook_widget_ImageDownloader_RequestKey(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ImageDownloader_RequestKey();
+	// TODO: remove
+	// 
+	// com_facebook_widget_ImageDownloader_RequestKey();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_RequestKey();
 	// Functions

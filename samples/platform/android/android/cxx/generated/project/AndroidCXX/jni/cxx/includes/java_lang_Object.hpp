@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -75,6 +74,8 @@ public:
 	java_lang_Object(void * proxy);
 	// Public Constructors
 	java_lang_Object();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_lang_Object();
 	// Functions

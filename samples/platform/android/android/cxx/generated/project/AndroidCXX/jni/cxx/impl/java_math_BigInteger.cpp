@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -131,7 +130,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_math_BigInteger"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -306,7 +305,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 java_math_BigInteger::java_math_BigInteger(const java_math_BigInteger& cc)
 {
@@ -349,40 +347,45 @@ java_math_BigInteger::java_math_BigInteger(void * proxy)
 
 	LOGV("java_math_BigInteger::java_math_BigInteger(void * proxy) exit");
 }
-java_math_BigInteger::java_math_BigInteger()
-{
-	LOGV("java_math_BigInteger::java_math_BigInteger() enter");	
+// TODO: remove
+// 
+// 
+// java_math_BigInteger::java_math_BigInteger()
+// {
+// 	LOGV("java_math_BigInteger::java_math_BigInteger() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/math/BigInteger";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/math/BigInteger";
 
-	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_math_BigInteger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_math_BigInteger cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_math_BigInteger jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_math_BigInteger cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_math_BigInteger jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_math_BigInteger::java_math_BigInteger() exit");	
-}
+// 	LOGV("java_math_BigInteger::java_math_BigInteger() exit");	
+// }
+// 
+// 
 // Public Constructors
 java_math_BigInteger::java_math_BigInteger(int& arg0,std::vector<byte>& arg1)
 {
@@ -924,7 +927,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::add(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -942,7 +944,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::add(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -971,7 +975,6 @@ int java_math_BigInteger::bitCount()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -989,7 +992,9 @@ int java_math_BigInteger::bitCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1039,7 +1044,6 @@ bool java_math_BigInteger::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1057,7 +1061,9 @@ bool java_math_BigInteger::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1107,7 +1113,6 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1125,7 +1130,9 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1154,7 +1161,6 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1172,7 +1178,9 @@ AndroidCXX::java_lang_String java_math_BigInteger::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1201,7 +1209,6 @@ int java_math_BigInteger::hashCode()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1219,7 +1226,9 @@ int java_math_BigInteger::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1248,7 +1257,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::abs()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1266,7 +1274,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::abs()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1316,7 +1326,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::pow(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1334,7 +1343,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::pow(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1384,7 +1395,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::min(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1402,7 +1412,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::min(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1452,7 +1464,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::max(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1470,7 +1481,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::max(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1520,7 +1533,6 @@ int java_math_BigInteger::compareTo(AndroidCXX::java_math_BigInteger& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1538,7 +1550,9 @@ int java_math_BigInteger::compareTo(AndroidCXX::java_math_BigInteger& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1567,7 +1581,6 @@ int java_math_BigInteger::intValue()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1585,7 +1598,9 @@ int java_math_BigInteger::intValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1614,7 +1629,6 @@ long java_math_BigInteger::longValue()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1632,7 +1646,9 @@ long java_math_BigInteger::longValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1661,7 +1677,6 @@ float java_math_BigInteger::floatValue()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -1679,7 +1694,9 @@ float java_math_BigInteger::floatValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1708,7 +1725,6 @@ double java_math_BigInteger::doubleValue()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	double result;
 	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_double_to_java(jni_result);
@@ -1726,7 +1742,9 @@ double java_math_BigInteger::doubleValue()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (double) (cxx_value);
+
+	double result = (double) *((double *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1776,7 +1794,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::valueOf(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1794,7 +1811,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::valueOf(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1823,7 +1842,6 @@ int java_math_BigInteger::signum()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1841,7 +1859,9 @@ int java_math_BigInteger::signum()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1870,7 +1890,6 @@ std::vector<byte> java_math_BigInteger::toByteArray()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	std::vector<byte> result;
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
@@ -1906,7 +1925,9 @@ std::vector<byte> java_math_BigInteger::toByteArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<byte>) (cxx_value);
+
+	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1956,7 +1977,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_and(AndroidCXX::java_mat
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1974,7 +1994,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_and(AndroidCXX::java_mat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2024,7 +2046,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_or(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2042,7 +2063,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_or(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2092,7 +2115,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_xor(AndroidCXX::java_mat
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2110,7 +2132,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_xor(AndroidCXX::java_mat
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2160,7 +2184,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::andNot(AndroidCXX::java_m
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2178,7 +2201,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::andNot(AndroidCXX::java_m
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2228,7 +2253,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::subtract(AndroidCXX::java
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2246,7 +2270,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::subtract(AndroidCXX::java
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2296,7 +2322,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::multiply(AndroidCXX::java
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2314,7 +2339,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::multiply(AndroidCXX::java
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2364,7 +2391,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::divide(AndroidCXX::java_m
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2382,7 +2408,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::divide(AndroidCXX::java_m
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2432,7 +2460,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::remainder(AndroidCXX::jav
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2450,7 +2477,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::remainder(AndroidCXX::jav
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2500,7 +2529,6 @@ std::vector<AndroidCXX::java_math_BigInteger > java_math_BigInteger::divideAndRe
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	std::vector<AndroidCXX::java_math_BigInteger > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2536,7 +2564,9 @@ std::vector<AndroidCXX::java_math_BigInteger > java_math_BigInteger::divideAndRe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_math_BigInteger >) (cxx_value);
+
+	std::vector<AndroidCXX::java_math_BigInteger > result = (std::vector<AndroidCXX::java_math_BigInteger >) *((std::vector<AndroidCXX::java_math_BigInteger > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_math_BigInteger > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2565,7 +2595,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::negate()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2583,7 +2612,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::negate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2612,7 +2643,6 @@ int java_math_BigInteger::bitLength()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2630,7 +2660,9 @@ int java_math_BigInteger::bitLength()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2680,7 +2712,6 @@ bool java_math_BigInteger::testBit(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2698,7 +2729,9 @@ bool java_math_BigInteger::testBit(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2769,7 +2802,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::probablePrime(int& arg0,A
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2787,7 +2819,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::probablePrime(int& arg0,A
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2816,7 +2850,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::nextProbablePrime()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2834,7 +2867,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::nextProbablePrime()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2884,7 +2919,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::gcd(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2902,7 +2936,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::gcd(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2952,7 +2988,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::mod(AndroidCXX::java_math
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2970,7 +3005,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::mod(AndroidCXX::java_math
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3041,7 +3078,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modPow(AndroidCXX::java_m
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3059,7 +3095,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modPow(AndroidCXX::java_m
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3109,7 +3147,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modInverse(AndroidCXX::ja
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3127,7 +3164,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::modInverse(AndroidCXX::ja
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3177,7 +3216,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftLeft(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3195,7 +3233,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftLeft(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3245,7 +3285,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftRight(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3263,7 +3302,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::shiftRight(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3292,7 +3333,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_not()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3310,7 +3350,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::_not()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3360,7 +3402,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::setBit(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3378,7 +3419,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::setBit(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3428,7 +3471,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::clearBit(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3446,7 +3488,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::clearBit(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3496,7 +3540,6 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::flipBit(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_math_BigInteger result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -3514,7 +3557,9 @@ AndroidCXX::java_math_BigInteger java_math_BigInteger::flipBit(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_math_BigInteger(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_math_BigInteger) (AndroidCXX::java_math_BigInteger((AndroidCXX::java_math_BigInteger *) cxx_value));
+
+	AndroidCXX::java_math_BigInteger result((AndroidCXX::java_math_BigInteger) *((AndroidCXX::java_math_BigInteger *) cxx_value));
+	delete ((AndroidCXX::java_math_BigInteger *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -3543,7 +3588,6 @@ int java_math_BigInteger::getLowestSetBit()
 	LOGV("java_math_BigInteger jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3561,7 +3605,9 @@ int java_math_BigInteger::getLowestSetBit()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3611,7 +3657,6 @@ bool java_math_BigInteger::isProbablePrime(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3629,7 +3674,9 @@ bool java_math_BigInteger::isProbablePrime(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

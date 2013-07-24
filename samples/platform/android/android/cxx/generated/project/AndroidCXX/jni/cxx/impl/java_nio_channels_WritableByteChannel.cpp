@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_WritableByteChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc)
@@ -90,40 +88,45 @@ java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(voi
 
 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel(void * proxy) exit");
 }
-java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel()
-{
-	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() enter");	
+// TODO: remove
+// 
+// 
+// java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel()
+// {
+// 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/channels/WritableByteChannel";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/nio/channels/WritableByteChannel";
 
-	LOGV("java_nio_channels_WritableByteChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_nio_channels_WritableByteChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_nio_channels_WritableByteChannel cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_nio_channels_WritableByteChannel jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_nio_channels_WritableByteChannel cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_nio_channels_WritableByteChannel jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() exit");	
-}
+// 	LOGV("java_nio_channels_WritableByteChannel::java_nio_channels_WritableByteChannel() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 java_nio_channels_WritableByteChannel::~java_nio_channels_WritableByteChannel()
@@ -182,7 +185,6 @@ int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -200,7 +202,9 @@ int java_nio_channels_WritableByteChannel::write(AndroidCXX::java_nio_ByteBuffer
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

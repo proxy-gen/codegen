@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -59,7 +58,10 @@ public:
 	android_widget_SimpleCursorAdapter_CursorToStringConverter(const android_widget_SimpleCursorAdapter_CursorToStringConverter& cc);
 	android_widget_SimpleCursorAdapter_CursorToStringConverter(void * proxy);
 	// Public Constructors
-	android_widget_SimpleCursorAdapter_CursorToStringConverter();
+	// TODO: remove
+	// 
+	// android_widget_SimpleCursorAdapter_CursorToStringConverter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter_CursorToStringConverter();
 	// Functions

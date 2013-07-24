@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_view_View_OnDragListener(const android_view_View_OnDragListener& cc);
 	android_view_View_OnDragListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnDragListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnDragListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnDragListener();
 	// Functions

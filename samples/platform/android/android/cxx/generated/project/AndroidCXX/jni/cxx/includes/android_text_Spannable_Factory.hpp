@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -66,6 +65,8 @@ public:
 	android_text_Spannable_Factory(void * proxy);
 	// Public Constructors
 	android_text_Spannable_Factory();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_text_Spannable_Factory();
 	// Functions

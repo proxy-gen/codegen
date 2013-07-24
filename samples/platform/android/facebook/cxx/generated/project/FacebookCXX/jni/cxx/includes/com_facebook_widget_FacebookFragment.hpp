@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -65,7 +64,10 @@ public:
 	com_facebook_widget_FacebookFragment(const com_facebook_widget_FacebookFragment& cc);
 	com_facebook_widget_FacebookFragment(void * proxy);
 	// Public Constructors
-	com_facebook_widget_FacebookFragment();
+	// TODO: remove
+	// 
+	// com_facebook_widget_FacebookFragment();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment();
 	// Functions

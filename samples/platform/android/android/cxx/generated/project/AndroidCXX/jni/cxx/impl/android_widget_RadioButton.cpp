@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -39,7 +38,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RadioButton"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -75,7 +74,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_RadioButton::android_widget_RadioButton(const android_widget_RadioButton& cc)
@@ -119,40 +117,45 @@ android_widget_RadioButton::android_widget_RadioButton(void * proxy)
 
 	LOGV("android_widget_RadioButton::android_widget_RadioButton(void * proxy) exit");
 }
-android_widget_RadioButton::android_widget_RadioButton()
-{
-	LOGV("android_widget_RadioButton::android_widget_RadioButton() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_RadioButton::android_widget_RadioButton()
+// {
+// 	LOGV("android_widget_RadioButton::android_widget_RadioButton() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/RadioButton";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/RadioButton";
 
-	LOGV("android_widget_RadioButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_RadioButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_RadioButton cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_RadioButton jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_RadioButton cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_RadioButton jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_RadioButton::android_widget_RadioButton() exit");	
-}
+// 	LOGV("android_widget_RadioButton::android_widget_RadioButton() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_RadioButton::android_widget_RadioButton(AndroidCXX::android_content_Context& arg0)
 {

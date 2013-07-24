@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -54,7 +53,10 @@ public:
 	android_os_IInterface(const android_os_IInterface& cc);
 	android_os_IInterface(void * proxy);
 	// Public Constructors
-	android_os_IInterface();
+	// TODO: remove
+	// 
+	// android_os_IInterface();
+	// 
 	// Default Destructor
 	virtual ~android_os_IInterface();
 	// Functions

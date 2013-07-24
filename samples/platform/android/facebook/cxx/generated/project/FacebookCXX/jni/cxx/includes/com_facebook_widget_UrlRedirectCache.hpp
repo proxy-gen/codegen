@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_UrlRedirectCache
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc);
 	com_facebook_widget_UrlRedirectCache(void * proxy);
 	// Public Constructors
-	com_facebook_widget_UrlRedirectCache();
+	// TODO: remove
+	// 
+	// com_facebook_widget_UrlRedirectCache();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_UrlRedirectCache();
 	// Functions

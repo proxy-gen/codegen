@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -198,7 +197,10 @@ public:
 	android_webkit_WebSettings(const android_webkit_WebSettings& cc);
 	android_webkit_WebSettings(void * proxy);
 	// Public Constructors
-	android_webkit_WebSettings();
+	// TODO: remove
+	// 
+	// android_webkit_WebSettings();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebSettings();
 	// Functions

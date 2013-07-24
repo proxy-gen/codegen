@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -68,7 +67,10 @@ public:
 	android_net_http_SslCertificate_DName(void * proxy);
 	// Public Constructors
 	android_net_http_SslCertificate_DName(AndroidCXX::android_net_http_SslCertificate& arg0,AndroidCXX::java_lang_String& arg1);
-	android_net_http_SslCertificate_DName();
+	// TODO: remove
+	// 
+	// android_net_http_SslCertificate_DName();
+	// 
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate_DName();
 	// Functions

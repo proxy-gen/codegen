@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_Request_Callback(const com_facebook_Request_Callback& cc);
 	com_facebook_Request_Callback(void * proxy);
 	// Public Constructors
-	com_facebook_Request_Callback();
+	// TODO: remove
+	// 
+	// com_facebook_Request_Callback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Request_Callback();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -63,7 +62,10 @@ public:
 	com_facebook_FacebookServiceException(void * proxy);
 	// Public Constructors
 	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError& arg0,AndroidCXX::java_lang_String& arg1);
-	com_facebook_FacebookServiceException();
+	// TODO: remove
+	// 
+	// com_facebook_FacebookServiceException();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_FacebookServiceException();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -79,7 +78,10 @@ public:
 	android_widget_ImageButton(AndroidCXX::android_content_Context& arg0);
 	android_widget_ImageButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_ImageButton(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1,int& arg2);
-	android_widget_ImageButton();
+	// TODO: remove
+	// 
+	// android_widget_ImageButton();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ImageButton();
 	// Functions

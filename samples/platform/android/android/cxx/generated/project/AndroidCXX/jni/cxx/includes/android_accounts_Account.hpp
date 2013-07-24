@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -75,7 +74,10 @@ public:
 	// Public Constructors
 	android_accounts_Account(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	android_accounts_Account(AndroidCXX::android_os_Parcel& arg0);
-	android_accounts_Account();
+	// TODO: remove
+	// 
+	// android_accounts_Account();
+	// 
 	// Default Destructor
 	virtual ~android_accounts_Account();
 	// Functions

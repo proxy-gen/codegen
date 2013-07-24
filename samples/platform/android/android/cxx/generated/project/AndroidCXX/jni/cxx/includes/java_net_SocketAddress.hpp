@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_net_SocketAddress
@@ -50,6 +49,8 @@ public:
 	java_net_SocketAddress(void * proxy);
 	// Public Constructors
 	java_net_SocketAddress();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_SocketAddress();
 	// Functions

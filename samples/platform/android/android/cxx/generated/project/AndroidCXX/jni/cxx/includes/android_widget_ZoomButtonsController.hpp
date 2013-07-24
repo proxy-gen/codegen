@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -84,7 +83,10 @@ public:
 	android_widget_ZoomButtonsController(void * proxy);
 	// Public Constructors
 	android_widget_ZoomButtonsController(AndroidCXX::android_view_View& arg0);
-	android_widget_ZoomButtonsController();
+	// TODO: remove
+	// 
+	// android_widget_ZoomButtonsController();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController();
 	// Functions

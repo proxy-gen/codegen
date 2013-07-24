@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_OnLayoutChangeListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener(const android_view_View_OnLayoutChangeListener& cc)
@@ -90,40 +88,45 @@ android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListen
 
 	LOGV("android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener(void * proxy) exit");
 }
-android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener()
-{
-	LOGV("android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener() enter");	
+// TODO: remove
+// 
+// 
+// android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener()
+// {
+// 	LOGV("android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/View$OnLayoutChangeListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/View$OnLayoutChangeListener";
 
-	LOGV("android_view_View_OnLayoutChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_View_OnLayoutChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_View_OnLayoutChangeListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_View_OnLayoutChangeListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_View_OnLayoutChangeListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_View_OnLayoutChangeListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener() exit");	
-}
+// 	LOGV("android_view_View_OnLayoutChangeListener::android_view_View_OnLayoutChangeListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_View_OnLayoutChangeListener::~android_view_View_OnLayoutChangeListener()

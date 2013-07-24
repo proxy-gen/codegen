@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -60,7 +59,10 @@ public:
 	android_view_WindowManager(const android_view_WindowManager& cc);
 	android_view_WindowManager(void * proxy);
 	// Public Constructors
-	android_view_WindowManager();
+	// TODO: remove
+	// 
+	// android_view_WindowManager();
+	// 
 	// Default Destructor
 	virtual ~android_view_WindowManager();
 	// Functions

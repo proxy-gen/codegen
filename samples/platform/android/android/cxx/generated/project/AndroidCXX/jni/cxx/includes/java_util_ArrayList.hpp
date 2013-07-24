@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -107,6 +106,8 @@ public:
 	java_util_ArrayList(int& arg0);
 	java_util_ArrayList();
 	java_util_ArrayList(AndroidCXX::java_util_Collection& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_util_ArrayList();
 	// Functions

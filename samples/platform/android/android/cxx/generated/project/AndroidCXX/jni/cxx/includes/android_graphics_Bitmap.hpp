@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -181,7 +180,10 @@ public:
 	android_graphics_Bitmap(const android_graphics_Bitmap& cc);
 	android_graphics_Bitmap(void * proxy);
 	// Public Constructors
-	android_graphics_Bitmap();
+	// TODO: remove
+	// 
+	// android_graphics_Bitmap();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Bitmap();
 	// Functions

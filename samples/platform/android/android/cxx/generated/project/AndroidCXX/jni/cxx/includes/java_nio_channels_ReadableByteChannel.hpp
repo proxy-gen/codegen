@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	java_nio_channels_ReadableByteChannel(const java_nio_channels_ReadableByteChannel& cc);
 	java_nio_channels_ReadableByteChannel(void * proxy);
 	// Public Constructors
-	java_nio_channels_ReadableByteChannel();
+	// TODO: remove
+	// 
+	// java_nio_channels_ReadableByteChannel();
+	// 
 	// Default Destructor
 	virtual ~java_nio_channels_ReadableByteChannel();
 	// Functions

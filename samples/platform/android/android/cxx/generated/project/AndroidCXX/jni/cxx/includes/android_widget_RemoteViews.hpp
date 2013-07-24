@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -198,7 +197,10 @@ public:
 	android_widget_RemoteViews(AndroidCXX::java_lang_String& arg0,int& arg1);
 	android_widget_RemoteViews(AndroidCXX::android_os_Parcel& arg0);
 	android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews& arg0,AndroidCXX::android_widget_RemoteViews& arg1);
-	android_widget_RemoteViews();
+	// TODO: remove
+	// 
+	// android_widget_RemoteViews();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RemoteViews();
 	// Functions

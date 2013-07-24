@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,10 @@ public:
 	android_content_IntentSender_OnFinished(const android_content_IntentSender_OnFinished& cc);
 	android_content_IntentSender_OnFinished(void * proxy);
 	// Public Constructors
-	android_content_IntentSender_OnFinished();
+	// TODO: remove
+	// 
+	// android_content_IntentSender_OnFinished();
+	// 
 	// Default Destructor
 	virtual ~android_content_IntentSender_OnFinished();
 	// Functions

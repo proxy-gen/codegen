@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -130,7 +129,10 @@ public:
 	// Public Constructors
 	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1);
 	android_widget_CursorTreeAdapter(AndroidCXX::android_database_Cursor& arg0,AndroidCXX::android_content_Context& arg1,bool& arg2);
-	android_widget_CursorTreeAdapter();
+	// TODO: remove
+	// 
+	// android_widget_CursorTreeAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_CursorTreeAdapter();
 	// Functions

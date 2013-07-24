@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -70,7 +69,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_ShortBuffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -143,7 +142,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 java_nio_ShortBuffer::java_nio_ShortBuffer(const java_nio_ShortBuffer& cc)
 {
@@ -186,40 +184,45 @@ java_nio_ShortBuffer::java_nio_ShortBuffer(void * proxy)
 
 	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer(void * proxy) exit");
 }
-java_nio_ShortBuffer::java_nio_ShortBuffer()
-{
-	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() enter");	
+// TODO: remove
+// 
+// 
+// java_nio_ShortBuffer::java_nio_ShortBuffer()
+// {
+// 	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/nio/ShortBuffer";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/nio/ShortBuffer";
 
-	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_nio_ShortBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_nio_ShortBuffer cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_nio_ShortBuffer jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_nio_ShortBuffer cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_nio_ShortBuffer jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() exit");	
-}
+// 	LOGV("java_nio_ShortBuffer::java_nio_ShortBuffer() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 java_nio_ShortBuffer::~java_nio_ShortBuffer()
@@ -257,7 +260,6 @@ short java_nio_ShortBuffer::get()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	short result;
 	jshort jni_result = (jshort) jni->invokeShortMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_short_to_java(jni_result);
@@ -275,7 +277,9 @@ short java_nio_ShortBuffer::get()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_short(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (short) (cxx_value);
+
+	short result = (short) *((short *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -343,7 +347,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& a
 		jarg0 = convert_jni__short_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -361,7 +364,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -471,7 +476,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& a
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -489,7 +493,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::get(std::vector<short>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -539,7 +545,6 @@ short java_nio_ShortBuffer::get(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	short result;
 	jshort jni_result = (jshort) jni->invokeShortMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_short_to_java(jni_result);
@@ -557,7 +562,9 @@ short java_nio_ShortBuffer::get(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_short(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (short) (cxx_value);
+
+	short result = (short) *((short *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -607,7 +614,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(AndroidCXX::java_nio_
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -625,7 +631,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(AndroidCXX::java_nio_
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -675,7 +683,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(short& arg0)
 		jarg0 = convert_jni_short_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -693,7 +700,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(short& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -764,7 +773,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(int& arg0,short& arg1
 		jarg1 = convert_jni_short_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -782,7 +790,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(int& arg0,short& arg1
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -892,7 +902,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& a
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -910,7 +919,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -978,7 +989,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& a
 		jarg0 = convert_jni__short_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -996,7 +1006,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::put(std::vector<short>& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1046,7 +1058,6 @@ bool java_nio_ShortBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1064,7 +1075,9 @@ bool java_nio_ShortBuffer::equals(AndroidCXX::java_lang_Object& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1093,7 +1106,6 @@ AndroidCXX::java_lang_String java_nio_ShortBuffer::toString()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1111,7 +1123,9 @@ AndroidCXX::java_lang_String java_nio_ShortBuffer::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1140,7 +1154,6 @@ int java_nio_ShortBuffer::hashCode()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1158,7 +1171,9 @@ int java_nio_ShortBuffer::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1208,7 +1223,6 @@ int java_nio_ShortBuffer::compareTo(AndroidCXX::java_nio_ShortBuffer& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1226,7 +1240,9 @@ int java_nio_ShortBuffer::compareTo(AndroidCXX::java_nio_ShortBuffer& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1255,7 +1271,6 @@ bool java_nio_ShortBuffer::isDirect()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1273,7 +1288,9 @@ bool java_nio_ShortBuffer::isDirect()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1302,7 +1319,6 @@ bool java_nio_ShortBuffer::hasArray()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1320,7 +1336,9 @@ bool java_nio_ShortBuffer::hasArray()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1349,7 +1367,6 @@ std::vector<short> java_nio_ShortBuffer::array()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	std::vector<short> result;
 	jshortArray jni_result = (jshortArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__short_array_type_to_java(jni_result);
@@ -1385,7 +1402,9 @@ std::vector<short> java_nio_ShortBuffer::array()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__short_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<short>) (cxx_value);
+
+	std::vector<short> result = (std::vector<short>) *((std::vector<short> *) cxx_value);
+	delete ((std::vector<short> *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1414,7 +1433,6 @@ int java_nio_ShortBuffer::arrayOffset()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1432,7 +1450,9 @@ int java_nio_ShortBuffer::arrayOffset()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1542,7 +1562,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& 
 		jarg2 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1560,7 +1579,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1628,7 +1649,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& 
 		jarg0 = convert_jni__short_array_type_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1646,7 +1666,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::wrap(std::vector<short>& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1696,7 +1718,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::allocate(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1714,7 +1735,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::allocate(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1743,7 +1766,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::duplicate()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1761,7 +1783,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::duplicate()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1790,7 +1814,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::slice()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1808,7 +1831,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::slice()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1837,7 +1862,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::asReadOnlyBuffer()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1855,7 +1879,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::asReadOnlyBuffer()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1884,7 +1910,6 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::compact()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ShortBuffer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1902,7 +1927,9 @@ AndroidCXX::java_nio_ShortBuffer java_nio_ShortBuffer::compact()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ShortBuffer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ShortBuffer) (AndroidCXX::java_nio_ShortBuffer((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+
+	AndroidCXX::java_nio_ShortBuffer result((AndroidCXX::java_nio_ShortBuffer) *((AndroidCXX::java_nio_ShortBuffer *) cxx_value));
+	delete ((AndroidCXX::java_nio_ShortBuffer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1931,7 +1958,6 @@ AndroidCXX::java_nio_ByteOrder java_nio_ShortBuffer::order()
 	LOGV("java_nio_ShortBuffer jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_ByteOrder result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1949,7 +1975,9 @@ AndroidCXX::java_nio_ByteOrder java_nio_ShortBuffer::order()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_ByteOrder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_ByteOrder) (AndroidCXX::java_nio_ByteOrder((AndroidCXX::java_nio_ByteOrder *) cxx_value));
+
+	AndroidCXX::java_nio_ByteOrder result((AndroidCXX::java_nio_ByteOrder) *((AndroidCXX::java_nio_ByteOrder *) cxx_value));
+	delete ((AndroidCXX::java_nio_ByteOrder *) cxx_value);
 		
 	jni->popLocalFrame();
 

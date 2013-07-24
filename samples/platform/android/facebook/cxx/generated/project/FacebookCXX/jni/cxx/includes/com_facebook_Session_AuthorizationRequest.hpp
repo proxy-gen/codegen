@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_Session_AuthorizationRequest
@@ -49,7 +48,10 @@ public:
 	com_facebook_Session_AuthorizationRequest(const com_facebook_Session_AuthorizationRequest& cc);
 	com_facebook_Session_AuthorizationRequest(void * proxy);
 	// Public Constructors
-	com_facebook_Session_AuthorizationRequest();
+	// TODO: remove
+	// 
+	// com_facebook_Session_AuthorizationRequest();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest();
 	// Functions

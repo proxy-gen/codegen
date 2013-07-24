@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -60,7 +59,10 @@ public:
 	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(const com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy& cc);
 	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
 	// Functions

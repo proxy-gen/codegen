@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -174,7 +173,10 @@ public:
 	java_io_File(AndroidCXX::java_lang_String& arg0);
 	java_io_File(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	java_io_File(AndroidCXX::java_io_File& arg0,AndroidCXX::java_lang_String& arg1);
-	java_io_File();
+	// TODO: remove
+	// 
+	// java_io_File();
+	// 
 	// Default Destructor
 	virtual ~java_io_File();
 	// Functions

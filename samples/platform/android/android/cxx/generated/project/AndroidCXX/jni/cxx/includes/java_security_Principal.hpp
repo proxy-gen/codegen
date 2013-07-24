@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -63,7 +62,10 @@ public:
 	java_security_Principal(const java_security_Principal& cc);
 	java_security_Principal(void * proxy);
 	// Public Constructors
-	java_security_Principal();
+	// TODO: remove
+	// 
+	// java_security_Principal();
+	// 
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions

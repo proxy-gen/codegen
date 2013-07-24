@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -80,6 +79,8 @@ public:
 	// Public Constructors
 	android_graphics_Picture();
 	android_graphics_Picture(AndroidCXX::android_graphics_Picture& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Picture();
 	// Functions

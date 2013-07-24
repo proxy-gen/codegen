@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_widget_ExpandableListView_OnGroupClickListener(const android_widget_ExpandableListView_OnGroupClickListener& cc);
 	android_widget_ExpandableListView_OnGroupClickListener(void * proxy);
 	// Public Constructors
-	android_widget_ExpandableListView_OnGroupClickListener();
+	// TODO: remove
+	// 
+	// android_widget_ExpandableListView_OnGroupClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupClickListener();
 	// Functions

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_Session_3
@@ -49,7 +48,10 @@ public:
 	com_facebook_Session_3(const com_facebook_Session_3& cc);
 	com_facebook_Session_3(void * proxy);
 	// Public Constructors
-	com_facebook_Session_3();
+	// TODO: remove
+	// 
+	// com_facebook_Session_3();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_3();
 	// Functions

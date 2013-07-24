@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc);
 	android_view_View_OnGenericMotionListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnGenericMotionListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnGenericMotionListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnGenericMotionListener();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	java_util_concurrent_Executor(const java_util_concurrent_Executor& cc);
 	java_util_concurrent_Executor(void * proxy);
 	// Public Constructors
-	java_util_concurrent_Executor();
+	// TODO: remove
+	// 
+	// java_util_concurrent_Executor();
+	// 
 	// Default Destructor
 	virtual ~java_util_concurrent_Executor();
 	// Functions

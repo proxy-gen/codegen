@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_DatePicker_OnDateChangedListener(const android_widget_DatePicker_OnDateChangedListener& cc);
 	android_widget_DatePicker_OnDateChangedListener(void * proxy);
 	// Public Constructors
-	android_widget_DatePicker_OnDateChangedListener();
+	// TODO: remove
+	// 
+	// android_widget_DatePicker_OnDateChangedListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_DatePicker_OnDateChangedListener();
 	// Functions

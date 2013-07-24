@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,6 +57,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_widget_UserSettingsFragment"
@@ -137,7 +137,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_widget_UserSettingsFragment::com_facebook_widget_UserSettingsFragment(const com_facebook_widget_UserSettingsFragment& cc)
 {
@@ -180,6 +179,10 @@ com_facebook_widget_UserSettingsFragment::com_facebook_widget_UserSettingsFragme
 
 	LOGV("com_facebook_widget_UserSettingsFragment::com_facebook_widget_UserSettingsFragment(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_widget_UserSettingsFragment::com_facebook_widget_UserSettingsFragment()
 {
@@ -393,7 +396,6 @@ AndroidCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreate
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -411,7 +413,9 @@ AndroidCXX::android_view_View com_facebook_widget_UserSettingsFragment::onCreate
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -440,7 +444,6 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 	LOGV("com_facebook_widget_UserSettingsFragment jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -458,7 +461,9 @@ COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior com_faceboo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionLoginBehavior(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior) (cxx_value);
+
+	COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior result = (COM_FACEBOOK_SESSIONLOGINBEHAVIOR::com_facebook_SessionLoginBehavior) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -634,7 +639,6 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 	LOGV("com_facebook_widget_UserSettingsFragment jni address %d", javaObject);
 
 
-	COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -652,7 +656,9 @@ COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience com_fac
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_SessionDefaultAudience(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience) (cxx_value);
+
+	COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience result = (COM_FACEBOOK_SESSIONDEFAULTAUDIENCE::com_facebook_SessionDefaultAudience) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -681,7 +687,6 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 	LOGV("com_facebook_widget_UserSettingsFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -699,7 +704,9 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_widget_LoginButton_OnErrorListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) (FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
+
+	FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener result((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener) *((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value));
+	delete ((FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -988,7 +995,6 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_UserSetting
 	LOGV("com_facebook_widget_UserSettingsFragment jni address %d", javaObject);
 
 
-	FacebookCXX::com_facebook_Session_StatusCallback result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1006,7 +1012,9 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_UserSetting
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Session_StatusCallback(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Session_StatusCallback) (FacebookCXX::com_facebook_Session_StatusCallback((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
+
+	FacebookCXX::com_facebook_Session_StatusCallback result((FacebookCXX::com_facebook_Session_StatusCallback) *((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Session_StatusCallback *) cxx_value);
 		
 	jni->popLocalFrame();
 

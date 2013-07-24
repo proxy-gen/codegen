@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -54,7 +53,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_AccessibilityDelegate"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +123,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_View_AccessibilityDelegate::android_view_View_AccessibilityDelegate(const android_view_View_AccessibilityDelegate& cc)
 {
@@ -167,6 +165,10 @@ android_view_View_AccessibilityDelegate::android_view_View_AccessibilityDelegate
 
 	LOGV("android_view_View_AccessibilityDelegate::android_view_View_AccessibilityDelegate(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_View_AccessibilityDelegate::android_view_View_AccessibilityDelegate()
 {
@@ -282,7 +284,6 @@ bool android_view_View_AccessibilityDelegate::dispatchPopulateAccessibilityEvent
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -300,7 +301,9 @@ bool android_view_View_AccessibilityDelegate::dispatchPopulateAccessibilityEvent
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -392,7 +395,6 @@ bool android_view_View_AccessibilityDelegate::onRequestSendAccessibilityEvent(An
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -410,7 +412,9 @@ bool android_view_View_AccessibilityDelegate::onRequestSendAccessibilityEvent(An
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -810,7 +814,6 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_view_Vi
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_accessibility_AccessibilityNodeProvider result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -828,7 +831,9 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeProvider android_view_Vi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_accessibility_AccessibilityNodeProvider(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_accessibility_AccessibilityNodeProvider) (AndroidCXX::android_view_accessibility_AccessibilityNodeProvider((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value));
+
+	AndroidCXX::android_view_accessibility_AccessibilityNodeProvider result((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider) *((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value));
+	delete ((AndroidCXX::android_view_accessibility_AccessibilityNodeProvider *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -920,7 +925,6 @@ bool android_view_View_AccessibilityDelegate::performAccessibilityAction(Android
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -938,7 +942,9 @@ bool android_view_View_AccessibilityDelegate::performAccessibilityAction(Android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

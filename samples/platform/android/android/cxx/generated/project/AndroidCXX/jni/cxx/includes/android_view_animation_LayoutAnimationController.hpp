@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -100,7 +99,10 @@ public:
 	android_view_animation_LayoutAnimationController(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation& arg0);
 	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation& arg0,float& arg1);
-	android_view_animation_LayoutAnimationController();
+	// TODO: remove
+	// 
+	// android_view_animation_LayoutAnimationController();
+	// 
 	// Default Destructor
 	virtual ~android_view_animation_LayoutAnimationController();
 	// Functions

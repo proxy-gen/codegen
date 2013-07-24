@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ViewTreeObserver_OnGlobalLayoutListener
@@ -49,7 +48,10 @@ public:
 	android_view_ViewTreeObserver_OnGlobalLayoutListener(const android_view_ViewTreeObserver_OnGlobalLayoutListener& cc);
 	android_view_ViewTreeObserver_OnGlobalLayoutListener(void * proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver_OnGlobalLayoutListener();
+	// TODO: remove
+	// 
+	// android_view_ViewTreeObserver_OnGlobalLayoutListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnGlobalLayoutListener();
 	// Functions

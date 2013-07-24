@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  	
@@ -77,7 +76,10 @@ public:
 	com_facebook_model_GraphObject_Factory_GraphObjectProxy(void * proxy);
 	// Public Constructors
 	com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject& arg0,AndroidCXX::java_lang_Class& arg1);
-	com_facebook_model_GraphObject_Factory_GraphObjectProxy();
+	// TODO: remove
+	// 
+	// com_facebook_model_GraphObject_Factory_GraphObjectProxy();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_GraphObjectProxy();
 	// Functions

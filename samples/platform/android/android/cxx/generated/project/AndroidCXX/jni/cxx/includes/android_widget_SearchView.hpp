@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -155,7 +154,10 @@ public:
 	// Public Constructors
 	android_widget_SearchView(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_SearchView(AndroidCXX::android_content_Context& arg0);
-	android_widget_SearchView();
+	// TODO: remove
+	// 
+	// android_widget_SearchView();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SearchView();
 	// Functions

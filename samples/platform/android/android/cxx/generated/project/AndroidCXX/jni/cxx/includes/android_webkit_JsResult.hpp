@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_webkit_JsResult
@@ -50,7 +49,10 @@ public:
 	android_webkit_JsResult(const android_webkit_JsResult& cc);
 	android_webkit_JsResult(void * proxy);
 	// Public Constructors
-	android_webkit_JsResult();
+	// TODO: remove
+	// 
+	// android_webkit_JsResult();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_JsResult();
 	// Functions

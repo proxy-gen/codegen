@@ -8,7 +8,6 @@
 //
 
 
-
  	
  	
 	
@@ -89,7 +88,10 @@ public:
 	java_io_FileOutputStream(AndroidCXX::java_lang_String& arg0,bool& arg1);
 	java_io_FileOutputStream(AndroidCXX::java_io_File& arg0,bool& arg1);
 	java_io_FileOutputStream(AndroidCXX::java_io_FileDescriptor& arg0);
-	java_io_FileOutputStream();
+	// TODO: remove
+	// 
+	// java_io_FileOutputStream();
+	// 
 	// Default Destructor
 	virtual ~java_io_FileOutputStream();
 	// Functions

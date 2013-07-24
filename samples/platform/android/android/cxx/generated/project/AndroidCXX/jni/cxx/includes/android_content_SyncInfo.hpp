@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_content_SyncInfo(const android_content_SyncInfo& cc);
 	android_content_SyncInfo(void * proxy);
 	// Public Constructors
-	android_content_SyncInfo();
+	// TODO: remove
+	// 
+	// android_content_SyncInfo();
+	// 
 	// Default Destructor
 	virtual ~android_content_SyncInfo();
 	// Functions

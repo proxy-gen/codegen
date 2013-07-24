@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -302,6 +301,8 @@ public:
 	// Public Constructors
 	android_graphics_Canvas();
 	android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Canvas();
 	// Functions

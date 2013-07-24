@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -29,7 +28,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_net_MalformedURLException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -47,7 +46,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_net_MalformedURLException::java_net_MalformedURLException(const java_net_MalformedURLException& cc)
@@ -91,6 +89,10 @@ java_net_MalformedURLException::java_net_MalformedURLException(void * proxy)
 
 	LOGV("java_net_MalformedURLException::java_net_MalformedURLException(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 java_net_MalformedURLException::java_net_MalformedURLException()
 {

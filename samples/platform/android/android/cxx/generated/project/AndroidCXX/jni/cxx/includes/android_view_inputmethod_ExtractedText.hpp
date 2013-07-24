@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -57,6 +56,8 @@ public:
 	android_view_inputmethod_ExtractedText(void * proxy);
 	// Public Constructors
 	android_view_inputmethod_ExtractedText();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_inputmethod_ExtractedText();
 	// Functions

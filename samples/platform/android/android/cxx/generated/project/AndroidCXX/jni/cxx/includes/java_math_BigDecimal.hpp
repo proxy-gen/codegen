@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -265,7 +264,10 @@ public:
 	java_math_BigDecimal(int& arg0,AndroidCXX::java_math_MathContext& arg1);
 	java_math_BigDecimal(long& arg0);
 	java_math_BigDecimal(long& arg0,AndroidCXX::java_math_MathContext& arg1);
-	java_math_BigDecimal();
+	// TODO: remove
+	// 
+	// java_math_BigDecimal();
+	// 
 	// Default Destructor
 	virtual ~java_math_BigDecimal();
 	// Functions

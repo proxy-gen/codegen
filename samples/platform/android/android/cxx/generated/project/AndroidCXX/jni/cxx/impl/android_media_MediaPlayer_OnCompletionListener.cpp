@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_media_MediaPlayer_OnCompletionListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(const android_media_MediaPlayer_OnCompletionListener& cc)
@@ -90,40 +88,45 @@ android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnComp
 
 	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener(void * proxy) exit");
 }
-android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener()
-{
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() enter");	
+// TODO: remove
+// 
+// 
+// android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener()
+// {
+// 	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/media/MediaPlayer$OnCompletionListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/media/MediaPlayer$OnCompletionListener";
 
-	LOGV("android_media_MediaPlayer_OnCompletionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_media_MediaPlayer_OnCompletionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer_OnCompletionListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer_OnCompletionListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_media_MediaPlayer_OnCompletionListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_media_MediaPlayer_OnCompletionListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() exit");	
-}
+// 	LOGV("android_media_MediaPlayer_OnCompletionListener::android_media_MediaPlayer_OnCompletionListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_media_MediaPlayer_OnCompletionListener::~android_media_MediaPlayer_OnCompletionListener()

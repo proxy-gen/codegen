@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -73,7 +72,10 @@ public:
 	android_content_ContentProviderResult(AndroidCXX::android_net_Uri& arg0);
 	android_content_ContentProviderResult(int& arg0);
 	android_content_ContentProviderResult(AndroidCXX::android_os_Parcel& arg0);
-	android_content_ContentProviderResult();
+	// TODO: remove
+	// 
+	// android_content_ContentProviderResult();
+	// 
 	// Default Destructor
 	virtual ~android_content_ContentProviderResult();
 	// Functions

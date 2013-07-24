@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -355,7 +354,10 @@ public:
 	android_os_Parcel(const android_os_Parcel& cc);
 	android_os_Parcel(void * proxy);
 	// Public Constructors
-	android_os_Parcel();
+	// TODO: remove
+	// 
+	// android_os_Parcel();
+	// 
 	// Default Destructor
 	virtual ~android_os_Parcel();
 	// Functions

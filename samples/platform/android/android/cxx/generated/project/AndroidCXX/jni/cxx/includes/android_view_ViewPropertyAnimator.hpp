@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -125,7 +124,10 @@ public:
 	android_view_ViewPropertyAnimator(const android_view_ViewPropertyAnimator& cc);
 	android_view_ViewPropertyAnimator(void * proxy);
 	// Public Constructors
-	android_view_ViewPropertyAnimator();
+	// TODO: remove
+	// 
+	// android_view_ViewPropertyAnimator();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewPropertyAnimator();
 	// Functions

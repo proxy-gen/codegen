@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
 
@@ -64,7 +63,10 @@ public:
 	android_graphics_SurfaceTexture(void * proxy);
 	// Public Constructors
 	android_graphics_SurfaceTexture(int& arg0);
-	android_graphics_SurfaceTexture();
+	// TODO: remove
+	// 
+	// android_graphics_SurfaceTexture();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture();
 	// Functions

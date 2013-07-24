@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_view_View_OnLayoutChangeListener(const android_view_View_OnLayoutChangeListener& cc);
 	android_view_View_OnLayoutChangeListener(void * proxy);
 	// Public Constructors
-	android_view_View_OnLayoutChangeListener();
+	// TODO: remove
+	// 
+	// android_view_View_OnLayoutChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_View_OnLayoutChangeListener();
 	// Functions

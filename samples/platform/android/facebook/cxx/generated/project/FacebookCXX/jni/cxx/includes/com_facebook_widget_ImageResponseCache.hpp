@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_widget_ImageResponseCache
@@ -48,7 +47,10 @@ public:
 	com_facebook_widget_ImageResponseCache(const com_facebook_widget_ImageResponseCache& cc);
 	com_facebook_widget_ImageResponseCache(void * proxy);
 	// Public Constructors
-	com_facebook_widget_ImageResponseCache();
+	// TODO: remove
+	// 
+	// com_facebook_widget_ImageResponseCache();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponseCache();
 	// Functions

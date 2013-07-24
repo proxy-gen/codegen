@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -31,7 +30,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_reflect_TypeVariable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -52,7 +51,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc)
@@ -96,40 +94,45 @@ java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(void * proxy)
 
 	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable(void * proxy) exit");
 }
-java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable()
-{
-	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() enter");	
+// TODO: remove
+// 
+// 
+// java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable()
+// {
+// 	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/lang/reflect/TypeVariable";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/lang/reflect/TypeVariable";
 
-	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_lang_reflect_TypeVariable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_lang_reflect_TypeVariable cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_lang_reflect_TypeVariable jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_lang_reflect_TypeVariable cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_lang_reflect_TypeVariable jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() exit");	
-}
+// 	LOGV("java_lang_reflect_TypeVariable::java_lang_reflect_TypeVariable() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 java_lang_reflect_TypeVariable::~java_lang_reflect_TypeVariable()
@@ -167,7 +170,6 @@ AndroidCXX::java_lang_String java_lang_reflect_TypeVariable::getName()
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -185,7 +187,9 @@ AndroidCXX::java_lang_String java_lang_reflect_TypeVariable::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -214,7 +218,6 @@ std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable:
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::java_lang_reflect_Type > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -250,7 +253,9 @@ std::vector<AndroidCXX::java_lang_reflect_Type > java_lang_reflect_TypeVariable:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::java_lang_reflect_Type >) (cxx_value);
+
+	std::vector<AndroidCXX::java_lang_reflect_Type > result = (std::vector<AndroidCXX::java_lang_reflect_Type >) *((std::vector<AndroidCXX::java_lang_reflect_Type > *) cxx_value);
+	delete ((std::vector<AndroidCXX::java_lang_reflect_Type > *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -279,7 +284,6 @@ AndroidCXX::java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable:
 	LOGV("java_lang_reflect_TypeVariable jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_reflect_GenericDeclaration result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -297,7 +301,9 @@ AndroidCXX::java_lang_reflect_GenericDeclaration java_lang_reflect_TypeVariable:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_reflect_GenericDeclaration(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_reflect_GenericDeclaration) (AndroidCXX::java_lang_reflect_GenericDeclaration((AndroidCXX::java_lang_reflect_GenericDeclaration *) cxx_value));
+
+	AndroidCXX::java_lang_reflect_GenericDeclaration result((AndroidCXX::java_lang_reflect_GenericDeclaration) *((AndroidCXX::java_lang_reflect_GenericDeclaration *) cxx_value));
+	delete ((AndroidCXX::java_lang_reflect_GenericDeclaration *) cxx_value);
 		
 	jni->popLocalFrame();
 

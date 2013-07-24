@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -65,7 +64,10 @@ public:
 	android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc);
 	android_widget_AdapterView_OnItemLongClickListener(void * proxy);
 	// Public Constructors
-	android_widget_AdapterView_OnItemLongClickListener();
+	// TODO: remove
+	// 
+	// android_widget_AdapterView_OnItemLongClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemLongClickListener();
 	// Functions

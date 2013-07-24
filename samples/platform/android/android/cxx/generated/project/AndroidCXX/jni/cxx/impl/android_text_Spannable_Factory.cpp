@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -32,7 +31,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Spannable_Factory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -56,7 +55,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_text_Spannable_Factory::android_text_Spannable_Factory(const android_text_Spannable_Factory& cc)
@@ -100,6 +98,10 @@ android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy)
 
 	LOGV("android_text_Spannable_Factory::android_text_Spannable_Factory(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_text_Spannable_Factory::android_text_Spannable_Factory()
 {
@@ -173,7 +175,6 @@ AndroidCXX::android_text_Spannable_Factory android_text_Spannable_Factory::getIn
 	LOGV("android_text_Spannable_Factory jni address %d", javaObject);
 
 
-	AndroidCXX::android_text_Spannable_Factory result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -191,7 +192,9 @@ AndroidCXX::android_text_Spannable_Factory android_text_Spannable_Factory::getIn
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Spannable_Factory(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_Spannable_Factory) (AndroidCXX::android_text_Spannable_Factory((AndroidCXX::android_text_Spannable_Factory *) cxx_value));
+
+	AndroidCXX::android_text_Spannable_Factory result((AndroidCXX::android_text_Spannable_Factory) *((AndroidCXX::android_text_Spannable_Factory *) cxx_value));
+	delete ((AndroidCXX::android_text_Spannable_Factory *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -241,7 +244,6 @@ AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_text_Spannable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -259,7 +261,9 @@ AndroidCXX::android_text_Spannable android_text_Spannable_Factory::newSpannable(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_text_Spannable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_text_Spannable) (AndroidCXX::android_text_Spannable((AndroidCXX::android_text_Spannable *) cxx_value));
+
+	AndroidCXX::android_text_Spannable result((AndroidCXX::android_text_Spannable) *((AndroidCXX::android_text_Spannable *) cxx_value));
+	delete ((AndroidCXX::android_text_Spannable *) cxx_value);
 		
 	jni->popLocalFrame();
 

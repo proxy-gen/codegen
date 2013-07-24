@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -35,6 +34,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_android_Facebook_TokenRefreshServiceConnection"
@@ -73,7 +73,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(const com_facebook_android_Facebook_TokenRefreshServiceConnection& cc)
@@ -117,40 +116,45 @@ com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_androi
 
 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(void * proxy) exit");
 }
-com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection()
-{
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection()
+// {
+// 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/android/Facebook$TokenRefreshServiceConnection";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/android/Facebook$TokenRefreshServiceConnection";
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection() exit");	
-}
+// 	LOGV("com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_android_Facebook_TokenRefreshServiceConnection::com_facebook_android_Facebook_TokenRefreshServiceConnection(FacebookCXX::com_facebook_android_Facebook& arg0,AndroidCXX::android_content_Context& arg1,FacebookCXX::com_facebook_android_Facebook_ServiceListener& arg2)
 {

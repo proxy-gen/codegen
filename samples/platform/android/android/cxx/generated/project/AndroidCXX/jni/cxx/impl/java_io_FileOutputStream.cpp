@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 
@@ -44,7 +43,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_io_FileOutputStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -80,7 +79,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_io_FileOutputStream::java_io_FileOutputStream(const java_io_FileOutputStream& cc)
@@ -124,40 +122,45 @@ java_io_FileOutputStream::java_io_FileOutputStream(void * proxy)
 
 	LOGV("java_io_FileOutputStream::java_io_FileOutputStream(void * proxy) exit");
 }
-java_io_FileOutputStream::java_io_FileOutputStream()
-{
-	LOGV("java_io_FileOutputStream::java_io_FileOutputStream() enter");	
+// TODO: remove
+// 
+// 
+// java_io_FileOutputStream::java_io_FileOutputStream()
+// {
+// 	LOGV("java_io_FileOutputStream::java_io_FileOutputStream() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/io/FileOutputStream";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/io/FileOutputStream";
 
-	LOGV("java_io_FileOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_io_FileOutputStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_io_FileOutputStream cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_io_FileOutputStream jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_io_FileOutputStream cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_io_FileOutputStream jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_io_FileOutputStream::java_io_FileOutputStream() exit");	
-}
+// 	LOGV("java_io_FileOutputStream::java_io_FileOutputStream() exit");	
+// }
+// 
+// 
 // Public Constructors
 java_io_FileOutputStream::java_io_FileOutputStream(AndroidCXX::java_io_File& arg0)
 {
@@ -775,7 +778,6 @@ AndroidCXX::java_io_FileDescriptor java_io_FileOutputStream::getFD()
 	LOGV("java_io_FileOutputStream jni address %d", javaObject);
 
 
-	AndroidCXX::java_io_FileDescriptor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -793,7 +795,9 @@ AndroidCXX::java_io_FileDescriptor java_io_FileOutputStream::getFD()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_io_FileDescriptor) (AndroidCXX::java_io_FileDescriptor((AndroidCXX::java_io_FileDescriptor *) cxx_value));
+
+	AndroidCXX::java_io_FileDescriptor result((AndroidCXX::java_io_FileDescriptor) *((AndroidCXX::java_io_FileDescriptor *) cxx_value));
+	delete ((AndroidCXX::java_io_FileDescriptor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -822,7 +826,6 @@ AndroidCXX::java_nio_channels_FileChannel java_io_FileOutputStream::getChannel()
 	LOGV("java_io_FileOutputStream jni address %d", javaObject);
 
 
-	AndroidCXX::java_nio_channels_FileChannel result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -840,7 +843,9 @@ AndroidCXX::java_nio_channels_FileChannel java_io_FileOutputStream::getChannel()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_nio_channels_FileChannel(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_nio_channels_FileChannel) (AndroidCXX::java_nio_channels_FileChannel((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
+
+	AndroidCXX::java_nio_channels_FileChannel result((AndroidCXX::java_nio_channels_FileChannel) *((AndroidCXX::java_nio_channels_FileChannel *) cxx_value));
+	delete ((AndroidCXX::java_nio_channels_FileChannel *) cxx_value);
 		
 	jni->popLocalFrame();
 

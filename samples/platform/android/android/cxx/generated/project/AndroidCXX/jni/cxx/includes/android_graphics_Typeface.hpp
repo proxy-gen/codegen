@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -91,7 +90,10 @@ public:
 	android_graphics_Typeface(const android_graphics_Typeface& cc);
 	android_graphics_Typeface(void * proxy);
 	// Public Constructors
-	android_graphics_Typeface();
+	// TODO: remove
+	// 
+	// android_graphics_Typeface();
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Typeface();
 	// Functions

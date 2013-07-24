@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -99,7 +98,10 @@ public:
 	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0);
 	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_util_Map& arg1);
 	javax_security_auth_x500_X500Principal(std::vector<byte>& arg0);
-	javax_security_auth_x500_X500Principal();
+	// TODO: remove
+	// 
+	// javax_security_auth_x500_X500Principal();
+	// 
 	// Default Destructor
 	virtual ~javax_security_auth_x500_X500Principal();
 	// Functions

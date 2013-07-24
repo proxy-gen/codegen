@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_graphics_Xfermode.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Xfermode"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,7 +38,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_graphics_Xfermode::android_graphics_Xfermode(const android_graphics_Xfermode& cc)
@@ -83,6 +81,10 @@ android_graphics_Xfermode::android_graphics_Xfermode(void * proxy)
 
 	LOGV("android_graphics_Xfermode::android_graphics_Xfermode(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_graphics_Xfermode::android_graphics_Xfermode()
 {

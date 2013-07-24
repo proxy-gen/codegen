@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -95,7 +94,10 @@ public:
 	// Public Constructors
 	com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity& arg0);
 	com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment& arg0);
-	com_facebook_Session_OpenRequest();
+	// TODO: remove
+	// 
+	// com_facebook_Session_OpenRequest();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Session_OpenRequest();
 	// Functions

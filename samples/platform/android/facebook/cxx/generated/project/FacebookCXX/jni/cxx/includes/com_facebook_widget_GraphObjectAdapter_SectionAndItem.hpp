@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -64,7 +63,10 @@ public:
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(void * proxy);
 	// Public Constructors
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String& arg0,FacebookCXX::com_facebook_model_GraphObject& arg1);
-	com_facebook_widget_GraphObjectAdapter_SectionAndItem();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectAdapter_SectionAndItem();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_SectionAndItem();
 	// Functions

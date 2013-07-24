@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -92,7 +91,10 @@ public:
 	android_widget_ExpandableListAdapter(const android_widget_ExpandableListAdapter& cc);
 	android_widget_ExpandableListAdapter(void * proxy);
 	// Public Constructors
-	android_widget_ExpandableListAdapter();
+	// TODO: remove
+	// 
+	// android_widget_ExpandableListAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ExpandableListAdapter();
 	// Functions

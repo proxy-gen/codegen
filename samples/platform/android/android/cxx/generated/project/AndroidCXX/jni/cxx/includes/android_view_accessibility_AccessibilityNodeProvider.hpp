@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -75,6 +74,8 @@ public:
 	android_view_accessibility_AccessibilityNodeProvider(void * proxy);
 	// Public Constructors
 	android_view_accessibility_AccessibilityNodeProvider();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions

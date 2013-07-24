@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_Filter_FilterListener
@@ -49,7 +48,10 @@ public:
 	android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc);
 	android_widget_Filter_FilterListener(void * proxy);
 	// Public Constructors
-	android_widget_Filter_FilterListener();
+	// TODO: remove
+	// 
+	// android_widget_Filter_FilterListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterListener();
 	// Functions

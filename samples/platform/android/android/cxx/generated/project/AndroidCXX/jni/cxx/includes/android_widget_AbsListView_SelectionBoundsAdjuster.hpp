@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_AbsListView_SelectionBoundsAdjuster(const android_widget_AbsListView_SelectionBoundsAdjuster& cc);
 	android_widget_AbsListView_SelectionBoundsAdjuster(void * proxy);
 	// Public Constructors
-	android_widget_AbsListView_SelectionBoundsAdjuster();
+	// TODO: remove
+	// 
+	// android_widget_AbsListView_SelectionBoundsAdjuster();
+	// 
 	// Default Destructor
 	virtual ~android_widget_AbsListView_SelectionBoundsAdjuster();
 	// Functions

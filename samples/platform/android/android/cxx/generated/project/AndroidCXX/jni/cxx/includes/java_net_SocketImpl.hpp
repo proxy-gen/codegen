@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -56,6 +55,8 @@ public:
 	java_net_SocketImpl(void * proxy);
 	// Public Constructors
 	java_net_SocketImpl();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_SocketImpl();
 	// Functions

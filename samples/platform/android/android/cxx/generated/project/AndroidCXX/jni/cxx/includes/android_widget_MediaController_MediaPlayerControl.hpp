@@ -25,7 +25,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_MediaController_MediaPlayerControl
@@ -58,7 +57,10 @@ public:
 	android_widget_MediaController_MediaPlayerControl(const android_widget_MediaController_MediaPlayerControl& cc);
 	android_widget_MediaController_MediaPlayerControl(void * proxy);
 	// Public Constructors
-	android_widget_MediaController_MediaPlayerControl();
+	// TODO: remove
+	// 
+	// android_widget_MediaController_MediaPlayerControl();
+	// 
 	// Default Destructor
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions

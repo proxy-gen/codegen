@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -59,7 +58,10 @@ public:
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener(const com_facebook_widget_PickerFragment_OnSelectionChangedListener& cc);
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener(void * proxy);
 	// Public Constructors
-	com_facebook_widget_PickerFragment_OnSelectionChangedListener();
+	// TODO: remove
+	// 
+	// com_facebook_widget_PickerFragment_OnSelectionChangedListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnSelectionChangedListener();
 	// Functions

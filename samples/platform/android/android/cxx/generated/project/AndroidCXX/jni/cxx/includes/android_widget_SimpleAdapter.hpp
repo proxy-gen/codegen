@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -131,7 +130,10 @@ public:
 	android_widget_SimpleAdapter(void * proxy);
 	// Public Constructors
 	android_widget_SimpleAdapter(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_util_List& arg1,int& arg2,std::vector<AndroidCXX::java_lang_String >& arg3,std::vector<int>& arg4);
-	android_widget_SimpleAdapter();
+	// TODO: remove
+	// 
+	// android_widget_SimpleAdapter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter();
 	// Functions

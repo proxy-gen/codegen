@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -61,7 +60,10 @@ public:
 	// Public Constructors
 	com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0);
 	com_facebook_android_FacebookError(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
-	com_facebook_android_FacebookError();
+	// TODO: remove
+	// 
+	// com_facebook_android_FacebookError();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_android_FacebookError();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -66,7 +65,10 @@ public:
 	com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc);
 	com_facebook_Response_PagedResults(void * proxy);
 	// Public Constructors
-	com_facebook_Response_PagedResults();
+	// TODO: remove
+	// 
+	// com_facebook_Response_PagedResults();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Response_PagedResults();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -85,7 +84,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ExpandableListView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -167,7 +166,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_widget_ExpandableListView::android_widget_ExpandableListView(const android_widget_ExpandableListView& cc)
 {
@@ -210,40 +208,45 @@ android_widget_ExpandableListView::android_widget_ExpandableListView(void * prox
 
 	LOGV("android_widget_ExpandableListView::android_widget_ExpandableListView(void * proxy) exit");
 }
-android_widget_ExpandableListView::android_widget_ExpandableListView()
-{
-	LOGV("android_widget_ExpandableListView::android_widget_ExpandableListView() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_ExpandableListView::android_widget_ExpandableListView()
+// {
+// 	LOGV("android_widget_ExpandableListView::android_widget_ExpandableListView() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ExpandableListView";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/ExpandableListView";
 
-	LOGV("android_widget_ExpandableListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_ExpandableListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_ExpandableListView cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_ExpandableListView jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_ExpandableListView cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_ExpandableListView jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_ExpandableListView::android_widget_ExpandableListView() exit");	
-}
+// 	LOGV("android_widget_ExpandableListView::android_widget_ExpandableListView() exit");	
+// }
+// 
+// 
 // Public Constructors
 android_widget_ExpandableListView::android_widget_ExpandableListView(AndroidCXX::android_content_Context& arg0)
 {
@@ -515,7 +518,6 @@ AndroidCXX::android_os_Parcelable android_widget_ExpandableListView::onSaveInsta
 	LOGV("android_widget_ExpandableListView jni address %d", javaObject);
 
 
-	AndroidCXX::android_os_Parcelable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -533,7 +535,9 @@ AndroidCXX::android_os_Parcelable android_widget_ExpandableListView::onSaveInsta
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_os_Parcelable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_os_Parcelable) (AndroidCXX::android_os_Parcelable((AndroidCXX::android_os_Parcelable *) cxx_value));
+
+	AndroidCXX::android_os_Parcelable result((AndroidCXX::android_os_Parcelable) *((AndroidCXX::android_os_Parcelable *) cxx_value));
+	delete ((AndroidCXX::android_os_Parcelable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -870,7 +874,6 @@ bool android_widget_ExpandableListView::performItemClick(AndroidCXX::android_vie
 		jarg2 = convert_jni_long_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -888,7 +891,9 @@ bool android_widget_ExpandableListView::performItemClick(AndroidCXX::android_vie
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -966,7 +971,6 @@ AndroidCXX::android_widget_ListAdapter android_widget_ExpandableListView::getAda
 	LOGV("android_widget_ExpandableListView jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_ListAdapter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -984,7 +988,9 @@ AndroidCXX::android_widget_ListAdapter android_widget_ExpandableListView::getAda
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_ListAdapter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_ListAdapter) (AndroidCXX::android_widget_ListAdapter((AndroidCXX::android_widget_ListAdapter *) cxx_value));
+
+	AndroidCXX::android_widget_ListAdapter result((AndroidCXX::android_widget_ListAdapter) *((AndroidCXX::android_widget_ListAdapter *) cxx_value));
+	delete ((AndroidCXX::android_widget_ListAdapter *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1062,7 +1068,6 @@ AndroidCXX::android_widget_ExpandableListAdapter android_widget_ExpandableListVi
 	LOGV("android_widget_ExpandableListView jni address %d", javaObject);
 
 
-	AndroidCXX::android_widget_ExpandableListAdapter result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1080,7 +1085,9 @@ AndroidCXX::android_widget_ExpandableListAdapter android_widget_ExpandableListVi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_widget_ExpandableListAdapter(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_widget_ExpandableListAdapter) (AndroidCXX::android_widget_ExpandableListAdapter((AndroidCXX::android_widget_ExpandableListAdapter *) cxx_value));
+
+	AndroidCXX::android_widget_ExpandableListAdapter result((AndroidCXX::android_widget_ExpandableListAdapter) *((AndroidCXX::android_widget_ExpandableListAdapter *) cxx_value));
+	delete ((AndroidCXX::android_widget_ExpandableListAdapter *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1130,7 +1137,6 @@ bool android_widget_ExpandableListView::expandGroup(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1148,7 +1154,9 @@ bool android_widget_ExpandableListView::expandGroup(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1219,7 +1227,6 @@ bool android_widget_ExpandableListView::expandGroup(int& arg0,bool& arg1)
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1237,7 +1244,9 @@ bool android_widget_ExpandableListView::expandGroup(int& arg0,bool& arg1)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1287,7 +1296,6 @@ bool android_widget_ExpandableListView::collapseGroup(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1305,7 +1313,9 @@ bool android_widget_ExpandableListView::collapseGroup(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1551,7 +1561,6 @@ long android_widget_ExpandableListView::getExpandableListPosition(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1569,7 +1578,9 @@ long android_widget_ExpandableListView::getExpandableListPosition(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1619,7 +1630,6 @@ int android_widget_ExpandableListView::getFlatListPosition(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1637,7 +1647,9 @@ int android_widget_ExpandableListView::getFlatListPosition(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1666,7 +1678,6 @@ long android_widget_ExpandableListView::getSelectedPosition()
 	LOGV("android_widget_ExpandableListView jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1684,7 +1695,9 @@ long android_widget_ExpandableListView::getSelectedPosition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1713,7 +1726,6 @@ long android_widget_ExpandableListView::getSelectedId()
 	LOGV("android_widget_ExpandableListView jni address %d", javaObject);
 
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -1731,7 +1743,9 @@ long android_widget_ExpandableListView::getSelectedId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1872,7 +1886,6 @@ bool android_widget_ExpandableListView::setSelectedChild(int& arg0,int& arg1,boo
 		jarg2 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1890,7 +1903,9 @@ bool android_widget_ExpandableListView::setSelectedChild(int& arg0,int& arg1,boo
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1940,7 +1955,6 @@ bool android_widget_ExpandableListView::isGroupExpanded(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1958,7 +1972,9 @@ bool android_widget_ExpandableListView::isGroupExpanded(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2008,7 +2024,6 @@ int android_widget_ExpandableListView::getPackedPositionType(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2026,7 +2041,9 @@ int android_widget_ExpandableListView::getPackedPositionType(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2076,7 +2093,6 @@ int android_widget_ExpandableListView::getPackedPositionGroup(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2094,7 +2110,9 @@ int android_widget_ExpandableListView::getPackedPositionGroup(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2144,7 +2162,6 @@ int android_widget_ExpandableListView::getPackedPositionChild(long& arg0)
 		jarg0 = convert_jni_long_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2162,7 +2179,9 @@ int android_widget_ExpandableListView::getPackedPositionChild(long& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2233,7 +2252,6 @@ long android_widget_ExpandableListView::getPackedPositionForChild(int& arg0,int&
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2251,7 +2269,9 @@ long android_widget_ExpandableListView::getPackedPositionForChild(int& arg0,int&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2301,7 +2321,6 @@ long android_widget_ExpandableListView::getPackedPositionForGroup(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -2319,7 +2338,9 @@ long android_widget_ExpandableListView::getPackedPositionForGroup(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -36,7 +35,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TableLayout_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -63,7 +62,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_TableLayout_LayoutParams::android_widget_TableLayout_LayoutParams(const android_widget_TableLayout_LayoutParams& cc)
@@ -107,6 +105,10 @@ android_widget_TableLayout_LayoutParams::android_widget_TableLayout_LayoutParams
 
 	LOGV("android_widget_TableLayout_LayoutParams::android_widget_TableLayout_LayoutParams(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_widget_TableLayout_LayoutParams::android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1)
 {

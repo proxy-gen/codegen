@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_ActionProvider_VisibilityListener.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ActionProvider_VisibilityListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,7 +38,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc)
@@ -83,40 +81,45 @@ android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_Visi
 
 	LOGV("android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener(void * proxy) exit");
 }
-android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener()
-{
-	LOGV("android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener() enter");	
+// TODO: remove
+// 
+// 
+// android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener()
+// {
+// 	LOGV("android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ActionProvider$VisibilityListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/ActionProvider$VisibilityListener";
 
-	LOGV("android_view_ActionProvider_VisibilityListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_ActionProvider_VisibilityListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_ActionProvider_VisibilityListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_ActionProvider_VisibilityListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_ActionProvider_VisibilityListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_ActionProvider_VisibilityListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener() exit");	
-}
+// 	LOGV("android_view_ActionProvider_VisibilityListener::android_view_ActionProvider_VisibilityListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_ActionProvider_VisibilityListener::~android_view_ActionProvider_VisibilityListener()

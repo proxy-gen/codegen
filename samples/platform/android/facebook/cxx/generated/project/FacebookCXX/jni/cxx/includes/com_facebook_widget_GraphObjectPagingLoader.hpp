@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -94,7 +93,10 @@ public:
 	com_facebook_widget_GraphObjectPagingLoader(void * proxy);
 	// Public Constructors
 	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_Class& arg1);
-	com_facebook_widget_GraphObjectPagingLoader();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectPagingLoader();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader();
 	// Functions

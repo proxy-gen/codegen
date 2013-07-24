@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -53,7 +52,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "javax_security_auth_x500_X500Principal"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -111,7 +110,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc)
 {
@@ -154,40 +152,45 @@ javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(v
 
 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(void * proxy) exit");
 }
-javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal()
-{
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() enter");	
+// TODO: remove
+// 
+// 
+// javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal()
+// {
+// 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "javax/security/auth/x500/X500Principal";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "javax/security/auth/x500/X500Principal";
 
-	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("javax_security_auth_x500_X500Principal className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("javax_security_auth_x500_X500Principal jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("javax_security_auth_x500_X500Principal cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("javax_security_auth_x500_X500Principal jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() exit");	
-}
+// 	LOGV("javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal() exit");	
+// }
+// 
+// 
 // Public Constructors
 javax_security_auth_x500_X500Principal::javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream& arg0)
 {
@@ -546,7 +549,6 @@ bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -564,7 +566,9 @@ bool javax_security_auth_x500_X500Principal::equals(AndroidCXX::java_lang_Object
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -593,7 +597,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString()
 	LOGV("javax_security_auth_x500_X500Principal jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -611,7 +614,9 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -640,7 +645,6 @@ int javax_security_auth_x500_X500Principal::hashCode()
 	LOGV("javax_security_auth_x500_X500Principal jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -658,7 +662,9 @@ int javax_security_auth_x500_X500Principal::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -762,7 +768,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -780,7 +785,9 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -809,7 +816,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName()
 	LOGV("javax_security_auth_x500_X500Principal jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -827,7 +833,9 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -877,7 +885,6 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -895,7 +902,9 @@ AndroidCXX::java_lang_String javax_security_auth_x500_X500Principal::getName(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -924,7 +933,6 @@ std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded()
 	LOGV("javax_security_auth_x500_X500Principal jni address %d", javaObject);
 
 
-	std::vector<byte> result;
 	jbyteArray jni_result = (jbyteArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__byte_array_type_to_java(jni_result);
@@ -960,7 +968,9 @@ std::vector<byte> javax_security_auth_x500_X500Principal::getEncoded()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__byte_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<byte>) (cxx_value);
+
+	std::vector<byte> result = (std::vector<byte>) *((std::vector<byte> *) cxx_value);
+	delete ((std::vector<byte> *) cxx_value);
 		
 	jni->popLocalFrame();
 

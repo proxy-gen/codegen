@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_widget_ExpandableListView_OnChildClickListener(const android_widget_ExpandableListView_OnChildClickListener& cc);
 	android_widget_ExpandableListView_OnChildClickListener(void * proxy);
 	// Public Constructors
-	android_widget_ExpandableListView_OnChildClickListener();
+	// TODO: remove
+	// 
+	// android_widget_ExpandableListView_OnChildClickListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnChildClickListener();
 	// Functions

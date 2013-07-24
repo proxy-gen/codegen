@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <com_facebook_AuthorizationClient_AuthHandler.hpp>
@@ -26,6 +25,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_AuthorizationClient_AuthHandler"
@@ -38,7 +38,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc)
@@ -82,40 +81,45 @@ com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_A
 
 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler(void * proxy) exit");
 }
-com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler()
-{
-	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler()
+// {
+// 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/AuthorizationClient$AuthHandler";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/AuthorizationClient$AuthHandler";
 
-	LOGV("com_facebook_AuthorizationClient_AuthHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_AuthorizationClient_AuthHandler className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_AuthorizationClient_AuthHandler cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_AuthorizationClient_AuthHandler jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_AuthorizationClient_AuthHandler cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_AuthorizationClient_AuthHandler jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() exit");	
-}
+// 	LOGV("com_facebook_AuthorizationClient_AuthHandler::com_facebook_AuthorizationClient_AuthHandler() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 com_facebook_AuthorizationClient_AuthHandler::~com_facebook_AuthorizationClient_AuthHandler()

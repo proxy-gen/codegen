@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -136,7 +135,10 @@ public:
 	java_lang_reflect_Field(const java_lang_reflect_Field& cc);
 	java_lang_reflect_Field(void * proxy);
 	// Public Constructors
-	java_lang_reflect_Field();
+	// TODO: remove
+	// 
+	// java_lang_reflect_Field();
+	// 
 	// Default Destructor
 	virtual ~java_lang_reflect_Field();
 	// Functions

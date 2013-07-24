@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -42,7 +41,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_animation_Transformation"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -72,7 +71,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_animation_Transformation::android_view_animation_Transformation(const android_view_animation_Transformation& cc)
@@ -116,6 +114,10 @@ android_view_animation_Transformation::android_view_animation_Transformation(voi
 
 	LOGV("android_view_animation_Transformation::android_view_animation_Transformation(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_view_animation_Transformation::android_view_animation_Transformation()
 {
@@ -189,7 +191,6 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toString()
 	LOGV("android_view_animation_Transformation jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -207,7 +208,9 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -362,7 +365,6 @@ AndroidCXX::android_graphics_Matrix android_view_animation_Transformation::getMa
 	LOGV("android_view_animation_Transformation jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_Matrix result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -380,7 +382,9 @@ AndroidCXX::android_graphics_Matrix android_view_animation_Transformation::getMa
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_Matrix(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_Matrix) (AndroidCXX::android_graphics_Matrix((AndroidCXX::android_graphics_Matrix *) cxx_value));
+
+	AndroidCXX::android_graphics_Matrix result((AndroidCXX::android_graphics_Matrix) *((AndroidCXX::android_graphics_Matrix *) cxx_value));
+	delete ((AndroidCXX::android_graphics_Matrix *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -409,7 +413,6 @@ float android_view_animation_Transformation::getAlpha()
 	LOGV("android_view_animation_Transformation jni address %d", javaObject);
 
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -427,7 +430,9 @@ float android_view_animation_Transformation::getAlpha()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -505,7 +510,6 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toShortStrin
 	LOGV("android_view_animation_Transformation jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -523,7 +527,9 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toShortStrin
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -552,7 +558,6 @@ int android_view_animation_Transformation::getTransformationType()
 	LOGV("android_view_animation_Transformation jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -570,7 +575,9 @@ int android_view_animation_Transformation::getTransformationType()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

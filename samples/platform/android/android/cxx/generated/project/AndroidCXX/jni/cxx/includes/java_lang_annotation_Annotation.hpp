@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -72,7 +71,10 @@ public:
 	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
 	java_lang_annotation_Annotation(void * proxy);
 	// Public Constructors
-	java_lang_annotation_Annotation();
+	// TODO: remove
+	// 
+	// java_lang_annotation_Annotation();
+	// 
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions

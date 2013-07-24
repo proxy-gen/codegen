@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -61,7 +60,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_ThreadGroup"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -103,7 +102,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_ThreadGroup::java_lang_ThreadGroup(const java_lang_ThreadGroup& cc)
@@ -147,40 +145,45 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy)
 
 	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup(void * proxy) exit");
 }
-java_lang_ThreadGroup::java_lang_ThreadGroup()
-{
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() enter");	
+// TODO: remove
+// 
+// 
+// java_lang_ThreadGroup::java_lang_ThreadGroup()
+// {
+// 	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "java/lang/ThreadGroup";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("java_lang_ThreadGroup jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("java_lang_ThreadGroup cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("java_lang_ThreadGroup jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() exit");	
-}
+// 	LOGV("java_lang_ThreadGroup::java_lang_ThreadGroup() exit");	
+// }
+// 
+// 
 // Public Constructors
 java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String& arg0)
 {
@@ -423,7 +426,6 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -441,7 +443,9 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -470,7 +474,6 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::getName()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -488,7 +491,9 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::getName()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -517,7 +522,6 @@ AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_ThreadGroup result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -535,7 +539,9 @@ AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_ThreadGroup(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_ThreadGroup) (AndroidCXX::java_lang_ThreadGroup((AndroidCXX::java_lang_ThreadGroup *) cxx_value));
+
+	AndroidCXX::java_lang_ThreadGroup result((AndroidCXX::java_lang_ThreadGroup) *((AndroidCXX::java_lang_ThreadGroup *) cxx_value));
+	delete ((AndroidCXX::java_lang_ThreadGroup *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -753,7 +759,6 @@ int java_lang_ThreadGroup::activeCount()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -771,7 +776,9 @@ int java_lang_ThreadGroup::activeCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -839,7 +846,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -857,7 +863,9 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -946,7 +954,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -964,7 +971,9 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1053,7 +1062,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1071,7 +1079,9 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1139,7 +1149,6 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		jarg0 = convert_jni__object_array_type_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1157,7 +1166,9 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread >&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1186,7 +1197,6 @@ bool java_lang_ThreadGroup::isDaemon()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1204,7 +1214,9 @@ bool java_lang_ThreadGroup::isDaemon()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1261,7 +1273,6 @@ int java_lang_ThreadGroup::getMaxPriority()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1279,7 +1290,9 @@ int java_lang_ThreadGroup::getMaxPriority()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1308,7 +1321,6 @@ bool java_lang_ThreadGroup::isDestroyed()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1326,7 +1338,9 @@ bool java_lang_ThreadGroup::isDestroyed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1425,7 +1439,6 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1443,7 +1456,9 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1472,7 +1487,6 @@ int java_lang_ThreadGroup::activeGroupCount()
 	LOGV("java_lang_ThreadGroup jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1490,7 +1504,9 @@ int java_lang_ThreadGroup::activeGroupCount()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1568,7 +1584,6 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1586,7 +1601,9 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

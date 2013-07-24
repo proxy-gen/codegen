@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -177,7 +176,10 @@ public:
 	android_view_KeyEvent(long& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,int& arg3);
 	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent& arg0);
 	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent& arg0,long& arg1,int& arg2);
-	android_view_KeyEvent();
+	// TODO: remove
+	// 
+	// android_view_KeyEvent();
+	// 
 	// Default Destructor
 	virtual ~android_view_KeyEvent();
 	// Functions

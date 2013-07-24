@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -52,7 +51,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_content_SharedPreferences"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -113,7 +112,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_content_SharedPreferences::android_content_SharedPreferences(const android_content_SharedPreferences& cc)
 {
@@ -156,40 +154,45 @@ android_content_SharedPreferences::android_content_SharedPreferences(void * prox
 
 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences(void * proxy) exit");
 }
-android_content_SharedPreferences::android_content_SharedPreferences()
-{
-	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() enter");	
+// TODO: remove
+// 
+// 
+// android_content_SharedPreferences::android_content_SharedPreferences()
+// {
+// 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/content/SharedPreferences";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/content/SharedPreferences";
 
-	LOGV("android_content_SharedPreferences className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_content_SharedPreferences className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_content_SharedPreferences jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_content_SharedPreferences cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_content_SharedPreferences jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() exit");	
-}
+// 	LOGV("android_content_SharedPreferences::android_content_SharedPreferences() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_content_SharedPreferences::~android_content_SharedPreferences()
@@ -269,7 +272,6 @@ bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String&
 		jarg1 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -287,7 +289,9 @@ bool android_content_SharedPreferences::getBoolean(AndroidCXX::java_lang_String&
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -358,7 +362,6 @@ int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -376,7 +379,9 @@ int android_content_SharedPreferences::getInt(AndroidCXX::java_lang_String& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -447,7 +452,6 @@ long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& ar
 		jarg1 = convert_jni_long_to_jni(java_value);
 	}
 
-	long result;
 	jlong jni_result = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_long_to_java(jni_result);
@@ -465,7 +469,9 @@ long android_content_SharedPreferences::getLong(AndroidCXX::java_lang_String& ar
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_long(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (long) (cxx_value);
+
+	long result = (long) *((long *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -536,7 +542,6 @@ float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& 
 		jarg1 = convert_jni_float_to_jni(java_value);
 	}
 
-	float result;
 	jfloat jni_result = (jfloat) jni->invokeFloatMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_float_to_java(jni_result);
@@ -554,7 +559,9 @@ float android_content_SharedPreferences::getFloat(AndroidCXX::java_lang_String& 
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_float(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (float) (cxx_value);
+
+	float result = (float) *((float *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -604,7 +611,6 @@ bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& a
 		jarg0 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -622,7 +628,9 @@ bool android_content_SharedPreferences::contains(AndroidCXX::java_lang_String& a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -693,7 +701,6 @@ AndroidCXX::java_lang_String android_content_SharedPreferences::getString(Androi
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -711,7 +718,9 @@ AndroidCXX::java_lang_String android_content_SharedPreferences::getString(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -740,7 +749,6 @@ AndroidCXX::java_util_Map android_content_SharedPreferences::getAll()
 	LOGV("android_content_SharedPreferences jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Map result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -791,7 +799,9 @@ AndroidCXX::java_util_Map android_content_SharedPreferences::getAll()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Map(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Map) (AndroidCXX::java_util_Map((AndroidCXX::java_util_Map *) cxx_value));
+
+	AndroidCXX::java_util_Map result((AndroidCXX::java_util_Map) *((AndroidCXX::java_util_Map *) cxx_value));
+	delete ((AndroidCXX::java_util_Map *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -880,7 +890,6 @@ AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(Androi
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -916,7 +925,9 @@ AndroidCXX::java_util_Set android_content_SharedPreferences::getStringSet(Androi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
+
+	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
+	delete ((AndroidCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -945,7 +956,6 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	LOGV("android_content_SharedPreferences jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_SharedPreferences_Editor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -963,7 +973,9 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_SharedPreferences_Editor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_SharedPreferences_Editor) (AndroidCXX::android_content_SharedPreferences_Editor((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+
+	AndroidCXX::android_content_SharedPreferences_Editor result((AndroidCXX::android_content_SharedPreferences_Editor) *((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value));
+	delete ((AndroidCXX::android_content_SharedPreferences_Editor *) cxx_value);
 		
 	jni->popLocalFrame();
 

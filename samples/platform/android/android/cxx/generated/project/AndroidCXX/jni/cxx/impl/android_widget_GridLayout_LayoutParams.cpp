@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -43,7 +42,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_GridLayout_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -82,7 +81,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(const android_widget_GridLayout_LayoutParams& cc)
@@ -126,6 +124,10 @@ android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(v
 
 	LOGV("android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_widget_GridLayout_LayoutParams::android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec& arg0,AndroidCXX::android_widget_GridLayout_Spec& arg1)
 {
@@ -547,7 +549,6 @@ bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -565,7 +566,9 @@ bool android_widget_GridLayout_LayoutParams::equals(AndroidCXX::java_lang_Object
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -594,7 +597,6 @@ int android_widget_GridLayout_LayoutParams::hashCode()
 	LOGV("android_widget_GridLayout_LayoutParams jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -612,7 +614,9 @@ int android_widget_GridLayout_LayoutParams::hashCode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

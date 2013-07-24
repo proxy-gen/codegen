@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -115,7 +114,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_media_MediaPlayer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -245,7 +244,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_media_MediaPlayer::android_media_MediaPlayer(const android_media_MediaPlayer& cc)
 {
@@ -288,6 +286,10 @@ android_media_MediaPlayer::android_media_MediaPlayer(void * proxy)
 
 	LOGV("android_media_MediaPlayer::android_media_MediaPlayer(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 android_media_MediaPlayer::android_media_MediaPlayer()
 {
@@ -515,7 +517,6 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_media_MediaPlayer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -533,7 +534,9 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_media_MediaPlayer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_media_MediaPlayer) (AndroidCXX::android_media_MediaPlayer((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+
+	AndroidCXX::android_media_MediaPlayer result((AndroidCXX::android_media_MediaPlayer) *((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+	delete ((AndroidCXX::android_media_MediaPlayer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -625,7 +628,6 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		jarg2 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_media_MediaPlayer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1,jarg2);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -643,7 +645,9 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_media_MediaPlayer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_media_MediaPlayer) (AndroidCXX::android_media_MediaPlayer((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+
+	AndroidCXX::android_media_MediaPlayer result((AndroidCXX::android_media_MediaPlayer) *((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+	delete ((AndroidCXX::android_media_MediaPlayer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -714,7 +718,6 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_media_MediaPlayer result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -732,7 +735,9 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_media_MediaPlayer(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_media_MediaPlayer) (AndroidCXX::android_media_MediaPlayer((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+
+	AndroidCXX::android_media_MediaPlayer result((AndroidCXX::android_media_MediaPlayer) *((AndroidCXX::android_media_MediaPlayer *) cxx_value));
+	delete ((AndroidCXX::android_media_MediaPlayer *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -761,7 +766,6 @@ int android_media_MediaPlayer::getDuration()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -779,7 +783,9 @@ int android_media_MediaPlayer::getDuration()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -864,7 +870,6 @@ int android_media_MediaPlayer::getCurrentPosition()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -882,7 +887,9 @@ int android_media_MediaPlayer::getCurrentPosition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -960,7 +967,6 @@ bool android_media_MediaPlayer::isPlaying()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -978,7 +984,9 @@ bool android_media_MediaPlayer::isPlaying()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1880,7 +1888,6 @@ int android_media_MediaPlayer::getVideoWidth()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1898,7 +1905,9 @@ int android_media_MediaPlayer::getVideoWidth()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1927,7 +1936,6 @@ int android_media_MediaPlayer::getVideoHeight()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1945,7 +1953,9 @@ int android_media_MediaPlayer::getVideoHeight()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2121,7 +2131,6 @@ bool android_media_MediaPlayer::isLooping()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2139,7 +2148,9 @@ bool android_media_MediaPlayer::isLooping()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2287,7 +2298,6 @@ int android_media_MediaPlayer::getAudioSessionId()
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2305,7 +2315,9 @@ int android_media_MediaPlayer::getAudioSessionId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2432,7 +2444,6 @@ std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > android_media_Medi
 	LOGV("android_media_MediaPlayer jni address %d", javaObject);
 
 
-	std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > result;
 	jobjectArray jni_result = (jobjectArray) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni__object_array_type_to_java(jni_result);
@@ -2468,7 +2479,9 @@ std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > android_media_Medi
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert__object_array_type(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo >) (cxx_value);
+
+	std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > result = (std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo >) *((std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > *) cxx_value);
+	delete ((std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > *) cxx_value);
 		
 	jni->popLocalFrame();
 

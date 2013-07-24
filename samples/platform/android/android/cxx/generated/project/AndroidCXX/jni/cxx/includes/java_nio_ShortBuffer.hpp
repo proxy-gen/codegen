@@ -8,7 +8,6 @@
 //
 
 
-
  	
 	
  	
@@ -114,7 +113,10 @@ public:
 	java_nio_ShortBuffer(const java_nio_ShortBuffer& cc);
 	java_nio_ShortBuffer(void * proxy);
 	// Public Constructors
-	java_nio_ShortBuffer();
+	// TODO: remove
+	// 
+	// java_nio_ShortBuffer();
+	// 
 	// Default Destructor
 	virtual ~java_nio_ShortBuffer();
 	// Functions

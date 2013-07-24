@@ -11,6 +11,9 @@
 
 #include <FacebookCXXConverter.hpp>
 
+#define LOG_TAG "FacebookCXXConverter"
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
+
 // Proxy Converter Types
 void convert_com_facebook_AccessToken_SerializationProxyV1(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {

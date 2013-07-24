@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -82,7 +81,10 @@ public:
 	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,int& arg2);
 	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_os_Bundle& arg2,int& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener& arg4);
 	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context& arg0,AndroidCXX::java_lang_String& arg1);
-	com_facebook_widget_WebDialog();
+	// TODO: remove
+	// 
+	// com_facebook_widget_WebDialog();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog();
 	// Functions

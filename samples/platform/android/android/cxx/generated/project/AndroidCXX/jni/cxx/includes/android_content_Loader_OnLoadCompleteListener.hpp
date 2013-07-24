@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -61,7 +60,10 @@ public:
 	android_content_Loader_OnLoadCompleteListener(const android_content_Loader_OnLoadCompleteListener& cc);
 	android_content_Loader_OnLoadCompleteListener(void * proxy);
 	// Public Constructors
-	android_content_Loader_OnLoadCompleteListener();
+	// TODO: remove
+	// 
+	// android_content_Loader_OnLoadCompleteListener();
+	// 
 	// Default Destructor
 	virtual ~android_content_Loader_OnLoadCompleteListener();
 	// Functions

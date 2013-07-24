@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -69,7 +68,10 @@ public:
 	android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc);
 	android_app_PendingIntent_OnFinished(void * proxy);
 	// Public Constructors
-	android_app_PendingIntent_OnFinished();
+	// TODO: remove
+	// 
+	// android_app_PendingIntent_OnFinished();
+	// 
 	// Default Destructor
 	virtual ~android_app_PendingIntent_OnFinished();
 	// Functions

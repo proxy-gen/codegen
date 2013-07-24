@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -53,7 +52,10 @@ public:
 	com_facebook_GetTokenClient_CompletedListener(const com_facebook_GetTokenClient_CompletedListener& cc);
 	com_facebook_GetTokenClient_CompletedListener(void * proxy);
 	// Public Constructors
-	com_facebook_GetTokenClient_CompletedListener();
+	// TODO: remove
+	// 
+	// com_facebook_GetTokenClient_CompletedListener();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_CompletedListener();
 	// Functions

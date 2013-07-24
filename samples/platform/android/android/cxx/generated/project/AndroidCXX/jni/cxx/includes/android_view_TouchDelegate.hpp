@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -66,7 +65,10 @@ public:
 	android_view_TouchDelegate(void * proxy);
 	// Public Constructors
 	android_view_TouchDelegate(AndroidCXX::android_graphics_Rect& arg0,AndroidCXX::android_view_View& arg1);
-	android_view_TouchDelegate();
+	// TODO: remove
+	// 
+	// android_view_TouchDelegate();
+	// 
 	// Default Destructor
 	virtual ~android_view_TouchDelegate();
 	// Functions

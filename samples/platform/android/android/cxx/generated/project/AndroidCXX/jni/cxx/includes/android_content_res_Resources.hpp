@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -226,7 +225,10 @@ public:
 	android_content_res_Resources(void * proxy);
 	// Public Constructors
 	android_content_res_Resources(AndroidCXX::android_content_res_AssetManager& arg0,AndroidCXX::android_util_DisplayMetrics& arg1,AndroidCXX::android_content_res_Configuration& arg2);
-	android_content_res_Resources();
+	// TODO: remove
+	// 
+	// android_content_res_Resources();
+	// 
 	// Default Destructor
 	virtual ~android_content_res_Resources();
 	// Functions

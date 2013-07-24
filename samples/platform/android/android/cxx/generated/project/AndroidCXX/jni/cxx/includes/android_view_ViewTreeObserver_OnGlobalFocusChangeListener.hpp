@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -55,7 +54,10 @@ public:
 	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(const android_view_ViewTreeObserver_OnGlobalFocusChangeListener& cc);
 	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(void * proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
+	// TODO: remove
+	// 
+	// android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
 	// Functions

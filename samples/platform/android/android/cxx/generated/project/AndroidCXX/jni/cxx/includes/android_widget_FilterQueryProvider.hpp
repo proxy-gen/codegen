@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 
@@ -59,7 +58,10 @@ public:
 	android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc);
 	android_widget_FilterQueryProvider(void * proxy);
 	// Public Constructors
-	android_widget_FilterQueryProvider();
+	// TODO: remove
+	// 
+	// android_widget_FilterQueryProvider();
+	// 
 	// Default Destructor
 	virtual ~android_widget_FilterQueryProvider();
 	// Functions

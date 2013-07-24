@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -60,7 +59,10 @@ public:
 	com_facebook_widget_GraphObjectPagingLoader_PagedResults(const com_facebook_widget_GraphObjectPagingLoader_PagedResults& cc);
 	com_facebook_widget_GraphObjectPagingLoader_PagedResults(void * proxy);
 	// Public Constructors
-	com_facebook_widget_GraphObjectPagingLoader_PagedResults();
+	// TODO: remove
+	// 
+	// com_facebook_widget_GraphObjectPagingLoader_PagedResults();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader_PagedResults();
 	// Functions

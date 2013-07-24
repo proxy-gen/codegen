@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -57,7 +56,10 @@ public:
 	android_webkit_DownloadListener(const android_webkit_DownloadListener& cc);
 	android_webkit_DownloadListener(void * proxy);
 	// Public Constructors
-	android_webkit_DownloadListener();
+	// TODO: remove
+	// 
+	// android_webkit_DownloadListener();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_DownloadListener();
 	// Functions

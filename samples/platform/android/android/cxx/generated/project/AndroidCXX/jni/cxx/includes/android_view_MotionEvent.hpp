@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  		 
@@ -181,7 +180,10 @@ public:
 	android_view_MotionEvent(const android_view_MotionEvent& cc);
 	android_view_MotionEvent(void * proxy);
 	// Public Constructors
-	android_view_MotionEvent();
+	// TODO: remove
+	// 
+	// android_view_MotionEvent();
+	// 
 	// Default Destructor
 	virtual ~android_view_MotionEvent();
 	// Functions

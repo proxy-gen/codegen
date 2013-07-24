@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -59,7 +58,10 @@ public:
 	android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc);
 	android_media_MediaPlayer_OnTimedTextListener(void * proxy);
 	// Public Constructors
-	android_media_MediaPlayer_OnTimedTextListener();
+	// TODO: remove
+	// 
+	// android_media_MediaPlayer_OnTimedTextListener();
+	// 
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnTimedTextListener();
 	// Functions

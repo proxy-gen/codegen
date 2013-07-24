@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -153,7 +152,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebSettings"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -293,7 +292,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_webkit_WebSettings::android_webkit_WebSettings(const android_webkit_WebSettings& cc)
 {
@@ -336,40 +334,45 @@ android_webkit_WebSettings::android_webkit_WebSettings(void * proxy)
 
 	LOGV("android_webkit_WebSettings::android_webkit_WebSettings(void * proxy) exit");
 }
-android_webkit_WebSettings::android_webkit_WebSettings()
-{
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() enter");	
+// TODO: remove
+// 
+// 
+// android_webkit_WebSettings::android_webkit_WebSettings()
+// {
+// 	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/webkit/WebSettings";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebSettings jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_webkit_WebSettings jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() exit");	
-}
+// 	LOGV("android_webkit_WebSettings::android_webkit_WebSettings() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_webkit_WebSettings::~android_webkit_WebSettings()
@@ -407,7 +410,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -425,7 +427,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -454,7 +458,6 @@ ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -472,7 +475,9 @@ ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize android
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_TextSize(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize) (cxx_value);
+
+	ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize result = (ANDROID_WEBKIT_WEBSETTINGS_TEXTSIZE::android_webkit_WebSettings_TextSize) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -599,7 +604,6 @@ bool android_webkit_WebSettings::supportZoom()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -617,7 +621,9 @@ bool android_webkit_WebSettings::supportZoom()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -695,7 +701,6 @@ bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -713,7 +718,9 @@ bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -791,7 +798,6 @@ bool android_webkit_WebSettings::getBuiltInZoomControls()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -809,7 +815,9 @@ bool android_webkit_WebSettings::getBuiltInZoomControls()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -887,7 +895,6 @@ bool android_webkit_WebSettings::getDisplayZoomControls()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -905,7 +912,9 @@ bool android_webkit_WebSettings::getDisplayZoomControls()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -983,7 +992,6 @@ bool android_webkit_WebSettings::getAllowFileAccess()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1001,7 +1009,9 @@ bool android_webkit_WebSettings::getAllowFileAccess()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1079,7 +1089,6 @@ bool android_webkit_WebSettings::getAllowContentAccess()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1097,7 +1106,9 @@ bool android_webkit_WebSettings::getAllowContentAccess()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1175,7 +1186,6 @@ bool android_webkit_WebSettings::getLoadWithOverviewMode()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1193,7 +1203,9 @@ bool android_webkit_WebSettings::getLoadWithOverviewMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1271,7 +1283,6 @@ bool android_webkit_WebSettings::enableSmoothTransition()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1289,7 +1300,9 @@ bool android_webkit_WebSettings::enableSmoothTransition()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1367,7 +1380,6 @@ bool android_webkit_WebSettings::getSaveFormData()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1385,7 +1397,9 @@ bool android_webkit_WebSettings::getSaveFormData()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1463,7 +1477,6 @@ bool android_webkit_WebSettings::getSavePassword()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1481,7 +1494,9 @@ bool android_webkit_WebSettings::getSavePassword()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1559,7 +1574,6 @@ int android_webkit_WebSettings::getTextZoom()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -1577,7 +1591,9 @@ int android_webkit_WebSettings::getTextZoom()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1655,7 +1671,6 @@ ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity a
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1673,7 +1688,9 @@ ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_ZoomDensity(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity) (cxx_value);
+
+	ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity result = (ANDROID_WEBKIT_WEBSETTINGS_ZOOMDENSITY::android_webkit_WebSettings_ZoomDensity) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -1751,7 +1768,6 @@ bool android_webkit_WebSettings::getLightTouchEnabled()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1769,7 +1785,9 @@ bool android_webkit_WebSettings::getLightTouchEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1847,7 +1865,6 @@ bool android_webkit_WebSettings::getUseWideViewPort()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1865,7 +1882,9 @@ bool android_webkit_WebSettings::getUseWideViewPort()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1943,7 +1962,6 @@ bool android_webkit_WebSettings::supportMultipleWindows()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1961,7 +1979,9 @@ bool android_webkit_WebSettings::supportMultipleWindows()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2039,7 +2059,6 @@ ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlg
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2057,7 +2076,9 @@ ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlg
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_LayoutAlgorithm(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm) (cxx_value);
+
+	ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm result = (ANDROID_WEBKIT_WEBSETTINGS_LAYOUTALGORITHM::android_webkit_WebSettings_LayoutAlgorithm) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -2135,7 +2156,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2153,7 +2173,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2231,7 +2253,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2249,7 +2270,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2327,7 +2350,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily(
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2345,7 +2367,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2423,7 +2447,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2441,7 +2464,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2519,7 +2544,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2537,7 +2561,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2615,7 +2641,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -2633,7 +2658,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2711,7 +2738,6 @@ int android_webkit_WebSettings::getMinimumFontSize()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2729,7 +2755,9 @@ int android_webkit_WebSettings::getMinimumFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2807,7 +2835,6 @@ int android_webkit_WebSettings::getMinimumLogicalFontSize()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2825,7 +2852,9 @@ int android_webkit_WebSettings::getMinimumLogicalFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2903,7 +2932,6 @@ int android_webkit_WebSettings::getDefaultFontSize()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -2921,7 +2949,9 @@ int android_webkit_WebSettings::getDefaultFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2999,7 +3029,6 @@ int android_webkit_WebSettings::getDefaultFixedFontSize()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -3017,7 +3046,9 @@ int android_webkit_WebSettings::getDefaultFixedFontSize()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3095,7 +3126,6 @@ bool android_webkit_WebSettings::getLoadsImagesAutomatically()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3113,7 +3143,9 @@ bool android_webkit_WebSettings::getLoadsImagesAutomatically()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3191,7 +3223,6 @@ bool android_webkit_WebSettings::getBlockNetworkImage()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3209,7 +3240,9 @@ bool android_webkit_WebSettings::getBlockNetworkImage()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3287,7 +3320,6 @@ bool android_webkit_WebSettings::getBlockNetworkLoads()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3305,7 +3337,9 @@ bool android_webkit_WebSettings::getBlockNetworkLoads()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -3971,7 +4005,6 @@ bool android_webkit_WebSettings::getDomStorageEnabled()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -3989,7 +4022,9 @@ bool android_webkit_WebSettings::getDomStorageEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4018,7 +4053,6 @@ bool android_webkit_WebSettings::getDatabaseEnabled()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4036,7 +4070,9 @@ bool android_webkit_WebSettings::getDatabaseEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4114,7 +4150,6 @@ bool android_webkit_WebSettings::getJavaScriptEnabled()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4132,7 +4167,9 @@ bool android_webkit_WebSettings::getJavaScriptEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4161,7 +4198,6 @@ bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4179,7 +4215,9 @@ bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4208,7 +4246,6 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4226,7 +4263,9 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4255,7 +4294,6 @@ bool android_webkit_WebSettings::getPluginsEnabled()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4273,7 +4311,9 @@ bool android_webkit_WebSettings::getPluginsEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4302,7 +4342,6 @@ ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState a
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -4320,7 +4359,9 @@ ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_webkit_WebSettings_PluginState(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState) (cxx_value);
+
+	ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState result = (ANDROID_WEBKIT_WEBSETTINGS_PLUGINSTATE::android_webkit_WebSettings_PluginState) (cxx_value);
+	//
 		
 	jni->popLocalFrame();
 
@@ -4349,7 +4390,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4367,7 +4407,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4445,7 +4487,6 @@ bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -4463,7 +4504,9 @@ bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -4541,7 +4584,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingN
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4559,7 +4601,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingN
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4637,7 +4681,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4655,7 +4698,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4705,7 +4750,6 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -4723,7 +4767,9 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -4899,7 +4945,6 @@ int android_webkit_WebSettings::getCacheMode()
 	LOGV("android_webkit_WebSettings jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -4917,7 +4962,9 @@ int android_webkit_WebSettings::getCacheMode()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_AuthorizationClient_KatanaProxyAuthHandler
@@ -48,7 +47,10 @@ public:
 	com_facebook_AuthorizationClient_KatanaProxyAuthHandler(const com_facebook_AuthorizationClient_KatanaProxyAuthHandler& cc);
 	com_facebook_AuthorizationClient_KatanaProxyAuthHandler(void * proxy);
 	// Public Constructors
-	com_facebook_AuthorizationClient_KatanaProxyAuthHandler();
+	// TODO: remove
+	// 
+	// com_facebook_AuthorizationClient_KatanaProxyAuthHandler();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaProxyAuthHandler();
 	// Functions

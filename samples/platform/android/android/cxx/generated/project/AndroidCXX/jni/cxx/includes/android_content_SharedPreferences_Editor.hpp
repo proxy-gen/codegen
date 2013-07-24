@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -88,7 +87,10 @@ public:
 	android_content_SharedPreferences_Editor(const android_content_SharedPreferences_Editor& cc);
 	android_content_SharedPreferences_Editor(void * proxy);
 	// Public Constructors
-	android_content_SharedPreferences_Editor();
+	// TODO: remove
+	// 
+	// android_content_SharedPreferences_Editor();
+	// 
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_Editor();
 	// Functions

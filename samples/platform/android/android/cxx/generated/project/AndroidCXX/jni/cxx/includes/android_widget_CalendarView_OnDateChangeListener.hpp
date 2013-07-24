@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc);
 	android_widget_CalendarView_OnDateChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_CalendarView_OnDateChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_CalendarView_OnDateChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_CalendarView_OnDateChangeListener();
 	// Functions

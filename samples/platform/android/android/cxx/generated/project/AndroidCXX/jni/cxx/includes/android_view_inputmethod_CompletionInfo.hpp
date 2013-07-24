@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -78,7 +77,10 @@ public:
 	// Public Constructors
 	android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2);
 	android_view_inputmethod_CompletionInfo(long& arg0,int& arg1,AndroidCXX::java_lang_CharSequence& arg2,AndroidCXX::java_lang_CharSequence& arg3);
-	android_view_inputmethod_CompletionInfo();
+	// TODO: remove
+	// 
+	// android_view_inputmethod_CompletionInfo();
+	// 
 	// Default Destructor
 	virtual ~android_view_inputmethod_CompletionInfo();
 	// Functions

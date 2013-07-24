@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -108,7 +107,10 @@ public:
 	// Public Constructors
 	android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0,AndroidCXX::android_util_AttributeSet& arg1);
 	android_widget_RadioGroup(AndroidCXX::android_content_Context& arg0);
-	android_widget_RadioGroup();
+	// TODO: remove
+	// 
+	// android_widget_RadioGroup();
+	// 
 	// Default Destructor
 	virtual ~android_widget_RadioGroup();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -28,7 +27,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ViewSwitcher_ViewFactory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -46,7 +45,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory(const android_widget_ViewSwitcher_ViewFactory& cc)
@@ -90,40 +88,45 @@ android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory
 
 	LOGV("android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory(void * proxy) exit");
 }
-android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory()
-{
-	LOGV("android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory() enter");	
+// TODO: remove
+// 
+// 
+// android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory()
+// {
+// 	LOGV("android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/widget/ViewSwitcher$ViewFactory";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/widget/ViewSwitcher$ViewFactory";
 
-	LOGV("android_widget_ViewSwitcher_ViewFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_widget_ViewSwitcher_ViewFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_widget_ViewSwitcher_ViewFactory cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_widget_ViewSwitcher_ViewFactory jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_widget_ViewSwitcher_ViewFactory cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_widget_ViewSwitcher_ViewFactory jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory() exit");	
-}
+// 	LOGV("android_widget_ViewSwitcher_ViewFactory::android_widget_ViewSwitcher_ViewFactory() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_widget_ViewSwitcher_ViewFactory::~android_widget_ViewSwitcher_ViewFactory()
@@ -161,7 +164,6 @@ AndroidCXX::android_view_View android_widget_ViewSwitcher_ViewFactory::makeView(
 	LOGV("android_widget_ViewSwitcher_ViewFactory jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -179,7 +181,9 @@ AndroidCXX::android_view_View android_widget_ViewSwitcher_ViewFactory::makeView(
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 

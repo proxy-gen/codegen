@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -121,7 +120,10 @@ public:
 	java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::java_lang_String& arg2);
 	java_util_Locale(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1);
 	java_util_Locale(AndroidCXX::java_lang_String& arg0);
-	java_util_Locale();
+	// TODO: remove
+	// 
+	// java_util_Locale();
+	// 
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions

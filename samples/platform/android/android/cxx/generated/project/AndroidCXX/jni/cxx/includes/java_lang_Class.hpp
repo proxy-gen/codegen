@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -291,7 +290,10 @@ public:
 	java_lang_Class(const java_lang_Class& cc);
 	java_lang_Class(void * proxy);
 	// Public Constructors
-	java_lang_Class();
+	// TODO: remove
+	// 
+	// java_lang_Class();
+	// 
 	// Default Destructor
 	virtual ~java_lang_Class();
 	// Functions

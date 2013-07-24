@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -71,7 +70,10 @@ public:
 	com_facebook_model_GraphPlace(const com_facebook_model_GraphPlace& cc);
 	com_facebook_model_GraphPlace(void * proxy);
 	// Public Constructors
-	com_facebook_model_GraphPlace();
+	// TODO: remove
+	// 
+	// com_facebook_model_GraphPlace();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -63,6 +62,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Settings"
@@ -149,7 +149,6 @@ using namespace FacebookCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 com_facebook_Settings::com_facebook_Settings(const com_facebook_Settings& cc)
 {
@@ -192,6 +191,10 @@ com_facebook_Settings::com_facebook_Settings(void * proxy)
 
 	LOGV("com_facebook_Settings::com_facebook_Settings(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_Settings::com_facebook_Settings()
 {
@@ -286,7 +289,6 @@ bool com_facebook_Settings::isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIO
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -304,7 +306,9 @@ bool com_facebook_Settings::isLoggingBehaviorEnabled(COM_FACEBOOK_LOGGINGBEHAVIO
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -333,7 +337,6 @@ AndroidCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor()
 	LOGV("com_facebook_Settings jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_concurrent_Executor result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -351,7 +354,9 @@ AndroidCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_concurrent_Executor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_concurrent_Executor) (AndroidCXX::java_util_concurrent_Executor((AndroidCXX::java_util_concurrent_Executor *) cxx_value));
+
+	AndroidCXX::java_util_concurrent_Executor result((AndroidCXX::java_util_concurrent_Executor) *((AndroidCXX::java_util_concurrent_Executor *) cxx_value));
+	delete ((AndroidCXX::java_util_concurrent_Executor *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -380,7 +385,6 @@ bool com_facebook_Settings::getShouldAutoPublishInstall()
 	LOGV("com_facebook_Settings jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -398,7 +402,9 @@ bool com_facebook_Settings::getShouldAutoPublishInstall()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -469,7 +475,6 @@ bool com_facebook_Settings::publishInstallAndWait(AndroidCXX::android_content_Co
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -487,7 +492,9 @@ bool com_facebook_Settings::publishInstallAndWait(AndroidCXX::android_content_Co
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -537,7 +544,6 @@ AndroidCXX::java_lang_String com_facebook_Settings::getAttributionId(AndroidCXX:
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -555,7 +561,9 @@ AndroidCXX::java_lang_String com_facebook_Settings::getAttributionId(AndroidCXX:
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -626,7 +634,6 @@ FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitF
 		jarg1 = convert_jni_string_to_jni(java_value);
 	}
 
-	FacebookCXX::com_facebook_Response result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -644,7 +651,9 @@ FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitF
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_com_facebook_Response(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (FacebookCXX::com_facebook_Response) (FacebookCXX::com_facebook_Response((FacebookCXX::com_facebook_Response *) cxx_value));
+
+	FacebookCXX::com_facebook_Response result((FacebookCXX::com_facebook_Response) *((FacebookCXX::com_facebook_Response *) cxx_value));
+	delete ((FacebookCXX::com_facebook_Response *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -834,7 +843,6 @@ AndroidCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors()
 	LOGV("com_facebook_Settings jni address %d", javaObject);
 
 
-	AndroidCXX::java_util_Set result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -870,7 +878,9 @@ AndroidCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_util_Set(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_util_Set) (AndroidCXX::java_util_Set((AndroidCXX::java_util_Set *) cxx_value));
+
+	AndroidCXX::java_util_Set result((AndroidCXX::java_util_Set) *((AndroidCXX::java_util_Set *) cxx_value));
+	delete ((AndroidCXX::java_util_Set *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1123,7 +1133,6 @@ AndroidCXX::java_lang_String com_facebook_Settings::getSdkVersion()
 	LOGV("com_facebook_Settings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1141,7 +1150,9 @@ AndroidCXX::java_lang_String com_facebook_Settings::getSdkVersion()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1170,7 +1181,6 @@ AndroidCXX::java_lang_String com_facebook_Settings::getMigrationBundle()
 	LOGV("com_facebook_Settings jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_String result;
 	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_string_to_java(jni_result);
@@ -1188,7 +1198,9 @@ AndroidCXX::java_lang_String com_facebook_Settings::getMigrationBundle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_String) (AndroidCXX::java_lang_String((AndroidCXX::java_lang_String *) cxx_value));
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
 		
 	jni->popLocalFrame();
 

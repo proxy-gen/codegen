@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <android_view_ViewTreeObserver_OnPreDrawListener.hpp>
@@ -27,7 +26,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewTreeObserver_OnPreDrawListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -39,7 +38,6 @@ using namespace AndroidCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc)
@@ -83,40 +81,45 @@ android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_O
 
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener(void * proxy) exit");
 }
-android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener()
-{
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() enter");	
+// TODO: remove
+// 
+// 
+// android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener()
+// {
+// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/ViewTreeObserver$OnPreDrawListener";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/ViewTreeObserver$OnPreDrawListener";
 
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() exit");	
-}
+// 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener::android_view_ViewTreeObserver_OnPreDrawListener() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_ViewTreeObserver_OnPreDrawListener::~android_view_ViewTreeObserver_OnPreDrawListener()
@@ -154,7 +157,6 @@ bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
 	LOGV("android_view_ViewTreeObserver_OnPreDrawListener jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -172,7 +174,9 @@ bool android_view_ViewTreeObserver_OnPreDrawListener::onPreDraw()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 
@@ -63,6 +62,8 @@ public:
 	android_content_pm_PackageInfo(void * proxy);
 	// Public Constructors
 	android_content_pm_PackageInfo();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_content_pm_PackageInfo();
 	// Functions

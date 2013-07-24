@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -119,6 +118,8 @@ public:
 	java_net_DatagramSocket();
 	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress& arg0);
 	java_net_DatagramSocket(int& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~java_net_DatagramSocket();
 	// Functions

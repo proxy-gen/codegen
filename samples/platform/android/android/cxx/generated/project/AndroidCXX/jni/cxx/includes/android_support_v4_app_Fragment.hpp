@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -286,6 +285,8 @@ public:
 	android_support_v4_app_Fragment(void * proxy);
 	// Public Constructors
 	android_support_v4_app_Fragment();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_support_v4_app_Fragment();
 	// Functions

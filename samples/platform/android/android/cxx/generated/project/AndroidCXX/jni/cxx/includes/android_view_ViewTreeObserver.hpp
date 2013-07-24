@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -102,7 +101,10 @@ public:
 	android_view_ViewTreeObserver(const android_view_ViewTreeObserver& cc);
 	android_view_ViewTreeObserver(void * proxy);
 	// Public Constructors
-	android_view_ViewTreeObserver();
+	// TODO: remove
+	// 
+	// android_view_ViewTreeObserver();
+	// 
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver();
 	// Functions

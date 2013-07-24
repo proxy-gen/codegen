@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_database_DataSetObserver
@@ -52,6 +51,8 @@ public:
 	android_database_DataSetObserver(void * proxy);
 	// Public Constructors
 	android_database_DataSetObserver();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_database_DataSetObserver();
 	// Functions

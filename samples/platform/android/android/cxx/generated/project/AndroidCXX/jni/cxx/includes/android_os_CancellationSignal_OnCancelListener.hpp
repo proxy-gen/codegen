@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_os_CancellationSignal_OnCancelListener
@@ -49,7 +48,10 @@ public:
 	android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc);
 	android_os_CancellationSignal_OnCancelListener(void * proxy);
 	// Public Constructors
-	android_os_CancellationSignal_OnCancelListener();
+	// TODO: remove
+	// 
+	// android_os_CancellationSignal_OnCancelListener();
+	// 
 	// Default Destructor
 	virtual ~android_os_CancellationSignal_OnCancelListener();
 	// Functions

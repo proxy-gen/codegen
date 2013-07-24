@@ -8,7 +8,6 @@
 //
 
 
-
 	
  	
  		 
@@ -67,7 +66,10 @@ public:
 	java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc);
 	java_lang_reflect_TypeVariable(void * proxy);
 	// Public Constructors
-	java_lang_reflect_TypeVariable();
+	// TODO: remove
+	// 
+	// java_lang_reflect_TypeVariable();
+	// 
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions

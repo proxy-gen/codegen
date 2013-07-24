@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -72,7 +71,10 @@ public:
 	// Public Constructors
 	android_os_PatternMatcher(AndroidCXX::java_lang_String& arg0,int& arg1);
 	android_os_PatternMatcher(AndroidCXX::android_os_Parcel& arg0);
-	android_os_PatternMatcher();
+	// TODO: remove
+	// 
+	// android_os_PatternMatcher();
+	// 
 	// Default Destructor
 	virtual ~android_os_PatternMatcher();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc);
 	android_widget_NumberPicker_Formatter(void * proxy);
 	// Public Constructors
-	android_widget_NumberPicker_Formatter();
+	// TODO: remove
+	// 
+	// android_widget_NumberPicker_Formatter();
+	// 
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_Formatter();
 	// Functions

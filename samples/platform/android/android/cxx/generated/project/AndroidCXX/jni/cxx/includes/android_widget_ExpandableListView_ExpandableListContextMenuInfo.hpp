@@ -10,7 +10,6 @@
 
 
 
-
  		 
 
 
@@ -55,7 +54,10 @@ public:
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(void * proxy);
 	// Public Constructors
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View& arg0,long& arg1,long& arg2);
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo();
+	// TODO: remove
+	// 
+	// android_widget_ExpandableListView_ExpandableListContextMenuInfo();
+	// 
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_ExpandableListContextMenuInfo();
 	// Functions

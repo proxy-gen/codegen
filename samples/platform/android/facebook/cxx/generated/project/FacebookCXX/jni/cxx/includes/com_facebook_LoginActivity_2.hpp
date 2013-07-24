@@ -17,7 +17,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _com_facebook_LoginActivity_2
@@ -50,7 +49,10 @@ public:
 	com_facebook_LoginActivity_2(const com_facebook_LoginActivity_2& cc);
 	com_facebook_LoginActivity_2(void * proxy);
 	// Public Constructors
-	com_facebook_LoginActivity_2();
+	// TODO: remove
+	// 
+	// com_facebook_LoginActivity_2();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity_2();
 	// Functions

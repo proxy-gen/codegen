@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -96,7 +95,10 @@ public:
 	// Public Constructors
 	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1);
 	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource& arg0,AndroidCXX::java_security_PermissionCollection& arg1,AndroidCXX::java_lang_ClassLoader& arg2,std::vector<AndroidCXX::java_security_Principal >& arg3);
-	java_security_ProtectionDomain();
+	// TODO: remove
+	// 
+	// java_security_ProtectionDomain();
+	// 
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions

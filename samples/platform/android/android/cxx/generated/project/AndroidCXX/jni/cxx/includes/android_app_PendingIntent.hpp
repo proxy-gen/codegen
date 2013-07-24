@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -162,7 +161,10 @@ public:
 	android_app_PendingIntent(const android_app_PendingIntent& cc);
 	android_app_PendingIntent(void * proxy);
 	// Public Constructors
-	android_app_PendingIntent();
+	// TODO: remove
+	// 
+	// android_app_PendingIntent();
+	// 
 	// Default Destructor
 	virtual ~android_app_PendingIntent();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -77,7 +76,10 @@ public:
 	android_view_ContextMenu(const android_view_ContextMenu& cc);
 	android_view_ContextMenu(void * proxy);
 	// Public Constructors
-	android_view_ContextMenu();
+	// TODO: remove
+	// 
+	// android_view_ContextMenu();
+	// 
 	// Default Destructor
 	virtual ~android_view_ContextMenu();
 	// Functions

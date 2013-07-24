@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -102,7 +101,7 @@
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
 // TODO: FIXME: add include package
-#include <AndroidCXXConverter.hpp>
+// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MenuItem"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -223,7 +222,6 @@ using namespace AndroidCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
-
 // Default Instance Constructors
 android_view_MenuItem::android_view_MenuItem(const android_view_MenuItem& cc)
 {
@@ -266,40 +264,45 @@ android_view_MenuItem::android_view_MenuItem(void * proxy)
 
 	LOGV("android_view_MenuItem::android_view_MenuItem(void * proxy) exit");
 }
-android_view_MenuItem::android_view_MenuItem()
-{
-	LOGV("android_view_MenuItem::android_view_MenuItem() enter");	
+// TODO: remove
+// 
+// 
+// android_view_MenuItem::android_view_MenuItem()
+// {
+// 	LOGV("android_view_MenuItem::android_view_MenuItem() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "android/view/MenuItem";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "android/view/MenuItem";
 
-	LOGV("android_view_MenuItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("android_view_MenuItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("android_view_MenuItem cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_view_MenuItem jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("android_view_MenuItem cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("android_view_MenuItem jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("android_view_MenuItem::android_view_MenuItem() exit");	
-}
+// 	LOGV("android_view_MenuItem::android_view_MenuItem() exit");	
+// }
+// 
+// 
 // Public Constructors
 // Default Instance Destructor
 android_view_MenuItem::~android_view_MenuItem()
@@ -337,7 +340,6 @@ bool android_view_MenuItem::isVisible()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -355,7 +357,9 @@ bool android_view_MenuItem::isVisible()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -384,7 +388,6 @@ bool android_view_MenuItem::isEnabled()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -402,7 +405,9 @@ bool android_view_MenuItem::isEnabled()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -431,7 +436,6 @@ AndroidCXX::android_content_Intent android_view_MenuItem::getIntent()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_content_Intent result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -449,7 +453,9 @@ AndroidCXX::android_content_Intent android_view_MenuItem::getIntent()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_content_Intent(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_content_Intent) (AndroidCXX::android_content_Intent((AndroidCXX::android_content_Intent *) cxx_value));
+
+	AndroidCXX::android_content_Intent result((AndroidCXX::android_content_Intent) *((AndroidCXX::android_content_Intent *) cxx_value));
+	delete ((AndroidCXX::android_content_Intent *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -499,7 +505,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIntent(AndroidCXX::a
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -517,7 +522,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIntent(AndroidCXX::a
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -567,7 +574,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setVisible(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -585,7 +591,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setVisible(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -635,7 +643,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitle(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -653,7 +660,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitle(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -703,7 +712,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitle(AndroidCXX::ja
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -721,7 +729,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitle(AndroidCXX::ja
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -750,7 +760,6 @@ AndroidCXX::java_lang_CharSequence android_view_MenuItem::getTitle()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -768,7 +777,9 @@ AndroidCXX::java_lang_CharSequence android_view_MenuItem::getTitle()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -818,7 +829,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setEnabled(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -836,7 +846,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setEnabled(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -865,7 +877,6 @@ int android_view_MenuItem::getItemId()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -883,7 +894,9 @@ int android_view_MenuItem::getItemId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -912,7 +925,6 @@ int android_view_MenuItem::getGroupId()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -930,7 +942,9 @@ int android_view_MenuItem::getGroupId()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -959,7 +973,6 @@ int android_view_MenuItem::getOrder()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	int result;
 	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_int_to_java(jni_result);
@@ -977,7 +990,9 @@ int android_view_MenuItem::getOrder()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (int) (cxx_value);
+
+	int result = (int) *((int *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1027,7 +1042,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitleCondensed(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1045,7 +1059,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setTitleCondensed(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1074,7 +1090,6 @@ AndroidCXX::java_lang_CharSequence android_view_MenuItem::getTitleCondensed()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::java_lang_CharSequence result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1092,7 +1107,9 @@ AndroidCXX::java_lang_CharSequence android_view_MenuItem::getTitleCondensed()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_java_lang_CharSequence(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::java_lang_CharSequence) (AndroidCXX::java_lang_CharSequence((AndroidCXX::java_lang_CharSequence *) cxx_value));
+
+	AndroidCXX::java_lang_CharSequence result((AndroidCXX::java_lang_CharSequence) *((AndroidCXX::java_lang_CharSequence *) cxx_value));
+	delete ((AndroidCXX::java_lang_CharSequence *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1142,7 +1159,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIcon(AndroidCXX::and
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1160,7 +1176,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIcon(AndroidCXX::and
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1210,7 +1228,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIcon(int& arg0)
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1228,7 +1245,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setIcon(int& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1257,7 +1276,6 @@ AndroidCXX::android_graphics_drawable_Drawable android_view_MenuItem::getIcon()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_graphics_drawable_Drawable result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1275,7 +1293,9 @@ AndroidCXX::android_graphics_drawable_Drawable android_view_MenuItem::getIcon()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_graphics_drawable_Drawable(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_graphics_drawable_Drawable) (AndroidCXX::android_graphics_drawable_Drawable((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+
+	AndroidCXX::android_graphics_drawable_Drawable result((AndroidCXX::android_graphics_drawable_Drawable) *((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value));
+	delete ((AndroidCXX::android_graphics_drawable_Drawable *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1346,7 +1366,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setShortcut(char& arg0,
 		jarg1 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1364,7 +1383,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setShortcut(char& arg0,
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1414,7 +1435,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setNumericShortcut(char
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1432,7 +1452,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setNumericShortcut(char
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1461,7 +1483,6 @@ char android_view_MenuItem::getNumericShortcut()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	char result;
 	jchar jni_result = (jchar) jni->invokeCharMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_char_to_java(jni_result);
@@ -1479,7 +1500,9 @@ char android_view_MenuItem::getNumericShortcut()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (cxx_value);
+
+	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1529,7 +1552,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setAlphabeticShortcut(c
 		jarg0 = convert_jni_char_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1547,7 +1569,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setAlphabeticShortcut(c
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1576,7 +1600,6 @@ char android_view_MenuItem::getAlphabeticShortcut()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	char result;
 	jchar jni_result = (jchar) jni->invokeCharMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_char_to_java(jni_result);
@@ -1594,7 +1617,9 @@ char android_view_MenuItem::getAlphabeticShortcut()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_char(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (char) (cxx_value);
+
+	char result = (char) *((char *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1644,7 +1669,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setCheckable(bool& arg0
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1662,7 +1686,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setCheckable(bool& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1691,7 +1717,6 @@ bool android_view_MenuItem::isCheckable()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1709,7 +1734,9 @@ bool android_view_MenuItem::isCheckable()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1759,7 +1786,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setChecked(bool& arg0)
 		jarg0 = convert_jni_boolean_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1777,7 +1803,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setChecked(bool& arg0)
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1806,7 +1834,6 @@ bool android_view_MenuItem::isChecked()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1824,7 +1851,9 @@ bool android_view_MenuItem::isChecked()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1853,7 +1882,6 @@ bool android_view_MenuItem::hasSubMenu()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -1871,7 +1899,9 @@ bool android_view_MenuItem::hasSubMenu()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -1900,7 +1930,6 @@ AndroidCXX::android_view_SubMenu android_view_MenuItem::getSubMenu()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_SubMenu result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1918,7 +1947,9 @@ AndroidCXX::android_view_SubMenu android_view_MenuItem::getSubMenu()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_SubMenu(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_SubMenu) (AndroidCXX::android_view_SubMenu((AndroidCXX::android_view_SubMenu *) cxx_value));
+
+	AndroidCXX::android_view_SubMenu result((AndroidCXX::android_view_SubMenu) *((AndroidCXX::android_view_SubMenu *) cxx_value));
+	delete ((AndroidCXX::android_view_SubMenu *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -1968,7 +1999,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setOnMenuItemClickListe
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -1986,7 +2016,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setOnMenuItemClickListe
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2015,7 +2047,6 @@ AndroidCXX::android_view_ContextMenu_ContextMenuInfo android_view_MenuItem::getM
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_ContextMenu_ContextMenuInfo result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2033,7 +2064,9 @@ AndroidCXX::android_view_ContextMenu_ContextMenuInfo android_view_MenuItem::getM
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ContextMenu_ContextMenuInfo(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ContextMenu_ContextMenuInfo) (AndroidCXX::android_view_ContextMenu_ContextMenuInfo((AndroidCXX::android_view_ContextMenu_ContextMenuInfo *) cxx_value));
+
+	AndroidCXX::android_view_ContextMenu_ContextMenuInfo result((AndroidCXX::android_view_ContextMenu_ContextMenuInfo) *((AndroidCXX::android_view_ContextMenu_ContextMenuInfo *) cxx_value));
+	delete ((AndroidCXX::android_view_ContextMenu_ContextMenuInfo *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2132,7 +2165,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setShowAsActionFlags(in
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2150,7 +2182,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setShowAsActionFlags(in
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2200,7 +2234,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionView(AndroidCX
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2218,7 +2251,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionView(AndroidCX
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2268,7 +2303,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionView(int& arg0
 		jarg0 = convert_jni_int_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2286,7 +2320,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionView(int& arg0
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2315,7 +2351,6 @@ AndroidCXX::android_view_View android_view_MenuItem::getActionView()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_View result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2333,7 +2368,9 @@ AndroidCXX::android_view_View android_view_MenuItem::getActionView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_View(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_View) (AndroidCXX::android_view_View((AndroidCXX::android_view_View *) cxx_value));
+
+	AndroidCXX::android_view_View result((AndroidCXX::android_view_View) *((AndroidCXX::android_view_View *) cxx_value));
+	delete ((AndroidCXX::android_view_View *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2383,7 +2420,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionProvider(Andro
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2401,7 +2437,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setActionProvider(Andro
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2430,7 +2468,6 @@ AndroidCXX::android_view_ActionProvider android_view_MenuItem::getActionProvider
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	AndroidCXX::android_view_ActionProvider result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2448,7 +2485,9 @@ AndroidCXX::android_view_ActionProvider android_view_MenuItem::getActionProvider
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_ActionProvider(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_ActionProvider) (AndroidCXX::android_view_ActionProvider((AndroidCXX::android_view_ActionProvider *) cxx_value));
+
+	AndroidCXX::android_view_ActionProvider result((AndroidCXX::android_view_ActionProvider) *((AndroidCXX::android_view_ActionProvider *) cxx_value));
+	delete ((AndroidCXX::android_view_ActionProvider *) cxx_value);
 		
 	jni->popLocalFrame();
 
@@ -2477,7 +2516,6 @@ bool android_view_MenuItem::expandActionView()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2495,7 +2533,9 @@ bool android_view_MenuItem::expandActionView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2524,7 +2564,6 @@ bool android_view_MenuItem::collapseActionView()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2542,7 +2581,9 @@ bool android_view_MenuItem::collapseActionView()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2571,7 +2612,6 @@ bool android_view_MenuItem::isActionViewExpanded()
 	LOGV("android_view_MenuItem jni address %d", javaObject);
 
 
-	bool result;
 	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_boolean_to_java(jni_result);
@@ -2589,7 +2629,9 @@ bool android_view_MenuItem::isActionViewExpanded()
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (bool) (cxx_value);
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
 		
 	jni->popLocalFrame();
 
@@ -2639,7 +2681,6 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setOnActionExpandListen
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
-	AndroidCXX::android_view_MenuItem result;
 	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
 	long cxx_value = (long) 0;
 	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
@@ -2657,7 +2698,9 @@ AndroidCXX::android_view_MenuItem android_view_MenuItem::setOnActionExpandListen
 		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
 		convert_android_view_MenuItem(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 	}
-	result = (AndroidCXX::android_view_MenuItem) (AndroidCXX::android_view_MenuItem((AndroidCXX::android_view_MenuItem *) cxx_value));
+
+	AndroidCXX::android_view_MenuItem result((AndroidCXX::android_view_MenuItem) *((AndroidCXX::android_view_MenuItem *) cxx_value));
+	delete ((AndroidCXX::android_view_MenuItem *) cxx_value);
 		
 	jni->popLocalFrame();
 

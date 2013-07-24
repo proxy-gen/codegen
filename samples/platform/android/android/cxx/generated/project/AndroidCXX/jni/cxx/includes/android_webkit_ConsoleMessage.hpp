@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -67,7 +66,10 @@ public:
 	android_webkit_ConsoleMessage(void * proxy);
 	// Public Constructors
 	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String& arg0,AndroidCXX::java_lang_String& arg1,int& arg2,ANDROID_WEBKIT_CONSOLEMESSAGE_MESSAGELEVEL::android_webkit_ConsoleMessage_MessageLevel& arg3);
-	android_webkit_ConsoleMessage();
+	// TODO: remove
+	// 
+	// android_webkit_ConsoleMessage();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_ConsoleMessage();
 	// Functions

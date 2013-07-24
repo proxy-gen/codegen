@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -58,6 +57,8 @@ public:
 	android_graphics_Shader(void * proxy);
 	// Public Constructors
 	android_graphics_Shader();
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_graphics_Shader();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
  	
@@ -106,7 +105,10 @@ public:
 	com_facebook_Response(const com_facebook_Response& cc);
 	com_facebook_Response(void * proxy);
 	// Public Constructors
-	com_facebook_Response();
+	// TODO: remove
+	// 
+	// com_facebook_Response();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_Response();
 	// Functions

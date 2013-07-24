@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -58,7 +57,10 @@ public:
 	android_view_animation_Animation_AnimationListener(const android_view_animation_Animation_AnimationListener& cc);
 	android_view_animation_Animation_AnimationListener(void * proxy);
 	// Public Constructors
-	android_view_animation_Animation_AnimationListener();
+	// TODO: remove
+	// 
+	// android_view_animation_Animation_AnimationListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_animation_Animation_AnimationListener();
 	// Functions

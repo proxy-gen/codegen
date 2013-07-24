@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_NumberPicker_OnValueChangeListener(const android_widget_NumberPicker_OnValueChangeListener& cc);
 	android_widget_NumberPicker_OnValueChangeListener(void * proxy);
 	// Public Constructors
-	android_widget_NumberPicker_OnValueChangeListener();
+	// TODO: remove
+	// 
+	// android_widget_NumberPicker_OnValueChangeListener();
+	// 
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnValueChangeListener();
 	// Functions

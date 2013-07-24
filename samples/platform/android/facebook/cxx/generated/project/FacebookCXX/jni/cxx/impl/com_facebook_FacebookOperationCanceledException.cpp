@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -34,6 +33,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_FacebookOperationCanceledException"
@@ -63,7 +63,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_FacebookOperationCanceledException::com_facebook_FacebookOperationCanceledException(const com_facebook_FacebookOperationCanceledException& cc)
@@ -107,6 +106,10 @@ com_facebook_FacebookOperationCanceledException::com_facebook_FacebookOperationC
 
 	LOGV("com_facebook_FacebookOperationCanceledException::com_facebook_FacebookOperationCanceledException(void * proxy) exit");
 }
+// TODO: remove
+// 
+// 
+// 
 // Public Constructors
 com_facebook_FacebookOperationCanceledException::com_facebook_FacebookOperationCanceledException()
 {

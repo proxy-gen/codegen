@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  	
@@ -112,7 +111,10 @@ public:
 	java_lang_ClassLoader(const java_lang_ClassLoader& cc);
 	java_lang_ClassLoader(void * proxy);
 	// Public Constructors
-	java_lang_ClassLoader();
+	// TODO: remove
+	// 
+	// java_lang_ClassLoader();
+	// 
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions

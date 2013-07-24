@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc);
 	android_view_LayoutInflater_Filter(void * proxy);
 	// Public Constructors
-	android_view_LayoutInflater_Filter();
+	// TODO: remove
+	// 
+	// android_view_LayoutInflater_Filter();
+	// 
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Filter();
 	// Functions

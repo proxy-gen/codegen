@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -56,7 +55,10 @@ public:
 	android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc);
 	android_view_MenuItem_OnActionExpandListener(void * proxy);
 	// Public Constructors
-	android_view_MenuItem_OnActionExpandListener();
+	// TODO: remove
+	// 
+	// android_view_MenuItem_OnActionExpandListener();
+	// 
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnActionExpandListener();
 	// Functions

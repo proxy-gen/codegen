@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -123,7 +122,10 @@ public:
 	android_view_Window_Callback(const android_view_Window_Callback& cc);
 	android_view_Window_Callback(void * proxy);
 	// Public Constructors
-	android_view_Window_Callback();
+	// TODO: remove
+	// 
+	// android_view_Window_Callback();
+	// 
 	// Default Destructor
 	virtual ~android_view_Window_Callback();
 	// Functions

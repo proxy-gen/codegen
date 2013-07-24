@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -348,6 +347,8 @@ public:
 	android_os_Bundle(AndroidCXX::java_lang_ClassLoader& arg0);
 	android_os_Bundle(int& arg0);
 	android_os_Bundle(AndroidCXX::android_os_Bundle& arg0);
+	// TODO: remove
+	// 
 	// Default Destructor
 	virtual ~android_os_Bundle();
 	// Functions

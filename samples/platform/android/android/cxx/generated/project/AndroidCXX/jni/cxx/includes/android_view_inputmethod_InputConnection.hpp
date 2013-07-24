@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -113,7 +112,10 @@ public:
 	android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc);
 	android_view_inputmethod_InputConnection(void * proxy);
 	// Public Constructors
-	android_view_inputmethod_InputConnection();
+	// TODO: remove
+	// 
+	// android_view_inputmethod_InputConnection();
+	// 
 	// Default Destructor
 	virtual ~android_view_inputmethod_InputConnection();
 	// Functions

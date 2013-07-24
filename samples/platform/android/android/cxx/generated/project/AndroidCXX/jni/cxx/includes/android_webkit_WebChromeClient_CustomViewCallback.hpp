@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_webkit_WebChromeClient_CustomViewCallback
@@ -49,7 +48,10 @@ public:
 	android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc);
 	android_webkit_WebChromeClient_CustomViewCallback(void * proxy);
 	// Public Constructors
-	android_webkit_WebChromeClient_CustomViewCallback();
+	// TODO: remove
+	// 
+	// android_webkit_WebChromeClient_CustomViewCallback();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_WebChromeClient_CustomViewCallback();
 	// Functions

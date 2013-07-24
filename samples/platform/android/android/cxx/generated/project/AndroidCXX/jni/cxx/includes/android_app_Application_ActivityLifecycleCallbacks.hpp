@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -72,7 +71,10 @@ public:
 	android_app_Application_ActivityLifecycleCallbacks(const android_app_Application_ActivityLifecycleCallbacks& cc);
 	android_app_Application_ActivityLifecycleCallbacks(void * proxy);
 	// Public Constructors
-	android_app_Application_ActivityLifecycleCallbacks();
+	// TODO: remove
+	// 
+	// android_app_Application_ActivityLifecycleCallbacks();
+	// 
 	// Default Destructor
 	virtual ~android_app_Application_ActivityLifecycleCallbacks();
 	// Functions

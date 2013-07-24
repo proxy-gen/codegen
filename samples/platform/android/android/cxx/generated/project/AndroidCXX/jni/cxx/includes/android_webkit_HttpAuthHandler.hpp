@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 
@@ -57,7 +56,10 @@ public:
 	android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc);
 	android_webkit_HttpAuthHandler(void * proxy);
 	// Public Constructors
-	android_webkit_HttpAuthHandler();
+	// TODO: remove
+	// 
+	// android_webkit_HttpAuthHandler();
+	// 
 	// Default Destructor
 	virtual ~android_webkit_HttpAuthHandler();
 	// Functions

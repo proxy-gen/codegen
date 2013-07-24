@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 
 
@@ -54,7 +53,10 @@ public:
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(const com_facebook_widget_LoginButton_UserInfoChangedCallback& cc);
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(void * proxy);
 	// Public Constructors
-	com_facebook_widget_LoginButton_UserInfoChangedCallback();
+	// TODO: remove
+	// 
+	// com_facebook_widget_LoginButton_UserInfoChangedCallback();
+	// 
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_UserInfoChangedCallback();
 	// Functions

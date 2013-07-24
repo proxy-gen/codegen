@@ -10,7 +10,6 @@
 
 
 
-
  		 
  		 
  		 
@@ -30,6 +29,7 @@
 #include <CXXConverter.hpp>
 #include <FacebookCXXConverter.hpp>
 // TODO: FIXME: add include package
+// FIXME: remove after testing
 #include <AndroidCXXConverter.hpp>
 
 #define LOG_TAG "com_facebook_Session_AutoPublishAsyncTask"
@@ -59,7 +59,6 @@ using namespace FacebookCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask(const com_facebook_Session_AutoPublishAsyncTask& cc)
@@ -103,40 +102,45 @@ com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsync
 
 	LOGV("com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask(void * proxy) exit");
 }
-com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask()
-{
-	LOGV("com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask() enter");	
+// TODO: remove
+// 
+// 
+// com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask()
+// {
+// 	LOGV("com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask() enter");	
 
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "com/facebook/Session$AutoPublishAsyncTask";
+// 	const char *methodName = "<init>";
+// 	const char *methodSignature = "()V";
+// 	const char *className = "com/facebook/Session$AutoPublishAsyncTask";
 
-	LOGV("com_facebook_Session_AutoPublishAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+// 	LOGV("com_facebook_Session_AutoPublishAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
+// 	CXXContext *ctx = CXXContext::sharedInstance();
+// 	JNIContext *jni = JNIContext::sharedInstance();
 
-	jni->pushLocalFrame();
+// 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("com_facebook_Session_AutoPublishAsyncTask cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("com_facebook_Session_AutoPublishAsyncTask jni address %d", proxiedComponent);
+// 	long cxxAddress = (long) this;
+// 	LOGV("com_facebook_Session_AutoPublishAsyncTask cxx address %d", cxxAddress);
+// 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+// 	LOGV("com_facebook_Session_AutoPublishAsyncTask jni address %d", proxiedComponent);
 
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
+// 	if (proxiedComponent == 0)
+// 	{
+// 		jclass clazz = jni->getClassRef(className);
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+// 		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
+// 		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
+// 		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+// 	}
 
-	jni->popLocalFrame();
+// 	jni->popLocalFrame();
 
-	LOGV("com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask() exit");	
-}
+// 	LOGV("com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask() exit");	
+// }
+// 
+// 
 // Public Constructors
 com_facebook_Session_AutoPublishAsyncTask::com_facebook_Session_AutoPublishAsyncTask(FacebookCXX::com_facebook_Session& arg0,AndroidCXX::java_lang_String& arg1,AndroidCXX::android_content_Context& arg2)
 {

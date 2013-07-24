@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -162,7 +161,10 @@ public:
 	android_net_Uri(const android_net_Uri& cc);
 	android_net_Uri(void * proxy);
 	// Public Constructors
-	android_net_Uri();
+	// TODO: remove
+	// 
+	// android_net_Uri();
+	// 
 	// Default Destructor
 	virtual ~android_net_Uri();
 	// Functions

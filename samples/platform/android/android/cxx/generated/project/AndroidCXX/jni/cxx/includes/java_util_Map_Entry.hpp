@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -62,7 +61,10 @@ public:
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
 	java_util_Map_Entry(void * proxy);
 	// Public Constructors
-	java_util_Map_Entry();
+	// TODO: remove
+	// 
+	// java_util_Map_Entry();
+	// 
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -54,7 +53,10 @@ public:
 	android_widget_Filterable(const android_widget_Filterable& cc);
 	android_widget_Filterable(void * proxy);
 	// Public Constructors
-	android_widget_Filterable();
+	// TODO: remove
+	// 
+	// android_widget_Filterable();
+	// 
 	// Default Destructor
 	virtual ~android_widget_Filterable();
 	// Functions
