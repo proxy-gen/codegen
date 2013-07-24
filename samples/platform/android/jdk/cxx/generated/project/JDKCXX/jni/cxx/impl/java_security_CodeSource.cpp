@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -84,7 +83,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_security_CodeSource::java_security_CodeSource(const java_security_CodeSource& cc)

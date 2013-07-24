@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -408,7 +407,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_String::java_lang_String(const java_lang_String& cc)

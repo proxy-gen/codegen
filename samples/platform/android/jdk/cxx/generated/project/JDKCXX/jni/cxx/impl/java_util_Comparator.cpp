@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -55,7 +54,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_util_Comparator::java_util_Comparator(const java_util_Comparator& cc)

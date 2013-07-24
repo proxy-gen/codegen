@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -60,7 +59,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_net_ContentHandler::java_net_ContentHandler(const java_net_ContentHandler& cc)

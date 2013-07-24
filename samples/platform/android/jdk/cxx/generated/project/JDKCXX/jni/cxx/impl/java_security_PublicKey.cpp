@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_security_PublicKey.hpp>
@@ -38,7 +37,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_security_PublicKey::java_security_PublicKey(const java_security_PublicKey& cc)

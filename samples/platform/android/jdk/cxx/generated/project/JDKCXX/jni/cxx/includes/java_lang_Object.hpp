@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -84,7 +83,7 @@ public:
 	 void wait(long& arg0);
 	 void wait(long& arg0,int& arg1);
 	 bool equals(JDKCXX::java_lang_Object& arg0);
-	 JDKCXX::java_lang_String toString();
+	virtual JDKCXX::java_lang_String toString();
 	 int hashCode();
 	 JDKCXX::java_lang_Class getClass();
 	 void notify();

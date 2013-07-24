@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -31,6 +30,7 @@
 
 // Generated Code 
 
+#include <java_lang_Object_JNI.hpp>
 #include <java_lang_Object.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
@@ -64,7 +64,54 @@ using namespace JDKCXX;
 static long static_obj;
 static long static_address = (long) &static_obj;
 
+// JNI callbacks
+jstring Java_JDKCXX_java_1lang_1Object_toString(JNIEnv *env, jobject objectRef)
+{
+	LOGV("jstring toString(JNIEnv *env, jobject objectRef) enter");
 
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	jobject javaObject = objectRef;
+	LOGV("callback javaObject address %ld", (long) javaObject);
+
+	long contextAddress = ctx->findProxiedComponent(javaObject);
+	LOGV("contextAddress for java_lang_Object %ld", contextAddress);
+	java_lang_Object *callback = (java_lang_Object *) reinterpret_cast<java_lang_Object *>(contextAddress);
+
+	long cxx_value = (long) 0;
+	long java_value = (long) 0;
+
+
+	jstring result;
+
+	java_lang_String cxx_result = (java_lang_String) callback->toString();
+	cxx_value = (long) &cxx_result;
+	java_value = 0;
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+	result = convert_jni_string_to_jni(java_value);
+		
+	jni->popLocalFrame();
+
+	LOGV("jstring toString(JNIEnv *env, jobject objectRef) exit");
+
+	return result;
+}
 // Default Instance Constructors
 java_lang_Object::java_lang_Object(const java_lang_Object& cc)
 {
@@ -118,7 +165,7 @@ java_lang_Object::java_lang_Object()
 
 	const char *methodName = "<init>";
 	const char *methodSignature = "()V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -169,7 +216,7 @@ void java_lang_Object::wait()
 
 	const char *methodName = "wait";
 	const char *methodSignature = "()V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -197,7 +244,7 @@ void java_lang_Object::wait(long& arg0)
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(J)V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -246,7 +293,7 @@ void java_lang_Object::wait(long& arg0,int& arg1)
 
 	const char *methodName = "wait";
 	const char *methodSignature = "(JI)V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -316,7 +363,7 @@ bool java_lang_Object::equals(JDKCXX::java_lang_Object& arg0)
 
 	const char *methodName = "equals";
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -385,7 +432,7 @@ JDKCXX::java_lang_String java_lang_Object::toString()
 
 	const char *methodName = "toString";
 	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -433,7 +480,7 @@ int java_lang_Object::hashCode()
 
 	const char *methodName = "hashCode";
 	const char *methodSignature = "()I";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -481,7 +528,7 @@ JDKCXX::java_lang_Class java_lang_Object::getClass()
 
 	const char *methodName = "getClass";
 	const char *methodSignature = "()Ljava/lang/Class;";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -547,7 +594,7 @@ void java_lang_Object::notify()
 
 	const char *methodName = "notify";
 	const char *methodSignature = "()V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 
@@ -575,7 +622,7 @@ void java_lang_Object::notifyAll()
 
 	const char *methodName = "notifyAll";
 	const char *methodSignature = "()V";
-	const char *className = "java/lang/Object";
+	const char *className = "JDKCXX/java_lang_Object";
 
 	LOGV("java_lang_Object className %d methodName %s methodSignature %s", className, methodName, methodSignature);
 

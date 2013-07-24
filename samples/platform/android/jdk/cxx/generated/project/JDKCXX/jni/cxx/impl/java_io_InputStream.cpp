@@ -25,7 +25,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_io_InputStream.hpp>
@@ -48,7 +47,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_io_InputStream::java_io_InputStream(const java_io_InputStream& cc)

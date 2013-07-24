@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
  		 
@@ -92,7 +91,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_util_Collection::java_util_Collection(const java_util_Collection& cc)

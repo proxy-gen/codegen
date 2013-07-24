@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_net_SocketAddress.hpp>
@@ -39,7 +38,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_net_SocketAddress::java_net_SocketAddress(const java_net_SocketAddress& cc)

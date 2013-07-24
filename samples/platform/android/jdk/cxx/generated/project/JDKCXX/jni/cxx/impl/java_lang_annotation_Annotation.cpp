@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -57,7 +56,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_annotation_Annotation::java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc)

@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
  		 
@@ -295,7 +294,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_StringBuffer::java_lang_StringBuffer(const java_lang_StringBuffer& cc)

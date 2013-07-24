@@ -24,6 +24,7 @@ extern "C" {
 void test_java_lang_String();
 void test_java_net_URLConnection();
 void test_java_util_Map();
+void test_callbacks();
 
 // ~ jni
 JNIEXPORT void JNICALL Java_com_cxx_bindings_samples_jdk_MainActivity_testJDKCXXFull(JNIEnv *env, jobject classRef);

@@ -8,7 +8,6 @@
 //
 
 
-
 	
  		 
 	
@@ -149,7 +148,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_nio_charset_Charset::java_nio_charset_Charset(const java_nio_charset_Charset& cc)

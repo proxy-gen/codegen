@@ -8,7 +8,6 @@
 //
 
 
-
 	
 	
 	
@@ -63,7 +62,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_nio_charset_CoderResult::java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc)

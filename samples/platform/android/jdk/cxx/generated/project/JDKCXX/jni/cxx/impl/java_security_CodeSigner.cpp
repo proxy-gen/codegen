@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -71,7 +70,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_security_CodeSigner::java_security_CodeSigner(const java_security_CodeSigner& cc)

@@ -16,7 +16,6 @@
 
 
 
-
 // Generated Code 
 
 #include <java_lang_reflect_GenericDeclaration.hpp>
@@ -39,7 +38,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_lang_reflect_GenericDeclaration::java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc)

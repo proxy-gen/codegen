@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -114,7 +113,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_util_Date::java_util_Date(const java_util_Date& cc)

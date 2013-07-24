@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
 	
@@ -73,7 +72,6 @@ using namespace JDKCXX;
 
 static long static_obj;
 static long static_address = (long) &static_obj;
-
 
 // Default Instance Constructors
 java_security_cert_CertPath::java_security_cert_CertPath(const java_security_cert_CertPath& cc)
