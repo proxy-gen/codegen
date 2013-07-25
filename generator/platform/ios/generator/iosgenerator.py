@@ -161,7 +161,7 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.proxy_converter_outdir_name):
 			os.makedirs(self.proxy_converter_outdir_name)		
 		logging.debug("self.proxy_converter_outdir_name " + str(self.proxy_converter_outdir_name))
-		#self._generate_cxx_proxy_converter_code()
+		self._generate_proxy_converter_code()
 		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "objc", "cxx", "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
@@ -172,6 +172,36 @@ class Generator(BaseGenerator):
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
 
+	def _generate_proxy_converter_code(self):
+		logging.debug("_generate_proxy_converter_code enter")
+		self.proxy_converter_head_file_name = self.package_name + "Converter.hpp"
+		logging.debug("proxy_converter_head_file_name " + str(self.proxy_converter_head_file_name))	
+		proxy_converter_head_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_head_file_name)
+		logging.debug("proxy_converter_head_file_path " + str(proxy_converter_head_file_path))	
+		if not os.path.exists(os.path.dirname(proxy_converter_head_file_path)):
+			os.makedirs(os.path.dirname(proxy_converter_head_file_path))
+		self.proxy_converter_head_file = open(proxy_converter_head_file_path, "w+")
+		proxy_converter_head_cxx = Template(file=os.path.join(self.target, "templates", "converter.hpp"), searchList=[{'CONFIG': self}])			
+		logging.debug("proxy_converter_head_cxx " + str(proxy_converter_head_cxx))
+		self.proxy_converter_head_file.write(str(proxy_converter_head_cxx))
+		self.proxy_converter_head_file.close()
+		self.proxy_converter_head_file = None
+		self.proxy_converter_head_file_name = None
+		self.proxy_converter_impl_file_name = self.package_name + "Converter.mm"
+		logging.debug("proxy_converter_impl_file_name " + str(self.proxy_converter_impl_file_name))	
+		proxy_converter_impl_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_impl_file_name)
+		logging.debug("proxy_converter_impl_file_path " + str(proxy_converter_impl_file_path))	
+		if not os.path.exists(os.path.dirname(proxy_converter_impl_file_path)):
+			os.makedirs(os.path.dirname(proxy_converter_impl_file_path))
+		self.proxy_converter_impl_file = open(proxy_converter_impl_file_path, "w+")
+		proxy_converter_impl_cxx = Template(file=os.path.join(self.target, "templates", "converter.cpp"), searchList=[{'CONFIG': self}])			
+		logging.debug("proxy_converter_impl_cxx " + str(proxy_converter_impl_cxx))
+		self.proxy_converter_impl_file.write(str(proxy_converter_impl_cxx))
+		self.proxy_converter_impl_file.close()
+		self.proxy_converter_impl_file = None
+		self.proxy_converter_impl_file_name = None
+		logging.debug("_generate_proxy_converter_code exit")
+
 	def _generate_cxx_class_code(self):
 		logging.debug("_generate_cxx_class_code enter")
 		entity_classes = self.config_module.list_interfaces(tags=['_proxy'],xtags=None,name=None)
@@ -179,7 +209,7 @@ class Generator(BaseGenerator):
 			self.entity_class = entity_class
 			self.interface_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.interface_name)
-			self.entity_class_name = cxx_class_name
+			self.entity_class_name = cxx_class_name + "Cxx"
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
 			logging.debug("entity_head_file_name " + str(self.entity_head_file_name))	
 			entity_file_path = os.path.join(self.header_outdir_name, self.entity_head_file_name)
@@ -200,9 +230,9 @@ class Generator(BaseGenerator):
 			self.entity_class = entity_class
 			self.interface_name = entity_class['name']
 			cxx_class_name = Utils.to_class_name(self.interface_name)
-			self.entity_class_name = cxx_class_name
+			self.entity_class_name = cxx_class_name + "Cxx"
 			self.entity_head_file_name = self.entity_class_name + ".hpp"
-			self.entity_impl_file_name = self.entity_class_name + ".cpp"
+			self.entity_impl_file_name = self.entity_class_name + ".mm"
 			logging.debug("entity_impl_file_name " + str(self.entity_impl_file_name))		
 			self.entity_callback_file_name = self.entity_class_name + "_JNI" + ".hpp"
 			logging.debug("entity_callback_file_name " + str(self.entity_callback_file_name))	
@@ -230,7 +260,8 @@ class Generator(BaseGenerator):
 		for enum in enums:
 			self.enum = enum
 			self.enum_namespace = self.config_module.config_data['namespace']
-			self.enum_head_file_name = Utils.to_enum_name(enum) + ".hpp"
+			self.enum_name = Utils.to_enum_name(enum)
+			self.enum_head_file_name = self.enum_name + ".hpp"
 			logging.debug("enum_head_file_name " + str(self.enum_head_file_name))	
 			enum_file_path = os.path.join(self.header_outdir_name, self.enum_head_file_name)
 			if not os.path.exists(os.path.dirname(enum_file_path)):
@@ -242,6 +273,7 @@ class Generator(BaseGenerator):
 			self.enum_file.write(str(enum_head_cxx))
 			self.enum_file.close()
 			self.enum_file = None
+			self.enum_name = None
 			self.enum_head_file_name = None
 			self.enum_namespace = None
 			self.enum = None	
@@ -548,7 +580,7 @@ class ConfigModule(object):
 		targetdata = deriveddata['targetdata']
 		if 'classinfo' not in targetdata:
 			classinfo = targetdata['classinfo'] = dict()
-			class_name = class_config['name']					
+			class_name = class_config['name'] + "Cxx"				
 			classinfo['typename'] = class_name
 			class_file_name = Utils.to_file_name(class_name,"hpp")
 			classinfo['filename'] = class_file_name
@@ -624,7 +656,7 @@ class ConfigModule(object):
 					interface = namespaced_interface["interface"]
 					typeinfo['namespace'] = namespaced_interface['namespace']
 					type_name = interface['name']
-					type_name = Utils.to_class_name(type_name)					
+					type_name = Utils.to_class_name(type_name) + "Cxx"			
 					typeinfo['typeconverter'] = "convert_" + type_name
 					file_name = Utils.to_file_name(type_name,"hpp")
 					typeinfo['filename'] = file_name
@@ -644,9 +676,9 @@ class ConfigModule(object):
 					parameter_typeinfo = parameter['deriveddata']['targetdata']['typeinfo']
 					parameter_typename = ""
 					if 'isproxied' in parameter_typeinfo:
-						parameter_typename = parameter_typeinfo['namespace'] + '::' + parameter_typeinfo['typename'] + " *" + "barg" + str(idx)
+						parameter_typename = parameter_typeinfo['namespace'] + '::' + parameter_typeinfo['typename'] + " *"
 					else:
-						parameter_typename = parameter_typeinfo['typename'] + " &" + "barg" + str(idx) 
+						parameter_typename = parameter_typeinfo['typename'] + " &"
 					if idx == 0:
 						parameter_string += parameter_typename
 					else:
@@ -662,8 +694,8 @@ class ConfigModule(object):
 			elif type_config['converter'] == 'convert_enum':
 				typeinfo['isenum'] = True
 				name = type_config['type']
-				typeinfo['typename'] = self.config_data['namespace'] + "::" + name
-				typeinfo['filename'] = name + ".hpp"
+				typeinfo['typename'] = self.config_data['namespace'] + "::" + name + "Cxx"
+				typeinfo['filename'] = name + "Cxx" + ".hpp"
 				typeinfo['typeconverter'] = 'convert_enum'
 			elif type_config['converter'] == 'convert_builtin':
 				typeinfo['typename'] = type_config['type']
@@ -840,7 +872,7 @@ class Utils(object):
 
 	@classmethod
 	def to_enum_name(cls, enum):
-		return enum['tag'] if 'tag' in enum else enum['typedef']
+		return enum['tag'] if 'tag' in enum else enum['typedef'] + "Cxx"
 
 	@classmethod
 	def to_class_name(cls, interface_name):

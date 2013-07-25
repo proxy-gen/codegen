@@ -17,7 +17,7 @@
 #for $interface_config in $interfaces
 #set $class_info = $interface_config['deriveddata']['targetdata']['classinfo']
 #set $entity_file_name = $class_info['filename']
-\#include <${entity_file_name}>
+\#include "${entity_file_name}"
 #end for
 
 using namespace ${namespace};

@@ -4,10 +4,10 @@
  */
 #set $enum = $CONFIG.enum
 #set $enum_namespace = $CONFIG.enum_namespace
-#set $enum_head_file_name = $CONFIG.enum_head_file_name
+#set $enum_name = $CONFIG.enum_name
 
-\#ifndef _$enum_head_file_name
-\#define _$enum_head_file_name
+\#ifndef _$enum_name
+\#define _$enum_name
 
 \#ifdef __cplusplus
 extern "C" {
@@ -18,13 +18,13 @@ namespace $enum_namespace {
 #if 'typedef' in $enum
 typedef enum
 #elif 'tag' in $enum
-enum ${enum['tag']}
+enum ${enum['tag']}Cxx
 #end if
 {
 	#for $constant in $enum['constants']
 	${constant['name']} = ${constant['value']},
 	#end for
-}#if 'typedef' in $enum# ${enum['typedef']};
+}#if 'typedef' in $enum# ${enum['typedef']}Cxx;
 #end if
 
 } //namespace $enum_namespace
@@ -32,4 +32,4 @@ enum ${enum['tag']}
 \#ifdef __cplusplus
 }
 \#endif //__cplusplus
-\#endif // _$enum_head_file_name
+\#endif // _$enum_name

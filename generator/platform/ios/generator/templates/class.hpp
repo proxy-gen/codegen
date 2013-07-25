@@ -34,7 +34,7 @@
     #set $typeinfo = $parameter['deriveddata']['targetdata']['typeinfo']
     #if 'isproxied' in $typeinfo
 $proxied_typeinfo_list.append(typeinfo)#slurp
- 	#elif 'isenum' in $enum_list
+ 	#elif 'isenum' in $typeinfo
 $enum_list.append(typeinfo)#slurp
 	#end if
     #if $parameter_idx > 0
@@ -43,6 +43,14 @@ $enum_list.append(typeinfo)#slurp
     #if 'isproxied' in $typeinfo
     #set $parameter_str = $parameter_str + $typeinfo['namespace'] + '::' + $typeinfo['typename'] + " *"
 	#elif 'isblock' in $typeinfo
+	#for $block_parameter in $parameters
+	#set $block_typeinfo = $block_parameter['deriveddata']['targetdata']['typeinfo']
+	#if 'isproxied' in $block_typeinfo
+$proxied_typeinfo_list.append(block_typeinfo)#slurp
+ 	#elif 'isenum' in $block_typeinfo
+$enum_list.append(block_typeinfo)#slurp
+	#end if
+	#end for
 	#set $parameter_str = $parameter_str + $typeinfo['typename'].replace("TEMPORARY_BLOCK_NAME","arg" + str($parameter_idx))
 	#else
 	#set $parameter_str = $parameter_str + $typeinfo['typename'] + $REF
@@ -134,14 +142,14 @@ class $entity_class_name
 {
 public:
 	//Public Constructors
-	${entity_class_name}(const ${entity_class_name}& cc);
-	${entity_class_name}(void * proxy);
+	${entity_class_name}(const ${entity_class_name}* cc);
+	${entity_class_name}(const void * proxy);
 
 	// Default Destructor
-	virtual ~${entity_class_name}();
+	~${entity_class_name}();
 
-	// Retreive proxy object
-	void* getProxy();
+	// Retrieve proxy object
+	void* getProxy() const;
 
 	// Functions
 	#for $method in $methods
@@ -149,9 +157,9 @@ public:
 
 	$method['modifier_str'] $method['retrn_type'] ${method_name}($method['parameter_str']);
 	#end for
-};
 private:
 	void* _proxy;
+};
 
 } // namespace
 

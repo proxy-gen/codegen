@@ -25,6 +25,8 @@ iOS/generator/out.xml
 # XCode
 *xcuserdata/
 generator/platform/ios/resources/CXXConverter/build/CXXConverter.build
+samples/platform/ios/facebook/TestFacebookCXX/build/TestFacebookCXX.build/
+samples/platform/ios/facebook/TestFacebookCXX/build/
 
 # Python
 *.pyc

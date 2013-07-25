@@ -10,17 +10,17 @@
 ##
 #set $interfaces = $config_module.list_interfaces(tags=None,xtags=None,name=None)	
 ##
-\#include <${package}Converter.hpp>
+\#include "${package}Converter.hpp"
 
 // Proxy Converter Types
 #for $interface_config in $interfaces
 #set $class_info = $interface_config['deriveddata']['targetdata']['classinfo']
-#set $entity_class_name = $class_classinfo['typename']
+#set $entity_class_name = $class_info['typename']
 void convert_${entity_class_name}(void* objc, $entity_class_name *cxx, converter_t converter_type)
 {
 	if (converter_type == CONVERT_TO_OBJC)
 	{
-		objc = cxx.getProxy();
+		objc = cxx->getProxy();
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
