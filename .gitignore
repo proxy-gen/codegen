@@ -22,6 +22,10 @@ libs
 # iOS
 iOS/generator/out.xml
 
+# XCode
+*xcuserdata/
+generator/platform/ios/resources/CXXConverter/build/CXXConverter.build
+
 # Python
 *.pyc
 

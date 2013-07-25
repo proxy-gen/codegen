@@ -19,39 +19,71 @@ _ELEMENT_RETURN_VALUE_ = "ReturnValue"
 _KIND_OBJECT_ = "ObjCObjectPointer"
 _KIND_BLOCK_ = "BlockPointer"
 _KIND_ENUM_ = "Enum"
+_KIND_BUILTIN_ = "Builtin"
 
 # Define assertion strings
 _ASSERT_FRAMEWORKS_CRITERIA_ = "When generating a config file, \"frameworks\" must be specified in the input file as a list."
+_ASSERT_ONE_FRAMEWORK_		 = "When generating a config file, exactly one framework must be specified."
 _ASSERT_INTERFACES_CRITERIA_ = "When generating a config file, \"interfaces\" must be specified in the input file as a list." 
 _ASSERT_INTERFACES_NAME_CRITERIA_ = "When generating a config file, each object in \"interfaces\" must have a \"name\" key."
 _ASSERT_METADATA_CRITERIA_ = "Unable to generate the Objective C metadata."
 
+import os.path as osp
+
 class Index(object):
+
+	@classmethod
+	def isBuiltinType(cls, config):
+		if "kind" in config:
+			if config["kind"] == _KIND_BUILTIN_:
+				return True
+		return False
+
+	@classmethod
+	def isObjectType(cls, config):
+		if "kind" in config:
+			if config["kind"] == _KIND_OBJECT_:
+				return True
+		return False
+
+	@classmethod
+	def isBlockType(cls, config):
+		if "kind" in config:
+			if config["kind"] == _KIND_BLOCK_:
+				return True
+		return False
+
+	@classmethod
+	def isEnumType(cls, config):
+		if "kind" in config:
+			if config["kind"] == _KIND_ENUM_:
+				return True
+		return False
+
+	@classmethod
+	def matchesEnumType(cls, config, enum_config):
+		if "type" in config:
+			if "tag" in enum_config:
+				if config["type"] == "enum " + enum_config["tag"]:
+					return True
+			if "typedef" in enum_config:
+				if config["type"] == enum_config["typedef"]:
+					return True
+		return False
 
 	# Initialize the indexer with options for clocxml
 	def __init__(self, clocxml_opts=None):
-		import os.path as osp
 
 		self.config = dict()
 		self.config["bin"] = osp.dirname(osp.abspath(__file__)) + "/clocxml/proj/bin/clocxml" # This may be configurable in the future
 		self.config["clocxml_opts"] = clocxml_opts if clocxml_opts else self._default_clocxml_opts() # User needs to specify all clocxml options if they specify any
-
-	# In order to build the AST of the Objective C headers, clang needs to know how to compile them.
-	# These are some defaults that worked when building FacebookSDK as well as a few test files.
-	def _default_clocxml_opts(self):
-		default_opts = list()
-		default_opts.append("-f") # Interpret the argument as a framework
-		default_opts.append("-c") # Add clang compiler options
-
-		# Clang compiler options to specify that the target architecture is armv7 and to include a few standard search paths
-		default_opts.append("-arch armv7 -I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/ -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks")
-		return default_opts
 
 	def build_config_closure(self, config_data):
 		assert "frameworks" in config_data and isinstance(config_data["frameworks"], list), _ASSERT_FRAMEWORKS_CRITERIA_
 		assert "interfaces" in config_data and isinstance(config_data["interfaces"], list), _ASSERT_INTERFACES_CRITERIA_
 		frameworks = config_data["frameworks"]
 		interfaces = config_data["interfaces"]
+		assert len(frameworks) == 1, _ASSERT_ONE_FRAMEWORK_
 		for index in range(len(interfaces)):
 			assert "name" in interfaces[index], _ASSERT_INTERFACES_NAME_CRITERIA_
 
@@ -97,22 +129,22 @@ class Index(object):
 	def _process_interface(self, interface, data_stack):
 		if interface.get("processed"):
 			return
+		interface.set("processed" , "true")
 
 		config_data = data_stack[0]
 		config_data = self._find_or_create_interface_config_data(config_data["interfaces"], interface)
 		data_stack.append(config_data)
-		
+
 		for method in interface.findall(_ELEMENT_METHOD_):
 			self._process_method(method, data_stack)
 
 		self._update_interface_tags(config_data, interface)
 		data_stack.pop()
 
-		interface.set("processed" , "true")
-
 	def _process_protocol(self, protocol, data_stack):
 		if protocol.get("processed"):
 			return
+		protocol.set("processed" , "true")
 
 		config_data = data_stack[0]
 		config_data = self._find_or_create_protocol_config_data(config_data, protocol)
@@ -124,11 +156,10 @@ class Index(object):
 		self._update_protocol_tags(config_data, protocol)
 		data_stack.pop()
 
-		protocol.set("processed" , "true")
-
 	def _process_method(self, method, data_stack):
 		if method.get("processed"):
 			return
+		method.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_method_config_data(config_data["methods"], method)
@@ -143,12 +174,7 @@ class Index(object):
 		self._update_method_tags(config_data, method)
 		data_stack.pop()
 
-		method.set("processed" , "true")
-
 	def _process_block(self, block, data_stack):
-		if block.get("processed"):
-			return
-
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_block_config_data(config_data, block)
 		data_stack.append(config_data)
@@ -164,11 +190,10 @@ class Index(object):
 
 		data_stack.pop()
 
-		block.set("processed" , "true")
-
 	def _process_parameter(self, parameter, data_stack):
 		if parameter.get("processed"):
 			return
+		parameter.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_parameter_config_data(config_data["parameters"], parameter)
@@ -178,11 +203,10 @@ class Index(object):
 
 		data_stack.pop()
 
-		parameter.set("processed" , "true")
-
 	def _process_return_value(self, return_value, data_stack):
 		if return_value.get("processed"):
 			return
+		return_value.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_return_value_config_data(config_data["returns"], return_value)
@@ -190,13 +214,12 @@ class Index(object):
 
 		self._process_type_kind(return_value, data_stack)
 
-		data_stack.pop()
-
-		return_value.set("processed" , "true")
+		data_stack.pop()		
 
 	def _process_enum(self, enum, data_stack):
 		if enum.get("processed"):
 			return
+		enum.set("processed" , "true")
 
 		config_data = data_stack[0]
 		config_data = self._find_or_create_enum_config_data(config_data, enum)
@@ -208,23 +231,20 @@ class Index(object):
 		self._update_enum_tags(config_data, enum)
 		data_stack.pop()
 
-		enum.set("processed" , "true")
-
 	def _process_enum_constant(self, enum_constant, data_stack):
 		if enum_constant.get("processed"):
 			return
+		enum_constant.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		self._find_or_create_enum_constant_config_data(config_data["constants"], enum_constant)
-
-		enum_constant.set("processed" , "true")
 
 	def _process_type_kind(self, element, data_stack):
 		kind = element.get("kind")
 		if kind == _KIND_OBJECT_:
 
-			typename = element.get("type")
-			canonicaltypename = element.get("canonical_type")
+			typename = element.get("type").strip(" *")
+			canonicaltypename = element.get("canonical_type").strip(" *")
 			if typename in self.interface_elements:
 				interface_element = self.interface_elements[typename]
 				self._process_interface(interface_element, data_stack)
@@ -258,6 +278,7 @@ class Index(object):
 			interfaces.append(result)
 
 		result["name"] = interface_xml.get("name")
+		result["file"] = osp.basename(interface_xml.get("file"))
 		result["methods"] = result.get("methods", list())
 		return result
 
@@ -277,20 +298,21 @@ class Index(object):
 			protocols.append(result)
 
 		result["name"] = protocol_xml.get("name")
+		result["file"] = osp.basename(protocol_xml.get("file"))
 		result["methods"] = result.get("methods", list())
 		return result
 
 	def _find_or_create_method_config_data(self, methods, method_xml):
 		result = None
 		for method in methods:
-			if method["name"] == method_xml.get("selector").strip(":").replace(":", "_"):
+			if method["selector"] == method_xml.get("selector"):
 				result = method
 				break
 		if not result:
 			result = dict()
 			methods.append(result)
 
-		result["name"] = method_xml.get("selector").strip(":").replace(":", "_")
+		result["selector"] = method_xml.get("selector")
 		result["parameters"] = result.get("parameters", list())
 		result["returns"] = result.get("returns", list())
 		return result
@@ -317,7 +339,12 @@ class Index(object):
 		name = parameter_xml.get("name")
 		if name:
 			result["name"] = name
-		result["type"] = parameter_xml.get("canonical_type")
+
+		xml_type = parameter_xml.get("canonical_type")
+		xml_declared_type = parameter_xml.get("type")
+		result["type"] = xml_type
+		if xml_declared_type != xml_type:
+			result["declared_type"] = xml_declared_type
 		result["kind"] = parameter_xml.get("kind")
 
 		conforms_to = parameter_xml.findall(_ELEMENT_CONFORMS_)
@@ -336,7 +363,11 @@ class Index(object):
 			result = dict()
 			return_values.append(result)
 
-		result["type"] = return_value_xml.get("canonical_type")
+		xml_type = return_value_xml.get("canonical_type")
+		xml_declared_type = return_value_xml.get("type")
+		result["type"] = xml_type
+		if xml_declared_type != xml_type:
+			result["declared_type"] = xml_declared_type
 		result["kind"] = return_value_xml.get("kind")
 
 		conforms_to = return_value_xml.findall(_ELEMENT_CONFORMS_)
@@ -392,7 +423,7 @@ class Index(object):
 			tags = list()
 			tags.append("_no_proxy")
 		else:
-			pass # We can handle other tags in the future
+			tags.append("_proxy")
 
 		if len(tags) > 0:
 			interface["tags"] = tags
@@ -411,6 +442,8 @@ class Index(object):
 		if "_no_proxy" in tags:
 			tags = list()
 			tags.append("_no_proxy")
+		else:
+			tags.append("_proxy")
 
 		if len(tags) > 0:
 			protocol["tags"] = tags
@@ -430,8 +463,11 @@ class Index(object):
 		else:
 			if method_xml.get("static"):
 				tags.append("_static")
+			else:
+				tags.append("_instance")
 			if method_xml.get("variadic"):
 				tags.append("_variadic")
+			tags.append("_proxy")
 
 		if len(tags) > 0:
 			method["tags"] = tags
@@ -448,9 +484,22 @@ class Index(object):
 		if "_no_proxy" in tags:
 			tags = list()
 			tags.append("_no_proxy")
+		else:
+			tags.append("_proxy")
 
 		if len(tags) > 0:
 			enum["tags"] = tags
 		else:
 			if "tags" in enum:
 				del enum["tags"]
+
+	# In order to build the AST of the Objective C headers, clang needs to know how to compile them.
+	# These are some defaults that worked when building FacebookSDK as well as a few test files.
+	def _default_clocxml_opts(self):
+		default_opts = list()
+		default_opts.append("-f") # Interpret the argument as a framework
+		default_opts.append("-c") # Add clang compiler options
+
+		# Clang compiler options to specify that the target architecture is armv7 and to include a few standard search paths
+		default_opts.append("-arch armv7 -I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/ -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks")
+		return default_opts
