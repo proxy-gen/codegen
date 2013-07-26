@@ -33,34 +33,38 @@
 
 - (id)  objectForKey:(id)objc_arg0{
 	void * arg0;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+	void *objc_cast0 = (__bridge void *)objc_arg0;
+	convert_object(objc_cast0, arg0, CONVERT_TO_CXX);
 
 	void * result = self.proxy->objectForKey(arg0);
-	id objc_result = nil;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
-	return objc_result;
+	void *objc_result = NULL;
+	convert_object(objc_result, result, CONVERT_TO_OBJC);
+	return (__bridge id)objc_result;
 }
 
 - (NSEnumerator *) keyEnumerator{
 	void * result = self.proxy->keyEnumerator();
-	id objc_result = nil;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
-	return objc_result;
+	void *objc_result = NULL;
+	convert_object(objc_result, result, CONVERT_TO_OBJC);
+	return (__bridge id)objc_result;
 }
 
 - (void)  removeObjectForKey:(id)objc_arg0{
 	void * arg0;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+	void *objc_cast0 = (__bridge void *)objc_arg0;
+	convert_object(objc_cast0, arg0, CONVERT_TO_CXX);
 
 	self.proxy->removeObjectForKey(arg0);
 }
 
 - (void)  setObject:(id)objc_arg0 forKey:(id)objc_arg1{
 	void * arg0;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+	void *objc_cast0 = (__bridge void *)objc_arg0;
+	convert_object(objc_cast0, arg0, CONVERT_TO_CXX);
 
 	void * arg1;
-	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_CXX);
+	void *objc_cast1 = (__bridge void *)objc_arg1;
+	convert_object(objc_cast1, arg1, CONVERT_TO_CXX);
 
 	self.proxy->setObject_forKey(arg0, arg1);
 }

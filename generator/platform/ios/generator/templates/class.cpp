@@ -110,6 +110,7 @@ void *${entity_class_info['namespace']}::${entity_class_name}::getProxy() const{
 $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::${method_name}($method['parameter_str']){
 #for $parameter in $parameters
 	#set $typeinfo = $parameter['deriveddata']['targetdata']['typeinfo']
+	#set $bridge_modifier = ""
 	#if $parameter['converter'] == "convert_builtin"
 	#if 'declared_type' in $parameter
 	${parameter['declared_type']} objc_arg${parameter_idx} = (${parameter['declared_type']})arg${parameter_idx};
@@ -156,10 +157,12 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 		${block_typeinfo['typename']} barg$block_parameter_idx = (${block_typeinfo['typename']})objc_barg$block_parameter_idx;
 		#elif $block_parameter['converter'] == "convert_proxy"
 		${block_typeinfo['namespace']}::${block_typeinfo['typename']} *barg$block_parameter_idx = NULL;
-		${block_typeinfo['typeconverter']}((__bridge void *)objc_barg$block_parameter_idx, barg$block_parameter_idx, CONVERT_TO_CXX);
+		void *objc_bcast$block_parameter_idx = (__bridge void *)objc_barg$block_parameter_idx;
+		${block_typeinfo['typeconverter']}(objc_bcast$block_parameter_idx, barg$block_parameter_idx, CONVERT_TO_CXX);
 		#else
 		${block_typeinfo['typename']} barg${block_parameter_idx};
-		${block_typeinfo['typeconverter']}((__bridge void *)objc_barg$block_parameter_idx, barg$block_parameter_idx, CONVERT_TO_CXX);
+		void *objc_bcast$block_parameter_idx = (__bridge void *)objc_barg$block_parameter_idx;
+		${block_typeinfo['typeconverter']}(objc_bcast$block_parameter_idx, barg$block_parameter_idx, CONVERT_TO_CXX);
 		#end if
 		#if $block_parameter_idx == 0
 		#set $function_call_str = $function_call_str + "barg" + str($block_parameter_idx)
@@ -185,13 +188,13 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 		return block_result;
 		#elif $block_returns['converter'] == "convert_proxy"
 		${block_returns_typeinfo['namespace']}::${block_returns_typeinfo['typename']} *block_result = $function_call_str;
-		id objc_block_result = nil;
-		${block_returns_typeinfo['typeconverter']}((__bridge void *)objc_block_result, result, CONVERT_TO_OBJC);
+		void *objc_block_result = NULL;
+		${block_returns_typeinfo['typeconverter']}(objc_block_result, result, CONVERT_TO_OBJC);
 		return objc_block_result;
 		#else
 		${block_returns_typeinfo['typename']} block_result = $function_call_str;
-		id objc_block_result = nil;
-		${block_returns_typeinfo['typeconverter']}((__bridge void *)objc_block_result, result, CONVERT_TO_OBJC);
+		void *objc_block_result = NULL
+		${block_returns_typeinfo['typeconverter']}(objc_block_result, result, CONVERT_TO_OBJC);
 		return objc_block_result;
 		#end if
 		#else
@@ -203,11 +206,12 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 	##
 	##
 	#else
-	id objc_arg${parameter_idx} = nil;
-	${typeinfo['typeconverter']}((__bridge void *)objc_arg${parameter_idx}, arg${parameter_idx}, CONVERT_TO_OBJC);
+	void *objc_arg${parameter_idx} = NULL;
+	${typeinfo['typeconverter']}(objc_arg${parameter_idx}, arg${parameter_idx}, CONVERT_TO_OBJC);
+	#set $bridge_modifier = "(__bridge id)"
 	#end if
 	#set $message_part = ""
-	#set $message_part = $selectorlist[$parameter_idx] + ":" + "objc_arg" + str($parameter_idx)
+	#set $message_part = $selectorlist[$parameter_idx] + ":" + $bridge_modifier + "objc_arg" + str($parameter_idx)
 	#set $message = $message + $message_part + $SPACE
 	#set $parameter_idx = $parameter_idx + 1
 
@@ -235,14 +239,14 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 	${method['retrn_type']} objc_result = (${method['retrn_type']})$message_call;
 	return objc_result;
 	#elif $returns['converter'] == "convert_proxy"
-	id objc_result = $message_call;
+	void *objc_result = (__bridge void *)$message_call;
 	${method['retrn_type']} result = NULL;
-	${typeinfo['typeconverter']}((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	${typeinfo['typeconverter']}(objc_result, result, CONVERT_TO_CXX);
 	return result;
 	#else
-	id objc_result = $message_call;
+	void *objc_result = (__bridge void *)$message_call;
 	${method['retrn_type']} result;
-	${typeinfo['typeconverter']}((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	${typeinfo['typeconverter']}(objc_result, result, CONVERT_TO_CXX);
 	return result;
 	#end if
 	#else

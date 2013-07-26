@@ -12,7 +12,7 @@
 #include "CXXConverter.hpp"
 
 
-void convert_string(void* objc, std::string &cxx, converter_t converter_type){
+void convert_string(void* &objc, std::string &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[NSString stringWithUTF8String:cxx.c_str()];
     }
@@ -21,16 +21,21 @@ void convert_string(void* objc, std::string &cxx, converter_t converter_type){
     }
 }
 
-void convert_error(void* objc, std::string &cxx, converter_t converter_type){
+void convert_error(void* &objc, std::string &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[NSError errorWithDomain:nil code:0 userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithUTF8String:cxx.c_str()] forKey:NSLocalizedDescriptionKey]];
     }
     else if(converter_type == CONVERT_TO_CXX){
-        cxx = [[(__bridge NSError*)objc localizedDescription] UTF8String];
+        if (objc){
+            cxx = [[(__bridge NSError*)objc localizedDescription] UTF8String];
+        }
+        else{
+            cxx = "";
+        }
     }
 }
 
-void convert_array(void* objc, std::vector<void *> &cxx, converter_t converter_type){
+void convert_array(void* &objc, std::vector<void *> &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         NSMutableArray * array = [NSMutableArray array];
         for(std::vector<void *>::iterator iter = cxx.begin(); iter != cxx.end(); iter++) {
@@ -46,7 +51,7 @@ void convert_array(void* objc, std::vector<void *> &cxx, converter_t converter_t
     }
 }
 
-void convert_dictionary(void* objc, std::map<void *, void *> &cxx, converter_t converter_type){
+void convert_dictionary(void* &objc, std::map<void *, void *> &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         NSMutableDictionary *dictionary = [NSDictionary dictionary];
         for(std::map<void *, void *>::const_iterator iter = cxx.begin(); iter != cxx.end(); ++iter) {
@@ -64,7 +69,7 @@ void convert_dictionary(void* objc, std::map<void *, void *> &cxx, converter_t c
     }
 }
 
-void convert_url(void* objc, std::string &cxx, converter_t converter_type){
+void convert_url(void* &objc, std::string &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[NSURL URLWithString:[NSString stringWithUTF8String:cxx.c_str()]];
     }
@@ -73,7 +78,7 @@ void convert_url(void* objc, std::string &cxx, converter_t converter_type){
     }
 }
 
-void convert_date(void* objc, double &cxx, converter_t converter_type){
+void convert_date(void* &objc, double &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)cxx];
     }
@@ -82,7 +87,7 @@ void convert_date(void* objc, double &cxx, converter_t converter_type){
     }
 }
 
-void convert_locale(void* objc, std::string &cxx, converter_t converter_type){
+void convert_locale(void* &objc, std::string &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = (__bridge void*)[[NSLocale alloc] initWithLocaleIdentifier:[NSString stringWithUTF8String:cxx.c_str()]];
     }
@@ -91,7 +96,7 @@ void convert_locale(void* objc, std::string &cxx, converter_t converter_type){
     }
 }
 
-void convert_object(void* objc, void* &cxx, converter_t converter_type){
+void convert_object(void* &objc, void* &cxx, converter_t converter_type){
     if (converter_type == CONVERT_TO_OBJC){
         objc = cxx;
     }

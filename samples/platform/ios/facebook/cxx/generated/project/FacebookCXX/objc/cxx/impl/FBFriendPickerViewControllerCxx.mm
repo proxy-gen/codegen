@@ -30,40 +30,40 @@ void *FacebookCXX::FBFriendPickerViewControllerCxx::getProxy() const{
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::init(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy init];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy init];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::initWithCoder(void *& arg0){
-	id objc_arg0 = nil;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy initWithCoder:objc_arg0 ];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy initWithCoder:(__bridge id)objc_arg0 ];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::initWithNibName_bundle(std::string& arg0,void *& arg1){
-	id objc_arg0 = nil;
-	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	id objc_arg1 = nil;
-	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
+	void *objc_arg1 = NULL;
+	convert_object(objc_arg1, arg1, CONVERT_TO_OBJC);
 
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy initWithNibName:objc_arg0 bundle:objc_arg1 ];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy initWithNibName:(__bridge id)objc_arg0 bundle:(__bridge id)objc_arg1 ];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::configureUsingCachedDescriptor(FacebookCXX::FBCacheDescriptorCxx * arg0){
-	id objc_arg0 = nil;
-	convert_FBCacheDescriptorCxx((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_FBCacheDescriptorCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy configureUsingCachedDescriptor:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy configureUsingCachedDescriptor:(__bridge id)objc_arg0 ];
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::loadData(){
@@ -79,51 +79,51 @@ void FacebookCXX::FBFriendPickerViewControllerCxx::clearSelection(){
 }
 
 FacebookCXX::FBCacheDescriptorCxx * FacebookCXX::FBFriendPickerViewControllerCxx::cacheDescriptor(){
-	id objc_result = [FBFriendPickerViewController cacheDescriptor];
+	void *objc_result = (__bridge void *)[FBFriendPickerViewController cacheDescriptor];
 	FacebookCXX::FBCacheDescriptorCxx * result = NULL;
-	convert_FBCacheDescriptorCxx((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_FBCacheDescriptorCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 FacebookCXX::FBCacheDescriptorCxx * FacebookCXX::FBFriendPickerViewControllerCxx::cacheDescriptorWithUserID_fieldsForRequest(std::string& arg0,void *& arg1){
-	id objc_arg0 = nil;
-	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	id objc_arg1 = nil;
-	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
+	void *objc_arg1 = NULL;
+	convert_object(objc_arg1, arg1, CONVERT_TO_OBJC);
 
-	id objc_result = [FBFriendPickerViewController cacheDescriptorWithUserID:objc_arg0 fieldsForRequest:objc_arg1 ];
+	void *objc_result = (__bridge void *)[FBFriendPickerViewController cacheDescriptorWithUserID:(__bridge id)objc_arg0 fieldsForRequest:(__bridge id)objc_arg1 ];
 	FacebookCXX::FBCacheDescriptorCxx * result = NULL;
-	convert_FBCacheDescriptorCxx((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_FBCacheDescriptorCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::spinner(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy spinner];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy spinner];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::setSpinner(void *& arg0){
-	id objc_arg0 = nil;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy setSpinner:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy setSpinner:(__bridge id)objc_arg0 ];
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::tableView(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy tableView];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy tableView];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::setTableView(void *& arg0){
-	id objc_arg0 = nil;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy setTableView:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy setTableView:(__bridge id)objc_arg0 ];
 }
 
 signed char FacebookCXX::FBFriendPickerViewControllerCxx::allowsMultipleSelection(){
@@ -149,51 +149,51 @@ void FacebookCXX::FBFriendPickerViewControllerCxx::setItemPicturesEnabled(signed
 }
 
 void * FacebookCXX::FBFriendPickerViewControllerCxx::fieldsForRequest(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy fieldsForRequest];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy fieldsForRequest];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::setFieldsForRequest(void *& arg0){
-	id objc_arg0 = nil;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_object(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy setFieldsForRequest:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy setFieldsForRequest:(__bridge id)objc_arg0 ];
 }
 
 FacebookCXX::FBSessionCxx * FacebookCXX::FBFriendPickerViewControllerCxx::session(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy session];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy session];
 	FacebookCXX::FBSessionCxx * result = NULL;
-	convert_FBSessionCxx((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_FBSessionCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::setSession(FacebookCXX::FBSessionCxx * arg0){
-	id objc_arg0 = nil;
-	convert_FBSessionCxx((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy setSession:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy setSession:(__bridge id)objc_arg0 ];
 }
 
 std::string FacebookCXX::FBFriendPickerViewControllerCxx::userID(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy userID];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy userID];
 	std::string result;
-	convert_string((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_string(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBFriendPickerViewControllerCxx::setUserID(std::string& arg0){
-	id objc_arg0 = nil;
-	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBFriendPickerViewController *)_proxy setUserID:objc_arg0 ];
+	[(__bridge FBFriendPickerViewController *)_proxy setUserID:(__bridge id)objc_arg0 ];
 }
 
 std::vector<void *> FacebookCXX::FBFriendPickerViewControllerCxx::selection(){
-	id objc_result = [(__bridge FBFriendPickerViewController *)_proxy selection];
+	void *objc_result = (__bridge void *)[(__bridge FBFriendPickerViewController *)_proxy selection];
 	std::vector<void *> result;
-	convert_array((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_array(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 

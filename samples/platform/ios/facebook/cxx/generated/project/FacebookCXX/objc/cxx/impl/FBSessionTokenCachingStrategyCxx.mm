@@ -28,33 +28,33 @@ void *FacebookCXX::FBSessionTokenCachingStrategyCxx::getProxy() const{
 }
 
 void * FacebookCXX::FBSessionTokenCachingStrategyCxx::init(){
-	id objc_result = [(__bridge FBSessionTokenCachingStrategy *)_proxy init];
+	void *objc_result = (__bridge void *)[(__bridge FBSessionTokenCachingStrategy *)_proxy init];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void * FacebookCXX::FBSessionTokenCachingStrategyCxx::initWithUserDefaultTokenInformationKeyName(std::string& arg0){
-	id objc_arg0 = nil;
-	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_string(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	id objc_result = [(__bridge FBSessionTokenCachingStrategy *)_proxy initWithUserDefaultTokenInformationKeyName:objc_arg0 ];
+	void *objc_result = (__bridge void *)[(__bridge FBSessionTokenCachingStrategy *)_proxy initWithUserDefaultTokenInformationKeyName:(__bridge id)objc_arg0 ];
 	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_object(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 void FacebookCXX::FBSessionTokenCachingStrategyCxx::cacheTokenInformation(std::map<void *, void *>& arg0){
-	id objc_arg0 = nil;
-	convert_dictionary((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_dictionary(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBSessionTokenCachingStrategy *)_proxy cacheTokenInformation:objc_arg0 ];
+	[(__bridge FBSessionTokenCachingStrategy *)_proxy cacheTokenInformation:(__bridge id)objc_arg0 ];
 }
 
 std::map<void *, void *> FacebookCXX::FBSessionTokenCachingStrategyCxx::fetchTokenInformation(){
-	id objc_result = [(__bridge FBSessionTokenCachingStrategy *)_proxy fetchTokenInformation];
+	void *objc_result = (__bridge void *)[(__bridge FBSessionTokenCachingStrategy *)_proxy fetchTokenInformation];
 	std::map<void *, void *> result;
-	convert_dictionary((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_dictionary(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
@@ -63,17 +63,17 @@ void FacebookCXX::FBSessionTokenCachingStrategyCxx::clearToken(){
 }
 
 FacebookCXX::FBSessionTokenCachingStrategyCxx * FacebookCXX::FBSessionTokenCachingStrategyCxx::defaultInstance(){
-	id objc_result = [FBSessionTokenCachingStrategy defaultInstance];
+	void *objc_result = (__bridge void *)[FBSessionTokenCachingStrategy defaultInstance];
 	FacebookCXX::FBSessionTokenCachingStrategyCxx * result = NULL;
-	convert_FBSessionTokenCachingStrategyCxx((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	convert_FBSessionTokenCachingStrategyCxx(objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
 signed char FacebookCXX::FBSessionTokenCachingStrategyCxx::isValidTokenInformation(std::map<void *, void *>& arg0){
-	id objc_arg0 = nil;
-	convert_dictionary((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_dictionary(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	signed char objc_result = (signed char)[FBSessionTokenCachingStrategy isValidTokenInformation:objc_arg0 ];
+	signed char objc_result = (signed char)[FBSessionTokenCachingStrategy isValidTokenInformation:(__bridge id)objc_arg0 ];
 	return objc_result;
 }
 

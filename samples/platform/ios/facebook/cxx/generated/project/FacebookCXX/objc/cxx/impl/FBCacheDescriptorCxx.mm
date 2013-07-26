@@ -29,10 +29,10 @@ void *FacebookCXX::FBCacheDescriptorCxx::getProxy() const{
 }
 
 void FacebookCXX::FBCacheDescriptorCxx::prefetchAndCacheForSession(FacebookCXX::FBSessionCxx * arg0){
-	id objc_arg0 = nil;
-	convert_FBSessionCxx((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	void *objc_arg0 = NULL;
+	convert_FBSessionCxx(objc_arg0, arg0, CONVERT_TO_OBJC);
 
-	[(__bridge FBCacheDescriptor *)_proxy prefetchAndCacheForSession:objc_arg0 ];
+	[(__bridge FBCacheDescriptor *)_proxy prefetchAndCacheForSession:(__bridge id)objc_arg0 ];
 }
 
 

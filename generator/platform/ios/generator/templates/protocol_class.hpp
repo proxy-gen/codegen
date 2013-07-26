@@ -10,6 +10,8 @@
 #set $protocol_name = $CONFIG.protocol_name
 #set $config_module = $CONFIG.config_module
 ##
+#set $protocol_class_file_name = $CONFIG.protocol_class_file_name
+##
 #set $entity_protocol_config = $CONFIG.entity_protocol
 #set $entity_protocol_info = $entity_protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_protocol_typename = $entity_protocol_info['typename']
@@ -82,7 +84,7 @@ $enum_typeinfos.extend(method['enum_list'])#slurp
 #for $proxied_typeinfo in $proxied_typeinfos
 #if $proxied_typeinfo['filename'] not in $included_types
 $included_types.append($proxied_typeinfo['filename'])#slurp
-#if $entity_head_file_name != $proxied_typeinfo['filename']
+#if $protocol_class_file_name != $proxied_typeinfo['filename']
 \#include "${proxied_typeinfo['filename']}"
 #end if
 #end if
@@ -91,7 +93,7 @@ $included_types.append($proxied_typeinfo['filename'])#slurp
 #for $enum_typeinfo in $enum_typeinfos
 #if $enum_typeinfo['filename'] not in $included_enums
 $included_enums.append($enum_typeinfo['filename'])#slurp
-#if $entity_head_file_name != $enum_typeinfo['filename']
+#if $protocol_class_file_name != $enum_typeinfo['filename']
 \#include "${enum_typeinfo['filename']}"
 #end if
 #end if

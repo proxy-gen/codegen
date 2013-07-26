@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#include "FBSessionCxx.hpp"
 
 #import "ViewController.h"
 
@@ -14,12 +15,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    FacebookCXX::FBSessionCxx *session = FacebookCXX::FBSessionCxx::activeSession();
+    session->closeAndClearTokenInformation();
+    delete session;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    FacebookCXX::FBSessionCxx* session = FacebookCXX::FBSessionCxx::activeSession();
+    void * url_v = (__bridge void *)url;
+    return session->handleOpenURL(url_v);
+    delete session;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

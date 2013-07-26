@@ -44,6 +44,16 @@ public:
 	static FacebookCXX::FBGraphObjectConformerCxx * graphObjectWrappingDictionary(std::map<void *, void *>& arg0);
 
 	static signed char isGraphObjectID_sameAs(FacebookCXX::FBGraphObjectConformerCxx * arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1);
+
+	 unsigned int count();
+
+	 void * objectForKey(void *& arg0);
+
+	 void * keyEnumerator();
+
+	 void removeObjectForKey(void *& arg0);
+
+	 void setObject_forKey(void *& arg0,void *& arg1);
 private:
 	void* _proxy;
 };

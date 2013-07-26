@@ -12,7 +12,7 @@ FacebookCXX::FBGraphObjectConformerCxx::FBGraphObjectConformerCxx(){
 }
 
 FacebookCXX::FBGraphObjectConformerCxx::~FBGraphObjectConformerCxx(){
-	id _no_op = (__bridge_transfer id)_proxy;
+	FBGraphObjectConformer * _no_op = (__bridge_transfer FBGraphObjectConformer *)_proxy;
 	#pragma unused (_no_op)
 }
 

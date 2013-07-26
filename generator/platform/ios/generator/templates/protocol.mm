@@ -101,10 +101,12 @@ ${method['modifier_str']} ($return_type) ${method['message_str']}{
 	${typeinfo['typename']} arg$parameter_idx = (${typeinfo['typename']})objc_arg$parameter_idx;
 	#elif $parameter['converter'] == "convert_proxy"
 	${typeinfo['namespace']}::${typeinfo['typename']} *arg$parameter_idx = NULL;
-	${typeinfo['typeconverter']}((__bridge void *)objc_arg$parameter_idx, arg$parameter_idx, CONVERT_TO_CXX);
+	void *objc_cast$parameter_idx = (__bridge void *)objc_arg$parameter_idx;
+	${typeinfo['typeconverter']}(objc_cast$parameter_idx, arg$parameter_idx, CONVERT_TO_CXX);
 	#else
 	${typeinfo['typename']} arg${parameter_idx};
-	${typeinfo['typeconverter']}((__bridge void *)objc_arg$parameter_idx, arg$parameter_idx, CONVERT_TO_CXX);
+	void *objc_cast$parameter_idx = (__bridge void *)objc_arg$parameter_idx;
+	${typeinfo['typeconverter']}(objc_cast$parameter_idx, arg$parameter_idx, CONVERT_TO_CXX);
 	#end if
 	#if $parameter_idx == 0
 	#set $function_call_str = $function_call_str + "arg" + str($parameter_idx)
@@ -129,14 +131,14 @@ ${method['modifier_str']} ($return_type) ${method['message_str']}{
 	return result;
 	#elif $returns['converter'] == "convert_proxy"
 	${returns_typeinfo['namespace']}::${returns_typeinfo['typename']} *result = self.proxy->$function_call_str;
-	id objc_result = nil;
-	${returns_typeinfo['typeconverter']}((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
-	return objc_result;
+	void *objc_result = NULL;
+	${returns_typeinfo['typeconverter']}(objc_result, result, CONVERT_TO_OBJC);
+	return (__bridge id)objc_result;
 	#else
 	${returns_typeinfo['typename']} result = self.proxy->$function_call_str;
-	id objc_result = nil;
-	${returns_typeinfo['typeconverter']}((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
-	return objc_result;
+	void *objc_result = NULL;
+	${returns_typeinfo['typeconverter']}(objc_result, result, CONVERT_TO_OBJC);
+	return (__bridge id)objc_result;
 	#end if
 	#else
 	self.proxy->$function_call_str;

@@ -24,7 +24,8 @@ _KIND_BUILTIN_ = "Builtin"
 # Define assertion strings
 _ASSERT_FRAMEWORKS_CRITERIA_ = "When generating a config file, \"frameworks\" must be specified in the input file as a list."
 _ASSERT_ONE_FRAMEWORK_		 = "When generating a config file, exactly one framework must be specified."
-_ASSERT_INTERFACES_CRITERIA_ = "When generating a config file, \"interfaces\" must be specified in the input file as a list." 
+_ASSERT_INTERFACES_CRITERIA_ = "When generating a config file, \"interfaces\" must be specified in the input file as a list."
+_ASSERT_INTERFACES_DEFINED   = "When generating a config file, could not find every element of \"interfaces\" in metadata."
 _ASSERT_INTERFACES_NAME_CRITERIA_ = "When generating a config file, each object in \"interfaces\" must have a \"name\" key."
 _ASSERT_METADATA_CRITERIA_ = "Unable to generate the Objective C metadata."
 
@@ -120,11 +121,17 @@ class Index(object):
 			key = "enum " + enum_element.get("tag") if enum_element.get("tag") else enum_element.get("typedef")
 			self.enum_elements[key] = enum_element
 
-		for interface_config in interfaces:
-			name = interface_config["name"]
-			if name in self.interface_elements:
-				self._process_interface(self.interface_elements[name], data_stack) 
-
+		# If no interfaces specified, process them all
+		if len(interfaces) == 0:
+			for name, interface in self.interface_elements.iteritems():
+				self._process_interface(interface, data_stack)
+		else:	
+			for interface_config in interfaces:
+				name = interface_config["name"]
+				if name in self.interface_elements:
+					self._process_interface(self.interface_elements[name], data_stack) 
+				else:
+					assert False, ("Interface not found: %s\n" % name) + _ASSERT_INTERFACES_DEFINED
 
 	def _process_interface(self, interface, data_stack):
 		if interface.get("processed"):
@@ -137,6 +144,13 @@ class Index(object):
 
 		for method in interface.findall(_ELEMENT_METHOD_):
 			self._process_method(method, data_stack)
+
+		for conforms in interface.findall(_ELEMENT_CONFORMS_):
+			protocol_name = conforms.get("name")
+			if protocol_name in self.protocol_elements:
+				protocol_element = self.protocol_elements[protocol_name]
+				for method in protocol_element.findall(_ELEMENT_METHOD_):
+					self._process_method(method, data_stack)
 
 		self._update_interface_tags(config_data, interface)
 		data_stack.pop()
@@ -153,13 +167,17 @@ class Index(object):
 		for method in protocol.findall(_ELEMENT_METHOD_):
 			self._process_method(method, data_stack)
 
+		for conforms in protocol.findall(_ELEMENT_CONFORMS_):
+			protocol_name = conforms.get("name")
+			if protocol_name in self.protocol_elements:
+				protocol_element = self.protocol_elements[protocol_name]
+				for method in protocol_element.findall(_ELEMENT_METHOD_):
+					self._process_method(method, data_stack)
+
 		self._update_protocol_tags(config_data, protocol)
 		data_stack.pop()
 
 	def _process_method(self, method, data_stack):
-		if method.get("processed"):
-			return
-		method.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_method_config_data(config_data["methods"], method)
@@ -191,9 +209,6 @@ class Index(object):
 		data_stack.pop()
 
 	def _process_parameter(self, parameter, data_stack):
-		if parameter.get("processed"):
-			return
-		parameter.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_parameter_config_data(config_data["parameters"], parameter)
@@ -204,9 +219,6 @@ class Index(object):
 		data_stack.pop()
 
 	def _process_return_value(self, return_value, data_stack):
-		if return_value.get("processed"):
-			return
-		return_value.set("processed" , "true")
 
 		config_data = data_stack[-1]
 		config_data = self._find_or_create_return_value_config_data(config_data["returns"], return_value)

@@ -33,12 +33,12 @@ using namespace ${namespace};
 #for $interface_config in $interfaces
 #set $class_info = $interface_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $class_info['typename']
-void convert_${entity_class_name}(void* objc, $entity_class_name *cxx, converter_t converter_type);
+void convert_${entity_class_name}(void* &objc, $entity_class_name *&cxx, converter_t converter_type);
 #end for
 #for $protocol_config in $protocols
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_protocol_name = $protocolinfo['typename']
-void convert_${entity_protocol_name}(void* objc, $entity_protocol_name *cxx, converter_t converter_type);
+void convert_${entity_protocol_name}(void* &objc, $entity_protocol_name *&cxx, converter_t converter_type);
 #end for
 
 #endif // _${package}Converter

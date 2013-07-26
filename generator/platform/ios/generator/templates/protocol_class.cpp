@@ -30,7 +30,7 @@ $entity_protocol_namespace::${entity_protocol_typename}::${entity_protocol_typen
 }
 
 $entity_protocol_namespace::${entity_protocol_typename}::~${entity_protocol_typename}(){
-	id _no_op = (__bridge_transfer id)_proxy;
+	$entity_protocol_proxy_name * _no_op = (__bridge_transfer $entity_protocol_proxy_name *)_proxy;
 	\#pragma unused (_no_op)
 }
 

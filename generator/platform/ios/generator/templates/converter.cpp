@@ -17,7 +17,7 @@
 #for $interface_config in $interfaces
 #set $class_info = $interface_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $class_info['typename']
-void convert_${entity_class_name}(void* objc, $entity_class_name *cxx, converter_t converter_type)
+void convert_${entity_class_name}(void* &objc, $entity_class_name *&cxx, converter_t converter_type)
 {
 	if (converter_type == CONVERT_TO_OBJC)
 	{
@@ -34,7 +34,7 @@ void convert_${entity_class_name}(void* objc, $entity_class_name *cxx, converter
 #set $protocolinfo = $protocol_config['deriveddata']['targetdata']['protocolinfo']
 #set $entity_protocol_name = $protocolinfo['typename']
 #set $entity_proxy_name = $protocolinfo['proxyname']
-void convert_${entity_protocol_name}(void* objc, $entity_protocol_name *cxx, converter_t converter_type)
+void convert_${entity_protocol_name}(void* &objc, $entity_protocol_name *&cxx, converter_t converter_type)
 {
 	if (converter_type == CONVERT_TO_OBJC)
 	{
@@ -42,7 +42,7 @@ void convert_${entity_protocol_name}(void* objc, $entity_protocol_name *cxx, con
 	}
 	else if (converter_type == CONVERT_TO_CXX)
 	{
-		//This shouldn't happen
+		cxx = ($entity_protocol_name *)objc; // TODO: figure out something better here
 	}
 }
 #end for
