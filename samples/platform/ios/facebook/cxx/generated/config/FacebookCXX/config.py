@@ -172,6 +172,52 @@ config = {
 				},
 			]
 		},
+		{
+			'typedef'	: 'FBFriendSortOrdering',
+			'tags'      : ['_proxy'],
+			'constants' : [
+				{
+					'name'  : 'FBFriendSortByFirstName',
+					'value' : '0'
+				},
+				{
+					'name'  : 'FBFriendSortByLastName',
+					'value' : '1'
+				},
+			]
+		},
+		{
+			'typedef'	: 'FBFriendDisplayOrdering',
+			'tags'      : ['_proxy'],
+			'constants' : [
+				{
+					'name'  : 'FBFriendDisplayByFirstName',
+					'value' : '0'
+				},
+				{
+					'name'  : 'FBFriendDisplayByLastName',
+					'value' : '1'
+				},
+			]
+		},
+		{
+			'typedef'	: 'FBNativeDialogResult',
+			'tags'      : ['_proxy'],
+			'constants' : [
+				{
+					'name'  : 'FBNativeDialogResultSucceeded',
+					'value' : '0'
+				},
+				{
+					'name'  : 'FBNativeDialogResultCancelled',
+					'value' : '1'
+				},
+				{
+					'name'  : 'FBNativeDialogResultError',
+					'value' : '2'
+				},
+			]
+		},
 	],
 	'interfaces' : [
 		{
@@ -1415,6 +1461,1202 @@ config = {
 			],	
 		},
 		{
+			'name' : 'FBCacheDescriptor',
+			'file' : 'FBCacheDescriptor.h',
+			'tags' : ['_proxy'],
+			'methods' : [
+				{
+					'selector' : 'prefetchAndCacheForSession:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'name' : 'session',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+			],	
+		},
+		{
+			'name' : 'FBFriendPickerViewController',
+			'file' : 'FBFriendPickerViewController.h',
+			'tags' : ['_proxy'],
+			'methods' : [
+				{
+					'selector' : 'init',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'initWithCoder:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSCoder *',
+								'name' : 'aDecoder',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'initWithNibName:bundle:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'nibNameOrNil',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSBundle *',
+								'name' : 'nibBundleOrNil',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'configureUsingCachedDescriptor:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBCacheDescriptor *',
+								'name' : 'cacheDescriptor',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'loadData',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'updateView',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'clearSelection',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'cacheDescriptor',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBCacheDescriptor *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'cacheDescriptorWithUserID:fieldsForRequest:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'userID',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'name' : 'fieldsForRequest',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBCacheDescriptor *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'spinner',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIActivityIndicatorView *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setSpinner:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIActivityIndicatorView *',
+								'name' : 'spinner',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'tableView',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UITableView *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setTableView:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UITableView *',
+								'name' : 'tableView',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'allowsMultipleSelection',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'setAllowsMultipleSelection:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'name' : 'allowsMultipleSelection',
+								'converter' : 'convert_builtin',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'itemPicturesEnabled',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'setItemPicturesEnabled:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'name' : 'itemPicturesEnabled',
+								'converter' : 'convert_builtin',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'fieldsForRequest',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setFieldsForRequest:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'name' : 'fieldsForRequest',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'session',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'setSession:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'name' : 'session',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'userID',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'converter' : 'convert_string',
+						},
+					],
+				},
+				{
+					'selector' : 'setUserID:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'userID',
+								'converter' : 'convert_string',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'selection',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSArray *',
+								'converter' : 'convert_array',
+						},
+					],
+				},
+				{
+					'selector' : 'sortOrdering',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Enum',
+								'type' : 'FBFriendSortOrdering',
+								'converter' : 'convert_enum',
+						},
+					],
+				},
+				{
+					'selector' : 'setSortOrdering:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'Enum',
+								'type' : 'FBFriendSortOrdering',
+								'name' : 'sortOrdering',
+								'converter' : 'convert_enum',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'displayOrdering',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Enum',
+								'type' : 'FBFriendDisplayOrdering',
+								'converter' : 'convert_enum',
+						},
+					],
+				},
+				{
+					'selector' : 'setDisplayOrdering:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'Enum',
+								'type' : 'FBFriendDisplayOrdering',
+								'name' : 'displayOrdering',
+								'converter' : 'convert_enum',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+			],	
+		},
+		{
+			'name' : 'FBGraphObject',
+			'file' : 'FBGraphObject.h',
+			'tags' : ['_proxy'],
+			'methods' : [
+				{
+					'selector' : 'graphObject',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'conforms_to' : ['FBGraphObject'],
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSMutableDictionary<FBGraphObject> *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'graphObjectWrappingDictionary:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSDictionary *',
+								'name' : 'jsonDictionary',
+								'converter' : 'convert_dictionary',
+						},
+					],
+					'returns' : [
+						{
+								'conforms_to' : ['FBGraphObject'],
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSMutableDictionary<FBGraphObject> *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'isGraphObjectID:sameAs:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'conforms_to' : ['FBGraphObject'],
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id<FBGraphObject>',
+								'name' : 'anObject',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'conforms_to' : ['FBGraphObject'],
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id<FBGraphObject>',
+								'name' : 'anotherObject',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+			],	
+		},
+		{
+			'name' : 'FBNativeDialogs',
+			'file' : 'FBNativeDialogs.h',
+			'tags' : ['_proxy'],
+			'methods' : [
+				{
+					'selector' : 'presentShareDialogModallyFrom:initialText:image:url:handler:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIViewController *',
+								'name' : 'viewController',
+								'converter' : 'convert_object',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'initialText',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIImage *',
+								'name' : 'image',
+								'converter' : 'convert_object',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSURL *',
+								'name' : 'url',
+								'converter' : 'convert_object',
+						},
+						{
+								'kind' : 'BlockPointer',
+								'declared_type' : 'FBShareDialogHandler',
+								'name' : 'handler',
+								'parameters' : [{'kind': 'Enum', 'type': 'FBNativeDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
+								'type' : 'void (^)(FBNativeDialogResult, NSError *)',
+								'converter' : 'convert_block',
+						},
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'presentShareDialogModallyFrom:initialText:images:urls:handler:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIViewController *',
+								'name' : 'viewController',
+								'converter' : 'convert_object',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'initialText',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSArray *',
+								'name' : 'images',
+								'converter' : 'convert_array',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSArray *',
+								'name' : 'urls',
+								'converter' : 'convert_array',
+						},
+						{
+								'kind' : 'BlockPointer',
+								'declared_type' : 'FBShareDialogHandler',
+								'name' : 'handler',
+								'parameters' : [{'kind': 'Enum', 'type': 'FBNativeDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
+								'type' : 'void (^)(FBNativeDialogResult, NSError *)',
+								'converter' : 'convert_block',
+						},
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'presentShareDialogModallyFrom:session:initialText:images:urls:handler:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIViewController *',
+								'name' : 'viewController',
+								'converter' : 'convert_object',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'name' : 'session',
+								'converter' : 'convert_proxy',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'initialText',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSArray *',
+								'name' : 'images',
+								'converter' : 'convert_array',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSArray *',
+								'name' : 'urls',
+								'converter' : 'convert_array',
+						},
+						{
+								'kind' : 'BlockPointer',
+								'declared_type' : 'FBShareDialogHandler',
+								'name' : 'handler',
+								'parameters' : [{'kind': 'Enum', 'type': 'FBNativeDialogResult', 'converter': 'convert_enum'}, {'kind': 'ObjCObjectPointer', 'type': 'NSError *', 'converter': 'convert_error'}],
+								'returns' : [{'kind': 'Builtin', 'type': 'void', 'converter': 'convert_builtin'}],
+								'type' : 'void (^)(FBNativeDialogResult, NSError *)',
+								'converter' : 'convert_block',
+						},
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'canPresentShareDialogWithSession:',
+					'tags' : ['_static', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'name' : 'session',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+			],	
+		},
+		{
+			'name' : 'FBPlacePickerViewController',
+			'file' : 'FBPlacePickerViewController.h',
+			'tags' : ['_proxy'],
+			'methods' : [
+				{
+					'selector' : 'clearSelection',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'init',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'initWithCoder:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSCoder *',
+								'name' : 'aDecoder',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'initWithNibName:bundle:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'nibNameOrNil',
+								'converter' : 'convert_string',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSBundle *',
+								'name' : 'nibBundleOrNil',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'configureUsingCachedDescriptor:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBCacheDescriptor *',
+								'name' : 'cacheDescriptor',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'loadData',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'cacheDescriptorWithLocationCoordinate:radiusInMeters:searchText:resultsLimit:fieldsForRequest:',
+					'tags' : ['_static', '_no_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'Record',
+								'type' : 'CLLocationCoordinate2D',
+								'name' : 'locationCoordinate',
+								'converter' : '_TODO_',
+						},
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'name' : 'radiusInMeters',
+								'converter' : 'convert_builtin',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'searchText',
+								'converter' : 'convert_string',
+						},
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'name' : 'resultsLimit',
+								'converter' : 'convert_builtin',
+						},
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'name' : 'fieldsForRequest',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBCacheDescriptor *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'spinner',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIActivityIndicatorView *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setSpinner:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UIActivityIndicatorView *',
+								'name' : 'spinner',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'tableView',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UITableView *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setTableView:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'UITableView *',
+								'name' : 'tableView',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'fieldsForRequest',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'converter' : 'convert_object',
+						},
+					],
+				},
+				{
+					'selector' : 'setFieldsForRequest:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSSet *',
+								'name' : 'fieldsForRequest',
+								'converter' : 'convert_object',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'itemPicturesEnabled',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'setItemPicturesEnabled:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'declared_type' : 'BOOL',
+								'kind' : 'Builtin',
+								'type' : 'signed char',
+								'name' : 'itemPicturesEnabled',
+								'converter' : 'convert_builtin',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'locationCoordinate',
+					'tags' : ['_instance', '_no_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'Record',
+								'type' : 'CLLocationCoordinate2D',
+								'converter' : '_TODO_',
+						},
+					],
+				},
+				{
+					'selector' : 'setLocationCoordinate:',
+					'tags' : ['_instance', '_no_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'Record',
+								'type' : 'CLLocationCoordinate2D',
+								'name' : 'locationCoordinate',
+								'converter' : '_TODO_',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'radiusInMeters',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'setRadiusInMeters:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'name' : 'radiusInMeters',
+								'converter' : 'convert_builtin',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'resultsLimit',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'setResultsLimit:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'declared_type' : 'NSInteger',
+								'kind' : 'Builtin',
+								'type' : 'int',
+								'name' : 'resultsLimit',
+								'converter' : 'convert_builtin',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'searchText',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'converter' : 'convert_string',
+						},
+					],
+				},
+				{
+					'selector' : 'setSearchText:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'NSString *',
+								'name' : 'searchText',
+								'converter' : 'convert_string',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'session',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'selector' : 'setSession:',
+					'tags' : ['_instance', '_proxy'],
+					'parameters' : [
+						{
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'FBSession *',
+								'name' : 'session',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'kind' : 'Builtin',
+								'type' : 'void',
+								'converter' : 'convert_builtin',
+						},
+					],
+				},
+				{
+					'selector' : 'selection',
+					'tags' : ['_instance', '_no_proxy'],
+					'parameters' : [
+					],
+					'returns' : [
+						{
+								'conforms_to' : ['FBGraphPlace'],
+								'kind' : 'ObjCObjectPointer',
+								'type' : 'id<FBGraphPlace>',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+			],	
+		},
+		{
 			'name' : 'FBSessionTokenCachingStrategy',
 			'file' : 'FBSessionTokenCachingStrategy.h',
 			'tags' : ['_proxy'],
@@ -2093,6 +3335,13 @@ config = {
 						},
 					],
 				},
+			],	
+		},
+		{
+			'name' : 'FBGraphPlace',
+			'file' : 'FBOpenGraphAction.h',
+			'tags' : ['_no_proxy'],
+			'methods' : [
 			],	
 		},
 	],

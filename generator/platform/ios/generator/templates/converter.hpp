@@ -11,9 +11,9 @@
 #ifndef _${package}Converter
 #define _${package}Converter
 
-#set $interfaces = $config_module.list_interfaces(tags=None,xtags=None,name=None)
+#set $interfaces = $config_module.list_interfaces(tags=["_proxy"],xtags=None,name=None)
 ##
-#set $protocols = $config_module.list_protocols(tags=None,xtags=None,name=None)
+#set $protocols = $config_module.list_protocols(tags=["_proxy"],xtags=None,name=None)
 ##
 \#include <CXXConverter/CXXConverter.hpp>
 #for $interface_config in $interfaces

@@ -33,9 +33,9 @@
 #for $parameter in $parameters
     #set $typeinfo = $parameter['deriveddata']['targetdata']['typeinfo']
     #if 'isproxied' in $typeinfo
-$proxied_typeinfo_list.append(typeinfo)#slurp
+$proxied_typeinfo_list.append($typeinfo)#slurp
  	#elif 'isenum' in $typeinfo
-$enum_list.append(typeinfo)#slurp
+$enum_list.append($typeinfo)#slurp
 	#end if
     #if $parameter_idx > 0
         #set $parameter_str = $parameter_str + $COMMA
@@ -43,12 +43,12 @@ $enum_list.append(typeinfo)#slurp
     #if 'isproxied' in $typeinfo
     #set $parameter_str = $parameter_str + $typeinfo['namespace'] + '::' + $typeinfo['typename'] + " *"
 	#elif 'isblock' in $typeinfo
-	#for $block_parameter in $parameters
+	#for $block_parameter in $parameter['parameters']
 	#set $block_typeinfo = $block_parameter['deriveddata']['targetdata']['typeinfo']
 	#if 'isproxied' in $block_typeinfo
-$proxied_typeinfo_list.append(block_typeinfo)#slurp
+$proxied_typeinfo_list.append($block_typeinfo)#slurp
  	#elif 'isenum' in $block_typeinfo
-$enum_list.append(block_typeinfo)#slurp
+$enum_list.append($block_typeinfo)#slurp
 	#end if
 	#end for
 	#set $parameter_str = $parameter_str + $typeinfo['typename'].replace("TEMPORARY_BLOCK_NAME","arg" + str($parameter_idx))
@@ -65,13 +65,13 @@ $enum_list.append(block_typeinfo)#slurp
 #for $retrn in $returns
     #set $typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
     #if 'isproxied' in $typeinfo
-$proxied_typeinfo_list.append(typeinfo)#slurp
+$proxied_typeinfo_list.append($typeinfo)#slurp
     #set $method['retrn_type'] = $typeinfo['namespace'] + '::' + $typeinfo['typename'] + " *"
 	#else
     #set $method['retrn_type'] = $typeinfo['typename']
     #end if
     #if 'isenum' in $typeinfo
-$enum_list.append(typeinfo)#slurp
+$enum_list.append($typeinfo)#slurp
 	#end if
     #break
 #end for

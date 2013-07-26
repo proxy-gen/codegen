@@ -11,8 +11,8 @@
 
 #include "FBSessionTokenCachingStrategyCxx.hpp"
 #include "FBSessionDefaultAudienceCxx.hpp"
-#include "FBSessionLoginBehaviorCxx.hpp"
 #include "FBSessionStateCxx.hpp"
+#include "FBSessionLoginBehaviorCxx.hpp"
 #include "FBSessionLoginTypeCxx.hpp"
 
 #include <vector>

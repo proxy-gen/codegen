@@ -7,6 +7,11 @@ config = {
 	],
 	"interfaces":[
 		{"name": "FBSession"},
-		{"name": "FBRequest"}
+		{"name": "FBRequest"},
+		{"name": "FBCacheDescriptor"},
+		{"name": "FBFriendPickerViewController"},
+		{"name": "FBGraphObject"},
+		{"name": "FBNativeDialogs"},
+		{"name": "FBPlacePickerViewController"},
 	]
 }
