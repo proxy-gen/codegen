@@ -10,14 +10,12 @@
 #define _FBRequestCxx
 
 #include "FBSessionCxx.hpp"
+#include "FBGraphObjectConformerCxx.hpp"
 #include "FBRequestConnectionCxx.hpp"
 
 #include <vector>
 #include <map>
 #include <string>
-#include <stack>
-#include <list>
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,6 +25,7 @@ namespace FacebookCXX {
 
 // Forward Declarations
 class FBSessionCxx;
+class FBGraphObjectConformerCxx;
 class FBRequestConnectionCxx;
 class FBRequestCxx;
 
@@ -51,7 +50,7 @@ public:
 
 	 void * initWithSession_graphPath_parameters_HTTPMethod(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,std::string& arg3);
 
-	 void * initForPostWithSession_graphPath_graphObject(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,void *& arg2);
+	 void * initForPostWithSession_graphPath_graphObject(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,FacebookCXX::FBGraphObjectConformerCxx * arg2);
 
 	 void * initWithSession_restMethod_parameters_HTTPMethod(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,std::map<void *, void *>& arg2,std::string& arg3);
 
@@ -69,7 +68,7 @@ public:
 
 	static FacebookCXX::FBRequestCxx * requestForGraphPath(std::string& arg0);
 
-	static FacebookCXX::FBRequestCxx * requestForPostWithGraphPath_graphObject(std::string& arg0,void *& arg1);
+	static FacebookCXX::FBRequestCxx * requestForPostWithGraphPath_graphObject(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1);
 
 	static FacebookCXX::FBRequestCxx * requestWithGraphPath_parameters_HTTPMethod(std::string& arg0,std::map<void *, void *>& arg1,std::string& arg2);
 
@@ -91,9 +90,9 @@ public:
 
 	 void setHTTPMethod(std::string& arg0);
 
-	 void * graphObject();
+	 FacebookCXX::FBGraphObjectConformerCxx * graphObject();
 
-	 void setGraphObject(void *& arg0);
+	 void setGraphObject(FacebookCXX::FBGraphObjectConformerCxx * arg0);
 private:
 	void* _proxy;
 };

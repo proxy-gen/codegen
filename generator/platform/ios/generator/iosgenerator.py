@@ -168,6 +168,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.impl_outdir_name " + str(self.impl_outdir_name))
 		self._generate_cxx_class_code()
 		self._generate_cxx_enum_code()
+		self._generate_protocol_code()
 		self.config_module.detach_derived_data()			
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
@@ -253,6 +254,121 @@ class Generator(BaseGenerator):
 			self.class_name = None
 			self.entity_class = None	
 		logging.debug("_generate_cxx_class_code exit")
+
+	def _generate_protocol_code(self):
+		self._generate_protocol_abstract_class_header()
+		self._generate_protocol_abstract_class_implementation()
+		self._generate_protocol_interface()
+		self._generate_protocol_implemenetation()
+
+	def _generate_protocol_abstract_class_header(self):
+		logging.debug("_generate_protocol_abstract_class_header enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_class_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.protocol_class_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.hpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_class_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_abstract_class_header exit")
+
+	def _generate_protocol_abstract_class_implementation(self):
+		logging.debug("_generate_protocol_abstract_class_implementation enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_class_impl_file_name = self.protocol_name + "ConformerCxx" + ".mm"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_class_impl_file_name))	
+			entity_file_path = os.path.join(self.impl_outdir_name, self.protocol_class_impl_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol_class.cpp"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_class_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_abstract_class_implementation exit")
+
+	def _generate_protocol_interface(self):
+		logging.debug("_generate_protocol_interface enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_interface_file_name))	
+			entity_file_path = os.path.join(self.header_outdir_name, self.protocol_interface_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol.h"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_class_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_interface exit")
+
+	def _generate_protocol_implemenetation(self):
+		logging.debug("_generate_protocol_implemenetation enter")
+		entity_protocols = self.config_module.list_protocols(tags=['_proxy'],xtags=None,name=None)
+		for entity_protocol in entity_protocols:
+			self.entity_protocol = entity_protocol
+			self.protocol_name = entity_protocol['name']
+			self.protocol_class_file_name = self.protocol_name + "ConformerCxx" + ".hpp"
+			self.protocol_interface_file_name = self.protocol_name + "Conformer" + ".h"
+			self.protocol_implementation_file_name = self.protocol_name + "Conformer" + ".mm"
+			logging.debug("entity_head_file_name " + str(self.protocol_implementation_file_name))	
+			entity_file_path = os.path.join(self.impl_outdir_name, self.protocol_implementation_file_name)
+			if not os.path.exists(os.path.dirname(entity_file_path)):
+				os.makedirs(os.path.dirname(entity_file_path))
+			logging.debug("entity_file_path " + str(entity_file_path))	
+			self.entity_file = open(entity_file_path, "w+")
+			entity_head_cxx = Template(file=os.path.join(self.target, "templates", "protocol.mm"), searchList=[{'CONFIG': self}])			
+			logging.debug("entity_head_cxx " + str(entity_head_cxx))
+			self.entity_file.write(str(entity_head_cxx))
+			self.entity_file.close()
+			self.entity_file = None
+			self.protocol_class_file_name = None
+			self.protocol_interface_file_name = None
+			self.protocol_implementation_file_name = None
+			self.protocol_name = None
+			self.entity_protocol = None
+		logging.debug("_generate_protocol_implemenetation exit")
 
 	def _generate_cxx_enum_code(self):
 		logging.debug("_generate_cxx_enum_code enter")
@@ -385,11 +501,40 @@ class ConfigModule(object):
 				namespaced_interfaces.append({"namespace" : include_config_data["namespace"], "interface" : included_interface})
 		return namespaced_interfaces
 
+	def list_protocols(self, tags, xtags, name):
+		protocols = list()
+		protocols.extend(self._list_protocols_in_config_data(tags,xtags,name,self.config_data))
+		return protocols
+
+	def list_all_protocols(self, tags, xtags, name):
+		protocols = list_protocols(tags,xtags,name)
+		for include_config_data in self.include_config_data_list:
+			protocols.extend(self._list_protocols_in_config_data(tags,xtags,name,include_config_data))
+		return protocols
+
+	def list_all_namespaced_protocols(self, tags, xtags, name):
+		namespaced_protocols = list()
+		protocols = self._list_protocols_in_config_data(tags,xtags,name,self.config_data)
+		for protocol in protocols:
+			namespaced_protocols.append({"namespace" : self.config_data["namespace"], "protocol" : protocol})
+		for include_config_data in self.include_config_data_list:
+			included_protocols = self._list_protocols_in_config_data(tags,xtags,name,include_config_data)
+			for included_protocol in included_protocols:
+				namespaced_protocols.append({"namespace" : include_config_data["namespace"], "protocol" : included_protocol})
+		return namespaced_protocols
+
 	def list_methods(self,interface_tags,interface_xtags,interface_name,method_tags,method_xtags,method_name):
 		methods = list()
 		interfaces = self.list_interfaces(interface_tags,interface_xtags,interface_name)
 		for interface in interfaces:
 			methods.extend(self._list_methods_for_interface_in_config_data(interface,method_tags,method_xtags,method_name,self.config_data))
+		return methods
+
+	def list_protocol_methods(self, protocol_tags, protocol_xtags, protocol_name, method_tags, method_xtags, method_name):
+		methods = list()
+		protocols = self.list_protocols(protocol_tags, protocol_xtags, protocol_name)
+		for protocol in protocols:
+			methods.extend(self._list_methods_for_protocol_in_config_data(protocol, method_tags, method_xtags, method_name, self.config_data))
 		return methods
 
 	def _list_converters_in_config_data(self,name,cxx_type,objc_type,config_data):
@@ -439,6 +584,62 @@ class ConfigModule(object):
 				if append:
 					interface_list.append(interface)									
 		return interface_list
+
+	def _list_protocols_in_config_data(self,tags,xtags,name,config_data):
+		if tags:
+			tags = set(tags)
+		if xtags:
+			xtags = set(xtags)
+		protocol_list = list()
+		if 'protocols' in config_data:
+			protocols = config_data['protocols']
+			for protocol in protocols:
+				append = True
+				if tags is not None:
+					if 'tags' in protocol:
+						c_tags = protocol['tags']
+						if not tags.issubset(c_tags):
+							append = False
+				if xtags is not None:
+					if 'tags' in protocol:
+						c_tags = protocol['tags']
+						for xtag in xtags:
+							if xtag in c_tags:
+								append = False
+								break
+				if name is not None:
+					if protocol['name'] != name:
+						append = False
+				if append:
+					protocol_list.append(protocol)									
+		return protocol_list
+
+	def _list_methods_for_protocol_in_config_data(self,protocol,tags,xtags,selector,config_data):
+		if tags:
+			tags = set(tags)
+		if xtags:
+			xtags = set(xtags)
+		method_list = list()
+		if 'methods' in protocol:
+			methods = protocol['methods']
+			for method in methods:
+				append = True
+				if tags is not None:
+					c_tags = method['tags']
+					if not tags.issubset(c_tags):
+						append = False
+				if xtags is not None:
+					c_tags = method['tags']
+					for xtag in xtags:
+						if xtag in c_tags:
+							append = False
+							break
+				if selector is not None:
+					if method['selector'] != selector:
+						append = False
+				if append:
+					method_list.append(method)
+		return method_list
 
 	def _list_methods_for_interface_in_config_data(self,interface,tags,xtags,selector,config_data):
 		if tags:
@@ -496,7 +697,7 @@ class ConfigModule(object):
 		if Index.isObjectType(convertible):
 			if "converter" not in convertible:
 				for interface in config_data["interfaces"]:
-					if (interface["name"] + " *") == convertible["type"]: #TODO: Is there a better way to handle this?
+					if (interface["name"] + " *") == convertible["type"]:
 						no_proxy = False
 						if "tags" in interface:
 							if "_no_proxy" in interface["tags"]:
@@ -506,13 +707,36 @@ class ConfigModule(object):
 			if "converter" not in convertible:
 				for include_config_data in self.include_config_data_list:
 					for interface in include_config_data["interfaces"]:
-						if (interface["name"] + " *") == convertible["type"]: #TODO: Is there a better way to handle this?
+						if (interface["name"] + " *") == convertible["type"]:
 							no_proxy = False
 							if "tags" in interface:
 								if "_no_proxy" in interface["tags"]:
 									no_proxy = True
 							if not no_proxy:
 								convertible["converter"] = 'convert_proxy'
+			if "converter" not in convertible:
+				if 'conforms_to' in convertible:
+					first_protocol = convertible['conforms_to'][0]
+					for protocol in config_data["protocols"]:
+						if protocol["name"] == first_protocol:
+							no_proxy = False
+							if "tags" in protocol:
+								if "_no_proxy" in protocol["tags"]:
+									no_proxy = True
+							if not no_proxy:
+								convertible["converter"] = 'convert_proxy'
+			if "converter" not in convertible:
+				if 'conforms_to' in convertible:
+					first_protocol = convertible['conforms_to'][0]
+					for include_config_data in self.include_config_data_list:
+						for protocol in include_config_data["protocols"]:
+							if protocol["name"] == first_protocol:
+								no_proxy = False
+								if "tags" in protocol:
+									if "_no_proxy" in protocol["tags"]:
+										no_proxy = True
+								if not no_proxy:
+									convertible["converter"] = 'convert_proxy'
 		elif Index.isBlockType(convertible):
 			self._attach_config_converters(convertible, config_data)
 			if "converter" not in convertible:
@@ -560,10 +784,10 @@ class ConfigModule(object):
 					if "_proxy" in method['tags']:
 						self._attach_derived_data(method, config_data)
 						self._attach_derived_method_data(method, config_data)
-			#if "protocols" in config_item_data:
-			#	for constructor in config_item_data["constructors"]:
-			#		self._attach_derived_data(constructor, config_data)
-			#		self._attach_derived_constructor_data(constructor, config_data)
+			if "protocols" in config_item_data:
+				for protocol in config_item_data['protocols']:
+					self._attach_derived_data(protocol, config_data)
+					self._attach_derived_protocol_data(protocol, config_data)
 		logging.debug("_attach_derived_data exit")
 
 	def _attach_derived_interface_data(self, interface_config, config_data):
@@ -580,6 +804,7 @@ class ConfigModule(object):
 		targetdata = deriveddata['targetdata']
 		if 'classinfo' not in targetdata:
 			classinfo = targetdata['classinfo'] = dict()
+
 			class_name = class_config['name'] + "Cxx"				
 			classinfo['typename'] = class_name
 			class_file_name = Utils.to_file_name(class_name,"hpp")
@@ -589,6 +814,22 @@ class ConfigModule(object):
 			classinfo['nativefile'] = class_config['file']
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
+
+	def _attach_derived_protocol_data(self, protocol_config, config_data):
+		logging.debug("_attach_derived_protocol_data enter")
+		if "deriveddata" not in protocol_config:
+			deriveddata = protocol_config['deriveddata'] = dict()
+			targetdata = deriveddata['targetdata'] = dict()
+			protocolinfo = targetdata['protocolinfo'] = dict()
+
+			type_name = protocol_config['name'] + "ConformerCxx"
+			protocolinfo['typename'] = type_name
+			protocolinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
+			protocolinfo['proxyname'] = protocol_config['name'] + "Conformer"
+			protocolinfo['namespace'] = config_data['namespace']	
+			protocolinfo['framework'] = os.path.basename(config_data['frameworks'][0]).split(".")[0]
+			protocolinfo['nativefile'] = protocol_config['file']
+		logging.debug("_attach_derived_protocol_data exit")
 
 	def _attach_derived_method_data(self, method_config, config_data):
 		logging.debug("_attach_derived_method_data enter")
@@ -651,17 +892,29 @@ class ConfigModule(object):
 			typeinfo = targetdata['typeinfo'] = dict()
 			typeinfo['namespace'] = config_data['namespace']
 			if type_config['converter'] == 'convert_proxy':
+				if 'conforms_to' in type_config:
+					first_protocol = type_config['conforms_to'][0]
+					namespaced_protocols = self.list_all_namespaced_protocols(tags=None,xtags=None,name=first_protocol)
+					for namespaced_protocol in namespaced_protocols:
+						protocol = namespaced_protocol['protocol']
+						typeinfo['namespace'] = namespaced_protocol['namespace']
+						type_name = protocol['name'] + "ConformerCxx"
+						typeinfo['typename'] = type_name
+						typeinfo['typeconverter'] = "convert_" + type_name
+						typeinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
+						typeinfo['isproxied'] = True
+						typeinfo['framework'] = os.path.basename(config_data['frameworks'][0]).split(".")[0]
+						typeinfo['nativefile'] = protocol['file']
 				namespaced_interfaces = self.list_all_namespaced_interfaces(tags=None,xtags=None,name=Utils.to_interface_name(type_config['type']))
 				for namespaced_interface in namespaced_interfaces:
 					interface = namespaced_interface["interface"]
 					typeinfo['namespace'] = namespaced_interface['namespace']
 					type_name = interface['name']
-					type_name = Utils.to_class_name(type_name) + "Cxx"			
+					type_name = Utils.to_class_name(type_name) + "Cxx"	
+					typeinfo['typename'] = type_name		
 					typeinfo['typeconverter'] = "convert_" + type_name
-					file_name = Utils.to_file_name(type_name,"hpp")
-					typeinfo['filename'] = file_name
+					typeinfo['filename'] =  Utils.to_file_name(type_name,"hpp")
 					typeinfo['isproxied'] = True
-					typeinfo['typename'] = type_name
 					typeinfo['framework'] = os.path.basename(config_data['frameworks'][0]).split(".")[0]
 					typeinfo['nativefile'] = interface['file']
 					break

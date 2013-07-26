@@ -13,9 +13,6 @@
 #include <vector>
 #include <map>
 #include <string>
-#include <stack>
-#include <list>
-
 
 #ifdef __cplusplus
 extern "C" {

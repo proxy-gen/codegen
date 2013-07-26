@@ -1,0 +1,68 @@
+/*
+ * Header (Protocol Implementation)
+ * Author: cxx-bindings-generator
+ */
+
+
+#include "FacebookCXXConverter.hpp"
+#include "FBGraphObjectConformer.h"
+
+@interface FBGraphObjectConformer()
+
+@property(readwrite, nonatomic) FacebookCXX::FBGraphObjectConformerCxx * proxy;
+
+@end
+
+@implementation FBGraphObjectConformer
+
+@synthesize proxy;
+
+- (id) initWithProxy:(FacebookCXX::FBGraphObjectConformerCxx *)aproxy{
+	self.proxy = aproxy;
+	return self;
+}
+
++ (FBGraphObjectConformer *)conformerWithProxy:(FacebookCXX::FBGraphObjectConformerCxx *)proxy{
+	return [[FBGraphObjectConformer alloc] initWithProxy:proxy];
+}
+
+- (NSUInteger) count{
+	unsigned int result = (NSUInteger)(self.proxy->count());
+	return result;
+}
+
+- (id)  objectForKey:(id)objc_arg0{
+	void * arg0;
+	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+
+	void * result = self.proxy->objectForKey(arg0);
+	id objc_result = nil;
+	convert_object((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
+	return objc_result;
+}
+
+- (NSEnumerator *) keyEnumerator{
+	void * result = self.proxy->keyEnumerator();
+	id objc_result = nil;
+	convert_object((__bridge void *)objc_result, result, CONVERT_TO_OBJC);
+	return objc_result;
+}
+
+- (void)  removeObjectForKey:(id)objc_arg0{
+	void * arg0;
+	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+
+	self.proxy->removeObjectForKey(arg0);
+}
+
+- (void)  setObject:(id)objc_arg0 forKey:(id)objc_arg1{
+	void * arg0;
+	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_CXX);
+
+	void * arg1;
+	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_CXX);
+
+	self.proxy->setObject_forKey(arg0, arg1);
+}
+
+@end

@@ -7,6 +7,7 @@
 #include "FBRequestConnectionCxx.hpp"
 #include <FacebookSDK/FBRequestConnection.h>
 #include <FacebookSDK/FBRequest.h>
+#include <FacebookSDK/FBGraphObject.h>
 #include "FacebookCXXConverter.hpp"
 
 FacebookCXX::FBRequestConnectionCxx::FBRequestConnectionCxx(const FBRequestConnectionCxx* cc){
@@ -241,12 +242,12 @@ FacebookCXX::FBRequestConnectionCxx * FacebookCXX::FBRequestConnectionCxx::start
 	return result;
 }
 
-FacebookCXX::FBRequestConnectionCxx * FacebookCXX::FBRequestConnectionCxx::startForPostWithGraphPath_graphObject_completionHandler(std::string& arg0,void *& arg1,void(*arg2)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &)){
+FacebookCXX::FBRequestConnectionCxx * FacebookCXX::FBRequestConnectionCxx::startForPostWithGraphPath_graphObject_completionHandler(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1,void(*arg2)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &)){
 	id objc_arg0 = nil;
 	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	id objc_arg1 = nil;
-	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
+	convert_FBGraphObjectConformerCxx((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
 
 	void (^objc_arg2)(FBRequestConnection *, id, NSError *);
 	objc_arg2 = ^(FBRequestConnection * objc_barg0, id objc_barg1, NSError * objc_barg2){

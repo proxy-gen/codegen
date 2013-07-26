@@ -956,7 +956,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'id<FBGraphObject>',
 								'name' : 'graphObject',
-								'converter' : 'convert_object',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1195,7 +1195,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'id<FBGraphObject>',
 								'name' : 'graphObject',
-								'converter' : 'convert_object',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1388,7 +1388,7 @@ config = {
 								'conforms_to' : ['FBGraphObject'],
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'id<FBGraphObject>',
-								'converter' : 'convert_object',
+								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -1401,7 +1401,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'id<FBGraphObject>',
 								'name' : 'graphObject',
-								'converter' : 'convert_object',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
@@ -1889,7 +1889,7 @@ config = {
 								'kind' : 'ObjCObjectPointer',
 								'type' : 'id<FBGraphObject>',
 								'name' : 'graphObject',
-								'converter' : 'convert_object',
+								'converter' : 'convert_proxy',
 						},
 						{
 								'kind' : 'BlockPointer',

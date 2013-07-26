@@ -10,13 +10,11 @@
 #define _FBRequestConnectionCxx
 
 #include "FBRequestCxx.hpp"
+#include "FBGraphObjectConformerCxx.hpp"
 
 #include <vector>
 #include <map>
 #include <string>
-#include <stack>
-#include <list>
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,6 +25,7 @@ namespace FacebookCXX {
 // Forward Declarations
 class FBRequestCxx;
 class FBRequestConnectionCxx;
+class FBGraphObjectConformerCxx;
 
 class FBRequestConnectionCxx
 {
@@ -67,7 +66,7 @@ public:
 
 	static FacebookCXX::FBRequestConnectionCxx * startWithGraphPath_completionHandler(std::string& arg0,void(*arg1)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
-	static FacebookCXX::FBRequestConnectionCxx * startForPostWithGraphPath_graphObject_completionHandler(std::string& arg0,void *& arg1,void(*arg2)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
+	static FacebookCXX::FBRequestConnectionCxx * startForPostWithGraphPath_graphObject_completionHandler(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1,void(*arg2)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 
 	static FacebookCXX::FBRequestConnectionCxx * startWithGraphPath_parameters_HTTPMethod_completionHandler(std::string& arg0,std::map<void *, void *>& arg1,std::string& arg2,void(*arg3)(FacebookCXX::FBRequestConnectionCxx *, void * &, std::string &));
 

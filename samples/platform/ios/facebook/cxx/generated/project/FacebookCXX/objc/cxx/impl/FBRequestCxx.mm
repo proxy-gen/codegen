@@ -7,6 +7,7 @@
 #include "FBRequestCxx.hpp"
 #include <FacebookSDK/FBRequest.h>
 #include <FacebookSDK/FBSession.h>
+#include <FacebookSDK/FBGraphObject.h>
 #include <FacebookSDK/FBRequestConnection.h>
 #include "FacebookCXXConverter.hpp"
 
@@ -68,7 +69,7 @@ void * FacebookCXX::FBRequestCxx::initWithSession_graphPath_parameters_HTTPMetho
 	return result;
 }
 
-void * FacebookCXX::FBRequestCxx::initForPostWithSession_graphPath_graphObject(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,void *& arg2){
+void * FacebookCXX::FBRequestCxx::initForPostWithSession_graphPath_graphObject(FacebookCXX::FBSessionCxx * arg0,std::string& arg1,FacebookCXX::FBGraphObjectConformerCxx * arg2){
 	id objc_arg0 = nil;
 	convert_FBSessionCxx((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
 
@@ -76,7 +77,7 @@ void * FacebookCXX::FBRequestCxx::initForPostWithSession_graphPath_graphObject(F
 	convert_string((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
 
 	id objc_arg2 = nil;
-	convert_object((__bridge void *)objc_arg2, arg2, CONVERT_TO_OBJC);
+	convert_FBGraphObjectConformerCxx((__bridge void *)objc_arg2, arg2, CONVERT_TO_OBJC);
 
 	id objc_result = [(__bridge FBRequest *)_proxy initForPostWithSession:objc_arg0 graphPath:objc_arg1 graphObject:objc_arg2 ];
 	void * result;
@@ -184,12 +185,12 @@ FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForGraphPath(std::
 	return result;
 }
 
-FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForPostWithGraphPath_graphObject(std::string& arg0,void *& arg1){
+FacebookCXX::FBRequestCxx * FacebookCXX::FBRequestCxx::requestForPostWithGraphPath_graphObject(std::string& arg0,FacebookCXX::FBGraphObjectConformerCxx * arg1){
 	id objc_arg0 = nil;
 	convert_string((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	id objc_arg1 = nil;
-	convert_object((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
+	convert_FBGraphObjectConformerCxx((__bridge void *)objc_arg1, arg1, CONVERT_TO_OBJC);
 
 	id objc_result = [FBRequest requestForPostWithGraphPath:objc_arg0 graphObject:objc_arg1 ];
 	FacebookCXX::FBRequestCxx * result = NULL;
@@ -276,16 +277,16 @@ void FacebookCXX::FBRequestCxx::setHTTPMethod(std::string& arg0){
 	[(__bridge FBRequest *)_proxy setHTTPMethod:objc_arg0 ];
 }
 
-void * FacebookCXX::FBRequestCxx::graphObject(){
+FacebookCXX::FBGraphObjectConformerCxx * FacebookCXX::FBRequestCxx::graphObject(){
 	id objc_result = [(__bridge FBRequest *)_proxy graphObject];
-	void * result;
-	convert_object((__bridge void *)objc_result, result, CONVERT_TO_CXX);
+	FacebookCXX::FBGraphObjectConformerCxx * result = NULL;
+	convert_FBGraphObjectConformerCxx((__bridge void *)objc_result, result, CONVERT_TO_CXX);
 	return result;
 }
 
-void FacebookCXX::FBRequestCxx::setGraphObject(void *& arg0){
+void FacebookCXX::FBRequestCxx::setGraphObject(FacebookCXX::FBGraphObjectConformerCxx * arg0){
 	id objc_arg0 = nil;
-	convert_object((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
+	convert_FBGraphObjectConformerCxx((__bridge void *)objc_arg0, arg0, CONVERT_TO_OBJC);
 
 	[(__bridge FBRequest *)_proxy setGraphObject:objc_arg0 ];
 }

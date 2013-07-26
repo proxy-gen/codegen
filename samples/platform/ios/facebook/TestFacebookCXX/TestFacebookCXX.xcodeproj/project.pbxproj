@@ -18,6 +18,8 @@
 		F71E114717A1D81E0045EBC5 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114617A1D81E0045EBC5 /* Social.framework */; };
 		F71E114917A1D8210045EBC5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114817A1D8210045EBC5 /* AdSupport.framework */; };
 		F71E114B17A1D82E0045EBC5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F71E114A17A1D82E0045EBC5 /* libsqlite3.dylib */; };
+		F71E115417A24E850045EBC5 /* FBGraphObjectConformer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71E115317A24E850045EBC5 /* FBGraphObjectConformer.mm */; };
+		F71E115817A255BB0045EBC5 /* FBGraphObjectConformerCxx.mm in Sources */ = {isa = PBXBuildFile; fileRef = F71E115717A255BB0045EBC5 /* FBGraphObjectConformerCxx.mm */; };
 		F7E447E217A1BE910029E8BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E447E117A1BE910029E8BC /* UIKit.framework */; };
 		F7E447E417A1BE910029E8BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E447E317A1BE910029E8BC /* Foundation.framework */; };
 		F7E447E617A1BE910029E8BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E447E517A1BE910029E8BC /* CoreGraphics.framework */; };
@@ -52,6 +54,10 @@
 		F71E114617A1D81E0045EBC5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F71E114817A1D8210045EBC5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F71E114A17A1D82E0045EBC5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F71E115117A24E790045EBC5 /* FBGraphObjectConformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FBGraphObjectConformer.h; path = ../../cxx/generated/project/FacebookCXX/objc/cxx/includes/FBGraphObjectConformer.h; sourceTree = "<group>"; };
+		F71E115217A24E790045EBC5 /* FBGraphObjectConformerCxx.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = FBGraphObjectConformerCxx.hpp; path = ../../cxx/generated/project/FacebookCXX/objc/cxx/includes/FBGraphObjectConformerCxx.hpp; sourceTree = "<group>"; };
+		F71E115317A24E850045EBC5 /* FBGraphObjectConformer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FBGraphObjectConformer.mm; path = ../../cxx/generated/project/FacebookCXX/objc/cxx/impl/FBGraphObjectConformer.mm; sourceTree = "<group>"; };
+		F71E115717A255BB0045EBC5 /* FBGraphObjectConformerCxx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FBGraphObjectConformerCxx.mm; path = ../../cxx/generated/project/FacebookCXX/objc/cxx/impl/FBGraphObjectConformerCxx.mm; sourceTree = "<group>"; };
 		F7E447DE17A1BE910029E8BC /* TestFacebookCXX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFacebookCXX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E447E117A1BE910029E8BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7E447E317A1BE910029E8BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +109,8 @@
 		F71E111117A1C5790045EBC5 /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				F71E115717A255BB0045EBC5 /* FBGraphObjectConformerCxx.mm */,
+				F71E115317A24E850045EBC5 /* FBGraphObjectConformer.mm */,
 				F71E112B17A1CF780045EBC5 /* FBRequestConnectionCxx.mm */,
 				F71E112C17A1CF780045EBC5 /* FBRequestCxx.mm */,
 				F71E112D17A1CF780045EBC5 /* FBSessionCxx.mm */,
@@ -114,6 +122,8 @@
 		F71E111217A1C5860045EBC5 /* includes */ = {
 			isa = PBXGroup;
 			children = (
+				F71E115117A24E790045EBC5 /* FBGraphObjectConformer.h */,
+				F71E115217A24E790045EBC5 /* FBGraphObjectConformerCxx.hpp */,
 				F71E113E17A1D7880045EBC5 /* FBSessionDefaultAudienceCxx.hpp */,
 				F71E113F17A1D7880045EBC5 /* FBSessionLoginBehaviorCxx.hpp */,
 				F71E114017A1D7890045EBC5 /* FBSessionLoginTypeCxx.hpp */,
@@ -270,6 +280,8 @@
 				F71E113117A1CF780045EBC5 /* FBSessionCxx.mm in Sources */,
 				F71E113217A1CF780045EBC5 /* FBSessionTokenCachingStrategyCxx.mm in Sources */,
 				F71E113D17A1D1170045EBC5 /* FacebookCXXConverter.mm in Sources */,
+				F71E115417A24E850045EBC5 /* FBGraphObjectConformer.mm in Sources */,
+				F71E115817A255BB0045EBC5 /* FBGraphObjectConformerCxx.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -326,7 +339,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../cxx/generated/project/FacebookCXX/objc/cxx/includes/";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -335,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

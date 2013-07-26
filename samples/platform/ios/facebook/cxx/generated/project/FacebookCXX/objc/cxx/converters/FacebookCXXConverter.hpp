@@ -12,6 +12,7 @@
 #include "FBRequestCxx.hpp"
 #include "FBSessionTokenCachingStrategyCxx.hpp"
 #include "FBRequestConnectionCxx.hpp"
+#include "FBGraphObjectConformerCxx.hpp"
 
 using namespace FacebookCXX;
 
@@ -20,5 +21,6 @@ void convert_FBSessionCxx(void* objc, FBSessionCxx *cxx, converter_t converter_t
 void convert_FBRequestCxx(void* objc, FBRequestCxx *cxx, converter_t converter_type);
 void convert_FBSessionTokenCachingStrategyCxx(void* objc, FBSessionTokenCachingStrategyCxx *cxx, converter_t converter_type);
 void convert_FBRequestConnectionCxx(void* objc, FBRequestConnectionCxx *cxx, converter_t converter_type);
+void convert_FBGraphObjectConformerCxx(void* objc, FBGraphObjectConformerCxx *cxx, converter_t converter_type);
 
 #endif // _FacebookCXXConverter

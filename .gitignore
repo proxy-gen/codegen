@@ -23,6 +23,7 @@ libs
 iOS/generator/out.xml
 
 # XCode
+*CXXConverter.embeddedframework
 *xcuserdata/
 generator/platform/ios/resources/CXXConverter/build/CXXConverter.build
 samples/platform/ios/facebook/TestFacebookCXX/build/TestFacebookCXX.build/

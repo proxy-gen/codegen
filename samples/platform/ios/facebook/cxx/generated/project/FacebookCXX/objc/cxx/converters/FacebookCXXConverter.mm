@@ -51,3 +51,15 @@ void convert_FBRequestConnectionCxx(void* objc, FBRequestConnectionCxx *cxx, con
 	}
 }
 
+void convert_FBGraphObjectConformerCxx(void* objc, FBGraphObjectConformerCxx *cxx, converter_t converter_type)
+{
+	if (converter_type == CONVERT_TO_OBJC)
+	{
+		objc = cxx->getProxy();
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		//This shouldn't happen
+	}
+}
+

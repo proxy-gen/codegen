@@ -147,7 +147,7 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 		#for $block_parameter in $parameter['parameters']
 		#set $block_typeinfo = $block_parameter['deriveddata']['targetdata']['typeinfo']
 		#if $block_parameter['converter'] == "convert_builtin" 
-		#if 'declared_type' in $parameter
+		#if 'declared_type' in $block_parameter
 		${block_typeinfo['typename']} barg$block_parameter_idx = (${block_typeinfo['typename']})objc_barg$block_parameter_idx;
 		#else
 		${block_typeinfo['typename']} barg$block_parameter_idx = objc_barg${block_parameter_idx};
@@ -182,7 +182,7 @@ $method['retrn_type'] ${entity_class_info['namespace']}::${entity_class_name}::$
 		return block_result;
 		#elif $block_returns['converter'] == "convert_enum"
 		${block_returns['type']} block_result = (${block_returns['type']})$function_call_str;
-		return block_result
+		return block_result;
 		#elif $block_returns['converter'] == "convert_proxy"
 		${block_returns_typeinfo['namespace']}::${block_returns_typeinfo['typename']} *block_result = $function_call_str;
 		id objc_block_result = nil;
